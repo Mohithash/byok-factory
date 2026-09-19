@@ -1,0 +1,230 @@
+{
+ "id": "jewel_box",
+ "name": "Jewel Box",
+ "tagline": "Accessorise with intent, care for what you own",
+ "category": "Lifestyle",
+ "colors": [
+  "#B8860B",
+  "#283593",
+  "#00897B"
+ ],
+ "icon": "ring",
+ "about": "Jewel Box styles jewellery and accessories to any outfit, matches necklaces to necklines, teaches metal mixing and stacking, reads hallmarks from a photo and shows how to clean and store every material.",
+ "persona": "You are a jewellery stylist who trained beside a bench jeweller: playful about styling, precise about metals and stones, and clear when something needs a professional appraisal.",
+ "onboarding": {
+  "title": "Finish every outfit",
+  "subtitle": "Tell us what you wear and the pieces you already own.",
+  "bullets": [
+   "Necklace-to-neckline matches",
+   "Stacking and metal-mixing rules",
+   "Hallmark reader and care guides"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "metal",
+   "label": "You mostly wear",
+   "type": "chips",
+   "options": [
+    "Gold",
+    "Silver",
+    "Mixed",
+    "Rose gold",
+    "None yet"
+   ],
+   "default": "Mixed"
+  },
+  {
+   "key": "style",
+   "label": "Style",
+   "type": "chips",
+   "options": [
+    "Minimal",
+    "Statement",
+    "Vintage",
+    "Boho",
+    "Classic"
+   ],
+   "default": "Minimal"
+  },
+  {
+   "key": "owned",
+   "label": "Key pieces you own",
+   "type": "text",
+   "placeholder": "gold hoops, signet ring, pearl strand"
+  }
+ ],
+ "tools": [
+  {
+   "id": "finish",
+   "title": "Finish this outfit",
+   "subtitle": "Describe or photograph the outfit",
+   "emoji": "✨",
+   "inputs": [
+    {
+     "key": "outfit",
+     "label": "The outfit",
+     "type": "text",
+     "placeholder": "black slip dress, strappy heels",
+     "required": true
+    },
+    {
+     "key": "photo",
+     "label": "Photo of the outfit (optional)",
+     "type": "photo"
+    },
+    {
+     "key": "occasion",
+     "label": "Occasion",
+     "type": "chips",
+     "options": [
+      "Work",
+      "Dinner",
+      "Wedding",
+      "Casual",
+      "Party"
+     ],
+     "default": "Dinner"
+    }
+   ],
+   "prompt": "Accessorise '{outfit}' (and the photo if given) for {occasion}, using the profile's owned pieces first. 3 cards (ears + neck + hands + bag or belt, meta = effort · uses owned pieces?), a table (Piece | Why here | Swap if you don't own it), bullets on what to leave off, and a callout on the one-statement-piece rule.",
+   "shape": "cards, table, bullets, callout",
+   "button": "Finish it",
+   "loading": "Adding sparkle…"
+  },
+  {
+   "id": "neckline",
+   "title": "Necklace for this neckline",
+   "subtitle": "Length and style by neckline",
+   "emoji": "📿",
+   "inputs": [
+    {
+     "key": "neckline",
+     "label": "Neckline",
+     "type": "chips",
+     "options": [
+      "Crew",
+      "V-neck",
+      "Scoop",
+      "Square",
+      "Off-shoulder",
+      "Halter",
+      "Turtleneck",
+      "Strapless",
+      "Collared shirt"
+     ],
+     "default": "V-neck"
+    },
+    {
+     "key": "hair",
+     "label": "Hair",
+     "type": "chips",
+     "options": [
+      "Up",
+      "Down, short",
+      "Down, long"
+     ],
+     "default": "Down, long"
+    }
+   ],
+   "prompt": "Recommend necklaces for a {neckline} neckline with hair {hair}, in the profile's style and metal. Table (Length in cm and inches | Style | Pendant? | Effect), bullets on earrings that pair with each, kv (layering combo, what to avoid), and a callout on measuring chain lengths at home.",
+   "shape": "table, bullets, kv, callout",
+   "button": "Recommend",
+   "loading": "Measuring chains…"
+  },
+  {
+   "id": "stack",
+   "title": "Stack & mix metals",
+   "subtitle": "Rings, bracelets, ear stacks",
+   "emoji": "💍",
+   "inputs": [
+    {
+     "key": "where",
+     "label": "Stack",
+     "type": "chips",
+     "options": [
+      "Rings",
+      "Bracelets",
+      "Ear stack",
+      "Necklaces"
+     ],
+     "default": "Rings"
+    },
+    {
+     "key": "pieces",
+     "label": "Pieces to work with",
+     "type": "text",
+     "placeholder": "thin gold band, chunky silver ring, a signet"
+    }
+   ],
+   "prompt": "Design a {where} stack from '{pieces}' plus the profile's owned pieces. Steps for placement (which finger, ear position or order, with reasons), a table (Combo | Balance | Vibe), bullets on the bridge pieces that make gold and silver work together, and a callout on comfort and wear (knocking, tarnish transfer, sleeping in them).",
+   "shape": "steps, table, bullets, callout",
+   "button": "Stack it",
+   "loading": "Arranging…"
+  },
+  {
+   "id": "hallmark",
+   "title": "Read a hallmark",
+   "subtitle": "Photo → metal, purity, era",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Close-up of the stamp or hallmark",
+     "type": "photo",
+     "placeholder": "Macro mode, good light",
+     "required": true
+    },
+    {
+     "key": "story",
+     "label": "What you know",
+     "type": "text",
+     "placeholder": "grandmother's ring, bought in Birmingham"
+    }
+   ],
+   "prompt": "Read the marks in the photo with the context '{story}'. kv (metal and purity, assay or maker marks seen, likely era and origin, plated versus solid, confidence), a table (Mark | Meaning), bullets on simple home checks (magnet, weight, wear points) and what not to do, and a callout that value and authenticity need a professional appraisal.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Read marks",
+   "loading": "Squinting…"
+  },
+  {
+   "id": "care",
+   "title": "Clean & store",
+   "subtitle": "By material",
+   "emoji": "🧽",
+   "inputs": [
+    {
+     "key": "material",
+     "label": "Material",
+     "type": "chips",
+     "options": [
+      "Solid gold",
+      "Sterling silver",
+      "Gold-plated / vermeil",
+      "Pearls",
+      "Costume",
+      "Gemstones",
+      "Watches & leather"
+     ],
+     "default": "Sterling silver"
+    },
+    {
+     "key": "issue",
+     "label": "Issue",
+     "type": "text",
+     "placeholder": "tarnished, a bit dull"
+    }
+   ],
+   "prompt": "Care guide for {material} with the issue '{issue}'. Steps to clean safely at home with household items, a checklist of what never to use on this material, kv (storage, how often to clean, when to take it to a jeweller), and a callout on pieces that must not be soaked or ultrasonic-cleaned.",
+   "shape": "steps, checklist, kv, callout",
+   "button": "Care guide",
+   "loading": "Polishing…"
+  }
+ ],
+ "disclaimer": "Value, purity and authenticity readings are indicative; get a professional appraisal before selling or insuring."
+}

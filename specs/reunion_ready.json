@@ -1,0 +1,197 @@
+{
+ "id": "reunion_ready",
+ "name": "Reunion Ready",
+ "tagline": "Get the old crowd back in one room",
+ "category": "Events",
+ "colors": [
+  "#AD1457",
+  "#00897B",
+  "#FFB300"
+ ],
+ "icon": "clock",
+ "about": "Reunion Ready plans school, university, family, workplace and service reunions: tracking down the lost, invitations people actually answer, a day that flows, ticket pricing that breaks even and a script for the awkward first ten minutes.",
+ "persona": "You are a warm, organised reunion organiser: good at nostalgia without cringe, realistic about budgets and RSVP rates, and careful that nobody feels left out.",
+ "onboarding": {
+  "title": "Bring everyone back together",
+  "subtitle": "Tell us who's reuniting and how big it'll be.",
+  "bullets": [
+   "Find and re-contact the lost",
+   "Invites that get replies",
+   "A run-sheet for the day"
+  ]
+ },
+ "profile": [
+  {
+   "key": "kind",
+   "label": "Reunion type",
+   "type": "chips",
+   "options": [
+    "School year",
+    "University",
+    "Family",
+    "Old workplace",
+    "Military / service",
+    "Childhood friends"
+   ]
+  },
+  {
+   "key": "group",
+   "label": "Who and when",
+   "type": "text",
+   "placeholder": "Class of 2006, Hillcrest High"
+  },
+  {
+   "key": "expected",
+   "label": "Expected guests",
+   "type": "number",
+   "placeholder": "60"
+  },
+  {
+   "key": "scale",
+   "label": "Scale",
+   "type": "chips",
+   "options": [
+    "Pub meet-up",
+    "Dinner",
+    "Full day",
+    "Weekend"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "find",
+   "title": "Find the lost",
+   "subtitle": "Track people down respectfully",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "names",
+     "label": "People you can't reach",
+     "type": "longtext",
+     "placeholder": "Priya S (moved to Canada?), 'Big Dave' from rugby, the twins…",
+     "required": true
+    },
+    {
+     "key": "have",
+     "label": "What you already have",
+     "type": "text",
+     "placeholder": "an old Facebook group, 2 email addresses"
+    }
+   ],
+   "prompt": "Help track down these people: {names}, starting from: {have}. Sections: a table (Person | Best lead | Where to look | Who might know), steps for a respectful search that never tips into creepy, a quote with a short reconnect message for someone found after twenty years, and a callout on privacy: never share someone's details or add them to a group without their OK.",
+   "shape": "table, steps, quote, callout",
+   "button": "Start the search",
+   "loading": "Asking around…"
+  },
+  {
+   "id": "invite",
+   "title": "Invitation & RSVP push",
+   "subtitle": "The invite and the follow-ups",
+   "emoji": "✉️",
+   "inputs": [
+    {
+     "key": "details",
+     "label": "Date, venue, cost",
+     "type": "text",
+     "placeholder": "Sat 12 Oct, The Crown, 25 for the buffet",
+     "required": true
+    },
+    {
+     "key": "tone",
+     "label": "Tone",
+     "type": "chips",
+     "options": [
+      "Nostalgic",
+      "Funny",
+      "Simple & clear"
+     ],
+     "default": "Nostalgic"
+    }
+   ],
+   "prompt": "Write the invitation for the reunion ({details}) in a {tone} tone. Sections: a quote with the main invitation under 150 words including a clear RSVP deadline and payment instruction, a second quote with a 40-word group-chat version, a table of the follow-up sequence (When | Channel | Message goal), and bullets on lifting RSVP rates from people who go quiet.",
+   "shape": "quote, table, bullets",
+   "button": "Write invites",
+   "loading": "Licking stamps…"
+  },
+  {
+   "id": "runsheet",
+   "title": "Run-sheet for the day",
+   "subtitle": "Timings, kit and memory-lane moments",
+   "emoji": "🗓️",
+   "inputs": [
+    {
+     "key": "venue",
+     "label": "Venue and hours",
+     "type": "text",
+     "placeholder": "function room 6pm to midnight"
+    },
+    {
+     "key": "extras",
+     "label": "Extras planned",
+     "type": "text",
+     "placeholder": "slideshow, speeches from 2 people, group photo"
+    }
+   ],
+   "prompt": "Plan the reunion at {venue} with {extras}. Sections: a table run-sheet (Time | What happens | Who's on it | Notes), a checklist for the organiser's kit bag (name badges with old photos, playlist, signage, cash float), cards for 3 memory-lane activities (meta = minutes · setup effort), and a callout on pacing so speeches don't kill the room.",
+   "shape": "table, checklist, cards, callout",
+   "button": "Plan the day",
+   "loading": "Cueing slides…"
+  },
+  {
+   "id": "budget",
+   "title": "Budget & ticket price",
+   "subtitle": "Break even at any turnout",
+   "emoji": "💷",
+   "inputs": [
+    {
+     "key": "cost",
+     "label": "Fixed costs total",
+     "type": "number",
+     "placeholder": "900"
+    },
+    {
+     "key": "perhead",
+     "label": "Cost per head (food, drink)",
+     "type": "number",
+     "placeholder": "18"
+    },
+    {
+     "key": "rsvp",
+     "label": "Confirmed so far",
+     "type": "number",
+     "placeholder": "35"
+    }
+   ],
+   "prompt": "Fixed costs {cost}, per-head cost {perhead}, {rsvp} confirmed against the expected guests in the profile. Sections: a table of three attendance scenarios (Attendance | Break-even price | Suggested price | Buffer), kv (deposit needed, cut-off date for final numbers, suggested refund policy), bullets on cutting cost without cheapening the night, and a callout on handling money transparently among old friends.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Price it",
+   "loading": "Counting heads…"
+  },
+  {
+   "id": "icebreak",
+   "title": "Break the ice",
+   "subtitle": "The first 30 minutes, handled",
+   "emoji": "🧊",
+   "inputs": [
+    {
+     "key": "worry",
+     "label": "Biggest worry",
+     "type": "chips",
+     "options": [
+      "Cliques re-forming",
+      "Nobody remembers names",
+      "Awkward silence",
+      "One person dominating",
+      "People leaving early"
+     ],
+     "default": "Nobody remembers names"
+    }
+   ],
+   "prompt": "The organiser's biggest worry is: {worry}. Sections: cards for 4 icebreakers suited to the reunion type and size (meta = minutes · props needed?), a quote with a 90-second welcome speech that sets the tone, steps for the first 30 minutes so nobody stands alone, and bullets on gracefully handling someone who has had a hard time since you last met.",
+   "shape": "cards, quote, steps, bullets",
+   "button": "Get ideas",
+   "loading": "Warming up…"
+  }
+ ]
+}

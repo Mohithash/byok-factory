@@ -1,0 +1,193 @@
+{
+ "id": "shop_floor",
+ "name": "Shop Floor",
+ "tagline": "Retail jobs from first application to store manager",
+ "category": "Business",
+ "colors": [
+  "#D81B60",
+  "#00ACC1",
+  "#FFB300"
+ ],
+ "icon": "bag",
+ "about": "Shop Floor helps retail workers get hired and promoted: applications with no experience, situational interview practice, group assessment days, a plan from associate to keyholder to manager, and honest comparisons of hourly-plus-commission offers.",
+ "persona": "You are a district manager who started on the till: practical, upbeat, honest about scheduling realities and clear about what stores measure.",
+ "onboarding": {
+  "title": "Get hired, then get promoted",
+  "subtitle": "Your experience and availability shape the strategy.",
+  "bullets": [
+   "Applications with zero experience",
+   "Situational interview practice",
+   "Associate to manager plan"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "experience",
+   "label": "Retail experience",
+   "type": "chips",
+   "options": [
+    "None yet",
+    "Under 1 year",
+    "1–3 years",
+    "Supervisor/keyholder",
+    "Manager"
+   ]
+  },
+  {
+   "key": "type",
+   "label": "Store type",
+   "type": "chips",
+   "options": [
+    "Fashion",
+    "Grocery",
+    "Electronics",
+    "Big-box",
+    "Luxury",
+    "Pharmacy",
+    "Any"
+   ],
+   "multi": true
+  },
+  {
+   "key": "availability",
+   "label": "Availability",
+   "type": "text",
+   "placeholder": "evenings + weekends, not Sundays"
+  }
+ ],
+ "tools": [
+  {
+   "id": "apply",
+   "title": "Apply with no experience",
+   "subtitle": "Turn school, sport and volunteering into retail proof",
+   "emoji": "🛍️",
+   "inputs": [
+    {
+     "key": "background",
+     "label": "Everything you've done",
+     "type": "longtext",
+     "placeholder": "captain of hockey team, babysitting, volunteered at food bank…",
+     "required": true
+    },
+    {
+     "key": "store",
+     "label": "Store applying to",
+     "type": "text",
+     "placeholder": "Zara, weekend sales assistant"
+    }
+   ],
+   "prompt": "Build an application for {store} from {background} and the profile. Give bullets of 6 résumé lines that translate the background into retail skills (customer service, cash handling, teamwork, reliability, pace); a quote with a 120-word personal statement or cover note; a table (Application question | Strong answer | Why it works); and a callout on stating availability so the store can actually schedule you.",
+   "shape": "bullets, quote, table, callout",
+   "button": "Build it",
+   "loading": "Folding neatly…"
+  },
+  {
+   "id": "situational",
+   "title": "Situational interview",
+   "subtitle": "Angry customers, theft, lazy coworkers",
+   "emoji": "💬",
+   "inputs": [
+    {
+     "key": "level",
+     "label": "Role",
+     "type": "chips",
+     "options": [
+      "Sales associate",
+      "Cashier",
+      "Stock/backroom",
+      "Keyholder/supervisor",
+      "Assistant manager",
+      "Store manager"
+     ],
+     "default": "Sales associate"
+    }
+   ],
+   "prompt": "Run a situational interview for {level} in the profile's store type. Provide 7 scenarios as cards (meta = what it tests · what a bad answer sounds like) with STAR model answers; a quote with a confident 'tell me about yourself' for this role; bullets on body language and product knowledge to show; and a checklist of questions to ask about hours, commission and progression.",
+   "shape": "cards, quote, bullets, checklist",
+   "button": "Start",
+   "loading": "Opening the till…"
+  },
+  {
+   "id": "group",
+   "title": "Group assessment day",
+   "subtitle": "Stand out without steamrolling",
+   "emoji": "👥",
+   "inputs": [
+    {
+     "key": "brand",
+     "label": "Brand & format",
+     "type": "text",
+     "placeholder": "Lush, 2-hour group session with role play"
+    }
+   ],
+   "prompt": "Prepare for the group assessment {brand} for the profile. Give steps for the day (arrival, icebreakers, group task, role play, one-to-one) with what assessors score at each; a table (Assessor is watching for | Do this | Not this); a quote with an opening line for the icebreaker; and a callout on the classic mistakes: dominating, going silent, ignoring the quiet person.",
+   "shape": "steps, table, quote, callout",
+   "button": "Prep me",
+   "loading": "Warming up…"
+  },
+  {
+   "id": "promote",
+   "title": "Get promoted",
+   "subtitle": "Associate to keyholder to manager",
+   "emoji": "📈",
+   "inputs": [
+    {
+     "key": "target",
+     "label": "Next role",
+     "type": "chips",
+     "options": [
+      "Keyholder",
+      "Supervisor",
+      "Assistant manager",
+      "Store manager",
+      "Visual merchandiser",
+      "Head office"
+     ],
+     "default": "Keyholder"
+    },
+    {
+     "key": "wins",
+     "label": "Wins so far",
+     "type": "text",
+     "placeholder": "top UPT in store, trained 3 new starters"
+    }
+   ],
+   "prompt": "Build a promotion plan to {target} for the profile using {wins}. Provide a table (Month | Skill to show | Metric to move | How to make it visible) for 6 months; bullets of retail KPIs to learn and quote (conversion, UPT, ATV, shrink, NPS); a quote with the exact ask to your manager; and a callout on when to look at other stores or brands instead.",
+   "shape": "table, bullets, quote, callout",
+   "button": "Plan it",
+   "loading": "Climbing…"
+  },
+  {
+   "id": "compare",
+   "title": "Compare two jobs",
+   "subtitle": "Hourly, commission, hours and holidays",
+   "emoji": "⚖️",
+   "inputs": [
+    {
+     "key": "job_a",
+     "label": "Job A",
+     "type": "longtext",
+     "placeholder": "$16/hr, 20 hrs guaranteed, 10% staff discount",
+     "required": true
+    },
+    {
+     "key": "job_b",
+     "label": "Job B",
+     "type": "longtext",
+     "placeholder": "$14/hr + 3% commission, 35 hrs, open Sundays",
+     "required": true
+    }
+   ],
+   "prompt": "Compare {job_a} with {job_b} for the profile's availability. Table (Factor | A | B | Edge) covering hourly, guaranteed hours, commission realism, weekly and annual estimate, schedule predictability, holiday blackout, discount and progression; kv with the estimated monthly pay for each and the assumptions; bullets of questions to ask before accepting; and a callout on zero-hours or on-call scheduling.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Compare",
+   "loading": "Ringing up…"
+  }
+ ],
+ "disclaimer": "Pay estimates are general guidance, not financial or legal advice; check contracts and local employment rules."
+}

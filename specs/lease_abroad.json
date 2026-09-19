@@ -1,0 +1,166 @@
+{
+ "id": "lease_abroad",
+ "name": "Lease Abroad",
+ "tagline": "Rent a home in a new country without getting stung",
+ "category": "House & Home",
+ "colors": [
+  "#3949AB",
+  "#FF7043",
+  "#66BB6A"
+ ],
+ "icon": "globe",
+ "about": "Lease Abroad explains how renting really works in your destination country, decodes a foreign-language lease from a photo, checks listings for scams, and gets your application past guarantor and credit-history hurdles.",
+ "persona": "You are a relocation housing specialist who has rented in a dozen countries: candid about local norms and traps, precise about what to check, never assuming your home country's rules apply.",
+ "onboarding": {
+  "title": "Know the rules before you rent",
+  "subtitle": "Where you're going and your situation shape every answer.",
+  "bullets": [
+   "Rental customs by country, decoded",
+   "Foreign leases translated and flagged",
+   "Scam checks and application help"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "to",
+   "label": "Destination city & country",
+   "type": "text",
+   "placeholder": "Berlin, Germany"
+  },
+  {
+   "key": "from",
+   "label": "Coming from",
+   "type": "text",
+   "placeholder": "Toronto, Canada"
+  },
+  {
+   "key": "situation",
+   "label": "Situation",
+   "type": "chips",
+   "options": [
+    "Relocating for work",
+    "Student",
+    "Family move",
+    "Remote worker",
+    "Retiring"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "norms",
+   "title": "How renting works here",
+   "subtitle": "Deposits, fees, notice, what's normal",
+   "emoji": "🏙️",
+   "inputs": [
+    {
+     "key": "type",
+     "label": "Looking for",
+     "type": "chips",
+     "options": [
+      "Furnished",
+      "Unfurnished",
+      "Room in a shared flat",
+      "Short-term first"
+     ],
+     "default": "Unfurnished"
+    }
+   ],
+   "prompt": "Explain renting a {type} home in the profile's destination for someone from the profile's origin. Produce a kv (typical deposit, upfront costs, lease lengths, notice periods, who pays agent fees, what 'unfurnished' includes, usual documents), a table (Norm here | How it differs from home | What it means for you), steps for the search-to-keys process in order, and a callout on the local traps newcomers fall into.",
+   "shape": "kv, table, steps, callout",
+   "button": "Explain",
+   "loading": "Learning the rules…"
+  },
+  {
+   "id": "lease",
+   "title": "Decode this lease",
+   "subtitle": "Photo of the contract → plain English",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the lease page",
+     "type": "photo"
+    },
+    {
+     "key": "text",
+     "label": "Or paste the clause / contract text",
+     "type": "longtext",
+     "placeholder": "§5 Kaution… Schönheitsreparaturen…"
+    }
+   ],
+   "prompt": "Translate and explain the lease from the photo and/or text: {text}. Produce a table (Clause | Plain-English meaning | Normal here? | Risk), bullets of what to negotiate or delete before signing, a checklist of what to photograph and record at handover, and a callout on any clause that looks unusual or unenforceable in general terms.",
+   "shape": "table, bullets, checklist, callout",
+   "button": "Decode",
+   "loading": "Translating…"
+  },
+  {
+   "id": "scam",
+   "title": "Is this listing a scam?",
+   "subtitle": "Check before you pay anything",
+   "emoji": "🚩",
+   "inputs": [
+    {
+     "key": "listing",
+     "label": "Listing and messages so far",
+     "type": "longtext",
+     "placeholder": "landlord abroad, asks for deposit by transfer before viewing, price 40% under market",
+     "required": true
+    }
+   ],
+   "prompt": "Assess this listing for fraud: {listing}. Produce a kv (risk level, most telling signs, what a genuine version would look like), a table (Sign | Seen here? | Why it matters), a checklist of verification steps before paying anything, and a quote with a message that tests the landlord without offending a genuine one.",
+   "shape": "kv, table, checklist, quote",
+   "button": "Check it",
+   "loading": "Sniffing…"
+  },
+  {
+   "id": "apply",
+   "title": "Win the application",
+   "subtitle": "No local credit history? No guarantor?",
+   "emoji": "📁",
+   "inputs": [
+    {
+     "key": "job",
+     "label": "Income situation",
+     "type": "text",
+     "placeholder": "new job, contract starts next month, salary 68k",
+     "required": true
+    },
+    {
+     "key": "gaps",
+     "label": "What you lack",
+     "type": "text",
+     "placeholder": "no local credit history, no local guarantor"
+    }
+   ],
+   "prompt": "Build a rental application for the profile's destination given: {job}; missing: {gaps}. Produce a checklist of the document pack in the order agents there expect it, bullets of workarounds for each gap (larger deposit, rent in advance where allowed, employer letters, guarantor services), a quote with a short cover message to the landlord or agent in English plus a local-language version, and a callout on what never to pay or hand over before a signed lease.",
+   "shape": "checklist, bullets, quote, callout",
+   "button": "Build my pack",
+   "loading": "Assembling…"
+  },
+  {
+   "id": "viewing",
+   "title": "Viewing day",
+   "subtitle": "What to check, ask and photograph",
+   "emoji": "🔦",
+   "inputs": [
+    {
+     "key": "flat",
+     "label": "The place",
+     "type": "text",
+     "placeholder": "2-room flat, 4th floor no lift, old building, gas heating"
+    }
+   ],
+   "prompt": "Prepare for viewing: {flat} in the profile's destination. Produce a checklist of 15 things to check and photograph specific to that housing type and climate, a table (Question | Why it matters here | Good answer), bullets on local etiquette and how fast to decide, and a callout on the on-the-spot pressure tactics to expect.",
+   "shape": "checklist, table, bullets, callout",
+   "button": "Prepare me",
+   "loading": "Tape measure ready…"
+  }
+ ],
+ "disclaimer": "General information, not legal advice; property law, tenancy rules and taxes vary by country and region — check with a qualified local professional before relying on it."
+}

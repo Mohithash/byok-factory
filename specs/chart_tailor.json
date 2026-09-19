@@ -1,0 +1,184 @@
+{
+ "id": "chart_tailor",
+ "name": "Chart Tailor",
+ "tagline": "The right chart, styled so the point lands",
+ "category": "Tools",
+ "colors": [
+  "#AD1457",
+  "#00ACC1",
+  "#FDD835"
+ ],
+ "icon": "spark",
+ "about": "Chart Tailor picks the chart type that answers your question, redesigns your existing chart from a screenshot, builds colour-blind-safe palettes from your brand and writes the titles and annotations that make the point obvious.",
+ "persona": "You are a data-visualisation designer: minimal ink, honest axes, one message per chart, and always practical about what Excel, Sheets, Power BI or Python can actually draw.",
+ "onboarding": {
+  "title": "Make charts people understand",
+  "subtitle": "Tell us your tools and brand so every suggestion is buildable.",
+  "bullets": [
+   "Chart type chosen for the question",
+   "Redesigns from a screenshot",
+   "Colour-blind-safe palettes from your brand"
+  ]
+ },
+ "profile": [
+  {
+   "key": "tool",
+   "label": "Charting tools",
+   "type": "chips",
+   "options": [
+    "Excel",
+    "Google Sheets",
+    "Power BI",
+    "Tableau",
+    "Python",
+    "Looker Studio"
+   ],
+   "default": "Excel",
+   "multi": true
+  },
+  {
+   "key": "brand",
+   "label": "Brand colours (hex)",
+   "type": "text",
+   "placeholder": "#1E88E5, #F4511E"
+  },
+  {
+   "key": "audience",
+   "label": "Usual audience",
+   "type": "chips",
+   "options": [
+    "Executives",
+    "Analysts",
+    "Customers",
+    "General public"
+   ],
+   "default": "Executives"
+  }
+ ],
+ "tools": [
+  {
+   "id": "pick",
+   "title": "Which chart?",
+   "subtitle": "Describe the data and the point",
+   "emoji": "📊",
+   "inputs": [
+    {
+     "key": "data",
+     "label": "Data shape",
+     "type": "text",
+     "placeholder": "monthly revenue for 5 products over 2 years",
+     "required": true
+    },
+    {
+     "key": "message",
+     "label": "The point you want to make",
+     "type": "text",
+     "placeholder": "product C is overtaking product A",
+     "required": true
+    }
+   ],
+   "prompt": "Recommend the chart for {data} to show '{message}'. Cards for the top 3 chart types (meta = best for · build effort), then a kv 'Recommended build' (chart type, x-axis, y-axis, series, sort order, what to hide), bullets of chart types to avoid here and why, and a callout on the one design choice that most decides whether the message lands.",
+   "shape": "cards, kv, bullets, callout",
+   "button": "Pick chart",
+   "loading": "Sketching…"
+  },
+  {
+   "id": "redesign",
+   "title": "Redesign my chart",
+   "subtitle": "Screenshot → concrete fixes",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Screenshot of your chart",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "goal",
+     "label": "What should the viewer take away?",
+     "type": "text",
+     "placeholder": "that costs are flat while revenue grows"
+    }
+   ],
+   "prompt": "Critique the chart in the screenshot against the goal '{goal}'. Table 'Fixes' (Element | Now | Change to | Why), steps to rebuild it in the profile's tool, a quote with a better title and subtitle, and a callout on anything misleading (truncated axis, dual axes, 3D, rainbow colours, cherry-picked range).",
+   "shape": "table, steps, quote, callout",
+   "button": "Redesign",
+   "loading": "Measuring ink…"
+  },
+  {
+   "id": "palette",
+   "title": "Colour palette",
+   "subtitle": "Accessible colours that match your brand",
+   "emoji": "🎨",
+   "inputs": [
+    {
+     "key": "kind",
+     "label": "Palette type",
+     "type": "chips",
+     "options": [
+      "Categorical",
+      "Sequential",
+      "Diverging",
+      "Highlight one series"
+     ],
+     "default": "Categorical"
+    },
+    {
+     "key": "count",
+     "label": "Number of colours",
+     "type": "number",
+     "placeholder": "5"
+    }
+   ],
+   "prompt": "Build a {kind} palette of {count} colours starting from the profile's brand colours. Table 'Palette' (Role | Hex | Use for | Contrast on white), kv (colour-blind safety verdict, grey for context series, highlight colour, text colour), a quote with the hex list ready to paste into the profile's tool, and bullets on when to break the palette.",
+   "shape": "table, kv, quote, bullets",
+   "button": "Build palette",
+   "loading": "Mixing colours…"
+  },
+  {
+   "id": "annotate",
+   "title": "Title & annotations",
+   "subtitle": "Words that make the chart self-explanatory",
+   "emoji": "✍️",
+   "inputs": [
+    {
+     "key": "chart",
+     "label": "What the chart shows",
+     "type": "text",
+     "placeholder": "weekly signups, spike in March after launch",
+     "required": true
+    },
+    {
+     "key": "insight",
+     "label": "The insight",
+     "type": "text",
+     "placeholder": "launch doubled signups but the effect faded in 6 weeks"
+    }
+   ],
+   "prompt": "Write the text layer for a chart showing {chart} with the insight '{insight}'. Quote with 3 takeaway-style headline titles (not descriptive ones), kv (subtitle, axis titles, units, source line, footnote), bullets naming exactly which points to annotate and what each label says, and a callout on jargon to remove for the profile's audience.",
+   "shape": "quote, kv, bullets, callout",
+   "button": "Write labels",
+   "loading": "Wording it…"
+  },
+  {
+   "id": "chartset",
+   "title": "Chart set for a report",
+   "subtitle": "Which charts, in what order",
+   "emoji": "🗂️",
+   "inputs": [
+    {
+     "key": "metrics",
+     "label": "Metrics to show",
+     "type": "longtext",
+     "placeholder": "MRR, churn, new customers by channel, NPS",
+     "required": true
+    }
+   ],
+   "prompt": "Plan the charts for a report covering {metrics}. Table 'Charts' (Order | Metric | Chart type | Comparison shown | Size), text on the narrative order in 3 sentences, a checklist of consistency rules (same colour per series, shared axes, date formats, sorting), and a callout on the metrics that should be a single big number rather than a chart.",
+   "shape": "table, text, checklist, callout",
+   "button": "Plan charts",
+   "loading": "Laying out…"
+  }
+ ]
+}

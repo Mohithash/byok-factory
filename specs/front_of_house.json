@@ -1,0 +1,200 @@
+{
+ "id": "front_of_house",
+ "name": "Front of House",
+ "tagline": "Hospitality jobs: trial shifts, seasons, tips decoded",
+ "category": "Business",
+ "colors": [
+  "#880E4F",
+  "#FFC107",
+  "#00695C"
+ ],
+ "icon": "cup",
+ "about": "Front of House gets hospitality workers hired and paid properly: trial-shift prep for any role, guest-scenario interviews, seasonal and cruise-ship applications, venue knowledge crams, and a decoder for tips, tronc and service charge.",
+ "persona": "You are a general manager who has run hotels and restaurants: fast, gracious, guest-obsessed, and straight about pay structures and hours.",
+ "onboarding": {
+  "title": "Service starts here",
+  "subtitle": "Your role and venue type set the standards we prep for.",
+  "bullets": [
+   "Trial shift and stage preparation",
+   "Guest-scenario interviews",
+   "Tips, tronc and service charge decoded"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "role",
+   "label": "Role",
+   "type": "chips",
+   "options": [
+    "Server/waiter",
+    "Bartender",
+    "Barista",
+    "Line cook/chef",
+    "Front desk",
+    "Housekeeping",
+    "Events",
+    "Management"
+   ]
+  },
+  {
+   "key": "venue",
+   "label": "Venue type",
+   "type": "chips",
+   "options": [
+    "Casual",
+    "Fine dining",
+    "Hotel",
+    "Bar/club",
+    "Café",
+    "Resort/cruise"
+   ],
+   "multi": true
+  },
+  {
+   "key": "experience",
+   "label": "Experience",
+   "type": "text",
+   "placeholder": "2 years café, 6 months hotel bar"
+  }
+ ],
+ "tools": [
+  {
+   "id": "trial",
+   "title": "Ace the trial shift",
+   "subtitle": "What managers watch in the first hour",
+   "emoji": "⏱️",
+   "inputs": [
+    {
+     "key": "shift",
+     "label": "Venue & shift",
+     "type": "text",
+     "placeholder": "busy gastropub, Friday 5–9pm",
+     "required": true
+    },
+    {
+     "key": "worries",
+     "label": "What you're nervous about",
+     "type": "text",
+     "placeholder": "carrying three plates, POS system"
+    }
+   ],
+   "prompt": "Prepare the profile's role for a trial shift at {shift}, worried about {worries}. Give steps from arrival to the end of shift (what to ask, where to stand, how to shadow, when to jump in); a checklist of what to bring and wear; bullets of the things managers score in the first hour; a quote with what to say at the end of the shift; and a callout on trial-shift pay and how to ask about it politely.",
+   "shape": "steps, checklist, bullets, quote, callout",
+   "button": "Prep me",
+   "loading": "Polishing glasses…"
+  },
+  {
+   "id": "scenarios",
+   "title": "Guest scenario interview",
+   "subtitle": "Overbooked, complaint, allergen, drunk guest",
+   "emoji": "🍽️",
+   "inputs": [
+    {
+     "key": "focus",
+     "label": "Focus",
+     "type": "chips",
+     "options": [
+      "Complaints & recovery",
+      "Allergens & safety",
+      "Difficult guests",
+      "Upselling & pace",
+      "Team conflict",
+      "Mixed"
+     ],
+     "default": "Mixed"
+    }
+   ],
+   "prompt": "Run a hospitality interview focused on {focus} for the profile's role and venue types. Provide 7 scenarios as cards (meta = what it tests · the one thing not to do) with model answers that show guest recovery and safety awareness; a quote with a 45-second intro that sounds like a host, not a CV; bullets of questions to ask about rota, tips and breaks; and a callout on allergen and responsible-service phrasing that must be right.",
+   "shape": "cards, quote, bullets, callout",
+   "button": "Start",
+   "loading": "Seating the panel…"
+  },
+  {
+   "id": "season",
+   "title": "Seasonal & cruise jobs",
+   "subtitle": "Ski, resort, cruise, festival: timing and papers",
+   "emoji": "🚢",
+   "inputs": [
+    {
+     "key": "where",
+     "label": "Type",
+     "type": "chips",
+     "options": [
+      "Ski season",
+      "Summer resort",
+      "Cruise ship",
+      "Yacht",
+      "Festival/events",
+      "Working holiday abroad"
+     ],
+     "default": "Ski season"
+    },
+    {
+     "key": "when",
+     "label": "When you can start",
+     "type": "text",
+     "placeholder": "December, for 5 months"
+    }
+   ],
+   "prompt": "Plan a {where} job search starting {when} for the profile. Give a table (Month | What to do | Who's hiring | Deadline) working back from the start; a checklist of documents and certificates (passport validity, visa or working-holiday permit, STCW or safety certs, food hygiene, medicals); kv (typical pay, accommodation deal, contract length, hours); and a callout on agency fees and scams.",
+   "shape": "table, checklist, kv, callout",
+   "button": "Plan season",
+   "loading": "Checking tides…"
+  },
+  {
+   "id": "cram",
+   "title": "Venue knowledge cram",
+   "subtitle": "Menu, wine list and brand facts before the interview",
+   "emoji": "📖",
+   "inputs": [
+    {
+     "key": "menu",
+     "label": "Paste the menu / wine list / brand info",
+     "type": "longtext",
+     "placeholder": "Small plates: burrata, nduja croquettes… Wines by glass: Picpoul, Rioja…",
+     "required": true
+    },
+    {
+     "key": "photo",
+     "label": "Photo of the menu (optional)",
+     "type": "photo"
+    }
+   ],
+   "prompt": "Cram the venue material {menu} (and the menu photo if given) for the profile's role. Provide a table (Item | What it is | One-line description for guests | Pairs with or upsell); bullets of 10 terms or techniques to pronounce and explain confidently; a quote with three natural upsell lines; and a callout on allergens present in the listed items.",
+   "shape": "table, bullets, quote, callout",
+   "button": "Cram",
+   "loading": "Tasting the menu…"
+  },
+  {
+   "id": "pay",
+   "title": "Decode the pay",
+   "subtitle": "Tips, tronc, service charge, split shifts",
+   "emoji": "💷",
+   "inputs": [
+    {
+     "key": "terms",
+     "label": "Paste the offer or describe the pay",
+     "type": "longtext",
+     "placeholder": "£11.44 + tronc approx £3/hr, 40 hrs, split shifts, service charge 12.5%",
+     "required": true
+    },
+    {
+     "key": "country",
+     "label": "Country",
+     "type": "text",
+     "placeholder": "UK"
+    }
+   ],
+   "prompt": "Decode {terms} in {country} for the profile. Give kv (base, tip or tronc estimate, service charge handling, realistic weekly and monthly gross, hours pattern, breaks); a table (Term | What it means | Who controls it | Question to ask); bullets of red flags (unpaid trials, deductions, uniform costs); and a callout on where to check the legal minimum wage and tip rules for that country.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Decode",
+   "loading": "Counting tips…"
+  }
+ ],
+ "disclaimer": "Pay and employment-rights information is general guidance, not financial or legal advice; check your country's official rules."
+}

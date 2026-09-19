@@ -1,0 +1,172 @@
+{
+ "id": "ops_cadence",
+ "name": "Ops Cadence",
+ "tagline": "The operating rhythm that keeps a startup shipping",
+ "category": "Business",
+ "colors": [
+  "#EF6C00",
+  "#0097A7",
+  "#8E24AA"
+ ],
+ "icon": "clock",
+ "about": "Ops Cadence designs your meeting rhythm, writes decision memos, runs blameless post-mortems, drafts the weekly company update and plans quarterly planning offsites.",
+ "persona": "You are a startup COO: calm, systems-minded, allergic to meetings without purpose and decisions without owners.",
+ "onboarding": {
+  "title": "Less chaos, same speed",
+  "subtitle": "Your team's size and shape set the rhythm.",
+  "bullets": [
+   "Meeting rhythm that fits",
+   "Decision memos & post-mortems",
+   "Weekly updates people read"
+  ]
+ },
+ "profile": [
+  {
+   "key": "company",
+   "label": "Company",
+   "type": "text",
+   "placeholder": "Acme"
+  },
+  {
+   "key": "size",
+   "label": "Team size",
+   "type": "number",
+   "placeholder": "25"
+  },
+  {
+   "key": "setup",
+   "label": "Setup",
+   "type": "chips",
+   "options": [
+    "Co-located",
+    "Hybrid",
+    "Remote, same timezone",
+    "Remote, many timezones"
+   ]
+  },
+  {
+   "key": "pain",
+   "label": "Biggest operating pain",
+   "type": "text",
+   "placeholder": "too many meetings, decisions get relitigated"
+  }
+ ],
+ "tools": [
+  {
+   "id": "rhythm",
+   "title": "Design our rhythm",
+   "subtitle": "Which meetings, how often, for whom",
+   "emoji": "🥁",
+   "inputs": [
+    {
+     "key": "current",
+     "label": "Current meetings",
+     "type": "text",
+     "placeholder": "daily standup, weekly all-hands, ad-hoc everything else"
+    }
+   ],
+   "prompt": "Design an operating rhythm for the profile team, replacing: {current}. Table (Meeting | Cadence | Length | Attendees | Purpose | Output), text on what moves to async, a callout comparing total meeting hours per person per week before and after, and a checklist to launch the new rhythm.",
+   "shape": "table, text, callout, checklist",
+   "button": "Design rhythm",
+   "loading": "Tuning…"
+  },
+  {
+   "id": "memo",
+   "title": "Decision memo",
+   "subtitle": "Options, recommendation, owner",
+   "emoji": "🧾",
+   "inputs": [
+    {
+     "key": "decision",
+     "label": "The decision and context",
+     "type": "longtext",
+     "placeholder": "should we switch from monthly to annual pricing?",
+     "required": true
+    },
+    {
+     "key": "framework",
+     "label": "Format",
+     "type": "chips",
+     "options": [
+      "DACI",
+      "One-pager",
+      "Pros/cons + recommendation"
+     ],
+     "default": "One-pager"
+    }
+   ],
+   "prompt": "Write a {framework} decision memo for: {decision}. A quote with the full memo (Context, Options, Recommendation, Risks, Decision needed by), a table (Option | Upside | Downside | Cost | Reversible?), kv (driver, approver, contributors, informed), and a callout on what would change the recommendation.",
+   "shape": "quote, table, kv, callout",
+   "button": "Write memo",
+   "loading": "Deciding…"
+  },
+  {
+   "id": "postmortem",
+   "title": "Post-mortem",
+   "subtitle": "Blameless timeline, causes, fixes",
+   "emoji": "🩹",
+   "inputs": [
+    {
+     "key": "incident",
+     "label": "What happened",
+     "type": "longtext",
+     "placeholder": "outage for 3 hours on Tuesday; customer data delayed; root cause was a bad deploy",
+     "required": true
+    }
+   ],
+   "prompt": "Run a blameless post-mortem on: {incident}. Kv (impact, duration, time to detect, root cause), steps giving the timeline, a table (Contributing factor | Fix | Owner | Due), a callout on the systemic issue behind the root cause, and bullets on what went well.",
+   "shape": "kv, steps, table, callout, bullets",
+   "button": "Run post-mortem",
+   "loading": "Reconstructing…"
+  },
+  {
+   "id": "weekly",
+   "title": "Weekly company update",
+   "subtitle": "Notes → a short update everyone reads",
+   "emoji": "📬",
+   "inputs": [
+    {
+     "key": "notes",
+     "label": "This week's notes",
+     "type": "longtext",
+     "placeholder": "shipped export feature, 4 new customers, hiring for support, outage Tuesday",
+     "required": true
+    }
+   ],
+   "prompt": "Write the weekly company update from: {notes}. A quote with the update (Wins, Numbers, What's next, Shout-outs, Help needed; under 250 words, plain tone), and bullets of anything in the notes that deserves its own message instead.",
+   "shape": "quote, bullets",
+   "button": "Write update",
+   "loading": "Summarising…"
+  },
+  {
+   "id": "offsite",
+   "title": "Planning offsite",
+   "subtitle": "Agenda, pre-work, facilitation",
+   "emoji": "🏕️",
+   "inputs": [
+    {
+     "key": "length",
+     "label": "Length",
+     "type": "chips",
+     "options": [
+      "Half day",
+      "1 day",
+      "2 days"
+     ],
+     "default": "1 day"
+    },
+    {
+     "key": "outcome",
+     "label": "Must leave with",
+     "type": "text",
+     "placeholder": "Q3 priorities and owners",
+     "required": true
+    }
+   ],
+   "prompt": "Plan a {length} planning offsite whose outcome is: {outcome}. Table (Time | Session | Format | Facilitator | Output), a checklist of pre-work for attendees, bullets on facilitation traps, and a quote with the opening framing the CEO can say.",
+   "shape": "table, checklist, bullets, quote",
+   "button": "Plan offsite",
+   "loading": "Booking the room…"
+  }
+ ]
+}

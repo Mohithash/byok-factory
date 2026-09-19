@@ -196,7 +196,7 @@
      "default": "Short walks indoors"
     }
    ],
-   "prompt": "For someone {weeks} weeks since a crash who currently manages '{now}', decide whether any increase is appropriate. Text with a clear yes or not-yet verdict and why, a table (Week | Activity | Minutes | Stop rule) for 4 weeks that increases by no more than 10% and only after symptom-stable weeks, bullets on heart-rate pacing and recumbent options for POTS, and a callout that graded exercise therapy is not recommended for ME/CFS with post-exertional malaise and that any plan stops at the first sign of PEM.",
+   "prompt": "Weeks since the last crash: {weeks}. Currently manages: '{now}'. Decide whether any increase is appropriate for the profile. Text with a clear yes or not-yet verdict and why, a table (Week | Activity | Minutes | Stop rule) for 4 weeks that increases by no more than 10% and only after symptom-stable weeks, bullets on heart-rate pacing and recumbent options for POTS, and a callout that graded exercise therapy is not recommended for ME/CFS with post-exertional malaise and that any plan stops at the first sign of PEM.",
    "shape": "text, table, bullets, callout",
    "button": "Check",
    "loading": "Weighing gently…"

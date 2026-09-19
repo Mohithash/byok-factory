@@ -1,0 +1,198 @@
+{
+ "id": "headcount_map",
+ "name": "Headcount Map",
+ "tagline": "Hire the right roles in the right order for your runway",
+ "category": "Business",
+ "colors": [
+  "#6D4C41",
+  "#26A69A",
+  "#FFCA28"
+ ],
+ "icon": "pin",
+ "about": "Headcount Map turns your roadmap and runway into a sequenced hiring plan, writes role scorecards, suggests compensation bands, builds 30/60/90 onboarding plans and designs the org you are growing into.",
+ "persona": "You are a startup people-ops lead who has scaled teams from 5 to 150: pragmatic about cash, allergic to premature hires, and clear that every role must map to a goal.",
+ "onboarding": {
+  "title": "Grow the team without burning the runway",
+  "subtitle": "Your team and cash position shape every recommendation.",
+  "bullets": [
+   "Sequenced hiring plans",
+   "Scorecards & job posts",
+   "30/60/90 onboarding"
+  ]
+ },
+ "profile": [
+  {
+   "key": "company",
+   "label": "Company & product",
+   "type": "text",
+   "placeholder": "Acme — B2B analytics"
+  },
+  {
+   "key": "headcount",
+   "label": "Current headcount",
+   "type": "number",
+   "placeholder": "9"
+  },
+  {
+   "key": "runway",
+   "label": "Runway (months)",
+   "type": "number",
+   "placeholder": "14"
+  },
+  {
+   "key": "team",
+   "label": "Current team makeup",
+   "type": "text",
+   "placeholder": "3 eng, 1 design, 2 sales, founders"
+  }
+ ],
+ "tools": [
+  {
+   "id": "plan",
+   "title": "Hiring plan",
+   "subtitle": "Who to hire, in what order, when",
+   "emoji": "🗺️",
+   "inputs": [
+    {
+     "key": "goals",
+     "label": "Next two quarters' goals",
+     "type": "longtext",
+     "placeholder": "launch v2, reach 50 customers, SOC 2",
+     "required": true
+    },
+    {
+     "key": "budget",
+     "label": "Monthly hiring budget",
+     "type": "number",
+     "placeholder": "40000"
+    },
+    {
+     "key": "horizon",
+     "label": "Plan horizon",
+     "type": "chips",
+     "options": [
+      "3 months",
+      "6 months",
+      "12 months"
+     ],
+     "default": "6 months"
+    }
+   ],
+   "prompt": "Build a {horizon} hiring plan for the profile team to achieve: {goals}, within a monthly budget of {budget}. Table (Order | Role | Why now | Start month | Est. fully-loaded monthly cost | Goal it unlocks), a callout on runway impact once all hires are in, bullets of roles to defer or outsource instead, and steps for the first hire's 4-week process.",
+   "shape": "table, callout, bullets, steps",
+   "button": "Plan hires",
+   "loading": "Sequencing…"
+  },
+  {
+   "id": "scorecard",
+   "title": "Role scorecard",
+   "subtitle": "Mission, outcomes, competencies",
+   "emoji": "📋",
+   "inputs": [
+    {
+     "key": "role",
+     "label": "Role",
+     "type": "text",
+     "placeholder": "Founding account executive",
+     "required": true
+    },
+    {
+     "key": "mission",
+     "label": "Mission of the role",
+     "type": "text",
+     "placeholder": "close the first 20 mid-market deals"
+    }
+   ],
+   "prompt": "Write a scorecard for {role} with the mission: {mission}. Sections: kv (mission, outcomes in 12 months, reports to, level), table (Competency | What great looks like | How we assess it | Weight), a quote with a 150-word job-post opener, and bullets of red flags in candidates for this specific role.",
+   "shape": "kv, table, quote, bullets",
+   "button": "Write scorecard",
+   "loading": "Defining great…"
+  },
+  {
+   "id": "comp",
+   "title": "Comp band",
+   "subtitle": "Indicative base, bonus, equity",
+   "emoji": "💷",
+   "inputs": [
+    {
+     "key": "level",
+     "label": "Role & level",
+     "type": "text",
+     "placeholder": "Senior backend engineer",
+     "required": true
+    },
+    {
+     "key": "location",
+     "label": "Location / remote",
+     "type": "text",
+     "placeholder": "London, hybrid"
+    },
+    {
+     "key": "equity",
+     "label": "Equity policy",
+     "type": "chips",
+     "options": [
+      "Generous equity, lower cash",
+      "Balanced",
+      "Cash-heavy"
+     ],
+     "default": "Balanced"
+    }
+   ],
+   "prompt": "Suggest an indicative compensation band for {level} in {location} at a startup of the profile's size with a '{equity}' policy. Table (Component | Low | Mid | High | Notes) for base, bonus and equity, text explaining the assumptions and that figures are estimates to validate against market data, bullets on how to position the offer, and a callout on pay-transparency and equal-pay considerations.",
+   "shape": "table, text, bullets, callout",
+   "button": "Suggest band",
+   "loading": "Benchmarking…"
+  },
+  {
+   "id": "onboard",
+   "title": "30/60/90 plan",
+   "subtitle": "Set a new hire up to win",
+   "emoji": "🚀",
+   "inputs": [
+    {
+     "key": "newhire",
+     "label": "Role starting",
+     "type": "text",
+     "placeholder": "Product designer",
+     "required": true
+    },
+    {
+     "key": "context",
+     "label": "What they'll own first",
+     "type": "text",
+     "placeholder": "redesign the onboarding flow"
+    }
+   ],
+   "prompt": "Build a 30/60/90-day onboarding plan for a {newhire} who will own: {context}. Table (Day | Milestone | Success signal | Who helps), a checklist for their first week, and a callout on the most common reason new hires at small startups fail in month two.",
+   "shape": "table, checklist, callout",
+   "button": "Build plan",
+   "loading": "Onboarding…"
+  },
+  {
+   "id": "orgchart",
+   "title": "Org design",
+   "subtitle": "The structure you're growing into",
+   "emoji": "🏗️",
+   "inputs": [
+    {
+     "key": "target",
+     "label": "Team size in 12 months",
+     "type": "chips",
+     "options": [
+      "15",
+      "25",
+      "40",
+      "60"
+     ],
+     "default": "25"
+    }
+   ],
+   "prompt": "Design the org structure to grow the profile team to {target} people. Table (Function | Leader needed? | Headcount | Reporting line), text on when the founders should stop managing everyone directly, bullets of span-of-control risks, and a callout on the first manager hire.",
+   "shape": "table, text, bullets, callout",
+   "button": "Design org",
+   "loading": "Drawing boxes…"
+  }
+ ],
+ "disclaimer": "Compensation and employment guidance is general information, not legal or financial advice; check local employment law and an adviser before making offers."
+}

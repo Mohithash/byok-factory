@@ -1,0 +1,187 @@
+{
+ "id": "equity_lens",
+ "name": "Equity Lens",
+ "tagline": "Option pools, vesting and dilution made plain",
+ "category": "Business",
+ "colors": [
+  "#4527A0",
+  "#26C6DA",
+  "#FFA000"
+ ],
+ "icon": "graph",
+ "about": "Equity Lens explains startup equity in plain English: it sizes option pools, drafts grant summaries, models dilution across rounds, proposes founder splits and helps you explain an offer to a candidate or employee.",
+ "persona": "You are a startup equity specialist: precise with numbers, patient with jargon, and clear that every scheme has local tax and legal rules.",
+ "onboarding": {
+  "title": "Equity everyone understands",
+  "subtitle": "Your cap table basics make the maths real.",
+  "bullets": [
+   "Option pool sizing",
+   "Dilution across rounds",
+   "Explain equity to anyone"
+  ]
+ },
+ "profile": [
+  {
+   "key": "company",
+   "label": "Company",
+   "type": "text",
+   "placeholder": "Acme"
+  },
+  {
+   "key": "shares",
+   "label": "Fully diluted shares",
+   "type": "number",
+   "placeholder": "10000000"
+  },
+  {
+   "key": "valuation",
+   "label": "Last valuation",
+   "type": "number",
+   "placeholder": "8000000"
+  },
+  {
+   "key": "scheme",
+   "label": "Scheme",
+   "type": "chips",
+   "options": [
+    "EMI (UK)",
+    "ISO / NSO (US)",
+    "Other / unsure"
+   ],
+   "default": "Other / unsure"
+  }
+ ],
+ "tools": [
+  {
+   "id": "pool",
+   "title": "Size the option pool",
+   "subtitle": "How big, for how many hires",
+   "emoji": "🥧",
+   "inputs": [
+    {
+     "key": "hires",
+     "label": "Hires in next 18 months",
+     "type": "number",
+     "placeholder": "12"
+    },
+    {
+     "key": "mix",
+     "label": "Mix of roles",
+     "type": "text",
+     "placeholder": "2 senior, 6 mid, 4 junior"
+    }
+   ],
+   "prompt": "Size an option pool for {hires} hires ({mix}) at the profile company. Table (Level | Typical grant % | Count | Total %), kv (recommended pool %, pool in shares, refresh reserve), bullets on pool pre-money versus post-money in negotiations, and a callout on what happens when the pool runs out.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Size pool",
+   "loading": "Allocating…"
+  },
+  {
+   "id": "grant",
+   "title": "Draft a grant",
+   "subtitle": "Numbers + a plain-English summary",
+   "emoji": "📜",
+   "inputs": [
+    {
+     "key": "role",
+     "label": "Role & level",
+     "type": "text",
+     "placeholder": "Senior engineer",
+     "required": true
+    },
+    {
+     "key": "pct",
+     "label": "Grant %",
+     "type": "number",
+     "placeholder": "0.5"
+    },
+    {
+     "key": "vesting",
+     "label": "Vesting",
+     "type": "chips",
+     "options": [
+      "4 years, 1-year cliff",
+      "4 years, no cliff",
+      "3 years, 1-year cliff",
+      "Milestone-based"
+     ],
+     "default": "4 years, 1-year cliff"
+    }
+   ],
+   "prompt": "Draft a grant summary for a {role} receiving {pct}% with {vesting}. Kv (shares, value at last valuation, strike price assumption, vesting schedule, what vests per month), a quote with a plain-English paragraph explaining the grant to the employee, a table (Year | Vested % | Vested shares | Value at last valuation | Value at 5x), and a callout on exercise windows and leaver terms still to decide.",
+   "shape": "kv, quote, table, callout",
+   "button": "Draft grant",
+   "loading": "Granting…"
+  },
+  {
+   "id": "dilution",
+   "title": "Model dilution",
+   "subtitle": "Founders' stake through the rounds",
+   "emoji": "📉",
+   "inputs": [
+    {
+     "key": "rounds",
+     "label": "Rounds to model",
+     "type": "longtext",
+     "placeholder": "Seed £2m at £8m pre with a 10% pool; Series A £8m at £30m pre",
+     "required": true
+    }
+   ],
+   "prompt": "Model dilution through: {rounds}, starting from the profile cap table. Table (Round | Pre-money | Raised | Post-money | New investor % | Founders % after | Pool % after), steps showing the arithmetic for the first round, bullets on what changes the founders' outcome most, and a callout on the option-pool shuffle.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Model it",
+   "loading": "Diluting…"
+  },
+  {
+   "id": "explain",
+   "title": "Explain equity to…",
+   "subtitle": "Candidate, employee, team or co-founder",
+   "emoji": "🗣️",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Explain to",
+     "type": "chips",
+     "options": [
+      "A candidate",
+      "A new employee",
+      "The whole team",
+      "A co-founder"
+     ],
+     "default": "A candidate"
+    },
+    {
+     "key": "offer",
+     "label": "The offer or situation",
+     "type": "text",
+     "placeholder": "0.3% over 4 years at an £8m valuation",
+     "required": true
+    }
+   ],
+   "prompt": "Explain {offer} to {who} in plain English. A quote with the explanation (under 200 words, every piece of jargon defined), a kv of the numbers they will care about (value today, value at 5x and 10x, what they keep if they leave at 18 months), bullets of the questions they should ask, and a callout on tax points that depend on the scheme and country.",
+   "shape": "quote, kv, bullets, callout",
+   "button": "Explain",
+   "loading": "Translating…"
+  },
+  {
+   "id": "founders",
+   "title": "Founder split",
+   "subtitle": "A fair split with vesting",
+   "emoji": "🤝",
+   "inputs": [
+    {
+     "key": "contribs",
+     "label": "Who brings what",
+     "type": "longtext",
+     "placeholder": "A: idea + 1 year full time + £20k; B: joining now as CTO, part-time for 6 months",
+     "required": true
+    }
+   ],
+   "prompt": "Propose a founder equity split for: {contribs}. Table (Founder | Contribution factors | Suggested % | Vesting), text explaining the reasoning, bullets on how to have the conversation, and a callout on why founder vesting protects everyone.",
+   "shape": "table, text, bullets, callout",
+   "button": "Propose split",
+   "loading": "Slicing…"
+  }
+ ],
+ "disclaimer": "Equity, vesting and tax information is simplified and general — not financial, tax or legal advice; consult a qualified adviser for your scheme and country."
+}

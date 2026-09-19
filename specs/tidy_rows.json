@@ -1,0 +1,169 @@
+{
+ "id": "tidy_rows",
+ "name": "Tidy Rows",
+ "tagline": "Messy exports into clean, trustworthy data",
+ "category": "Tools",
+ "colors": [
+  "#37474F",
+  "#FF7043",
+  "#26C6DA"
+ ],
+ "icon": "wrench",
+ "about": "Tidy Rows turns messy CSV exports into clean data: it diagnoses what's wrong, writes the cleaning recipe for your tool, designs validation rules and merges duplicate records without losing information.",
+ "persona": "You are a meticulous data-cleaning specialist: you never guess, you show before/after examples, and you flag every transformation that could silently lose information.",
+ "onboarding": {
+  "title": "Clean data, no regrets",
+  "subtitle": "Tell us where the mess comes from and what you clean it with.",
+  "bullets": [
+   "Diagnose messy columns instantly",
+   "Recipes for Sheets, Excel, pandas, SQL or Power Query",
+   "Dedupe rules that keep the right record"
+  ]
+ },
+ "profile": [
+  {
+   "key": "tool",
+   "label": "Cleaning tool",
+   "type": "chips",
+   "options": [
+    "Excel",
+    "Google Sheets",
+    "Python (pandas)",
+    "SQL",
+    "Power Query"
+   ],
+   "default": "Google Sheets"
+  },
+  {
+   "key": "sources",
+   "label": "Usual data sources",
+   "type": "text",
+   "placeholder": "Shopify export, HubSpot CSV, bank statements"
+  },
+  {
+   "key": "volume",
+   "label": "Typical size",
+   "type": "chips",
+   "options": [
+    "Under 1k rows",
+    "1k–100k rows",
+    "Over 100k rows"
+   ],
+   "default": "1k–100k rows"
+  }
+ ],
+ "tools": [
+  {
+   "id": "diagnose",
+   "title": "Diagnose my data",
+   "subtitle": "Paste a sample → every problem",
+   "emoji": "🩺",
+   "inputs": [
+    {
+     "key": "sample",
+     "label": "Paste 20–50 sample rows with headers",
+     "type": "longtext",
+     "placeholder": "name,email,signup_date,plan\nJohn  Smith,JOHN@x.com,3/4/24,pro…",
+     "required": true
+    }
+   ],
+   "prompt": "Diagnose the data quality of {sample}. Table 'Problems' (Column | Problem | Example value | Rows affected (est.) | Severity), a kv 'Detected formats' (dates, numbers, text case, encoding, delimiter, missing-value markers), a checklist of cleaning tasks ordered by impact, and a callout on anything that looks like a hidden data-loss risk (truncated IDs, dropped leading zeros, timezone shifts, Excel auto-dates).",
+   "shape": "table, kv, checklist, callout",
+   "button": "Diagnose",
+   "loading": "Inspecting cells…"
+  },
+  {
+   "id": "recipe",
+   "title": "Write the cleaning recipe",
+   "subtitle": "Steps, formulas or code for your tool",
+   "emoji": "🧪",
+   "inputs": [
+    {
+     "key": "problems",
+     "label": "What needs fixing",
+     "type": "longtext",
+     "placeholder": "mixed date formats, trailing spaces in names, 'N/A' in numeric columns",
+     "required": true
+    },
+    {
+     "key": "output",
+     "label": "Deliver as",
+     "type": "chips",
+     "options": [
+      "Step-by-step clicks",
+      "Formulas",
+      "Code"
+     ],
+     "default": "Formulas"
+    }
+   ],
+   "prompt": "Write a cleaning recipe for these problems: {problems}, delivered as {output} for the profile's tool and data volume. Steps in the order to run them (each step says what it changes and how to verify it), a quote containing the exact formulas or code, a table 'Before → After' (Problem | Example before | Example after), and a callout on the steps that are irreversible and must run on a copy.",
+   "shape": "steps, quote, table, callout",
+   "button": "Write recipe",
+   "loading": "Mixing formulas…"
+  },
+  {
+   "id": "dedupe",
+   "title": "Dedupe rules",
+   "subtitle": "Merge duplicates without losing data",
+   "emoji": "👥",
+   "inputs": [
+    {
+     "key": "entity",
+     "label": "What each row represents",
+     "type": "text",
+     "placeholder": "customers",
+     "required": true
+    },
+    {
+     "key": "fields",
+     "label": "Fields available",
+     "type": "text",
+     "placeholder": "name, email, phone, company, created_at",
+     "required": true
+    }
+   ],
+   "prompt": "Design a deduplication strategy for {entity} rows with fields {fields}. Table 'Match rules' (Rule | Fields compared | Normalisation applied | Confidence), kv 'Survivor rules' (which record wins, how each field is merged, what to keep from the losers), steps to run it in the profile's tool, and a callout on false-merge risks (shared emails, family members, franchises, test accounts).",
+   "shape": "table, kv, steps, callout",
+   "button": "Design rules",
+   "loading": "Matching pairs…"
+  },
+  {
+   "id": "validate",
+   "title": "Validation rules",
+   "subtitle": "Stop bad data at the door",
+   "emoji": "🛡️",
+   "inputs": [
+    {
+     "key": "schema",
+     "label": "Columns and what they should contain",
+     "type": "longtext",
+     "placeholder": "order_id: 8 digits; email: valid address; qty: 1–999; country: ISO-2 code",
+     "required": true
+    }
+   ],
+   "prompt": "Write validation rules for {schema}. Table 'Rules' (Column | Rule | Error message | Example value that fails), a quote with the data-validation formulas, regex or constraints for the profile's tool, a checklist of columns still lacking a rule, and bullets on handling rows that fail (quarantine sheet, alert, fix-forward).",
+   "shape": "table, quote, checklist, bullets",
+   "button": "Write rules",
+   "loading": "Building guards…"
+  },
+  {
+   "id": "photo",
+   "title": "Read a messy sheet",
+   "subtitle": "Photo → what to fix first",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo or screenshot of the data",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "From the photo, catalogue the visible data-quality problems as a table (Area | Problem | Fix), bullets on restructuring it into a tidy one-row-per-record layout with one value per cell, and steps for the first 15 minutes of clean-up.",
+   "shape": "table, bullets, steps",
+   "button": "Read sheet",
+   "loading": "Squinting…"
+  }
+ ]
+}

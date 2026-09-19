@@ -1,0 +1,196 @@
+{
+ "id": "raise_it",
+ "name": "Raise It",
+ "tagline": "Raise a workplace issue and be taken seriously",
+ "category": "Business",
+ "colors": [
+  "#D81B60",
+  "#1E88E5",
+  "#FFC107"
+ ],
+ "icon": "mic",
+ "about": "Raise It helps employees deal with unpaid wages, unfair treatment, harassment and broken promises at work: a dated timeline, a grievance letter, meeting prep, and a clear view of the options if nothing changes.",
+ "persona": "You are a steady employment-rights advocate: evidence-first, never inflammatory, aware that workplace rules differ by region, and clear about deadlines and when to get a lawyer or union rep.",
+ "onboarding": {
+  "title": "Speak up, on the record",
+  "subtitle": "Where you work shapes your rights; tell us a little.",
+  "bullets": [
+   "A timeline that becomes evidence",
+   "Grievance letters with the right tone",
+   "Meeting prep and next steps"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "region",
+   "label": "Country / state you work in",
+   "type": "text",
+   "placeholder": "Victoria, Australia"
+  },
+  {
+   "key": "status",
+   "label": "Employment status",
+   "type": "chips",
+   "options": [
+    "Employee",
+    "Contractor / gig",
+    "Agency / temp",
+    "Not sure"
+   ]
+  },
+  {
+   "key": "union",
+   "label": "Union member?",
+   "type": "chips",
+   "options": [
+    "Yes",
+    "No"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "timeline",
+   "title": "Build my timeline",
+   "subtitle": "Turn a messy story into evidence",
+   "emoji": "🕒",
+   "inputs": [
+    {
+     "key": "story",
+     "label": "What's been happening",
+     "type": "longtext",
+     "placeholder": "March: manager started excluding me from meetings; 4 Apr shouted at me in front of the team; overtime unpaid since Feb…",
+     "required": true
+    }
+   ],
+   "prompt": "From: {story} — produce a table (Date | What happened | Who saw it / evidence | Category: pay, bullying, discrimination, breach of contract), bullets of evidence to preserve now (emails, payslips, rotas, notes), a checklist of what to write down after each new incident, and a callout on keeping copies off work systems lawfully.",
+   "shape": "table, bullets, checklist, callout",
+   "button": "Build timeline",
+   "loading": "Ordering events…"
+  },
+  {
+   "id": "rights",
+   "title": "Is this allowed?",
+   "subtitle": "Pay, hours, leave, treatment",
+   "emoji": "📖",
+   "inputs": [
+    {
+     "key": "issue",
+     "label": "The issue",
+     "type": "longtext",
+     "placeholder": "Told to work 50 hours but paid for 38; no breaks on 10-hour shifts",
+     "required": true
+    },
+    {
+     "key": "area",
+     "label": "Area",
+     "type": "chips",
+     "options": [
+      "Pay / overtime",
+      "Hours / breaks",
+      "Leave / sick pay",
+      "Dismissal / discipline",
+      "Discrimination / harassment",
+      "Contract changes"
+     ],
+     "default": "Pay / overtime"
+    }
+   ],
+   "prompt": "Issue: {issue}. Area: {area}. Explain in text how this is generally treated under employment law in the profile region for the profile employment status, a kv (likely rule, common exceptions, time limit to act, who enforces it), a table (Option | Effort | Typical outcome) from informal chat to formal claim, and a callout on protection from retaliation.",
+   "shape": "text, kv, table, callout",
+   "button": "Explain",
+   "loading": "Checking the rules…"
+  },
+  {
+   "id": "grievance",
+   "title": "Grievance letter",
+   "subtitle": "Formal, factual, hard to dismiss",
+   "emoji": "✉️",
+   "inputs": [
+    {
+     "key": "facts",
+     "label": "The facts (dates, names)",
+     "type": "longtext",
+     "placeholder": "…",
+     "required": true
+    },
+    {
+     "key": "want",
+     "label": "What you want to happen",
+     "type": "text",
+     "placeholder": "back pay, a different line manager, an apology"
+    },
+    {
+     "key": "tone",
+     "label": "Tone",
+     "type": "chips",
+     "options": [
+      "Measured",
+      "Formal",
+      "Firm"
+     ],
+     "default": "Measured"
+    }
+   ],
+   "prompt": "Facts: {facts}. Outcome sought: {want}. Tone: {tone}. Write the grievance as a quote (heading 'Formal grievance', chronological facts, which policies or rights appear breached in general terms, impact on you, the resolution requested, a request for a meeting and a written response). Then bullets on what to attach and a callout on the usual process steps and timescales after a grievance is raised in the profile region.",
+   "shape": "quote, bullets, callout",
+   "button": "Write grievance",
+   "loading": "On the record…"
+  },
+  {
+   "id": "meeting",
+   "title": "Grievance or disciplinary meeting",
+   "subtitle": "Prepare, don't panic",
+   "emoji": "🎤",
+   "inputs": [
+    {
+     "key": "kind",
+     "label": "Meeting type",
+     "type": "chips",
+     "options": [
+      "Grievance meeting",
+      "Disciplinary hearing",
+      "Investigation interview",
+      "Performance review"
+     ],
+     "default": "Grievance meeting"
+    },
+    {
+     "key": "worry",
+     "label": "What you're worried they'll say",
+     "type": "text",
+     "placeholder": "that I'm the problem, that my numbers are down"
+    }
+   ],
+   "prompt": "Prepare for a {kind}; worry: {worry}. Give steps for before, during and after, a quote with a 45-second opening statement, a table (Likely question | Calm answer | Evidence to cite), bullets on the right to be accompanied and to see notes where those usually apply, and a callout on what not to sign in the room.",
+   "shape": "steps, quote, table, bullets, callout",
+   "button": "Prepare",
+   "loading": "Steadying nerves…"
+  },
+  {
+   "id": "next",
+   "title": "What if they do nothing?",
+   "subtitle": "Escalation options and deadlines",
+   "emoji": "➡️",
+   "inputs": [
+    {
+     "key": "outcome",
+     "label": "What happened after you raised it",
+     "type": "longtext",
+     "placeholder": "grievance rejected in two lines, no meeting held",
+     "required": true
+    }
+   ],
+   "prompt": "Outcome so far: {outcome}. Produce steps for escalation (appeal, external conciliation or agency, tribunal or court, union support), a table (Route | Deadline from trigger event | Cost | What it can award), and a callout on limitation periods that run from specific dates.",
+   "shape": "steps, table, callout",
+   "button": "Show options",
+   "loading": "Mapping routes…"
+  }
+ ],
+ "disclaimer": "General information only, not legal advice; rules differ by country and state and change over time — check official sources or a qualified professional before acting."
+}

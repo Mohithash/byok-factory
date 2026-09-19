@@ -1,0 +1,203 @@
+{
+ "id": "eighty_eight",
+ "name": "Eighty-Eight",
+ "tagline": "Piano practice that cracks the hard bars",
+ "category": "Music & Audio",
+ "colors": [
+  "#1A237E",
+  "#C2185B",
+  "#FBC02D"
+ ],
+ "icon": "star",
+ "about": "Eighty-Eight plans practice for the piece in front of you, untangles hard passages hands-separately, drills sight-reading and technique at the right tempo, and explains the theory hiding in your sheet music.",
+ "persona": "You are a conservatory-trained piano teacher who also plays in bars: rigorous about fingering and rhythm, relaxed about genre, and you break every hard bar into something playable in 5 minutes.",
+ "onboarding": {
+  "title": "Practise smarter, not longer",
+  "subtitle": "Tell us your piano, level and repertoire so every session fits.",
+  "bullets": [
+   "Sessions built around your piece",
+   "Hard passages made playable",
+   "Sight-reading & theory drills"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "level",
+   "label": "Level",
+   "type": "chips",
+   "options": [
+    "Beginner",
+    "Grade 1–3",
+    "Grade 4–6",
+    "Grade 7+",
+    "Self-taught adult"
+   ]
+  },
+  {
+   "key": "style",
+   "label": "Music you play",
+   "type": "chips",
+   "options": [
+    "Classical",
+    "Pop/rock",
+    "Jazz",
+    "Film & game music",
+    "Worship"
+   ],
+   "multi": true
+  },
+  {
+   "key": "instrument",
+   "label": "Instrument",
+   "type": "chips",
+   "options": [
+    "Acoustic piano",
+    "Digital 88-key",
+    "Keyboard under 88 keys"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "session",
+   "title": "Practice plan",
+   "subtitle": "Blocks, tempos and hands",
+   "emoji": "🎹",
+   "inputs": [
+    {
+     "key": "piece",
+     "label": "Piece",
+     "type": "text",
+     "placeholder": "Clair de Lune, first page",
+     "required": true
+    },
+    {
+     "key": "minutes",
+     "label": "Minutes",
+     "type": "chips",
+     "options": [
+      "20",
+      "30",
+      "45",
+      "60"
+     ],
+     "default": "30"
+    },
+    {
+     "key": "trouble",
+     "label": "Trouble spot",
+     "type": "text",
+     "placeholder": "bars 15–18, left hand"
+    }
+   ],
+   "prompt": "A {minutes}-minute practice plan for {piece} with trouble at {trouble}: table (Block | Minutes | What | Tempo | Hands), steps for attacking the trouble spot (hands separately, dotted rhythms, chaining, tempo ladder), and a callout on the tempo ceiling not to exceed today.",
+   "shape": "table, steps, callout",
+   "button": "Plan practice",
+   "loading": "Setting the tempo…"
+  },
+  {
+   "id": "passage",
+   "title": "Crack a passage",
+   "subtitle": "Photo or description → a 10-minute drill",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the bars (optional)",
+     "type": "photo"
+    },
+    {
+     "key": "desc",
+     "label": "Describe the passage",
+     "type": "text",
+     "placeholder": "fast run in the right hand over octave jumps in the left",
+     "required": true
+    }
+   ],
+   "prompt": "Using the photo if given and this description: {desc} — text on why it is hard (fingering, rhythm, coordination, hand position), steps for a 10-minute drill sequence with specific rhythms and groupings, a kv of fingering principles to apply, and bullets on tension signs to watch.",
+   "shape": "text, steps, kv, bullets",
+   "button": "Crack it",
+   "loading": "Slowing it down…"
+  },
+  {
+   "id": "sight",
+   "title": "Sight-reading drill",
+   "subtitle": "10 minutes a day that add up",
+   "emoji": "👀",
+   "inputs": [
+    {
+     "key": "focus",
+     "label": "Focus",
+     "type": "chips",
+     "options": [
+      "Rhythm",
+      "Notes on the staff",
+      "Both hands together",
+      "Key signatures",
+      "Chord symbols"
+     ],
+     "default": "Both hands together"
+    }
+   ],
+   "prompt": "A 10-minute daily sight-reading routine for {focus} at the profile level: steps (each a concrete mini-exercise doable at the keyboard with any beginner book), a checklist of the pre-read scan (key, time, range, repeated patterns), and a callout on the one habit that ruins sight-reading.",
+   "shape": "steps, checklist, callout",
+   "button": "Start drill",
+   "loading": "Turning the page…"
+  },
+  {
+   "id": "theory",
+   "title": "Explain this music",
+   "subtitle": "What is that chord and why is it there?",
+   "emoji": "🎼",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the score (optional)",
+     "type": "photo"
+    },
+    {
+     "key": "question",
+     "label": "Question",
+     "type": "text",
+     "placeholder": "what is the chord with the little circle and why is it here",
+     "required": true
+    }
+   ],
+   "prompt": "Answer '{question}' using the score photo if provided: text with the answer in plain language, a kv of the key terms involved, and steps to hear and play the concept at the keyboard in the next 2 minutes.",
+   "shape": "text, kv, steps",
+   "button": "Explain",
+   "loading": "Reading the score…"
+  },
+  {
+   "id": "technique",
+   "title": "Scales & technique",
+   "subtitle": "A 2-week technique block",
+   "emoji": "💪",
+   "inputs": [
+    {
+     "key": "goal",
+     "label": "Goal",
+     "type": "chips",
+     "options": [
+      "Faster scales",
+      "Even arpeggios",
+      "Legato",
+      "Dynamic control",
+      "Pedalling"
+     ],
+     "default": "Faster scales"
+    }
+   ],
+   "prompt": "A 2-week technique plan for {goal} for the profile: table (Day | Exercise | Keys | Tempo range | Minutes), bullets of form cues (wrist, arm weight, thumb), and a callout on pain vs fatigue with a stop rule.",
+   "shape": "table, bullets, callout",
+   "button": "Build block",
+   "loading": "Warming up…"
+  }
+ ],
+ "disclaimer": "Practice guidance only, not medical advice; stop for sharp or persistent pain and see a clinician."
+}

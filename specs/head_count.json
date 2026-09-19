@@ -1,0 +1,187 @@
+{
+ "id": "head_count",
+ "name": "Head Count",
+ "tagline": "Big group trips and weekends without the chaos",
+ "category": "Events",
+ "colors": [
+  "#00838F",
+  "#F4511E",
+  "#FFD54F"
+ ],
+ "icon": "bag",
+ "about": "Head Count organises big-group outings — hen and stag weekends, birthday trips, festival crews, group holidays — from date polling and deposit chasing to an itinerary with a budget per head and scripts for the tricky messages.",
+ "persona": "You are the friend who always ends up organising: decisive, budget-conscious, tactful with the flaky and the broke, and determined that the guest of honour has a great time.",
+ "onboarding": {
+  "title": "Wrangle the group",
+  "subtitle": "Tell us what you're organising and for whom.",
+  "bullets": [
+   "Date polls and deposit chasers",
+   "Itineraries with a budget per head",
+   "Scripts for the tricky messages"
+  ]
+ },
+ "profile": [
+  {
+   "key": "kind",
+   "label": "What is it",
+   "type": "chips",
+   "options": [
+    "Hen / bachelorette",
+    "Stag / bachelor",
+    "Birthday trip",
+    "Festival crew",
+    "Group holiday",
+    "Ski / activity weekend"
+   ]
+  },
+  {
+   "key": "honour",
+   "label": "Guest of honour & vibe",
+   "type": "text",
+   "placeholder": "Maya — loves food, hates clubs"
+  },
+  {
+   "key": "people",
+   "label": "Group size",
+   "type": "number",
+   "placeholder": "14"
+  },
+  {
+   "key": "budget",
+   "label": "Budget per head",
+   "type": "chips",
+   "options": [
+    "Under 150",
+    "150–300",
+    "300–600",
+    "600+"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "dates",
+   "title": "Lock the dates",
+   "subtitle": "A poll that actually closes",
+   "emoji": "📆",
+   "inputs": [
+    {
+     "key": "options",
+     "label": "Candidate dates",
+     "type": "text",
+     "placeholder": "3–5 May, 17–19 May, 7–9 June"
+    },
+    {
+     "key": "constraints",
+     "label": "Known constraints",
+     "type": "text",
+     "placeholder": "two people can't do June, bride prefers May"
+    }
+   ],
+   "prompt": "Options: {options}; constraints: {constraints}. Sections: a table scoring each option (Dates | Likely attendance | Cost signals | Risk), a quote with a poll message that forces a decision by a deadline, steps to close the decision within 5 days, and a callout on prioritising the guest of honour over perfect attendance.",
+   "shape": "table, quote, steps, callout",
+   "button": "Run the poll",
+   "loading": "Herding calendars…"
+  },
+  {
+   "id": "itinerary",
+   "title": "Plan the weekend",
+   "subtitle": "Day by day with cost per head",
+   "emoji": "🗺️",
+   "inputs": [
+    {
+     "key": "where",
+     "label": "Destination & dates",
+     "type": "text",
+     "placeholder": "Lisbon, Fri to Sun",
+     "required": true
+    },
+    {
+     "key": "musts",
+     "label": "Must-haves",
+     "type": "text",
+     "placeholder": "one big dinner, a boat, a chill morning"
+    }
+   ],
+   "prompt": "Plan {where} for the group with must-haves: {musts}, within the profile's budget per head. Sections: a table itinerary (Day | Time | Activity | Cost per head | Booking needed?), cards for 3 optional activities people can opt out of (meta = cost · energy), a checklist of what to book in what order with deposit timing, and a callout on pacing and rest for a group this size.",
+   "shape": "table, cards, checklist, callout",
+   "button": "Plan it",
+   "loading": "Packing…"
+  },
+  {
+   "id": "money",
+   "title": "Money & deposits",
+   "subtitle": "Who owes what, and the chaser",
+   "emoji": "💳",
+   "inputs": [
+    {
+     "key": "costs",
+     "label": "Costs so far",
+     "type": "longtext",
+     "placeholder": "villa 1,800, boat 420, dinner about 45pp, transfers 160",
+     "required": true
+    },
+    {
+     "key": "paid",
+     "label": "Who's paid",
+     "type": "text",
+     "placeholder": "9 of 14 paid the deposit; Jess says she might drop out"
+    }
+   ],
+   "prompt": "Costs: {costs}. Payments: {paid}. Sections: kv (total per head, deposit per head, final balance date, what happens if someone drops out), a table (Person | Paid | Owed | Nudge level), a quote with a clear, non-awkward chasing message, and a callout on protecting yourself from being left holding a booking.",
+   "shape": "kv, table, quote, callout",
+   "button": "Sort money",
+   "loading": "Splitting the bill…"
+  },
+  {
+   "id": "messages",
+   "title": "The tricky message",
+   "subtitle": "Say the hard thing kindly",
+   "emoji": "💬",
+   "inputs": [
+    {
+     "key": "situation",
+     "label": "Situation",
+     "type": "chips",
+     "options": [
+      "Someone can't afford it",
+      "Someone's dropping out late",
+      "Two people don't get along",
+      "The plan changed",
+      "Someone's being difficult",
+      "Uninviting someone"
+     ],
+     "default": "Someone can't afford it"
+    },
+    {
+     "key": "details",
+     "label": "Details",
+     "type": "text"
+    }
+   ],
+   "prompt": "Situation: {situation}. Details: {details}. Sections: text on what's really at stake, a quote with the message to send (kind, clear, under 120 words), a second quote with a version for the wider group if one is needed, and bullets on what not to say.",
+   "shape": "text, quote, bullets",
+   "button": "Write it",
+   "loading": "Choosing words…"
+  },
+  {
+   "id": "day",
+   "title": "Run-sheet & kit",
+   "subtitle": "The big day, minute by minute",
+   "emoji": "🎒",
+   "inputs": [
+    {
+     "key": "day",
+     "label": "The big day or night",
+     "type": "text",
+     "placeholder": "Saturday: brunch, boat 2pm, dinner 8pm, bar after"
+    }
+   ],
+   "prompt": "Build the run-sheet for: {day}. Sections: a table (Time | What | Meeting point | Who's leading), a checklist for the organiser's bag (chargers, cash, painkillers, decorations, booking confirmations), a quote with the morning briefing message for the group, and a callout on looking after people: water, a buddy system and knowing when someone has had too much.",
+   "shape": "table, checklist, quote, callout",
+   "button": "Build run-sheet",
+   "loading": "Setting alarms…"
+  }
+ ],
+ "disclaimer": "Look after each other: drink responsibly, follow local laws and never leave someone alone who is unwell; deposits and bookings are your own financial responsibility."
+}

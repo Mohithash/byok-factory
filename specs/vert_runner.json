@@ -1,0 +1,196 @@
+{
+ "id": "vert_runner",
+ "name": "Vert Runner",
+ "tagline": "Trail and mountain running, climb by climb",
+ "category": "Sports",
+ "colors": [
+  "#BF360C",
+  "#33691E",
+  "#FFD54F"
+ ],
+ "icon": "spark",
+ "about": "Vert Runner coaches trail and mountain running: course recon from an elevation profile, vert-focused training weeks, descending and power-hiking skills, and mandatory-kit checks before race day.",
+ "persona": "You are a mountain-running coach: precise about vertical gain, technical footwork and hiking uphill, respectful of the terrain, and never confusing road pace with trail pace.",
+ "onboarding": {
+  "title": "Train for the climbs, race the descents",
+  "subtitle": "Your terrain and weekly vert set the plan.",
+  "bullets": [
+   "Course recon from any elevation profile",
+   "Vert-focused weeks",
+   "Descending and power-hiking skills"
+  ]
+ },
+ "profile": [
+  {
+   "key": "level",
+   "label": "Level",
+   "type": "chips",
+   "options": [
+    "New to trails",
+    "Trail regular",
+    "Mountain races",
+    "Skyrunning"
+   ]
+  },
+  {
+   "key": "vert",
+   "label": "Weekly vert (m)",
+   "type": "number",
+   "placeholder": "800"
+  },
+  {
+   "key": "terrain",
+   "label": "Home terrain",
+   "type": "chips",
+   "options": [
+    "Forest trails",
+    "Fells/moorland",
+    "Alpine",
+    "Desert/rocky"
+   ]
+  },
+  {
+   "key": "race",
+   "label": "Next race",
+   "type": "text",
+   "placeholder": "Snowdonia 50K, 2,800 m, October"
+  }
+ ],
+ "tools": [
+  {
+   "id": "recon",
+   "title": "Course recon",
+   "subtitle": "Profile → pacing and effort plan",
+   "emoji": "🏔️",
+   "inputs": [
+    {
+     "key": "course",
+     "label": "Course description",
+     "type": "longtext",
+     "placeholder": "42 km, 2,600 m+; climb 1 at 5 km (700 m over 5 km), ridge to 18 km, technical descent 18–24 km, two aid stations…",
+     "required": true
+    },
+    {
+     "key": "goal",
+     "label": "Goal",
+     "type": "text",
+     "placeholder": "finish under 6h, not blow up on climb 2"
+    }
+   ],
+   "prompt": "Recon this course: {course} for goal: {goal} and the profile level. Table (Segment | km | Gain/Loss | Run / hike / mix | Effort | Time estimate), kv (finish estimate, hiking share, poles yes/no, biggest risk), bullets on where to eat and refill, and a callout on the segment that decides the race.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Recon course",
+   "loading": "Reading contours…"
+  },
+  {
+   "id": "week",
+   "title": "Vert-focused week",
+   "subtitle": "Build climbing legs",
+   "emoji": "📈",
+   "inputs": [
+    {
+     "key": "target",
+     "label": "Target vert this week (m)",
+     "type": "number",
+     "placeholder": "1500"
+    },
+    {
+     "key": "days",
+     "label": "Run days",
+     "type": "chips",
+     "options": [
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "default": "4"
+    },
+    {
+     "key": "access",
+     "label": "Hill access",
+     "type": "text",
+     "placeholder": "one 150 m hill nearby, stairs at work, treadmill at 15%"
+    }
+   ],
+   "prompt": "A week hitting {target} m vert on {days} days with: {access}. Table (Day | Session | Distance | Vert | Purpose), steps for the key hill session with reps and recoveries, bullets on getting vert when hills are small (treadmill, stairs, repeats), and a callout on the rate of vert increase that stays safe.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Build week",
+   "loading": "Stacking vert…"
+  },
+  {
+   "id": "skills",
+   "title": "Descending & hiking skills",
+   "subtitle": "Drills for technical terrain",
+   "emoji": "🦵",
+   "inputs": [
+    {
+     "key": "skill",
+     "label": "Work on",
+     "type": "chips",
+     "options": [
+      "Technical descending",
+      "Power hiking",
+      "Poles",
+      "Rocky footing",
+      "Mud & roots"
+     ],
+     "default": "Technical descending"
+    },
+    {
+     "key": "issue",
+     "label": "What goes wrong",
+     "type": "text",
+     "placeholder": "I brake constantly and my quads are shot by 30 km"
+    }
+   ],
+   "prompt": "Coach {skill} for: {issue}. Steps for 4 drills (where, reps, cue), bullets on body position and eye line, a table (Mistake | What it costs | Fix), and a quote with the one cue to say on the next descent.",
+   "shape": "steps, bullets, table, quote",
+   "button": "Coach me",
+   "loading": "Finding the line…"
+  },
+  {
+   "id": "kit",
+   "title": "Mandatory-kit check",
+   "subtitle": "Photo → race-ready or not",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of your kit laid out",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "rules",
+     "label": "Race kit rules",
+     "type": "text",
+     "placeholder": "waterproof jacket 10k mm, whistle, foil blanket, 1 L capacity, headtorch"
+    }
+   ],
+   "prompt": "Check the photo against: {rules}. Table (Required item | Seen | Meets spec? | Note), a checklist of what is missing or doubtful, kv (vest capacity needed, estimated weight, spare-battery note), and a callout on why organisers check taped seams and blankets.",
+   "shape": "table, checklist, kv, callout",
+   "button": "Check kit",
+   "loading": "Ticking boxes…"
+  },
+  {
+   "id": "raceweek",
+   "title": "Race-week plan",
+   "subtitle": "Taper, travel, start line",
+   "emoji": "🏁",
+   "inputs": [
+    {
+     "key": "logistics",
+     "label": "Race logistics",
+     "type": "text",
+     "placeholder": "5h drive Friday, camping, start 06:00, 12°C then 24°C"
+    }
+   ],
+   "prompt": "Race-week plan for the profile race with: {logistics}. Table (Day | Run | Other | Food/sleep note), a checklist for the night before including drop bags and poles, steps for the first 5 km start strategy, and a callout on heat and quad management for the second half.",
+   "shape": "table, checklist, steps, callout",
+   "button": "Plan race week",
+   "loading": "Tapering…"
+  }
+ ],
+ "disclaimer": "Mountain running carries real risk. Follow race rules, carry mandatory kit, and turn back in bad weather. Not medical advice."
+}

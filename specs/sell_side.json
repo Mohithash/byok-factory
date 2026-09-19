@@ -1,0 +1,180 @@
+{
+ "id": "sell_side",
+ "name": "Sell Side",
+ "tagline": "Price, stage and sell your home for the best price",
+ "category": "House & Home",
+ "colors": [
+  "#AD1457",
+  "#FFC107",
+  "#00897B"
+ ],
+ "icon": "star",
+ "about": "Sell Side helps homeowners price realistically from comparables, stage each room before the photos, write listing copy that gets viewings, choose an agent and weigh competing offers.",
+ "persona": "You are a seasoned listing agent turned coach: honest about what a home is really worth, precise about the cheap fixes that add thousands, and firm about what a buyer's offer actually means.",
+ "onboarding": {
+  "title": "Sell smarter, not slower",
+  "subtitle": "Tell us about the home and your timeline so the advice is specific.",
+  "bullets": [
+   "Pricing from real comparables",
+   "Room-by-room staging from photos",
+   "Listing copy, agent picks, offer maths"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "home",
+   "label": "The home",
+   "type": "text",
+   "placeholder": "3-bed semi, 1960s, garden, garage"
+  },
+  {
+   "key": "region",
+   "label": "City / region",
+   "type": "text"
+  },
+  {
+   "key": "timeline",
+   "label": "Need to sell within",
+   "type": "chips",
+   "options": [
+    "ASAP",
+    "3 months",
+    "6 months",
+    "No rush"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "price",
+   "title": "Price it",
+   "subtitle": "Comparables → asking price and range",
+   "emoji": "🏷️",
+   "inputs": [
+    {
+     "key": "comps",
+     "label": "Recent nearby sales / listings",
+     "type": "longtext",
+     "placeholder": "No.12: 3-bed sold 410k Apr; No.30: 3-bed listed 445k, 6 weeks…",
+     "required": true
+    },
+    {
+     "key": "condition",
+     "label": "Condition vs those",
+     "type": "text",
+     "placeholder": "newer kitchen, smaller garden"
+    }
+   ],
+   "prompt": "Price the profile's home using: {comps}. Condition versus those: {condition}. Produce a table (Comparable | Price | Adjustments | Adjusted value), a kv (suggested asking price, realistic sale range, price that guarantees a quick sale, price to test given the timeline), bullets on pricing psychology for this market, and a callout on the cost of overpricing and then reducing.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Price it",
+   "loading": "Comparing…"
+  },
+  {
+   "id": "stage",
+   "title": "Stage this room",
+   "subtitle": "Photo → fixes before the photographer",
+   "emoji": "🛋️",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the room",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "budget",
+     "label": "Budget for this room",
+     "type": "chips",
+     "options": [
+      "Nothing",
+      "Under 100",
+      "Under 500",
+      "Whatever it takes"
+     ],
+     "default": "Under 100"
+    }
+   ],
+   "prompt": "Critique the room in the photo for sale photos and viewings, budget {budget}. Produce bullets of what a buyer notices first (good and bad), a checklist of changes ranked by impact per cost within the budget, a table (Change | Cost | Time | Impact) for anything costing money, and a callout on what to do the morning the photographer arrives.",
+   "shape": "bullets, checklist, table, callout",
+   "button": "Stage it",
+   "loading": "Fluffing cushions…"
+  },
+  {
+   "id": "listing",
+   "title": "Write the listing",
+   "subtitle": "Headline, description, photo order",
+   "emoji": "✍️",
+   "inputs": [
+    {
+     "key": "features",
+     "label": "Features and quirks",
+     "type": "longtext",
+     "placeholder": "south-facing garden, new boiler 2024, near station, needs cosmetic work",
+     "required": true
+    },
+    {
+     "key": "buyer",
+     "label": "Likely buyer",
+     "type": "chips",
+     "options": [
+      "First-timers",
+      "Growing family",
+      "Downsizers",
+      "Investors",
+      "Commuters"
+     ],
+     "default": "Growing family"
+    }
+   ],
+   "prompt": "Write a listing for the profile's home aimed at {buyer} using: {features}. Produce a quote with a headline and a 150-word description, bullets of 8 key features in the order that buyer cares about, a kv (photo order 1–8 → what each shot shows), and a callout on claims to avoid or verify first.",
+   "shape": "quote, bullets, kv, callout",
+   "button": "Write it",
+   "loading": "Finding the words…"
+  },
+  {
+   "id": "agent",
+   "title": "Choose an agent",
+   "subtitle": "Fees, tie-ins, questions to ask",
+   "emoji": "🧑‍💼",
+   "inputs": [
+    {
+     "key": "options",
+     "label": "Agents you're considering",
+     "type": "longtext",
+     "placeholder": "A: 1.2% no tie-in; B: 0.9% 16-week tie-in; C: online, fixed 999 upfront",
+     "required": true
+    }
+   ],
+   "prompt": "Compare these options for the profile's home and timeline: {options}. Produce a table (Agent | Fee on likely price | Tie-in | Marketing | Risk), a checklist of 10 questions to ask at the valuation visit, bullets on contract terms to strike out or negotiate, and a callout on why the highest valuation is not the best pitch.",
+   "shape": "table, checklist, bullets, callout",
+   "button": "Compare agents",
+   "loading": "Sizing them up…"
+  },
+  {
+   "id": "offers",
+   "title": "Weigh the offers",
+   "subtitle": "Price vs certainty vs speed",
+   "emoji": "📨",
+   "inputs": [
+    {
+     "key": "offers",
+     "label": "The offers",
+     "type": "longtext",
+     "placeholder": "A: 402k, first-timer, mortgage agreed; B: 395k cash, wants 4-week completion; C: 410k, in a chain of 3",
+     "required": true
+    }
+   ],
+   "prompt": "Rank these offers for the profile's timeline: {offers}. Produce a table (Offer | Price | Certainty 1–5 | Speed | Net after risk), text explaining the recommended pick and the trade-off, a quote with a counter message to the runner-up inviting them to improve, and a callout on questions to verify each buyer's position before accepting.",
+   "shape": "table, text, quote, callout",
+   "button": "Rank offers",
+   "loading": "Weighing…"
+  }
+ ],
+ "disclaimer": "General information, not financial or mortgage advice; rates, rules and taxes vary by country and lender — confirm figures with a regulated adviser before acting."
+}

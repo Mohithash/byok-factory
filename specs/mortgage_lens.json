@@ -1,0 +1,196 @@
+{
+ "id": "mortgage_lens",
+ "name": "Mortgage Lens",
+ "tagline": "See the real cost of any mortgage before you sign",
+ "category": "Finance",
+ "colors": [
+  "#004D40",
+  "#FF6F00",
+  "#5C6BC0"
+ ],
+ "icon": "graph",
+ "about": "Mortgage Lens compares mortgage offers on total cost, runs overpayment and stress-test scenarios, times your remortgage and translates every term on the paperwork into plain English.",
+ "persona": "You are a mortgage-literate money coach: you show the maths in tables, name assumptions out loud, favour flexibility over headline rates, and never recommend a specific lender.",
+ "onboarding": {
+  "title": "Know the number, not just the rate",
+  "subtitle": "Your loan details make every calculation specific.",
+  "bullets": [
+   "Offers compared on true cost",
+   "Overpayment and stress-test maths",
+   "Remortgage timing and jargon decoded"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "region",
+   "label": "Country",
+   "type": "text",
+   "placeholder": "UK, Canada, Australia…"
+  },
+  {
+   "key": "balance",
+   "label": "Loan amount / balance",
+   "type": "number",
+   "placeholder": "240000"
+  },
+  {
+   "key": "term",
+   "label": "Years remaining",
+   "type": "number",
+   "placeholder": "28"
+  }
+ ],
+ "tools": [
+  {
+   "id": "compare",
+   "title": "Compare offers",
+   "subtitle": "Paste 2–3 offers, see total cost",
+   "emoji": "⚖️",
+   "inputs": [
+    {
+     "key": "offers",
+     "label": "Paste 2–3 offers",
+     "type": "longtext",
+     "placeholder": "A: 4.6% fixed 2y, fee 999, then 7.2% SVR; B: 4.9% fixed 5y, no fee…",
+     "required": true
+    },
+    {
+     "key": "stay",
+     "label": "How long you'll keep it",
+     "type": "chips",
+     "options": [
+      "2 years",
+      "5 years",
+      "10 years+"
+     ],
+     "default": "5 years"
+    }
+   ],
+   "prompt": "Compare these mortgage offers over a {stay} horizon for the profile's loan and term: {offers}. Produce a table (Offer | Rate & type | Fees | Monthly | Total paid over horizon | Balance at end | Flexibility) with amounts, text explaining which wins, by how much, and under what assumption it flips, bullets of the questions to ask each lender, and a callout listing every assumption made.",
+   "shape": "table, text, bullets, callout",
+   "button": "Compare",
+   "loading": "Lining them up…"
+  },
+  {
+   "id": "overpay",
+   "title": "Overpayment maths",
+   "subtitle": "Interest saved, years cut",
+   "emoji": "✂️",
+   "inputs": [
+    {
+     "key": "rate",
+     "label": "Current rate %",
+     "type": "number",
+     "placeholder": "4.8"
+    },
+    {
+     "key": "extra",
+     "label": "Extra per month",
+     "type": "number",
+     "placeholder": "200"
+    },
+    {
+     "key": "lump",
+     "label": "One-off lump sum",
+     "type": "number",
+     "placeholder": "5000"
+    }
+   ],
+   "prompt": "Balance and term from the profile at {rate}% with {extra} extra per month and a {lump} lump sum. Produce a kv (interest saved, years cut, new end date, monthly at the end vs now), a table (Strategy | Interest saved | Term cut | Liquidity kept) comparing monthly overpaying, the lump sum, both, and reducing the term instead, bullets on overpayment limits and penalties to check, and a callout on when clearing higher-rate debt or building an emergency fund should come first.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Calculate",
+   "loading": "Shaving years…"
+  },
+  {
+   "id": "stress",
+   "title": "Fixed or variable?",
+   "subtitle": "Rate paths for your risk tolerance",
+   "emoji": "🌡️",
+   "inputs": [
+    {
+     "key": "fixed",
+     "label": "Fixed rate offered %",
+     "type": "number",
+     "placeholder": "4.7"
+    },
+    {
+     "key": "variable",
+     "label": "Variable / tracker rate %",
+     "type": "number",
+     "placeholder": "4.2"
+    },
+    {
+     "key": "risk",
+     "label": "If payments jumped 30% you would",
+     "type": "chips",
+     "options": [
+      "Be fine",
+      "Tighten up",
+      "Struggle"
+     ],
+     "default": "Tighten up"
+    }
+   ],
+   "prompt": "Fixed {fixed}% vs variable {variable}% on the profile's loan; a 30% payment jump would mean the user would {risk}. Produce a table (Scenario | Rate path | Monthly yr1 | Monthly yr3 | Total 5y) with rates falling 1 point, flat, up 1 point and up 2.5 points, text giving a verdict for this risk tolerance, bullets on hybrid options (part fix, shorter fix, offset), and a callout on the break costs if you change your mind.",
+   "shape": "table, text, bullets, callout",
+   "button": "Stress test",
+   "loading": "Shaking the numbers…"
+  },
+  {
+   "id": "remortgage",
+   "title": "Remortgage timing",
+   "subtitle": "From deal end to switch",
+   "emoji": "📅",
+   "inputs": [
+    {
+     "key": "ends",
+     "label": "Current deal ends",
+     "type": "text",
+     "placeholder": "14 March 2027",
+     "required": true
+    },
+    {
+     "key": "current",
+     "label": "Current rate %",
+     "type": "number",
+     "placeholder": "2.1"
+    },
+    {
+     "key": "revert",
+     "label": "Reversion / standard rate %",
+     "type": "number",
+     "placeholder": "7.4"
+    }
+   ],
+   "prompt": "Deal ends {ends}, current rate {current}%, reverting to {revert}%. Produce a table (When | Action | Why) running from 6 months before the end date to the switch, a kv (monthly now, monthly on reversion, cost of each month on reversion, break-even months on a product fee), a checklist of documents lenders ask for, and a callout on locking a rate early and switching if rates fall.",
+   "shape": "table, kv, checklist, callout",
+   "button": "Plan the switch",
+   "loading": "Eyeing the calendar…"
+  },
+  {
+   "id": "jargon",
+   "title": "Decode the paperwork",
+   "subtitle": "ERC, APRC, LTV… in plain English",
+   "emoji": "📄",
+   "inputs": [
+    {
+     "key": "text",
+     "label": "Paste the term or paragraph",
+     "type": "longtext",
+     "placeholder": "The ERC is 3% in year one… APRC 6.9%…",
+     "required": true
+    }
+   ],
+   "prompt": "Explain this mortgage text in plain English: {text}. Produce a kv (each term → one-line meaning), text on what it means for this borrower's money in practice, bullets of what to ask or negotiate, and a callout flagging anything unusual or costly.",
+   "shape": "kv, text, bullets, callout",
+   "button": "Translate",
+   "loading": "Untangling…"
+  }
+ ],
+ "disclaimer": "General information, not financial or mortgage advice; rates, rules and taxes vary by country and lender — confirm figures with a regulated adviser before acting."
+}

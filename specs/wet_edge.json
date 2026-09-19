@@ -1,0 +1,217 @@
+{
+ "id": "wet_edge",
+ "name": "Wet Edge",
+ "tagline": "Watercolour plans, mixes and rescues, wash by wash",
+ "category": "Art & Design",
+ "colors": [
+  "#0277BD",
+  "#EC407A",
+  "#FDD835"
+ ],
+ "icon": "drop",
+ "about": "Wet Edge is a watercolour coach: it plans paintings wash by wash, builds limited palettes from the tubes you own, mixes any colour you describe, and diagnoses blooms, mud and buckled paper from a photo.",
+ "persona": "You are a plein-air watercolourist and teacher: patient about timing and water control, honest about mud, and you always say which wash comes first and when to stop.",
+ "onboarding": {
+  "title": "Paint light, not paper",
+  "subtitle": "List your paints and paper; every plan uses what you actually have.",
+  "bullets": [
+   "Wash-by-wash painting plans",
+   "Mixing recipes from your own tubes",
+   "Fix blooms, mud and buckling"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "paints",
+   "label": "Paints you own",
+   "type": "text",
+   "placeholder": "ultramarine, burnt sienna, quin rose, lemon yellow"
+  },
+  {
+   "key": "paper",
+   "label": "Paper",
+   "type": "chips",
+   "options": [
+    "Cellulose 300gsm",
+    "Cotton 300gsm",
+    "Sketchbook",
+    "Not sure"
+   ]
+  },
+  {
+   "key": "level",
+   "label": "Level",
+   "type": "chips",
+   "options": [
+    "Beginner",
+    "Some practice",
+    "Confident"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "plan",
+   "title": "Plan a painting",
+   "subtitle": "Every wash, in order, with drying times",
+   "emoji": "🎨",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Reference photo (optional)",
+     "type": "photo"
+    },
+    {
+     "key": "subject",
+     "label": "Subject",
+     "type": "text",
+     "placeholder": "a harbour at dusk",
+     "required": true
+    },
+    {
+     "key": "size",
+     "label": "Size",
+     "type": "chips",
+     "options": [
+      "A5",
+      "A4",
+      "A3",
+      "Quarter sheet"
+     ],
+     "default": "A4"
+    }
+   ],
+   "prompt": "Plan a watercolour of {subject} (use the photo if provided) at {size} on the profile paper: steps for each wash in order (what to reserve or mask, wetness of the paper, colours mixed from the profile paints, drying time before the next wash), a kv of the value plan (lightest light, darkest dark, mid-tones, focal point), and a callout on the moment to stop.",
+   "shape": "steps, kv, callout",
+   "button": "Plan washes",
+   "loading": "Stretching paper…"
+  },
+  {
+   "id": "mix",
+   "title": "Mix this colour",
+   "subtitle": "Recipes from your own paints",
+   "emoji": "🧪",
+   "inputs": [
+    {
+     "key": "colour",
+     "label": "Colour you want",
+     "type": "text",
+     "placeholder": "warm shadow on a white wall",
+     "required": true
+    },
+    {
+     "key": "use",
+     "label": "For",
+     "type": "chips",
+     "options": [
+      "Wash",
+      "Glaze",
+      "Dark accent",
+      "Skin",
+      "Foliage",
+      "Sky"
+     ],
+     "default": "Wash"
+    }
+   ],
+   "prompt": "From the profile paints, give 3 recipes to mix '{colour}' for a {use}: table (Recipe | Pigments & ratio | Water load | Granulation & temperature notes), bullets on how each will look wet vs dry, and a callout on which combination would turn to mud.",
+   "shape": "table, bullets, callout",
+   "button": "Mix it",
+   "loading": "Swirling the brush…"
+  },
+  {
+   "id": "rescue",
+   "title": "Diagnose a problem",
+   "subtitle": "Photo → cause, rescue, prevention",
+   "emoji": "🩹",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the painting",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "issue",
+     "label": "Problem",
+     "type": "chips",
+     "options": [
+      "Bloom/cauliflower",
+      "Muddy colour",
+      "Hard edges",
+      "Buckled paper",
+      "Looks flat",
+      "Not sure"
+     ],
+     "default": "Not sure"
+    }
+   ],
+   "prompt": "Look at the painting photo; reported problem: {issue}. Sections: text naming the cause (water, timing, pigment or paper), steps to rescue this painting if possible (lifting, glazing, cropping), a table (Symptom | Cause | Prevent next time), and a quote with the one rule to remember.",
+   "shape": "text, steps, table, quote",
+   "button": "Diagnose",
+   "loading": "Checking the wash…"
+  },
+  {
+   "id": "palette",
+   "title": "Limited palette",
+   "subtitle": "Fewer tubes, cleaner mixes",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "theme",
+     "label": "Mostly painting",
+     "type": "chips",
+     "options": [
+      "Landscapes",
+      "Portraits",
+      "Urban sketching",
+      "Florals",
+      "Seascapes"
+     ],
+     "default": "Landscapes"
+    },
+    {
+     "key": "count",
+     "label": "Number of colours",
+     "type": "number",
+     "placeholder": "6"
+    }
+   ],
+   "prompt": "Build a {count}-colour limited palette for {theme}, preferring paints the user already owns and naming exact pigment codes for any gaps: table (Colour | Pigment code | Role | Mixes well with), bullets of the key mixes (greens, greys, darks), and a callout on what NOT to buy yet.",
+   "shape": "table, bullets, callout",
+   "button": "Build palette",
+   "loading": "Squeezing tubes…"
+  },
+  {
+   "id": "exercise",
+   "title": "10-minute exercise",
+   "subtitle": "One technique, done properly",
+   "emoji": "⏱️",
+   "inputs": [
+    {
+     "key": "skill",
+     "label": "Technique",
+     "type": "chips",
+     "options": [
+      "Flat wash",
+      "Graded wash",
+      "Wet-in-wet",
+      "Dry brush",
+      "Edges",
+      "Glazing"
+     ],
+     "default": "Graded wash"
+    }
+   ],
+   "prompt": "A 10-minute {skill} exercise for the profile level and paper: steps with the exact water/pigment load and timing, a checklist of what a successful result shows, and bullets on the 3 ways it usually goes wrong.",
+   "shape": "steps, checklist, bullets",
+   "button": "Start",
+   "loading": "Wetting the brush…"
+  }
+ ]
+}

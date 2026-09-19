@@ -1,0 +1,217 @@
+{
+ "id": "hard_news",
+ "name": "Hard News",
+ "tagline": "Deliver layoffs and reorgs like a human",
+ "category": "Business",
+ "colors": [
+  "#263238",
+  "#EF6C00",
+  "#42A5F5"
+ ],
+ "icon": "shield",
+ "about": "Hard News gets managers through the announcements nobody wants to make — layoffs, reorgs, cancelled projects, pay freezes, leaders leaving — with honest scripts, question prep and a plan for the people who stay.",
+ "persona": "You are a crisis-communications-minded leadership coach: clear over comforting, never corporate-speak, and insistent that the people who remain are watching how you treat the people who leave.",
+ "onboarding": {
+  "title": "Deliver hard news like a human",
+  "subtitle": "Your role and constraints shape what you can say.",
+  "bullets": [
+   "Scripts for layoff conversations",
+   "Team announcements without spin",
+   "Plans for the people who stay"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "role",
+   "label": "Your role",
+   "type": "chips",
+   "options": [
+    "Team lead",
+    "Manager of managers",
+    "Director+",
+    "Founder"
+   ],
+   "default": "Team lead"
+  },
+  {
+   "key": "size",
+   "label": "People in your org",
+   "type": "number",
+   "placeholder": "12"
+  },
+  {
+   "key": "region",
+   "label": "Region",
+   "type": "chips",
+   "options": [
+    "US",
+    "UK / EU",
+    "Other"
+   ],
+   "default": "US"
+  }
+ ],
+ "tools": [
+  {
+   "id": "announce",
+   "title": "Announce a change",
+   "subtitle": "Decision, why, what changes, what's next",
+   "emoji": "📣",
+   "inputs": [
+    {
+     "key": "kind",
+     "label": "Change",
+     "type": "chips",
+     "options": [
+      "Layoffs",
+      "Reorg",
+      "Project cancelled",
+      "Pay or hiring freeze",
+      "Leader leaving",
+      "Return to office"
+     ],
+     "default": "Reorg"
+    },
+    {
+     "key": "facts",
+     "label": "Facts you can share",
+     "type": "longtext",
+     "placeholder": "two teams merge under Dana; no job losses; new reporting lines Monday",
+     "required": true
+    },
+    {
+     "key": "cant",
+     "label": "What you can't say yet",
+     "type": "longtext",
+     "placeholder": "budget cut of 15% next year; possible second round"
+    }
+   ],
+   "prompt": "Write the team announcement for '{kind}' with these shareable facts: {facts} and things not yet shareable: {cant}. Quote with a spoken announcement under 200 words (decision, why, what changes for them, what doesn't, what happens next, how to raise questions), bullets of 6 phrases to avoid because they sound like spin, a table (Likely question | Honest answer | If you can't answer) for 6 questions, and a callout on handling what you can't say without lying.",
+   "shape": "quote, bullets, table, callout",
+   "button": "Write it",
+   "loading": "Cutting the spin…"
+  },
+  {
+   "id": "layoff",
+   "title": "The layoff conversation",
+   "subtitle": "Fifteen minutes with dignity",
+   "emoji": "🪑",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Who",
+     "type": "text",
+     "placeholder": "Chris, 6 years, two kids",
+     "required": true
+    },
+    {
+     "key": "terms",
+     "label": "Terms you can share",
+     "type": "text",
+     "placeholder": "8 weeks severance, health cover to March, HR call after",
+     "required": true
+    },
+    {
+     "key": "your",
+     "label": "You feel",
+     "type": "chips",
+     "options": [
+      "Guilty",
+      "Numb",
+      "Angry at leadership",
+      "Relieved it's not me",
+      "Steady"
+     ],
+     "default": "Guilty"
+    }
+   ],
+   "prompt": "Script the individual notification for {who} with terms {terms}, where you feel {your}. Steps for the 15 minutes (decision in the first 30 seconds, no debate, logistics, dignity), a quote with the exact first four sentences, a table (If they say | You say) for anger, tears, bargaining, silence and 'why me', a checklist of what must happen in the hour after, and a callout on what you must not say or promise in the profile's region.",
+   "shape": "steps, quote, table, checklist, callout",
+   "button": "Script it",
+   "loading": "Steadying…"
+  },
+  {
+   "id": "survivors",
+   "title": "The team that stays",
+   "subtitle": "The first two weeks after",
+   "emoji": "🌦️",
+   "inputs": [
+    {
+     "key": "situation",
+     "label": "What happened",
+     "type": "longtext",
+     "placeholder": "3 of 12 laid off Tuesday; the rest are scared and angry; two asked about job security",
+     "required": true
+    }
+   ],
+   "prompt": "Plan the first two weeks for the remaining team after: {situation}. Steps day by day for the first 3 days then weekly, a quote with a team-meeting opening that acknowledges the loss without selling it as an opportunity, bullets of what each remaining person needs to hear in 1:1s, a table (Fear | What you can say honestly | What you can do), and a callout on manager self-care so you can keep showing up.",
+   "shape": "steps, quote, bullets, table, callout",
+   "button": "Plan it",
+   "loading": "Holding the team…"
+  },
+  {
+   "id": "faq",
+   "title": "Prep the tough questions",
+   "subtitle": "Including the hostile ones",
+   "emoji": "🎤",
+   "inputs": [
+    {
+     "key": "kind",
+     "label": "About",
+     "type": "chips",
+     "options": [
+      "Layoffs",
+      "Reorg",
+      "Project cancelled",
+      "Pay freeze",
+      "Leader leaving",
+      "Strategy shift"
+     ],
+     "default": "Layoffs"
+    },
+    {
+     "key": "context",
+     "label": "Context",
+     "type": "longtext",
+     "placeholder": "company missed targets; leadership got bonuses last year; rumours of a sale",
+     "required": true
+    }
+   ],
+   "prompt": "Prepare for the hardest questions about '{kind}' given: {context}. Table (Question — including the hostile ones | Honest answer | Don't say) for 10 questions, bullets on how to say 'I don't know' and 'I can't share that' credibly, a quote with a response to the most personal accusation likely, and a callout on what to escalate to leadership before the meeting.",
+   "shape": "table, bullets, quote, callout",
+   "button": "Prep me",
+   "loading": "Bracing…"
+  },
+  {
+   "id": "transition",
+   "title": "Reorg transition plan",
+   "subtitle": "Everything that breaks when lines move",
+   "emoji": "🔀",
+   "inputs": [
+    {
+     "key": "change",
+     "label": "The reorg",
+     "type": "longtext",
+     "placeholder": "support team splits into tier 1 and tier 2; Sam moves to tier 2 lead; two people change managers",
+     "required": true
+    },
+    {
+     "key": "date",
+     "label": "Effective date",
+     "type": "text",
+     "placeholder": "1 Nov"
+    }
+   ],
+   "prompt": "Build a transition plan for: {change}, effective {date}. Table (Week | Communication | Decisions needed | Owner) for the 4 weeks around the date, a checklist of everything that breaks in a reorg (access, on-call, 1:1s, goals, reviews in progress), bullets of the people most affected with a first conversation for each, and a callout on the ambiguity that will linger and how to name it.",
+   "shape": "table, checklist, bullets, callout",
+   "button": "Build plan",
+   "loading": "Redrawing lines…"
+  }
+ ],
+ "disclaimer": "Not legal advice. Redundancy, notice and consultation rules vary by jurisdiction; coordinate every termination or restructure with HR and legal counsel."
+}

@@ -1,0 +1,206 @@
+{
+ "id": "survey_smith",
+ "name": "Survey Smith",
+ "tagline": "Surveys people finish and answers you can trust",
+ "category": "Business",
+ "colors": [
+  "#6A1B9A",
+  "#FFA000",
+  "#00ACC1"
+ ],
+ "icon": "note",
+ "about": "Survey Smith writes questionnaires from your research goal, rewrites leading or confusing questions, sizes your sample, themes open-ended answers and drafts invitations that lift response rates.",
+ "persona": "You are a survey methodologist: obsessed with unbiased wording, short questionnaires and honest interpretation; you say plainly when a survey is the wrong tool.",
+ "onboarding": {
+  "title": "Ask better questions",
+  "subtitle": "Tell us who you survey and where you run it.",
+  "bullets": [
+   "Questionnaires from goals in minutes",
+   "Bias-free rewrites of your questions",
+   "Themes and quotes from open answers"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "platform",
+   "label": "Survey platform",
+   "type": "chips",
+   "options": [
+    "Google Forms",
+    "Typeform",
+    "SurveyMonkey",
+    "Qualtrics",
+    "Microsoft Forms",
+    "Other"
+   ],
+   "default": "Google Forms"
+  },
+  {
+   "key": "audience",
+   "label": "Usual respondents",
+   "type": "chips",
+   "options": [
+    "Customers",
+    "Employees",
+    "Students",
+    "General public",
+    "Event attendees"
+   ],
+   "default": "Customers"
+  }
+ ],
+ "tools": [
+  {
+   "id": "write",
+   "title": "Write my survey",
+   "subtitle": "Goal → full questionnaire",
+   "emoji": "📝",
+   "inputs": [
+    {
+     "key": "goal",
+     "label": "What decision will this survey inform?",
+     "type": "longtext",
+     "placeholder": "whether to launch a premium tier and at what price",
+     "required": true
+    },
+    {
+     "key": "minutes",
+     "label": "Max minutes to complete",
+     "type": "number",
+     "placeholder": "5"
+    },
+    {
+     "key": "type",
+     "label": "Survey type",
+     "type": "chips",
+     "options": [
+      "Customer feedback",
+      "Market research",
+      "Employee pulse",
+      "Event feedback",
+      "Academic"
+     ],
+     "default": "Customer feedback"
+    }
+   ],
+   "prompt": "Write a {type} survey for the goal '{goal}' that takes at most {minutes} minutes for the profile's respondents. Table 'Questions' (# | Question | Type (single/multi/scale/open) | Options or scale | Required), steps for the flow (screening, warm-up, core, demographics), a quote with the intro text and the thank-you text, and a callout on questions deliberately left out because they would bias or lengthen it.",
+   "shape": "table, steps, quote, callout",
+   "button": "Write survey",
+   "loading": "Drafting items…"
+  },
+  {
+   "id": "fix",
+   "title": "Fix my questions",
+   "subtitle": "Paste questions → bias removed",
+   "emoji": "🔧",
+   "inputs": [
+    {
+     "key": "questions",
+     "label": "Paste your questions",
+     "type": "longtext",
+     "placeholder": "1. How much did you love our fast new checkout?\n2. Do you agree our prices are fair and reasonable?",
+     "required": true
+    }
+   ],
+   "prompt": "Review these survey questions: {questions}. Table 'Review' (Question | Problem (leading / double-barrelled / vague / loaded / scale issue) | Rewrite), bullets on ordering and scale consistency, a checklist for a pre-launch test with 5 people, and a callout on the question most likely to produce useless data.",
+   "shape": "table, bullets, checklist, callout",
+   "button": "Fix questions",
+   "loading": "De-biasing…"
+  },
+  {
+   "id": "sample",
+   "title": "How many responses?",
+   "subtitle": "Margin of error made simple",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "population",
+     "label": "Population size",
+     "type": "number",
+     "placeholder": "5000"
+    },
+    {
+     "key": "margin",
+     "label": "Margin of error wanted",
+     "type": "chips",
+     "options": [
+      "±3%",
+      "±5%",
+      "±10%"
+     ],
+     "default": "±5%"
+    },
+    {
+     "key": "rate",
+     "label": "Expected response rate %",
+     "type": "number",
+     "placeholder": "15"
+    }
+   ],
+   "prompt": "For a population of {population}, a target of {margin} at 95% confidence and an expected response rate of {rate}%: kv (responses needed, invitations to send, minimum per subgroup, confidence level), a table 'Trade-offs' (Margin | Responses needed | Invitations) for ±3, ±5 and ±10, bullets on reducing non-response bias, and a callout on what the margin of error does and does not mean.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Calculate",
+   "loading": "Sizing sample…"
+  },
+  {
+   "id": "themes",
+   "title": "Theme open answers",
+   "subtitle": "Paste responses → themes and quotes",
+   "emoji": "🧵",
+   "inputs": [
+    {
+     "key": "responses",
+     "label": "Paste open-ended responses (one per line)",
+     "type": "longtext",
+     "placeholder": "Checkout was confusing\nLove the app but too pricey…",
+     "required": true
+    },
+    {
+     "key": "question",
+     "label": "The question they answered",
+     "type": "text",
+     "placeholder": "What would make you use us more?"
+    }
+   ],
+   "prompt": "Code the open-ended responses to '{question}': {responses}. Table 'Themes' (Theme | Count | % | Sentiment | Representative quote), bullets of surprising or minority themes worth attention, a quote block with the 5 most usable verbatims, and a callout on how representative these themes are given the number of responses.",
+   "shape": "table, bullets, quote, callout",
+   "button": "Find themes",
+   "loading": "Reading answers…"
+  },
+  {
+   "id": "invite",
+   "title": "Invitation & reminders",
+   "subtitle": "Messages that lift response rate",
+   "emoji": "📨",
+   "inputs": [
+    {
+     "key": "incentive",
+     "label": "Incentive (if any)",
+     "type": "text",
+     "placeholder": "£10 voucher prize draw"
+    },
+    {
+     "key": "channel",
+     "label": "Channel",
+     "type": "chips",
+     "options": [
+      "Email",
+      "In-app",
+      "SMS",
+      "Slack/Teams"
+     ],
+     "default": "Email"
+    }
+   ],
+   "prompt": "Write the {channel} invitation and two reminders for the profile's respondents, incentive: {incentive}. Quote for each message (subject line and body under 90 words), a table 'Schedule' (Message | Send day | Send time | Who receives it), bullets of subject-line variants to test, and a callout on consent, anonymity and opt-out wording.",
+   "shape": "quote, table, bullets, callout",
+   "button": "Write invites",
+   "loading": "Polishing…"
+  }
+ ]
+}

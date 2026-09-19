@@ -189,7 +189,7 @@
      "placeholder": "22"
     },
     {
-     "key": "temp",
+     "key": "conditions",
      "label": "Conditions",
      "type": "text",
      "placeholder": "hot, exposed, sources every 8 km"
@@ -201,7 +201,7 @@
      "placeholder": "2"
     }
    ],
-   "prompt": "For {km} km in {temp} with {hot} hot meals on the profile's stove: kv (litres to carry between sources, litres to cook with, fuel grams for the day, boil count), a table (Segment | Carry litres | Refill?), and a callout on treating every source and heat-exhaustion warning signs.",
+   "prompt": "For {km} km in conditions: {conditions}, with {hot} hot meals on the profile's stove: kv (litres to carry between sources, litres to cook with, fuel grams for the day, boil count), a table (Segment | Carry litres | Refill?), and a callout on treating every source and heat-exhaustion warning signs.",
    "shape": "kv, table, callout",
    "button": "Calculate",
    "loading": "Counting litres…"

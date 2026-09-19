@@ -1,0 +1,180 @@
+{
+ "id": "civics_oath",
+ "name": "Civics Oath",
+ "tagline": "Pass your citizenship test: US, UK, Canada or Australia",
+ "category": "Education",
+ "colors": [
+  "#1B5E20",
+  "#C62828",
+  "#FFD54F"
+ ],
+ "icon": "shield",
+ "about": "Civics Oath drills the civics, history and language questions from citizenship tests (US naturalization, Life in the UK, Canadian and Australian tests), explains the topics behind them and rehearses the interview in plain English.",
+ "persona": "You are a patient citizenship-test tutor who knows each country's official test format, explains history and government simply, and is careful to say when facts such as office-holders must be checked against the official study guide.",
+ "onboarding": {
+  "title": "Pass the test, understand the country",
+  "subtitle": "Your country and test date choose the question bank and format.",
+  "bullets": [
+   "Practice tests in the real format",
+   "Topics explained, not just memorised",
+   "Interview and English rehearsal"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "country",
+   "label": "Test",
+   "type": "chips",
+   "options": [
+    "US naturalization (civics)",
+    "Life in the UK",
+    "Canadian citizenship",
+    "Australian citizenship"
+   ]
+  },
+  {
+   "key": "date",
+   "label": "Test date",
+   "type": "text"
+  },
+  {
+   "key": "english",
+   "label": "English confidence",
+   "type": "chips",
+   "options": [
+    "Beginner",
+    "Intermediate",
+    "Confident"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "quiz",
+   "title": "Practice test",
+   "subtitle": "Real format, with the pass mark",
+   "emoji": "🗳️",
+   "inputs": [
+    {
+     "key": "n",
+     "label": "Questions",
+     "type": "chips",
+     "options": [
+      "10",
+      "20"
+     ],
+     "default": "10"
+    },
+    {
+     "key": "area",
+     "label": "Area",
+     "type": "chips",
+     "options": [
+      "Mixed",
+      "Government",
+      "History",
+      "Rights & responsibilities",
+      "Geography & symbols",
+      "Society & values"
+     ],
+     "default": "Mixed"
+    }
+   ],
+   "prompt": "Write a {n}-question practice test for the profile's country test in its real format (multiple choice for the UK, Canada and Australia; spoken short-answer for the US civics test), area: {area}: cards (question with options where applicable, meta = topic), a table (No. | Answer | One-line why | Depends on current office-holders?), kv (pass mark for this test, questions asked, time allowed), and a callout on which answers to double-check in the official guide.",
+   "shape": "cards, table, kv, callout",
+   "button": "Start the test",
+   "loading": "Opening the booklet…"
+  },
+  {
+   "id": "explain",
+   "title": "Explain a topic",
+   "subtitle": "History or government, in plain words",
+   "emoji": "🏛️",
+   "inputs": [
+    {
+     "key": "topic",
+     "label": "Topic",
+     "type": "text",
+     "placeholder": "how a bill becomes law",
+     "required": true
+    }
+   ],
+   "prompt": "Explain {topic} for the profile's country test at the profile's English level: text in plain words, a table (Term | Plain meaning | Likely test question), a kv of the key dates, numbers and names to memorise, and bullets of 3 memory hooks.",
+   "shape": "text, table, kv, bullets",
+   "button": "Explain",
+   "loading": "Turning pages…"
+  },
+  {
+   "id": "interview",
+   "title": "Interview rehearsal",
+   "subtitle": "Officer script, expected answers, vocabulary",
+   "emoji": "🧑‍💼",
+   "inputs": [
+    {
+     "key": "part",
+     "label": "Part",
+     "type": "chips",
+     "options": [
+      "Small talk & personal questions",
+      "Application (form) questions",
+      "Civics questions",
+      "Reading & writing test"
+     ],
+     "default": "Application (form) questions"
+    }
+   ],
+   "prompt": "Run a citizenship interview rehearsal for the profile's country, part: {part}. A quote holding a 10-line officer-and-applicant script at the profile's English level, a table (Officer's question | What they are checking | Strong short answer), bullets of 5 vocabulary words from the form or test (for the US, draw from the official reading and writing vocabulary lists), and a callout on what to bring and how to politely ask the officer to repeat a question.",
+   "shape": "quote, table, bullets, callout",
+   "button": "Rehearse",
+   "loading": "Calling your number…"
+  },
+  {
+   "id": "weak",
+   "title": "Fix my weak areas",
+   "subtitle": "Paste misses → 5-day repair plan",
+   "emoji": "🩹",
+   "inputs": [
+    {
+     "key": "wrong",
+     "label": "Questions you got wrong",
+     "type": "longtext",
+     "placeholder": "paste questions or topics you keep missing…",
+     "required": true
+    }
+   ],
+   "prompt": "From these misses: {wrong} — group them as a table (Weak area | Questions | Root cause), steps for a 5-day repair plan at 15 minutes a day, cards of 6 fresh questions on those areas (meta = answer), and a quote with a one-sentence memory story linking the hardest facts.",
+   "shape": "table, steps, cards, quote",
+   "button": "Repair",
+   "loading": "Sorting the misses…"
+  },
+  {
+   "id": "plan",
+   "title": "Study plan",
+   "subtitle": "From today to your test date",
+   "emoji": "📆",
+   "inputs": [
+    {
+     "key": "minutes",
+     "label": "Minutes per day",
+     "type": "chips",
+     "options": [
+      "10",
+      "20",
+      "40"
+     ],
+     "default": "20"
+    }
+   ],
+   "prompt": "Build a study plan from today to the profile's test date at {minutes} minutes a day: table (Day or week | Chapter or topic | Activity | Self-test), a checklist of the official free resources and documents to gather, bullets on the test-day rules (ID, arrival time, what happens if you fail), and a callout on which facts to re-verify in the final week.",
+   "shape": "table, checklist, bullets, callout",
+   "button": "Plan it",
+   "loading": "Counting the days…"
+  }
+ ],
+ "disclaimer": "Study help only, not legal or immigration advice; official questions, pass marks and answers involving current office-holders change, so confirm everything against the government's official study materials and ask an immigration lawyer about your case."
+}

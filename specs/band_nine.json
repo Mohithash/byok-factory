@@ -1,0 +1,189 @@
+{
+ "id": "band_nine",
+ "name": "Band Nine",
+ "tagline": "IELTS writing and speaking marked like an examiner would",
+ "category": "Education",
+ "colors": [
+  "#B71C1C",
+  "#1A237E",
+  "#FDD835"
+ ],
+ "icon": "globe",
+ "about": "Band Nine scores your IELTS Writing Task 1 and Task 2 against the public band descriptors, runs Speaking Part 2 cue cards with model answers, drills each reading question type and builds topic vocabulary with collocations.",
+ "persona": "You are an experienced IELTS examiner-trainer: you score strictly by the four criteria, quote the descriptor language, and show the exact edit that lifts a band.",
+ "onboarding": {
+  "title": "Know your band before test day",
+  "subtitle": "Your module and target band set the marking standard.",
+  "bullets": [
+   "Task 1 and 2 marked by criterion",
+   "Speaking cue cards with model answers",
+   "Reading and vocabulary drills"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "module",
+   "label": "Module",
+   "type": "chips",
+   "options": [
+    "Academic",
+    "General Training"
+   ]
+  },
+  {
+   "key": "target",
+   "label": "Target band",
+   "type": "chips",
+   "options": [
+    "6.0",
+    "6.5",
+    "7.0",
+    "7.5",
+    "8.0+"
+   ]
+  },
+  {
+   "key": "weak",
+   "label": "Weakest paper",
+   "type": "text",
+   "placeholder": "Writing Task 2"
+  }
+ ],
+ "tools": [
+  {
+   "id": "task2",
+   "title": "Mark my Task 2 essay",
+   "subtitle": "Band per criterion + the edits that lift it",
+   "emoji": "📝",
+   "inputs": [
+    {
+     "key": "question",
+     "label": "The question",
+     "type": "text",
+     "placeholder": "Some people think that…",
+     "required": true
+    },
+    {
+     "key": "essay",
+     "label": "Your essay",
+     "type": "longtext",
+     "placeholder": "paste the full essay…",
+     "required": true
+    }
+   ],
+   "prompt": "Mark this Task 2 essay against the question '{question}': {essay}. Sections: table (Criterion | Band | Descriptor phrase that fits | What is holding it back) for Task Response, Coherence & Cohesion, Lexical Resource and Grammatical Range & Accuracy; kv (overall band estimate, word count, minutes this length should take); bullets with 5 rewritten sentences showing the exact upgrade; and a callout on the single change that moves it up half a band.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Mark it",
+   "loading": "Marking strictly…"
+  },
+  {
+   "id": "task1",
+   "title": "Task 1 from a chart",
+   "subtitle": "Photo of the prompt → overview, plan, phrases",
+   "emoji": "📊",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the chart, map, process or letter prompt",
+     "type": "photo"
+    },
+    {
+     "key": "draft",
+     "label": "Your draft (optional)",
+     "type": "longtext",
+     "placeholder": "paste your response…"
+    }
+   ],
+   "prompt": "Using the prompt in the photo (or the topic of the draft if there is no photo) and the profile's module, give a text overview sentence that reports the main trend, stages or purpose. Then steps for a 4-paragraph plan with the data or points that belong in each. If a draft was given ({draft}), add a table (Criterion | Band | Fix) marking it. End with a table of 8 phrases (Phrase | Use for | Example) suited to this prompt type.",
+   "shape": "text, steps, table",
+   "button": "Plan Task 1",
+   "loading": "Reading the chart…"
+  },
+  {
+   "id": "speaking",
+   "title": "Speaking Part 2 cue card",
+   "subtitle": "Plan, model answer, Part 3 follow-ups",
+   "emoji": "🎤",
+   "inputs": [
+    {
+     "key": "topic",
+     "label": "Topic family",
+     "type": "chips",
+     "options": [
+      "A person",
+      "A place",
+      "An object",
+      "An event",
+      "An experience",
+      "Random"
+     ],
+     "default": "Random"
+    }
+   ],
+   "prompt": "Generate a Part 2 cue card in the topic family {topic}: a quote holding the card text with its 4 bullet prompts, steps for a 1-minute planning method with what to note, a text model answer of about 220 words at the profile's target band, a table (Criterion | Example from the model answer) for the four speaking criteria, and 3 cards of likely Part 3 follow-up questions (meta = what the examiner is testing).",
+   "shape": "quote, steps, text, table, cards",
+   "button": "Draw a card",
+   "loading": "Shuffling cue cards…"
+  },
+  {
+   "id": "reading",
+   "title": "Reading question types",
+   "subtitle": "Method, traps and a mini practice set",
+   "emoji": "📖",
+   "inputs": [
+    {
+     "key": "qtype",
+     "label": "Question type",
+     "type": "chips",
+     "options": [
+      "True/False/Not Given",
+      "Matching headings",
+      "Matching information",
+      "Summary completion",
+      "Multiple choice",
+      "Sentence completion"
+     ],
+     "default": "True/False/Not Given"
+    }
+   ],
+   "prompt": "Coach {qtype} for the profile's module: steps for the exact method (where to look, what to underline, how to decide), a table (Trap | Why candidates fall for it | Defence), a text mini-passage of about 150 words followed by 4 practice questions of this type, and a table (No. | Answer | Sentence in the passage that proves it).",
+   "shape": "steps, table, text",
+   "button": "Coach me",
+   "loading": "Scanning…"
+  },
+  {
+   "id": "vocab",
+   "title": "Topic vocabulary",
+   "subtitle": "Words, collocations and a sample answer",
+   "emoji": "🗂️",
+   "inputs": [
+    {
+     "key": "theme",
+     "label": "Topic",
+     "type": "text",
+     "placeholder": "environment",
+     "required": true
+    },
+    {
+     "key": "band",
+     "label": "Aim for",
+     "type": "chips",
+     "options": [
+      "Band 6–7",
+      "Band 7–8"
+     ],
+     "default": "Band 7–8"
+    }
+   ],
+   "prompt": "Build a vocabulary set on {theme} pitched at {band}: table (Word or phrase | Meaning | Collocation | Example sentence) with 15 rows, bullets of 5 overused words to avoid with their better alternatives, and a quote with a 3-sentence Speaking Part 3 style answer that uses 6 of the items naturally.",
+   "shape": "table, bullets, quote",
+   "button": "Build set",
+   "loading": "Collocating…"
+  }
+ ]
+}

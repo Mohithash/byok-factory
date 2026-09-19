@@ -1,0 +1,185 @@
+{
+ "id": "miss_log",
+ "name": "Miss Log",
+ "tagline": "Your wrong answers, analysed into a score plan",
+ "category": "Education",
+ "colors": [
+  "#D81B60",
+  "#1E88E5",
+  "#FFC107"
+ ],
+ "icon": "graph",
+ "about": "Miss Log turns the questions you get wrong on any standardised test into an error taxonomy, a weakness heat-map, targeted re-drills and a score projection, so every practice test changes what you study next.",
+ "persona": "You are a data-minded test-prep analyst: you categorise every miss by cause, show trends in tables, and prescribe the smallest fix with the biggest score effect.",
+ "onboarding": {
+  "title": "Every miss is a data point",
+  "subtitle": "Your test and score history make the projections real.",
+  "bullets": [
+   "Error taxonomy from any practice test",
+   "Weakness heat-map by topic",
+   "Score projections and next steps"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "test",
+   "label": "Test",
+   "type": "chips",
+   "options": [
+    "SAT",
+    "ACT",
+    "GRE",
+    "GMAT",
+    "IELTS",
+    "Certification exam",
+    "Other"
+   ]
+  },
+  {
+   "key": "history",
+   "label": "Practice scores so far",
+   "type": "text",
+   "placeholder": "1180, 1240, 1230"
+  },
+  {
+   "key": "target",
+   "label": "Target & date",
+   "type": "text",
+   "placeholder": "1400 by March"
+  }
+ ],
+ "tools": [
+  {
+   "id": "analyse",
+   "title": "Analyse a practice test",
+   "subtitle": "Misses → causes → the one fix",
+   "emoji": "🧪",
+   "inputs": [
+    {
+     "key": "misses",
+     "label": "Missed questions",
+     "type": "longtext",
+     "placeholder": "Q4 algebra — picked C, answer B, misread 'not'; Q9 inference — ran out of time…",
+     "required": true
+    },
+    {
+     "key": "score",
+     "label": "Score on this test",
+     "type": "text",
+     "placeholder": "1260"
+    }
+   ],
+   "prompt": "Analyse the misses from a practice test scoring {score}: {misses}. Table (Question | Topic | Cause: content gap, misread, careless, timing or guess | Fixable in a week?), a kv of counts by cause with the share of lost points each represents, bullets on the top 3 patterns, and a callout on the single highest-value fix.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Analyse",
+   "loading": "Tagging causes…"
+  },
+  {
+   "id": "heatmap",
+   "title": "Weakness heat-map",
+   "subtitle": "Topics ranked by miss rate and trend",
+   "emoji": "🔥",
+   "inputs": [
+    {
+     "key": "log",
+     "label": "Miss log so far",
+     "type": "longtext",
+     "placeholder": "paste your accumulated misses or topic tallies…",
+     "required": true
+    }
+   ],
+   "prompt": "Build a weakness heat-map from: {log}. Table (Topic | Attempts | Misses | Miss rate | Trend | Priority) sorted by priority, bullets on topics that are too noisy to judge (too few attempts), steps for a 7-day study order derived from the table, and a callout on topics to stop studying because they are already reliable.",
+   "shape": "table, bullets, steps, callout",
+   "button": "Map it",
+   "loading": "Colouring cells…"
+  },
+  {
+   "id": "redrill",
+   "title": "Targeted re-drill",
+   "subtitle": "Questions engineered against your usual cause",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "topic",
+     "label": "Topic to re-drill",
+     "type": "text",
+     "placeholder": "comma splices",
+     "required": true
+    },
+    {
+     "key": "cause",
+     "label": "Usual cause",
+     "type": "chips",
+     "options": [
+      "Content gap",
+      "Misread the question",
+      "Careless",
+      "Timing",
+      "Guessing"
+     ],
+     "default": "Content gap"
+    },
+    {
+     "key": "n",
+     "label": "Questions",
+     "type": "chips",
+     "options": [
+      "5",
+      "10"
+     ],
+     "default": "5"
+    }
+   ],
+   "prompt": "Write {n} questions on {topic} in the profile test's format, engineered against the cause '{cause}' (for misreads include negations and 'except'; for timing add a seconds budget; for content gaps ramp the difficulty): cards (question with options, meta = seconds budget), a table (No. | Answer | What to notice), and a quote with a pre-question ritual for this cause.",
+   "shape": "cards, table, quote",
+   "button": "Re-drill",
+   "loading": "Loading questions…"
+  },
+  {
+   "id": "project",
+   "title": "Project my score",
+   "subtitle": "Where the trend lands on test day",
+   "emoji": "📈",
+   "inputs": [
+    {
+     "key": "recent",
+     "label": "Latest practice scores & dates",
+     "type": "text",
+     "placeholder": "1230 on 3 Feb, 1260 on 17 Feb"
+    },
+    {
+     "key": "hours",
+     "label": "Hours per week",
+     "type": "chips",
+     "options": [
+      "3",
+      "6",
+      "10",
+      "15+"
+     ],
+     "default": "6"
+    }
+   ],
+   "prompt": "Project the profile's score from the history and {recent} at {hours} hours a week: kv (current estimate, projected score on the target date, likelihood band of hitting the target, points still needed), a table (Weeks from now | Expected score | Milestone check), bullets on the assumptions behind the projection, and a callout on when to move the test date instead.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Project",
+   "loading": "Extrapolating…"
+  },
+  {
+   "id": "weekly",
+   "title": "Weekly review",
+   "subtitle": "Five questions, one table, next week's plan",
+   "emoji": "📋",
+   "inputs": [],
+   "prompt": "Write this week's review for the profile: a checklist of 5 questions to answer from the week's practice (tests taken, misses logged, fixes applied, timing, sleep), a table (Metric | Last week | This week | Direction) with blanks to fill, steps for next week's plan built from the profile's target and history, and a quote with a one-line focus for the week.",
+   "shape": "checklist, table, steps, quote",
+   "button": "Review week",
+   "loading": "Tallying…"
+  }
+ ]
+}

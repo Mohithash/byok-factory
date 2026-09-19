@@ -1,0 +1,190 @@
+{
+ "id": "bend_lab",
+ "name": "Bend Lab",
+ "tagline": "Front splits, bridge, pancake, trained like a skill",
+ "category": "Health & Fitness",
+ "colors": [
+  "#AD1457",
+  "#7C4DFF",
+  "#00BFA5"
+ ],
+ "icon": "sun",
+ "about": "Bend Lab trains flexibility goals the way gymnasts do: measured tests, an 8-week programme for splits, bridge, pancake or pike, PNF and loaded stretching coached step by step, and retests that show real centimetres.",
+ "persona": "You are a contortion-and-gymnastics flexibility coach: methodical, obsessed with measured progress, protective of hamstring tendons and the lower back.",
+ "onboarding": {
+  "title": "Which shape are you chasing?",
+  "subtitle": "Goal, current distance from the floor and training days set the plan.",
+  "bullets": [
+   "Splits, bridge, pancake and pike plans",
+   "Measured tests and retests",
+   "PNF and loaded stretching coached"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "goal",
+   "label": "Goal",
+   "type": "chips",
+   "options": [
+    "Front splits",
+    "Middle splits",
+    "Full bridge",
+    "Pancake",
+    "Pike (head to knees)",
+    "Shoulder flexibility"
+   ]
+  },
+  {
+   "key": "baseline",
+   "label": "Current measurement",
+   "type": "text",
+   "placeholder": "front split 25 cm from floor, right leg forward"
+  },
+  {
+   "key": "days",
+   "label": "Days/week",
+   "type": "chips",
+   "options": [
+    "2",
+    "3",
+    "4",
+    "5",
+    "6"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "test",
+   "title": "Measure my baseline",
+   "subtitle": "Tests with a tape measure and a wall",
+   "emoji": "📏",
+   "inputs": [],
+   "prompt": "Design a measured flexibility test battery for the profile goal. Sections: steps for each test (setup, what to measure, how to keep it repeatable), a table (Test | Measures | Beginner | Intermediate | Advanced), a checklist of what to photograph and record, and a callout on warming up before testing and never bouncing.",
+   "shape": "steps, table, checklist, callout",
+   "button": "Set up tests",
+   "loading": "Unrolling the tape…"
+  },
+  {
+   "id": "programme",
+   "title": "8-week programme",
+   "subtitle": "Skill-style flexibility training",
+   "emoji": "📅",
+   "inputs": [
+    {
+     "key": "session",
+     "label": "Session length",
+     "type": "chips",
+     "options": [
+      "15 min",
+      "25 min",
+      "40 min"
+     ],
+     "default": "25 min"
+    },
+    {
+     "key": "limits",
+     "label": "Limits",
+     "type": "text",
+     "placeholder": "old hamstring strain, tight hip flexors"
+    }
+   ],
+   "prompt": "Write an 8-week programme for the profile goal with {session} sessions on the profile days, respecting: {limits}. Sections: a table (Week | Session | Stretches with holds x secs | Strength-in-range work | Retest), steps for the 3 key stretches with exact positions and breathing, bullets on how to progress each week, and a callout on tendon pain at the sit bone or behind the knee meaning back off.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Build programme",
+   "loading": "Lengthening…"
+  },
+  {
+   "id": "today",
+   "title": "Today's session",
+   "subtitle": "One flexibility session, coached",
+   "emoji": "🧘",
+   "inputs": [
+    {
+     "key": "minutes",
+     "label": "Minutes",
+     "type": "chips",
+     "options": [
+      "10",
+      "20",
+      "30"
+     ],
+     "default": "20"
+    },
+    {
+     "key": "type",
+     "label": "Type",
+     "type": "chips",
+     "options": [
+      "PNF (contract-relax)",
+      "Loaded stretching",
+      "Active flexibility",
+      "Relaxed long holds",
+      "Mixed"
+     ],
+     "default": "Mixed"
+    }
+   ],
+   "prompt": "Write a {minutes}-minute {type} session for the profile goal. Sections: steps in order with holds in seconds, contract and relax counts and the target sensation, a table (Stretch | Position | Seconds | Rounds | Cue), a callout on the difference between stretch and pain, and a quote with a breathing cue.",
+   "shape": "steps, table, callout, quote",
+   "button": "Start session",
+   "loading": "Breathing out…"
+  },
+  {
+   "id": "form",
+   "title": "Check a stretch",
+   "subtitle": "Photo in the position",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo in the stretch",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "stretch",
+     "label": "Which stretch",
+     "type": "text",
+     "placeholder": "front split, left leg forward",
+     "required": true
+    }
+   ],
+   "prompt": "Assess the {stretch} in the photo. Sections: bullets on alignment (square hips, knee tracking, spine, foot), a table (Fault | Risk | Fix), steps to re-enter the position correctly with props if needed, and a callout if the photo suggests regressing or a clinician check.",
+   "shape": "bullets, table, steps, callout",
+   "button": "Assess",
+   "loading": "Checking lines…"
+  },
+  {
+   "id": "retest",
+   "title": "Retest and adjust",
+   "subtitle": "Compare with baseline, change the plan",
+   "emoji": "📊",
+   "inputs": [
+    {
+     "key": "now",
+     "label": "Today's measurement",
+     "type": "text",
+     "placeholder": "front split 18 cm from floor, right leg forward",
+     "required": true
+    },
+    {
+     "key": "weeks",
+     "label": "Weeks since baseline",
+     "type": "number",
+     "placeholder": "4"
+    }
+   ],
+   "prompt": "Compare {now} with the profile baseline after {weeks} weeks. Sections: kv (change, rate per week, projected weeks to goal), bullets on why progress may be fast, slow or stalled, steps for the next 4 weeks of adjustments, and a callout on plateaus that need strength in the new range rather than more stretching.",
+   "shape": "kv, bullets, steps, callout",
+   "button": "Compare",
+   "loading": "Measuring gains…"
+  }
+ ],
+ "disclaimer": "Not medical advice. Stop if you feel sharp pain, dizziness or chest symptoms, and check with a clinician before starting a new programme if you have a health condition or injury."
+}

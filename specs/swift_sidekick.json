@@ -1,0 +1,186 @@
+{
+ "id": "swift_sidekick",
+ "name": "Swift Sidekick",
+ "tagline": "SwiftUI, concurrency, crashes and App Review, handled",
+ "category": "Tools",
+ "colors": [
+  "#F05138",
+  "#1C1C1E",
+  "#5AC8FA"
+ ],
+ "icon": "gear",
+ "about": "Swift Sidekick writes SwiftUI views and SwiftData models, reviews async/await code for actor mistakes, decodes crash logs and Xcode errors, and preps you for App Review.",
+ "persona": "You are a senior iOS engineer: fluent in modern Swift concurrency and SwiftUI, opinionated about simplicity, and you flag anything that would fail App Review.",
+ "onboarding": {
+  "title": "Ship iOS without the Stack Overflow spiral",
+  "subtitle": "Your deployment target and frameworks shape every answer.",
+  "bullets": [
+   "SwiftUI views with previews",
+   "Concurrency reviewed for data races",
+   "App Review rejections avoided"
+  ]
+ },
+ "profile": [
+  {
+   "key": "target",
+   "label": "Deployment target",
+   "type": "text",
+   "placeholder": "iOS 17"
+  },
+  {
+   "key": "ui",
+   "label": "UI framework",
+   "type": "chips",
+   "options": [
+    "SwiftUI",
+    "UIKit",
+    "Mixed"
+   ],
+   "default": "SwiftUI"
+  },
+  {
+   "key": "data",
+   "label": "Persistence",
+   "type": "chips",
+   "options": [
+    "SwiftData",
+    "Core Data",
+    "Realm",
+    "Files/UserDefaults"
+   ],
+   "default": "SwiftData"
+  },
+  {
+   "key": "arch",
+   "label": "Architecture",
+   "type": "chips",
+   "options": [
+    "MVVM",
+    "TCA",
+    "MV (plain SwiftUI)",
+    "VIPER"
+   ],
+   "default": "MVVM"
+  }
+ ],
+ "tools": [
+  {
+   "id": "view",
+   "title": "Build a view",
+   "subtitle": "Describe it (or snap a design) → SwiftUI + preview",
+   "emoji": "🧱",
+   "inputs": [
+    {
+     "key": "spec",
+     "label": "View description",
+     "type": "longtext",
+     "placeholder": "settings screen with grouped sections, a toggle, a picker and a destructive sign-out row",
+     "required": true
+    },
+    {
+     "key": "photo",
+     "label": "Design mockup (optional)",
+     "type": "photo"
+    },
+    {
+     "key": "model",
+     "label": "Data it shows",
+     "type": "text",
+     "placeholder": "User(name, email, plan)"
+    }
+   ],
+   "prompt": "Write a SwiftUI view for: {spec} showing {model}, matching the attached mockup photo if there is one and the profile architecture and target. Sections: a quote with the code (view, any view model or @Observable type, #Preview with sample data, Dynamic Type friendly, accessibility labels), a table (State | Wrapper: @State/@Binding/@Observable/@Environment | Why), bullets on layout decisions, and a callout on what changes if the profile UI framework is UIKit or Mixed.",
+   "shape": "quote, table, bullets, callout",
+   "button": "Build view",
+   "loading": "Laying out…"
+  },
+  {
+   "id": "concurrency",
+   "title": "Review my concurrency",
+   "subtitle": "async/await, actors, MainActor",
+   "emoji": "🧵",
+   "inputs": [
+    {
+     "key": "code",
+     "label": "Code",
+     "type": "longtext",
+     "placeholder": "paste the async code, tasks or actor",
+     "required": true
+    }
+   ],
+   "prompt": "Review this Swift concurrency code: {code}. Sections: a table (Line or symbol | Problem: data race/MainActor/cancellation/retain cycle | Severity | Fix), a quote with the corrected code, bullets explaining each isolation decision, and a callout on what Swift 6 strict concurrency checking will flag.",
+   "shape": "table, quote, bullets, callout",
+   "button": "Review",
+   "loading": "Checking isolation…"
+  },
+  {
+   "id": "crash",
+   "title": "Decode a crash or error",
+   "subtitle": "Crash log, Xcode error or console noise",
+   "emoji": "🛠️",
+   "inputs": [
+    {
+     "key": "log",
+     "label": "Crash log / error text",
+     "type": "longtext",
+     "placeholder": "Thread 1: Fatal error: Unexpectedly found nil … or an Xcode build error",
+     "required": true
+    },
+    {
+     "key": "context",
+     "label": "What you were doing",
+     "type": "text",
+     "placeholder": "tapping a cell right after pull-to-refresh"
+    }
+   ],
+   "prompt": "Diagnose: {log}, context: {context}. Sections: text naming the cause in two sentences, steps to fix it, a quote with the corrected Swift, and a checklist to reproduce and confirm the fix on both device and simulator.",
+   "shape": "text, steps, quote, checklist",
+   "button": "Diagnose",
+   "loading": "Symbolicating…"
+  },
+  {
+   "id": "model",
+   "title": "Design the data model",
+   "subtitle": "Entities → SwiftData or Core Data",
+   "emoji": "🗃️",
+   "inputs": [
+    {
+     "key": "entities",
+     "label": "Entities and relationships",
+     "type": "longtext",
+     "placeholder": "Trip has many Expenses; Expense has a Category; needs iCloud sync",
+     "required": true
+    }
+   ],
+   "prompt": "Design a persistence model for: {entities} using the profile persistence choice. Sections: a table (Entity | Attributes | Relationships | Delete rule), a quote with the model code, steps for the first schema migration, and a callout on iCloud sync or threading gotchas for that store.",
+   "shape": "table, quote, steps, callout",
+   "button": "Design model",
+   "loading": "Modelling…"
+  },
+  {
+   "id": "review",
+   "title": "App Review prep",
+   "subtitle": "Guidelines, privacy manifest, metadata",
+   "emoji": "🍎",
+   "inputs": [
+    {
+     "key": "app",
+     "label": "What the app does",
+     "type": "longtext",
+     "placeholder": "subscription meditation app with account sign-in and HealthKit sleep import",
+     "required": true
+    },
+    {
+     "key": "apis",
+     "label": "Sensitive APIs / SDKs",
+     "type": "text",
+     "placeholder": "HealthKit, Sign in with Apple, StoreKit, Firebase Analytics"
+    }
+   ],
+   "prompt": "Prepare an App Review checklist for: {app}, which uses {apis}. Sections: a checklist grouped by guidelines likely to apply, privacy manifest and nutrition labels, required-reason APIs, and metadata/screenshots, a table (Risk | Guideline | What reviewers look for | Fix), a quote with the review notes to paste into App Store Connect, and a callout on the most common rejection for this kind of app.",
+   "shape": "checklist, table, quote, callout",
+   "button": "Prep review",
+   "loading": "Reading guidelines…"
+  }
+ ]
+}

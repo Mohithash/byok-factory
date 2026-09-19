@@ -65,7 +65,7 @@
      "required": true
     }
    ],
-   "prompt": "Analyse: {readings}. Table (Period | Avg systolic | Avg diastolic | Avg pulse | Readings count), bullets describing morning-versus-evening and weekday patterns with the evidence, a kv comparing the overall average to the profile target and to general home-monitoring thresholds, and a callout stating which individual readings, if any, are high enough to warrant contacting a clinician today.",
+   "prompt": "Analyse: {readings}. Table (Period | Avg systolic | Avg diastolic | Avg pulse | Readings count), up to 3 bullets describing morning-versus-evening and weekday patterns with the evidence, a kv comparing the overall average to the profile target and to general home-monitoring thresholds, and a callout stating which individual readings, if any, are high enough to warrant contacting a clinician today.",
    "shape": "table, bullets, kv, callout",
    "button": "Analyse",
    "loading": "Averaging…"
@@ -112,7 +112,7 @@
      "required": true
     }
    ],
-   "prompt": "Read the label. kv (sodium per serving in mg, sodium per 100 g, salt equivalent in g, servings per pack, share of a 1,500 mg day), a text verdict on whether this fits a low-sodium day and how often, and bullets of 3 lower-sodium alternatives in the same food category.",
+   "prompt": "Read the nutrition label in the photo. kv (sodium per serving in mg, sodium per 100 g, salt equivalent in g, servings per pack, share of a 1,500 mg day), a text verdict on whether this fits a low-sodium day and how often, and bullets of 3 lower-sodium alternatives in the same food category.",
    "shape": "kv, text, bullets",
    "button": "Check sodium",
    "loading": "Reading label…"
@@ -143,7 +143,7 @@
      "placeholder": "no fish, love beans"
     }
    ],
-   "prompt": "Build a 3-day DASH-style plan for '{diet}' with notes '{dislikes}', each day under 1,500 mg sodium. Table (Day | Breakfast | Lunch | Dinner | Snack | Est. sodium mg), a checklist shopping list grouped by aisle, bullets on flavouring without salt (acid, herbs, spice blends, umami), and a callout on potassium caution for people with kidney disease or on certain medications.",
+   "prompt": "Build a 3-day DASH-style plan for '{diet}' with notes '{dislikes}', each day under 1,500 mg sodium. Table (Day | Breakfast | Lunch | Dinner | Snack | Est. sodium mg), a checklist shopping list grouped by aisle, 5 bullets on flavouring without salt (acid, herbs, spice blends, umami), and a callout on potassium caution for people with kidney disease or on certain medications.",
    "shape": "table, checklist, bullets, callout",
    "button": "Plan meals",
    "loading": "Seasoning…"
@@ -169,7 +169,7 @@
      "required": true
     }
    ],
-   "prompt": "The reading {reading} followed: {day}. Table (Possible factor | How much it typically shifts BP | Present today?), steps for the next hour (rest, re-measure protocol, what to write down), bullets on which factors are worth changing this week, and a callout with the numbers and symptoms (180/120 or above, chest pain, severe headache, vision change, breathlessness) that mean seek urgent care.",
+   "prompt": "The reading {reading} followed: {day}. Table (Possible factor | How much it typically shifts BP | Present today?), steps for the next hour (rest, re-measure protocol, what to write down), 3 bullets on which factors are worth changing this week, and a callout with the numbers and symptoms (180/120 or above, chest pain, severe headache, vision change, breathlessness) that mean seek urgent care.",
    "shape": "table, steps, bullets, callout",
    "button": "Work it out",
    "loading": "Investigating…"

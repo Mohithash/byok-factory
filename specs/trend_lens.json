@@ -1,0 +1,185 @@
+{
+ "id": "trend_lens",
+ "name": "Trend Lens",
+ "tagline": "Read any time series: trend, season, spikes, forecast",
+ "category": "Tools",
+ "colors": [
+  "#4527A0",
+  "#00BCD4",
+  "#FFB300"
+ ],
+ "icon": "clock",
+ "about": "Trend Lens reads a pasted time series and explains the trend, seasonality and anomalies, produces a simple forecast with ranges, recommends a forecasting method for your data and scores your past forecasts.",
+ "persona": "You are a forecasting analyst who prefers simple, explainable methods, always shows the range rather than just the point, and says clearly when the history is too short to trust.",
+ "onboarding": {
+  "title": "See where the numbers are heading",
+  "subtitle": "Tell us what you track and how often.",
+  "bullets": [
+   "Trend and seasonality decoded",
+   "Simple forecasts with honest ranges",
+   "Anomalies explained, not ignored"
+  ]
+ },
+ "profile": [
+  {
+   "key": "series",
+   "label": "What you usually track",
+   "type": "text",
+   "placeholder": "daily orders, monthly revenue"
+  },
+  {
+   "key": "tool",
+   "label": "Tool",
+   "type": "chips",
+   "options": [
+    "Excel",
+    "Google Sheets",
+    "Python",
+    "R",
+    "Power BI"
+   ],
+   "default": "Excel"
+  },
+  {
+   "key": "horizon",
+   "label": "Usual forecast horizon",
+   "type": "chips",
+   "options": [
+    "Next week",
+    "Next month",
+    "Next quarter",
+    "Next year"
+   ],
+   "default": "Next month"
+  }
+ ],
+ "tools": [
+  {
+   "id": "read",
+   "title": "Read my series",
+   "subtitle": "Paste values → what's happening",
+   "emoji": "📉",
+   "inputs": [
+    {
+     "key": "data",
+     "label": "Paste dates and values",
+     "type": "longtext",
+     "placeholder": "2024-01,1200\n2024-02,1350\n2024-03,1280…",
+     "required": true
+    }
+   ],
+   "prompt": "Decompose {data}. Kv (overall trend as % per period, seasonality pattern and strength, volatility, most recent change, data quality), a table 'Notable points' (Date | Value | Expected | Deviation | Likely explanation), bullets of 3 things the series suggests checking in the business, and a callout on how much history there is and what it can support.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Read series",
+   "loading": "Tracing the line…"
+  },
+  {
+   "id": "forecast",
+   "title": "Quick forecast",
+   "subtitle": "Point and range for the horizon",
+   "emoji": "🔭",
+   "inputs": [
+    {
+     "key": "data",
+     "label": "Paste dates and values",
+     "type": "longtext",
+     "placeholder": "2024-01,1200\n2024-02,1350…",
+     "required": true
+    },
+    {
+     "key": "periods",
+     "label": "Periods to forecast",
+     "type": "number",
+     "placeholder": "3"
+    },
+    {
+     "key": "method",
+     "label": "Method",
+     "type": "chips",
+     "options": [
+      "Auto",
+      "Moving average",
+      "Linear trend",
+      "Seasonal naive",
+      "Exponential smoothing"
+     ],
+     "default": "Auto"
+    }
+   ],
+   "prompt": "Forecast {periods} periods ahead for {data} using {method} (if Auto, choose and justify). Table 'Forecast' (Period | Point | Low | High | Method note), text explaining the method in plain English, a quote with the formula to reproduce it in the profile's tool, and a callout on the assumptions that would break the forecast.",
+   "shape": "table, text, quote, callout",
+   "button": "Forecast",
+   "loading": "Extending line…"
+  },
+  {
+   "id": "method",
+   "title": "Pick a method",
+   "subtitle": "Which forecasting approach fits",
+   "emoji": "🧭",
+   "inputs": [
+    {
+     "key": "describe",
+     "label": "Describe the data",
+     "type": "text",
+     "placeholder": "3 years of weekly sales, strong Christmas peak, growing",
+     "required": true
+    },
+    {
+     "key": "purpose",
+     "label": "Purpose",
+     "type": "text",
+     "placeholder": "stock ordering"
+    }
+   ],
+   "prompt": "Recommend forecasting methods for: {describe}, purpose: {purpose}. Cards for the top 3 methods (meta = complexity · data needed), a table 'Comparison' (Method | Handles trend | Handles seasonality | Explainable | Works in the profile's tool), steps to run the recommended one in that tool, and a callout on when to stop forecasting and ask the business instead.",
+   "shape": "cards, table, steps, callout",
+   "button": "Recommend",
+   "loading": "Weighing methods…"
+  },
+  {
+   "id": "anomaly",
+   "title": "Explain a spike or dip",
+   "subtitle": "Was it real?",
+   "emoji": "⚡",
+   "inputs": [
+    {
+     "key": "event",
+     "label": "What happened",
+     "type": "text",
+     "placeholder": "orders dropped 40% on 14 May",
+     "required": true
+    },
+    {
+     "key": "context",
+     "label": "Anything you know",
+     "type": "longtext",
+     "placeholder": "site outage for 2h that day; bank holiday?"
+    }
+   ],
+   "prompt": "Investigate '{event}' with the context: {context}. Table 'Hypotheses' (Cause | Evidence for | Evidence against | How to confirm), steps to confirm in order of effort, a kv (best guess, confidence, expected recovery), and a callout on whether to exclude the point from future forecasts.",
+   "shape": "table, steps, kv, callout",
+   "button": "Investigate",
+   "loading": "Zooming in…"
+  },
+  {
+   "id": "accuracy",
+   "title": "Score my forecast",
+   "subtitle": "Forecast vs actual",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "pairs",
+     "label": "Forecast vs actual pairs",
+     "type": "longtext",
+     "placeholder": "Jan: 1200 vs 1180\nFeb: 1300 vs 1420…",
+     "required": true
+    }
+   ],
+   "prompt": "Score the forecast accuracy for {pairs}. Kv (MAPE, MAE, bias direction, worst period), a table 'By period' (Period | Forecast | Actual | Error | % error), bullets on whether the bias is systematic and how to correct it, and a callout on what accuracy is realistic for this kind of series.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Score it",
+   "loading": "Grading…"
+  }
+ ],
+ "disclaimer": "Forecasts are estimates from the numbers you provide, not financial or business advice; validate before committing money, staff or stock."
+}

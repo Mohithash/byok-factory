@@ -1,0 +1,191 @@
+{
+ "id": "green_room",
+ "name": "Green Room",
+ "tagline": "Run an am-dram show from auditions to curtain call",
+ "category": "Events",
+ "colors": [
+  "#4A148C",
+  "#FFD600",
+  "#C62828"
+ ],
+ "icon": "hat",
+ "about": "Green Room is the stage manager's brain for community theatre, school shows and youth productions: audition notices, rehearsal schedules that respect people's evenings, props and costume lists from the script, front-of-house rotas and break-even ticket prices, plus programme and publicity copy.",
+ "persona": "You are a veteran amateur-theatre producer and stage manager: enthusiastic, ruthlessly organised, kind to nervous first-timers, and fully aware everyone has a day job.",
+ "onboarding": {
+  "title": "Places, everyone",
+  "subtitle": "Tell us about your society and the show.",
+  "bullets": [
+   "Rehearsal schedules people can keep",
+   "Audition and casting help",
+   "Props, costume and front-of-house lists"
+  ]
+ },
+ "profile": [
+  {
+   "key": "society",
+   "label": "Society",
+   "type": "text",
+   "placeholder": "Bramley Players, village hall"
+  },
+  {
+   "key": "show",
+   "label": "Show",
+   "type": "text",
+   "placeholder": "Blithe Spirit, 3 performances in March"
+  },
+  {
+   "key": "role",
+   "label": "Your role",
+   "type": "chips",
+   "options": [
+    "Director",
+    "Producer",
+    "Stage manager",
+    "Committee",
+    "Helping out"
+   ]
+  },
+  {
+   "key": "cast",
+   "label": "Cast size",
+   "type": "chips",
+   "options": [
+    "Under 8",
+    "8–15",
+    "15–30",
+    "30+"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "audition",
+   "title": "Audition pack",
+   "subtitle": "Notice, pieces and panel checklist",
+   "emoji": "🎭",
+   "inputs": [
+    {
+     "key": "dates",
+     "label": "Audition dates",
+     "type": "text",
+     "placeholder": "Tue 14 & Thu 16 Jan, 7:30pm",
+     "required": true
+    },
+    {
+     "key": "needs",
+     "label": "Roles you need",
+     "type": "text",
+     "placeholder": "2 men 40s, 3 women 30–60, one cameo any age"
+    }
+   ],
+   "prompt": "Prepare auditions on {dates} for: {needs}. Sections: a quote with the audition notice (show, dates, roles with age ranges, what to prepare, commitment expected, contact), a table of audition pieces (Role | Scene or moment | What to look for), a checklist for the panel on the night, and a callout on fair casting and telling people kindly when they didn't get it.",
+   "shape": "quote, table, checklist, callout",
+   "button": "Build pack",
+   "loading": "Warming up…"
+  },
+  {
+   "id": "schedule",
+   "title": "Rehearsal schedule",
+   "subtitle": "Calls that respect people's lives",
+   "emoji": "📅",
+   "inputs": [
+    {
+     "key": "window",
+     "label": "Rehearsal window",
+     "type": "text",
+     "placeholder": "20 Jan to 12 Mar, Tue and Thu evenings plus 2 Sundays"
+    },
+    {
+     "key": "clashes",
+     "label": "Known clashes",
+     "type": "text",
+     "placeholder": "Dev away 2–9 Feb, under-16s not after 9pm"
+    },
+    {
+     "key": "acts",
+     "label": "Script size",
+     "type": "chips",
+     "options": [
+      "One act",
+      "Two acts",
+      "Three acts",
+      "Musical"
+     ],
+     "default": "Three acts"
+    }
+   ],
+   "prompt": "Build a rehearsal schedule across {window} for a {acts} show with clashes: {clashes}. Sections: a table (Date | Scenes | Who's called | Focus), bullets on the plan's logic (blocking first, runs later, tech and dress at the end), kv (total rehearsals, run-throughs, tech, dress, get-in), and a callout on never calling people who aren't needed.",
+   "shape": "table, bullets, kv, callout",
+   "button": "Schedule",
+   "loading": "Calling the cast…"
+  },
+  {
+   "id": "lists",
+   "title": "Props & costume",
+   "subtitle": "Production lists from the script",
+   "emoji": "🎩",
+   "inputs": [
+    {
+     "key": "script",
+     "label": "Paste a scene or act summary",
+     "type": "longtext",
+     "placeholder": "Act 1: living room, seance, gramophone, tray of martinis, Madame Arcati in a cape…",
+     "required": true
+    }
+   ],
+   "prompt": "From: {script}, build production lists. Sections: a table of props (Item | Scene | Who handles | Source: own, borrow, make or buy | Cost est.), a second table of costume by character (Character | Look | Changes | Notes), a checklist setting list per scene for stage management, and a callout on fire, weapons and food on stage.",
+   "shape": "table, checklist, callout",
+   "button": "Build lists",
+   "loading": "Rummaging backstage…"
+  },
+  {
+   "id": "foh",
+   "title": "Front of house",
+   "subtitle": "Ticket prices, rota and house rules",
+   "emoji": "🎟️",
+   "inputs": [
+    {
+     "key": "seats",
+     "label": "Seats per night",
+     "type": "number",
+     "placeholder": "120"
+    },
+    {
+     "key": "nights",
+     "label": "Performances",
+     "type": "number",
+     "placeholder": "3"
+    },
+    {
+     "key": "costs",
+     "label": "Production costs",
+     "type": "text",
+     "placeholder": "rights 400, set 300, costumes 200, hall 250"
+    }
+   ],
+   "prompt": "{seats} seats across {nights} nights with costs: {costs}. Sections: kv (break-even at three price points, suggested ticket prices, interval bar target), a table front-of-house rota (Night | Box office | Ushers | Bar | Stage door), a checklist for house management (safety announcement, exits, first aid, cash), and a callout on performance rights and licensing to confirm before selling a single ticket.",
+   "shape": "kv, table, checklist, callout",
+   "button": "Plan FOH",
+   "loading": "Counting seats…"
+  },
+  {
+   "id": "programme",
+   "title": "Programme & publicity",
+   "subtitle": "Director's note, posts and listing",
+   "emoji": "📰",
+   "inputs": [
+    {
+     "key": "angle",
+     "label": "Angle",
+     "type": "text",
+     "placeholder": "our 50th anniversary, first youth cast member"
+    }
+   ],
+   "prompt": "Write publicity with this angle: {angle}. Sections: a quote with a 150-word director's note for the programme, cards for 4 social posts across the run (meta = week · goal), a second quote with a 100-word local press listing, and bullets on programme content order (cast, crew, thanks, next show, sponsors).",
+   "shape": "quote, cards, bullets",
+   "button": "Write copy",
+   "loading": "Printing flyers…"
+  }
+ ],
+ "disclaimer": "Performance rights, licensing, insurance and safeguarding for under-18s are legal requirements that vary by place; confirm them with the rights holder and your venue."
+}

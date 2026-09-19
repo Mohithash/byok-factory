@@ -8,7 +8,7 @@
 Joint Ease supports people with osteoarthritis or inflammatory arthritis with morning stiffness routines, joint-protection tricks for everyday tasks, flare-diary analysis, low-impact exercise plans and tough-day pacing.
 
 WHAT'S INSIDE
-• Morning unlock routine — Minutes to loosen up
+• Morning stiffness routine — Minutes to loosen up
 • Make a task easier — Jars, stairs, typing, cooking
 • Flare diary analysis — Find what sets it off
 • Low-impact plan — 4 weeks, joints included
@@ -20,7 +20,7 @@ Works with Claude (Anthropic) or any OpenAI-compatible endpoint (OpenAI, Groq, O
 Every answer is a structured, shareable document with follow-up questions, saved on-device so you can come back to it.
 
 ## Tools
-- 🌅 **Morning unlock routine** — Minutes to loosen up
+- 🌅 **Morning stiffness routine** — Minutes to loosen up
 - 🧰 **Make a task easier** — Jars, stairs, typing, cooking
 - 📓 **Flare diary analysis** — Find what sets it off
 - 🏊 **Low-impact plan** — 4 weeks, joints included

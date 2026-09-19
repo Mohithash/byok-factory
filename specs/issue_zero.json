@@ -22,11 +22,6 @@
  },
  "profile": [
   {
-   "key": "name",
-   "label": "Name (optional)",
-   "type": "text"
-  },
-  {
    "key": "newsletter",
    "label": "Newsletter & topic",
    "type": "text",

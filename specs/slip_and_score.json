@@ -1,0 +1,218 @@
+{
+ "id": "slip_and_score",
+ "name": "Slip & Score",
+ "tagline": "Throw, glaze and fire with fewer cracks",
+ "category": "Art & Design",
+ "colors": [
+  "#795548",
+  "#F57C00",
+  "#00838F"
+ ],
+ "icon": "cup",
+ "about": "Slip & Score is a potter's studio companion: throwing and hand-building diagnoses from a photo, glaze combos and firing schedules for your kiln, projects sized to your skill, and clay-body, cone and studio-safety questions answered.",
+ "persona": "You are a studio potter and community-class teacher: hands-on, safety-conscious about dust and kilns, honest that most cracks come from uneven drying, and you always give the next thing to try.",
+ "onboarding": {
+  "title": "Fewer cracks, better pots",
+  "subtitle": "Your clay, kiln and skill level make the advice specific.",
+  "bullets": [
+   "Diagnose cracks, S-cracks and slumps",
+   "Glaze and firing schedules for your kiln",
+   "Projects sized to your skill"
+  ]
+ },
+ "profile": [
+  {
+   "key": "method",
+   "label": "Method",
+   "type": "chips",
+   "options": [
+    "Wheel",
+    "Hand-building",
+    "Both"
+   ]
+  },
+  {
+   "key": "clay",
+   "label": "Clay body",
+   "type": "text",
+   "placeholder": "B-Mix, mid-fire stoneware"
+  },
+  {
+   "key": "kiln",
+   "label": "Kiln",
+   "type": "chips",
+   "options": [
+    "Community studio kiln",
+    "Own electric kiln",
+    "Gas or wood",
+    "No kiln yet"
+   ]
+  },
+  {
+   "key": "cone",
+   "label": "Firing range",
+   "type": "chips",
+   "options": [
+    "Low-fire (cone 04–06)",
+    "Mid-fire (cone 5–6)",
+    "High-fire (cone 9–10)",
+    "Not sure"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "diagnose",
+   "title": "What went wrong?",
+   "subtitle": "Photo → defect, cause, prevention",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the piece",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "stage",
+     "label": "Stage",
+     "type": "chips",
+     "options": [
+      "Wet / throwing",
+      "Leather hard",
+      "Bone dry",
+      "After bisque",
+      "After glaze firing"
+     ],
+     "default": "After glaze firing"
+    }
+   ],
+   "prompt": "Look at the piece (stage: {stage}) and diagnose: table (Defect seen | Cause | Stage it started | Prevent next time), text on whether this piece can be saved and how, and a callout on the one habit change that prevents most of this.",
+   "shape": "table, text, callout",
+   "button": "Diagnose",
+   "loading": "Turning it over…"
+  },
+  {
+   "id": "project",
+   "title": "Plan a project",
+   "subtitle": "Weights, dimensions, shrinkage, steps",
+   "emoji": "🏺",
+   "inputs": [
+    {
+     "key": "piece",
+     "label": "What to make",
+     "type": "text",
+     "placeholder": "set of 4 mugs with pulled handles",
+     "required": true
+    },
+    {
+     "key": "level",
+     "label": "Your level",
+     "type": "chips",
+     "options": [
+      "First month",
+      "Can centre",
+      "Consistent cylinders",
+      "Confident"
+     ],
+     "default": "Can centre"
+    }
+   ],
+   "prompt": "Plan {piece} for someone at '{level}' with the profile clay and method: kv (clay weight per piece, target dimensions wet vs fired allowing for shrinkage, drying time, firing), steps from wedging to glazing with the critical moments marked, a checklist of tools, and a callout on the most common failure for this form.",
+   "shape": "kv, steps, checklist, callout",
+   "button": "Plan it",
+   "loading": "Wedging…"
+  },
+  {
+   "id": "glaze",
+   "title": "Glaze & firing",
+   "subtitle": "Combos, coats and a firing schedule",
+   "emoji": "🌈",
+   "inputs": [
+    {
+     "key": "glazes",
+     "label": "Glazes available",
+     "type": "text",
+     "placeholder": "Amaco PC-20 Blue Rutile, Coyote Shino",
+     "required": true
+    },
+    {
+     "key": "look",
+     "label": "Result",
+     "type": "chips",
+     "options": [
+      "Food-safe functional",
+      "Layered/drippy",
+      "Matte",
+      "Speckled",
+      "Celadon/clear"
+     ],
+     "default": "Food-safe functional"
+    }
+   ],
+   "prompt": "Using {glazes} for a {look} result at the profile cone: cards for 3 combinations (meta = coats · risk) describing application and expected result, a table for the firing schedule (Segment | Rate °C per hour | Target °C | Hold), bullets on test tiles, and a callout on food safety, running glaze and protecting kiln shelves.",
+   "shape": "cards, table, bullets, callout",
+   "button": "Plan glaze",
+   "loading": "Loading the kiln…"
+  },
+  {
+   "id": "practice",
+   "title": "Practice session",
+   "subtitle": "Centring, pulling, trimming, handles",
+   "emoji": "🧱",
+   "inputs": [
+    {
+     "key": "skill",
+     "label": "Skill",
+     "type": "chips",
+     "options": [
+      "Centring",
+      "Pulling walls",
+      "Trimming",
+      "Handles",
+      "Coil building",
+      "Slab building",
+      "Lids"
+     ],
+     "default": "Centring"
+    },
+    {
+     "key": "minutes",
+     "label": "Minutes",
+     "type": "chips",
+     "options": [
+      "30",
+      "60",
+      "90",
+      "120"
+     ],
+     "default": "60"
+    }
+   ],
+   "prompt": "A {minutes}-minute {skill} session for the profile: steps with timings and exact body and hand cues, a kv of the target (e.g. cylinder height and wall thickness, repetitions), bullets on what usually goes wrong and the fix, and a quote with the one cue to say out loud.",
+   "shape": "steps, kv, bullets, quote",
+   "button": "Start session",
+   "loading": "Kicking the wheel…"
+  },
+  {
+   "id": "studio",
+   "title": "Studio & safety",
+   "subtitle": "Recycling clay, dust, kilns, materials",
+   "emoji": "🛡️",
+   "inputs": [
+    {
+     "key": "question",
+     "label": "Question",
+     "type": "text",
+     "placeholder": "how do I recycle clay scraps without a pugmill",
+     "required": true
+    }
+   ],
+   "prompt": "Answer '{question}' for the profile setup: text with the practical answer, steps if there is a procedure, and a callout on dust (silica), kiln and material safety relevant to it.",
+   "shape": "text, steps, callout",
+   "button": "Answer",
+   "loading": "Checking the studio…"
+  }
+ ],
+ "disclaimer": "Silica dust, kiln heat and glaze materials are real hazards; follow your studio's rules and each material's safety data sheet."
+}

@@ -1,0 +1,162 @@
+{
+ "id": "shift_captain",
+ "name": "Shift Captain",
+ "tagline": "Rotas, briefings and thank-yous for your volunteers",
+ "category": "Events",
+ "colors": [
+  "#F57F17",
+  "#1A237E",
+  "#00ACC1"
+ ],
+ "icon": "calendar",
+ "about": "Shift Captain is for whoever is coordinating volunteers at a festival, fun run, food bank, fete or weekly service: it builds rotas from messy availability, writes role briefs and the morning briefing, plans for no-shows and says thank you properly.",
+ "persona": "You are a calm volunteer coordinator who has run hundreds of shifts: you plan for no-shows, brief people so they feel confident, and treat every volunteer's time as precious.",
+ "onboarding": {
+  "title": "Every shift covered, every volunteer thanked",
+  "subtitle": "Tell us about the event or service you run volunteers for.",
+  "bullets": [
+   "Rotas from messy availability",
+   "Role briefs and day-of scripts",
+   "No-show plans and retention"
+  ]
+ },
+ "profile": [
+  {
+   "key": "org",
+   "label": "Event or organisation",
+   "type": "text",
+   "placeholder": "Riverside 10K, September"
+  },
+  {
+   "key": "setting",
+   "label": "Setting",
+   "type": "chips",
+   "options": [
+    "One-off event",
+    "Weekly service",
+    "Seasonal campaign",
+    "Ongoing charity"
+   ]
+  },
+  {
+   "key": "pool",
+   "label": "Volunteer pool size",
+   "type": "number",
+   "placeholder": "40"
+  }
+ ],
+ "tools": [
+  {
+   "id": "rota",
+   "title": "Build the rota",
+   "subtitle": "Slots filled from who's free",
+   "emoji": "🗓️",
+   "inputs": [
+    {
+     "key": "availability",
+     "label": "Availability & skills",
+     "type": "longtext",
+     "placeholder": "Sam: Sat am only, can marshal; Priya: all day, first-aider; Dev: pm, can't stand long…",
+     "required": true
+    },
+    {
+     "key": "slots",
+     "label": "Slots to fill",
+     "type": "text",
+     "placeholder": "6 marshals 8–11, 2 water station 9–12, 1 registration 7–9",
+     "required": true
+    }
+   ],
+   "prompt": "Fill these slots: {slots} from this availability: {availability}. Sections: a table (Slot | Time | Volunteer | Backup), bullets of gaps and who could plausibly cover them, kv (total volunteer-hours, people under-used, people over-used, longest shift), and a callout on breaks, weather and accessibility needs to check with each person.",
+   "shape": "table, bullets, kv, callout",
+   "button": "Build rota",
+   "loading": "Filling slots…"
+  },
+  {
+   "id": "brief",
+   "title": "Role brief",
+   "subtitle": "One page a volunteer can read in 3 minutes",
+   "emoji": "📋",
+   "inputs": [
+    {
+     "key": "role",
+     "label": "Role",
+     "type": "text",
+     "placeholder": "course marshal at the tricky junction",
+     "required": true
+    },
+    {
+     "key": "hazards",
+     "label": "Site notes / hazards",
+     "type": "text",
+     "placeholder": "road crossing, cyclists, no shade"
+    }
+   ],
+   "prompt": "Write a one-page brief for the role: {role}, with site notes: {hazards}. Sections: kv (report to, where, when, what to bring, how to raise a problem), steps for the shift from arrival to sign-off, a checklist of what doing it well looks like, and a callout on safety: what they must never do and who to call.",
+   "shape": "kv, steps, checklist, callout",
+   "button": "Write brief",
+   "loading": "Briefing…"
+  },
+  {
+   "id": "morning",
+   "title": "Morning briefing",
+   "subtitle": "The 4-minute speech before doors",
+   "emoji": "🎤",
+   "inputs": [
+    {
+     "key": "count",
+     "label": "Volunteers present",
+     "type": "number",
+     "placeholder": "25"
+    },
+    {
+     "key": "changes",
+     "label": "Late changes",
+     "type": "text",
+     "placeholder": "route diverted at mile 3, two marshals off sick"
+    }
+   ],
+   "prompt": "Write the morning briefing for {count} volunteers with these late changes: {changes}. Sections: a quote with the 4-minute spoken briefing (welcome, purpose, safety, changes, radios and contacts, thanks), a checklist of items to show or hand out, bullets of likely questions with answers, and a callout on the single safety message to repeat.",
+   "shape": "quote, checklist, bullets, callout",
+   "button": "Write briefing",
+   "loading": "Clearing throat…"
+  },
+  {
+   "id": "noshow",
+   "title": "No-show contingency",
+   "subtitle": "Minimum safe cover for critical roles",
+   "emoji": "🚨",
+   "inputs": [
+    {
+     "key": "critical",
+     "label": "Critical roles",
+     "type": "text",
+     "placeholder": "first-aiders x2, finish-line timing, lead marshal"
+    }
+   ],
+   "prompt": "Plan contingencies for these critical roles: {critical}. Sections: a table (Role | If they don't show | Minimum safe cover | Who decides), steps for the 60 minutes before start (confirmations, redeployments, when to delay or cancel), a quote with the confirmation message to send the night before, and a callout on never running unsafe if cover falls short.",
+   "shape": "table, steps, quote, callout",
+   "button": "Plan cover",
+   "loading": "Thinking ahead…"
+  },
+  {
+   "id": "thanks",
+   "title": "Thank & retain",
+   "subtitle": "Messages, survey and next-time plan",
+   "emoji": "💌",
+   "inputs": [
+    {
+     "key": "highlights",
+     "label": "What happened",
+     "type": "text",
+     "placeholder": "rain all morning, Priya handled a fall brilliantly, 380 finishers"
+    }
+   ],
+   "prompt": "Given: {highlights}, write the thank-you and retention plan. Sections: a quote with a 150-word thank-you to all volunteers, a second quote with a personal note to a stand-out volunteer, bullets for a 5-question feedback survey, and a table (When | Touchpoint | Purpose) for staying in contact until the next event.",
+   "shape": "quote, bullets, table",
+   "button": "Say thanks",
+   "loading": "Writing cards…"
+  }
+ ],
+ "disclaimer": "Safety, safeguarding and insurance are your organisation's responsibility: follow its policies, risk assessments and local rules on background checks."
+}

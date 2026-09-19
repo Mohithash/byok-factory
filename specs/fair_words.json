@@ -1,0 +1,212 @@
+{
+ "id": "fair_words",
+ "name": "Fair Words",
+ "tagline": "Inclusive, accessible writing without the guesswork",
+ "category": "Tools",
+ "colors": [
+  "#6A1B9A",
+  "#26A69A",
+  "#FFB300"
+ ],
+ "icon": "heart",
+ "about": "Fair Words reviews text for exclusionary or ableist language, writes alt text from an image, rewrites gender-neutrally, checks writing for accessibility, and suggests content notes.",
+ "persona": "You are a thoughtful inclusive-language editor: you explain the concern behind each suggestion, respect intent and context, defer to how communities name themselves, and never lecture.",
+ "onboarding": {
+  "title": "Write so everyone is welcome",
+  "subtitle": "Tell Fair Words where your writing goes.",
+  "bullets": [
+   "Phrase-by-phrase inclusive-language review",
+   "Alt text from a photo",
+   "Accessibility checks for documents"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "context",
+   "label": "You write for",
+   "type": "chips",
+   "options": [
+    "Company comms",
+    "Marketing",
+    "Education",
+    "Healthcare",
+    "Government",
+    "Games / fiction"
+   ],
+   "default": "Company comms"
+  },
+  {
+   "key": "region",
+   "label": "Region",
+   "type": "chips",
+   "options": [
+    "US",
+    "UK",
+    "Australia / NZ",
+    "Canada",
+    "Global"
+   ],
+   "default": "Global"
+  },
+  {
+   "key": "guide",
+   "label": "Style guide you follow",
+   "type": "text",
+   "placeholder": "Conscious Style Guide, own"
+  }
+ ],
+ "tools": [
+  {
+   "id": "pass",
+   "title": "Inclusive-language pass",
+   "subtitle": "Flag, explain, suggest",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "text",
+     "label": "Text",
+     "type": "longtext",
+     "placeholder": "Paste the text…",
+     "required": true
+    },
+    {
+     "key": "strict",
+     "label": "Sensitivity",
+     "type": "chips",
+     "options": [
+      "Clear problems only",
+      "Balanced",
+      "Thorough"
+     ],
+     "default": "Balanced"
+    }
+   ],
+   "prompt": "Review {text} at sensitivity '{strict}' for the profile context and region. Table (Phrase | Concern: gendered / ableist / age / race and culture / idiom that excludes / assumption | Alternative | Why, one line); quote with the revised text; a callout on judgement calls where the original may be intentional (quoted speech, character voice, reclaimed terms).",
+   "shape": "table, quote, callout",
+   "button": "Review",
+   "loading": "Reading with care…"
+  },
+  {
+   "id": "alt",
+   "title": "Write alt text",
+   "subtitle": "Photo → short and long descriptions",
+   "emoji": "🖼️",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Image to describe",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "use",
+     "label": "Where it appears",
+     "type": "chips",
+     "options": [
+      "Website",
+      "Social post",
+      "Slide deck",
+      "Document"
+     ],
+     "default": "Website"
+    },
+    {
+     "key": "focus",
+     "label": "What matters in it",
+     "type": "text",
+     "placeholder": "the chart's upward trend"
+    }
+   ],
+   "prompt": "Write alt text for the image, which appears on a {use}; what matters: {focus}. Sections: quote with short alt text of at most 125 characters; quote with a long description of 2 to 4 sentences for complex images; bullets on what was deliberately left out and why; a callout on when this image should be marked decorative instead.",
+   "shape": "quote, bullets, callout",
+   "button": "Describe image",
+   "loading": "Looking closely…"
+  },
+  {
+   "id": "neutral",
+   "title": "Gender-neutral rewrite",
+   "subtitle": "Without awkward constructions",
+   "emoji": "⚖️",
+   "inputs": [
+    {
+     "key": "text",
+     "label": "Text",
+     "type": "longtext",
+     "placeholder": "Paste the text…",
+     "required": true
+    },
+    {
+     "key": "style",
+     "label": "Technique",
+     "type": "chips",
+     "options": [
+      "Singular they",
+      "Rewrite to plural",
+      "Address the reader as you",
+      "Mixed"
+     ],
+     "default": "Mixed"
+    }
+   ],
+   "prompt": "Rewrite {text} gender-neutrally using technique '{style}'. Sections: quote with the rewrite; table (Original | Neutral | Technique used); a callout on real people named in the text whose pronouns must be confirmed, not assumed.",
+   "shape": "quote, table, callout",
+   "button": "Rewrite",
+   "loading": "Rebalancing…"
+  },
+  {
+   "id": "access",
+   "title": "Accessible writing check",
+   "subtitle": "Headings, links, lists, acronyms",
+   "emoji": "♿",
+   "inputs": [
+    {
+     "key": "text",
+     "label": "Document or page text",
+     "type": "longtext",
+     "placeholder": "Paste the page…",
+     "required": true
+    }
+   ],
+   "prompt": "Check {text} for accessible writing. Checklist (headings in order, descriptive link text, lists for sequences, acronyms expanded on first use, no meaning carried by colour or position alone, paragraphs under 5 sentences, plain words) each marked pass or fail; table (Location | Issue | Fix); kv (estimated reading grade, average sentence length, longest paragraph).",
+   "shape": "checklist, table, kv",
+   "button": "Check",
+   "loading": "Testing readability…"
+  },
+  {
+   "id": "notes",
+   "title": "Content notes",
+   "subtitle": "What readers may want warned about",
+   "emoji": "📌",
+   "inputs": [
+    {
+     "key": "text",
+     "label": "Story, article or lesson",
+     "type": "longtext",
+     "placeholder": "Paste the text or a summary…",
+     "required": true
+    },
+    {
+     "key": "aud",
+     "label": "Audience",
+     "type": "chips",
+     "options": [
+      "Adults",
+      "Teens",
+      "Children",
+      "Mixed"
+     ],
+     "default": "Adults"
+    }
+   ],
+   "prompt": "Read {text} for an audience of {aud}. Bullets of themes that may warrant a content note, each with the passage it comes from; a quote with a one-line content note ready to paste; a callout on avoiding spoilers and over-warning.",
+   "shape": "bullets, quote, callout",
+   "button": "Suggest notes",
+   "loading": "Reading ahead…"
+  }
+ ]
+}

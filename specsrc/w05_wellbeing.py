@@ -35,7 +35,7 @@ APP("thanks_ledger", "Thanks Ledger", "A gratitude journal that notices more tha
  [NAME, CH("time", "You journal at", ["Morning", "Lunch", "Evening", "Whenever"]), TXT("people", "People who matter", "Sam, Mum, my team")],
  [T("tonight", "Tonight's three", "Turn your day into three keepers", "✨",
     [LONG("day", "How was today", "dull meeting, nice coffee from Priya, rain on the walk home…"), CH("mood", "Mood right now", ["Good", "Flat", "Rough"], "Flat")],
-    "From this day: {day} (mood: {mood}) draw out 3 gratitude entries as cards (title = the specific thing, meta = who or what made it happen), each 1–2 sentences naming a sensory detail. Then a quote with a one-line entry to copy into the journal, and if the mood is Rough, a callout that acknowledges the hard part before the gratitude.",
+    "From this day: {day} (mood: {mood}) draw out 3 gratitude entries as cards (title = the specific thing, meta = who or what made it happen), each 1–2 sentences naming a sensory detail, using the profile's people by name where they appear. Then a quote with a one-line entry to copy into the journal, and if the mood is Rough, a callout that acknowledges the hard part before the gratitude.",
     "cards, quote, callout", "Find my three", "Sifting the day…"),
   T("thankyou", "Write a thank-you", "A note someone will keep", "💌",
     [TXT("to", "To", "my old teacher Mr Ade", True), LONG("why", "What they did", "wrote me a reference and checked in after"), CH("format", "Format", ["Text message", "Handwritten card", "Email", "Voice-note script"], "Text message")],
@@ -51,7 +51,7 @@ APP("thanks_ledger", "Thanks Ledger", "A gratitude journal that notices more tha
     "steps, bullets, callout", "Savour", "Slowing down…"),
   T("jar", "30-day prompt jar", "A month of prompts", "🫙",
     [CH("flavour", "Flavour", ["Everyday", "Relationships", "Body & health", "Work", "Tough season"], "Everyday")],
-    "Write 30 gratitude prompts with the '{flavour}' flavour as a table (Day | Prompt | Twist for a bad day). Keep prompts specific and answerable in one sentence, no two alike. End with bullets on how to use the jar when journaling feels forced.",
+    "Write 30 gratitude prompts with the '{flavour}' flavour, suited to the profile's journaling time, as a table (Day | Prompt | Twist for a bad day). Keep prompts specific and answerable in one sentence, no two alike. End with bullets on how to use the jar when journaling feels forced.",
     "table, bullets", "Fill the jar", "Writing prompts…")], LIGHT)
 
 APP("between_sessions", "Between Sessions", "Get more from therapy in the days between", "Health & Fitness", ["#5C6BC0", "#26A69A", "#FF8A65"], "book",
@@ -69,7 +69,7 @@ APP("between_sessions", "Between Sessions", "Get more from therapy in the days b
     "kv, checklist, bullets", "Debrief", "Writing it down…"),
   T("ladder", "Exposure ladder", "Fear → ten rungs you can climb", "🪜",
     [TXT("fear", "The fear", "riding the tube at rush hour", True), CH("start", "Current comfort", ["Can't think about it", "Can imagine it", "Can do a tiny version", "Can do it with support"], "Can do a tiny version")],
-    "Build a graded exposure ladder for {fear}, starting from '{start}'. Table (Rung | Situation | Predicted anxiety 0–100 | Safety behaviour to drop | Repeat until), steps for how to run a single exposure (before, during and after ratings), and a callout on when to pause and check with the therapist.",
+    "Build a graded exposure ladder for {fear}, starting from '{start}'. Table with exactly 10 rungs ordered easiest to hardest (Rung | Situation | Predicted anxiety 0–100 | Safety behaviour to drop | Repeat until), steps for how to run a single exposure (before, during and after ratings), and a callout on when to pause and check with the therapist.",
     "table, steps, callout", "Build ladder", "Setting the rungs…"),
   T("activate", "Activity schedule", "Behavioural activation for a flat week", "📅",
     [TXT("enjoy", "Things I used to enjoy", "climbing, cooking for friends, drawing"), CH("energy", "Energy right now", ["Very low", "Low", "Some", "Okay"], "Low")],
@@ -83,8 +83,8 @@ APP("between_sessions", "Between Sessions", "Get more from therapy in the days b
 APP("body_calm", "Body Calm", "Release stress where your body actually holds it", "Health & Fitness", ["#00897B", "#D4E157", "#8E24AA"], "heart",
  "Body Calm works on stress from the neck down: progressive muscle relaxation scripts, a tension map from how you feel, shake-it-off movement resets and a body scan for sleep.",
  "You are a somatic-informed relaxation coach: unhurried, specific about muscles and breath, and clear that pain, numbness or trauma responses need a professional.",
- "Stress lives in the body too", "Tell us where you tense up and how long you have.", ["PMR scripts timed to your slot", "Tension map from how you feel", "Movement resets between meetings"],
- [NAME, CH("holds", "Where you hold tension", ["Jaw", "Neck & shoulders", "Chest", "Stomach", "Hands", "Lower back"], multi=True), CH("slot", "Usual time available", ["3 minutes", "10 minutes", "20 minutes"]), TXT("limits", "Injuries / limits", "bad knee")],
+ "Stress lives in the body too", "Tell us where you tense up and what your days look like.", ["PMR scripts timed to your slot", "Tension map from how you feel", "Resets and cues that fit your day"],
+ [NAME, CH("holds", "Where you hold tension", ["Jaw", "Neck & shoulders", "Chest", "Stomach", "Hands", "Lower back"], multi=True), CH("daytype", "Your day is mostly", ["At a desk", "On my feet", "Driving", "Caring for others"]), TXT("limits", "Injuries / limits", "bad knee")],
  [T("pmr", "Progressive relaxation", "Tense-and-release, timed", "🧘",
     [CH("minutes", "Minutes", ["5", "10", "15", "20"], "10"), CH("where", "Where are you", ["Lying down", "Sitting at a desk", "Public place"], "Sitting at a desk")],
     "Write a {minutes}-minute progressive muscle relaxation script for someone {where}, honouring the profile limits. Steps in order from feet to face (muscle group · tense seconds · release seconds · cue words), skipping groups that would be awkward {where}, a callout on not straining the areas listed as limits, and a quote with the closing lines to read slowly.",
@@ -95,16 +95,16 @@ APP("body_calm", "Body Calm", "Release stress where your body actually holds it"
     "table, steps, callout", "Map it", "Locating…"),
   T("shake", "Shake it off", "A movement reset in under 3 minutes", "🕺",
     [CH("state", "Right now I feel", ["Wired", "Frozen", "Foggy", "Angry"], "Wired"), CH("space", "Space", ["Desk chair", "Small room", "Outdoors"], "Small room")],
-    "A movement reset for feeling '{state}' in a {space}, under 3 minutes: steps (movement · seconds · breathing pattern) matched to the state (discharge for wired or angry, gentle activation for frozen or foggy), bullets on how to tell it worked, and a callout on modifications for the profile's limits.",
+    "A movement reset for feeling '{state}' in a {space}, under 3 minutes: steps (movement · seconds · breathing pattern) matched to the state (discharge for wired or angry, gentle activation for frozen or foggy), bullets on how to tell it worked, and a callout on modifications for the profile's limits and day type.",
     "steps, bullets, callout", "Reset me", "Shaking loose…"),
   T("scan", "Body scan for sleep", "Head to toe, lights off", "🌙",
     [CH("length", "Length", ["8 minutes", "15 minutes", "25 minutes"], "15 minutes"), TXT("busy", "What's on your mind", "presentation tomorrow")],
     "A {length} sleep body-scan script that gently parks '{busy}'. Text with a three-sentence opening that names the worry and sets it down, steps region by region with the words to say and the pause length, and a callout on what to do if the mind keeps returning to the worry.",
     "text, steps, callout", "Scan me", "Dimming lights…"),
-  T("premeet", "Pre-meeting release", "Unclench before the hard thing", "⏱️",
-    [TXT("next", "What's next", "difficult call with a client"), NUM("minutes", "Minutes you have", "2")],
-    "In {minutes} minutes before '{next}': steps with a jaw, shoulder and breath release sequence sized to the time, a kv (Posture cue, Breath ratio, What to do with the hands), and a quote with one sentence to say to yourself walking in.",
-    "steps, kv, quote", "Release", "Unclenching…")], MH)
+  T("cues", "Daily unclench cues", "Tie tiny releases to things you already do", "🔔",
+    [LONG("day", "Your typical day, roughly", "alarm 6:30, commute, back-to-back calls till 1, school pickup 3:30, TV after dinner"), CH("count", "How many cues", ["3", "5", "8"], "5")],
+    "Design {count} cue-based micro-releases for this day: {day}, targeting the profile's tension areas and day type. Table (Cue moment | Release move | Seconds | Area it unclenches), each release under 30 seconds and doable without anyone noticing, a checklist for day one in clock order, bullets on the two habits in this day most likely to re-tighten things (phone neck, breath-holding on calls), and a callout on how to know after a week whether it's working.",
+    "table, checklist, bullets, callout", "Set my cues", "Placing reminders…")], MH)
 
 APP("unsent_letters", "Unsent", "Write the letter you'll never send, then decide", "Lifestyle", ["#6D4C41", "#C2185B", "#FFCC80"], "note",
  "Unsent helps you write letters to people you can't or shouldn't send them to — an ex, a parent, your younger self, someone who's gone — then reflect on what came out and choose what, if anything, to actually say.",
@@ -143,7 +143,7 @@ APP("still_minutes", "Still Minutes", "Meditation scripts written for you, not a
     "steps, callout, quote", "Write script", "Settling in…"),
   T("fix", "Fix my practice", "Sleepy, restless, bored, sore", "🔧",
     [CH("problem", "What keeps happening", ["I fall asleep", "I can't stop thinking", "I get bored", "My back hurts", "I keep skipping it"], "I can't stop thinking"), TXT("detail", "Detail", "usually 3 minutes in, then I give up")],
-    "The problem: {problem}; detail: {detail}. Text explaining in plain words why this happens and why it isn't failure, a table (Adjustment | How | Try it for), steps for the next session using the top adjustment, and a quote with a one-line reframe to remember.",
+    "The problem: {problem}; detail: {detail}. Text explaining in plain words why this happens and why it isn't failure, a table of 3–4 rows (Adjustment | How | Try it for), steps for the next session using the top adjustment, and a quote with a one-line reframe to remember.",
     "text, table, steps, quote", "Fix it", "Adjusting…"),
   T("walk", "Everyday mindfulness", "Practice without sitting", "🚶",
     [CH("activity", "During", ["Walking", "Washing up", "Commuting", "Eating", "Waiting in a queue"], "Walking"), NUM("minutes", "Minutes", "10")],
@@ -180,8 +180,8 @@ APP("sunday_scaries", "Sunday Scaries", "End the weekend without dreading Monday
     "Plan a restoring weekend built around {mode} with these fixed commitments: {fixed}. Table (Slot | Saturday | Sunday) covering morning, afternoon and evening, bullets on protecting Sunday evening given the profile's dread pattern, and a callout on the difference between rest and scrolling.",
     "table, bullets, callout", "Plan weekend", "Clearing Sunday…")], MH)
 
-APP("cool_down", "Cool Down", "Anger that doesn't wreck your relationships", "Health & Fitness", ["#0277BD", "#EF5350", "#546E7A"], "drop",
- "Cool Down helps you get through the hot moment, log what set you off, find the pattern behind your anger, and repair after you've said something you regret.",
+APP("cool_head", "Cool Head", "Anger that doesn't wreck your relationships", "Health & Fitness", ["#0277BD", "#EF5350", "#546E7A"], "drop",
+ "Cool Head helps you get through the hot moment, log what set you off, find the pattern behind your anger, and repair after you've said something you regret.",
  "You are a non-judgemental anger coach: anger is information, not a character flaw; you focus on the gap between feeling and action, and you say plainly when anger has tipped into risk to others.",
  "Turn heat into information", "Tell us where anger tends to show up for you.", ["90-second cool-down in the moment", "Anger log that finds patterns", "Repair scripts that actually land"],
  [NAME, CH("where", "Anger shows up most", ["Partner", "Kids", "Work", "Driving", "Family", "Online"], multi=True), CH("style", "Your style", ["Explode", "Go silent", "Sarcastic", "Stew for days"])],
@@ -230,7 +230,7 @@ APP("stoic_evening", "Stoic Evening", "Ancient journaling for modern nerves", "L
   T("passage", "Decode a passage", "Paste a line, get it for today", "📜",
     [LONG("passage", "The passage", "You have power over your mind, not outside events…"), TXT("situation", "Your situation", "being ghosted by a friend")],
     "Interpret this passage: {passage}, for the situation: {situation}. Text with what the author most likely meant in context (2 paragraphs), bullets with 3 concrete applications to the situation, a callout on a common misreading of the line, and a quote with a modern one-sentence rewrite.",
-    "text, bullets, callout, quote", "Decode", "Consulting…")], LIGHT)
+    "text, bullets, callout, quote", "Decode", "Consulting…")], LIGHT + " Skip physical, cold or fasting challenges if you are pregnant, unwell, have a heart condition or an eating disorder history, or have been told to by a clinician.")
 
 APP("values_compass", "Values Compass", "Know what matters, then act like it", "Health & Fitness", ["#2E7D32", "#F57C00", "#1565C0"], "pin",
  "Values Compass uses acceptance-and-commitment tools to clarify what you actually value, spot when you're moving away from it, plan small committed actions and unhook from the thoughts that stop you.",

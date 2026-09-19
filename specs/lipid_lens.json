@@ -80,7 +80,7 @@
      "type": "text"
     }
    ],
-   "prompt": "Explain the profile results, or {new} if given, in {units}. Table (Marker | Your value | Commonly used target | Direction to move), text on what each marker does in plain English, a kv of derived numbers (non-HDL cholesterol, total/HDL ratio) and what they add, bullets of 3 questions for the doctor, and a callout that targets depend on overall cardiovascular risk which only the clinician can score.",
+   "prompt": "New results (blank means use the profile results): {new}. Explain them in {units}. Table (Marker | Your value | Commonly used target | Direction to move), text on what each marker does in plain English, a kv of derived numbers (non-HDL cholesterol, total/HDL ratio) and what they add, bullets of 3 questions for the doctor, and a callout that targets depend on overall cardiovascular risk which only the clinician can score.",
    "shape": "table, text, kv, bullets, callout",
    "button": "Explain",
    "loading": "Reading the panel…"
@@ -98,7 +98,7 @@
      "required": true
     }
    ],
-   "prompt": "Read the label: kv (saturated fat per serving and per 100 g, trans fat, fibre, sugars, servings per pack, traffic-light rating high/medium/low), a text verdict on whether it fits a cholesterol-lowering pattern and how often, and bullets of 3 swaps in the same category with lower saturated fat.",
+   "prompt": "Read the nutrition label in the photo: kv (saturated fat per serving and per 100 g, trans fat, fibre, sugars, servings per pack, traffic-light rating high/medium/low), a text verdict on whether it fits a cholesterol-lowering pattern and how often, and bullets of 3 swaps in the same category with lower saturated fat.",
    "shape": "kv, text, bullets",
    "button": "Scan label",
    "loading": "Reading fats…"

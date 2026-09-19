@@ -1,0 +1,231 @@
+{
+ "id": "kettle_coach",
+ "name": "Iron Bell",
+ "tagline": "Kettlebell sessions built around the bells you own",
+ "category": "Health & Fitness",
+ "colors": [
+  "#37474F",
+  "#FF6F00",
+  "#00897B"
+ ],
+ "icon": "flame",
+ "about": "Iron Bell programmes kettlebell training around the exact bells you own: swings, get-ups, presses, snatches and complexes, with form checks, a path to the next bell size and honest session reviews.",
+ "persona": "You are a hardstyle kettlebell instructor: technique-first, tension-aware, allergic to sloppy swings; you prescribe in sets, reps, bell kilograms and rest in seconds.",
+ "onboarding": {
+  "title": "Which bells do you own?",
+  "subtitle": "Iron Bell plans every session around your actual weights and minutes.",
+  "bullets": [
+   "Sessions from your exact bells",
+   "Swing, press and get-up form fixes",
+   "A path to the next bell size"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "bells",
+   "label": "Bells you own (kg)",
+   "type": "text",
+   "placeholder": "12, 16, 24"
+  },
+  {
+   "key": "level",
+   "label": "Level",
+   "type": "chips",
+   "options": [
+    "New to bells",
+    "Can swing and press",
+    "Snatch and get-up comfortable"
+   ]
+  },
+  {
+   "key": "goal",
+   "label": "Main goal",
+   "type": "chips",
+   "options": [
+    "Strength",
+    "Conditioning",
+    "Fat loss",
+    "Simple daily practice",
+    "Athletic power"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "session",
+   "title": "Today's session",
+   "subtitle": "Built from your bells and minutes",
+   "emoji": "🔔",
+   "inputs": [
+    {
+     "key": "minutes",
+     "label": "Minutes",
+     "type": "chips",
+     "options": [
+      "15",
+      "25",
+      "40"
+     ],
+     "default": "25"
+    },
+    {
+     "key": "focus",
+     "label": "Focus",
+     "type": "chips",
+     "options": [
+      "Full body",
+      "Swings and hinge",
+      "Press and pull",
+      "Conditioning",
+      "Grinds (slow strength)"
+     ],
+     "default": "Full body"
+    },
+    {
+     "key": "note",
+     "label": "Anything to work around",
+     "type": "text",
+     "placeholder": "sore lower back, only one 16"
+    }
+   ],
+   "prompt": "Write a {minutes}-minute kettlebell session with focus '{focus}' using only the profile bells, working around: {note}. Sections: steps for a 4-minute warm-up (halos, hip hinges, goblet squat pry), a table for the main work (Exercise | Bell kg | Sets x reps | Rest s | Cue), bullets on tempo and breathing, and a callout on when to drop a bell size mid-session.",
+   "shape": "steps, table, bullets, callout",
+   "button": "Build session",
+   "loading": "Chalking up…"
+  },
+  {
+   "id": "form",
+   "title": "Check my form",
+   "subtitle": "Photo or description of a swing, press or get-up",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo mid-rep (optional)",
+     "type": "photo"
+    },
+    {
+     "key": "move",
+     "label": "Movement",
+     "type": "chips",
+     "options": [
+      "Swing",
+      "Clean",
+      "Press",
+      "Snatch",
+      "Turkish get-up",
+      "Goblet squat"
+     ],
+     "default": "Swing"
+    },
+    {
+     "key": "issue",
+     "label": "What feels off",
+     "type": "text",
+     "placeholder": "bell bangs my forearm on cleans"
+    }
+   ],
+   "prompt": "Coach the {move} from the photo and this description: {issue}. Sections: bullets of the 3 most likely faults ranked by likelihood, steps for one corrective drill with reps, a table (Fault | What it looks like | Fix), and a callout on the safety cue that matters most for the {move}.",
+   "shape": "bullets, steps, table, callout",
+   "button": "Coach me",
+   "loading": "Watching the arc…"
+  },
+  {
+   "id": "complex",
+   "title": "Build a complex",
+   "subtitle": "Chains and flows without putting the bell down",
+   "emoji": "🔗",
+   "inputs": [
+    {
+     "key": "bells",
+     "label": "Bells",
+     "type": "chips",
+     "options": [
+      "Single",
+      "Double"
+     ],
+     "default": "Single"
+    },
+    {
+     "key": "style",
+     "label": "Style",
+     "type": "chips",
+     "options": [
+      "EMOM",
+      "Ladder",
+      "Chain",
+      "Flow",
+      "AMRAP"
+     ],
+     "default": "Chain"
+    },
+    {
+     "key": "rounds",
+     "label": "Rounds",
+     "type": "number",
+     "placeholder": "5"
+    }
+   ],
+   "prompt": "Design a {bells}-bell {style} complex for {rounds} rounds at the profile level and goal. Sections: kv (bell weight to use, work time, rest, total time), steps listing each movement in order with reps and the transition cue, a callout on grip fatigue and when to break the set, and bullets for a lighter and a heavier variant.",
+   "shape": "kv, steps, callout, bullets",
+   "button": "Design",
+   "loading": "Chaining moves…"
+  },
+  {
+   "id": "nextbell",
+   "title": "Earn the next bell",
+   "subtitle": "Bridge the gap to a heavier kettlebell",
+   "emoji": "⬆️",
+   "inputs": [
+    {
+     "key": "lift",
+     "label": "Lift",
+     "type": "chips",
+     "options": [
+      "Swing",
+      "Press",
+      "Snatch",
+      "Get-up",
+      "Front squat"
+     ],
+     "default": "Press"
+    },
+    {
+     "key": "target",
+     "label": "Target bell (kg)",
+     "type": "number",
+     "placeholder": "24"
+    }
+   ],
+   "prompt": "Plan the jump to a {target} kg bell on the {lift} from the profile bells. Sections: a table for a 6-week bridge (Week | Sessions | Sets x reps | Bell kg | Assistance work), a checklist of readiness tests to pass before the first attempt, bullets on technique changes a heavier bell demands, and a callout on shoulder and lower-back warning signs.",
+   "shape": "table, checklist, bullets, callout",
+   "button": "Plan the jump",
+   "loading": "Sizing up…"
+  },
+  {
+   "id": "review",
+   "title": "Review my week",
+   "subtitle": "Paste your training log",
+   "emoji": "📓",
+   "inputs": [
+    {
+     "key": "log",
+     "label": "This week's sessions",
+     "type": "longtext",
+     "placeholder": "Mon: 100 swings @24 in 5 min, 5 get-ups each side @16…",
+     "required": true
+    }
+   ],
+   "prompt": "Review this kettlebell log against the profile goal: {log}. Sections: bullets of what is progressing, a table (Lift | Volume this week | Trend | Next week), a callout on the biggest risk (grip, lower back, overusing one pattern), and a quote with one technical cue to carry into next week.",
+   "shape": "bullets, table, callout, quote",
+   "button": "Review",
+   "loading": "Counting swings…"
+  }
+ ],
+ "disclaimer": "Not medical advice. Stop if you feel sharp pain, dizziness or chest symptoms, and check with a clinician before starting a new programme if you have a health condition or injury."
+}

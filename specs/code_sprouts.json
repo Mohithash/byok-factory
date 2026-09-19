@@ -1,0 +1,202 @@
+{
+ "id": "code_sprouts",
+ "name": "Code Sprouts",
+ "tagline": "Scratch, micro:bit and unplugged coding, made kid-easy",
+ "category": "Education",
+ "colors": [
+  "#7CB342",
+  "#F4511E",
+  "#1E88E5"
+ ],
+ "icon": "gear",
+ "about": "Code Sprouts helps parents and kids learn to code together: screen-free 'unplugged' games that teach loops and logic, step-by-step Scratch and ScratchJr projects, micro:bit ideas, debugging help from a screenshot and a project ladder matched to your child's age and interests.",
+ "persona": "You are a children's coding-club mentor: encouraging, jargon-light, you let kids find bugs themselves with hints, and you always start from something they want to make.",
+ "onboarding": {
+  "title": "Their first program this weekend",
+  "subtitle": "Tell us their age, what they've tried and what they'd love to make.",
+  "bullets": [
+   "Unplugged games that teach logic",
+   "Step-by-step Scratch projects",
+   "Debug from a screenshot"
+  ]
+ },
+ "profile": [
+  {
+   "key": "child",
+   "label": "Child's name & age",
+   "type": "text",
+   "placeholder": "Arjun, 9"
+  },
+  {
+   "key": "tools",
+   "label": "Tools they can use",
+   "type": "chips",
+   "options": [
+    "ScratchJr",
+    "Scratch",
+    "micro:bit",
+    "Python (kids)",
+    "Roblox / Lua",
+    "Minecraft Education",
+    "None yet"
+   ],
+   "multi": true
+  },
+  {
+   "key": "wants",
+   "label": "Wants to make",
+   "type": "text",
+   "placeholder": "a game where a cat dodges lasers"
+  }
+ ],
+ "tools": [
+  {
+   "id": "project",
+   "title": "Build a project",
+   "subtitle": "Step by step, in their tool",
+   "emoji": "🧩",
+   "inputs": [
+    {
+     "key": "idea",
+     "label": "Project idea",
+     "type": "text",
+     "placeholder": "a maze game with a timer",
+     "required": true
+    },
+    {
+     "key": "tool",
+     "label": "Tool",
+     "type": "chips",
+     "options": [
+      "ScratchJr",
+      "Scratch",
+      "micro:bit",
+      "Python",
+      "Roblox Studio",
+      "Unplugged"
+     ],
+     "default": "Scratch"
+    },
+    {
+     "key": "session",
+     "label": "Session",
+     "type": "chips",
+     "options": [
+      "30 min",
+      "1 hour",
+      "Weekend project"
+     ],
+     "default": "1 hour"
+    }
+   ],
+   "prompt": "Turn '{idea}' into a {session} {tool} project for the profile child. Sections: kv (Concepts learned, Sprites, assets or parts needed, Difficulty), steps in small numbered chunks each ending in something visible on screen (name the blocks or code exactly), a callout on the first likely bug and the hint to give instead of the fix, and bullets of 3 ways to extend it once it works.",
+   "shape": "kv, steps, callout, bullets",
+   "button": "Build it",
+   "loading": "Stacking blocks…"
+  },
+  {
+   "id": "unplugged",
+   "title": "Screen-free coding",
+   "subtitle": "Games that teach loops and logic",
+   "emoji": "🎲",
+   "inputs": [
+    {
+     "key": "concept",
+     "label": "Concept",
+     "type": "chips",
+     "options": [
+      "Sequences",
+      "Loops",
+      "Conditionals (if/then)",
+      "Variables",
+      "Debugging",
+      "Algorithms",
+      "Binary",
+      "Functions"
+     ],
+     "default": "Loops"
+    },
+    {
+     "key": "players",
+     "label": "Players",
+     "type": "number",
+     "placeholder": "2"
+    }
+   ],
+   "prompt": "Design 2 unplugged games teaching '{concept}' for {players} players at the profile child's age, using paper, cups, toys or a rug grid. Cards (name, meta = minutes · materials · age fit), steps for the first game, a quote with how to explain the concept in one child-sized sentence linked back to the game, and a callout on the misconception this concept usually causes.",
+   "shape": "cards, steps, quote, callout",
+   "button": "Play",
+   "loading": "Unplugging…"
+  },
+  {
+   "id": "debug",
+   "title": "Fix my kid's code",
+   "subtitle": "Screenshot → hints, not answers",
+   "emoji": "🐛",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Screenshot of the blocks or code",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "wrong",
+     "label": "What's going wrong",
+     "type": "text",
+     "placeholder": "the cat won't stop moving",
+     "required": true
+    }
+   ],
+   "prompt": "Look at the code in the screenshot; the problem is: {wrong}. Sections: text with a plain-language diagnosis for the parent, steps of 3 escalating hints to give the child (a question first, then where to look, then the fix), a table (Block or line | What it does | Problem?), and a callout praising what the child did well.",
+   "shape": "text, steps, table, callout",
+   "button": "Find the bug",
+   "loading": "Squashing bugs…"
+  },
+  {
+   "id": "ladder",
+   "title": "Project ladder",
+   "subtitle": "12 weeks from first click to real game",
+   "emoji": "🪜",
+   "inputs": [
+    {
+     "key": "goal",
+     "label": "Goal",
+     "type": "chips",
+     "options": [
+      "First game",
+      "Animated story",
+      "Music or art toy",
+      "micro:bit gadget",
+      "Text adventure in Python",
+      "Roblox obby"
+     ],
+     "default": "First game"
+    }
+   ],
+   "prompt": "Plan a 12-week project ladder toward '{goal}' for the profile child, tools and wants, one 45-minute session a week. Sections: a table (Week | Mini-project | New concept | Success looks like), cards for the 3 milestone projects (meta = week · concepts · showcase), bullets on free resources that fit each tool, and a callout on keeping motivation when a project breaks.",
+   "shape": "table, cards, bullets, callout",
+   "button": "Plan ladder",
+   "loading": "Climbing…"
+  },
+  {
+   "id": "explain",
+   "title": "Explain it like they're 8",
+   "subtitle": "A coding idea in kid words",
+   "emoji": "💡",
+   "inputs": [
+    {
+     "key": "term",
+     "label": "Term or idea",
+     "type": "text",
+     "placeholder": "what is a variable?",
+     "required": true
+    }
+   ],
+   "prompt": "Explain '{term}' for the profile child's age. Sections: a quote with a 4-sentence explanation using an everyday analogy, a kv of 3 examples from the profile's tools (Tool → how it appears there), steps for a 2-minute activity to feel the idea, and bullets of 2 questions to check they got it.",
+   "shape": "quote, kv, steps, bullets",
+   "button": "Explain",
+   "loading": "Translating…"
+  }
+ ]
+}

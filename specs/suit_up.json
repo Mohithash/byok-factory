@@ -1,0 +1,232 @@
+{
+ "id": "suit_up",
+ "name": "Suit Up",
+ "tagline": "Men's style rules, decoded for real life",
+ "category": "Lifestyle",
+ "colors": [
+  "#1F2A44",
+  "#7A1F2B",
+  "#C9A961"
+ ],
+ "icon": "hat",
+ "about": "Suit Up decodes dress codes from any invite, checks fit from a mirror photo, builds a foundation menswear wardrobe on your budget and matches shoes, belts and watches so you always look put together.",
+ "persona": "You are a straight-talking menswear stylist who apprenticed with a tailor: classic-first, budget-aware, never snobby; you explain the rule and when it is fine to break it.",
+ "onboarding": {
+  "title": "Dress like you mean it",
+  "subtitle": "Tell us how you live and what you already wear; every answer adapts.",
+  "bullets": [
+   "Dress codes decoded for any invite",
+   "Fit check from a mirror photo",
+   "A foundation wardrobe on your budget"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "life",
+   "label": "Most days you're",
+   "type": "chips",
+   "options": [
+    "Office formal",
+    "Business casual",
+    "Creative / casual",
+    "Trades / outdoors",
+    "Student"
+   ],
+   "default": "Business casual"
+  },
+  {
+   "key": "build",
+   "label": "Build",
+   "type": "chips",
+   "options": [
+    "Slim",
+    "Athletic",
+    "Average",
+    "Broad",
+    "Tall & lean",
+    "Shorter"
+   ],
+   "default": "Average"
+  },
+  {
+   "key": "sizes",
+   "label": "Sizes you know",
+   "type": "text",
+   "placeholder": "40R jacket, 32 waist, UK 9 shoe"
+  }
+ ],
+ "tools": [
+  {
+   "id": "code",
+   "title": "Decode the dress code",
+   "subtitle": "Invite → exactly what to wear",
+   "emoji": "🎩",
+   "inputs": [
+    {
+     "key": "invite",
+     "label": "What the invite says",
+     "type": "text",
+     "placeholder": "cocktail attire, garden wedding, 3pm",
+     "required": true
+    },
+    {
+     "key": "season",
+     "label": "Season",
+     "type": "chips",
+     "options": [
+      "Spring",
+      "Summer",
+      "Autumn",
+      "Winter"
+     ],
+     "default": "Summer"
+    },
+    {
+     "key": "budget",
+     "label": "Budget for new items",
+     "type": "chips",
+     "options": [
+      "Nothing new",
+      "Under 100",
+      "100–300",
+      "300+"
+     ],
+     "default": "Under 100"
+    }
+   ],
+   "prompt": "Decode '{invite}' for a {season} event with {budget} to spend on new pieces, for the profile's build and lifestyle. Sections: kv (dress code name, formality 1–10, jacket?, tie?, shoe type, what is too much / too little), 3 complete looks as cards (meta = formality · cost of new items), a checklist of everything to lay out the night before, and a callout on the one mistake that gets men noticed for the wrong reason.",
+   "shape": "kv, cards, checklist, callout",
+   "button": "Decode",
+   "loading": "Reading the invite…"
+  },
+  {
+   "id": "fit",
+   "title": "Fit check",
+   "subtitle": "Mirror photo → what to fix",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Full-length mirror photo in the outfit",
+     "type": "photo",
+     "placeholder": "Natural light, arms relaxed",
+     "required": true
+    },
+    {
+     "key": "piece",
+     "label": "Focus on",
+     "type": "chips",
+     "options": [
+      "Whole outfit",
+      "Jacket / blazer",
+      "Shirt",
+      "Trousers",
+      "Jeans"
+     ],
+     "default": "Whole outfit"
+    }
+   ],
+   "prompt": "Assess the fit in the photo, focusing on {piece}, for the profile's build. Table (Garment | Fit issue | Tailorable? | Est. alteration cost), bullets on what already works, steps to brief a tailor in priority order, and a callout on which issues mean return or resell rather than alter.",
+   "shape": "table, bullets, steps, callout",
+   "button": "Check fit",
+   "loading": "Eyeing the seams…"
+  },
+  {
+   "id": "foundation",
+   "title": "Foundation wardrobe",
+   "subtitle": "12 pieces that cover 90% of life",
+   "emoji": "🧥",
+   "inputs": [
+    {
+     "key": "budget",
+     "label": "Total budget",
+     "type": "number",
+     "placeholder": "600"
+    },
+    {
+     "key": "climate",
+     "label": "Climate",
+     "type": "chips",
+     "options": [
+      "Cold most of the year",
+      "Four seasons",
+      "Warm most of the year"
+     ],
+     "default": "Four seasons"
+    }
+   ],
+   "prompt": "Build a 12-piece foundation menswear wardrobe for the profile's lifestyle and build in a '{climate}' climate with a total budget of {budget}. Table (Piece | Colour | Fabric | Spend | Why it earns its place), steps for the order to buy in if money arrives monthly, bullets listing 8 outfits made only from these pieces, and a callout on where to spend versus save.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Build it",
+   "loading": "Curating…"
+  },
+  {
+   "id": "leathers",
+   "title": "Shoes, belt, watch",
+   "subtitle": "Match leathers and metals",
+   "emoji": "⌚",
+   "inputs": [
+    {
+     "key": "outfit",
+     "label": "The outfit",
+     "type": "text",
+     "placeholder": "navy suit, white shirt, no tie",
+     "required": true
+    },
+    {
+     "key": "occasion",
+     "label": "Occasion",
+     "type": "chips",
+     "options": [
+      "Work",
+      "Wedding",
+      "Date",
+      "Weekend",
+      "Interview"
+     ],
+     "default": "Work"
+    }
+   ],
+   "prompt": "For '{outfit}' at a {occasion}, choose the shoes, belt, watch and socks. kv (shoe style & colour, belt, watch case & strap, sock colour, bag if any), a table (Leather colour | Works with | Avoid with), bullets naming two budget and two premium shoe options by type, and a callout on the metal-matching rule and when it does not matter.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Match it",
+   "loading": "Polishing…"
+  },
+  {
+   "id": "upgrade",
+   "title": "Level up a casual look",
+   "subtitle": "Same pieces, sharper",
+   "emoji": "⬆️",
+   "inputs": [
+    {
+     "key": "look",
+     "label": "What you'd wear",
+     "type": "text",
+     "placeholder": "grey hoodie, black jeans, white trainers",
+     "required": true
+    },
+    {
+     "key": "goal",
+     "label": "Make it",
+     "type": "chips",
+     "options": [
+      "Smarter",
+      "More grown-up",
+      "Date-ready",
+      "Interview-safe"
+     ],
+     "default": "Smarter"
+    }
+   ],
+   "prompt": "Take '{look}' and make it {goal} with the fewest changes for the profile. Steps (each swap or addition, cheapest first), a table (Keep | Swap for | Why), bullets on grooming and posture details that do half the work, and a quote with a one-line style rule to remember.",
+   "shape": "steps, table, bullets, quote",
+   "button": "Level up",
+   "loading": "Sharpening…"
+  }
+ ]
+}

@@ -1,0 +1,205 @@
+{
+ "id": "catch_drive",
+ "name": "Catch & Drive",
+ "tagline": "Rowing on the erg and the water, stroke by stroke",
+ "category": "Sports",
+ "colors": [
+  "#0D47A1",
+  "#FFB300",
+  "#00897B"
+ ],
+ "icon": "graph",
+ "about": "Catch & Drive coaches rowers and indoor rowers: 2k and 5k erg pace plans, technique fixes from a photo or description, steady-state weeks, and race plans for head races and regattas.",
+ "persona": "You are a rowing coach who reads splits and stroke rate like a language: technique-first, precise about pacing, and equally at home with a Concept2 and a single scull.",
+ "onboarding": {
+  "title": "Faster splits, cleaner strokes",
+  "subtitle": "Your bests and boat set every target.",
+  "bullets": [
+   "Erg test pace plans",
+   "Technique fixes from a photo",
+   "Race plans for heads and regattas"
+  ]
+ },
+ "profile": [
+  {
+   "key": "best2k",
+   "label": "Best 2k",
+   "type": "text",
+   "placeholder": "7:24"
+  },
+  {
+   "key": "boat",
+   "label": "Rowing",
+   "type": "chips",
+   "options": [
+    "Erg only",
+    "Single scull",
+    "Double/pair",
+    "Quad/four",
+    "Eight"
+   ]
+  },
+  {
+   "key": "level",
+   "label": "Level",
+   "type": "chips",
+   "options": [
+    "Beginner",
+    "Club",
+    "Masters",
+    "Competitive"
+   ]
+  },
+  {
+   "key": "rate",
+   "label": "Comfortable steady-state rate (spm)",
+   "type": "number",
+   "placeholder": "20"
+  }
+ ],
+ "tools": [
+  {
+   "id": "pace",
+   "title": "Erg test pace plan",
+   "subtitle": "2k, 5k, 30 min",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "test",
+     "label": "Test",
+     "type": "chips",
+     "options": [
+      "2k",
+      "5k",
+      "6k",
+      "30 min",
+      "1k"
+     ],
+     "default": "2k"
+    },
+    {
+     "key": "target",
+     "label": "Target",
+     "type": "text",
+     "placeholder": "7:15",
+     "required": true
+    }
+   ],
+   "prompt": "Pace plan for a {test} at {target} using the profile best: table (Split segment | Target split | Rate | Cue) with the classic fly-and-die avoided, kv (average split, stroke count estimate, when to sprint), steps for a warm-up with rate ladders, and a quote with the sentence to say at the halfway point.",
+   "shape": "table, kv, steps, quote",
+   "button": "Plan pace",
+   "loading": "Setting splits…"
+  },
+  {
+   "id": "technique",
+   "title": "Fix my stroke",
+   "subtitle": "Photo or description → drills",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo or video frame of your stroke (optional)",
+     "type": "photo"
+    },
+    {
+     "key": "issue",
+     "label": "What's wrong",
+     "type": "text",
+     "placeholder": "catch feels late, back rounds at the finish",
+     "required": true
+    }
+   ],
+   "prompt": "Diagnose the stroke from the photo and: {issue} for the profile boat. Bullets on what the catch, drive, finish and recovery show, a table (Fault | Likely cause | Drill | Reps), steps for the drill progression in one session, and a callout on the fault to fix first and why.",
+   "shape": "bullets, table, steps, callout",
+   "button": "Diagnose",
+   "loading": "Watching the blade…"
+  },
+  {
+   "id": "week",
+   "title": "Steady-state week",
+   "subtitle": "Build the engine",
+   "emoji": "📅",
+   "inputs": [
+    {
+     "key": "sessions",
+     "label": "Sessions this week",
+     "type": "number",
+     "placeholder": "5"
+    },
+    {
+     "key": "minutes",
+     "label": "Longest session (min)",
+     "type": "number",
+     "placeholder": "60"
+    },
+    {
+     "key": "goal",
+     "label": "Goal",
+     "type": "chips",
+     "options": [
+      "Aerobic base",
+      "2k prep",
+      "Head-race prep",
+      "Weight loss",
+      "Return from injury"
+     ],
+     "default": "Aerobic base"
+    }
+   ],
+   "prompt": "A {goal} week of {sessions} sessions with the longest {minutes} minutes, for the profile level and rate: table (Day | Session | Minutes | Rate | Split guide | Purpose), bullets on the split-to-rate relationship to aim for, a callout on lower-back load, and a checklist of erg or boat setup (damper/drag, foot height, rigging basics).",
+   "shape": "table, bullets, callout, checklist",
+   "button": "Build week",
+   "loading": "Loading the tank…"
+  },
+  {
+   "id": "race",
+   "title": "Race plan",
+   "subtitle": "Head race or regatta",
+   "emoji": "🏁",
+   "inputs": [
+    {
+     "key": "format",
+     "label": "Format",
+     "type": "chips",
+     "options": [
+      "Head race (time trial)",
+      "Regatta 2k",
+      "Regatta 1k",
+      "Coastal/endurance"
+     ],
+     "default": "Regatta 2k"
+    },
+    {
+     "key": "crew",
+     "label": "Crew & conditions",
+     "type": "text",
+     "placeholder": "W4+, headwind, first race for two of us"
+    }
+   ],
+   "prompt": "Race plan for a {format} with: {crew}. Table (Phase | Strokes/distance | Rate | Effort | Call), a quote with the cox or stroke's calls in order, bullets on the start sequence and settle, and a callout on what to do if the crew falls apart mid-race.",
+   "shape": "table, quote, bullets, callout",
+   "button": "Plan race",
+   "loading": "Calling the race…"
+  },
+  {
+   "id": "debrief",
+   "title": "Erg test debrief",
+   "subtitle": "Paste your splits",
+   "emoji": "📊",
+   "inputs": [
+    {
+     "key": "splits",
+     "label": "Splits / summary",
+     "type": "longtext",
+     "placeholder": "2k 7:31; 500s: 1:49, 1:53, 1:56, 1:53, rate 30 avg, died in 3rd 500…",
+     "required": true
+    }
+   ],
+   "prompt": "Debrief: {splits} against the profile best. Bullets on what the split pattern shows, a table (Segment | Split | vs plan | Lesson), kv (predicted next 2k, rate to try, biggest gain), and steps for the 3 weeks before the next test.",
+   "shape": "bullets, table, kv, steps",
+   "button": "Debrief",
+   "loading": "Reading the monitor…"
+  }
+ ],
+ "disclaimer": "Training guidance only; get lower-back pain checked and never row on open water without appropriate safety cover. Not medical advice."
+}

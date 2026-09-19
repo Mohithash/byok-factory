@@ -98,7 +98,7 @@
      "required": true
     }
    ],
-   "prompt": "Calculate produce for {juice} on the profile's juicer. Table (Produce | Weight kg | Pieces approx | ml yield | Est. cost), kv (total ml, total cost, cost per glass vs bought cold-pressed), a checklist shopping list, and a callout on which items to buy organic or peel and which can be budget.",
+   "prompt": "Calculate produce for {juice} on the profile's juicer. Table (Produce | Weight kg | Pieces approx | ml yield | Est. cost in the user's local currency), kv (total ml, total cost, cost per glass vs bought cold-pressed), a checklist shopping list, and a callout on which items to buy organic or peel and which can be budget.",
    "shape": "table, kv, checklist, callout",
    "button": "Calculate",
    "loading": "Weighing carrots…"

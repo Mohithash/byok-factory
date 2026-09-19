@@ -1,0 +1,181 @@
+{
+ "id": "team_sheet",
+ "name": "Team Sheet",
+ "tagline": "The admin side of amateur sport, sorted",
+ "category": "Sports",
+ "colors": [
+  "#0D47A1",
+  "#FFC107",
+  "#D32F2F"
+ ],
+ "icon": "dumbbell",
+ "about": "Team Sheet handles the thankless admin of a Sunday-league, netball, cricket or five-a-side team: availability chasing, selection messages that don't cause sulks, subs collection, match-day logistics and the end-of-season awards night.",
+ "persona": "You are the unflappable manager-secretary of an amateur team: fair, organised, tactful about dropping people, and allergic to chasing money twice.",
+ "onboarding": {
+  "title": "Less chasing, more playing",
+  "subtitle": "Tell us about your team so messages and rotas fit.",
+  "bullets": [
+   "Availability and selection messages",
+   "Subs and kitty chasing",
+   "Match-day logistics and awards"
+  ]
+ },
+ "profile": [
+  {
+   "key": "team",
+   "label": "Team",
+   "type": "text",
+   "placeholder": "Hackney Wanderers, 11-a-side, Sunday league"
+  },
+  {
+   "key": "squad",
+   "label": "Squad size",
+   "type": "number",
+   "placeholder": "18"
+  },
+  {
+   "key": "level",
+   "label": "Level",
+   "type": "chips",
+   "options": [
+    "Social / fun",
+    "Competitive league",
+    "Cup-chasing"
+   ],
+   "default": "Competitive league"
+  },
+  {
+   "key": "subs",
+   "label": "Match subs per player",
+   "type": "number",
+   "placeholder": "8"
+  }
+ ],
+ "tools": [
+  {
+   "id": "avail",
+   "title": "Availability chase",
+   "subtitle": "Get replies before Friday",
+   "emoji": "📲",
+   "inputs": [
+    {
+     "key": "fixture",
+     "label": "Next fixture",
+     "type": "text",
+     "placeholder": "Sun 10:30 vs Rovers, away, Hackney Marshes",
+     "required": true
+    },
+    {
+     "key": "silent",
+     "label": "Who hasn't replied",
+     "type": "text",
+     "placeholder": "Tom, Ade, Marcus"
+    }
+   ],
+   "prompt": "For the fixture {fixture}, with no reply yet from: {silent}. Sections: a quote with a group message that gets replies (deadline, how to reply, what happens if they don't), a second quote with a friendly individual nudge, a table (Day | Message | Purpose) for the week's comms, and bullets on making availability replies a habit.",
+   "shape": "quote, table, bullets",
+   "button": "Write messages",
+   "loading": "Poking the chat…"
+  },
+  {
+   "id": "select",
+   "title": "Pick the team",
+   "subtitle": "A line-up and a tactful bench message",
+   "emoji": "📋",
+   "inputs": [
+    {
+     "key": "available",
+     "label": "Who's available and notes",
+     "type": "longtext",
+     "placeholder": "GK: Jay; Def: Sam, Kofi (just back from injury), Lee…",
+     "required": true
+    },
+    {
+     "key": "opponent",
+     "label": "Opposition and form",
+     "type": "text",
+     "placeholder": "Rovers, physical, beat us 3–1 last time"
+    }
+   ],
+   "prompt": "Select the team from: {available} against {opponent}, appropriate to the team's level in the profile. Sections: a table (Position | Player | Why | Sub plan), bullets on rotation so minutes are shared in a way that fits the level, a quote with a tactful message to anyone not starting, and a callout on the fitness or injury risks in the squad list.",
+   "shape": "table, bullets, quote, callout",
+   "button": "Select",
+   "loading": "Picking the XI…"
+  },
+  {
+   "id": "money",
+   "title": "Subs & kitty",
+   "subtitle": "Chase once, kindly",
+   "emoji": "💷",
+   "inputs": [
+    {
+     "key": "owed",
+     "label": "Who owes what",
+     "type": "longtext",
+     "placeholder": "Tom 24 (3 games), Ade 8, Marcus 40 and the ref money",
+     "required": true
+    },
+    {
+     "key": "costs",
+     "label": "Upcoming costs",
+     "type": "text",
+     "placeholder": "pitch 90/wk, ref 40, new balls 60"
+    }
+   ],
+   "prompt": "Sort the team money: owed: {owed}; upcoming: {costs}. Sections: a table (Player | Owed | Games | Nudge level), kv (weekly break-even, per-player cost, kitty target, suggested payment method), a quote with a firm-but-friendly chasing message, and a callout on a no-pay-no-play rule and how to introduce it fairly.",
+   "shape": "table, kv, quote, callout",
+   "button": "Chase subs",
+   "loading": "Rattling the tin…"
+  },
+  {
+   "id": "matchday",
+   "title": "Match-day logistics",
+   "subtitle": "Lifts, kit bag and timings",
+   "emoji": "🚗",
+   "inputs": [
+    {
+     "key": "details",
+     "label": "Fixture details",
+     "type": "text",
+     "placeholder": "away at Rovers, 10:30 KO, 14 travelling, 3 cars",
+     "required": true
+    }
+   ],
+   "prompt": "Organise match day for: {details}. Sections: a table (Time | What | Who) from meet-up to post-match, a checklist for the kit bag (bibs, balls, first-aid kit, ref money, team sheet), kv (car plan, meet point, contact numbers to collect), and a callout on the first-aid and emergency basics the manager should know.",
+   "shape": "table, checklist, kv, callout",
+   "button": "Plan it",
+   "loading": "Loading the boot…"
+  },
+  {
+   "id": "awards",
+   "title": "End-of-season night",
+   "subtitle": "Awards, speech and next season",
+   "emoji": "🏆",
+   "inputs": [
+    {
+     "key": "season",
+     "label": "Season summary",
+     "type": "longtext",
+     "placeholder": "finished 4th, Jay 12 clean sheets, Ade top scorer with 19, Sam never missed a game",
+     "required": true
+    },
+    {
+     "key": "format",
+     "label": "Format",
+     "type": "chips",
+     "options": [
+      "Pub night",
+      "Dinner",
+      "Family BBQ"
+     ],
+     "default": "Pub night"
+    }
+   ],
+   "prompt": "From this season: {season}, plan an end-of-season {format}. Sections: cards for 6 awards with winners (meta = award · winner), a quote with a 2-minute manager's speech, a table run-sheet for the night (Time | Item | Who), and bullets on next season's recruitment and retention.",
+   "shape": "cards, quote, table, bullets",
+   "button": "Plan awards",
+   "loading": "Polishing trophies…"
+  }
+ ],
+ "disclaimer": "Not medical advice: follow your league's rules on injuries, concussion and first-aid cover, and never let an injured player return on your say-so alone."
+}

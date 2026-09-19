@@ -1,0 +1,180 @@
+{
+ "id": "pencil_path",
+ "name": "Pencil Path",
+ "tagline": "Grip, letters and neat writing, one stroke at a time",
+ "category": "Education",
+ "colors": [
+  "#5D4037",
+  "#26A69A",
+  "#FFCA28"
+ ],
+ "icon": "note",
+ "about": "Pencil Path coaches handwriting from pre-writing shapes and pencil grip to letter formation, sizing on lines, reversals and joined-up writing, with feedback on a photo of your child's writing and short daily practice that doesn't feel like drill.",
+ "persona": "You are a handwriting specialist who works alongside occupational therapists: patient about fine-motor readiness, precise on formation, and you teach with verbal cues rather than tracing alone.",
+ "onboarding": {
+  "title": "Writing that doesn't hurt",
+  "subtitle": "Tell us their age, their writing hand and the style school uses.",
+  "bullets": [
+   "Formation cues for every letter",
+   "Photo feedback on their writing",
+   "5-minute daily practice plans"
+  ]
+ },
+ "profile": [
+  {
+   "key": "child",
+   "label": "Child's name & age",
+   "type": "text",
+   "placeholder": "Ivy, 5"
+  },
+  {
+   "key": "hand",
+   "label": "Handedness",
+   "type": "chips",
+   "options": [
+    "Right",
+    "Left",
+    "Not decided yet"
+   ]
+  },
+  {
+   "key": "style",
+   "label": "School style",
+   "type": "chips",
+   "options": [
+    "Print / manuscript",
+    "Pre-cursive (with lead-ins)",
+    "Cursive",
+    "D'Nealian",
+    "Not sure"
+   ]
+  },
+  {
+   "key": "stage",
+   "label": "Currently",
+   "type": "chips",
+   "options": [
+    "Scribbles and shapes",
+    "Some letters",
+    "All letters, messy",
+    "Writes sentences",
+    "Learning to join"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "letter",
+   "title": "Teach a letter",
+   "subtitle": "Formation cues and practice",
+   "emoji": "✏️",
+   "inputs": [
+    {
+     "key": "letters",
+     "label": "Letter(s) or number(s)",
+     "type": "text",
+     "placeholder": "b d",
+     "required": true
+    }
+   ],
+   "prompt": "Teach the formation of {letters} in the profile school style for the profile child and handedness. Sections: steps per letter with start point, direction and a verbal cue said aloud, a table (Letter | Family: ladder, curly, zigzag, tall or tail | Common error | Fix), a quote with the cue rhyme for the parent to chant, and bullets on 3 practice media before pencil (sand tray, finger paint, air writing).",
+   "shape": "steps, table, quote, bullets",
+   "button": "Teach",
+   "loading": "Tracing…"
+  },
+  {
+   "id": "feedback",
+   "title": "Check their writing",
+   "subtitle": "Photo → what to fix first",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of a line or two of their writing",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "context",
+     "label": "Context",
+     "type": "text",
+     "placeholder": "copying a sentence, was tired"
+    }
+   ],
+   "prompt": "Assess the handwriting in the photo (context: {context}) for the profile child and stage. Sections: kv (Overall stage, Strongest thing, One thing to fix first, Reversals seen, Sizing / spacing / line use), a table (Issue | Which letters | Likely cause | Fix), a quote with the exact praise-then-one-tip sentence to say, and a callout on signs worth mentioning to school or an OT.",
+   "shape": "kv, table, quote, callout",
+   "button": "Assess",
+   "loading": "Looking closely…"
+  },
+  {
+   "id": "grip",
+   "title": "Grip and posture",
+   "subtitle": "Fix a fist grip or a sore hand",
+   "emoji": "✋",
+   "inputs": [
+    {
+     "key": "grip",
+     "label": "Grip now",
+     "type": "chips",
+     "options": [
+      "Fist / palmar",
+      "Four fingers",
+      "Thumb wrap",
+      "Tripod but tight",
+      "Tripod — fine"
+     ],
+     "default": "Four fingers"
+    },
+    {
+     "key": "complaints",
+     "label": "Complaints",
+     "type": "text",
+     "placeholder": "says hand hurts after 5 minutes"
+    }
+   ],
+   "prompt": "Improve the profile child's pencil grip ({grip}), noting: {complaints}. Sections: steps for seating and paper setup for the profile handedness, a table of 6 fine-motor games (Game | Materials | Minutes | What it builds), a checklist of cheap tools worth trying (pencil grips, short crayons, slant board) and when not to bother, and a callout on when hand pain needs a professional look.",
+   "shape": "steps, table, checklist, callout",
+   "button": "Fix grip",
+   "loading": "Warming up hands…"
+  },
+  {
+   "id": "plan",
+   "title": "Practice plan",
+   "subtitle": "5 minutes a day, 2 weeks",
+   "emoji": "📅",
+   "inputs": [
+    {
+     "key": "goal",
+     "label": "Goal",
+     "type": "chips",
+     "options": [
+      "Pre-writing shapes",
+      "Lower-case formation",
+      "Capitals and numbers",
+      "Sizing on lines",
+      "Reversals (b/d, p/q, s, 5)",
+      "Speed without mess",
+      "Joining letters"
+     ],
+     "default": "Lower-case formation"
+    }
+   ],
+   "prompt": "Build a 2-week, 5-minute daily practice plan for '{goal}' for the profile child, style and stage. Sections: a table (Day | Warm-up | Focus letters or shapes | Fun application e.g. label a drawing, write a joke), bullets on keeping it playful, a checklist of what 'done' looks like at the end of week 2, and a callout on stopping when frustration rises.",
+   "shape": "table, bullets, checklist, callout",
+   "button": "Build plan",
+   "loading": "Ruling lines…"
+  },
+  {
+   "id": "readiness",
+   "title": "Ready to write?",
+   "subtitle": "Pre-writing readiness check",
+   "emoji": "🧩",
+   "inputs": [],
+   "prompt": "Create a 10-minute play-based pre-writing readiness check for the profile child's age and stage. Sections: a table of 8 tasks (Task | Materials | Expected for age | Watch for), a checklist to tick during play, bullets on what patterns of results suggest, and a callout on when to focus on play and fine-motor strength rather than letters.",
+   "shape": "table, checklist, bullets, callout",
+   "button": "Check",
+   "loading": "Setting out crayons…"
+  }
+ ],
+ "disclaimer": "General handwriting guidance, not an occupational-therapy assessment. See a GP, paediatrician or OT about persistent pain, a very weak grip or motor concerns."
+}

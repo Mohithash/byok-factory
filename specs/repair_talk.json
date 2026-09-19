@@ -1,0 +1,209 @@
+{
+ "id": "repair_talk",
+ "name": "Repair Talk",
+ "tagline": "Come back from a fight closer than before",
+ "category": "Lifestyle",
+ "colors": [
+  "#AD1457",
+  "#00897B",
+  "#FFB300"
+ ],
+ "icon": "heart",
+ "about": "Repair Talk helps couples recover after an argument: decode what the fight was really about, rewrite a criticism as a soft start, draft an apology that lands, and agree a plan so the same fight doesn't repeat.",
+ "persona": "You are a warm, Gottman-informed couples coach: you side with the relationship rather than either partner, never diagnose, and keep scripts short enough to actually say out loud.",
+ "onboarding": {
+  "title": "Fight less, repair faster",
+  "subtitle": "A little about you two makes the scripts sound like you.",
+  "bullets": [
+   "Decode what a fight was really about",
+   "Apologies and openers that land",
+   "A plan so it doesn't repeat"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "partner",
+   "label": "Partner's name",
+   "type": "text",
+   "placeholder": "Sam"
+  },
+  {
+   "key": "together",
+   "label": "Together for",
+   "type": "chips",
+   "options": [
+    "Under 1 year",
+    "1–3 years",
+    "3–10 years",
+    "10+ years"
+   ]
+  },
+  {
+   "key": "pattern",
+   "label": "Our usual pattern",
+   "type": "chips",
+   "options": [
+    "One pursues, one withdraws",
+    "Both go loud",
+    "Both go quiet",
+    "Not sure"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "decode",
+   "title": "Decode the fight",
+   "subtitle": "Paste what happened; see what it was about",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "fight",
+     "label": "What happened",
+     "type": "longtext",
+     "placeholder": "I asked about the dishes, they said I always nag, then…",
+     "required": true
+    },
+    {
+     "key": "side",
+     "label": "I mostly felt",
+     "type": "chips",
+     "options": [
+      "Unheard",
+      "Attacked",
+      "Dismissed",
+      "Controlled",
+      "Alone"
+     ],
+     "default": "Unheard"
+    }
+   ],
+   "prompt": "Read this argument: {fight}. The user mostly felt {side}. Produce a text section naming the surface topic versus the underlying need for each partner (2–3 sentences), a table (Moment | What was said | What it likely meant | Better move), bullets listing only the destructive patterns actually present (criticism, contempt, defensiveness, stonewalling), and a callout on the one thing to say first when you reconnect.",
+   "shape": "text, table, bullets, callout",
+   "button": "Decode it",
+   "loading": "Reading between…"
+  },
+  {
+   "id": "soften",
+   "title": "Soften my start",
+   "subtitle": "Turn a complaint into something they can hear",
+   "emoji": "🌱",
+   "inputs": [
+    {
+     "key": "complaint",
+     "label": "What I want to say",
+     "type": "longtext",
+     "placeholder": "You never help with bedtime and I'm exhausted",
+     "required": true
+    },
+    {
+     "key": "timing",
+     "label": "When",
+     "type": "chips",
+     "options": [
+      "Right now",
+      "Later today",
+      "At our next check-in"
+     ],
+     "default": "Later today"
+    }
+   ],
+   "prompt": "Rewrite this complaint as a soft start-up (I feel… about… I need…) to raise {timing}: {complaint}. Give a quote with the rewritten opener (under 40 words), a kv (Feeling | Situation | Specific request | Good time to raise), bullets of 3 phrases to avoid, and a callout on what to do if they get defensive anyway.",
+   "shape": "quote, kv, bullets, callout",
+   "button": "Soften it",
+   "loading": "Rewording…"
+  },
+  {
+   "id": "apology",
+   "title": "Apologise properly",
+   "subtitle": "No 'sorry you feel that way'",
+   "emoji": "🤍",
+   "inputs": [
+    {
+     "key": "did",
+     "label": "What I did / said",
+     "type": "longtext",
+     "placeholder": "I rolled my eyes and left mid-conversation",
+     "required": true
+    },
+    {
+     "key": "hurt",
+     "label": "How it landed for them",
+     "type": "text",
+     "placeholder": "they felt abandoned"
+    }
+   ],
+   "prompt": "Write a real apology for: {did}, which landed as: {hurt}. Sections: a quote with the spoken apology (name the act, name the impact, no 'but', one concrete change), a checklist of the 5 parts of a complete apology with each marked as present or missing in this draft, and a callout on what not to expect straight after apologising.",
+   "shape": "quote, checklist, callout",
+   "button": "Write it",
+   "loading": "Owning it…"
+  },
+  {
+   "id": "repeat",
+   "title": "Stop the repeat fight",
+   "subtitle": "Same argument, third time this month",
+   "emoji": "🔁",
+   "inputs": [
+    {
+     "key": "theme",
+     "label": "The recurring fight",
+     "type": "longtext",
+     "placeholder": "money — I save, they spend on takeaways",
+     "required": true
+    },
+    {
+     "key": "tried",
+     "label": "We've already tried",
+     "type": "chips",
+     "options": [
+      "Talking it out",
+      "Avoiding it",
+      "Compromise that didn't stick",
+      "Nothing yet"
+     ],
+     "default": "Talking it out"
+    }
+   ],
+   "prompt": "This fight keeps returning: {theme}; already tried: {tried}. Give text explaining whether this looks solvable or a perpetual difference (2–3 sentences), a table (Underlying need | Partner A | Partner B | Where they overlap), steps for a 20-minute structured conversation with a time-box per step, and a callout on the sign that means pause and see a couples therapist.",
+   "shape": "text, table, steps, callout",
+   "button": "Break the loop",
+   "loading": "Untangling…"
+  },
+  {
+   "id": "reconnect",
+   "title": "Reconnect tonight",
+   "subtitle": "Small repair rituals after a rough week",
+   "emoji": "✨",
+   "inputs": [
+    {
+     "key": "mood",
+     "label": "Right now we're",
+     "type": "chips",
+     "options": [
+      "Cool but civil",
+      "Walking on eggshells",
+      "Fine but distant",
+      "Ready to reconnect"
+     ],
+     "default": "Fine but distant"
+    },
+    {
+     "key": "minutes",
+     "label": "Minutes we have",
+     "type": "number",
+     "placeholder": "30"
+    }
+   ],
+   "prompt": "We're {mood} and have {minutes} minutes tonight. Suggest 4 repair rituals as cards (meta = minutes · effort low/med), then a quote with an exact opening line for the best one, and bullets of 3 questions that invite closeness without reopening the fight.",
+   "shape": "cards, quote, bullets",
+   "button": "Suggest rituals",
+   "loading": "Warming up…"
+  }
+ ],
+ "disclaimer": "Coaching, not therapy. If you ever feel unsafe, controlled or afraid of someone close to you, contact a domestic-abuse helpline or emergency services."
+}

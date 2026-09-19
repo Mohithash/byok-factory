@@ -1,0 +1,191 @@
+{
+ "id": "growth_ladder",
+ "name": "Growth Ladder",
+ "tagline": "Grow your people on purpose, not by accident",
+ "category": "Business",
+ "colors": [
+  "#00838F",
+  "#F4511E",
+  "#8E24AA"
+ ],
+ "icon": "star",
+ "about": "Growth Ladder is the manager's side of career growth: real career conversations, development plans built on stretch work, promotion cases that survive committee, an honest 'not yet', and retention risk spotted before the resignation.",
+ "persona": "You are a manager coach and former promotion-committee member: honest about bars, specific about evidence, and convinced that growth happens through work rather than courses.",
+ "onboarding": {
+  "title": "Grow your people on purpose",
+  "subtitle": "Your ladder and team shape every plan.",
+  "bullets": [
+   "Career conversations that go somewhere",
+   "Promotion cases that pass",
+   "Honest 'not yet' scripts"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "ladder",
+   "label": "Your levels",
+   "type": "text",
+   "placeholder": "IC1–IC5, M1–M3"
+  },
+  {
+   "key": "team",
+   "label": "Team and domain",
+   "type": "text",
+   "placeholder": "10-person data team"
+  },
+  {
+   "key": "cycle",
+   "label": "Promotion cycle",
+   "type": "chips",
+   "options": [
+    "Twice a year",
+    "Annual",
+    "Rolling",
+    "Informal"
+   ],
+   "default": "Twice a year"
+  }
+ ],
+ "tools": [
+  {
+   "id": "convo",
+   "title": "Career conversation",
+   "subtitle": "Forty-five minutes about their future",
+   "emoji": "🧭",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Who and level",
+     "type": "text",
+     "placeholder": "Diego, IC3, 2 years at level",
+     "required": true
+    },
+    {
+     "key": "know",
+     "label": "What you know about their ambitions",
+     "type": "longtext",
+     "placeholder": "mentioned management once; likes mentoring; frustrated by slow projects"
+    }
+   ],
+   "prompt": "Prep a career conversation with {who} given: {know}. Steps for a 45-minute conversation with timings, bullets of 8 questions moving from past energisers to future direction, a table (Possible path | What they'd need to show | First experiment next quarter) for 3 paths against the profile's ladder, and a callout on promises a manager can't make.",
+   "shape": "steps, bullets, table, callout",
+   "button": "Prep it",
+   "loading": "Thinking ahead…"
+  },
+  {
+   "id": "plan",
+   "title": "Development plan",
+   "subtitle": "Stretch work, not a list of courses",
+   "emoji": "🌱",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Who",
+     "type": "text",
+     "placeholder": "Diego",
+     "required": true
+    },
+    {
+     "key": "target",
+     "label": "Target level or role",
+     "type": "text",
+     "placeholder": "IC4 in 12 months",
+     "required": true
+    },
+    {
+     "key": "gaps",
+     "label": "Gaps vs the bar",
+     "type": "longtext",
+     "placeholder": "hasn't led a cross-team project; writing is unclear; technically strong",
+     "required": true
+    }
+   ],
+   "prompt": "Build a development plan for {who} toward {target} closing: {gaps}. Table (Gap | Stretch assignment from real work | Support — mentor, budget | Evidence when done | Target date), bullets of 3 assignments on the profile's team that would serve this, steps for the quarterly check-in, and a callout on keeping a 70/20/10 balance so it isn't a list of courses.",
+   "shape": "table, bullets, steps, callout",
+   "button": "Build plan",
+   "loading": "Finding stretch…"
+  },
+  {
+   "id": "case",
+   "title": "Promotion case",
+   "subtitle": "Evidence that survives committee",
+   "emoji": "🏆",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Who",
+     "type": "text",
+     "placeholder": "Diego, IC3 → IC4",
+     "required": true
+    },
+    {
+     "key": "evidence",
+     "label": "Evidence",
+     "type": "longtext",
+     "placeholder": "led the warehouse migration, 3 teams, saved 40h/week; mentored 2 juniors; presented at all-hands",
+     "required": true
+    },
+    {
+     "key": "bar",
+     "label": "Your company's bar for the next level (paste if you have it)",
+     "type": "longtext"
+    }
+   ],
+   "prompt": "Write a promotion case for {who} against the bar: {bar} from this evidence: {evidence}. Text of the case under 400 words organised by the level's expectations with scope, impact and behaviour examples, a table (Expectation | Evidence | Strength — strong / adequate / thin), bullets of the questions a sceptical committee will ask with answers, and a callout on the thinnest area and whether to wait a cycle.",
+   "shape": "text, table, bullets, callout",
+   "button": "Write case",
+   "loading": "Building the case…"
+  },
+  {
+   "id": "notyet",
+   "title": "The 'not yet' conversation",
+   "subtitle": "Decline a promotion honestly",
+   "emoji": "⏸️",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Who",
+     "type": "text",
+     "placeholder": "Priya",
+     "required": true
+    },
+    {
+     "key": "why",
+     "label": "Why not this cycle",
+     "type": "longtext",
+     "placeholder": "scope is still single-team; two strong peers ahead; committee said not yet",
+     "required": true
+    }
+   ],
+   "prompt": "Script telling {who} they are not being promoted this cycle because: {why}. Quote with the first two minutes word-for-word (decision first, then reasons, then path), a table (If they say | You say) for disappointment, comparison to peers, threat to leave and silence, a checklist of what they must be able to repeat back at the end, and a callout on not hiding behind the committee.",
+   "shape": "quote, table, checklist, callout",
+   "button": "Script it",
+   "loading": "Choosing words…"
+  },
+  {
+   "id": "retention",
+   "title": "Retention risk check",
+   "subtitle": "Who might leave, and what would keep them",
+   "emoji": "🚪",
+   "inputs": [
+    {
+     "key": "team",
+     "label": "Your team, one line each",
+     "type": "longtext",
+     "placeholder": "Diego – ambitious, underpaid; Mei – new baby; Sam – 4 years, bored; Lou – just promoted",
+     "required": true
+    }
+   ],
+   "prompt": "Assess retention risk for: {team}. Table (Person | Risk — low / medium / high | Likely trigger | What would keep them | Next action this month), bullets on the two people to act on first, and a quote with a 'stay interview' opening question for the highest-risk person.",
+   "shape": "table, bullets, quote",
+   "button": "Assess",
+   "loading": "Scanning the team…"
+  }
+ ],
+ "disclaimer": "General management guidance, not legal or HR advice. Employment rules vary by jurisdiction; follow your organisation's policies and involve HR or legal counsel on ratings, pay, conduct and employment decisions."
+}

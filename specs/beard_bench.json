@@ -1,0 +1,216 @@
+{
+ "id": "beard_bench",
+ "name": "Beard Bench",
+ "tagline": "Grow, shape and keep a beard that suits your face",
+ "category": "Beauty",
+ "colors": [
+  "#37474F",
+  "#BF360C",
+  "#8D6E63"
+ ],
+ "icon": "shield",
+ "about": "Beard Bench picks the beard shape for your face, plans growth through the patchy weeks, guides trimming line by line with guard numbers, builds a product routine and gives you the exact words to say to a barber.",
+ "persona": "You are a master barber: exact about lines and guard numbers, patient with patchy growth, blunt about products that do nothing.",
+ "onboarding": {
+  "title": "Your best beard",
+  "subtitle": "Face shape and growth pattern shape every plan.",
+  "bullets": [
+   "Beard styles for your face shape",
+   "Trimming guides with guard numbers",
+   "Barber scripts that get the right cut"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "face",
+   "label": "Face shape",
+   "type": "chips",
+   "options": [
+    "Oval",
+    "Round",
+    "Square",
+    "Oblong",
+    "Heart",
+    "Diamond",
+    "Not sure"
+   ],
+   "default": "Not sure"
+  },
+  {
+   "key": "growth",
+   "label": "Growth",
+   "type": "chips",
+   "options": [
+    "Thick",
+    "Average",
+    "Patchy cheeks",
+    "Patchy everywhere",
+    "Slow"
+   ],
+   "default": "Average"
+  },
+  {
+   "key": "stage",
+   "label": "Right now",
+   "type": "chips",
+   "options": [
+    "Clean-shaven",
+    "Stubble",
+    "Short beard",
+    "Full beard",
+    "Growing out"
+   ],
+   "default": "Short beard"
+  }
+ ],
+ "tools": [
+  {
+   "id": "shape",
+   "title": "Which beard suits me?",
+   "subtitle": "Photo → shapes for your face",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Front-facing photo, neutral expression",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "goal",
+     "label": "Vibe",
+     "type": "chips",
+     "options": [
+      "Clean & corporate",
+      "Rugged",
+      "Low maintenance",
+      "Sharp lines",
+      "Longer"
+     ],
+     "default": "Low maintenance"
+    }
+   ],
+   "prompt": "Assess the face and growth pattern in the photo for a '{goal}' beard. kv (face shape seen, growth pattern, what the beard should balance), 3 cards (style, meta = length in mm · weeks to achieve · upkeep per week), a table (Style | Cheek line | Neck line | Moustache), and a callout on the one style to avoid for this face.",
+   "shape": "kv, cards, table, callout",
+   "button": "Assess",
+   "loading": "Studying the jaw…"
+  },
+  {
+   "id": "grow",
+   "title": "Growth plan",
+   "subtitle": "Survive the patchy weeks",
+   "emoji": "🌱",
+   "inputs": [
+    {
+     "key": "weeks",
+     "label": "Target weeks of growth",
+     "type": "number",
+     "placeholder": "8"
+    },
+    {
+     "key": "worry",
+     "label": "What's bothering you",
+     "type": "text",
+     "placeholder": "itch, patchy cheeks, looks messy"
+    }
+   ],
+   "prompt": "Plan {weeks} weeks of growth for the profile's growth type, concerns: {worry}. Table (Week | What it looks like | Do | Don't touch), steps for getting through the itch phase, bullets of honest expectations for patchy areas, and a callout that supplements and growth oils have weak evidence.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Plan",
+   "loading": "Growing…"
+  },
+  {
+   "id": "trim",
+   "title": "Trim it yourself",
+   "subtitle": "Lines, guards, order",
+   "emoji": "✂️",
+   "inputs": [
+    {
+     "key": "style",
+     "label": "Style",
+     "type": "chips",
+     "options": [
+      "Stubble",
+      "Short boxed",
+      "Corporate",
+      "Full",
+      "Goatee",
+      "Van Dyke"
+     ],
+     "default": "Short boxed"
+    },
+    {
+     "key": "tools",
+     "label": "Tools",
+     "type": "text",
+     "placeholder": "trimmer with guards 1–10, scissors"
+    }
+   ],
+   "prompt": "Trimming guide for a {style} with {tools}. Steps in order (guard numbers in mm, direction, neckline and cheek line placement with facial landmarks), a table (Zone | Guard | Technique), a checklist before starting (dry, combed, mirror, light), and a callout on the two mistakes that cannot be undone.",
+   "shape": "steps, table, checklist, callout",
+   "button": "Guide me",
+   "loading": "Lining up…"
+  },
+  {
+   "id": "routine",
+   "title": "Product routine",
+   "subtitle": "Wash, oil, balm, brush",
+   "emoji": "🧴",
+   "inputs": [
+    {
+     "key": "length",
+     "label": "Length",
+     "type": "chips",
+     "options": [
+      "Stubble",
+      "Under 2 cm",
+      "2–5 cm",
+      "5 cm+"
+     ],
+     "default": "2–5 cm"
+    },
+    {
+     "key": "skin",
+     "label": "Skin under it",
+     "type": "chips",
+     "options": [
+      "Normal",
+      "Dry / flaky",
+      "Oily",
+      "Sensitive"
+     ],
+     "default": "Normal"
+    }
+   ],
+   "prompt": "Build a daily and weekly routine for a {length} beard on {skin} skin. Steps for morning and night, a table (Product type | Does what | Worth it? | What a cheap pick looks like), bullets on beardruff and ingrown-hair prevention, and a callout on when skin trouble needs a doctor.",
+   "shape": "steps, table, bullets, callout",
+   "button": "Build routine",
+   "loading": "Oiling…"
+  },
+  {
+   "id": "barber",
+   "title": "Tell the barber",
+   "subtitle": "The exact words",
+   "emoji": "💈",
+   "inputs": [
+    {
+     "key": "want",
+     "label": "What you want",
+     "type": "text",
+     "placeholder": "tidy but keep the length, fade into the sideburns",
+     "required": true
+    }
+   ],
+   "prompt": "Turn '{want}' into barber instructions for the profile's stage and face. Quote with the exact sentences to say (guard numbers, lines, fade type), a checklist of things to confirm before they start, bullets on what to say if it is going wrong mid-cut, and kv of aftercare for the first 48 hours.",
+   "shape": "quote, checklist, bullets, kv",
+   "button": "Write script",
+   "loading": "Warming the chair…"
+  }
+ ],
+ "disclaimer": "Grooming guidance only; see a doctor for persistent rashes, infected ingrown hairs or sudden hair loss."
+}

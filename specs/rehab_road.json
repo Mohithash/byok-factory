@@ -1,0 +1,181 @@
+{
+ "id": "rehab_road",
+ "name": "Rehab Road",
+ "tagline": "Follow your physio plan without guessing what is OK",
+ "category": "Health & Fitness",
+ "colors": [
+  "#2E7D32",
+  "#0288D1",
+  "#FFA000"
+ ],
+ "icon": "shield",
+ "about": "Rehab Road helps you follow a physiotherapist's plan for a diagnosed injury: it explains your exercise sheet, maps the phases, applies pain traffic-light rules to each session and checks return-to-sport readiness.",
+ "persona": "You are a sports-physio-minded rehab guide: you never diagnose, you reinforce the treating clinician's plan, you explain the why behind each exercise and you are strict about red flags.",
+ "onboarding": {
+  "title": "What did your clinician diagnose?",
+  "subtitle": "Rehab Road works from a diagnosis you already have, never from a guess.",
+  "bullets": [
+   "Understand your exercise sheet",
+   "Pain rules for every session",
+   "Return-to-sport checks"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "injury",
+   "label": "Diagnosis (from your clinician)",
+   "type": "text",
+   "placeholder": "grade 2 lateral ankle sprain"
+  },
+  {
+   "key": "since",
+   "label": "When it happened or surgery date",
+   "type": "text",
+   "placeholder": "3 weeks ago"
+  },
+  {
+   "key": "sport",
+   "label": "Activity to return to",
+   "type": "text",
+   "placeholder": "5-a-side football, running"
+  }
+ ],
+ "tools": [
+  {
+   "id": "sheet",
+   "title": "Explain my exercise sheet",
+   "subtitle": "Paste the exercises your physio gave you",
+   "emoji": "📄",
+   "inputs": [
+    {
+     "key": "exercises",
+     "label": "Your exercise list",
+     "type": "longtext",
+     "placeholder": "single-leg balance 3x30 s, calf raises 3x15, band eversion…",
+     "required": true
+    }
+   ],
+   "prompt": "Explain this physio exercise list for the profile diagnosis: {exercises}. Sections: a table (Exercise | What it is for | Sets x reps as written | Common mistake | Cue), steps for the recommended order in a session, bullets on how you know each one is working, and a callout to check with the treating clinician before changing anything.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Explain",
+   "loading": "Reading the sheet…"
+  },
+  {
+   "id": "phases",
+   "title": "Map the phases",
+   "subtitle": "What each stage of rehab looks like",
+   "emoji": "🗺️",
+   "inputs": [
+    {
+     "key": "phase",
+     "label": "Where you are now",
+     "type": "chips",
+     "options": [
+      "Acute (pain and swelling)",
+      "Early (regaining motion)",
+      "Mid (building strength)",
+      "Late (power and sport drills)",
+      "Not sure"
+     ],
+     "default": "Not sure"
+    }
+   ],
+   "prompt": "Lay out the typical rehab phases for the profile diagnosis, starting from '{phase}' and the time since injury. Sections: a table (Phase | Goal | Typical weeks | Exercise types | Move on when), bullets on what tends to slow people down, a callout that timelines are only typical and the clinician sets the pace, and a checklist of milestones for the current phase.",
+   "shape": "table, bullets, callout, checklist",
+   "button": "Map phases",
+   "loading": "Plotting the road…"
+  },
+  {
+   "id": "session",
+   "title": "Today's session",
+   "subtitle": "Adjusted for how it feels today",
+   "emoji": "🩹",
+   "inputs": [
+    {
+     "key": "pain",
+     "label": "Pain right now (0–10)",
+     "type": "number",
+     "placeholder": "2"
+    },
+    {
+     "key": "swelling",
+     "label": "Swelling or stiffness today",
+     "type": "chips",
+     "options": [
+      "None",
+      "A little",
+      "Noticeable",
+      "Worse than yesterday"
+     ],
+     "default": "A little"
+    },
+    {
+     "key": "plan",
+     "label": "Exercises you are meant to do",
+     "type": "text",
+     "placeholder": "from my physio sheet"
+    }
+   ],
+   "prompt": "Adapt today's rehab session for the profile diagnosis. Pain now {pain}/10, swelling: {swelling}, planned: {plan}. Sections: kv (go, modify or rest verdict with the reason), steps for the adapted session with sets, reps and tempo, a callout on the pain traffic light (up to 3/10 during exercise and settled by next morning is usually acceptable; above that, reduce), and bullets on what to note for the next physio visit.",
+   "shape": "kv, steps, callout, bullets",
+   "button": "Adapt session",
+   "loading": "Checking in…"
+  },
+  {
+   "id": "painok",
+   "title": "Was that pain OK?",
+   "subtitle": "Judge a flare after exercise or activity",
+   "emoji": "🚦",
+   "inputs": [
+    {
+     "key": "did",
+     "label": "What you did",
+     "type": "text",
+     "placeholder": "20-minute jog, first since injury",
+     "required": true
+    },
+    {
+     "key": "during",
+     "label": "Pain during (0–10)",
+     "type": "number",
+     "placeholder": "3"
+    },
+    {
+     "key": "morning",
+     "label": "Pain next morning (0–10)",
+     "type": "number",
+     "placeholder": "5"
+    }
+   ],
+   "prompt": "Judge this response for the profile diagnosis: {did}, pain during {during}/10, next morning {morning}/10. Sections: kv (verdict: acceptable, too much, or stop and contact your clinician, with why), a table (Signal | Meaning | Next step), steps to adjust the next attempt (volume, intensity, rest), and a callout listing red flags that need same-day medical contact.",
+   "shape": "kv, table, steps, callout",
+   "button": "Judge it",
+   "loading": "Reading the signal…"
+  },
+  {
+   "id": "return",
+   "title": "Ready to return?",
+   "subtitle": "Score yourself against return criteria",
+   "emoji": "🏁",
+   "inputs": [
+    {
+     "key": "tests",
+     "label": "What you can do now",
+     "type": "longtext",
+     "placeholder": "hop on injured leg 10x no pain, single-leg calf raises 22 vs 28 on the good side…",
+     "required": true
+    }
+   ],
+   "prompt": "Assess return readiness for the profile sport from: {tests}. Sections: a table (Criterion | Typical target | You now | Pass or not yet), a checklist of remaining gaps to close, steps for a graded return (training before matches, minutes capped, then full), and a callout that the final clearance belongs to the treating clinician.",
+   "shape": "table, checklist, steps, callout",
+   "button": "Assess",
+   "loading": "Scoring criteria…"
+  }
+ ],
+ "disclaimer": "Rehab Road supports, and never replaces, the plan from your physiotherapist or doctor. It does not diagnose. Stop and seek care for numbness, sudden swelling, night pain, fever, or pain that keeps getting worse."
+}

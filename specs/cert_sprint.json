@@ -1,0 +1,193 @@
+{
+ "id": "cert_sprint",
+ "name": "Cert Sprint",
+ "tagline": "Any certification, prepped from its official exam blueprint",
+ "category": "Education",
+ "colors": [
+  "#0277BD",
+  "#F4511E",
+  "#7CB342"
+ ],
+ "icon": "bolt",
+ "about": "Cert Sprint turns any certification's exam blueprint (PMP, CompTIA, AWS, CFA, CPA, HR, safety and more) into a weighted study plan, scenario-style practice questions, concept explainers, flashcards from your notes and exam-day tactics.",
+ "persona": "You are a certification coach who has sat dozens of exams: blueprint-driven, allergic to wasted study time, and honest about which topics are worth the marks.",
+ "onboarding": {
+  "title": "Study the blueprint, not the whole book",
+  "subtitle": "Your exam, date and experience shape the plan.",
+  "bullets": [
+   "Weighted plan from the official domains",
+   "Scenario questions in exam style",
+   "Explainers and exam-day tactics"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "exam",
+   "label": "Certification",
+   "type": "text",
+   "placeholder": "PMP / AWS Solutions Architect / CompTIA Security+"
+  },
+  {
+   "key": "date",
+   "label": "Exam date",
+   "type": "text"
+  },
+  {
+   "key": "experience",
+   "label": "Experience in the field",
+   "type": "chips",
+   "options": [
+    "None",
+    "1–2 years",
+    "3+ years"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "plan",
+   "title": "Blueprint study plan",
+   "subtitle": "Hours per domain, weighted by marks",
+   "emoji": "🗺️",
+   "inputs": [
+    {
+     "key": "blueprint",
+     "label": "Domains and weights (optional)",
+     "type": "longtext",
+     "placeholder": "People 42%, Process 50%, Business environment 8%…"
+    },
+    {
+     "key": "hours",
+     "label": "Hours per week",
+     "type": "chips",
+     "options": [
+      "4",
+      "8",
+      "12",
+      "20"
+     ],
+     "default": "8"
+    }
+   ],
+   "prompt": "Using the blueprint {blueprint} (if blank, use the current public blueprint for the profile's exam), plan {hours} hours a week until the exam date: table (Week | Domain | Weight % | Hours | Resources | Checkpoint), a kv of the exam format (questions, minutes, pass score, question types, cost, retake wait), bullets on which domains give the best marks per hour, and a callout on the topics candidates most often underestimate.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Plan it",
+   "loading": "Weighing domains…"
+  },
+  {
+   "id": "questions",
+   "title": "Practice questions",
+   "subtitle": "Scenario or recall, in the exam's style",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "domain",
+     "label": "Domain / topic",
+     "type": "text",
+     "placeholder": "risk management",
+     "required": true
+    },
+    {
+     "key": "n",
+     "label": "Questions",
+     "type": "chips",
+     "options": [
+      "5",
+      "10"
+     ],
+     "default": "5"
+    },
+    {
+     "key": "style",
+     "label": "Style",
+     "type": "chips",
+     "options": [
+      "Scenario-based",
+      "Knowledge recall",
+      "Mixed"
+     ],
+     "default": "Scenario-based"
+    }
+   ],
+   "prompt": "Write {n} {style} questions on {domain} in the profile exam's real style and difficulty: cards (question with 4 options, meta = domain · difficulty), a table (No. | Answer | Why | Why the best distractor is wrong), and a callout on the answer-selection heuristics this exam rewards (for example 'the most proactive, documented option').",
+   "shape": "cards, table, callout",
+   "button": "Quiz me",
+   "loading": "Writing scenarios…"
+  },
+  {
+   "id": "explain",
+   "title": "Explain a concept",
+   "subtitle": "Just enough to pass, or really get it",
+   "emoji": "💡",
+   "inputs": [
+    {
+     "key": "concept",
+     "label": "Concept",
+     "type": "text",
+     "placeholder": "earned value management",
+     "required": true
+    },
+    {
+     "key": "depth",
+     "label": "Depth",
+     "type": "chips",
+     "options": [
+      "Just enough to pass",
+      "Really understand it"
+     ],
+     "default": "Just enough to pass"
+    }
+   ],
+   "prompt": "Explain {concept} for the profile's exam at depth '{depth}': text explanation with a real-world example, a kv of formulas, thresholds or definitions to memorise, a table (Looks like | Actually is | How the exam tests it) for confusable terms, and bullets of 3 memory hooks.",
+   "shape": "text, kv, table, bullets",
+   "button": "Explain",
+   "loading": "Unpacking…"
+  },
+  {
+   "id": "flashcards",
+   "title": "Flashcards from my notes",
+   "subtitle": "Paste a chapter → cards ranked by exam weight",
+   "emoji": "🃏",
+   "inputs": [
+    {
+     "key": "notes",
+     "label": "Paste your notes",
+     "type": "longtext",
+     "placeholder": "paste a chapter's notes…",
+     "required": true
+    }
+   ],
+   "prompt": "Turn these notes into study material: {notes}. Produce cards for 12 flashcards (front as the title, back as the body, meta = domain) ordered from most-examined to least, a table (Term | One-line definition) for anything left over, and a checklist of 5 self-test questions to answer without looking.",
+   "shape": "cards, table, checklist",
+   "button": "Make cards",
+   "loading": "Shuffling…"
+  },
+  {
+   "id": "examday",
+   "title": "Exam-day tactics",
+   "subtitle": "Checkpoints, flagging and proctor rules",
+   "emoji": "🏁",
+   "inputs": [
+    {
+     "key": "format",
+     "label": "Delivery",
+     "type": "chips",
+     "options": [
+      "Test centre",
+      "Online proctored"
+     ],
+     "default": "Test centre"
+    }
+   ],
+   "prompt": "Exam-day plan for the profile's exam delivered by {format}: a checklist for the 24 hours before (ID, system check or route, sleep, food), steps for the first 5 minutes in the exam (brain dump, timing checkpoints), a table (Time checkpoint | Questions done | If behind), bullets on flagging and revisiting questions, and a callout on the proctoring rules that get candidates disqualified.",
+   "shape": "checklist, steps, table, bullets, callout",
+   "button": "Plan the day",
+   "loading": "Checking in…"
+  }
+ ]
+}

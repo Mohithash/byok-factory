@@ -1,0 +1,228 @@
+{
+ "id": "nib_and_ink",
+ "name": "Nib & Ink",
+ "tagline": "Calligraphy strokes, critiques and commissions",
+ "category": "Art & Design",
+ "colors": [
+  "#4527A0",
+  "#BF9B30",
+  "#00897B"
+ ],
+ "icon": "note",
+ "about": "Nib & Ink teaches pointed-pen, brush-lettering and broad-edge scripts stroke by stroke, critiques your practice sheets from a photo, plans wedding envelopes and signage, and sorts out inks, nibs and paper that misbehave.",
+ "persona": "You are a calligrapher and lettering teacher: exacting about basic strokes and letter spacing, kind about wobbly lines, and practical about which tools cause which problems.",
+ "onboarding": {
+  "title": "Beautiful letters, one stroke at a time",
+  "subtitle": "Your tools and the script you're learning shape every drill.",
+  "bullets": [
+   "Stroke drills for your script",
+   "Photo critique of practice sheets",
+   "Envelopes and signage, planned"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "script",
+   "label": "Script",
+   "type": "chips",
+   "options": [
+    "Copperplate",
+    "Spencerian",
+    "Modern brush",
+    "Italic",
+    "Gothic/blackletter",
+    "Foundational",
+    "Other"
+   ]
+  },
+  {
+   "key": "tool",
+   "label": "Tools",
+   "type": "chips",
+   "options": [
+    "Pointed dip pen",
+    "Brush pen",
+    "Broad-edge nib",
+    "Parallel pen",
+    "iPad/Procreate"
+   ],
+   "multi": true
+  },
+  {
+   "key": "level",
+   "label": "Level",
+   "type": "chips",
+   "options": [
+    "Just started",
+    "Practising basics",
+    "Writing words",
+    "Doing commissions"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "drill",
+   "title": "Today's drill",
+   "subtitle": "Strokes, reps and guideline settings",
+   "emoji": "✒️",
+   "inputs": [
+    {
+     "key": "minutes",
+     "label": "Minutes",
+     "type": "chips",
+     "options": [
+      "10",
+      "20",
+      "30"
+     ],
+     "default": "20"
+    },
+    {
+     "key": "focus",
+     "label": "Focus",
+     "type": "chips",
+     "options": [
+      "Basic strokes",
+      "Lowercase letters",
+      "Capitals",
+      "Spacing & rhythm",
+      "Flourishing",
+      "Numbers & punctuation"
+     ],
+     "default": "Basic strokes"
+    }
+   ],
+   "prompt": "A {minutes}-minute {focus} drill for the profile script and tools: steps (drill · reps · what to watch: pressure, angle, slant, spacing), a kv of the guideline settings (x-height, slant angle, pen angle or pressure), and a callout on the most common fault at this stage and how to feel it happening.",
+   "shape": "steps, kv, callout",
+   "button": "Start drill",
+   "loading": "Dipping the nib…"
+  },
+  {
+   "id": "critique",
+   "title": "Critique my sheet",
+   "subtitle": "Photo → letter-by-letter feedback",
+   "emoji": "🖋️",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of your practice sheet",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "aim",
+     "label": "What you were practising",
+     "type": "text",
+     "placeholder": "lowercase a, d, g"
+    }
+   ],
+   "prompt": "Critique the practice sheet (working on: {aim}) for the profile script: table (Letter or stroke | What's good | Fault | Fix), bullets on consistency of slant, spacing and pressure, steps for the next 15 minutes, and a quote with the single cue to write at the top of the next sheet.",
+   "shape": "table, bullets, steps, quote",
+   "button": "Critique",
+   "loading": "Checking the slant…"
+  },
+  {
+   "id": "project",
+   "title": "Plan a project",
+   "subtitle": "Envelopes, place cards, signs, quotes",
+   "emoji": "💌",
+   "inputs": [
+    {
+     "key": "kind",
+     "label": "Project",
+     "type": "chips",
+     "options": [
+      "Wedding envelopes",
+      "Place cards",
+      "Quote for a frame",
+      "Sign/chalkboard",
+      "Certificate",
+      "Logo/wordmark"
+     ],
+     "default": "Wedding envelopes"
+    },
+    {
+     "key": "details",
+     "label": "Details",
+     "type": "text",
+     "placeholder": "80 envelopes, navy paper, white ink, 3 weeks",
+     "required": true
+    }
+   ],
+   "prompt": "Plan {kind}: {details}. Sections: kv (layout, script, ink and nib choice, paper prep, time per piece, total hours), steps from guidelines to finishing, a checklist of materials with quantities, and a callout on what to test first so the ink doesn't bleed or feather.",
+   "shape": "kv, steps, checklist, callout",
+   "button": "Plan project",
+   "loading": "Ruling guidelines…"
+  },
+  {
+   "id": "trouble",
+   "title": "Fix tool trouble",
+   "subtitle": "Blobbing, scratching, feathering, fraying",
+   "emoji": "🧰",
+   "inputs": [
+    {
+     "key": "problem",
+     "label": "Problem",
+     "type": "chips",
+     "options": [
+      "Ink blobbing",
+      "Nib scratching or catching",
+      "Ink not flowing",
+      "Feathering/bleeding",
+      "Brush pen fraying",
+      "Shaky lines"
+     ],
+     "default": "Ink blobbing"
+    },
+    {
+     "key": "setup",
+     "label": "Your setup",
+     "type": "text",
+     "placeholder": "Nikko G, Higgins Eternal, printer paper"
+    }
+   ],
+   "prompt": "Diagnose {problem} with this setup: {setup}. Sections: table (Cause | How to confirm | Fix), bullets of paper, ink and nib combinations that behave for the profile script, and a callout on when to simply replace the nib or pen.",
+   "shape": "table, bullets, callout",
+   "button": "Diagnose",
+   "loading": "Checking the tines…"
+  },
+  {
+   "id": "layout",
+   "title": "Lay out a piece",
+   "subtitle": "Composition, hierarchy, flourishes",
+   "emoji": "📜",
+   "inputs": [
+    {
+     "key": "words",
+     "label": "Text to letter",
+     "type": "longtext",
+     "placeholder": "Home is wherever I'm with you",
+     "required": true
+    },
+    {
+     "key": "shape",
+     "label": "Shape",
+     "type": "chips",
+     "options": [
+      "Centred stack",
+      "Left-aligned",
+      "Circle/wreath",
+      "Banner",
+      "Single line"
+     ],
+     "default": "Centred stack"
+    }
+   ],
+   "prompt": "Design a layout for '{words}' as a {shape} in the profile script: text describing the composition (line breaks, hierarchy, which words get emphasis or flourishes), a table (Line | Words | Size / x-height | Style), steps to transfer guidelines and pencil the draft, and bullets on 3 flourish placements that won't clutter it.",
+   "shape": "text, table, steps, bullets",
+   "button": "Design layout",
+   "loading": "Pencilling it in…"
+  }
+ ]
+}

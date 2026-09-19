@@ -1,0 +1,211 @@
+{
+ "id": "ladder_up",
+ "name": "Ladder Up",
+ "tagline": "From first deposit to first keys, step by step",
+ "category": "House & Home",
+ "colors": [
+  "#0D47A1",
+  "#FFA000",
+  "#26A69A"
+ ],
+ "icon": "home",
+ "about": "Ladder Up guides first-time buyers from working out what they can really afford, through decoding listings and making offers, to the weeks between an accepted offer and the keys.",
+ "persona": "You are a straight-talking buyer's advocate who has walked hundreds of first-timers through a purchase: numbers-first, calm about jargon, honest about what is and isn't a big deal.",
+ "onboarding": {
+  "title": "Your first home, without the fog",
+  "subtitle": "A few numbers and your market make the maths and the timelines fit you.",
+  "bullets": [
+   "Affordability and deposit maths",
+   "Listing and viewing decoders",
+   "Offer scripts and the path to keys"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "region",
+   "label": "Country / region",
+   "type": "text",
+   "placeholder": "England, Ontario, Texas…"
+  },
+  {
+   "key": "income",
+   "label": "Household income per year",
+   "type": "number",
+   "placeholder": "65000"
+  },
+  {
+   "key": "stage",
+   "label": "Where you are",
+   "type": "chips",
+   "options": [
+    "Saving",
+    "Searching",
+    "Offer made",
+    "Under contract"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "afford",
+   "title": "What can I afford?",
+   "subtitle": "Price ceiling, monthly cost, buffer",
+   "emoji": "🏷️",
+   "inputs": [
+    {
+     "key": "deposit",
+     "label": "Deposit saved",
+     "type": "number",
+     "placeholder": "25000"
+    },
+    {
+     "key": "outgoings",
+     "label": "Monthly commitments (loans, childcare)",
+     "type": "number",
+     "placeholder": "400"
+    },
+    {
+     "key": "horizon",
+     "label": "Buying within",
+     "type": "chips",
+     "options": [
+      "6 months",
+      "1 year",
+      "2 years+"
+     ],
+     "default": "1 year"
+    }
+   ],
+   "prompt": "Deposit {deposit}, monthly commitments {outgoings}, buying within {horizon}, income and region from the profile. Produce a kv (comfortable price ceiling, stretch ceiling, deposit % at each, estimated monthly payment at each using a typical current rate range, one-off buying costs to budget), a table (Scenario | Price | Deposit % | Loan | Monthly | Buffer left) with 3 scenarios, bullets on what would raise the ceiling, and a callout on the costs first-timers forget (fees, taxes, moving, furniture).",
+   "shape": "kv, table, bullets, callout",
+   "button": "Run the numbers",
+   "loading": "Crunching…"
+  },
+  {
+   "id": "deposit",
+   "title": "Deposit plan",
+   "subtitle": "Months to target and how to shorten them",
+   "emoji": "🐖",
+   "inputs": [
+    {
+     "key": "target",
+     "label": "Target deposit",
+     "type": "number",
+     "placeholder": "40000"
+    },
+    {
+     "key": "saved",
+     "label": "Saved so far",
+     "type": "number",
+     "placeholder": "12000"
+    },
+    {
+     "key": "monthly",
+     "label": "Can save per month",
+     "type": "number",
+     "placeholder": "800"
+    }
+   ],
+   "prompt": "Target {target}, saved {saved}, saving {monthly} per month. Give a kv (months to target, target date, shortfall if buying within the profile's horizon), a table (Lever | Monthly gain | Effort | Notes) of 6 ways to close the gap faster, steps for setting up the savings structure (accounts, automation, first-buyer schemes to check for the region in general terms), and a callout on not tying the deposit up in anything volatile.",
+   "shape": "kv, table, steps, callout",
+   "button": "Plan my deposit",
+   "loading": "Stacking coins…"
+  },
+  {
+   "id": "decode",
+   "title": "Decode a listing",
+   "subtitle": "Screenshot → agent-speak translated",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Screenshot or photo of the listing",
+     "type": "photo"
+    },
+    {
+     "key": "listing",
+     "label": "Or paste the listing text",
+     "type": "longtext",
+     "placeholder": "Charming period cottage in need of some modernisation…"
+    },
+    {
+     "key": "asking",
+     "label": "Asking price",
+     "type": "number",
+     "placeholder": "350000"
+    }
+   ],
+   "prompt": "Decode this property listing from the screenshot and/or text: {listing}. Asking price: {asking}. Produce a table (Phrase | What it usually means | Question to ask) translating agent-speak, bullets of red flags and green flags spotted, a checklist of 10 things to check at the viewing specific to this property type, and a callout on the single question most likely to change the price.",
+   "shape": "table, bullets, checklist, callout",
+   "button": "Decode",
+   "loading": "Reading agent-speak…"
+  },
+  {
+   "id": "offer",
+   "title": "Make an offer",
+   "subtitle": "Three offer levels and the exact words",
+   "emoji": "🤝",
+   "inputs": [
+    {
+     "key": "asking",
+     "label": "Asking price",
+     "type": "number",
+     "placeholder": "350000"
+    },
+    {
+     "key": "context",
+     "label": "What you know",
+     "type": "text",
+     "placeholder": "on market 9 weeks, chain-free, two other viewings",
+     "required": true
+    },
+    {
+     "key": "position",
+     "label": "Your position",
+     "type": "chips",
+     "options": [
+      "Cash",
+      "Mortgage agreed in principle",
+      "Still arranging finance",
+      "Selling too"
+     ],
+     "default": "Mortgage agreed in principle"
+    }
+   ],
+   "prompt": "Asking {asking}, context: {context}, buyer position: {position}. Give a table (Offer | % of asking | Rationale | Likely response) with 3 offer levels, steps for the sequence (opening, what to say if rejected, when to walk), a quote with the exact opening message to the agent stating the offer and the buyer's strengths, and a callout on conditions worth attaching (survey, finance, timing).",
+   "shape": "table, steps, quote, callout",
+   "button": "Build my offer",
+   "loading": "Sizing it up…"
+  },
+  {
+   "id": "keys",
+   "title": "Offer to keys",
+   "subtitle": "Every stage, who acts, what can slip",
+   "emoji": "🗝️",
+   "inputs": [
+    {
+     "key": "accepted",
+     "label": "Offer accepted on",
+     "type": "text",
+     "placeholder": "3 June"
+    },
+    {
+     "key": "target",
+     "label": "Target move date",
+     "type": "text",
+     "placeholder": "end of August"
+    }
+   ],
+   "prompt": "Offer accepted {accepted}, target move {target}, region from the profile. Lay out the stages from acceptance to keys as a table (Week | Stage | Who acts | What you do | Typical delay), a checklist of documents and decisions the buyer must have ready, bullets on the three points where deals most often collapse and how to protect against each, and a callout on when to book removals and give notice.",
+   "shape": "table, checklist, bullets, callout",
+   "button": "Map the path",
+   "loading": "Drawing the map…"
+  }
+ ],
+ "disclaimer": "General information, not financial or mortgage advice; rates, rules and taxes vary by country and lender — confirm figures with a regulated adviser before acting."
+}

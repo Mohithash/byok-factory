@@ -1,0 +1,202 @@
+{
+ "id": "one_on_one_prep",
+ "name": "1:1 Prep",
+ "tagline": "Walk into every 1:1 knowing what matters",
+ "category": "Business",
+ "colors": [
+  "#00695C",
+  "#FF7043",
+  "#5C6BC0"
+ ],
+ "icon": "chat",
+ "about": "1:1 Prep turns your scrappy notes into a focused agenda for each direct report, gives you the right questions for the moment, tracks what you promised, and catches the quiet signs that someone is drifting.",
+ "persona": "You are a seasoned people manager and coach: curious before directive, allergic to status-update 1:1s, and firm that the meeting belongs to the report, not the manager.",
+ "onboarding": {
+  "title": "Make every 1:1 count",
+  "subtitle": "Tell us about your team and how you like to run things.",
+  "bullets": [
+   "Agendas from your rough notes",
+   "Questions for any situation",
+   "Never drop a follow-up again"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "reports",
+   "label": "Direct reports",
+   "type": "number",
+   "placeholder": "6"
+  },
+  {
+   "key": "cadence",
+   "label": "1:1 cadence",
+   "type": "chips",
+   "options": [
+    "Weekly",
+    "Fortnightly",
+    "Monthly"
+   ],
+   "default": "Weekly"
+  },
+  {
+   "key": "style",
+   "label": "Your style",
+   "type": "chips",
+   "options": [
+    "Coaching",
+    "Hands-on",
+    "Hands-off",
+    "Still figuring it out"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "prep",
+   "title": "Prep this 1:1",
+   "subtitle": "Notes → a focused agenda",
+   "emoji": "🗒️",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Who",
+     "type": "text",
+     "placeholder": "Priya, senior engineer, 2 years in",
+     "required": true
+    },
+    {
+     "key": "notes",
+     "label": "Your notes since last time",
+     "type": "longtext",
+     "placeholder": "shipped the billing fix late; seemed flat on Tuesday; asked about conference budget",
+     "required": true
+    },
+    {
+     "key": "focus",
+     "label": "Lean toward",
+     "type": "chips",
+     "options": [
+      "Their agenda",
+      "Career",
+      "A concern I have",
+      "Recognition",
+      "Catch-up"
+     ],
+     "default": "Their agenda"
+    }
+   ],
+   "prompt": "Prepare a 1:1 (at the profile's cadence) with {who}, leaning toward '{focus}', from these notes: {notes}. Produce a kv (opening question, one thing to recognise, one thing to probe, time split in minutes), a checklist agenda of at most 5 items with the report's items first, and bullets of 3 follow-up questions to use if the conversation stalls. Finish with a callout on anything in the notes that hints at a bigger issue to handle separately.",
+   "shape": "kv, checklist, bullets, callout",
+   "button": "Prep it",
+   "loading": "Reading your notes…"
+  },
+  {
+   "id": "questions",
+   "title": "Question bank",
+   "subtitle": "The right questions for the moment",
+   "emoji": "❓",
+   "inputs": [
+    {
+     "key": "situation",
+     "label": "Situation",
+     "type": "chips",
+     "options": [
+      "New hire",
+      "Seems disengaged",
+      "Just got promoted",
+      "After a failure",
+      "High performer, bored",
+      "Remote, hard to read",
+      "Returning from leave"
+     ],
+     "default": "Seems disengaged"
+    }
+   ],
+   "prompt": "Give me 1:1 questions for the situation '{situation}', suited to the profile's style. Bullets of 8 open questions ordered from safest to most direct, a table (Question | What a good answer sounds like | What a worrying answer sounds like) for the 3 most important ones, and a callout on what NOT to ask or say in this situation.",
+   "shape": "bullets, table, callout",
+   "button": "Give me questions",
+   "loading": "Thinking…"
+  },
+  {
+   "id": "followups",
+   "title": "Track my promises",
+   "subtitle": "Paste notes → every open commitment",
+   "emoji": "📌",
+   "inputs": [
+    {
+     "key": "log",
+     "label": "Paste notes from recent 1:1s",
+     "type": "longtext",
+     "placeholder": "Mon w/ Sam: I'll ask about the training budget; Sam to draft proposal by Fri…",
+     "required": true
+    }
+   ],
+   "prompt": "From these 1:1 notes: {log} — extract every commitment. Table (Owner | Commitment | Due | Status guess) with the manager's own promises listed first, a checklist of what the manager must do before the next round of 1:1s, and a quote with a two-line message to send a report whose item is overdue.",
+   "shape": "table, checklist, quote",
+   "button": "Extract",
+   "loading": "Finding promises…"
+  },
+  {
+   "id": "drift",
+   "title": "Is someone drifting?",
+   "subtitle": "Read the quiet signals",
+   "emoji": "🧭",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Who",
+     "type": "text",
+     "placeholder": "Jordan",
+     "required": true
+    },
+    {
+     "key": "signals",
+     "label": "What you've noticed",
+     "type": "longtext",
+     "placeholder": "camera off, shorter answers, missed two standups, used to volunteer for demos",
+     "required": true
+    }
+   ],
+   "prompt": "Interpret these signals about {who}: {signals}. Text with the 3 most likely explanations ranked from benign to serious, bullets of what to observe over the next two weeks, steps for a gentle check-in conversation with the exact opening line, and a callout on when to involve HR or an employee-assistance programme rather than handle it alone.",
+   "shape": "text, bullets, steps, callout",
+   "button": "Interpret",
+   "loading": "Reading signals…"
+  },
+  {
+   "id": "skip",
+   "title": "Skip-level 1:1",
+   "subtitle": "Meet your reports' reports well",
+   "emoji": "🪜",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Who and their manager",
+     "type": "text",
+     "placeholder": "Lee, reports to Dana",
+     "required": true
+    },
+    {
+     "key": "goal",
+     "label": "Goal",
+     "type": "chips",
+     "options": [
+      "Get to know them",
+      "Check on their manager",
+      "Hear about the team",
+      "Career interest"
+     ],
+     "default": "Get to know them"
+    }
+   ],
+   "prompt": "Plan a skip-level 1:1 with {who} where the goal is '{goal}'. Steps for the 30 minutes with timings, bullets of 6 questions that won't feel like spying on their manager, a quote with how to open the meeting so it feels safe, and a callout on what to do with anything sensitive they tell you.",
+   "shape": "steps, bullets, quote, callout",
+   "button": "Plan it",
+   "loading": "Climbing a level…"
+  }
+ ]
+}

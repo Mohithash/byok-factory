@@ -1,0 +1,179 @@
+{
+ "id": "contract_lens",
+ "name": "Contract Lens",
+ "tagline": "Any contract, explained before you sign",
+ "category": "Tools",
+ "colors": [
+  "#00695C",
+  "#AD1457",
+  "#FDD835"
+ ],
+ "icon": "book",
+ "about": "Contract Lens reads gym, freelance, service, phone, car-hire and other everyday contracts from a photo or paste, explains each clause in plain English, flags what's unusual, and drafts the changes to ask for before you sign.",
+ "persona": "You are a plain-English contract reviewer: you explain what a clause does and who it favours, rate risk without drama, and suggest realistic edits.",
+ "onboarding": {
+  "title": "Read before you sign",
+  "subtitle": "Tell us what kind of contracts you meet most.",
+  "bullets": [
+   "Clause-by-clause plain English",
+   "Red flags and unusual terms",
+   "Edits to request before signing"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "region",
+   "label": "Country / state",
+   "type": "text",
+   "placeholder": "Berlin, Germany"
+  },
+  {
+   "key": "side",
+   "label": "You're usually the",
+   "type": "chips",
+   "options": [
+    "Customer",
+    "Freelancer / supplier",
+    "Employee",
+    "Small business owner"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "scan",
+   "title": "Explain this contract",
+   "subtitle": "Photo or paste the document",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the page(s)",
+     "type": "photo"
+    },
+    {
+     "key": "text",
+     "label": "Or paste the contract text",
+     "type": "longtext"
+    },
+    {
+     "key": "type",
+     "label": "Contract type",
+     "type": "chips",
+     "options": [
+      "Service / subscription",
+      "Freelance / consulting",
+      "Employment",
+      "Purchase / sale",
+      "Car hire / rental",
+      "Other"
+     ],
+     "default": "Service / subscription"
+    }
+   ],
+   "prompt": "Review the {type} contract from the photo and/or text: {text}. Produce a table (Clause | Plain-English meaning | Who it favours | Risk low/med/high), a text summary of the 5 things that matter most, a callout listing anything missing that you'd expect in this type of contract, and bullets of questions to ask before signing.",
+   "shape": "table, text, callout, bullets",
+   "button": "Explain",
+   "loading": "Reading every line…"
+  },
+  {
+   "id": "clause",
+   "title": "One clause, deeply",
+   "subtitle": "Indemnity? Liquidated damages? Auto-renew?",
+   "emoji": "🔎",
+   "inputs": [
+    {
+     "key": "clause",
+     "label": "Paste the clause",
+     "type": "longtext",
+     "placeholder": "The Customer shall indemnify and hold harmless…",
+     "required": true
+    }
+   ],
+   "prompt": "Clause: {clause}. Explain it in text (what it means and a concrete example of it biting), a kv (type of clause, who it protects, how common, negotiable: yes / sometimes / rarely), a quote with a fairer replacement wording, and a callout on how it is usually treated in the profile region.",
+   "shape": "text, kv, quote, callout",
+   "button": "Explain clause",
+   "loading": "Unpacking…"
+  },
+  {
+   "id": "redline",
+   "title": "Ask for changes",
+   "subtitle": "Turn worries into a polite redline",
+   "emoji": "✏️",
+   "inputs": [
+    {
+     "key": "worries",
+     "label": "What worries you",
+     "type": "longtext",
+     "placeholder": "30-day auto-renew, they can raise the price anytime, I'm liable for all damage",
+     "required": true
+    },
+    {
+     "key": "leverage",
+     "label": "Your leverage",
+     "type": "chips",
+     "options": [
+      "Little — take it or leave it",
+      "Some — they want my business",
+      "Strong — I have alternatives"
+     ],
+     "default": "Some — they want my business"
+    }
+   ],
+   "prompt": "Worries: {worries}. Leverage: {leverage}. Produce a table (Clause | Current effect | Proposed change | Fallback ask), a quote with the email requesting the changes in a cooperative tone, and bullets on which asks to trade away first if they push back.",
+   "shape": "table, quote, bullets",
+   "button": "Draft redline",
+   "loading": "Marking up…"
+  },
+  {
+   "id": "exit",
+   "title": "What if I want out?",
+   "subtitle": "Termination, notice, penalties",
+   "emoji": "🚪",
+   "inputs": [
+    {
+     "key": "terms",
+     "label": "Paste the termination / duration clauses",
+     "type": "longtext",
+     "placeholder": "Initial term 24 months; either party may terminate on 90 days' notice after the initial term…",
+     "required": true
+    },
+    {
+     "key": "when",
+     "label": "When you'd want to leave",
+     "type": "text",
+     "placeholder": "in 6 months"
+    }
+   ],
+   "prompt": "Terms: {terms}. Leaving: {when}. Give a kv (earliest exit date, notice required, early-termination cost, any cooling-off), steps for exiting cleanly with dates, and a callout on any exit-for-breach route or unfair-terms protection that may exist in the profile region.",
+   "shape": "kv, steps, callout",
+   "button": "Map the exit",
+   "loading": "Finding the door…"
+  },
+  {
+   "id": "glossary",
+   "title": "Legalese to English",
+   "subtitle": "Words you keep seeing",
+   "emoji": "📚",
+   "inputs": [
+    {
+     "key": "terms",
+     "label": "Terms you want explained",
+     "type": "text",
+     "placeholder": "indemnify, joint and several, force majeure",
+     "required": true
+    }
+   ],
+   "prompt": "For each of: {terms} — a table (Term | Plain English | Where it usually appears | Watch out when…), and a quote with one-sentence memory hooks for the three hardest ones.",
+   "shape": "table, quote",
+   "button": "Translate",
+   "loading": "Translating…"
+  }
+ ],
+ "disclaimer": "General information only, not legal advice; rules differ by country and state and change over time — check official sources or a qualified professional before acting."
+}

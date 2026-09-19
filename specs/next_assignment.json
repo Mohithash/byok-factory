@@ -1,0 +1,185 @@
+{
+ "id": "next_assignment",
+ "name": "Next Assignment",
+ "tagline": "Travel nurse contracts decoded, compared and negotiated",
+ "category": "Business",
+ "colors": [
+  "#1E88E5",
+  "#FFB300",
+  "#43A047"
+ ],
+ "icon": "plane",
+ "about": "Next Assignment breaks down travel nursing pay packages into real hourly numbers, spots contract red flags, compares assignments side by side, preps you for each new state and scripts the recruiter conversations.",
+ "persona": "You are a seasoned travel-nurse mentor with agency-side experience: numbers-first, sceptical of blended rates, and clear about tax-home rules without pretending to be an accountant.",
+ "onboarding": {
+  "title": "Take the right contract",
+  "subtitle": "Your specialty and home base shape every number.",
+  "bullets": [
+   "Pay packages broken into real hourly",
+   "Contract red-flag review",
+   "Recruiter negotiation scripts"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "specialty",
+   "label": "Specialty & years",
+   "type": "text",
+   "placeholder": "ICU, 4 years"
+  },
+  {
+   "key": "home",
+   "label": "Tax home (city, state)",
+   "type": "text",
+   "placeholder": "Denver, CO"
+  },
+  {
+   "key": "licences",
+   "label": "Licences held",
+   "type": "chips",
+   "options": [
+    "Compact (NLC)",
+    "Single state",
+    "Several states"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "package",
+   "title": "Decode a pay package",
+   "subtitle": "What that weekly number really is",
+   "emoji": "💵",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Screenshot of the pay package (optional)",
+     "type": "photo"
+    },
+    {
+     "key": "package",
+     "label": "Or paste it",
+     "type": "longtext",
+     "placeholder": "$2,450/wk gross, 36 hrs, $22 taxable, $1,100 housing, $400 M&IE…"
+    },
+    {
+     "key": "location",
+     "label": "Assignment city & state",
+     "type": "text",
+     "placeholder": "Phoenix, AZ"
+    }
+   ],
+   "prompt": "Break down the pay package from the screenshot and/or the text {package} for an assignment in {location}, given the profile's tax home. Produce kv (taxable hourly, stipends per week, blended hourly, estimated weekly take-home, guaranteed hours, missed-shift penalty), a table (Line item | Weekly | 13-week total | Taxable?), bullets of what to ask the recruiter (OT rate, call-offs, extension bonus), and a callout on stipend limits and duplicating expenses at the tax home.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Decode",
+   "loading": "Doing the maths…"
+  },
+  {
+   "id": "compare",
+   "title": "Compare assignments",
+   "subtitle": "Two contracts side by side",
+   "emoji": "🔀",
+   "inputs": [
+    {
+     "key": "contract_a",
+     "label": "Assignment A",
+     "type": "longtext",
+     "placeholder": "Seattle ICU, $2,600/wk, 48 hrs, nights, 13 wks",
+     "required": true
+    },
+    {
+     "key": "contract_b",
+     "label": "Assignment B",
+     "type": "longtext",
+     "placeholder": "Tucson ICU, $2,100/wk, 36 hrs, days, 13 wks",
+     "required": true
+    }
+   ],
+   "prompt": "Compare {contract_a} with {contract_b} for the profile. Table (Factor | A | B | Edge) covering hourly equivalents, hours, shift, housing cost realism, licence needed and time to get it, travel cost, cost of living and cancellation terms; kv with a net 13-week estimate for each and the assumptions used; and a callout naming the deciding factor and what could change it.",
+   "shape": "table, kv, callout",
+   "button": "Compare",
+   "loading": "Weighing…"
+  },
+  {
+   "id": "redflags",
+   "title": "Contract red flags",
+   "subtitle": "Paste clauses before you sign",
+   "emoji": "🚩",
+   "inputs": [
+    {
+     "key": "contract",
+     "label": "Paste the contract or worrying clauses",
+     "type": "longtext",
+     "placeholder": "Facility may cancel with 24 hours notice… nurse liable for housing…",
+     "required": true
+    }
+   ],
+   "prompt": "Review {contract}. Produce a table (Clause | Risk level | Why it matters | Ask for instead) for every notable clause, a checklist of items that must be in writing before signing (guaranteed hours, float policy, cancellation pay, overtime rate, extension terms), a quote with a polite email requesting the changes, and a callout that a lawyer should review anything unusual.",
+   "shape": "table, checklist, quote, callout",
+   "button": "Review",
+   "loading": "Reading fine print…"
+  },
+  {
+   "id": "prep",
+   "title": "Prep for the new state",
+   "subtitle": "Licence, compliance, housing, budget",
+   "emoji": "🧳",
+   "inputs": [
+    {
+     "key": "state",
+     "label": "Assignment state",
+     "type": "text",
+     "placeholder": "California",
+     "required": true
+    },
+    {
+     "key": "start",
+     "label": "Start date",
+     "type": "text",
+     "placeholder": "3 Nov"
+    }
+   ],
+   "prompt": "Prepare for an assignment in {state} starting {start} with the profile's licences. Give steps working back from the start date (licence by endorsement or compact check, walk-through options, compliance documents, physical, titres, fit test, housing), a checklist of documents recruiters typically demand, kv (typical licence processing time, fees, furnished-housing sources, rough rent range), and a callout on avoiding housing scams.",
+   "shape": "steps, checklist, kv, callout",
+   "button": "Prep me",
+   "loading": "Packing…"
+  },
+  {
+   "id": "negotiate",
+   "title": "Talk to the recruiter",
+   "subtitle": "Scripts for rate, extension and cancellation",
+   "emoji": "📞",
+   "inputs": [
+    {
+     "key": "goal",
+     "label": "Goal",
+     "type": "chips",
+     "options": [
+      "Higher rate",
+      "Extension bonus",
+      "Cancelled contract",
+      "Switching agencies",
+      "Time off request"
+     ],
+     "default": "Higher rate"
+    },
+    {
+     "key": "context",
+     "label": "Context",
+     "type": "text",
+     "placeholder": "another agency offered $200 more, 3 weeks in"
+    }
+   ],
+   "prompt": "Write recruiter conversation scripts for '{goal}' given {context} and the profile. Provide a quote with the opening message (text or phone), bullets of leverage points and what NOT to say, steps for the exchange including when to walk away, and a kv of realistic outcomes (best case, likely, floor).",
+   "shape": "quote, bullets, steps, kv",
+   "button": "Script it",
+   "loading": "Dialling…"
+  }
+ ],
+ "disclaimer": "Pay, tax-home and contract information is general guidance, not tax, financial or legal advice; verify with a qualified professional."
+}

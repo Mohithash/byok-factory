@@ -1,0 +1,196 @@
+{
+ "id": "abroad_keys",
+ "name": "Overseas Keys",
+ "tagline": "Buy property abroad with your eyes open",
+ "category": "Finance",
+ "colors": [
+  "#00695C",
+  "#FFB300",
+  "#C62828"
+ ],
+ "icon": "sun",
+ "about": "Overseas Keys walks you through buying a home in another country: the local process and players, the true cost of purchase, currency and financing choices, questions for the lawyer, and what it costs to own from afar.",
+ "persona": "You are an international property consultant: cautious, jurisdiction-aware, specific about the questions that expose problems, and clear that an independent local lawyer is not optional.",
+ "onboarding": {
+  "title": "Know the process before the deposit",
+  "subtitle": "Where and why you're buying sets the whole roadmap.",
+  "bullets": [
+   "Country process and players",
+   "True purchase and ownership costs",
+   "Currency, financing and lawyer questions"
+  ]
+ },
+ "profile": [
+  {
+   "key": "country",
+   "label": "Buying in",
+   "type": "text",
+   "placeholder": "Portugal, Algarve"
+  },
+  {
+   "key": "home",
+   "label": "Home country",
+   "type": "text",
+   "placeholder": "UK"
+  },
+  {
+   "key": "why",
+   "label": "Purpose",
+   "type": "chips",
+   "options": [
+    "Holiday home",
+    "Relocating",
+    "Rental investment",
+    "Retirement",
+    "Family base"
+   ]
+  },
+  {
+   "key": "budget",
+   "label": "Budget",
+   "type": "number",
+   "placeholder": "280000"
+  }
+ ],
+ "tools": [
+  {
+   "id": "process",
+   "title": "How buying works there",
+   "subtitle": "Stages, players, when you're committed",
+   "emoji": "🗂️",
+   "inputs": [
+    {
+     "key": "type",
+     "label": "Property type",
+     "type": "chips",
+     "options": [
+      "Apartment",
+      "House / villa",
+      "Land / off-plan",
+      "Rural / farmhouse"
+     ],
+     "default": "Apartment"
+    }
+   ],
+   "prompt": "Explain buying a {type} in the profile's country for a buyer from the profile's home country. Produce steps of the full process in order (reservation, checks, contracts, notary, registration) with typical timescales, a table (Player | Role | Who pays them | Independent of the seller?), bullets on ownership restrictions and residency or tax implications to check in general terms, and a callout on the stage at which the buyer is legally committed.",
+   "shape": "steps, table, bullets, callout",
+   "button": "Explain",
+   "loading": "Reading the rules…"
+  },
+  {
+   "id": "costs",
+   "title": "True cost of buying",
+   "subtitle": "Taxes, fees, currency, total cash",
+   "emoji": "🧾",
+   "inputs": [
+    {
+     "key": "price",
+     "label": "Price",
+     "type": "number",
+     "placeholder": "280000"
+    },
+    {
+     "key": "finance",
+     "label": "Financing",
+     "type": "chips",
+     "options": [
+      "Cash",
+      "Mortgage there",
+      "Mortgage at home / remortgage",
+      "Mixed"
+     ],
+     "default": "Cash"
+    }
+   ],
+   "prompt": "Price {price}, financing {finance}, in the profile's country. Produce a table (Cost | Typical % or amount | When paid | Notes) covering transfer tax, notary, registration, lawyer, agent, survey, mortgage costs and currency spread, with a total; a kv (total cash needed on day one, annual running cost estimate, cost to sell later); bullets on which costs are negotiable; and a callout listing every assumption to verify locally.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Total it up",
+   "loading": "Adding fees…"
+  },
+  {
+   "id": "fx",
+   "title": "Currency & financing",
+   "subtitle": "Spot, forward, staged, local loan",
+   "emoji": "💱",
+   "inputs": [
+    {
+     "key": "amount",
+     "label": "Amount to transfer",
+     "type": "number",
+     "placeholder": "250000"
+    },
+    {
+     "key": "timing",
+     "label": "When you'll need it",
+     "type": "text",
+     "placeholder": "deposit in 3 weeks, balance in 4 months"
+    }
+   ],
+   "prompt": "Transferring {amount} with timing: {timing}, from the profile's home currency to the destination currency. Produce a table (Option | How it works | Cost | Protects against | Risk) for spot, forward contract, staged transfers and a local mortgage; text on how a 5% currency move changes the price in both directions; a checklist for choosing a transfer provider and opening the local account; and a callout on scams targeting overseas buyers' transfers.",
+   "shape": "table, text, checklist, callout",
+   "button": "Plan transfers",
+   "loading": "Watching the rate…"
+  },
+  {
+   "id": "lawyer",
+   "title": "Question the lawyer",
+   "subtitle": "Title, permits, debts, boundaries",
+   "emoji": "⚖️",
+   "inputs": [
+    {
+     "key": "property",
+     "label": "The property",
+     "type": "text",
+     "placeholder": "1970s villa, private well, extension built 2009",
+     "required": true
+    },
+    {
+     "key": "stage",
+     "label": "Stage",
+     "type": "chips",
+     "options": [
+      "Before reserving",
+      "Before the private contract",
+      "Before completion"
+     ],
+     "default": "Before reserving"
+    }
+   ],
+   "prompt": "Property: {property}, stage: {stage}, in the profile's country. Produce a checklist of 15 questions for an independent lawyer (title, debts attached to the property, permits for every structure, boundaries, community fees, utilities, rental rules, inheritance), a table (Document | What it proves | Red flag if missing or odd), a quote with a short engagement email to the lawyer stating independence from the agent and seller, and a callout on the checks that must be completed before any money moves.",
+   "shape": "checklist, table, quote, callout",
+   "button": "Prepare questions",
+   "loading": "Preparing…"
+  },
+  {
+   "id": "own",
+   "title": "Owning from afar",
+   "subtitle": "Running costs, letting, keyholding",
+   "emoji": "🔑",
+   "inputs": [
+    {
+     "key": "use",
+     "label": "Use",
+     "type": "chips",
+     "options": [
+      "Mostly empty",
+      "Family visits",
+      "Let short-term",
+      "Let long-term"
+     ],
+     "default": "Family visits"
+    },
+    {
+     "key": "months",
+     "label": "Months a year you'll be there",
+     "type": "number",
+     "placeholder": "2"
+    }
+   ],
+   "prompt": "Owning the profile's property with use '{use}' for {months} months a year. Produce a table (Task | Frequency | Do it yourself or hire | Typical cost) for taxes, insurance, utilities, maintenance, keyholding and letting admin; a kv (annual ownership cost estimate, break-even nightly rate if letting, months of unlet risk); bullets on local letting licences, tax declarations in both countries and inheritance rules to check in general terms; and a callout on the empty-home risks insurers care about.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Plan ownership",
+   "loading": "Thinking long-term…"
+  }
+ ],
+ "disclaimer": "General information, not legal, tax or financial advice; property law, taxes and ownership rules differ sharply by country — use an independent local lawyer and a regulated adviser."
+}

@@ -1,0 +1,201 @@
+{
+ "id": "cold_dip",
+ "name": "Cold Dip",
+ "tagline": "Cold-water swimming, safely, all year round",
+ "category": "Sports",
+ "colors": [
+  "#01579B",
+  "#80DEEA",
+  "#F48FB1"
+ ],
+ "icon": "drop",
+ "about": "Cold Dip guides cold-water and winter swimming: acclimatisation plans, safe session lengths for the water temperature, afterdrop and rewarming protocols, and safety checks for your swim spot.",
+ "persona": "You are an experienced cold-water swim leader: warm, unhurried, evidence-based about cold shock and afterdrop, and strict that nobody swims alone.",
+ "onboarding": {
+  "title": "Get in, get out, warm up right",
+  "subtitle": "Your experience and swim spot shape every session.",
+  "bullets": [
+   "Acclimatisation without bravado",
+   "Session times by water temperature",
+   "Rewarming and afterdrop protocols"
+  ]
+ },
+ "profile": [
+  {
+   "key": "experience",
+   "label": "Cold-water experience",
+   "type": "chips",
+   "options": [
+    "Never",
+    "A few dips",
+    "Regular",
+    "Winter swimmer"
+   ]
+  },
+  {
+   "key": "spot",
+   "label": "Usual spot",
+   "type": "chips",
+   "options": [
+    "Lido",
+    "Lake",
+    "River",
+    "Sea",
+    "Reservoir/quarry"
+   ]
+  },
+  {
+   "key": "kit",
+   "label": "Kit",
+   "type": "chips",
+   "options": [
+    "Skins",
+    "Wetsuit",
+    "Neoprene gloves/boots",
+    "Tow float"
+   ],
+   "multi": true
+  },
+  {
+   "key": "health",
+   "label": "Health notes",
+   "type": "text",
+   "placeholder": "asthma, on blood pressure meds"
+  }
+ ],
+ "tools": [
+  {
+   "id": "session",
+   "title": "Plan today's dip",
+   "subtitle": "Water temp → time in, exit plan",
+   "emoji": "🌡️",
+   "inputs": [
+    {
+     "key": "temp",
+     "label": "Water temperature (°C)",
+     "type": "number",
+     "placeholder": "9"
+    },
+    {
+     "key": "conditions",
+     "label": "Conditions",
+     "type": "text",
+     "placeholder": "overcast, 6°C air, light wind, swimming with two friends"
+    }
+   ],
+   "prompt": "Plan a dip at {temp}°C in: {conditions} for the profile experience and kit. kv (recommended time in, hard exit time, entry method, minutes of rewarming needed), steps for entry, swimming and exit including breathing through cold shock, bullets on how the body will feel minute by minute, and a callout on symptoms that mean get out now.",
+   "shape": "kv, steps, bullets, callout",
+   "button": "Plan dip",
+   "loading": "Testing the water…"
+  },
+  {
+   "id": "acclimatise",
+   "title": "Acclimatisation plan",
+   "subtitle": "From summer to winter without shocks",
+   "emoji": "📉",
+   "inputs": [
+    {
+     "key": "now",
+     "label": "Where you are",
+     "type": "text",
+     "placeholder": "swimming 15 min at 14°C, want to keep going through January",
+     "required": true
+    },
+    {
+     "key": "weeks",
+     "label": "Timeline",
+     "type": "chips",
+     "options": [
+      "4 weeks",
+      "8 weeks",
+      "Whole season"
+     ],
+     "default": "8 weeks"
+    }
+   ],
+   "prompt": "Acclimatisation over {weeks} from: {now}. Table (Week | Expected water temp | Dips per week | Time in | Focus), bullets on the habits that build cold tolerance (and the myths that don't), a checklist of kit to add as temperatures drop, and a callout on why times should shrink as temperature falls.",
+   "shape": "table, bullets, checklist, callout",
+   "button": "Plan season",
+   "loading": "Chilling gradually…"
+  },
+  {
+   "id": "rewarm",
+   "title": "Rewarming & afterdrop",
+   "subtitle": "The 30 minutes after",
+   "emoji": "🔥",
+   "inputs": [
+    {
+     "key": "temp",
+     "label": "Water temp (°C)",
+     "type": "number",
+     "placeholder": "7"
+    },
+    {
+     "key": "minutes",
+     "label": "Minutes you were in",
+     "type": "number",
+     "placeholder": "8"
+    },
+    {
+     "key": "state",
+     "label": "How you feel",
+     "type": "text",
+     "placeholder": "shivering hard, fingers useless"
+    }
+   ],
+   "prompt": "After {minutes} minutes at {temp}°C feeling: {state}. Steps for the next 30 minutes in order (dry, layers, hat, drink, movement), bullets on afterdrop and why it peaks later, a table (Do | Don't | Why) covering hot showers, alcohol and driving, and a callout on hypothermia signs that need help.",
+   "shape": "steps, bullets, table, callout",
+   "button": "Rewarm me",
+   "loading": "Layering up…"
+  },
+  {
+   "id": "spot",
+   "title": "Check a swim spot",
+   "subtitle": "Photo → hazards and entry",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the swim spot",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "notes",
+     "label": "What you know",
+     "type": "text",
+     "placeholder": "tidal, slipway entry, boats on weekends"
+    }
+   ],
+   "prompt": "Assess the spot in the photo with: {notes} and the profile spot type. Table (Hazard | Seen / possible | Risk | Mitigation) covering currents, entry/exit, water quality, boats, cold and visibility, kv (best entry, best exit, tow float yes/no, spotter needed), and a callout on the checks to make before every swim.",
+   "shape": "table, kv, callout",
+   "button": "Assess spot",
+   "loading": "Scanning the water…"
+  },
+  {
+   "id": "group",
+   "title": "Group swim briefing",
+   "subtitle": "Lead a safe dip",
+   "emoji": "👥",
+   "inputs": [
+    {
+     "key": "swimmers",
+     "label": "Swimmers",
+     "type": "number",
+     "placeholder": "8"
+    },
+    {
+     "key": "mix",
+     "label": "Group mix",
+     "type": "text",
+     "placeholder": "two first-timers, one strong swimmer who goes far out"
+    }
+   ],
+   "prompt": "A briefing for {swimmers} swimmers, mix: {mix}, at the profile spot. Quote with the 60-second briefing to read aloud, a checklist for the leader (spotter, kit, buddy pairs, exit signal), bullets on managing the first-timers and the far swimmer, and a callout on the emergency plan and who calls for help.",
+   "shape": "quote, checklist, bullets, callout",
+   "button": "Write briefing",
+   "loading": "Gathering the group…"
+  }
+ ],
+ "disclaimer": "Cold water can kill: cold shock, afterdrop and hypothermia are real. Never swim alone, check with a doctor if you have heart, breathing or blood-pressure conditions, and get out early. Not medical advice."
+}

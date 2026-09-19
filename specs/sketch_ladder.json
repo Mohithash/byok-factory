@@ -1,0 +1,236 @@
+{
+ "id": "sketch_ladder",
+ "name": "Sketch Ladder",
+ "tagline": "Learn to draw with drills, critiques and a 30-day plan",
+ "category": "Art & Design",
+ "colors": [
+  "#37474F",
+  "#E64A19",
+  "#26A69A"
+ ],
+ "icon": "bulb",
+ "about": "Sketch Ladder turns 'I can't draw' into daily 15-minute drills, critiques your sketches from a photo, breaks any reference into simple forms and builds a 30-day plan for the skill you're stuck on.",
+ "persona": "You are an atelier drawing instructor: encouraging but exact, you teach construction, proportion and value before style, and you always name the one thing to fix first.",
+ "onboarding": {
+  "title": "Draw what you actually see",
+  "subtitle": "Tell us your level and materials; drills and critiques are tuned to them.",
+  "bullets": [
+   "Photo critique with fixes in order",
+   "Daily drills for your weak spot",
+   "Any reference broken into forms"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "level",
+   "label": "Level",
+   "type": "chips",
+   "options": [
+    "Total beginner",
+    "Hobbyist",
+    "Improving",
+    "Art student"
+   ]
+  },
+  {
+   "key": "media",
+   "label": "You draw with",
+   "type": "chips",
+   "options": [
+    "Graphite",
+    "Pen/ink",
+    "Charcoal",
+    "Coloured pencil",
+    "Tablet/digital"
+   ],
+   "multi": true
+  },
+  {
+   "key": "subject",
+   "label": "Want to draw",
+   "type": "chips",
+   "options": [
+    "Faces",
+    "Figures",
+    "Animals",
+    "Landscapes/urban",
+    "Still life",
+    "Anime/comics"
+   ],
+   "multi": true
+  }
+ ],
+ "tools": [
+  {
+   "id": "critique",
+   "title": "Critique my sketch",
+   "subtitle": "Photo → what to fix, in order",
+   "emoji": "🖼️",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of your drawing",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "ref",
+     "label": "What it's of / reference",
+     "type": "text",
+     "placeholder": "my dog, from a photo"
+    },
+    {
+     "key": "focus",
+     "label": "Focus on",
+     "type": "chips",
+     "options": [
+      "Proportion",
+      "Values/shading",
+      "Line quality",
+      "Perspective",
+      "Everything"
+     ],
+     "default": "Everything"
+    }
+   ],
+   "prompt": "Critique the drawing in the photo (subject: {ref}), focusing on {focus}. Sections: a table (Area | What's working | What's off | Fix), steps for a 20-minute redo ordered by impact, a callout with the single most important thing to fix first, and bullets of 3 drills that target the weakest area.",
+   "shape": "table, steps, callout, bullets",
+   "button": "Critique",
+   "loading": "Squinting at it…"
+  },
+  {
+   "id": "drill",
+   "title": "Today's drill",
+   "subtitle": "A focused session for your weak spot",
+   "emoji": "✏️",
+   "inputs": [
+    {
+     "key": "minutes",
+     "label": "Minutes",
+     "type": "chips",
+     "options": [
+      "10",
+      "15",
+      "30",
+      "45"
+     ],
+     "default": "15"
+    },
+    {
+     "key": "skill",
+     "label": "Skill",
+     "type": "chips",
+     "options": [
+      "Lines & ellipses",
+      "Gesture",
+      "Proportion",
+      "Shading/values",
+      "Perspective",
+      "Anatomy"
+     ],
+     "default": "Gesture"
+    },
+    {
+     "key": "mood",
+     "label": "Anything else",
+     "type": "text",
+     "placeholder": "tired, only have a biro"
+    }
+   ],
+   "prompt": "Design a {minutes}-minute warm-up plus {skill} drill for the profile level and media, notes: {mood}. Sections: steps with minute stamps, a kv (goal, what 'good' looks like, common mistake, how to self-check), and a quote with one mantra to repeat while drawing.",
+   "shape": "steps, kv, quote",
+   "button": "Start drill",
+   "loading": "Sharpening…"
+  },
+  {
+   "id": "breakdown",
+   "title": "Break down a reference",
+   "subtitle": "Photo → simple forms → finished drawing",
+   "emoji": "📐",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Reference photo",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "style",
+     "label": "Target style",
+     "type": "chips",
+     "options": [
+      "Realistic",
+      "Simplified/cartoon",
+      "Line only"
+     ],
+     "default": "Realistic"
+    }
+   ],
+   "prompt": "Break the reference photo down for a {style} drawing: steps from envelope/gesture → big simple forms (spheres, boxes, cylinders) → landmarks → contour → values, each step naming what to measure against what; a table of proportion checkpoints (Landmark | Compare to | Ratio); and a callout on the trap most people fall into with this subject.",
+   "shape": "steps, table, callout",
+   "button": "Break it down",
+   "loading": "Finding the forms…"
+  },
+  {
+   "id": "perspective",
+   "title": "Perspective help",
+   "subtitle": "Horizon, vanishing points, construction lines",
+   "emoji": "🏙️",
+   "inputs": [
+    {
+     "key": "scene",
+     "label": "Scene",
+     "type": "text",
+     "placeholder": "a street corner with a café, seen from slightly above",
+     "required": true
+    },
+    {
+     "key": "points",
+     "label": "Perspective type",
+     "type": "chips",
+     "options": [
+      "1-point",
+      "2-point",
+      "3-point",
+      "Not sure"
+     ],
+     "default": "Not sure"
+    }
+   ],
+   "prompt": "Explain how to construct '{scene}' in {points} perspective (choose and justify if 'Not sure'): text on where the horizon and vanishing points go and why, steps to lay down the construction lines in order, and bullets of 4 common errors for this kind of scene.",
+   "shape": "text, steps, bullets",
+   "button": "Construct",
+   "loading": "Placing the horizon…"
+  },
+  {
+   "id": "plan",
+   "title": "30-day plan",
+   "subtitle": "A month toward one drawing goal",
+   "emoji": "🗓️",
+   "inputs": [
+    {
+     "key": "goal",
+     "label": "Goal",
+     "type": "chips",
+     "options": [
+      "Draw faces",
+      "Draw figures",
+      "Draw from imagination",
+      "Sketch on location",
+      "Shade convincingly"
+     ],
+     "default": "Draw faces"
+    }
+   ],
+   "prompt": "A 30-day plan to {goal} for the profile: table (Week | Theme | Daily drill (15 min) | Weekend project), a checklist of materials, bullets on how to tell you're progressing, and a callout on what to do when a week goes badly.",
+   "shape": "table, checklist, bullets, callout",
+   "button": "Build plan",
+   "loading": "Ruling the pages…"
+  }
+ ]
+}

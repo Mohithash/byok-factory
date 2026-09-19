@@ -1,0 +1,195 @@
+{
+ "id": "seminar_ready",
+ "name": "Seminar Ready",
+ "tagline": "Read smarter, then say something worth hearing",
+ "category": "Education",
+ "colors": [
+  "#1B5E20",
+  "#BF360C",
+  "#FDD835"
+ ],
+ "icon": "mic",
+ "about": "Seminar Ready triages your reading list, decodes dense passages, prepares talking points and sharp questions, and debriefs after the seminar so you show up prepared and get credit for participating.",
+ "persona": "You are a seminar tutor who loves a well-prepared student: candid about what can be skimmed, generous with reading strategies, and encouraging to people who hate speaking up.",
+ "onboarding": {
+  "title": "Speak up with confidence",
+  "subtitle": "Tell us your course and how you feel about speaking so prep matches the room.",
+  "bullets": [
+   "Reading-list triage with minutes per item",
+   "Dense passages decoded",
+   "Talking points and good questions"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "course",
+   "label": "Course / module",
+   "type": "text",
+   "placeholder": "Political Theory, 2nd year"
+  },
+  {
+   "key": "speaking",
+   "label": "Speaking in seminars",
+   "type": "chips",
+   "options": [
+    "Hate it",
+    "Nervous but try",
+    "Comfortable",
+    "Too much"
+   ],
+   "default": "Nervous but try"
+  },
+  {
+   "key": "assessed",
+   "label": "Participation graded?",
+   "type": "chips",
+   "options": [
+    "Yes",
+    "No",
+    "Not sure"
+   ],
+   "default": "Not sure"
+  }
+ ],
+ "tools": [
+  {
+   "id": "triage",
+   "title": "Triage the reading list",
+   "subtitle": "Hours available → what to read how",
+   "emoji": "⏱️",
+   "inputs": [
+    {
+     "key": "list",
+     "label": "This week's readings",
+     "type": "longtext",
+     "placeholder": "paste the list with page counts if known",
+     "required": true
+    },
+    {
+     "key": "hours",
+     "label": "Hours you actually have",
+     "type": "number",
+     "placeholder": "4"
+    },
+    {
+     "key": "focus",
+     "label": "Seminar question / focus",
+     "type": "text",
+     "placeholder": "Is Rawls' veil of ignorance persuasive?"
+    }
+   ],
+   "prompt": "Readings: {list}. Hours: {hours}. Seminar focus: {focus}. Produce a table (Reading | Priority | Mode: deep / strategic / abstract-and-conclusion / skip | Minutes | What to extract) that fits within the hours, then steps for the reading order with the strategic-reading routine for each mode (abstract → conclusion → headings → first sentences), and a callout on which reading the tutor will almost certainly build the discussion around.",
+   "shape": "table, steps, callout",
+   "button": "Triage",
+   "loading": "Prioritising…"
+  },
+  {
+   "id": "decode",
+   "title": "Decode a passage",
+   "subtitle": "Photo or paste → plain English",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the page (optional)",
+     "type": "photo"
+    },
+    {
+     "key": "passage",
+     "label": "Or paste the passage",
+     "type": "longtext"
+    },
+    {
+     "key": "author",
+     "label": "Author / text",
+     "type": "text",
+     "placeholder": "Foucault, Discipline and Punish"
+    }
+   ],
+   "prompt": "Passage (from the photo or the text): {passage}. Source: {author}. Give a text restatement in plain English at roughly half the length, a kv glossary of the jargon and any names referenced, bullets of the author's argument as claim → reasons → what they are arguing against, and a quote with one sentence the student could say in the seminar that shows they understood it.",
+   "shape": "text, kv, bullets, quote",
+   "button": "Decode",
+   "loading": "Translating…"
+  },
+  {
+   "id": "points",
+   "title": "Talking points",
+   "subtitle": "Your reaction → 3 things to say",
+   "emoji": "💬",
+   "inputs": [
+    {
+     "key": "reading",
+     "label": "The reading",
+     "type": "text",
+     "placeholder": "Rawls, A Theory of Justice, ch. 3",
+     "required": true
+    },
+    {
+     "key": "reaction",
+     "label": "Your honest reaction",
+     "type": "longtext",
+     "placeholder": "seems idealistic; how would this work with real inequality?",
+     "required": true
+    }
+   ],
+   "prompt": "Reading: {reading}. Reaction: {reaction}. Produce bullets of 3 talking points, each with a claim, a reference to a specific part of the reading and a why-it-matters, a quote with an opening line for the student's first contribution calibrated to the profile's comfort with speaking, a table (If someone says… | You could respond…) with 4 rows for likely pushback, and a callout on the minimum viable contribution if nerves win: one question, asked early.",
+   "shape": "bullets, quote, table, callout",
+   "button": "Prep points",
+   "loading": "Sharpening…"
+  },
+  {
+   "id": "ask",
+   "title": "Ask a good question",
+   "subtitle": "Four kinds of question, ready to go",
+   "emoji": "❓",
+   "inputs": [
+    {
+     "key": "reading",
+     "label": "The reading or topic",
+     "type": "text",
+     "required": true
+    }
+   ],
+   "prompt": "For {reading}, write cards for 4 questions (meta = type: clarifying · challenging · connecting · applying), each card with the question, why it's a good one and a follow-up if the room goes quiet. Then bullets on timing: when in the seminar each type lands best.",
+   "shape": "cards, bullets",
+   "button": "Give me questions",
+   "loading": "Wondering…"
+  },
+  {
+   "id": "debrief",
+   "title": "After the seminar",
+   "subtitle": "What happened, what next",
+   "emoji": "📝",
+   "inputs": [
+    {
+     "key": "what",
+     "label": "What happened",
+     "type": "longtext",
+     "placeholder": "said one thing, tutor pushed back, didn't know how to respond",
+     "required": true
+    },
+    {
+     "key": "felt",
+     "label": "How it felt",
+     "type": "chips",
+     "options": [
+      "Went well",
+      "Okay",
+      "Embarrassing",
+      "Said nothing"
+     ],
+     "default": "Okay"
+    }
+   ],
+   "prompt": "What happened: {what}. Felt: {felt}. Write text reframing the experience honestly (what worked, what the tutor's pushback usually means), a kv logging the seminar (Key idea, Best point heard, My contribution, Open question), steps for next week that are one notch braver than this week, and a quote with the sentence to use next time when challenged ('That's fair — I think the stronger version of my point is…').",
+   "shape": "text, kv, steps, quote",
+   "button": "Debrief",
+   "loading": "Reflecting…"
+  }
+ ]
+}

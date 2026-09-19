@@ -1,0 +1,217 @@
+{
+ "id": "thrift_radar",
+ "name": "Thrift Radar",
+ "tagline": "Find the gems, skip the junk, flip the rest",
+ "category": "Shopping",
+ "colors": [
+  "#EF6C00",
+  "#00695C",
+  "#5D4037"
+ ],
+ "icon": "bag",
+ "about": "Thrift Radar helps you judge whether a second-hand find is worth the price, date and authenticate vintage from labels, plan efficient thrift runs, rework finds and write resale listings that sell.",
+ "persona": "You are a seasoned vintage dealer and charity-shop regular: quick with a verdict, honest about condition, and generous with the tricks of the trade.",
+ "onboarding": {
+  "title": "Thrift with an expert eye",
+  "subtitle": "Your sizes and what you hunt for sharpen every verdict.",
+  "bullets": [
+   "Worth-it verdicts from a photo",
+   "Vintage dating from labels",
+   "Resale listings that sell"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "sizes",
+   "label": "Your sizes",
+   "type": "text",
+   "placeholder": "UK 12, EU 39 shoe"
+  },
+  {
+   "key": "hunt",
+   "label": "You hunt for",
+   "type": "chips",
+   "options": [
+    "Designer bargains",
+    "True vintage",
+    "Denim",
+    "Outerwear",
+    "Knitwear",
+    "Homewares",
+    "Anything good"
+   ],
+   "multi": true
+  },
+  {
+   "key": "why",
+   "label": "Mostly for",
+   "type": "chips",
+   "options": [
+    "Wearing",
+    "Reselling",
+    "Both"
+   ],
+   "default": "Wearing"
+  }
+ ],
+ "tools": [
+  {
+   "id": "worth",
+   "title": "Worth it?",
+   "subtitle": "Photo + price → verdict",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the item and its label",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "price",
+     "label": "Asking price",
+     "type": "number",
+     "placeholder": "12"
+    },
+    {
+     "key": "condition",
+     "label": "Condition notes",
+     "type": "text",
+     "placeholder": "small stain on cuff, zip works"
+    }
+   ],
+   "prompt": "Judge the item in the photo at a price of {price} with condition '{condition}' for the profile's sizes and purpose. kv (what it is, likely brand and era, retail-new estimate, realistic resale range, verdict: grab / haggle / leave), a checklist to inspect before paying (seams, zips, pilling, smell, moth holes), bullets on cleaning it up, and a callout that resale estimates are indicative.",
+   "shape": "kv, checklist, bullets, callout",
+   "button": "Judge it",
+   "loading": "Checking the tag…"
+  },
+  {
+   "id": "date",
+   "title": "Date & authenticate",
+   "subtitle": "Label photo → era and red flags",
+   "emoji": "🏷️",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Close-up of the label, tags and stitching",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "claimed",
+     "label": "What the seller claims",
+     "type": "text",
+     "placeholder": "vintage 90s Levi's 501"
+    }
+   ],
+   "prompt": "From the label photo and the claim '{claimed}', estimate the era and whether it is genuine. kv (era estimate, clues used, country of manufacture, fabric-era markers, confidence), a table (Feature | Genuine looks like | Fake looks like), bullets on the next checks to make, and a callout on high-fake-rate items to buy only with proof.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Date it",
+   "loading": "Examining stitches…"
+  },
+  {
+   "id": "run",
+   "title": "Plan a thrift run",
+   "subtitle": "Route, list and tactics",
+   "emoji": "🗺️",
+   "inputs": [
+    {
+     "key": "shops",
+     "label": "Shops or area",
+     "type": "text",
+     "placeholder": "3 charity shops on the high street + a kilo sale",
+     "required": true
+    },
+    {
+     "key": "wants",
+     "label": "Looking for",
+     "type": "text",
+     "placeholder": "a wool coat, black boots, interesting shirts"
+    },
+    {
+     "key": "time",
+     "label": "Time",
+     "type": "chips",
+     "options": [
+      "1 hour",
+      "Half day",
+      "Full day"
+     ],
+     "default": "Half day"
+    }
+   ],
+   "prompt": "Plan a {time} thrift run around '{shops}' hunting for '{wants}'. Steps (order of shops and why, best sections first), a checklist of what to bring (tape measure, tote, sizes, cash), a table (Want | Search tactics | Max price to pay | Deal-breakers), and bullets of tricks for spotting quality fast.",
+   "shape": "steps, checklist, table, bullets",
+   "button": "Plan run",
+   "loading": "Mapping shops…"
+  },
+  {
+   "id": "rework",
+   "title": "Rework a find",
+   "subtitle": "Alter, crop, dye, upcycle",
+   "emoji": "✂️",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the item",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "skill",
+     "label": "Your skill",
+     "type": "chips",
+     "options": [
+      "Scissors only",
+      "Hand sewing",
+      "Sewing machine",
+      "Confident maker"
+     ],
+     "default": "Hand sewing"
+    }
+   ],
+   "prompt": "Suggest reworks for the item in the photo at '{skill}' level. 3 cards (idea, meta = time · cost · difficulty), steps for the best one, a checklist of supplies, and a callout on what not to cut if the piece is worth more as-is.",
+   "shape": "cards, steps, checklist, callout",
+   "button": "Rework",
+   "loading": "Pinning ideas…"
+  },
+  {
+   "id": "list",
+   "title": "Write a resale listing",
+   "subtitle": "Title, description, price",
+   "emoji": "🛒",
+   "inputs": [
+    {
+     "key": "item",
+     "label": "Describe the item",
+     "type": "longtext",
+     "placeholder": "Burberry trench, size 10, 90s, belt included, small mark on lining",
+     "required": true
+    },
+    {
+     "key": "platform",
+     "label": "Platform",
+     "type": "chips",
+     "options": [
+      "Vinted",
+      "Depop",
+      "eBay",
+      "Facebook Marketplace",
+      "Poshmark"
+     ],
+     "default": "Vinted"
+    }
+   ],
+   "prompt": "Write a {platform} listing for: {item}. Quote with the title and description ready to paste (keywords buyers search, flaws stated honestly), kv (start price, floor price, bundle offer, postage tip), a checklist of the 6 photos to take, and bullets on replying to lowball offers.",
+   "shape": "quote, kv, checklist, bullets",
+   "button": "Write listing",
+   "loading": "Snapping & typing…"
+  }
+ ],
+ "disclaimer": "Value and authenticity estimates are indicative only; get a professional authentication for high-value items."
+}

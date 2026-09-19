@@ -1,0 +1,217 @@
+{
+ "id": "big_talks",
+ "name": "Big Talks",
+ "tagline": "The conversations to have before you commit",
+ "category": "Lifestyle",
+ "colors": [
+  "#C2185B",
+  "#303F9F",
+  "#FFC107"
+ ],
+ "icon": "ring",
+ "about": "Big Talks guides couples through the conversations that matter before moving in, getting engaged or having kids — money, chores, family, faith, ambition, deal-breakers — and turns two sets of answers into clear agreements.",
+ "persona": "You are a candid pre-marital counsellor: curious rather than prescriptive, alert to avoidance, and good at turning 'we'll figure it out' into specifics without killing the romance.",
+ "onboarding": {
+  "title": "Know before you leap",
+  "subtitle": "Tell us what you're heading towards and we'll tailor the questions.",
+  "bullets": [
+   "Question decks by topic",
+   "Compare your answers side by side",
+   "Draft agreements you'll both keep"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "partner",
+   "label": "Partner's name",
+   "type": "text",
+   "placeholder": "Dan"
+  },
+  {
+   "key": "next",
+   "label": "Next step",
+   "type": "chips",
+   "options": [
+    "Moving in",
+    "Engagement",
+    "Marriage",
+    "Kids",
+    "Buying a home",
+    "Just checking we're aligned"
+   ]
+  },
+  {
+   "key": "worry",
+   "label": "What we avoid talking about",
+   "type": "text",
+   "placeholder": "money, his mum"
+  }
+ ],
+ "tools": [
+  {
+   "id": "deck",
+   "title": "Question deck",
+   "subtitle": "Ten questions on one topic",
+   "emoji": "🃏",
+   "inputs": [
+    {
+     "key": "topic",
+     "label": "Topic",
+     "type": "chips",
+     "options": [
+      "Money",
+      "Chores & home",
+      "Kids & parenting",
+      "Family & in-laws",
+      "Faith & values",
+      "Sex & intimacy",
+      "Careers & ambition",
+      "Deal-breakers"
+     ],
+     "default": "Money"
+    },
+    {
+     "key": "depth",
+     "label": "Depth",
+     "type": "chips",
+     "options": [
+      "Warm-up",
+      "Real talk",
+      "Deep end"
+     ],
+     "default": "Real talk"
+    }
+   ],
+   "prompt": "Give 10 {topic} questions at {depth} level for a couple heading for the profile's next step, as a checklist (one question per item, specific, none answerable with yes or no). Then a callout on how to run it (take turns, no interrupting, one 'pass' each), and a quote with a closing question that brings it back to warmth.",
+   "shape": "checklist, callout, quote",
+   "button": "Deal the deck",
+   "loading": "Shuffling…"
+  },
+  {
+   "id": "compare",
+   "title": "Compare our answers",
+   "subtitle": "Paste both sets; find the gaps",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "mine",
+     "label": "My answers",
+     "type": "longtext",
+     "placeholder": "Money: joint account for bills, separate for fun; kids: 2, in ~3 years…",
+     "required": true
+    },
+    {
+     "key": "theirs",
+     "label": "Their answers",
+     "type": "longtext",
+     "placeholder": "Money: everything joint; kids: maybe 1, not soon…",
+     "required": true
+    }
+   ],
+   "prompt": "Compare my answers: {mine} with theirs: {theirs}. Table (Question | Me | Them | Aligned, negotiable or gap), bullets of the 3 biggest gaps in order of importance to the next step, steps for one structured conversation on the top gap, and a callout that most gaps are negotiable but naming the non-negotiables early is the kindest thing you can do.",
+   "shape": "table, bullets, steps, callout",
+   "button": "Compare",
+   "loading": "Lining them up…"
+  },
+  {
+   "id": "agreement",
+   "title": "Draft an agreement",
+   "subtitle": "Money, chores or family — written down",
+   "emoji": "📝",
+   "inputs": [
+    {
+     "key": "area",
+     "label": "Area",
+     "type": "chips",
+     "options": [
+      "Money & bills",
+      "Chores & standards",
+      "Family visits & holidays",
+      "Screens & alone time",
+      "Pets"
+     ],
+     "default": "Money & bills"
+    },
+    {
+     "key": "terms",
+     "label": "What we've roughly agreed",
+     "type": "longtext",
+     "placeholder": "split bills by income %, £150 each fun money, purchases over £300 discussed first",
+     "required": true
+    }
+   ],
+   "prompt": "Turn this into a clear agreement for {area}: {terms}. A kv of each term as a specific rule, a table (Situation | What happens | Who decides) covering 5 edge cases, a quote with a review clause (when and how you revisit it), and a callout that anything legally binding — leases, deeds, prenups — needs a solicitor.",
+   "shape": "kv, table, quote, callout",
+   "button": "Draft it",
+   "loading": "Writing it down…"
+  },
+  {
+   "id": "dealbreaker",
+   "title": "Deal-breaker check",
+   "subtitle": "Difference, or deal-breaker?",
+   "emoji": "⚠️",
+   "inputs": [
+    {
+     "key": "difference",
+     "label": "The difference",
+     "type": "longtext",
+     "placeholder": "I want kids, he says 'probably not'",
+     "required": true
+    },
+    {
+     "key": "time",
+     "label": "Been together",
+     "type": "chips",
+     "options": [
+      "Under 1 year",
+      "1–2 years",
+      "2–5 years",
+      "5+ years"
+     ],
+     "default": "1–2 years"
+    }
+   ],
+   "prompt": "Difference: {difference}, together {time}. Text with a straight assessment (3–4 sentences: preference, strong preference, or structural incompatibility), a table (Path | What it requires of each of you | Likelihood it holds), a quote with the exact question to ask your partner to get a real answer rather than a soothing one, and a callout on the cost of waiting for them to change.",
+   "shape": "text, table, quote, callout",
+   "button": "Assess it",
+   "loading": "Being honest…"
+  },
+  {
+   "id": "avoided",
+   "title": "The talk we keep avoiding",
+   "subtitle": "Start it this week",
+   "emoji": "🐘",
+   "inputs": [
+    {
+     "key": "subject",
+     "label": "The subject",
+     "type": "text",
+     "placeholder": "his mum expects us to live near her",
+     "required": true
+    },
+    {
+     "key": "why",
+     "label": "We avoid it because",
+     "type": "chips",
+     "options": [
+      "It ends in a fight",
+      "One of us shuts down",
+      "Fear of the answer",
+      "Never the right time"
+     ],
+     "default": "Fear of the answer"
+    }
+   ],
+   "prompt": "Avoided subject: {subject}; why: {why}. Steps to set it up (when, where, how long, how to end it), a quote with the opening line (under 40 words, names the avoidance itself), bullets of 3 ground rules for the conversation, and a callout on what to do if it goes badly the first time.",
+   "shape": "steps, quote, bullets, callout",
+   "button": "Set it up",
+   "loading": "Finding courage…"
+  }
+ ],
+ "disclaimer": "Relationship coaching only; cohabitation, property and prenuptial agreements have legal effects and should be reviewed by a solicitor."
+}

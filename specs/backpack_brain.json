@@ -1,0 +1,209 @@
+{
+ "id": "backpack_brain",
+ "name": "Backpack Brain",
+ "tagline": "ADHD at school: systems for the kid who loses everything",
+ "category": "Parenting",
+ "colors": [
+  "#F4511E",
+  "#3F51B5",
+  "#FDD835"
+ ],
+ "icon": "brain",
+ "about": "Backpack Brain gives parents of ADHD kids aged 6–14 concrete systems: the backpack and planner that don't fail, cues for chronic forgetting, transition plans, a home behaviour plan, and the after-school restraint collapse.",
+ "persona": "You are an ADHD parent coach who understands executive function deeply: you externalise everything, reduce steps, use novelty deliberately, and never call a child lazy.",
+ "onboarding": {
+  "title": "Systems beat willpower",
+  "subtitle": "Tell us about your child and what keeps falling apart.",
+  "bullets": [
+   "Backpack & planner systems",
+   "Fixes for chronic forgetting",
+   "Transitions without meltdowns"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "child",
+   "label": "Child (name, age)",
+   "type": "text",
+   "placeholder": "Jack, 10"
+  },
+  {
+   "key": "meds",
+   "label": "Medication",
+   "type": "chips",
+   "options": [
+    "Yes",
+    "No",
+    "Starting soon",
+    "Prefer not to say"
+   ]
+  },
+  {
+   "key": "hardest",
+   "label": "Hardest part",
+   "type": "chips",
+   "options": [
+    "Losing things",
+    "Homework not handed in",
+    "Transitions",
+    "Morning launch",
+    "Big emotions",
+    "Sitting still"
+   ],
+   "multi": true
+  }
+ ],
+ "tools": [
+  {
+   "id": "backpack",
+   "title": "Fix the backpack",
+   "subtitle": "Photo → a system",
+   "emoji": "🎒",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the backpack, desk or locker",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "fails",
+     "label": "What goes missing",
+     "type": "chips",
+     "options": [
+      "Homework",
+      "Water bottle",
+      "Jumper or coat",
+      "PE kit",
+      "Planner",
+      "Everything"
+     ],
+     "default": "Everything"
+    }
+   ],
+   "prompt": "Design an organisation system from the photo for the profile's child, who keeps losing: {fails}. Sections: a table (Item | Home location | Bag location | Cue that it's there), steps for a 60-second nightly 'launch check' the child runs, a checklist of cheap gear (one folder, colour tape, a lanyard) and where each goes, and a callout on why 'just be more careful' doesn't work and what to say instead.",
+   "shape": "table, steps, checklist, callout",
+   "button": "Design system",
+   "loading": "Emptying the bag…"
+  },
+  {
+   "id": "forgot",
+   "title": "Forgot again",
+   "subtitle": "One recurring failure → a cue",
+   "emoji": "🔔",
+   "inputs": [
+    {
+     "key": "fail",
+     "label": "The thing that keeps failing",
+     "type": "longtext",
+     "placeholder": "finishes homework then forgets to hand it in, 4 times this month",
+     "required": true
+    },
+    {
+     "key": "tried",
+     "label": "Already tried",
+     "type": "text",
+     "placeholder": "reminding, taking away Xbox"
+    }
+   ],
+   "prompt": "Solve: {fail}. Already tried: {tried}. Sections: text naming the exact executive-function gap (working memory, initiation, time blindness, etc.) in one paragraph, a kv of the point of failure and the cue to place there (visual, physical or person-based), steps to install the system in one week, a quote with a note to the teacher asking for a matching cue at school, and a callout on why the punishment tried can't fix this.",
+   "shape": "text, kv, steps, quote, callout",
+   "button": "Solve it",
+   "loading": "Placing cues…"
+  },
+  {
+   "id": "transition",
+   "title": "Transition plan",
+   "subtitle": "Screen → dinner, home → bed",
+   "emoji": "🔁",
+   "inputs": [
+    {
+     "key": "from",
+     "label": "From",
+     "type": "text",
+     "placeholder": "Minecraft",
+     "required": true
+    },
+    {
+     "key": "to",
+     "label": "To",
+     "type": "text",
+     "placeholder": "dinner",
+     "required": true
+    },
+    {
+     "key": "blows",
+     "label": "Usually ends in",
+     "type": "chips",
+     "options": [
+      "Arguing",
+      "Meltdown",
+      "Ignoring",
+      "Slow-motion compliance"
+     ],
+     "default": "Meltdown"
+    }
+   ],
+   "prompt": "Plan the transition from {from} to {to} for the profile's child, which usually ends in {blows}. Sections: steps with timings (pre-warning, visual timer, bridging activity, the handover), a quote with the exact words at each warning, bullets on why time-blind kids experience this as sudden, and a callout on repair after a blow-up.",
+   "shape": "steps, quote, bullets, callout",
+   "button": "Plan it",
+   "loading": "Setting the timer…"
+  },
+  {
+   "id": "plan",
+   "title": "Home behaviour plan",
+   "subtitle": "Points that actually work",
+   "emoji": "⭐",
+   "inputs": [
+    {
+     "key": "target",
+     "label": "Target",
+     "type": "chips",
+     "options": [
+      "Morning tasks done",
+      "Homework started",
+      "Kind words to sibling",
+      "Bedtime on time",
+      "Chores"
+     ],
+     "default": "Homework started"
+    },
+    {
+     "key": "days",
+     "label": "Trial length (days)",
+     "type": "number",
+     "placeholder": "14"
+    }
+   ],
+   "prompt": "Build a {days}-day home behaviour plan for '{target}' for the profile's child. Sections: a kv (behaviour in observable words, immediate reinforcer, daily reward menu, weekly bonus, what happens when missed — never point removal), a table (Day | Goal | Reinforcer | Notes), bullets on immediacy, frequency and novelty for ADHD brains, and a callout on when to fade the plan and what to do if it stops working.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Build plan",
+   "loading": "Charting…"
+  },
+  {
+   "id": "collapse",
+   "title": "After-school collapse",
+   "subtitle": "Held it together all day; now this",
+   "emoji": "🌪️",
+   "inputs": [
+    {
+     "key": "scene",
+     "label": "What today looks like",
+     "type": "longtext",
+     "placeholder": "fine at school, screaming at me within 10 minutes of pick-up",
+     "required": true
+    }
+   ],
+   "prompt": "Address after-school restraint collapse: {scene}. Sections: text explaining what it is and why it's a backhanded compliment, a table (Pick-up to +60 min | Do | Don't), a quote with the words to use in the car, bullets on food, movement and decompression before any demands, and a callout on when a pattern like this warrants a medication-timing conversation with the prescriber (if on medication).",
+   "shape": "text, table, quote, bullets, callout",
+   "button": "Help now",
+   "loading": "Landing softly…"
+  }
+ ],
+ "disclaimer": "Parenting strategies, not medical advice; discuss diagnosis and medication with your child's clinician."
+}

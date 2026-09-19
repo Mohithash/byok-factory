@@ -1,0 +1,203 @@
+{
+ "id": "cancel_clinic",
+ "name": "Cancel Clinic",
+ "tagline": "Cancel subscriptions, gyms and contracts without the trap",
+ "category": "Tools",
+ "colors": [
+  "#1565C0",
+  "#00ACC1",
+  "#F4511E"
+ ],
+ "icon": "clock",
+ "about": "Cancel Clinic finds the exit from gym memberships, subscriptions, phone and broadband contracts and auto-renewals: cooling-off periods, notice rules, the exact cancellation message and the script for the retention call.",
+ "persona": "You are a no-nonsense consumer coach who knows how cancellation terms, cooling-off periods and auto-renewal rules usually work, and who keeps the user polite but immovable.",
+ "onboarding": {
+  "title": "Find the exit",
+  "subtitle": "Where you live changes the cooling-off and notice rules.",
+  "bullets": [
+   "Cooling-off and notice rules explained",
+   "Cancellation notices that stick",
+   "Retention-call scripts"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "region",
+   "label": "Country / state",
+   "type": "text",
+   "placeholder": "Ontario, Canada"
+  },
+  {
+   "key": "types",
+   "label": "What you cancel most",
+   "type": "chips",
+   "options": [
+    "Gym",
+    "Streaming / apps",
+    "Phone / broadband",
+    "Insurance",
+    "Utilities",
+    "Other"
+   ],
+   "multi": true
+  }
+ ],
+ "tools": [
+  {
+   "id": "terms",
+   "title": "Can I cancel?",
+   "subtitle": "Paste the terms, get the exit",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "terms",
+     "label": "Cancellation clause / terms",
+     "type": "longtext",
+     "placeholder": "Paste the cancellation section or describe what they told you",
+     "required": true
+    },
+    {
+     "key": "signed",
+     "label": "When you signed up",
+     "type": "text",
+     "placeholder": "3 weeks ago, online"
+    }
+   ],
+   "prompt": "Terms: {terms}. Signed up: {signed}. Explain in text whether a cooling-off right, notice-based cancellation or a right to exit for their breach is likely available under general rules in the profile region, then a kv (earliest exit date, notice required, fees you might owe, fees that look unenforceable), and a callout on traps such as auto-renewal windows and 'in-person only' cancellation demands.",
+   "shape": "text, kv, callout",
+   "button": "Check",
+   "loading": "Reading fine print…"
+  },
+  {
+   "id": "letter",
+   "title": "Cancellation notice",
+   "subtitle": "Written, dated, undeniable",
+   "emoji": "📝",
+   "inputs": [
+    {
+     "key": "service",
+     "label": "Service / company",
+     "type": "text",
+     "placeholder": "FitLife Gym, member #4471",
+     "required": true
+    },
+    {
+     "key": "date",
+     "label": "Cancel from",
+     "type": "text",
+     "placeholder": "end of this billing period"
+    },
+    {
+     "key": "reason",
+     "label": "Reason",
+     "type": "chips",
+     "options": [
+      "Just don't want it",
+      "Moving away",
+      "Price rise",
+      "Poor service",
+      "Medical / hardship",
+      "Cooling-off period"
+     ],
+     "default": "Just don't want it"
+    }
+   ],
+   "prompt": "Write a cancellation notice for {service}, effective {date}, reason: {reason}. Quote the notice (subject, account-detail placeholders, the cancellation statement, a request for written confirmation and a stop on future payments, dated). Then a checklist of how to send it so it counts (channels, proof of delivery, screenshots) and bullets on what to do if payments continue.",
+   "shape": "quote, checklist, bullets",
+   "button": "Write notice",
+   "loading": "Cutting the cord…"
+  },
+  {
+   "id": "call",
+   "title": "Retention call script",
+   "subtitle": "Stay polite, leave anyway",
+   "emoji": "📞",
+   "inputs": [
+    {
+     "key": "service",
+     "label": "Service",
+     "type": "text",
+     "placeholder": "broadband provider",
+     "required": true
+    },
+    {
+     "key": "goal",
+     "label": "Goal",
+     "type": "chips",
+     "options": [
+      "Cancel completely",
+      "Cancel unless they match a price",
+      "Downgrade"
+     ],
+     "default": "Cancel completely"
+    },
+    {
+     "key": "offer",
+     "label": "Best rival offer you have",
+     "type": "text",
+     "placeholder": "25/month for 12 months at Rival"
+    }
+   ],
+   "prompt": "Prepare a retention call for {service}, goal: {goal}, rival offer: {offer}. Give steps for the call (opening line, what to say to each common retention tactic, how to close with a reference number), a quote with a 3-line script for the moment they push back, and a callout on what to note down during the call.",
+   "shape": "steps, quote, callout",
+   "button": "Prep call",
+   "loading": "Warming up…"
+  },
+  {
+   "id": "charged",
+   "title": "Charged after cancelling",
+   "subtitle": "Stop the payments and get them back",
+   "emoji": "💸",
+   "inputs": [
+    {
+     "key": "story",
+     "label": "What happened",
+     "type": "longtext",
+     "placeholder": "Cancelled by email 2 Feb, confirmation received, charged 39 on 1 Mar and 1 Apr…",
+     "required": true
+    },
+    {
+     "key": "paid",
+     "label": "Payment method",
+     "type": "chips",
+     "options": [
+      "Card",
+      "Direct debit / bank",
+      "PayPal",
+      "App store"
+     ],
+     "default": "Card"
+    }
+   ],
+   "prompt": "Situation: {story}. Payment method: {paid}. Give steps to stop further payments for this {paid} method, a quote with the refund demand message to the company citing the cancellation date, and a table (Route | When to use it | Time limit | What to send) covering company refund, card or bank dispute and app-store refund routes.",
+   "shape": "steps, quote, table",
+   "button": "Stop it",
+   "loading": "Pulling the plug…"
+  },
+  {
+   "id": "audit",
+   "title": "Subscription audit",
+   "subtitle": "Paste a statement, find the leaks",
+   "emoji": "📊",
+   "inputs": [
+    {
+     "key": "statement",
+     "label": "Paste transactions",
+     "type": "longtext",
+     "placeholder": "1 Mar Netflix 15.99; 3 Mar GymCo 39.00; 3 Mar Adobe 21.98…",
+     "required": true
+    }
+   ],
+   "prompt": "From these transactions: {statement} — build a table (Service | Monthly cost | Yearly cost | Keep / Cancel / Downgrade | Why), a kv of totals (monthly, yearly, potential saving), and a checklist ordering the cancellations by saving, largest first.",
+   "shape": "table, kv, checklist",
+   "button": "Audit",
+   "loading": "Counting the drips…"
+  }
+ ],
+ "disclaimer": "General information only, not legal advice; rules differ by country and state and change over time — check official sources or a qualified professional before acting."
+}

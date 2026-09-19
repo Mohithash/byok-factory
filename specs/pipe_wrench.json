@@ -1,0 +1,178 @@
+{
+ "id": "pipe_wrench",
+ "name": "Pipe Wrench",
+ "tagline": "Shell scripts and one-liners you can trust",
+ "category": "Tools",
+ "colors": [
+  "#14532D",
+  "#4ADE80",
+  "#FBBF24"
+ ],
+ "icon": "wrench",
+ "about": "Pipe Wrench writes robust bash and zsh scripts, explains cryptic pipelines flag by flag, reviews scripts for ShellCheck-style hazards, builds awk/sed/jq one-liners and schedules jobs properly.",
+ "persona": "You are a grizzled Unix sysadmin: you quote every variable, fail fast, prefer POSIX where it matters and explain what each flag does.",
+ "onboarding": {
+  "title": "Stop copy-pasting mystery commands",
+  "subtitle": "Your shell and OS shape every command.",
+  "bullets": [
+   "Scripts with error handling built in",
+   "Pipelines explained flag by flag",
+   "Hazard review before you run it"
+  ]
+ },
+ "profile": [
+  {
+   "key": "shell",
+   "label": "Shell",
+   "type": "chips",
+   "options": [
+    "bash",
+    "zsh",
+    "POSIX sh",
+    "fish"
+   ],
+   "default": "bash"
+  },
+  {
+   "key": "os",
+   "label": "OS",
+   "type": "chips",
+   "options": [
+    "Linux",
+    "macOS",
+    "WSL",
+    "BSD"
+   ],
+   "default": "Linux"
+  },
+  {
+   "key": "tools",
+   "label": "Tools on hand",
+   "type": "chips",
+   "options": [
+    "jq",
+    "ripgrep",
+    "fd",
+    "GNU coreutils",
+    "BusyBox"
+   ],
+   "multi": true
+  }
+ ],
+ "tools": [
+  {
+   "id": "script",
+   "title": "Write a script",
+   "subtitle": "Goal → robust script with usage",
+   "emoji": "📜",
+   "inputs": [
+    {
+     "key": "goal",
+     "label": "What it should do",
+     "type": "longtext",
+     "placeholder": "back up ~/projects to an external drive, skip node_modules, keep 7 versions",
+     "required": true
+    },
+    {
+     "key": "args",
+     "label": "Arguments / flags",
+     "type": "text",
+     "placeholder": "--dry-run, target directory"
+    }
+   ],
+   "prompt": "Write a script in the profile shell for: {goal} with arguments: {args}. Sections: a quote with the complete script (strict mode, a usage() function with exit codes, quoted variables, a trap for cleanup, no useless cat), a table (Flag | Meaning | Default), steps to test it safely, and a callout on the destructive step and how the dry-run protects it.",
+   "shape": "quote, table, steps, callout",
+   "button": "Write script",
+   "loading": "Quoting variables…"
+  },
+  {
+   "id": "explain",
+   "title": "Explain this command",
+   "subtitle": "Pipeline → flag-by-flag breakdown",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "cmd",
+     "label": "Command",
+     "type": "longtext",
+     "placeholder": "find . -type f -mtime +30 -print0 | xargs -0 rm -f",
+     "required": true
+    }
+   ],
+   "prompt": "Explain: {cmd}. Sections: text with a one-sentence plain-English summary, a table (Part | What it does | Flags explained), a callout on anything dangerous or surprising (globbing, spaces in filenames, exit codes), and bullets on a safer or more portable equivalent for the profile OS.",
+   "shape": "text, table, callout, bullets",
+   "button": "Explain",
+   "loading": "Parsing…"
+  },
+  {
+   "id": "review",
+   "title": "Review my script",
+   "subtitle": "ShellCheck-style hazard hunt",
+   "emoji": "🧪",
+   "inputs": [
+    {
+     "key": "script",
+     "label": "Script",
+     "type": "longtext",
+     "placeholder": "paste the script",
+     "required": true
+    }
+   ],
+   "prompt": "Review this shell script for hazards: {script}. Sections: a table (Line | Issue | Severity | Fix) covering quoting, word splitting, unchecked exit codes, temp files, race conditions and portability, a quote with the corrected script, and a checklist of edge cases to test (empty input, spaces in names, missing tools, no permission).",
+   "shape": "table, quote, checklist",
+   "button": "Review",
+   "loading": "Linting…"
+  },
+  {
+   "id": "oneliner",
+   "title": "One-liner",
+   "subtitle": "awk, sed, jq, find, xargs",
+   "emoji": "🧵",
+   "inputs": [
+    {
+     "key": "task",
+     "label": "Task",
+     "type": "longtext",
+     "placeholder": "print column 3 of a CSV where column 5 is 'failed', then sum column 7",
+     "required": true
+    },
+    {
+     "key": "input",
+     "label": "Input sample",
+     "type": "text",
+     "placeholder": "a couple of lines of the file"
+    }
+   ],
+   "prompt": "Build a one-liner for: {task} on input like: {input}, using the profile tools where available. Sections: a quote with the one-liner, a table of alternatives (Tool | Command | When it's better), steps to verify it on the sample, and a callout on the classic gotcha for that tool (locale, GNU vs BSD flags, CSV quoting).",
+   "shape": "quote, table, steps, callout",
+   "button": "Build it",
+   "loading": "Piping…"
+  },
+  {
+   "id": "cron",
+   "title": "Schedule it",
+   "subtitle": "cron, systemd timers, launchd",
+   "emoji": "⏰",
+   "inputs": [
+    {
+     "key": "when",
+     "label": "When",
+     "type": "text",
+     "placeholder": "every weekday at 02:30",
+     "required": true
+    },
+    {
+     "key": "what",
+     "label": "What to run",
+     "type": "text",
+     "placeholder": "/usr/local/bin/backup.sh"
+    }
+   ],
+   "prompt": "Schedule {what} to run {when} on the profile OS. Sections: a quote with the crontab line and the systemd timer or launchd plist alternative, a kv (log file location, lock to prevent overlapping runs, PATH and environment handling, notification on failure), steps to install and verify the first run, and a callout on the timezone and daylight-saving trap.",
+   "shape": "quote, kv, steps, callout",
+   "button": "Schedule",
+   "loading": "Reading crontab…"
+  }
+ ],
+ "disclaimer": "Commands that delete, move or overwrite files can be destructive; read every generated command and dry-run it before using it on real data."
+}

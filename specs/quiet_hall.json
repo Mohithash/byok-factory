@@ -1,0 +1,234 @@
+{
+ "id": "quiet_hall",
+ "name": "Quiet Hall",
+ "tagline": "Exam nerves handled: the night before, in the room, after",
+ "category": "Education",
+ "colors": [
+  "#37474F",
+  "#80CBC4",
+  "#FFCC80"
+ ],
+ "icon": "heart",
+ "about": "Quiet Hall is a pocket toolkit for exam anxiety: a night-before plan, a 60-second reset for panic in the room, a strategy for when your mind goes blank, a stop to the post-exam spiral, and help requesting the support you are entitled to.",
+ "persona": "You are a university counsellor trained in CBT and exam-stress support: warm, concrete, never dismissive, and clear about when a student should speak to a professional.",
+ "onboarding": {
+  "title": "Walk in steadier",
+  "subtitle": "A little about how anxiety shows up for you makes the tools sharper.",
+  "bullets": [
+   "Night-before plans with clock times",
+   "60-second in-room resets",
+   "Post-exam spiral stoppers"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "shows",
+   "label": "How it shows up",
+   "type": "chips",
+   "options": [
+    "Racing heart",
+    "Blank mind",
+    "Nausea",
+    "Can't sleep before",
+    "Overthinking after",
+    "Avoidance"
+   ],
+   "multi": true
+  },
+  {
+   "key": "format",
+   "label": "Exam format",
+   "type": "chips",
+   "options": [
+    "Written, in a hall",
+    "Multiple choice",
+    "Online / open book",
+    "Oral / viva",
+    "Practical"
+   ],
+   "default": "Written, in a hall"
+  },
+  {
+   "key": "history",
+   "label": "Anything that's helped before",
+   "type": "text",
+   "placeholder": "walking, breathing app, talking to a friend"
+  }
+ ],
+ "tools": [
+  {
+   "id": "night",
+   "title": "Night-before plan",
+   "subtitle": "Sleep, bag, brain, all sorted",
+   "emoji": "🌙",
+   "inputs": [
+    {
+     "key": "exam",
+     "label": "Exam and time",
+     "type": "text",
+     "placeholder": "Microeconomics, 9am",
+     "required": true
+    },
+    {
+     "key": "feeling",
+     "label": "Right now I feel",
+     "type": "chips",
+     "options": [
+      "Wired",
+      "Exhausted",
+      "Numb",
+      "Okay-ish",
+      "Panicking"
+     ],
+     "default": "Wired"
+    },
+    {
+     "key": "bedtime",
+     "label": "Planned bedtime",
+     "type": "text",
+     "placeholder": "23:00"
+    }
+   ],
+   "prompt": "Exam: {exam}. Feeling: {feeling}. Bedtime: {bedtime}. Produce steps for the evening with clock times working back from bedtime (light-review cap, food, screens, wind-down, what to do if sleep doesn't come), a checklist for the bag and the morning (ID, permitted items, route, breakfast), a callout on why the all-nighter loses marks, and a quote with a short, believable sentence to say to yourself when the worry starts.",
+   "shape": "steps, checklist, callout, quote",
+   "button": "Plan tonight",
+   "loading": "Settling in…"
+  },
+  {
+   "id": "reset",
+   "title": "Panic in the room",
+   "subtitle": "60 seconds to get back to the paper",
+   "emoji": "🫁",
+   "inputs": [
+    {
+     "key": "symptom",
+     "label": "What's happening",
+     "type": "chips",
+     "options": [
+      "Heart racing",
+      "Can't breathe properly",
+      "Shaking hands",
+      "Feel sick",
+      "Tears",
+      "Frozen"
+     ],
+     "default": "Heart racing"
+    },
+    {
+     "key": "left",
+     "label": "Time left",
+     "type": "chips",
+     "options": [
+      "Just started",
+      "Middle",
+      "Last 20 minutes"
+     ],
+     "default": "Middle"
+    }
+   ],
+   "prompt": "Symptom: {symptom}. Time left: {left}. Give steps for a 60-second reset that can be done silently at a desk (breathing count, grounding on the paper, posture, one micro-task), then bullets on re-entering the exam given the time left (which question to pick first, how to bank easy marks), a quote with a three-word cue to write in the margin, and a callout on when and how to signal an invigilator and what they can do.",
+   "shape": "steps, bullets, quote, callout",
+   "button": "Reset me",
+   "loading": "Breathing…"
+  },
+  {
+   "id": "blank",
+   "title": "Mind went blank",
+   "subtitle": "Retrieve it, or earn partial credit",
+   "emoji": "🧠",
+   "inputs": [
+    {
+     "key": "topic",
+     "label": "The question topic",
+     "type": "text",
+     "placeholder": "supply and demand elasticity",
+     "required": true
+    },
+    {
+     "key": "qtype",
+     "label": "Question type",
+     "type": "chips",
+     "options": [
+      "Essay",
+      "Short answer",
+      "Calculation",
+      "Multiple choice"
+     ],
+     "default": "Essay"
+    }
+   ],
+   "prompt": "Blank on: {topic}. Question type: {qtype}. Provide steps for cued retrieval (rewrite the question in your own words, list any related word, sketch a diagram, recall the lecture's context) taking under 3 minutes, bullets of partial-credit tactics specific to this question type (define terms, state the method, show structure), a table (If you remember only… | Write this) with 4 rows, and a quote with a starting sentence that opens the answer without committing to facts you don't have yet.",
+   "shape": "steps, bullets, table, quote",
+   "button": "Help me recall",
+   "loading": "Searching memory…"
+  },
+  {
+   "id": "after",
+   "title": "Post-exam spiral",
+   "subtitle": "Stop replaying it",
+   "emoji": "🔁",
+   "inputs": [
+    {
+     "key": "replay",
+     "label": "What you keep replaying",
+     "type": "longtext",
+     "placeholder": "I think I misread question 3 and everyone said it was easy",
+     "required": true
+    },
+    {
+     "key": "next",
+     "label": "What's next",
+     "type": "chips",
+     "options": [
+      "Another exam tomorrow",
+      "Another exam this week",
+      "That was the last one"
+     ],
+     "default": "Another exam this week"
+    }
+   ],
+   "prompt": "Replaying: {replay}. Next: {next}. Write a table (Thought | Evidence for | Evidence against | More balanced thought) for the 2 strongest worries, text on why post-mortems with classmates inflate anxiety and rarely change marks, steps for the next 3 hours that close the loop (one-line note of anything to check later, movement, food, a firm rule on not discussing answers), and a callout on signs the spiral is more than exam stress and who to contact at a university (counselling, GP, crisis line).",
+   "shape": "table, text, steps, callout",
+   "button": "Break the loop",
+   "loading": "Unwinding…"
+  },
+  {
+   "id": "support",
+   "title": "Ask for adjustments",
+   "subtitle": "Extra time, separate room, deferrals",
+   "emoji": "📨",
+   "inputs": [
+    {
+     "key": "situation",
+     "label": "Your situation",
+     "type": "longtext",
+     "placeholder": "diagnosed anxiety, panic attacks in exam halls, no formal support yet",
+     "required": true
+    },
+    {
+     "key": "want",
+     "label": "What you need",
+     "type": "chips",
+     "options": [
+      "Extra time",
+      "Separate / smaller room",
+      "Rest breaks",
+      "Deferral",
+      "Not sure what exists"
+     ],
+     "default": "Not sure what exists"
+    }
+   ],
+   "prompt": "Situation: {situation}. Looking for: {want}. Give bullets of the adjustments universities commonly offer for anxiety and the evidence usually required (without promising what any institution will grant), a checklist of steps from first contact to the exam with typical lead times, a quote with an email to the disability or wellbeing service requesting a meeting that states the need without over-disclosing, and a callout on deadlines: adjustments are often needed weeks before the exam period.",
+   "shape": "bullets, checklist, quote, callout",
+   "button": "Draft request",
+   "loading": "Finding support…"
+  }
+ ],
+ "disclaimer": "Quiet Hall offers general coping strategies, not therapy or diagnosis. If anxiety is affecting daily life, or you have thoughts of harming yourself, contact your university wellbeing service, a doctor or a crisis line now."
+}

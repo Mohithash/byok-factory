@@ -1,0 +1,195 @@
+{
+ "id": "turnaround_plan",
+ "name": "Turnaround Plan",
+ "tagline": "Handle underperformance fairly and clearly",
+ "category": "Business",
+ "colors": [
+  "#4527A0",
+  "#FF8F00",
+  "#43A047"
+ ],
+ "icon": "graph",
+ "about": "Turnaround Plan helps managers handle underperformance fairly: diagnose the real cause, set measurable improvement goals, run honest weekly check-ins, keep clean records and know when it's time to decide.",
+ "persona": "You are a fair-minded manager coach with HR experience: you assume good faith, insist on clarity and measurable goals, and document without drama.",
+ "onboarding": {
+  "title": "Fair, clear, documented",
+  "subtitle": "Tell us about your context so the plans fit your rules.",
+  "bullets": [
+   "Diagnose skill, will or clarity",
+   "Measurable improvement plans",
+   "Check-ins and records that hold up"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "hr",
+   "label": "HR support",
+   "type": "chips",
+   "options": [
+    "Dedicated HR partner",
+    "Shared HR",
+    "None — it's me"
+   ],
+   "default": "Shared HR"
+  },
+  {
+   "key": "region",
+   "label": "Region (for norms)",
+   "type": "chips",
+   "options": [
+    "US",
+    "UK / EU",
+    "Other"
+   ],
+   "default": "US"
+  },
+  {
+   "key": "tenure",
+   "label": "Your years managing",
+   "type": "number",
+   "placeholder": "3"
+  }
+ ],
+ "tools": [
+  {
+   "id": "diagnose",
+   "title": "Diagnose the gap",
+   "subtitle": "Skill, will, clarity or something else?",
+   "emoji": "🩺",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Who and role",
+     "type": "text",
+     "placeholder": "Omar, account manager",
+     "required": true
+    },
+    {
+     "key": "gap",
+     "label": "What's going wrong",
+     "type": "longtext",
+     "placeholder": "missed quota 3 quarters; pipeline reports late; fine in meetings",
+     "required": true
+    },
+    {
+     "key": "done",
+     "label": "What you've already tried",
+     "type": "longtext",
+     "placeholder": "two informal chats, paired him with Sara"
+    }
+   ],
+   "prompt": "Diagnose the performance gap for {who}: {gap}, given what's been tried: {done}. Table (Hypothesis — skill, will, clarity, capacity, fit, manager | Evidence for | Evidence against | How to test) for the 4 most plausible causes, text with your best single explanation and how confident to be, and a callout on whether this is a formal-plan situation yet or an expectations-reset conversation first.",
+   "shape": "table, text, callout",
+   "button": "Diagnose",
+   "loading": "Looking for causes…"
+  },
+  {
+   "id": "plan",
+   "title": "Draft the improvement plan",
+   "subtitle": "Measurable, time-boxed, winnable",
+   "emoji": "📋",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Who",
+     "type": "text",
+     "placeholder": "Omar",
+     "required": true
+    },
+    {
+     "key": "expectations",
+     "label": "What good looks like",
+     "type": "longtext",
+     "placeholder": "hit 80% of quota; pipeline updated every Friday; 10 discovery calls a week",
+     "required": true
+    },
+    {
+     "key": "weeks",
+     "label": "Duration",
+     "type": "chips",
+     "options": [
+      "30 days",
+      "45 days",
+      "60 days",
+      "90 days"
+     ],
+     "default": "60 days"
+    }
+   ],
+   "prompt": "Write a {weeks} improvement plan for {who} with these expectations: {expectations}. Table (Area | Current | Required | How measured | Support provided | Review date), steps for presenting it in the meeting, a quote with the plain-English opening statement that makes clear this is serious and also winnable, and a callout on what to have HR check before it's issued given the profile's HR support and region.",
+   "shape": "table, steps, quote, callout",
+   "button": "Draft plan",
+   "loading": "Setting the bar…"
+  },
+  {
+   "id": "checkin",
+   "title": "Weekly check-in",
+   "subtitle": "Where they stand this week",
+   "emoji": "📆",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Who",
+     "type": "text",
+     "placeholder": "Omar",
+     "required": true
+    },
+    {
+     "key": "week",
+     "label": "This week's results and observations",
+     "type": "longtext",
+     "placeholder": "7 discovery calls, report on time, seemed anxious",
+     "required": true
+    }
+   ],
+   "prompt": "Run the weekly plan check-in for {who} from: {week}. kv (on track / at risk / off track per plan area, overall trajectory), bullets for the conversation naming what improved and what didn't in specific terms, a quote with the written summary to send afterwards, and a callout if anything suggests the plan itself needs adjusting.",
+   "shape": "kv, bullets, quote, callout",
+   "button": "Check in",
+   "loading": "Scoring the week…"
+  },
+  {
+   "id": "record",
+   "title": "Document it fairly",
+   "subtitle": "Raw account → neutral file note",
+   "emoji": "🗃️",
+   "inputs": [
+    {
+     "key": "event",
+     "label": "What happened",
+     "type": "longtext",
+     "placeholder": "Tuesday: pipeline report 2 days late again; said he forgot; I reminded him of the plan",
+     "required": true
+    }
+   ],
+   "prompt": "Turn this into a clean file note: {event}. Quote with the note written for a neutral reader (date, facts, what was said by whom, agreed next step, no adjectives or speculation), bullets on what was removed from the raw account and why, and a checklist of what a complete performance file for this person should contain.",
+   "shape": "quote, bullets, checklist",
+   "button": "Write note",
+   "loading": "Sticking to facts…"
+  },
+  {
+   "id": "decide",
+   "title": "Time to decide?",
+   "subtitle": "Extend, pass, move or exit",
+   "emoji": "🚦",
+   "inputs": [
+    {
+     "key": "summary",
+     "label": "Where things stand",
+     "type": "longtext",
+     "placeholder": "45 days in; 2 of 4 areas met; attitude better; still no quota",
+     "required": true
+    }
+   ],
+   "prompt": "Help decide the outcome of the plan from: {summary}. Table (Option — extend, close as passed, move role, exit | Case for | Case against | Risks), text with a recommendation and the evidence it rests on, steps for the next two weeks depending on the choice, and a callout on the HR and legal steps that must happen before any exit conversation in the profile's region.",
+   "shape": "table, text, steps, callout",
+   "button": "Weigh it",
+   "loading": "Deliberating…"
+  }
+ ],
+ "disclaimer": "General management guidance, not legal or HR advice. Employment rules vary by jurisdiction; follow your organisation's policies and involve HR or legal counsel on ratings, pay, conduct and employment decisions."
+}

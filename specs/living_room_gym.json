@@ -1,0 +1,220 @@
+{
+ "id": "living_room_gym",
+ "name": "Living Room Gym",
+ "tagline": "Real workouts in a small flat, no kit, no noise",
+ "category": "Health & Fitness",
+ "colors": [
+  "#00796B",
+  "#FF7043",
+  "#FBC02D"
+ ],
+ "icon": "home",
+ "about": "Living Room Gym writes no-equipment workouts that fit a rug-sized space and quiet hours, turns backpacks and chairs into weights, and progresses you for weeks without buying anything.",
+ "persona": "You are a practical home-fitness coach who trains people in studio flats with downstairs neighbours: inventive with furniture, strict about safety, and you never suggest buying kit.",
+ "onboarding": {
+  "title": "How much floor do you have?",
+  "subtitle": "Space, noise limits and time shape every session.",
+  "bullets": [
+   "Quiet, no-jump workouts",
+   "Household objects as weights",
+   "Weeks of progression, zero purchases"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "space",
+   "label": "Space",
+   "type": "chips",
+   "options": [
+    "Yoga-mat sized",
+    "Rug sized",
+    "Whole room"
+   ]
+  },
+  {
+   "key": "noise",
+   "label": "Noise limit",
+   "type": "chips",
+   "options": [
+    "Silent (neighbours below)",
+    "Some thuds OK",
+    "No limit"
+   ]
+  },
+  {
+   "key": "level",
+   "label": "Level",
+   "type": "chips",
+   "options": [
+    "Starting out",
+    "Regular",
+    "Fit"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "today",
+   "title": "Today's workout",
+   "subtitle": "Minutes, goal, go",
+   "emoji": "🛋️",
+   "inputs": [
+    {
+     "key": "minutes",
+     "label": "Minutes",
+     "type": "chips",
+     "options": [
+      "10",
+      "20",
+      "30",
+      "45"
+     ],
+     "default": "20"
+    },
+    {
+     "key": "goal",
+     "label": "Goal",
+     "type": "chips",
+     "options": [
+      "Strength",
+      "Sweat",
+      "Core",
+      "Full body",
+      "Lower body",
+      "Upper body"
+     ],
+     "default": "Full body"
+    },
+    {
+     "key": "avoid",
+     "label": "Avoid today",
+     "type": "text",
+     "placeholder": "knees, wrists"
+    }
+   ],
+   "prompt": "Write a {minutes}-minute workout for '{goal}' in the profile space and noise limit, avoiding: {avoid}. Sections: steps for a 3-minute warm-up, a table (Block | Exercise | Reps or seconds | Rounds | Quiet version), bullets on how to make each exercise harder without equipment, and a callout on floor and furniture safety.",
+   "shape": "steps, table, bullets, callout",
+   "button": "Start",
+   "loading": "Clearing the rug…"
+  },
+  {
+   "id": "objects",
+   "title": "Make weights",
+   "subtitle": "Backpacks, bottles, chairs into a loaded session",
+   "emoji": "🎒",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of what you have (optional)",
+     "type": "photo"
+    },
+    {
+     "key": "items",
+     "label": "What you have",
+     "type": "text",
+     "placeholder": "backpack, 6 water bottles, sturdy chair, towel"
+    }
+   ],
+   "prompt": "Turn these into training equipment: {items}, plus anything visible in the photo. Sections: a table (Object | Load it to | Exercises it unlocks | Safety check), steps for packing a backpack so the load does not shift, cards for 3 loaded exercises (meta = muscles · estimated kg), and a callout on chair and door-frame limits.",
+   "shape": "table, steps, cards, callout",
+   "button": "Build kit",
+   "loading": "Filling bottles…"
+  },
+  {
+   "id": "quiet",
+   "title": "Silent cardio",
+   "subtitle": "Out of breath without a single jump",
+   "emoji": "🤫",
+   "inputs": [
+    {
+     "key": "minutes",
+     "label": "Minutes",
+     "type": "chips",
+     "options": [
+      "8",
+      "12",
+      "20"
+     ],
+     "default": "12"
+    },
+    {
+     "key": "format",
+     "label": "Format",
+     "type": "chips",
+     "options": [
+      "Intervals",
+      "Circuit",
+      "Ladder",
+      "Tabata-style"
+     ],
+     "default": "Circuit"
+    }
+   ],
+   "prompt": "Design {minutes} minutes of no-jump, no-thud cardio as a {format} for the profile level. Sections: a table (Round | Exercise | Work s | Rest s | Intensity cue), bullets on breathing and pacing, a callout on the signs to slow down, and a quote with one line to read before starting.",
+   "shape": "table, bullets, callout, quote",
+   "button": "Go quiet",
+   "loading": "Tiptoeing…"
+  },
+  {
+   "id": "plan",
+   "title": "4-week progression",
+   "subtitle": "Get stronger without buying anything",
+   "emoji": "📅",
+   "inputs": [
+    {
+     "key": "days",
+     "label": "Days/week",
+     "type": "chips",
+     "options": [
+      "2",
+      "3",
+      "4",
+      "5"
+     ],
+     "default": "3"
+    },
+    {
+     "key": "focus",
+     "label": "Focus",
+     "type": "chips",
+     "options": [
+      "Push-up progress",
+      "First row or pull",
+      "Legs",
+      "Core",
+      "Overall"
+     ],
+     "default": "Overall"
+    }
+   ],
+   "prompt": "Plan 4 weeks, {days} days per week, focused on '{focus}' for the profile level, space and noise limit. Sections: a table (Week | Day | Session | Key progression), steps for the two exercises being progressed showing each easier-to-harder variation, a checklist of weekly targets, and a callout on rest days and soreness.",
+   "shape": "table, steps, checklist, callout",
+   "button": "Plan month",
+   "loading": "Marking calendar…"
+  },
+  {
+   "id": "room",
+   "title": "Scan my room",
+   "subtitle": "Photo of the room into where and how to train",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the room",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "From the room photo, find the training spots. Sections: kv (best floor spot, sturdy furniture spotted, hazards to clear, wall use), a table (Object | Exercise | Safe?), a checklist to set up in 2 minutes, and bullets on what to move first.",
+   "shape": "kv, table, checklist, bullets",
+   "button": "Scan",
+   "loading": "Measuring the rug…"
+  }
+ ],
+ "disclaimer": "Not medical advice. Stop if you feel sharp pain, dizziness or chest symptoms, and check with a clinician before starting a new programme if you have a health condition or injury."
+}

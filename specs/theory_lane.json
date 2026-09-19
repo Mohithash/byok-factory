@@ -1,0 +1,175 @@
+{
+ "id": "theory_lane",
+ "name": "Theory Lane",
+ "tagline": "Pass your driving theory test: signs, rules and hazards",
+ "category": "Auto & Vehicles",
+ "colors": [
+  "#F57C00",
+  "#263238",
+  "#00ACC1"
+ ],
+ "icon": "car",
+ "about": "Theory Lane drills driving theory questions in your country's format, identifies road signs from a photo, coaches hazard perception and explains the rules of the road with the numbers examiners love to ask.",
+ "persona": "You are a friendly approved driving instructor who teaches the reasoning behind every rule, uses the official handbook's wording, and never lets a learner memorise without understanding.",
+ "onboarding": {
+  "title": "Know the road before you drive it",
+  "subtitle": "Your country and licence type pick the question style and rules.",
+  "bullets": [
+   "Mock tests with pass marks",
+   "Road-sign identification from photos",
+   "Hazard perception coaching"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "country",
+   "label": "Country",
+   "type": "chips",
+   "options": [
+    "UK",
+    "Ireland",
+    "USA (state)",
+    "Canada (province)",
+    "Australia (state)",
+    "India",
+    "Other"
+   ]
+  },
+  {
+   "key": "region",
+   "label": "State / province (if any)",
+   "type": "text",
+   "placeholder": "California"
+  },
+  {
+   "key": "vehicle",
+   "label": "Licence",
+   "type": "chips",
+   "options": [
+    "Car",
+    "Motorcycle",
+    "Truck / LGV"
+   ],
+   "default": "Car"
+  }
+ ],
+ "tools": [
+  {
+   "id": "mock",
+   "title": "Mock test",
+   "subtitle": "Local format, local pass mark",
+   "emoji": "🚦",
+   "inputs": [
+    {
+     "key": "n",
+     "label": "Questions",
+     "type": "chips",
+     "options": [
+      "10",
+      "25",
+      "Full-length"
+     ],
+     "default": "10"
+    },
+    {
+     "key": "topic",
+     "label": "Topic",
+     "type": "chips",
+     "options": [
+      "Mixed",
+      "Signs & signals",
+      "Rules & priority",
+      "Speed, stopping & distances",
+      "Vulnerable road users",
+      "Vehicle safety & documents",
+      "Alertness & attitude"
+     ],
+     "default": "Mixed"
+    }
+   ],
+   "prompt": "Write a {n} question mock theory test for the profile's country, region and licence on {topic}, in the local format (multiple choice with the local number of options): cards (question with options, meta = category), a table (No. | Answer | Handbook reason), kv (pass mark for this test, questions in the real test, time allowed), and a callout on the categories the real test weights most.",
+   "shape": "cards, table, kv, callout",
+   "button": "Start mock",
+   "loading": "Printing the paper…"
+  },
+  {
+   "id": "sign",
+   "title": "Identify a sign",
+   "subtitle": "Photo → meaning, action, look-alikes",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of a road sign or marking",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Identify the sign or marking in the photo for the profile's country: kv (name, meaning, shape and colour family, what you must do), text on where it appears and what usually follows it, bullets of look-alike signs and how to tell them apart, and a callout on the penalty or danger of ignoring it.",
+   "shape": "kv, text, bullets, callout",
+   "button": "Identify",
+   "loading": "Reading the sign…"
+  },
+  {
+   "id": "hazard",
+   "title": "Hazard perception",
+   "subtitle": "Spot developing hazards earlier",
+   "emoji": "👀",
+   "inputs": [
+    {
+     "key": "scene",
+     "label": "Scene",
+     "type": "chips",
+     "options": [
+      "Residential street",
+      "Rural road",
+      "Motorway / highway",
+      "Town centre",
+      "Night / rain"
+     ],
+     "default": "Residential street"
+    }
+   ],
+   "prompt": "Coach hazard perception for a {scene} drive: a text description of a 30-second clip with developing hazards, a table (Second | Cue you see | Developing hazard | Your response), steps for the scanning routine (mirrors, far, near, sides), bullets on how the test scores responses and why clicking rhythmically fails, and a quote with a one-line commentary-driving example.",
+   "shape": "text, table, steps, bullets, quote",
+   "button": "Coach me",
+   "loading": "Rolling the clip…"
+  },
+  {
+   "id": "rule",
+   "title": "Explain a rule",
+   "subtitle": "The rule, the numbers, the exam phrasing",
+   "emoji": "📘",
+   "inputs": [
+    {
+     "key": "q",
+     "label": "Rule or situation",
+     "type": "text",
+     "placeholder": "who has priority at an unmarked crossroads",
+     "required": true
+    }
+   ],
+   "prompt": "Explain '{q}' for the profile's country and region: text with the rule and its reasoning, a kv of the exact numbers involved (distances, speeds, times, fines where applicable), a table (Situation | What to do | Common mistake), and a callout on how the theory test phrases questions on this.",
+   "shape": "text, kv, table, callout",
+   "button": "Explain",
+   "loading": "Checking the code…"
+  },
+  {
+   "id": "numbers",
+   "title": "Numbers cheat sheet",
+   "subtitle": "Every distance, limit and validity in one table",
+   "emoji": "🔢",
+   "inputs": [],
+   "prompt": "Build a cheat sheet of the numbers the profile's country's theory test asks about for the profile's licence: a table (Item | Value | Condition) covering stopping distances, speed limits by road and vehicle, following distances, alcohol limits, tyre tread, lighting rules and document validity; bullets of 3 memory tricks; and a callout on which values differ by region or vehicle type.",
+   "shape": "table, bullets, callout",
+   "button": "Build sheet",
+   "loading": "Measuring distances…"
+  }
+ ],
+ "disclaimer": "Practice aid only, not the official test; road rules and signs differ by country and change, so check your official handbook, and always drive to the conditions."
+}

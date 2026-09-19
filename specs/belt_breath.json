@@ -1,0 +1,210 @@
+{
+ "id": "belt_breath",
+ "name": "Belt & Breath",
+ "tagline": "Warm-ups, song keys and fixes for your singing voice",
+ "category": "Music & Audio",
+ "colors": [
+  "#D81B60",
+  "#FFB300",
+  "#3949AB"
+ ],
+ "icon": "mic",
+ "about": "Belt & Breath is a singing coach: warm-ups for today's voice, song keys that fit your range, fixes for cracks, breathiness and strain, and audition prep, with vocal-health rules baked in.",
+ "persona": "You are a contemporary voice teacher with classical training: warm, precise about breath and vowels, obsessive about vocal health, and you never ask a singer to push through pain.",
+ "onboarding": {
+  "title": "Find your voice's best key",
+  "subtitle": "Your range and goals tune every warm-up and song plan.",
+  "bullets": [
+   "Warm-ups matched to your day",
+   "Song keys that suit your range",
+   "Fix cracks, strain and breathiness"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "voice",
+   "label": "Voice type",
+   "type": "chips",
+   "options": [
+    "Soprano",
+    "Mezzo",
+    "Alto",
+    "Tenor",
+    "Baritone",
+    "Bass",
+    "Not sure"
+   ]
+  },
+  {
+   "key": "range",
+   "label": "Comfortable range",
+   "type": "text",
+   "placeholder": "G3 to E5"
+  },
+  {
+   "key": "style",
+   "label": "Styles",
+   "type": "chips",
+   "options": [
+    "Pop",
+    "Musical theatre",
+    "Choir",
+    "Rock",
+    "R&B/soul",
+    "Worship",
+    "Classical"
+   ],
+   "multi": true
+  }
+ ],
+ "tools": [
+  {
+   "id": "warmup",
+   "title": "Warm-up",
+   "subtitle": "Matched to how your voice feels",
+   "emoji": "🔥",
+   "inputs": [
+    {
+     "key": "minutes",
+     "label": "Minutes",
+     "type": "chips",
+     "options": [
+      "5",
+      "10",
+      "20"
+     ],
+     "default": "10"
+    },
+    {
+     "key": "state",
+     "label": "Voice today",
+     "type": "chips",
+     "options": [
+      "Fresh",
+      "Tired/morning",
+      "Slightly hoarse",
+      "Nervous before a gig"
+     ],
+     "default": "Fresh"
+    }
+   ],
+   "prompt": "A {minutes}-minute warm-up for a voice that is {state}, for the profile: steps (exercise · pattern and vowel · range to cover · what to feel), a callout on what to skip or stop for when hoarse, and a quote with one sensation cue to carry into singing.",
+   "shape": "steps, callout, quote",
+   "button": "Warm up",
+   "loading": "Humming…"
+  },
+  {
+   "id": "key",
+   "title": "Find my key",
+   "subtitle": "Where a song sits in your range",
+   "emoji": "🎵",
+   "inputs": [
+    {
+     "key": "song",
+     "label": "Song",
+     "type": "text",
+     "placeholder": "Someone Like You — Adele",
+     "required": true
+    },
+    {
+     "key": "aim",
+     "label": "Aim",
+     "type": "chips",
+     "options": [
+      "Comfortable",
+      "Show off top notes",
+      "Lower for chest voice",
+      "Match the original"
+     ],
+     "default": "Comfortable"
+    }
+   ],
+   "prompt": "Estimate the vocal range of '{song}' (original key, lowest and highest notes) and recommend keys for the profile range aiming for {aim}: kv (original key, song range, recommended key, transposition in semitones, hardest note), a table (Key option | Lowest | Highest | Feel), and bullets on where breath marks and register shifts fall. Do not quote the lyrics.",
+   "shape": "kv, table, bullets",
+   "button": "Find key",
+   "loading": "Checking the range…"
+  },
+  {
+   "id": "fix",
+   "title": "Fix a problem",
+   "subtitle": "Cracks, breathiness, flatness, strain",
+   "emoji": "🩺",
+   "inputs": [
+    {
+     "key": "issue",
+     "label": "Issue",
+     "type": "chips",
+     "options": [
+      "Cracking on the bridge",
+      "Breathy tone",
+      "Going flat",
+      "Strain on high notes",
+      "Running out of breath",
+      "Nasal sound"
+     ],
+     "default": "Cracking on the bridge"
+    },
+    {
+     "key": "when",
+     "label": "When it happens",
+     "type": "text",
+     "placeholder": "on the chorus, above a D5"
+    }
+   ],
+   "prompt": "Diagnose {issue} happening {when}: text on the likely mechanism (breath, larynx, vowel, placement), steps for a 7-day drill with named exercises, a table (Cue | Try this | If it doesn't work), and a callout on symptoms that mean rest or an ENT / voice clinician.",
+   "shape": "text, steps, table, callout",
+   "button": "Diagnose",
+   "loading": "Listening…"
+  },
+  {
+   "id": "audition",
+   "title": "Audition prep",
+   "subtitle": "Songs, cuts and a day-of checklist",
+   "emoji": "🎭",
+   "inputs": [
+    {
+     "key": "what",
+     "label": "Audition for",
+     "type": "text",
+     "placeholder": "local production of Chicago, 32 bars",
+     "required": true
+    },
+    {
+     "key": "days",
+     "label": "Days until",
+     "type": "number",
+     "placeholder": "14"
+    }
+   ],
+   "prompt": "A {days}-day prep plan for {what}: table (Day | Focus | Minutes), bullets of song choices suited to the profile voice and styles with a suggested 16/32-bar cut for each, a checklist for audition day (sheet music, water, warm-up timing), and a quote with a short, confident intro to say when you walk in.",
+   "shape": "table, bullets, checklist, quote",
+   "button": "Prep me",
+   "loading": "Running lines…"
+  },
+  {
+   "id": "health",
+   "title": "Vocal health check",
+   "subtitle": "Review your week's habits",
+   "emoji": "🍵",
+   "inputs": [
+    {
+     "key": "habits",
+     "label": "Your week",
+     "type": "longtext",
+     "placeholder": "3 gigs, coffee all day, shouting in a bar, little sleep",
+     "required": true
+    }
+   ],
+   "prompt": "Review these habits: {habits}. Sections: table (Habit | Effect on voice | Swap), a checklist for a vocal-recovery day, and a callout on red flags (hoarseness over 2 weeks, pain, loss of range) that need a doctor.",
+   "shape": "table, checklist, callout",
+   "button": "Review",
+   "loading": "Checking in…"
+  }
+ ],
+ "disclaimer": "Vocal-health guidance is general information, not medical advice; persistent hoarseness, pain or voice loss needs an ENT or voice clinician."
+}

@@ -1,0 +1,196 @@
+{
+ "id": "exit_terms",
+ "name": "Exit Terms",
+ "tagline": "Redundancy, settlements and leaving on the right terms",
+ "category": "Business",
+ "colors": [
+  "#1A237E",
+  "#FF7043",
+  "#26A69A"
+ ],
+ "icon": "bag",
+ "about": "Exit Terms helps you leave a job well: understand a redundancy or settlement offer, check the maths, negotiate references and notice, decode non-compete and confidentiality clauses, and write a resignation that keeps doors open.",
+ "persona": "You are a discreet, experienced HR-and-employment adviser on the employee's side: you read offers line by line, do the arithmetic, and keep the user calm and strategic.",
+ "onboarding": {
+  "title": "Leave on your terms",
+  "subtitle": "Statutory minimums and notice rules depend on where you work.",
+  "bullets": [
+   "Redundancy and settlement offers decoded",
+   "Notice, pay and holiday maths",
+   "Resignations and non-competes explained"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "region",
+   "label": "Country / state you work in",
+   "type": "text",
+   "placeholder": "England, UK"
+  },
+  {
+   "key": "years",
+   "label": "Years of service",
+   "type": "number",
+   "placeholder": "6"
+  },
+  {
+   "key": "salary",
+   "label": "Salary",
+   "type": "text",
+   "placeholder": "42,000"
+  }
+ ],
+ "tools": [
+  {
+   "id": "offer",
+   "title": "Decode my offer",
+   "subtitle": "Redundancy or settlement, line by line",
+   "emoji": "📄",
+   "inputs": [
+    {
+     "key": "offer",
+     "label": "Paste the offer / key terms",
+     "type": "longtext",
+     "placeholder": "Settlement 9,500 inc. 4 weeks notice, 2 weeks ex gratia, confidentiality, no reference wording…",
+     "required": true
+    },
+    {
+     "key": "kind",
+     "label": "Offer type",
+     "type": "chips",
+     "options": [
+      "Redundancy",
+      "Settlement / severance",
+      "Mutual termination",
+      "Not sure"
+     ],
+     "default": "Redundancy"
+    }
+   ],
+   "prompt": "Offer ({kind}): {offer}. Produce a table (Term | What it means | Good / neutral / poor for you | Ask for), a kv comparing the offer to the general statutory minimums for the profile years of service and salary in the profile region (notice, redundancy pay, accrued holiday), bullets of what's missing (reference, timing, tax-treatment note), and a callout on independent-advice requirements and time limits before signing.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Decode",
+   "loading": "Line by line…"
+  },
+  {
+   "id": "maths",
+   "title": "Exit maths",
+   "subtitle": "What you should walk away with",
+   "emoji": "🧮",
+   "inputs": [
+    {
+     "key": "notice",
+     "label": "Notice period in contract",
+     "type": "text",
+     "placeholder": "8 weeks"
+    },
+    {
+     "key": "holiday",
+     "label": "Unused holiday days",
+     "type": "number",
+     "placeholder": "9"
+    },
+    {
+     "key": "extras",
+     "label": "Bonuses / commission / benefits owed",
+     "type": "text",
+     "placeholder": "Q2 bonus, car allowance"
+    }
+   ],
+   "prompt": "Notice: {notice}, unused holiday: {holiday} days, extras: {extras}, with the profile salary and years of service. Build a table (Item | Basis | Estimate | Notes) for notice pay, holiday pay, redundancy or severance estimate, extras and pension, a kv of totals (gross, rough net range with a note that tax treatment varies), and a callout on items people forget to claim.",
+   "shape": "table, kv, callout",
+   "button": "Calculate",
+   "loading": "Adding it up…"
+  },
+  {
+   "id": "negotiate",
+   "title": "Negotiate the package",
+   "subtitle": "Ask for more, gracefully",
+   "emoji": "🤝",
+   "inputs": [
+    {
+     "key": "priorities",
+     "label": "What matters most",
+     "type": "text",
+     "placeholder": "cash, then an agreed reference, then keeping the laptop",
+     "required": true
+    },
+    {
+     "key": "relation",
+     "label": "Relationship with employer",
+     "type": "chips",
+     "options": [
+      "Good",
+      "Neutral",
+      "Strained"
+     ],
+     "default": "Neutral"
+    }
+   ],
+   "prompt": "Priorities: {priorities}. Relationship: {relation}. Produce a table (Ask | Justification | Likely response | Fallback), a quote with the counter-proposal email, steps for the negotiation sequence, and a callout on 'without prejudice' discussions and not resigning in anger.",
+   "shape": "table, quote, steps, callout",
+   "button": "Plan the ask",
+   "loading": "Sharpening the ask…"
+  },
+  {
+   "id": "restrict",
+   "title": "Non-compete and confidentiality",
+   "subtitle": "What you can do after you leave",
+   "emoji": "🔒",
+   "inputs": [
+    {
+     "key": "clauses",
+     "label": "Paste the restrictive clauses",
+     "type": "longtext",
+     "placeholder": "For 12 months after termination the Employee shall not… within 50 miles…",
+     "required": true
+    }
+   ],
+   "prompt": "Clauses: {clauses}. Explain in text what each restriction tries to stop and how such clauses are generally treated in the profile region (enforceability, reasonableness, duration), a table (Restriction | Applies to | Duration | Practical risk), bullets of safe behaviours when moving to a competitor, and a callout on garden leave and confidential-information basics.",
+   "shape": "text, table, bullets, callout",
+   "button": "Explain",
+   "loading": "Checking the fences…"
+  },
+  {
+   "id": "resign",
+   "title": "Resignation letter",
+   "subtitle": "Short, gracious, correct dates",
+   "emoji": "✍️",
+   "inputs": [
+    {
+     "key": "last",
+     "label": "Intended last day",
+     "type": "text",
+     "placeholder": "31 August"
+    },
+    {
+     "key": "tone",
+     "label": "Tone",
+     "type": "chips",
+     "options": [
+      "Warm",
+      "Neutral",
+      "Minimal"
+     ],
+     "default": "Neutral"
+    },
+    {
+     "key": "notes",
+     "label": "Anything to mention",
+     "type": "text",
+     "placeholder": "handover plan, thank my manager"
+    }
+   ],
+   "prompt": "Write a resignation letter with last day {last}, tone {tone}, mentioning: {notes}. Quote the letter (date, notice given in line with the contract, last working day, brief thanks, handover offer, request for confirmation of final pay and holiday). Then a checklist of things to do before the last day (documents, expenses, benefits, references) and a callout on not resigning until any settlement is signed.",
+   "shape": "quote, checklist, callout",
+   "button": "Write letter",
+   "loading": "Choosing words…"
+  }
+ ],
+ "disclaimer": "General information only, not legal advice; rules differ by country and state and change over time — check official sources or a qualified professional before acting."
+}

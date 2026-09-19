@@ -1,0 +1,195 @@
+{
+ "id": "compose_kit",
+ "name": "Compose Kit",
+ "tagline": "Jetpack Compose UI, crashes and Gradle, solved",
+ "category": "Tools",
+ "colors": [
+  "#3DDC84",
+  "#073042",
+  "#F86734"
+ ],
+ "icon": "bolt",
+ "about": "Compose Kit writes Jetpack Compose screens with proper state hoisting, decodes logcat crashes, lays out ViewModel and Flow architecture, untangles Gradle failures and preps Play releases.",
+ "persona": "You are a senior Android engineer who follows the official architecture guidance, prefers Kotlin idioms over Java habits, and always considers configuration changes and process death.",
+ "onboarding": {
+  "title": "Build Android the modern way",
+  "subtitle": "Your minSdk and libraries shape every snippet.",
+  "bullets": [
+   "Compose screens with state hoisting",
+   "Logcat crashes decoded",
+   "Gradle errors untangled"
+  ]
+ },
+ "profile": [
+  {
+   "key": "minsdk",
+   "label": "minSdk",
+   "type": "number",
+   "placeholder": "26"
+  },
+  {
+   "key": "di",
+   "label": "Dependency injection",
+   "type": "chips",
+   "options": [
+    "Hilt",
+    "Koin",
+    "Manual",
+    "None"
+   ],
+   "default": "Hilt"
+  },
+  {
+   "key": "network",
+   "label": "Networking",
+   "type": "chips",
+   "options": [
+    "Retrofit",
+    "Ktor",
+    "OkHttp only"
+   ],
+   "default": "Retrofit"
+  },
+  {
+   "key": "db",
+   "label": "Local storage",
+   "type": "chips",
+   "options": [
+    "Room",
+    "DataStore",
+    "SQLDelight",
+    "None"
+   ],
+   "default": "Room"
+  }
+ ],
+ "tools": [
+  {
+   "id": "screen",
+   "title": "Build a screen",
+   "subtitle": "Describe it (or snap a design) → composable",
+   "emoji": "📱",
+   "inputs": [
+    {
+     "key": "spec",
+     "label": "Screen description",
+     "type": "longtext",
+     "placeholder": "login form with email/password, inline validation, a loading button and an error snackbar",
+     "required": true
+    },
+    {
+     "key": "photo",
+     "label": "Design mockup (optional)",
+     "type": "photo"
+    },
+    {
+     "key": "preview",
+     "label": "Include",
+     "type": "chips",
+     "options": [
+      "Preview only",
+      "Preview + ViewModel",
+      "Preview + ViewModel + navigation"
+     ],
+     "default": "Preview + ViewModel"
+    }
+   ],
+   "prompt": "Write a Jetpack Compose screen for: {spec}, matching the attached mockup photo if there is one, including {preview}. Sections: a quote with the code (stateless composable taking a UiState and callbacks, a stateful wrapper, @Preview, Material 3 components, remember/rememberSaveable used correctly), a table of the UiState fields (Field | Type | Drives what), bullets on recomposition pitfalls avoided, and a callout on what happens on rotation and process death.",
+   "shape": "quote, table, bullets, callout",
+   "button": "Compose it",
+   "loading": "Recomposing…"
+  },
+  {
+   "id": "crash",
+   "title": "Decode a crash",
+   "subtitle": "Paste logcat, get the cause",
+   "emoji": "💥",
+   "inputs": [
+    {
+     "key": "logcat",
+     "label": "Stack trace / logcat",
+     "type": "longtext",
+     "placeholder": "FATAL EXCEPTION: main … java.lang.IllegalStateException",
+     "required": true
+    },
+    {
+     "key": "when",
+     "label": "When it happens",
+     "type": "text",
+     "placeholder": "only after returning from the camera"
+    }
+   ],
+   "prompt": "Diagnose this Android crash: {logcat}, which happens {when}. Sections: text naming the cause in two sentences, a table (Frame | What it means | Suspect? yes/no), steps to fix it, a quote with the corrected Kotlin, and a checklist to reproduce and verify the fix on the profile minSdk.",
+   "shape": "text, table, steps, quote, checklist",
+   "button": "Diagnose",
+   "loading": "Reading logcat…"
+  },
+  {
+   "id": "arch",
+   "title": "Architect a feature",
+   "subtitle": "ViewModel, Flow and repository layout",
+   "emoji": "🏗️",
+   "inputs": [
+    {
+     "key": "feature",
+     "label": "Feature",
+     "type": "longtext",
+     "placeholder": "offline-first notes list synced to a REST API with conflict handling",
+     "required": true
+    }
+   ],
+   "prompt": "Design the architecture for: {feature} using the profile DI, networking and storage choices. Sections: a table (Layer | Class | Responsibility | Depends on), a quote with the ViewModel exposing a single StateFlow<UiState> and handling one user action end to end, steps for the data flow from tap to screen, and a callout on the testability seams.",
+   "shape": "table, quote, steps, callout",
+   "button": "Design it",
+   "loading": "Layering…"
+  },
+  {
+   "id": "gradle",
+   "title": "Fix a Gradle error",
+   "subtitle": "Build output → the real cause",
+   "emoji": "🐘",
+   "inputs": [
+    {
+     "key": "output",
+     "label": "Build output",
+     "type": "longtext",
+     "placeholder": "Execution failed for task ':app:kaptDebugKotlin' …",
+     "required": true
+    }
+   ],
+   "prompt": "Fix this Gradle build failure: {output}. Sections: text with the actual cause (ignore the noise), steps to fix it, a quote with the exact build.gradle.kts or libs.versions.toml lines to change, and a callout on plugin and library version combinations that commonly break together.",
+   "shape": "text, steps, quote, callout",
+   "button": "Fix build",
+   "loading": "Syncing Gradle…"
+  },
+  {
+   "id": "release",
+   "title": "Play release check",
+   "subtitle": "Ship without a policy rejection",
+   "emoji": "🚀",
+   "inputs": [
+    {
+     "key": "type",
+     "label": "Release",
+     "type": "chips",
+     "options": [
+      "First release",
+      "Update",
+      "Target SDK bump"
+     ],
+     "default": "Update"
+    },
+    {
+     "key": "perms",
+     "label": "Permissions used",
+     "type": "text",
+     "placeholder": "CAMERA, POST_NOTIFICATIONS, background location"
+    }
+   ],
+   "prompt": "Prepare a Play Store release checklist for a {type} that uses these permissions: {perms}. Sections: a checklist grouped by signing, target SDK, permission declarations, the Data safety form, and R8/ProGuard, a table of the listed permissions (Permission | Policy requirement | Declaration or form needed), and a callout on the top reasons apps like this get rejected.",
+   "shape": "checklist, table, callout",
+   "button": "Check release",
+   "loading": "Bundling…"
+  }
+ ]
+}

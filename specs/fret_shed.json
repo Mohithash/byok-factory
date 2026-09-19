@@ -1,0 +1,216 @@
+{
+ "id": "fret_shed",
+ "name": "Fret Shed",
+ "tagline": "Guitar practice built around the songs you want to play",
+ "category": "Music & Audio",
+ "colors": [
+  "#5D4037",
+  "#FFA000",
+  "#00695C"
+ ],
+ "icon": "music",
+ "about": "Fret Shed builds practice sessions around the songs you want to play, decodes chord charts and strumming patterns, does the capo and transposition maths, and fixes buzzing, sore fingers and slow changes.",
+ "persona": "You are a working guitar teacher: song-first, technique-honest, one fix at a time, and you always tell the student what tempo to practise at.",
+ "onboarding": {
+  "title": "Play the songs, not just the scales",
+  "subtitle": "Your guitar, level and goals shape every session.",
+  "bullets": [
+   "Practice plans around real songs",
+   "Chord & strum help for any track",
+   "Capo and transposition maths"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "guitar",
+   "label": "Guitar",
+   "type": "chips",
+   "options": [
+    "Acoustic steel",
+    "Classical nylon",
+    "Electric",
+    "Bass"
+   ]
+  },
+  {
+   "key": "level",
+   "label": "Level",
+   "type": "chips",
+   "options": [
+    "Just started",
+    "Open chords",
+    "Barre chords",
+    "Intermediate",
+    "Advanced"
+   ]
+  },
+  {
+   "key": "goal",
+   "label": "Goal",
+   "type": "text",
+   "placeholder": "play at a friend's wedding in June"
+  }
+ ],
+ "tools": [
+  {
+   "id": "session",
+   "title": "Practice session",
+   "subtitle": "Blocks, tempos and a done-when",
+   "emoji": "🎸",
+   "inputs": [
+    {
+     "key": "minutes",
+     "label": "Minutes",
+     "type": "chips",
+     "options": [
+      "15",
+      "30",
+      "45",
+      "60"
+     ],
+     "default": "30"
+    },
+    {
+     "key": "song",
+     "label": "Song I'm working on",
+     "type": "text",
+     "placeholder": "Wonderwall — Oasis"
+    },
+    {
+     "key": "struggle",
+     "label": "Struggling with",
+     "type": "text",
+     "placeholder": "F barre chord changes"
+    }
+   ],
+   "prompt": "Plan a {minutes}-minute practice session around '{song}' with focus on {struggle} for the profile: table (Block | Minutes | Exercise | Tempo BPM | Done when), steps for the single technique fix that matters most, and a callout on when to stop before bad habits set in.",
+   "shape": "table, steps, callout",
+   "button": "Plan session",
+   "loading": "Tuning up…"
+  },
+  {
+   "id": "learn",
+   "title": "Learn this song",
+   "subtitle": "Key, capo, chords per section, a week plan",
+   "emoji": "📖",
+   "inputs": [
+    {
+     "key": "track",
+     "label": "Song",
+     "type": "text",
+     "placeholder": "Hallelujah — Jeff Buckley",
+     "required": true
+    },
+    {
+     "key": "want",
+     "label": "I want",
+     "type": "chips",
+     "options": [
+      "Chords & strum",
+      "Fingerpicking",
+      "Simplified version",
+      "Riff/lead"
+     ],
+     "default": "Chords & strum"
+    }
+   ],
+   "prompt": "For '{track}' ({want}) at the profile level: kv (key, capo suggestion, tempo, time signature, difficulty /5), a table of the sections (Section | Chords | Strum or picking pattern | Tip), steps to learn it over one week, and a callout on the trickiest change with an easier voicing. Do not reproduce the lyrics.",
+   "shape": "kv, table, steps, callout",
+   "button": "Break it down",
+   "loading": "Reading the chart…"
+  },
+  {
+   "id": "capo",
+   "title": "Capo & transpose",
+   "subtitle": "Same song, easier shapes or a better key",
+   "emoji": "🔀",
+   "inputs": [
+    {
+     "key": "chords",
+     "label": "Chords in the song",
+     "type": "text",
+     "placeholder": "G D Em C",
+     "required": true
+    },
+    {
+     "key": "why",
+     "label": "Because",
+     "type": "chips",
+     "options": [
+      "Match my voice",
+      "Easier shapes",
+      "Match a singer",
+      "Play with another guitarist"
+     ],
+     "default": "Easier shapes"
+    },
+    {
+     "key": "detail",
+     "label": "Details",
+     "type": "text",
+     "placeholder": "need it 2 semitones lower"
+    }
+   ],
+   "prompt": "Transpose {chords} to {why}, details: {detail}. Sections: a table (Capo fret | Shapes to play | Sounding chords | Comfort) with the 3 best options, text on which to pick and why, and bullets on capo placement so nothing buzzes or goes sharp.",
+   "shape": "table, text, bullets",
+   "button": "Transpose",
+   "loading": "Sliding the capo…"
+  },
+  {
+   "id": "fix",
+   "title": "Fix my playing",
+   "subtitle": "Buzz, pain, slow changes, muted strings",
+   "emoji": "🔧",
+   "inputs": [
+    {
+     "key": "problem",
+     "label": "Problem",
+     "type": "chips",
+     "options": [
+      "Buzzing strings",
+      "Sore fingertips",
+      "Slow chord changes",
+      "Muted strings in chords",
+      "Can't keep time",
+      "Barre chords won't ring"
+     ],
+     "default": "Slow chord changes"
+    },
+    {
+     "key": "context",
+     "label": "What you've tried",
+     "type": "text"
+    }
+   ],
+   "prompt": "Diagnose {problem} (already tried: {context}) on the profile guitar: table (Likely cause | How to check | Fix), steps for a 5-minute daily drill, and a callout on when the problem is the guitar's setup (action, nut, strings) rather than the player.",
+   "shape": "table, steps, callout",
+   "button": "Diagnose",
+   "loading": "Listening closely…"
+  },
+  {
+   "id": "theory",
+   "title": "Fretboard theory",
+   "subtitle": "Understand it on the neck, not on paper",
+   "emoji": "🧠",
+   "inputs": [
+    {
+     "key": "topic",
+     "label": "What to understand",
+     "type": "text",
+     "placeholder": "why the CAGED system matters",
+     "required": true
+    }
+   ],
+   "prompt": "Explain '{topic}' for the profile level using the guitar itself, not abstract theory: text in plain words, steps to hear and feel it on the fretboard in the next 5 minutes, a kv of the 3 shapes or positions to memorise, and a quote with a one-line memory hook.",
+   "shape": "text, steps, kv, quote",
+   "button": "Explain",
+   "loading": "Mapping the neck…"
+  }
+ ],
+ "disclaimer": "Practice guidance only, not medical advice; stop for sharp or persistent pain and see a clinician."
+}

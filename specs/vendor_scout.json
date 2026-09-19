@@ -1,0 +1,182 @@
+{
+ "id": "vendor_scout",
+ "name": "Vendor Scout",
+ "tagline": "Choose tools and suppliers with a scorecard, not a hunch",
+ "category": "Business",
+ "colors": [
+  "#AD1457",
+  "#00838F",
+  "#FDD835"
+ ],
+ "icon": "scale",
+ "about": "Vendor Scout builds weighted evaluation scorecards, compares vendors from your notes and quotes, writes RFI questions, flags contract red flags and estimates the true total cost of ownership.",
+ "persona": "You are a pragmatic procurement lead for startups: structured, sceptical of demos, obsessed with total cost and exit terms.",
+ "onboarding": {
+  "title": "Buy like a procurement pro",
+  "subtitle": "Your company's constraints set the evaluation criteria.",
+  "bullets": [
+   "Weighted scorecards",
+   "Side-by-side comparisons",
+   "Contract red flags & true cost"
+  ]
+ },
+ "profile": [
+  {
+   "key": "company",
+   "label": "Company & size",
+   "type": "text",
+   "placeholder": "Acme, 30 people"
+  },
+  {
+   "key": "priorities",
+   "label": "What matters most",
+   "type": "chips",
+   "options": [
+    "Price",
+    "Security / compliance",
+    "Speed to set up",
+    "Integrations",
+    "Support",
+    "Scalability"
+   ],
+   "multi": true
+  },
+  {
+   "key": "stack",
+   "label": "Current key tools",
+   "type": "text",
+   "placeholder": "Slack, HubSpot, GCP"
+  }
+ ],
+ "tools": [
+  {
+   "id": "scorecard",
+   "title": "Build a scorecard",
+   "subtitle": "Weighted criteria and demo questions",
+   "emoji": "⚖️",
+   "inputs": [
+    {
+     "key": "need",
+     "label": "What you're buying",
+     "type": "text",
+     "placeholder": "customer support helpdesk",
+     "required": true
+    },
+    {
+     "key": "musts",
+     "label": "Must-haves",
+     "type": "text",
+     "placeholder": "Slack integration, SOC 2, under £50/seat"
+    }
+   ],
+   "prompt": "Build a weighted evaluation scorecard for buying {need} with must-haves: {musts}, reflecting the profile priorities. Table (Criterion | Weight % | How to test it | Pass/fail?), a checklist of demo questions to ask every vendor, and a callout on the criteria startups usually forget.",
+   "shape": "table, checklist, callout",
+   "button": "Build scorecard",
+   "loading": "Weighing criteria…"
+  },
+  {
+   "id": "compare",
+   "title": "Compare vendors",
+   "subtitle": "Notes and quotes → a decision",
+   "emoji": "🆚",
+   "inputs": [
+    {
+     "key": "notes",
+     "label": "Your notes / quotes per vendor",
+     "type": "longtext",
+     "placeholder": "Vendor A: £40/seat, SOC 2, slow support. Vendor B: £25/seat, no SSO…",
+     "required": true
+    },
+    {
+     "key": "horizon",
+     "label": "Compare over",
+     "type": "chips",
+     "options": [
+      "1 year",
+      "3 years"
+     ],
+     "default": "3 years"
+    }
+   ],
+   "prompt": "Compare the vendors described in: {notes} over {horizon} for the profile company. Table (Criterion | Vendor 1 | Vendor 2 | Vendor 3 | Winner), kv (recommended vendor, runner-up, deal-breakers found), bullets of what to verify before deciding, and a callout on the main risk in the recommendation.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Compare",
+   "loading": "Lining them up…"
+  },
+  {
+   "id": "rfi",
+   "title": "Write an RFI",
+   "subtitle": "Questions vendors must answer",
+   "emoji": "📝",
+   "inputs": [
+    {
+     "key": "category",
+     "label": "Category",
+     "type": "text",
+     "placeholder": "payroll provider",
+     "required": true
+    },
+    {
+     "key": "depth",
+     "label": "Depth",
+     "type": "chips",
+     "options": [
+      "Quick (10 questions)",
+      "Standard (20)",
+      "Thorough (35)"
+     ],
+     "default": "Standard (20)"
+    }
+   ],
+   "prompt": "Write a {depth} RFI for a {category} for the profile company. Table (# | Question | Why we ask | A good answer looks like), grouped by Security, Pricing, Support, Integration and Exit, and a quote with the cover email to send vendors.",
+   "shape": "table, quote",
+   "button": "Write RFI",
+   "loading": "Drafting questions…"
+  },
+  {
+   "id": "contract",
+   "title": "Contract red flags",
+   "subtitle": "Paste terms → what to push back on",
+   "emoji": "🚩",
+   "inputs": [
+    {
+     "key": "terms",
+     "label": "Paste the key terms",
+     "type": "longtext",
+     "placeholder": "36-month term, auto-renew, 8% annual uplift, data deleted 30 days after termination…",
+     "required": true
+    }
+   ],
+   "prompt": "Scan these terms: {terms}. Table (Clause | Risk level | Why it matters | Ask for instead), a quote with a negotiation email requesting the top 3 changes, and a callout on anything that should go to a lawyer.",
+   "shape": "table, quote, callout",
+   "button": "Scan terms",
+   "loading": "Reading small print…"
+  },
+  {
+   "id": "tco",
+   "title": "True cost",
+   "subtitle": "Quote + hidden costs → 3-year TCO",
+   "emoji": "🧮",
+   "inputs": [
+    {
+     "key": "quote",
+     "label": "Quoted price",
+     "type": "text",
+     "placeholder": "£30/seat/month for 25 seats",
+     "required": true
+    },
+    {
+     "key": "hidden",
+     "label": "Implementation, migration, add-ons",
+     "type": "text",
+     "placeholder": "onboarding £2k, API tier +£300/month"
+    }
+   ],
+   "prompt": "Estimate total cost of ownership for {quote} with extras: {hidden}. Table (Cost line | Year 1 | Year 2 | Year 3 | Notes), kv (3-year TCO, effective per-seat cost, biggest hidden cost), and bullets of levers to reduce it.",
+   "shape": "table, kv, bullets",
+   "button": "Calculate",
+   "loading": "Adding it up…"
+  }
+ ],
+ "disclaimer": "Contract notes are general information, not legal advice; have counsel review before signing."
+}

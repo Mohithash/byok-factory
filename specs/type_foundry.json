@@ -1,0 +1,187 @@
+{
+ "id": "type_foundry",
+ "name": "Type Foundry",
+ "tagline": "TypeScript errors decoded, types designed, JS migrated",
+ "category": "Tools",
+ "colors": [
+  "#3178C6",
+  "#F7B500",
+  "#0F766E"
+ ],
+ "icon": "bulb",
+ "about": "Type Foundry decodes TS2xxx errors, designs precise types and generics, writes runtime validators that match them, migrates JavaScript files safely and tunes tsconfig for strictness.",
+ "persona": "You are a TypeScript specialist: you prefer inference over annotation and unions over enums, and you never type anything as any without saying why.",
+ "onboarding": {
+  "title": "Make the compiler work for you",
+  "subtitle": "Your runtime and strictness shape the advice.",
+  "bullets": [
+   "Compiler errors in plain English",
+   "Types that catch real bugs",
+   "JS → TS migration plans"
+  ]
+ },
+ "profile": [
+  {
+   "key": "runtime",
+   "label": "Runtime",
+   "type": "chips",
+   "options": [
+    "Node",
+    "Browser",
+    "Deno/Bun",
+    "Both"
+   ],
+   "default": "Node"
+  },
+  {
+   "key": "strict",
+   "label": "Strictness",
+   "type": "chips",
+   "options": [
+    "strict: true",
+    "Partial",
+    "Loose/legacy"
+   ],
+   "default": "strict: true"
+  },
+  {
+   "key": "validation",
+   "label": "Runtime validation",
+   "type": "chips",
+   "options": [
+    "zod",
+    "valibot",
+    "io-ts",
+    "None"
+   ],
+   "default": "zod"
+  },
+  {
+   "key": "tsver",
+   "label": "TypeScript version",
+   "type": "text",
+   "placeholder": "5.x"
+  }
+ ],
+ "tools": [
+  {
+   "id": "error",
+   "title": "Decode an error",
+   "subtitle": "TS2345 → what it means and the fix",
+   "emoji": "🚨",
+   "inputs": [
+    {
+     "key": "error",
+     "label": "Compiler error",
+     "type": "longtext",
+     "placeholder": "Type 'string | undefined' is not assignable to type 'string'",
+     "required": true
+    },
+    {
+     "key": "code",
+     "label": "The code",
+     "type": "longtext",
+     "placeholder": "the lines it points at"
+    }
+   ],
+   "prompt": "Explain and fix: {error} in: {code}. Sections: text translating the error into plain English in two sentences, a quote with the fixed code preferring narrowing over assertions, a table of alternatives (Fix | When to use | Risk), and a callout on why 'as' or '!' would hide a real bug here.",
+   "shape": "text, quote, table, callout",
+   "button": "Decode",
+   "loading": "Reading TS2345…"
+  },
+  {
+   "id": "design",
+   "title": "Design the types",
+   "subtitle": "Domain → discriminated unions, generics",
+   "emoji": "🏛️",
+   "inputs": [
+    {
+     "key": "domain",
+     "label": "What to model",
+     "type": "longtext",
+     "placeholder": "an API response that is loading, success with data, or error with a code; plus paginated variants",
+     "required": true
+    }
+   ],
+   "prompt": "Design TypeScript types for: {domain}. Sections: a quote with the types (discriminated unions, readonly where sensible, branded ids if useful, generics only where they earn it), a table (Type | Purpose | Example value), bullets on the specific bugs these types prevent, and a callout on the exhaustiveness-check pattern to add.",
+   "shape": "quote, table, bullets, callout",
+   "button": "Design",
+   "loading": "Narrowing…"
+  },
+  {
+   "id": "validate",
+   "title": "Types meet runtime",
+   "subtitle": "One schema → validator and type",
+   "emoji": "🛡️",
+   "inputs": [
+    {
+     "key": "shape",
+     "label": "Data shape",
+     "type": "longtext",
+     "placeholder": "user: { id: uuid, email, role: 'admin' | 'member', createdAt: ISO date }",
+     "required": true
+    },
+    {
+     "key": "source",
+     "label": "Data comes from",
+     "type": "chips",
+     "options": [
+      "HTTP API",
+      "Form input",
+      "Env vars",
+      "Database rows",
+      "Message queue"
+     ],
+     "default": "HTTP API"
+    }
+   ],
+   "prompt": "Write a validator for {shape} arriving from {source} using the profile validation library. Sections: a quote with the schema, the inferred type and a parse function returning a typed result, a table (Field | Rule | Error message), bullets on coercion decisions (dates, numbers from strings, trimming), and a callout on validating at the boundary only.",
+   "shape": "quote, table, bullets, callout",
+   "button": "Write schema",
+   "loading": "Parsing…"
+  },
+  {
+   "id": "migrate",
+   "title": "Migrate a JS file",
+   "subtitle": "JavaScript → TypeScript safely",
+   "emoji": "🚚",
+   "inputs": [
+    {
+     "key": "js",
+     "label": "JavaScript code",
+     "type": "longtext",
+     "placeholder": "paste the module",
+     "required": true
+    }
+   ],
+   "prompt": "Convert this JavaScript to TypeScript at the profile strictness: {js}. Sections: a quote with the converted file (inferred where possible, unknown over any, JSDoc turned into types), a table (Symbol | Type given | Confidence high/med/low | Note), steps for a file-by-file migration order in a larger codebase, and a callout on the allowJs/checkJs staging trick.",
+   "shape": "quote, table, steps, callout",
+   "button": "Convert",
+   "loading": "Annotating…"
+  },
+  {
+   "id": "config",
+   "title": "Tune tsconfig",
+   "subtitle": "Flags explained, strictness roadmap",
+   "emoji": "⚙️",
+   "inputs": [
+    {
+     "key": "tsconfig",
+     "label": "Current tsconfig.json",
+     "type": "longtext",
+     "placeholder": "paste it"
+    },
+    {
+     "key": "goal",
+     "label": "Goal",
+     "type": "text",
+     "placeholder": "get to strict without breaking the build"
+    }
+   ],
+   "prompt": "Review {tsconfig} against the goal: {goal} for the profile runtime and version. Sections: a table (Option | Current | Recommended | Why), a quote with the updated tsconfig.json, steps to enable strict flags one at a time in the safest order, and a callout on the flags that change emitted JavaScript rather than just type-checking.",
+   "shape": "table, quote, steps, callout",
+   "button": "Tune it",
+   "loading": "Flipping flags…"
+  }
+ ]
+}

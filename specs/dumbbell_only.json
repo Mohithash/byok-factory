@@ -1,0 +1,208 @@
+{
+ "id": "dumbbell_only",
+ "name": "Dumbbell Only",
+ "tagline": "Build muscle with one pair of dumbbells and a bench",
+ "category": "Health & Fitness",
+ "colors": [
+  "#1565C0",
+  "#FF8F00",
+  "#546E7A"
+ ],
+ "icon": "dumbbell",
+ "about": "Dumbbell Only writes hypertrophy programmes around the exact dumbbells you own, turns any gym exercise into a dumbbell version, tracks progressive overload from your log and plans deloads before you burn out.",
+ "persona": "You are an evidence-based hypertrophy coach who trains people in garages: fixated on effective reps, progressive overload and full range, honest that a pair of dumbbells goes further than most think.",
+ "onboarding": {
+  "title": "What dumbbells do you own?",
+  "subtitle": "Weights, bench and days per week set every programme.",
+  "bullets": [
+   "Programmes for your exact weights",
+   "Any gym exercise into a dumbbell version",
+   "Overload tracking from your log"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "weights",
+   "label": "Dumbbells available (kg)",
+   "type": "text",
+   "placeholder": "adjustable 2.5–24 kg pair"
+  },
+  {
+   "key": "bench",
+   "label": "Bench",
+   "type": "chips",
+   "options": [
+    "None",
+    "Flat",
+    "Adjustable"
+   ]
+  },
+  {
+   "key": "days",
+   "label": "Days/week",
+   "type": "chips",
+   "options": [
+    "2",
+    "3",
+    "4",
+    "5",
+    "6"
+   ]
+  },
+  {
+   "key": "goal",
+   "label": "Priority",
+   "type": "chips",
+   "options": [
+    "Overall muscle",
+    "Chest and shoulders",
+    "Back and arms",
+    "Legs and glutes",
+    "Lean and athletic"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "programme",
+   "title": "Write my programme",
+   "subtitle": "Split, sets, reps, progression",
+   "emoji": "📋",
+   "inputs": [
+    {
+     "key": "weeks",
+     "label": "Length",
+     "type": "chips",
+     "options": [
+      "4 weeks",
+      "6 weeks",
+      "8 weeks"
+     ],
+     "default": "6 weeks"
+    },
+    {
+     "key": "minutes",
+     "label": "Session length",
+     "type": "chips",
+     "options": [
+      "30",
+      "45",
+      "60"
+     ],
+     "default": "45"
+    }
+   ],
+   "prompt": "Write a {weeks} hypertrophy programme with {minutes}-minute sessions for the profile dumbbells, bench, days and priority. Sections: kv (split name, weekly sets per muscle, rep ranges, rest), a table (Day | Exercise | Sets x reps | Target RPE | Progression rule), bullets on progressing when the heaviest dumbbell is not heavy enough (tempo, pauses, unilateral, rest-pause), and a callout on the deload in the final week.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Write programme",
+   "loading": "Racking dumbbells…"
+  },
+  {
+   "id": "swap",
+   "title": "Swap an exercise",
+   "subtitle": "Machine or barbell move into a dumbbell version",
+   "emoji": "🔁",
+   "inputs": [
+    {
+     "key": "exercise",
+     "label": "Exercise to replace",
+     "type": "text",
+     "placeholder": "lat pulldown",
+     "required": true
+    },
+    {
+     "key": "why",
+     "label": "Why",
+     "type": "text",
+     "placeholder": "no cable machine, shoulder clicks"
+    }
+   ],
+   "prompt": "Replace {exercise} with dumbbell-only options because: {why}. Sections: cards for 3 substitutes (meta = muscles · difficulty · needs bench?), steps for setting up the best one correctly, a table (Substitute | Load guidance | Reps | What it misses versus the original), and a callout if the original was avoided because of pain.",
+   "shape": "cards, steps, table, callout",
+   "button": "Find swaps",
+   "loading": "Searching the rack…"
+  },
+  {
+   "id": "overload",
+   "title": "Am I progressing?",
+   "subtitle": "Paste your log for one lift",
+   "emoji": "📈",
+   "inputs": [
+    {
+     "key": "log",
+     "label": "Log for one exercise",
+     "type": "longtext",
+     "placeholder": "DB bench: 18 kg 3x10, 3x11, 3x12; 20 kg 3x8, 3x8, 3x9…",
+     "required": true
+    }
+   ],
+   "prompt": "Analyse this exercise log: {log}. Sections: kv (trend, estimated 10RM now versus start, weekly volume change), a table (Session | Load | Reps | Volume | Note), steps for the next 3 sessions with exact loads and reps, and a callout on signs of a true stall versus a normal flat week.",
+   "shape": "kv, table, steps, callout",
+   "button": "Analyse",
+   "loading": "Plotting reps…"
+  },
+  {
+   "id": "special",
+   "title": "Specialisation block",
+   "subtitle": "Bring up a lagging muscle",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "muscle",
+     "label": "Muscle",
+     "type": "chips",
+     "options": [
+      "Chest",
+      "Back",
+      "Shoulders",
+      "Arms",
+      "Glutes",
+      "Quads",
+      "Hamstrings",
+      "Calves"
+     ],
+     "default": "Shoulders"
+    },
+    {
+     "key": "weeks",
+     "label": "Length",
+     "type": "chips",
+     "options": [
+      "3 weeks",
+      "4 weeks",
+      "6 weeks"
+     ],
+     "default": "4 weeks"
+    }
+   ],
+   "prompt": "Design a {weeks} {muscle} specialisation block for the profile dumbbells and days, keeping other muscles at maintenance. Sections: a table (Day | Exercise | Sets x reps | Intensity technique), bullets on why the extra frequency works and what to pull back on, steps for the two highest-value exercises with form cues, and a callout on elbow and shoulder overuse warning signs.",
+   "shape": "table, bullets, steps, callout",
+   "button": "Design block",
+   "loading": "Isolating…"
+  },
+  {
+   "id": "deload",
+   "title": "Plan a deload",
+   "subtitle": "Recover without losing gains",
+   "emoji": "🛌",
+   "inputs": [
+    {
+     "key": "feel",
+     "label": "How you feel",
+     "type": "text",
+     "placeholder": "joints achy, sleep poor, lifts stalled 2 weeks"
+    }
+   ],
+   "prompt": "Decide whether the profile lifter needs a deload given: {feel}. Sections: kv (verdict; deload type: volume, intensity or full rest; length), a table (Day | Session | Sets x reps | Load versus normal), bullets on sleep and food during the deload, and a callout on what should feel different when it is over.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Plan deload",
+   "loading": "Lowering volume…"
+  }
+ ],
+ "disclaimer": "Not medical advice. Stop if you feel sharp pain, dizziness or chest symptoms, and check with a clinician before starting a new programme if you have a health condition or injury."
+}

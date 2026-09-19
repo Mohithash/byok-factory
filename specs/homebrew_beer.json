@@ -208,13 +208,13 @@
      "default": "Medium (ale)"
     },
     {
-     "key": "temp",
+     "key": "beertemp",
      "label": "Beer temp at bottling (°C)",
      "type": "number",
      "placeholder": "20"
     }
    ],
-   "prompt": "Calculate priming for {volume} L at {carb} carbonation with the beer at {temp}°C. kv (target CO2 volumes, table sugar g, dextrose g, honey g, 500 ml bottles needed), steps for making and mixing the priming solution evenly, a checklist for bottling day, and a callout on bottle-bomb warning signs.",
+   "prompt": "Calculate priming for {volume} L at {carb} carbonation with the beer at {beertemp}°C. kv (target CO2 volumes, table sugar g, dextrose g, honey g, 500 ml bottles needed), steps for making and mixing the priming solution evenly, a checklist for bottling day, and a callout on bottle-bomb warning signs.",
    "shape": "kv, steps, checklist, callout",
    "button": "Calculate",
    "loading": "Counting bottles…"

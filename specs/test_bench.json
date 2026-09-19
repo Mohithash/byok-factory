@@ -1,0 +1,185 @@
+{
+ "id": "test_bench",
+ "name": "Test Bench",
+ "tagline": "Tests written, flakes fixed, gaps found",
+ "category": "Tools",
+ "colors": [
+  "#16A34A",
+  "#DC2626",
+  "#2563EB"
+ ],
+ "icon": "shield",
+ "about": "Test Bench writes unit and integration tests in your framework, diagnoses flaky tests, plans coverage for a feature, designs test doubles and finds the cases your suite misses.",
+ "persona": "You are a test engineer who values fast, deterministic tests: one behaviour per test, clear names, no sleeps, and mocks only at real boundaries.",
+ "onboarding": {
+  "title": "Red, green, refactor, faster",
+  "subtitle": "Your language and framework shape every test.",
+  "bullets": [
+   "Tests in your framework, edge cases included",
+   "Flaky test diagnosis",
+   "Coverage gap hunting"
+  ]
+ },
+ "profile": [
+  {
+   "key": "lang",
+   "label": "Language",
+   "type": "chips",
+   "options": [
+    "TypeScript/JS",
+    "Python",
+    "Kotlin/Java",
+    "Swift",
+    "Go",
+    "Rust",
+    "C#"
+   ],
+   "default": "TypeScript/JS"
+  },
+  {
+   "key": "framework",
+   "label": "Test framework",
+   "type": "text",
+   "placeholder": "Vitest + Testing Library / pytest / JUnit 5"
+  },
+  {
+   "key": "style",
+   "label": "Naming",
+   "type": "chips",
+   "options": [
+    "describe/it",
+    "should_do_x_when_y",
+    "Given-When-Then",
+    "test_x"
+   ],
+   "default": "describe/it"
+  }
+ ],
+ "tools": [
+  {
+   "id": "write",
+   "title": "Write tests for this",
+   "subtitle": "Paste code → tests with edge cases",
+   "emoji": "✅",
+   "inputs": [
+    {
+     "key": "code",
+     "label": "Code under test",
+     "type": "longtext",
+     "placeholder": "paste a function, class or component",
+     "required": true
+    },
+    {
+     "key": "kind",
+     "label": "Test kind",
+     "type": "chips",
+     "options": [
+      "Unit",
+      "Integration",
+      "Component/UI",
+      "Property-based"
+     ],
+     "default": "Unit"
+    }
+   ],
+   "prompt": "Write {kind} tests for: {code} in the profile language, framework and naming style. Sections: a table of cases first (Case | Input | Expected | Category: happy/edge/error), a quote with the complete test file (arrange-act-assert, no shared mutable state, parametrised where it helps), bullets on what was deliberately not tested and why, and a callout on any refactor that would make the code easier to test.",
+   "shape": "table, quote, bullets, callout",
+   "button": "Write tests",
+   "loading": "Going green…"
+  },
+  {
+   "id": "flaky",
+   "title": "Fix a flaky test",
+   "subtitle": "Intermittent failure → root cause",
+   "emoji": "🎲",
+   "inputs": [
+    {
+     "key": "test",
+     "label": "The test",
+     "type": "longtext",
+     "placeholder": "paste the test and the failure output",
+     "required": true
+    },
+    {
+     "key": "freq",
+     "label": "How often it fails",
+     "type": "text",
+     "placeholder": "1 in 20 runs, mostly on CI"
+    }
+   ],
+   "prompt": "Diagnose flakiness in: {test}, failing {freq}. Sections: a table (Suspect | Evidence in the test | Likelihood high/med/low) covering timing, ordering, shared state, real network or clock, and resource leaks, a quote with the deflaked test, steps to prove it is fixed (run it N times, stress it on CI), and a callout on why automatic retries are not a fix.",
+   "shape": "table, quote, steps, callout",
+   "button": "Deflake",
+   "loading": "Rolling the dice…"
+  },
+  {
+   "id": "plan",
+   "title": "Plan the tests",
+   "subtitle": "Feature → test plan with priorities",
+   "emoji": "🗺️",
+   "inputs": [
+    {
+     "key": "feature",
+     "label": "Feature or story",
+     "type": "longtext",
+     "placeholder": "users can reset their password via an emailed link that expires in 15 minutes",
+     "required": true
+    }
+   ],
+   "prompt": "Write a test plan for: {feature}. Sections: a table (Scenario | Level: unit/integration/e2e | Priority P0–P2 | Data needed), a checklist of non-functional checks (security, accessibility, performance, i18n), bullets on what to automate versus test manually once, and a callout on the riskiest path.",
+   "shape": "table, checklist, bullets, callout",
+   "button": "Plan tests",
+   "loading": "Mapping cases…"
+  },
+  {
+   "id": "mock",
+   "title": "Mock it properly",
+   "subtitle": "Dependency → test double strategy",
+   "emoji": "🎭",
+   "inputs": [
+    {
+     "key": "dep",
+     "label": "Dependency to isolate",
+     "type": "text",
+     "placeholder": "Stripe client / system clock / Postgres repository",
+     "required": true
+    },
+    {
+     "key": "code",
+     "label": "Code that uses it",
+     "type": "text",
+     "placeholder": "paste the caller if you have it"
+    }
+   ],
+   "prompt": "Design test doubles for {dep} as used by: {code} in the profile framework. Sections: a table (Option: fake/stub/mock/spy/real-in-container | Fits when | Cost), a quote with the recommended double and one test using it, bullets on the interface seam to introduce if none exists, and a callout on the symptoms of over-mocking.",
+   "shape": "table, quote, bullets, callout",
+   "button": "Design double",
+   "loading": "Faking it…"
+  },
+  {
+   "id": "gaps",
+   "title": "Find coverage gaps",
+   "subtitle": "Code + tests → what's missing",
+   "emoji": "🕳️",
+   "inputs": [
+    {
+     "key": "code",
+     "label": "Code",
+     "type": "longtext",
+     "placeholder": "paste the module",
+     "required": true
+    },
+    {
+     "key": "tests",
+     "label": "Existing tests",
+     "type": "longtext",
+     "placeholder": "paste the current test file"
+    }
+   ],
+   "prompt": "Compare {code} against the existing tests: {tests}. Sections: a checklist of untested behaviours (branches, error paths, boundaries, concurrency), a table (Gap | Risk if it breaks | Test to add), a quote with the two most valuable missing tests written out in the profile framework, and a callout on any existing test that asserts nothing useful.",
+   "shape": "checklist, table, quote, callout",
+   "button": "Find gaps",
+   "loading": "Tracing branches…"
+  }
+ ]
+}

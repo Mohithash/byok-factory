@@ -1,0 +1,221 @@
+{
+ "id": "engine_room",
+ "name": "Engine Room",
+ "tagline": "Conditioning that makes you fitter, not just tired",
+ "category": "Health & Fitness",
+ "colors": [
+  "#212121",
+  "#00B0FF",
+  "#FF1744"
+ ],
+ "icon": "bolt",
+ "about": "Engine Room builds conditioning around the machines and space you have (rower, air bike, ski erg, sled, bodyweight) with paced intervals, EMOMs and benchmark tests that show your engine growing week by week.",
+ "persona": "You are a conditioning coach from the CrossFit and rowing worlds: you programme by intent (aerobic base, threshold, sprint), you hate random sweat sessions, and you make people hold a pace instead of blowing up.",
+ "onboarding": {
+  "title": "What machines can you use?",
+  "subtitle": "Kit, weekly lifting days and current benchmarks shape every piece.",
+  "bullets": [
+   "Intervals with target paces",
+   "Benchmark tests you can retest",
+   "Conditioning that fits around lifting"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "kit",
+   "label": "Available",
+   "type": "chips",
+   "options": [
+    "Rower",
+    "Air bike",
+    "Ski erg",
+    "Spin bike",
+    "Treadmill",
+    "Sled",
+    "Jump rope",
+    "Bodyweight only"
+   ],
+   "multi": true
+  },
+  {
+   "key": "bench",
+   "label": "Recent benchmarks",
+   "type": "text",
+   "placeholder": "2k row 8:10, 1-mile run 8:30"
+  },
+  {
+   "key": "lifting",
+   "label": "Lifting days/week",
+   "type": "chips",
+   "options": [
+    "0",
+    "1–2",
+    "3–4",
+    "5+"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "piece",
+   "title": "Build a piece",
+   "subtitle": "Intent, minutes and kit into a paced workout",
+   "emoji": "⚙️",
+   "inputs": [
+    {
+     "key": "intent",
+     "label": "Intent",
+     "type": "chips",
+     "options": [
+      "Aerobic base",
+      "Threshold",
+      "VO2 intervals",
+      "Sprint or power",
+      "Mixed-modal (EMOM or AMRAP)"
+     ],
+     "default": "Threshold"
+    },
+    {
+     "key": "minutes",
+     "label": "Minutes",
+     "type": "chips",
+     "options": [
+      "12",
+      "20",
+      "30",
+      "45"
+     ],
+     "default": "20"
+    },
+    {
+     "key": "avoid",
+     "label": "Avoid",
+     "type": "text",
+     "placeholder": "no running today, sore calf"
+    }
+   ],
+   "prompt": "Design a {minutes}-minute conditioning piece with intent '{intent}' from the profile kit and benchmarks, avoiding: {avoid}. Sections: kv (format, target pace or RPE, work to rest, what the session trains), a table (Interval | Work | Rest | Target pace, watts or RPE | Cue), steps for a warm-up that matches the intent, and a callout on the stop signal (a pace drop over 5 percent means the piece is done).",
+   "shape": "kv, table, steps, callout",
+   "button": "Build piece",
+   "loading": "Setting the damper…"
+  },
+  {
+   "id": "benchmark",
+   "title": "Benchmark test",
+   "subtitle": "Set or retest a standard",
+   "emoji": "⏱️",
+   "inputs": [
+    {
+     "key": "test",
+     "label": "Test",
+     "type": "chips",
+     "options": [
+      "2k row",
+      "500m row",
+      "1-mile run",
+      "5-min air bike max calories",
+      "1k ski",
+      "10-min burpee AMRAP"
+     ],
+     "default": "2k row"
+    }
+   ],
+   "prompt": "Prepare the profile athlete for a {test}. Sections: steps for pacing the test with target splits per segment derived from the profile benchmarks, a table (Segment | Target split or pace | Effort | What to think), a checklist for warm-up and setup (damper, screen units, timing), and a callout on when to abandon a test.",
+   "shape": "steps, table, checklist, callout",
+   "button": "Prep test",
+   "loading": "Calibrating…"
+  },
+  {
+   "id": "week",
+   "title": "Conditioning week",
+   "subtitle": "Pieces that fit around your lifting",
+   "emoji": "📅",
+   "inputs": [
+    {
+     "key": "sessions",
+     "label": "Conditioning sessions",
+     "type": "chips",
+     "options": [
+      "2",
+      "3",
+      "4"
+     ],
+     "default": "3"
+    },
+    {
+     "key": "goal",
+     "label": "6-week goal",
+     "type": "chips",
+     "options": [
+      "Bigger aerobic base",
+      "Faster 2k or mile",
+      "Repeat-sprint fitness",
+      "Fat loss",
+      "Hyrox or mixed event"
+     ],
+     "default": "Bigger aerobic base"
+    }
+   ],
+   "prompt": "Plan a conditioning week with {sessions} sessions toward '{goal}' around the profile lifting days and kit. Sections: a table (Day | Lifting? | Conditioning piece | Intent | Duration), bullets on ordering conditioning before or after lifting, a callout on total weekly hard minutes to avoid overreaching, and kv (paces to hold this week per machine).",
+   "shape": "table, bullets, callout, kv",
+   "button": "Plan week",
+   "loading": "Balancing load…"
+  },
+  {
+   "id": "pacing",
+   "title": "Review my splits",
+   "subtitle": "Paste splits or a monitor summary",
+   "emoji": "📊",
+   "inputs": [
+    {
+     "key": "splits",
+     "label": "Splits or summary",
+     "type": "longtext",
+     "placeholder": "2k row: 2:01, 2:03, 2:06, 2:12, total 8:22",
+     "required": true
+    }
+   ],
+   "prompt": "Analyse these splits against the profile benchmarks: {splits}. Sections: kv (pacing verdict: even, positive or negative split, and its cost in seconds), a table (Segment | Split | Versus target | What happened), bullets on the technical or pacing cause, and steps for the next attempt with exact target splits.",
+   "shape": "kv, table, bullets, steps",
+   "button": "Analyse",
+   "loading": "Reading the monitor…"
+  },
+  {
+   "id": "machine",
+   "title": "Machine technique",
+   "subtitle": "Row, ski, bike and sled done properly",
+   "emoji": "🚣",
+   "inputs": [
+    {
+     "key": "machine",
+     "label": "Machine",
+     "type": "chips",
+     "options": [
+      "Rower",
+      "Ski erg",
+      "Air bike",
+      "Sled push or pull",
+      "Jump rope"
+     ],
+     "default": "Rower"
+    },
+    {
+     "key": "issue",
+     "label": "What goes wrong",
+     "type": "text",
+     "placeholder": "back tires before legs"
+    }
+   ],
+   "prompt": "Teach {machine} technique for this problem: {issue}. Sections: steps for the stroke or movement sequence with timing ratios, a table (Fault | Symptom | Fix drill), bullets on damper, settings or setup, and a quote with the one cue to repeat during the piece.",
+   "shape": "steps, table, bullets, quote",
+   "button": "Teach me",
+   "loading": "Tuning the stroke…"
+  }
+ ],
+ "disclaimer": "Not medical advice. Stop if you feel sharp pain, dizziness or chest symptoms, and check with a clinician before starting a new programme if you have a health condition or injury."
+}

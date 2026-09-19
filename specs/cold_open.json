@@ -1,0 +1,187 @@
+{
+ "id": "cold_open",
+ "name": "Cold Open",
+ "tagline": "From podcast idea to published episode, every week",
+ "category": "Music & Audio",
+ "colors": [
+  "#F4511E",
+  "#263238",
+  "#26C6DA"
+ ],
+ "icon": "chat",
+ "about": "Cold Open takes a podcast from idea to published episode: episode outlines with cold opens, interview questions that dig deeper, show notes and titles from a transcript, better sound on your setup, and a launch or growth plan.",
+ "persona": "You are a podcast producer who has launched shows from bedroom to network: structure-obsessed, allergic to waffle, practical about gear and time, and honest that consistency beats polish.",
+ "onboarding": {
+  "title": "Make a show people finish",
+  "subtitle": "Tell us about your podcast, or the one you're about to start.",
+  "bullets": [
+   "Episode outlines with cold opens",
+   "Interview questions that dig deeper",
+   "Show notes, titles and growth plans"
+  ]
+ },
+ "profile": [
+  {
+   "key": "show",
+   "label": "Show name & premise",
+   "type": "text",
+   "placeholder": "'Small Batch' — interviews with indie food makers"
+  },
+  {
+   "key": "format",
+   "label": "Format",
+   "type": "chips",
+   "options": [
+    "Solo",
+    "Co-hosted",
+    "Interview",
+    "Narrative/documentary",
+    "Panel"
+   ]
+  },
+  {
+   "key": "length",
+   "label": "Episode length",
+   "type": "chips",
+   "options": [
+    "10–20 min",
+    "20–40 min",
+    "40–60 min",
+    "60+ min"
+   ]
+  },
+  {
+   "key": "stage",
+   "label": "Stage",
+   "type": "chips",
+   "options": [
+    "Idea",
+    "Launched, under 10 episodes",
+    "Established"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "outline",
+   "title": "Outline an episode",
+   "subtitle": "Cold open, segments, beats",
+   "emoji": "🎬",
+   "inputs": [
+    {
+     "key": "topic",
+     "label": "Episode topic",
+     "type": "text",
+     "placeholder": "why sourdough starters fail",
+     "required": true
+    },
+    {
+     "key": "angle",
+     "label": "Angle / guest",
+     "type": "text",
+     "placeholder": "guest: a bakery owner who lost her starter"
+    }
+   ],
+   "prompt": "Outline an episode on '{topic}' ({angle}) for the profile format and length: a quote with a 30-second cold-open script, a table (Segment | Minutes | Purpose | Key beat), bullets of transitions and callbacks, and a callout on the moment listeners are most likely to drop off and how to hold them.",
+   "shape": "quote, table, bullets, callout",
+   "button": "Outline",
+   "loading": "Drafting the open…"
+  },
+  {
+   "id": "questions",
+   "title": "Interview questions",
+   "subtitle": "Easy → deep → reflective, with probes",
+   "emoji": "❓",
+   "inputs": [
+    {
+     "key": "guest",
+     "label": "Guest & background",
+     "type": "text",
+     "required": true
+    },
+    {
+     "key": "goal",
+     "label": "What the episode should reveal",
+     "type": "text"
+    }
+   ],
+   "prompt": "Prepare an interview with {guest} to reveal {goal}: bullets of 12 questions ordered easy → deep → reflective, each with a follow-up probe; a kv of the 3 stories to fish for; steps for the pre-interview email and the first 2 minutes on the call; and a callout on questions to avoid.",
+   "shape": "bullets, kv, steps, callout",
+   "button": "Prepare",
+   "loading": "Doing the research…"
+  },
+  {
+   "id": "notes",
+   "title": "Show notes & titles",
+   "subtitle": "Transcript → titles, notes, chapters",
+   "emoji": "📝",
+   "inputs": [
+    {
+     "key": "transcript",
+     "label": "Transcript or rough notes",
+     "type": "longtext",
+     "placeholder": "paste the transcript or your bullet notes",
+     "required": true
+    }
+   ],
+   "prompt": "From this: {transcript} — produce bullets of 6 title options (curiosity-led, under 60 characters), text of show notes (2 short paragraphs), a table of chapters (Time | Chapter), a checklist of links and resources mentioned, and a quote with a 2-sentence social post.",
+   "shape": "bullets, text, table, checklist, quote",
+   "button": "Write notes",
+   "loading": "Skimming the tape…"
+  },
+  {
+   "id": "launch",
+   "title": "Launch / growth plan",
+   "subtitle": "Weeks, actions, signals",
+   "emoji": "🚀",
+   "inputs": [
+    {
+     "key": "goal",
+     "label": "Goal",
+     "type": "chips",
+     "options": [
+      "Launch in 30 days",
+      "Grow listeners",
+      "Get sponsors",
+      "Restart after a break"
+     ],
+     "default": "Launch in 30 days"
+    }
+   ],
+   "prompt": "A plan to {goal} for the profile show: table (Week | Action | Effort hours | Success signal), a checklist of the assets needed (artwork, trailer, RSS host, a 3-episode buffer), bullets on distribution levers that actually move numbers, and a callout on vanity metrics to ignore.",
+   "shape": "table, checklist, bullets, callout",
+   "button": "Plan it",
+   "loading": "Charting the launch…"
+  },
+  {
+   "id": "audio",
+   "title": "Sound better",
+   "subtitle": "Fix the room, the mic and the guest",
+   "emoji": "🎚️",
+   "inputs": [
+    {
+     "key": "setup",
+     "label": "Setup",
+     "type": "chips",
+     "options": [
+      "Phone",
+      "USB mic",
+      "XLR mic + interface",
+      "Remote guest over Zoom/Riverside"
+     ],
+     "default": "USB mic"
+    },
+    {
+     "key": "problem",
+     "label": "Problem",
+     "type": "text",
+     "placeholder": "echoey room, guest audio is quiet"
+    }
+   ],
+   "prompt": "Improve recording on {setup} with this problem: {problem}. Sections: table (Issue | Cause | Free fix | Paid fix), steps for a 5-minute pre-record check, and a kv of settings (gain, mic distance, sample rate, file format).",
+   "shape": "table, steps, kv",
+   "button": "Fix audio",
+   "loading": "Checking levels…"
+  }
+ ]
+}

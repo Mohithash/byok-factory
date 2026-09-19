@@ -1,0 +1,201 @@
+{
+ "id": "slugline",
+ "name": "Slugline",
+ "tagline": "Screenplay format and scene notes in seconds",
+ "category": "Art & Design",
+ "colors": [
+  "#212121",
+  "#FDD835",
+  "#E53935"
+ ],
+ "icon": "camera",
+ "about": "Slugline converts rough scenes into correctly formatted screenplay pages, gives reader-style coverage on each scene, writes loglines, and checks your outline against a beat sheet.",
+ "persona": "You are a working script editor: you know industry formatting cold, read like a studio reader, and give notes that name the problem and the fix without rewriting the writer's voice.",
+ "onboarding": {
+  "title": "Write it like a pro reads it",
+  "subtitle": "Set your format and standard once; every page follows it.",
+  "bullets": [
+   "Prose → proper screenplay format",
+   "Reader-style scene coverage",
+   "Loglines and beat-sheet checks"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "format",
+   "label": "Format",
+   "type": "chips",
+   "options": [
+    "Feature",
+    "TV drama (hour)",
+    "Sitcom (multi-cam)",
+    "Short film",
+    "Web series"
+   ],
+   "default": "Feature"
+  },
+  {
+   "key": "standard",
+   "label": "Standard",
+   "type": "chips",
+   "options": [
+    "US (Final Draft style)",
+    "UK (BBC style)"
+   ],
+   "default": "US (Final Draft style)"
+  },
+  {
+   "key": "project",
+   "label": "Current project",
+   "type": "text",
+   "placeholder": "title, genre, one line"
+  }
+ ],
+ "tools": [
+  {
+   "id": "format",
+   "title": "Format this scene",
+   "subtitle": "Rough prose → screenplay page",
+   "emoji": "🎬",
+   "inputs": [
+    {
+     "key": "scene",
+     "label": "Scene as prose or rough script",
+     "type": "longtext",
+     "placeholder": "Sam walks into the diner, sees Lee, and…",
+     "required": true
+    },
+    {
+     "key": "fix",
+     "label": "Also",
+     "type": "chips",
+     "options": [
+      "Format only",
+      "Format + trim action lines",
+      "Format + tighten dialogue"
+     ],
+     "default": "Format only"
+    }
+   ],
+   "prompt": "Convert to the profile's screenplay standard, mode '{fix}': {scene}. Sections: quote containing the formatted scene (INT./EXT. slugline with location and time, present-tense action in blocks of at most 4 lines, character cues in caps, parentheticals only when essential, no camera directions unless present in the source); checklist of formatting rules applied; kv (estimated page length in eighths, speaking characters, word count of action vs dialogue).",
+   "shape": "quote, checklist, kv",
+   "button": "Format scene",
+   "loading": "Setting margins…"
+  },
+  {
+   "id": "coverage",
+   "title": "Scene notes",
+   "subtitle": "Coverage on one scene",
+   "emoji": "📝",
+   "inputs": [
+    {
+     "key": "scene",
+     "label": "Scene",
+     "type": "longtext",
+     "placeholder": "Paste the scene…",
+     "required": true
+    },
+    {
+     "key": "purpose",
+     "label": "What the scene must do",
+     "type": "text",
+     "placeholder": "reveal that Ana lied about the money"
+    }
+   ],
+   "prompt": "Give reader coverage on: {scene}, which must accomplish: {purpose}. Table (Element: entry point / conflict / turn / exit / subtext / exposition | Working | Not working | Fix); bullets on where exposition is being delivered on the nose; kv (suggested enter-late point, suggested leave-early point, lines that could be cut); a quote with the weakest beat rewritten in the same voice.",
+   "shape": "table, bullets, kv, quote",
+   "button": "Give notes",
+   "loading": "Reading coverage…"
+  },
+  {
+   "id": "logline",
+   "title": "Logline & synopsis",
+   "subtitle": "Pitch it in one sentence, then 150 words",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "premise",
+     "label": "Premise / what happens",
+     "type": "longtext",
+     "placeholder": "A retired safecracker must…",
+     "required": true
+    },
+    {
+     "key": "genre",
+     "label": "Genre",
+     "type": "chips",
+     "options": [
+      "Drama",
+      "Comedy",
+      "Thriller",
+      "Horror",
+      "Romance",
+      "Sci-fi / fantasy",
+      "Documentary"
+     ],
+     "default": "Drama"
+    }
+   ],
+   "prompt": "From the premise {premise} in genre '{genre}' for the profile format: cards with 3 loglines (meta = angle: character-driven / high-concept / ironic), each with protagonist, goal, obstacle and stakes in one sentence; text with a 150-word synopsis in present tense; bullets of 3 comparable titles and what to borrow from each.",
+   "shape": "cards, text, bullets",
+   "button": "Write loglines",
+   "loading": "Boiling it down…"
+  },
+  {
+   "id": "dialogue",
+   "title": "Subtext pass",
+   "subtitle": "Cut the on-the-nose lines",
+   "emoji": "🗣️",
+   "inputs": [
+    {
+     "key": "dialogue",
+     "label": "Dialogue exchange",
+     "type": "longtext",
+     "placeholder": "Paste the exchange…",
+     "required": true
+    },
+    {
+     "key": "mood",
+     "label": "Undercurrent",
+     "type": "chips",
+     "options": [
+      "Hidden anger",
+      "Attraction",
+      "Fear",
+      "Guilt",
+      "Power play"
+     ],
+     "default": "Hidden anger"
+    }
+   ],
+   "prompt": "Rewrite this exchange so the undercurrent '{mood}' is felt but never stated: {dialogue}. Sections: quote with the rewritten exchange in screenplay format; table (Original line | Why it is on the nose | Rewritten | What it now hides); a callout on whether the first and last lines of the exchange can be cut.",
+   "shape": "quote, table, callout",
+   "button": "Add subtext",
+   "loading": "Reading subtext…"
+  },
+  {
+   "id": "beats",
+   "title": "Beat sheet check",
+   "subtitle": "Outline vs 15 beats with page targets",
+   "emoji": "🧭",
+   "inputs": [
+    {
+     "key": "outline",
+     "label": "Outline or treatment",
+     "type": "longtext",
+     "placeholder": "Paste your outline…",
+     "required": true
+    }
+   ],
+   "prompt": "Check this outline against a 15-beat structure scaled to the profile format's page count: {outline}. Table (Beat | Page target | Present? yes / weak / missing | Notes) for all 15 beats in order; a callout on the midpoint and the sagging second act; steps to fix the 3 weakest beats.",
+   "shape": "table, callout, steps",
+   "button": "Check beats",
+   "loading": "Counting pages…"
+  }
+ ]
+}

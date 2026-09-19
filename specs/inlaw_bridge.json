@@ -1,0 +1,214 @@
+{
+ "id": "inlaw_bridge",
+ "name": "In-Law Bridge",
+ "tagline": "Keep the peace with their family, and your sanity",
+ "category": "Lifestyle",
+ "colors": [
+  "#6D4C41",
+  "#43A047",
+  "#FB8C00"
+ ],
+ "icon": "home",
+ "about": "In-Law Bridge helps you handle your partner's family: decode loaded comments, agree a united front with your partner, split the holidays fairly, and host or visit without the usual friction.",
+ "persona": "You are a diplomatic family mediator with a sense of humour: you assume good intent until proven otherwise, keep the couple as the primary team, and give words people can actually say to a mother-in-law.",
+ "onboarding": {
+  "title": "Two families, one team",
+  "subtitle": "Tell us who's who and where it gets tense.",
+  "bullets": [
+   "Decode what that comment meant",
+   "United-front scripts with your partner",
+   "Holiday splits that feel fair"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "partner",
+   "label": "Partner's name",
+   "type": "text",
+   "placeholder": "Jo"
+  },
+  {
+   "key": "inlaws",
+   "label": "The in-laws (names, roles)",
+   "type": "text",
+   "placeholder": "Margaret (MIL), Dave (FIL), sister Claire"
+  },
+  {
+   "key": "friction",
+   "label": "Main friction",
+   "type": "chips",
+   "options": [
+    "Unsolicited advice",
+    "Boundaries at visits",
+    "Favouritism / comparison",
+    "Parenting comments",
+    "Money",
+    "None yet"
+   ],
+   "multi": true
+  }
+ ],
+ "tools": [
+  {
+   "id": "decode",
+   "title": "What did they mean?",
+   "subtitle": "A comment that's still bothering you",
+   "emoji": "💬",
+   "inputs": [
+    {
+     "key": "comment",
+     "label": "What they said",
+     "type": "longtext",
+     "placeholder": "'Oh, you're feeding him that?'",
+     "required": true
+    },
+    {
+     "key": "context",
+     "label": "Context",
+     "type": "text",
+     "placeholder": "at Sunday lunch, in front of everyone"
+    }
+   ],
+   "prompt": "They said: {comment}. Context: {context}. Give a table (Reading | How likely | Evidence) with 3 possible meanings from innocent to pointed, a quote with a light non-escalating reply to use next time, a second quote with a firmer reply if it's a pattern, and a callout on whether this is worth raising with your partner.",
+   "shape": "table, quote, callout",
+   "button": "Decode",
+   "loading": "Reading the room…"
+  },
+  {
+   "id": "united",
+   "title": "United front",
+   "subtitle": "Get on the same page as your partner first",
+   "emoji": "🤝",
+   "inputs": [
+    {
+     "key": "issue",
+     "label": "The issue",
+     "type": "longtext",
+     "placeholder": "his mum drops in unannounced and rearranges the kitchen",
+     "required": true
+    },
+    {
+     "key": "partner_view",
+     "label": "My partner thinks",
+     "type": "chips",
+     "options": [
+      "It's no big deal",
+      "Agrees but won't say anything",
+      "Sides with me",
+      "We haven't discussed it"
+     ],
+     "default": "Agrees but won't say anything"
+    }
+   ],
+   "prompt": "Issue: {issue}. Partner's stance: {partner_view}. Steps for a 15-minute conversation with your partner that ends in an agreed line rather than a debate about their family, a quote with the script your partner can say to their own parent (the message should come from the blood relative), a kv (What we'll accept | What we won't | What happens if it continues), and a callout on avoiding the 'me versus your mum' trap.",
+   "shape": "steps, quote, kv, callout",
+   "button": "Align us",
+   "loading": "Team talk…"
+  },
+  {
+   "id": "holidays",
+   "title": "Split the holidays",
+   "subtitle": "Whose family gets what",
+   "emoji": "🎄",
+   "inputs": [
+    {
+     "key": "occasions",
+     "label": "Occasions in play",
+     "type": "text",
+     "placeholder": "Christmas, Eid, both mums' birthdays"
+    },
+    {
+     "key": "distance",
+     "label": "Distances",
+     "type": "text",
+     "placeholder": "mine 1h drive, theirs a flight"
+    },
+    {
+     "key": "kids",
+     "label": "Kids involved?",
+     "type": "chips",
+     "options": [
+      "No",
+      "Yes, young",
+      "Yes, older"
+     ],
+     "default": "No"
+    }
+   ],
+   "prompt": "Occasions: {occasions}; distances: {distance}; kids: {kids}. Propose 3 rotation systems as cards (meta = fairness · travel load), a table for the next 2 years (Occasion | Year 1 | Year 2 | Notes), a quote announcing the plan to both families warmly, and bullets on handling the family that feels short-changed.",
+   "shape": "cards, table, quote, bullets",
+   "button": "Propose a split",
+   "loading": "Drawing the rota…"
+  },
+  {
+   "id": "boundary",
+   "title": "Set a boundary kindly",
+   "subtitle": "Firm, warm, no drama",
+   "emoji": "🚧",
+   "inputs": [
+    {
+     "key": "what",
+     "label": "What needs to change",
+     "type": "longtext",
+     "placeholder": "she comments on my weight every visit",
+     "required": true
+    },
+    {
+     "key": "who_says",
+     "label": "Who delivers it",
+     "type": "chips",
+     "options": [
+      "Me",
+      "My partner",
+      "Both of us together"
+     ],
+     "default": "My partner"
+    }
+   ],
+   "prompt": "Boundary needed: {what}. Delivered by: {who_says}. A quote with the exact wording (under 50 words, warm then clear), steps for the delivery (when, where, what to do right after), a table (If they say… | You say…) with 4 common pushbacks, and a callout on holding it the first three times without re-explaining.",
+   "shape": "quote, steps, table, callout",
+   "button": "Word it",
+   "loading": "Choosing words…"
+  },
+  {
+   "id": "visit",
+   "title": "Survive the visit",
+   "subtitle": "Hosting them or staying there",
+   "emoji": "🧳",
+   "inputs": [
+    {
+     "key": "type",
+     "label": "Visit",
+     "type": "chips",
+     "options": [
+      "They're staying with us",
+      "We're staying with them",
+      "Day visit"
+     ],
+     "default": "They're staying with us"
+    },
+    {
+     "key": "days",
+     "label": "Days",
+     "type": "number",
+     "placeholder": "3"
+    },
+    {
+     "key": "worries",
+     "label": "What I'm dreading",
+     "type": "text",
+     "placeholder": "no privacy, comments on how we parent"
+    }
+   ],
+   "prompt": "Visit type: {type}, {days} days, dreading: {worries}. Checklist to prep (space, food, ground rules agreed with partner), a table (Day | Plan | Built-in break | Who hosts that slot), bullets of 5 safe conversation topics and 3 to avoid, and a quote with a graceful exit line for when you need ten minutes alone.",
+   "shape": "checklist, table, bullets, quote",
+   "button": "Plan the visit",
+   "loading": "Fluffing pillows…"
+  }
+ ]
+}

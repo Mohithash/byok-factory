@@ -1,0 +1,202 @@
+{
+ "id": "pod_pilot",
+ "name": "Pod Pilot",
+ "tagline": "Manifests, crashing pods and pipelines, sorted",
+ "category": "Tools",
+ "colors": [
+  "#326CE5",
+  "#FF6B35",
+  "#14B8A6"
+ ],
+ "icon": "globe",
+ "about": "Pod Pilot writes Kubernetes manifests with sane limits and probes, diagnoses crashing or pending pods from kubectl output, slims Dockerfiles, drafts CI pipelines and writes on-call runbooks.",
+ "persona": "You are an SRE who has been paged too many times: you write boring, explicit YAML, always set resource requests, and treat production changes as a checklist.",
+ "onboarding": {
+  "title": "Keep the cluster boring",
+  "subtitle": "Your platform and CI shape every manifest.",
+  "bullets": [
+   "Manifests with limits and probes",
+   "Pod crash diagnosis",
+   "CI pipelines and runbooks"
+  ]
+ },
+ "profile": [
+  {
+   "key": "platform",
+   "label": "Cluster",
+   "type": "chips",
+   "options": [
+    "EKS",
+    "GKE",
+    "AKS",
+    "k3s/kind",
+    "OpenShift",
+    "Other"
+   ]
+  },
+  {
+   "key": "ci",
+   "label": "CI",
+   "type": "chips",
+   "options": [
+    "GitHub Actions",
+    "GitLab CI",
+    "Jenkins",
+    "Argo/Tekton",
+    "CircleCI"
+   ],
+   "default": "GitHub Actions"
+  },
+  {
+   "key": "packaging",
+   "label": "Packaging",
+   "type": "chips",
+   "options": [
+    "Plain YAML",
+    "Helm",
+    "Kustomize"
+   ],
+   "default": "Helm"
+  },
+  {
+   "key": "stack",
+   "label": "Typical services",
+   "type": "text",
+   "placeholder": "Node APIs, Postgres, Redis"
+  }
+ ],
+ "tools": [
+  {
+   "id": "manifest",
+   "title": "Write a manifest",
+   "subtitle": "Service → Deployment, Service, Ingress",
+   "emoji": "📄",
+   "inputs": [
+    {
+     "key": "service",
+     "label": "Service description",
+     "type": "longtext",
+     "placeholder": "Node API on port 3000, needs a DATABASE_URL secret, 2 replicas, public at api.example.com",
+     "required": true
+    },
+    {
+     "key": "extras",
+     "label": "Include",
+     "type": "chips",
+     "options": [
+      "HPA",
+      "PodDisruptionBudget",
+      "NetworkPolicy",
+      "ConfigMap"
+     ],
+     "multi": true
+    }
+   ],
+   "prompt": "Write Kubernetes manifests for: {service}, including {extras}, in the profile packaging style. Sections: a quote with the complete YAML (requests and limits, liveness and readiness probes, non-root securityContext, consistent labels), a table (Setting | Value chosen | Why), a checklist to apply and verify it, and a callout on the value most likely to need tuning.",
+   "shape": "quote, table, checklist, callout",
+   "button": "Write YAML",
+   "loading": "Indenting…"
+  },
+  {
+   "id": "crash",
+   "title": "Why is my pod broken?",
+   "subtitle": "kubectl describe / logs → cause",
+   "emoji": "🚑",
+   "inputs": [
+    {
+     "key": "output",
+     "label": "kubectl output",
+     "type": "longtext",
+     "placeholder": "paste kubectl describe pod and the last logs",
+     "required": true
+    },
+    {
+     "key": "status",
+     "label": "Pod status",
+     "type": "text",
+     "placeholder": "CrashLoopBackOff / Pending / ImagePullBackOff / OOMKilled"
+    }
+   ],
+   "prompt": "Diagnose a pod in {status} from: {output}. Sections: text naming the cause in two sentences, steps to confirm it with exact kubectl commands, a quote with the fix (a YAML patch or command), and a table of other common causes of {status} (Cause | How to spot it | Fix).",
+   "shape": "text, steps, quote, table",
+   "button": "Diagnose",
+   "loading": "Describing pod…"
+  },
+  {
+   "id": "docker",
+   "title": "Slim my Dockerfile",
+   "subtitle": "Smaller, faster, safer image",
+   "emoji": "🐳",
+   "inputs": [
+    {
+     "key": "dockerfile",
+     "label": "Dockerfile",
+     "type": "longtext",
+     "placeholder": "paste it",
+     "required": true
+    }
+   ],
+   "prompt": "Review and rewrite this Dockerfile: {dockerfile}. Sections: a table (Line | Problem: size/cache/security/reproducibility | Fix), a quote with the rewritten multi-stage Dockerfile (pinned base image, non-root user, layer order for cache hits, .dockerignore noted), a kv (estimated size before, estimated size after, build-time change), and a callout on secrets that must never be baked into layers.",
+   "shape": "table, quote, kv, callout",
+   "button": "Slim it",
+   "loading": "Squashing layers…"
+  },
+  {
+   "id": "pipeline",
+   "title": "Draft a CI pipeline",
+   "subtitle": "Build, test, scan, deploy",
+   "emoji": "🔄",
+   "inputs": [
+    {
+     "key": "steps",
+     "label": "What it should do",
+     "type": "longtext",
+     "placeholder": "run tests, build the image, push to ECR, deploy to staging on main",
+     "required": true
+    },
+    {
+     "key": "deploy",
+     "label": "Deploy via",
+     "type": "chips",
+     "options": [
+      "kubectl apply",
+      "Helm upgrade",
+      "Argo CD sync",
+      "None"
+     ],
+     "default": "Helm upgrade"
+    }
+   ],
+   "prompt": "Write a pipeline for the profile CI that does: {steps}, deploying via {deploy}. Sections: a quote with the complete pipeline file (dependency caching, least-privilege permissions, image tagged by git SHA), a table (Job | Trigger | Secrets needed | Approx. duration), bullets on what would make it flaky, and a callout on protecting the deploy step with environments or approvals.",
+   "shape": "quote, table, bullets, callout",
+   "button": "Draft pipeline",
+   "loading": "Queuing jobs…"
+  },
+  {
+   "id": "runbook",
+   "title": "Write a runbook",
+   "subtitle": "Alert → what on-call does at 3am",
+   "emoji": "📟",
+   "inputs": [
+    {
+     "key": "alert",
+     "label": "Alert or symptom",
+     "type": "text",
+     "placeholder": "p95 latency > 2s on the checkout service",
+     "required": true
+    },
+    {
+     "key": "arch",
+     "label": "Relevant architecture",
+     "type": "text",
+     "placeholder": "API → Redis cache → Postgres on RDS"
+    }
+   ],
+   "prompt": "Write an on-call runbook for: {alert}, architecture: {arch}. Sections: a checklist for the first 5 minutes (exact commands and dashboards to check), a table (Hypothesis | How to confirm | Mitigation | Rollback), steps for escalation and communication, and a quote with a status-page update template.",
+   "shape": "checklist, table, steps, quote",
+   "button": "Write runbook",
+   "loading": "Paging…"
+  }
+ ],
+ "disclaimer": "Generated commands and manifests can change or delete infrastructure; review every line and test in a non-production environment before applying."
+}

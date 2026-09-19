@@ -1,0 +1,181 @@
+{
+ "id": "book_nook",
+ "name": "Book Nook",
+ "tagline": "Turn any picture book into a conversation",
+ "category": "Parenting",
+ "colors": [
+  "#8E24AA",
+  "#FFB300",
+  "#00ACC1"
+ ],
+ "icon": "moon",
+ "about": "Book Nook makes read-alouds richer for 2–6-year-olds: question prompts for the exact picture book in your hands, vocabulary to stretch, retell games, book picks for your child's obsessions and a bedtime routine that ends with a story.",
+ "persona": "You are an early-literacy librarian trained in dialogic reading (PEER and CROWD prompts): warm, curious, child-led, and you follow the child's interests rather than quizzing them.",
+ "onboarding": {
+  "title": "Read with them, not at them",
+  "subtitle": "Tell us about your little reader and their favourite things.",
+  "bullets": [
+   "Question prompts for any picture book",
+   "Vocabulary and retell games",
+   "Book picks for their obsessions"
+  ]
+ },
+ "profile": [
+  {
+   "key": "child",
+   "label": "Child's name & age",
+   "type": "text",
+   "placeholder": "Leo, 3"
+  },
+  {
+   "key": "loves",
+   "label": "Current obsessions",
+   "type": "text",
+   "placeholder": "diggers, dinosaurs, the moon"
+  },
+  {
+   "key": "lang",
+   "label": "Reading in",
+   "type": "chips",
+   "options": [
+    "English",
+    "Bilingual home",
+    "English as a second language"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "prompts",
+   "title": "Prompts for this book",
+   "subtitle": "Questions matched to the pages",
+   "emoji": "💬",
+   "inputs": [
+    {
+     "key": "book",
+     "label": "Book title (and author)",
+     "type": "text",
+     "placeholder": "The Gruffalo, Julia Donaldson",
+     "required": true
+    },
+    {
+     "key": "photo",
+     "label": "Photo of the cover or a page (optional)",
+     "type": "photo"
+    }
+   ],
+   "prompt": "For the picture book {book} (and the photo if given), prepare a dialogic read-aloud for the profile child. Sections: a table of 8 prompts (Page or moment | Prompt type: completion, recall, open-ended, wh-, distancing | What to say), a kv of 5 vocabulary words (Word → child-friendly definition and a gesture), a quote with a 3-line 'before we start' opener, and bullets on following the child's lead if they go off-script.",
+   "shape": "table, kv, quote, bullets",
+   "button": "Get prompts",
+   "loading": "Turning pages…"
+  },
+  {
+   "id": "retell",
+   "title": "Retell game",
+   "subtitle": "After the book: play it back",
+   "emoji": "🎭",
+   "inputs": [
+    {
+     "key": "book",
+     "label": "Book you just read",
+     "type": "text",
+     "placeholder": "We're Going on a Bear Hunt",
+     "required": true
+    },
+    {
+     "key": "style",
+     "label": "Style",
+     "type": "chips",
+     "options": [
+      "Puppets / toys",
+      "Act it out",
+      "Draw it",
+      "Story map",
+      "Change the ending"
+     ],
+     "default": "Act it out"
+    }
+   ],
+   "prompt": "Design a 10-minute retell of {book} in the style '{style}' for the profile child, using things found in a normal home. Sections: steps for the activity, bullets of 4 open questions that get them talking, a callout on the story-structure words to model (first, then, in the end, because), and a quote with one sentence starter the child can copy.",
+   "shape": "steps, bullets, callout, quote",
+   "button": "Play it back",
+   "loading": "Setting the scene…"
+  },
+  {
+   "id": "picks",
+   "title": "Book picks",
+   "subtitle": "Next reads for what they love",
+   "emoji": "📚",
+   "inputs": [
+    {
+     "key": "kind",
+     "label": "Looking for",
+     "type": "chips",
+     "options": [
+      "Picture books",
+      "Rhyming / phonemic",
+      "Non-fiction",
+      "Wordless",
+      "Bedtime calm",
+      "Big feelings"
+     ],
+     "default": "Picture books"
+    },
+    {
+     "key": "recent",
+     "label": "Books they loved recently",
+     "type": "text",
+     "placeholder": "Oi Frog, Dear Zoo"
+    }
+   ],
+   "prompt": "Recommend 8 real, widely available {kind} books for the profile child's age and obsessions, given they loved: {recent}. Cards (Title by Author, meta = age range · read time · why it fits), then a table (Title | Best for | One question to ask while reading), and a callout on library and second-hand ways to get them cheaply.",
+   "shape": "cards, table, callout",
+   "button": "Find books",
+   "loading": "Browsing shelves…"
+  },
+  {
+   "id": "routine",
+   "title": "Story routine",
+   "subtitle": "A bedtime that ends in a book",
+   "emoji": "🌙",
+   "inputs": [
+    {
+     "key": "evening",
+     "label": "What bedtime looks like now",
+     "type": "text",
+     "placeholder": "bath 6:30, chaos, screen until 7:30",
+     "required": true
+    },
+    {
+     "key": "minutes",
+     "label": "Minutes for reading",
+     "type": "number",
+     "placeholder": "15"
+    }
+   ],
+   "prompt": "Redesign the evening described as: {evening}, so it ends with {minutes} minutes of shared reading before sleep. Sections: steps with clock times, a checklist of reading-nook essentials (light, book basket, cue phrase), bullets on handling 'one more book' and refusals, and a callout on why the same book ten nights running is a good thing.",
+   "shape": "steps, checklist, bullets, callout",
+   "button": "Build routine",
+   "loading": "Dimming lights…"
+  },
+  {
+   "id": "words",
+   "title": "Word stretch",
+   "subtitle": "Grow vocabulary from everyday moments",
+   "emoji": "🌱",
+   "inputs": [
+    {
+     "key": "moment",
+     "label": "Where you are / what you're doing",
+     "type": "text",
+     "placeholder": "cooking pasta together",
+     "required": true
+    }
+   ],
+   "prompt": "Turn the moment '{moment}' into a language-rich exchange for the profile child. Sections: a kv of 6 rich words to use naturally (Word → how to say it in context), a quote with a short model conversation (parent lines and likely child replies), bullets on expanding what the child says by one word, and a callout on avoiding quiz mode.",
+   "shape": "kv, quote, bullets, callout",
+   "button": "Stretch words",
+   "loading": "Finding words…"
+  }
+ ]
+}

@@ -1,0 +1,178 @@
+{
+ "id": "count_me_in",
+ "name": "Count Me In",
+ "tagline": "Early maths in the kitchen, car and bath",
+ "category": "Education",
+ "colors": [
+  "#F4511E",
+  "#00897B",
+  "#7B1FA2"
+ ],
+ "icon": "spark",
+ "about": "Count Me In builds number sense in 3–7-year-olds through play: subitising, counting, number bonds, shapes and measuring, with games from everyday moments, quick check-ins to see what your child truly understands, and fixes for the classic wobbles.",
+ "persona": "You are an early-years maths specialist grounded in the counting principles and concrete–pictorial–abstract teaching: playful, hands-on, and you never rush a child to written sums.",
+ "onboarding": {
+  "title": "Maths is everywhere",
+  "subtitle": "Tell us their age and what they can already do.",
+  "bullets": [
+   "Games from everyday moments",
+   "Quick understanding check-ins",
+   "Number bonds without worksheets"
+  ]
+ },
+ "profile": [
+  {
+   "key": "child",
+   "label": "Child's name & age",
+   "type": "text",
+   "placeholder": "Mia, 4"
+  },
+  {
+   "key": "stage",
+   "label": "Can currently",
+   "type": "chips",
+   "options": [
+    "Say numbers to 10",
+    "Count objects to 10",
+    "Count to 20 and compare",
+    "Add and subtract within 10",
+    "Add and subtract within 20"
+   ]
+  },
+  {
+   "key": "toys",
+   "label": "Toys and things at home",
+   "type": "text",
+   "placeholder": "Duplo, toy cars, a dice, dried pasta"
+  }
+ ],
+ "tools": [
+  {
+   "id": "moment",
+   "title": "Maths right now",
+   "subtitle": "A game from wherever you are",
+   "emoji": "🛒",
+   "inputs": [
+    {
+     "key": "where",
+     "label": "Where are you / what's happening",
+     "type": "text",
+     "placeholder": "waiting at the doctor's, in the bath",
+     "required": true
+    },
+    {
+     "key": "minutes",
+     "label": "Minutes available",
+     "type": "number",
+     "placeholder": "5"
+    }
+   ],
+   "prompt": "Invent 3 maths games for the profile child playable in the situation '{where}' in about {minutes} minutes each, using only what's to hand. Cards (name, meta = skill · minutes · needs), then steps for the best game, bullets of the exact mathematical language to model (more, fewer, altogether, one more than), and a callout on how to tell the child got it versus guessed.",
+   "shape": "cards, steps, bullets, callout",
+   "button": "Play now",
+   "loading": "Counting on…"
+  },
+  {
+   "id": "skill",
+   "title": "Teach a skill",
+   "subtitle": "One concept, hands-on, one week",
+   "emoji": "🧱",
+   "inputs": [
+    {
+     "key": "skill",
+     "label": "Skill",
+     "type": "chips",
+     "options": [
+      "Subitising to 5",
+      "One-to-one counting",
+      "Number bonds to 10",
+      "Comparing and ordering",
+      "Counting on from a number",
+      "Teen numbers",
+      "2D shapes",
+      "Measuring and comparing length"
+     ],
+     "default": "Number bonds to 10"
+    },
+    {
+     "key": "wobble",
+     "label": "What goes wrong",
+     "type": "chips",
+     "options": [
+      "Nothing yet — new",
+      "Skips or double-counts",
+      "Counts from 1 every time",
+      "Gets teen numbers muddled",
+      "Loses interest fast"
+     ],
+     "default": "Nothing yet — new"
+    }
+   ],
+   "prompt": "Plan a 5-day, 10-minutes-a-day plan to build '{skill}' for the profile child, given: {wobble}. Sections: a table (Day | Activity | Materials from the profile | What to say), steps for the concrete → pictorial → abstract progression, a quote with 3 questions that reveal understanding, and a callout on what to do if day 3 is a disaster.",
+   "shape": "table, steps, quote, callout",
+   "button": "Plan week",
+   "loading": "Building blocks…"
+  },
+  {
+   "id": "checkin",
+   "title": "Understanding check-in",
+   "subtitle": "Find what they really know in 5 minutes",
+   "emoji": "🔍",
+   "inputs": [],
+   "prompt": "Create a 5-minute play-based check-in for the profile child's stage. Sections: a table of 6 tasks (Task | Materials | Secure looks like | Not yet looks like), a checklist the parent ticks during play, bullets interpreting common patterns of results, and a callout on the next skill to start based on the most likely result.",
+   "shape": "table, checklist, bullets, callout",
+   "button": "Check in",
+   "loading": "Peeking at numbers…"
+  },
+  {
+   "id": "worksheet",
+   "title": "Worksheet to play",
+   "subtitle": "Photo → hands-on version",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the worksheet or homework",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Read the worksheet in the photo and identify the skill and the method the school expects. Sections: kv (Skill, Method, Vocabulary the school uses, Common mistake), steps to do the same maths with objects from the profile before touching the paper, a table of 5 extra practice questions matching the sheet (Question | Answer | Hint), and a callout on how to help without giving answers.",
+   "shape": "kv, steps, table, callout",
+   "button": "Make it hands-on",
+   "loading": "Reading the sheet…"
+  },
+  {
+   "id": "story",
+   "title": "Number story",
+   "subtitle": "A maths story starring your child",
+   "emoji": "📖",
+   "inputs": [
+    {
+     "key": "theme",
+     "label": "Theme",
+     "type": "text",
+     "placeholder": "a picnic with 5 teddies",
+     "required": true
+    },
+    {
+     "key": "op",
+     "label": "Maths inside",
+     "type": "chips",
+     "options": [
+      "Counting and comparing",
+      "Adding",
+      "Taking away",
+      "Sharing equally",
+      "Shapes and patterns"
+     ],
+     "default": "Adding"
+    }
+   ],
+   "prompt": "Write a 12-sentence bedtime story about {theme} starring the profile child, with '{op}' woven into the plot at their stage. Sections: the story as a quote with 3 points where the parent pauses to ask a maths question in brackets, a kv of the answers (Pause → answer and why), bullets on acting it out with the profile's toys, and a callout on keeping it a story, not a test.",
+   "shape": "quote, kv, bullets, callout",
+   "button": "Tell story",
+   "loading": "Counting sheep…"
+  }
+ ]
+}

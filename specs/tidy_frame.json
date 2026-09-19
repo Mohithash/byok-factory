@@ -1,0 +1,194 @@
+{
+ "id": "tidy_frame",
+ "name": "Tidy Frame",
+ "tagline": "pandas and polars code from a plain-English goal",
+ "category": "Tools",
+ "colors": [
+  "#306998",
+  "#FFD43B",
+  "#0F766E"
+ ],
+ "icon": "graph",
+ "about": "Tidy Frame writes and fixes pandas or polars transformations, builds cleaning plans from a data sample, decodes tracebacks and turns chart descriptions into plotting code.",
+ "persona": "You are a data engineer who lives in notebooks: vectorised, memory-aware, and you always show the expected output shape next to the code.",
+ "onboarding": {
+  "title": "Wrangle data without the doc-diving",
+  "subtitle": "Your library and style shape every snippet.",
+  "bullets": [
+   "Transforms written in your library",
+   "Tracebacks decoded with a fix",
+   "Cleaning plans from a sample"
+  ]
+ },
+ "profile": [
+  {
+   "key": "lib",
+   "label": "Library",
+   "type": "chips",
+   "options": [
+    "pandas",
+    "polars",
+    "Both"
+   ],
+   "default": "pandas"
+  },
+  {
+   "key": "env",
+   "label": "Environment",
+   "type": "chips",
+   "options": [
+    "Jupyter",
+    "Script",
+    "Databricks/Spark",
+    "Colab"
+   ],
+   "default": "Jupyter"
+  },
+  {
+   "key": "plot",
+   "label": "Plotting",
+   "type": "chips",
+   "options": [
+    "matplotlib",
+    "seaborn",
+    "plotly",
+    "altair"
+   ],
+   "default": "matplotlib"
+  },
+  {
+   "key": "domain",
+   "label": "Typical data",
+   "type": "text",
+   "placeholder": "sales orders, sensor logs, survey exports"
+  }
+ ],
+ "tools": [
+  {
+   "id": "transform",
+   "title": "Write the transform",
+   "subtitle": "Columns + goal → code",
+   "emoji": "🧮",
+   "inputs": [
+    {
+     "key": "columns",
+     "label": "Columns (name: dtype)",
+     "type": "longtext",
+     "placeholder": "order_id: int, customer: str, amount: float, ordered_at: datetime",
+     "required": true
+    },
+    {
+     "key": "goal",
+     "label": "What you want",
+     "type": "longtext",
+     "placeholder": "monthly revenue per customer with a running total, top 10 customers only",
+     "required": true
+    }
+   ],
+   "prompt": "Write a transform in the profile library. Input columns: {columns}. Goal: {goal}. Sections: a quote with the code (one function taking and returning a DataFrame, vectorised, no row loops), a table of the expected output columns (Column | dtype | Meaning), bullets on assumptions about nulls and duplicates, and a callout on the memory or performance trap to watch for.",
+   "shape": "quote, table, bullets, callout",
+   "button": "Write it",
+   "loading": "Vectorising…"
+  },
+  {
+   "id": "traceback",
+   "title": "Decode a traceback",
+   "subtitle": "Paste the error, get the fix",
+   "emoji": "🧯",
+   "inputs": [
+    {
+     "key": "error",
+     "label": "Traceback",
+     "type": "longtext",
+     "placeholder": "KeyError: 'amount' … or SettingWithCopyWarning",
+     "required": true
+    },
+    {
+     "key": "code",
+     "label": "The line(s) that raised it",
+     "type": "text",
+     "placeholder": "df[df.x > 0]['y'] = 1"
+    }
+   ],
+   "prompt": "Explain and fix this error: {error}, raised by: {code}. Sections: text explaining the root cause in plain English in two sentences, steps to fix it, a quote with the corrected code, and a table of the errors people typically hit next in the same situation (Error | Cause | One-line fix).",
+   "shape": "text, steps, quote, table",
+   "button": "Fix it",
+   "loading": "Reading the stack…"
+  },
+  {
+   "id": "clean",
+   "title": "Clean my dataset",
+   "subtitle": "Paste df.head() / df.info() → plan + code",
+   "emoji": "🧹",
+   "inputs": [
+    {
+     "key": "sample",
+     "label": "Sample of the data",
+     "type": "longtext",
+     "placeholder": "output of df.head(10) and df.info(), or the first rows of the CSV",
+     "required": true
+    },
+    {
+     "key": "purpose",
+     "label": "What it's for",
+     "type": "text",
+     "placeholder": "joining to a CRM export on email"
+    }
+   ],
+   "prompt": "Build a cleaning plan for this sample: {sample}, purpose: {purpose}. Sections: a table of problems found (Column | Problem | Evidence | Fix), a quote with a clean() function applying every fix in the profile library, a checklist of validation asserts to run after cleaning, and a callout on anything that needs a human decision before it is automated.",
+   "shape": "table, quote, checklist, callout",
+   "button": "Plan cleaning",
+   "loading": "Sniffing nulls…"
+  },
+  {
+   "id": "chart",
+   "title": "Chart it",
+   "subtitle": "Describe the plot, get the code",
+   "emoji": "📈",
+   "inputs": [
+    {
+     "key": "want",
+     "label": "What to show",
+     "type": "longtext",
+     "placeholder": "weekly signups by plan as stacked bars for the last 12 weeks, with a total line",
+     "required": true
+    },
+    {
+     "key": "cols",
+     "label": "Columns involved",
+     "type": "text",
+     "placeholder": "week, plan, signups"
+    }
+   ],
+   "prompt": "Write plotting code with the profile plotting library for: {want}, using columns {cols}. Sections: a quote with the code (figure size, labelled axes, readable legend, saved to PNG), bullets on the reshaping needed before plotting, a kv (chart type, why it fits, what to avoid), and a callout on choosing a colour-blind-safe palette.",
+   "shape": "quote, bullets, kv, callout",
+   "button": "Plot it",
+   "loading": "Drawing axes…"
+  },
+  {
+   "id": "speed",
+   "title": "Speed it up",
+   "subtitle": "Slow cell → fast cell",
+   "emoji": "⚡",
+   "inputs": [
+    {
+     "key": "code",
+     "label": "Slow code",
+     "type": "longtext",
+     "placeholder": "for i, row in df.iterrows(): …",
+     "required": true
+    },
+    {
+     "key": "rows",
+     "label": "Approximate row count",
+     "type": "number",
+     "placeholder": "2000000"
+    }
+   ],
+   "prompt": "Optimise this for roughly {rows} rows: {code}. Sections: a table (Bottleneck | Why it's slow | Replacement | Expected speed-up), a quote with the rewritten code, steps to benchmark before and after with %timeit or time.perf_counter, and a callout on when to move to polars, DuckDB or chunked processing instead.",
+   "shape": "table, quote, steps, callout",
+   "button": "Optimise",
+   "loading": "Dropping the loop…"
+  }
+ ]
+}

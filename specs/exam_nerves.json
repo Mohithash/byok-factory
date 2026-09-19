@@ -1,0 +1,187 @@
+{
+ "id": "exam_nerves",
+ "name": "Exam Nerves",
+ "tagline": "Calm, focused and rested on test day",
+ "category": "Education",
+ "colors": [
+  "#00897B",
+  "#7E57C2",
+  "#FFCA28"
+ ],
+ "icon": "sun",
+ "about": "Exam Nerves builds a test-week routine for sleep, food and light revision, gives in-exam reset techniques for blanking and panic, rewrites the thoughts that spiral, and debriefs bad scores without the doom.",
+ "persona": "You are a calm performance coach trained in CBT-style techniques for exam anxiety: practical, warm, never dismissive, and clear about when someone needs professional support.",
+ "onboarding": {
+  "title": "Perform like you practised",
+  "subtitle": "Your test, date and what nerves do to you shape the plan.",
+  "bullets": [
+   "Test-week sleep, food and taper",
+   "60-second resets for the exam room",
+   "Debriefs that turn a bad score into a plan"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "exam",
+   "label": "Exam",
+   "type": "text",
+   "placeholder": "IELTS on 14 June"
+  },
+  {
+   "key": "symptom",
+   "label": "Nerves show up as",
+   "type": "chips",
+   "options": [
+    "Blanking",
+    "Racing heart",
+    "Can't sleep",
+    "Procrastination",
+    "Perfectionism"
+   ],
+   "multi": true
+  },
+  {
+   "key": "history",
+   "label": "Past exams",
+   "type": "chips",
+   "options": [
+    "Usually fine",
+    "Under-perform",
+    "Have frozen before"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "week",
+   "title": "Test-week plan",
+   "subtitle": "Taper, sleep and the night before",
+   "emoji": "🗓️",
+   "inputs": [
+    {
+     "key": "date",
+     "label": "Test date & time",
+     "type": "text",
+     "placeholder": "Saturday 8:30",
+     "required": true
+    },
+    {
+     "key": "state",
+     "label": "Revision state",
+     "type": "chips",
+     "options": [
+      "Ahead",
+      "On track",
+      "Behind",
+      "Panicking"
+     ],
+     "default": "On track"
+    }
+   ],
+   "prompt": "Build the 7 days before {date} for someone who is {state}: table (Day | Revision: light, normal or none | Sleep window | Movement | Evening wind-down), a checklist for the night before and the morning (kit, route, breakfast, caffeine cut-off), bullets on the taper principle and why cramming the last night backfires, and a callout on the sleep and wake times to lock in from tonight.",
+   "shape": "table, checklist, bullets, callout",
+   "button": "Plan the week",
+   "loading": "Dimming the lights…"
+  },
+  {
+   "id": "reset",
+   "title": "In-exam reset",
+   "subtitle": "60 seconds, silent, at your desk",
+   "emoji": "🫁",
+   "inputs": [
+    {
+     "key": "moment",
+     "label": "What is happening",
+     "type": "chips",
+     "options": [
+      "Mind went blank",
+      "Heart racing before it starts",
+      "Stuck on one question",
+      "Running out of time",
+      "Everyone else looks finished"
+     ],
+     "default": "Mind went blank"
+    }
+   ],
+   "prompt": "For '{moment}' with the profile's symptoms: steps for a 60-second reset that can be done silently at the desk (breath count, muscle release, anchor phrase, next action), a quote with a 2-sentence self-instruction script, bullets on what makes the moment worse, and a callout on the rule for when to move on from a question.",
+   "shape": "steps, quote, bullets, callout",
+   "button": "Reset me",
+   "loading": "Breathing in…"
+  },
+  {
+   "id": "thoughts",
+   "title": "Rewrite the spiral",
+   "subtitle": "Catch the thought, balance it",
+   "emoji": "🌀",
+   "inputs": [
+    {
+     "key": "thought",
+     "label": "What your head is saying",
+     "type": "longtext",
+     "placeholder": "if I fail this everyone will know I'm a fraud…",
+     "required": true
+    }
+   ],
+   "prompt": "Work with this thought: {thought}. A table (Thought | Distortion | Evidence for | Evidence against | Balanced version), a quote with the balanced thought as a one-line card to keep, steps for a 5-minute worry-postponement routine, and a callout on signs that this has moved beyond normal nerves.",
+   "shape": "table, quote, steps, callout",
+   "button": "Rewrite it",
+   "loading": "Untangling…"
+  },
+  {
+   "id": "debrief",
+   "title": "Debrief a bad score",
+   "subtitle": "Separate prep, execution and luck",
+   "emoji": "📉",
+   "inputs": [
+    {
+     "key": "what",
+     "label": "What happened",
+     "type": "longtext",
+     "placeholder": "got 6.0 in writing again, ran out of time on task 2…",
+     "required": true
+    }
+   ],
+   "prompt": "Debrief this: {what}. Text that separates preparation, execution and luck honestly, a table (Factor | Controllable? | What to change), steps for the next 14 days, bullets of what went right and should be kept, and a quote with the one-sentence story to tell yourself about this attempt.",
+   "shape": "text, table, steps, bullets, quote",
+   "button": "Debrief",
+   "loading": "Looking calmly…"
+  },
+  {
+   "id": "fuel",
+   "title": "Sleep & fuel for test day",
+   "subtitle": "Hour-by-hour from waking to the last question",
+   "emoji": "🥣",
+   "inputs": [
+    {
+     "key": "start",
+     "label": "Exam start time & length",
+     "type": "text",
+     "placeholder": "9:00, 3 hours",
+     "required": true
+    },
+    {
+     "key": "caffeine",
+     "label": "Caffeine habit",
+     "type": "chips",
+     "options": [
+      "None",
+      "1 cup",
+      "2–3 cups",
+      "Lots"
+     ],
+     "default": "1 cup"
+    }
+   ],
+   "prompt": "For an exam at {start} with caffeine habit '{caffeine}': a table (Time | Do | Eat or drink) from waking to the end of the exam, kv (bedtime, wake time, last caffeine, breakfast, snack to bring), bullets on foods that cause a mid-exam crash, and a callout on the risks of new supplements or energy drinks on the day.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Plan the day",
+   "loading": "Setting the alarm…"
+  }
+ ],
+ "disclaimer": "General wellbeing guidance, not medical or psychological advice; if anxiety is affecting daily life, or you have thoughts of harming yourself, contact a doctor, counsellor or local crisis line."
+}

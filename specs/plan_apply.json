@@ -1,0 +1,205 @@
+{
+ "id": "plan_apply",
+ "name": "Plan Apply",
+ "tagline": "Terraform modules, plans and state, without the fear",
+ "category": "Tools",
+ "colors": [
+  "#7B42BC",
+  "#F59E0B",
+  "#0891B2"
+ ],
+ "icon": "pin",
+ "about": "Plan Apply writes Terraform and OpenTofu modules, explains what a plan will really change, guides state surgery like imports and moves, reviews code for cost and security and resolves drift.",
+ "persona": "You are a platform engineer who treats apply like surgery: explicit, reversible where possible, and always reading the plan out loud before saying yes.",
+ "onboarding": {
+  "title": "Read the plan before you apply",
+  "subtitle": "Your cloud and workflow shape every module.",
+  "bullets": [
+   "Modules with variables and outputs",
+   "Plan output explained change by change",
+   "State surgery step by step"
+  ]
+ },
+ "profile": [
+  {
+   "key": "cloud",
+   "label": "Cloud",
+   "type": "chips",
+   "options": [
+    "AWS",
+    "GCP",
+    "Azure",
+    "Cloudflare",
+    "Multi"
+   ],
+   "default": "AWS"
+  },
+  {
+   "key": "tool",
+   "label": "Tool",
+   "type": "chips",
+   "options": [
+    "Terraform",
+    "OpenTofu",
+    "Terragrunt"
+   ],
+   "default": "Terraform"
+  },
+  {
+   "key": "backend",
+   "label": "State backend",
+   "type": "chips",
+   "options": [
+    "S3 + lock",
+    "GCS",
+    "Azure Blob",
+    "Terraform Cloud",
+    "Local"
+   ],
+   "default": "S3 + lock"
+  },
+  {
+   "key": "env",
+   "label": "Environments",
+   "type": "text",
+   "placeholder": "dev, staging, prod via workspaces"
+  }
+ ],
+ "tools": [
+  {
+   "id": "module",
+   "title": "Write a module",
+   "subtitle": "Resource → module with variables",
+   "emoji": "🧱",
+   "inputs": [
+    {
+     "key": "want",
+     "label": "What to provision",
+     "type": "longtext",
+     "placeholder": "private S3 bucket with versioning, KMS, lifecycle to Glacier after 90 days, access from one IAM role",
+     "required": true
+    },
+    {
+     "key": "form",
+     "label": "Deliver as",
+     "type": "chips",
+     "options": [
+      "Single module",
+      "Root + child module",
+      "Example usage only"
+     ],
+     "default": "Single module"
+    }
+   ],
+   "prompt": "Write infrastructure code for: {want} as {form}, for the profile cloud and tool. Sections: a quote with the code (variables with types, descriptions and validation, outputs, tags, no hard-coded secrets, provider version pinned), a table (Variable | Type | Default | Purpose), a checklist to init, plan and apply safely, and a callout on the security setting people most often get wrong for this resource.",
+   "shape": "quote, table, checklist, callout",
+   "button": "Write module",
+   "loading": "Declaring…"
+  },
+  {
+   "id": "plan",
+   "title": "Explain this plan",
+   "subtitle": "plan output → what really changes",
+   "emoji": "🔎",
+   "inputs": [
+    {
+     "key": "plan",
+     "label": "Plan output",
+     "type": "longtext",
+     "placeholder": "paste the terraform plan output",
+     "required": true
+    }
+   ],
+   "prompt": "Explain this plan: {plan}. Sections: a kv (add, change, destroy and replace counts, plus the blast radius in one line), a table (Resource | Action | Why it's happening | Data-loss risk yes/no), a callout on any forced replacement or destroy that should stop the apply, and steps to make the change safer (lifecycle rules, targeted apply, moved blocks).",
+   "shape": "kv, table, callout, steps",
+   "button": "Explain plan",
+   "loading": "Reading the diff…"
+  },
+  {
+   "id": "state",
+   "title": "State surgery",
+   "subtitle": "Import, move, rename, split state",
+   "emoji": "🩺",
+   "inputs": [
+    {
+     "key": "op",
+     "label": "Operation",
+     "type": "text",
+     "placeholder": "import an existing RDS instance / rename a module / split prod into its own state",
+     "required": true
+    },
+    {
+     "key": "details",
+     "label": "Resource addresses / ids",
+     "type": "text",
+     "placeholder": "module.db.aws_db_instance.main, db-prod-1"
+    }
+   ],
+   "prompt": "Guide this state operation: {op} with {details} on the profile backend and tool. Sections: steps with exact commands (back up the state first, use moved or import blocks where the version supports them), a quote with the HCL blocks, a checklist to verify that plan shows no changes afterwards, and a callout on what to do if it goes wrong midway.",
+   "shape": "steps, quote, checklist, callout",
+   "button": "Guide me",
+   "loading": "Locking state…"
+  },
+  {
+   "id": "review",
+   "title": "Review for cost & security",
+   "subtitle": "HCL → findings before the PR",
+   "emoji": "🛡️",
+   "inputs": [
+    {
+     "key": "hcl",
+     "label": "Terraform code",
+     "type": "longtext",
+     "placeholder": "paste the module or file",
+     "required": true
+    },
+    {
+     "key": "focus",
+     "label": "Focus",
+     "type": "chips",
+     "options": [
+      "Security",
+      "Cost",
+      "Both"
+     ],
+     "default": "Both"
+    }
+   ],
+   "prompt": "Review {hcl} with focus on {focus}. Sections: a table (Line or resource | Finding | Severity | Fix), a kv of the estimated monthly cost drivers and the cheapest sensible alternative for each, a quote with the corrected snippets, and a callout on what a policy-as-code check (tfsec, checkov, OPA) would block.",
+   "shape": "table, kv, quote, callout",
+   "button": "Review",
+   "loading": "Scanning HCL…"
+  },
+  {
+   "id": "drift",
+   "title": "Resolve drift",
+   "subtitle": "Reality differs from the code",
+   "emoji": "🌀",
+   "inputs": [
+    {
+     "key": "symptom",
+     "label": "What's different",
+     "type": "longtext",
+     "placeholder": "someone changed the security group in the console; plan wants to revert it",
+     "required": true
+    },
+    {
+     "key": "truth",
+     "label": "Source of truth should be",
+     "type": "chips",
+     "options": [
+      "Code (revert reality)",
+      "Reality (update code)",
+      "Decide per change"
+     ],
+     "default": "Decide per change"
+    }
+   ],
+   "prompt": "Handle drift: {symptom}, where the source of truth should be {truth}. Sections: steps to detect and list every drifted attribute with exact commands, a table (Attribute | In code | In reality | Recommended action), a quote with the code changes or ignore_changes blocks needed, and a callout on preventing recurrence (permissions, plan checks in CI, scheduled drift detection).",
+   "shape": "steps, table, quote, callout",
+   "button": "Resolve",
+   "loading": "Refreshing state…"
+  }
+ ],
+ "disclaimer": "Infrastructure changes can destroy resources and data; review every plan and test in a non-production environment before applying."
+}

@@ -1,0 +1,215 @@
+{
+ "id": "deck_draft",
+ "name": "Deck Draft",
+ "tagline": "A pitch deck investors read to the last slide",
+ "category": "Business",
+ "colors": [
+  "#5E35B1",
+  "#FF7043",
+  "#00ACC1"
+ ],
+ "icon": "spark",
+ "about": "Deck Draft turns your startup's story into a slide-by-slide pitch deck, critiques the slides you already have from a photo, sizes your market bottom-up and drills you on the questions investors actually ask.",
+ "persona": "You are a former VC turned pitch coach: blunt, narrative-first, allergic to buzzwords; you know exactly which slide loses the room and say so.",
+ "onboarding": {
+  "title": "Tell the story that gets the meeting",
+  "subtitle": "A few facts about your company shape every slide.",
+  "bullets": [
+   "Slide-by-slide deck outlines",
+   "Photo critique of existing slides",
+   "Investor Q&A drills"
+  ]
+ },
+ "profile": [
+  {
+   "key": "company",
+   "label": "Company & one-line pitch",
+   "type": "text",
+   "placeholder": "Acme — payroll for creators"
+  },
+  {
+   "key": "stage",
+   "label": "Stage",
+   "type": "chips",
+   "options": [
+    "Pre-seed",
+    "Seed",
+    "Series A",
+    "Series B+"
+   ]
+  },
+  {
+   "key": "traction",
+   "label": "Key traction",
+   "type": "text",
+   "placeholder": "£40k MRR, 12% MoM"
+  },
+  {
+   "key": "model",
+   "label": "Model",
+   "type": "chips",
+   "options": [
+    "SaaS",
+    "Marketplace",
+    "Consumer",
+    "Hardware",
+    "Deep tech",
+    "Services"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "outline",
+   "title": "Build my deck",
+   "subtitle": "Slide-by-slide outline with headlines",
+   "emoji": "🎞️",
+   "inputs": [
+    {
+     "key": "length",
+     "label": "Deck length",
+     "type": "chips",
+     "options": [
+      "10 slides",
+      "12 slides",
+      "15 slides"
+     ],
+     "default": "12 slides"
+    },
+    {
+     "key": "audience",
+     "label": "Audience",
+     "type": "chips",
+     "options": [
+      "Angels",
+      "Seed VC",
+      "Growth VC",
+      "Accelerator",
+      "Demo day"
+     ],
+     "default": "Seed VC"
+    },
+    {
+     "key": "hook",
+     "label": "The insight nobody else has",
+     "type": "text",
+     "placeholder": "creators are paid on 40+ platforms"
+    }
+   ],
+   "prompt": "Outline a {length} pitch deck for the profile company aimed at {audience}, built around this insight: {hook}. Produce a table (# | Slide | Headline, one sentence of 12 words max | Body points | Visual), then text with the 3-sentence narrative arc that connects the slides, and a callout naming the single slide most likely to lose this audience and how to fix it.",
+   "shape": "table, text, callout",
+   "button": "Outline deck",
+   "loading": "Storyboarding…"
+  },
+  {
+   "id": "critique",
+   "title": "Critique a slide",
+   "subtitle": "Photo of a slide → fixes and a better headline",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo or screenshot of the slide",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "slide",
+     "label": "Which slide is it",
+     "type": "chips",
+     "options": [
+      "Problem",
+      "Solution",
+      "Market",
+      "Product",
+      "Traction",
+      "Business model",
+      "Competition",
+      "Team",
+      "Financials",
+      "The ask"
+     ],
+     "default": "Traction"
+    }
+   ],
+   "prompt": "Critique this {slide} slide from the image. Sections: kv (headline verdict, clarity /10, credibility /10, design /10), bullets of specific fixes in priority order, a quote with a rewritten headline for the slide, and a callout on what an investor will silently question when they see it.",
+   "shape": "kv, bullets, quote, callout",
+   "button": "Critique",
+   "loading": "Squinting at it…"
+  },
+  {
+   "id": "market",
+   "title": "Size the market",
+   "subtitle": "Bottom-up TAM / SAM / SOM",
+   "emoji": "📐",
+   "inputs": [
+    {
+     "key": "customer",
+     "label": "Who pays",
+     "type": "text",
+     "placeholder": "UK creators earning over £20k a year",
+     "required": true
+    },
+    {
+     "key": "price",
+     "label": "Price point",
+     "type": "text",
+     "placeholder": "£29/month"
+    }
+   ],
+   "prompt": "Build a bottom-up market sizing for {customer} at {price}. Table (Layer | Definition | Count | Annual value | Source or assumption) with rows for TAM, SAM and SOM, steps showing the arithmetic, bullets of the assumptions an investor will challenge, and a quote giving the one-sentence market claim for the slide.",
+   "shape": "table, steps, bullets, quote",
+   "button": "Size it",
+   "loading": "Counting customers…"
+  },
+  {
+   "id": "qa",
+   "title": "Investor Q&A drill",
+   "subtitle": "The questions that follow the pitch",
+   "emoji": "🔥",
+   "inputs": [
+    {
+     "key": "focus",
+     "label": "Grill me on",
+     "type": "chips",
+     "options": [
+      "Everything",
+      "Market",
+      "Competition",
+      "Unit economics",
+      "Team",
+      "Why now"
+     ],
+     "default": "Everything"
+    }
+   ],
+   "prompt": "Prepare the toughest investor questions on {focus} for the profile company at its stage. Table (Question | What they are really testing | Strong answer outline), then a callout on the one question founders at this stage most often fumble, and bullets of data points to have memorised before the meeting.",
+   "shape": "table, callout, bullets",
+   "button": "Drill me",
+   "loading": "Sharpening knives…"
+  },
+  {
+   "id": "onepager",
+   "title": "One-pager & blurb",
+   "subtitle": "Teaser email, memo or 60-second script",
+   "emoji": "✉️",
+   "inputs": [
+    {
+     "key": "format",
+     "label": "Format",
+     "type": "chips",
+     "options": [
+      "Email teaser",
+      "One-page memo",
+      "Demo-day 60s script"
+     ],
+     "default": "Email teaser"
+    }
+   ],
+   "prompt": "Write a {format} for the profile company using its traction. Produce a quote containing the full text, then a kv (word count, hook line, the ask, next step), and bullets of 3 subject lines or opening lines to test.",
+   "shape": "quote, kv, bullets",
+   "button": "Write it",
+   "loading": "Condensing…"
+  }
+ ]
+}

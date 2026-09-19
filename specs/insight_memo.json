@@ -1,0 +1,167 @@
+{
+ "id": "insight_memo",
+ "name": "Insight Memo",
+ "tagline": "Turn analysis into a memo people act on",
+ "category": "Business",
+ "colors": [
+  "#1A237E",
+  "#FF7043",
+  "#4DB6AC"
+ ],
+ "icon": "bulb",
+ "about": "Insight Memo turns your findings into a one-page memo, a readout deck outline and plain-English number comparisons, and rehearses the questions stakeholders will fire back.",
+ "persona": "You are a data-storytelling coach: bottom line up front, one message per section, every number given a comparison, and honest about uncertainty.",
+ "onboarding": {
+  "title": "From findings to decisions",
+  "subtitle": "Who reads your work? That shapes the tone.",
+  "bullets": [
+   "One-page memos from rough findings",
+   "Readout decks slide by slide",
+   "Numbers made memorable"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "readers",
+   "label": "Usual readers",
+   "type": "chips",
+   "options": [
+    "Executives",
+    "Product managers",
+    "Marketing",
+    "Engineers",
+    "Clients"
+   ],
+   "default": "Executives"
+  },
+  {
+   "key": "tone",
+   "label": "House tone",
+   "type": "chips",
+   "options": [
+    "Formal",
+    "Direct",
+    "Friendly"
+   ],
+   "default": "Direct"
+  }
+ ],
+ "tools": [
+  {
+   "id": "memo",
+   "title": "Write the memo",
+   "subtitle": "Findings → one page",
+   "emoji": "📄",
+   "inputs": [
+    {
+     "key": "findings",
+     "label": "Your findings (rough notes are fine)",
+     "type": "longtext",
+     "placeholder": "churn up 0.5pt since price rise, mostly monthly plans, annual unaffected, billing tickets doubled",
+     "required": true
+    },
+    {
+     "key": "ask",
+     "label": "Decision or ask",
+     "type": "text",
+     "placeholder": "approve grandfathering monthly customers for 3 months"
+    }
+   ],
+   "prompt": "Write a one-page insight memo from {findings} with the ask '{ask}' for the profile's readers and tone. Text with a 2-sentence bottom line, bullets 'What we found' (each with the number and its comparison), a table 'Options' (Option | Expected effect | Cost | Risk), kv (recommendation, confidence, what would change our mind, next check-in), and a callout on data limitations.",
+   "shape": "text, bullets, table, kv, callout",
+   "button": "Write memo",
+   "loading": "Distilling…"
+  },
+  {
+   "id": "deck",
+   "title": "Readout deck outline",
+   "subtitle": "Slide by slide",
+   "emoji": "🖥️",
+   "inputs": [
+    {
+     "key": "analysis",
+     "label": "What you analysed and found",
+     "type": "longtext",
+     "placeholder": "analysed 6 months of support tickets: 40% are password resets, peak Monday mornings",
+     "required": true
+    },
+    {
+     "key": "slides",
+     "label": "Number of slides",
+     "type": "number",
+     "placeholder": "8"
+    }
+   ],
+   "prompt": "Outline a {slides}-slide readout for: {analysis}. Table 'Slides' (# | Headline as a full-sentence takeaway | Visual | Speaker note), steps for the opening 60 seconds, a quote with the closing slide's recommendation text, and a callout on what belongs in the appendix.",
+   "shape": "table, steps, quote, callout",
+   "button": "Outline deck",
+   "loading": "Ordering slides…"
+  },
+  {
+   "id": "plain",
+   "title": "Make numbers land",
+   "subtitle": "Comparisons people remember",
+   "emoji": "🔢",
+   "inputs": [
+    {
+     "key": "numbers",
+     "label": "Numbers to explain",
+     "type": "longtext",
+     "placeholder": "0.37% error rate; 4.2M events/day; £18k saved",
+     "required": true
+    }
+   ],
+   "prompt": "Rewrite {numbers} so non-analysts feel them. Table 'Translations' (Number | Plain-English version | Comparison or analogy | When to use it), bullets of rounding and framing rules, and a callout on comparisons that mislead (per cent vs percentage points, relative vs absolute, small bases).",
+   "shape": "table, bullets, callout",
+   "button": "Translate",
+   "loading": "Humanising…"
+  },
+  {
+   "id": "questions",
+   "title": "Stakeholder questions",
+   "subtitle": "What they'll ask and how to answer",
+   "emoji": "❓",
+   "inputs": [
+    {
+     "key": "summary",
+     "label": "Your main claim and evidence",
+     "type": "longtext",
+     "placeholder": "recommend pausing paid social: CAC doubled in Q2 with no lift in retention",
+     "required": true
+    }
+   ],
+   "prompt": "For the claim '{summary}', list the 8 hardest questions the profile's readers will ask as a table (Question | Why they ask it | Best answer | Evidence to have ready), a checklist of analyses to run beforehand, and a quote with a graceful answer for a question you cannot answer yet.",
+   "shape": "table, checklist, quote",
+   "button": "Prep questions",
+   "loading": "Cross-examining…"
+  },
+  {
+   "id": "caption",
+   "title": "Chart caption & takeaway",
+   "subtitle": "One chart, one sentence",
+   "emoji": "🏷️",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Chart screenshot (optional)",
+     "type": "photo"
+    },
+    {
+     "key": "chart",
+     "label": "Or describe the chart",
+     "type": "text",
+     "placeholder": "weekly active users by platform, iOS flat, Android +30%"
+    }
+   ],
+   "prompt": "Write the takeaway for the chart in the photo or described as: {chart}. Quote with 3 takeaway titles, kv (caption, source line, footnote on caveats), and bullets on what a reader might misread.",
+   "shape": "quote, kv, bullets",
+   "button": "Write takeaway",
+   "loading": "Captioning…"
+  }
+ ]
+}

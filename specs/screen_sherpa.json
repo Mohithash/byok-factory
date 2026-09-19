@@ -1,0 +1,230 @@
+{
+ "id": "screen_sherpa",
+ "name": "Screen Sherpa",
+ "tagline": "Screen limits that fit your kid, not a random number",
+ "category": "Parenting",
+ "colors": [
+  "#5E35B1",
+  "#00ACC1",
+  "#FFB300"
+ ],
+ "icon": "clock",
+ "about": "Screen Sherpa checks whether a game or app is right for your child, sizes screen limits by age and day, gets you through the end-of-screen meltdown, and settles the first-phone decision.",
+ "persona": "You are a level-headed digital-parenting specialist: evidence-aware, allergic to panic, and honest that content and context matter more than the minute count.",
+ "onboarding": {
+  "title": "Screens without the daily fight",
+  "subtitle": "Tell us your kids' ages and devices so the limits fit real life.",
+  "bullets": [
+   "Is this game OK for my kid?",
+   "Limits by age and day",
+   "End-of-screen meltdown plan"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "kids",
+   "label": "Kids (name, age)",
+   "type": "text",
+   "placeholder": "Sam 8, Ava 13"
+  },
+  {
+   "key": "devices",
+   "label": "Devices at home",
+   "type": "chips",
+   "options": [
+    "Tablet",
+    "Console",
+    "Family PC",
+    "Own phone",
+    "Smart TV"
+   ],
+   "multi": true
+  },
+  {
+   "key": "worry",
+   "label": "Biggest worry",
+   "type": "chips",
+   "options": [
+    "Too many hours",
+    "Content",
+    "Gaming rage",
+    "Sleep",
+    "Social media"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "check",
+   "title": "Is this OK?",
+   "subtitle": "Photo or name of a game/app",
+   "emoji": "🎮",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Screenshot of the app or game listing",
+     "type": "photo"
+    },
+    {
+     "key": "title",
+     "label": "Game or app name",
+     "type": "text",
+     "placeholder": "Roblox"
+    },
+    {
+     "key": "child",
+     "label": "For which child",
+     "type": "text",
+     "placeholder": "Sam, 8",
+     "required": true
+    }
+   ],
+   "prompt": "Assess {title} (or the app shown in the photo) for {child}. Sections: a kv (official age rating, real content themes, chat with strangers?, in-app purchases, addictive-design features, our verdict), bullets on settings to change before first use, a callout on the single biggest risk, and a quote with a one-sentence explanation the child will accept if the answer is no or not yet.",
+   "shape": "kv, bullets, callout, quote",
+   "button": "Assess",
+   "loading": "Reading ratings…"
+  },
+  {
+   "id": "limits",
+   "title": "Set limits",
+   "subtitle": "By age, day and season",
+   "emoji": "⏳",
+   "inputs": [
+    {
+     "key": "child",
+     "label": "Child",
+     "type": "text",
+     "placeholder": "Ava, 13",
+     "required": true
+    },
+    {
+     "key": "day",
+     "label": "Day type",
+     "type": "chips",
+     "options": [
+      "School day",
+      "Weekend",
+      "Holidays",
+      "Sick day"
+     ],
+     "default": "School day"
+    },
+    {
+     "key": "now",
+     "label": "What happens now",
+     "type": "longtext",
+     "placeholder": "3h after school, phone in bed, fights at dinner"
+    }
+   ],
+   "prompt": "Design screen limits for {child} on a {day}. Current pattern: {now}. Sections: a table (Window | Allowed | Not allowed | Device location), bullets separating creative, social and passive use and why they are weighted differently, a checklist of the technical controls to set on each device in the profile, and a callout on the non-negotiables (bedrooms, meals, the hour before sleep) with the reasoning.",
+   "shape": "table, bullets, checklist, callout",
+   "button": "Set limits",
+   "loading": "Measuring…"
+  },
+  {
+   "id": "meltdown",
+   "title": "End-of-screen meltdown",
+   "subtitle": "Turning it off without war",
+   "emoji": "🌋",
+   "inputs": [
+    {
+     "key": "age",
+     "label": "Age",
+     "type": "chips",
+     "options": [
+      "5–7",
+      "8–10",
+      "11–13",
+      "14+"
+     ],
+     "default": "8–10"
+    },
+    {
+     "key": "what",
+     "label": "Turning off",
+     "type": "chips",
+     "options": [
+      "A game mid-match",
+      "YouTube/streaming",
+      "Social media",
+      "Homework device"
+     ],
+     "default": "A game mid-match"
+    }
+   ],
+   "prompt": "Coach the transition off {what} for a child aged {age}. Sections: steps for a warning sequence with exact minutes and wording, a quote with the script for when they refuse, bullets on why mid-match cut-offs hurt more and how to plan around natural stopping points, and a callout on which consequences are fair and which backfire.",
+   "shape": "steps, quote, bullets, callout",
+   "button": "Get the script",
+   "loading": "Counting down…"
+  },
+  {
+   "id": "phone",
+   "title": "First phone?",
+   "subtitle": "Readiness check + rules",
+   "emoji": "📱",
+   "inputs": [
+    {
+     "key": "child",
+     "label": "Child",
+     "type": "text",
+     "placeholder": "Sam, 11",
+     "required": true
+    },
+    {
+     "key": "why",
+     "label": "Why now",
+     "type": "longtext",
+     "placeholder": "everyone in class has one, walking home alone from September",
+     "required": true
+    },
+    {
+     "key": "option",
+     "label": "Considering",
+     "type": "chips",
+     "options": [
+      "Smartwatch",
+      "Basic phone",
+      "Smartphone, locked down",
+      "Full smartphone"
+     ],
+     "default": "Smartphone, locked down"
+    }
+   ],
+   "prompt": "Evaluate first-phone readiness for {child}. Reasons: {why}. Option being considered: {option}. Sections: a table (Readiness sign | Seen? | Evidence to look for), cards comparing the four device options (meta = monthly cost · risk level), a checklist of setup steps for the chosen option (accounts, location sharing, app approval, do-not-disturb at night), and a quote with a phone contract in the child's language, under 120 words.",
+   "shape": "table, cards, checklist, quote",
+   "button": "Check readiness",
+   "loading": "Ringing…"
+  },
+  {
+   "id": "audit",
+   "title": "Screen audit",
+   "subtitle": "Paste a week's usage report",
+   "emoji": "📊",
+   "inputs": [
+    {
+     "key": "report",
+     "label": "Paste the usage report",
+     "type": "longtext",
+     "placeholder": "Mon: YouTube 2h10, Roblox 1h, Messages 40m…",
+     "required": true
+    },
+    {
+     "key": "child",
+     "label": "Child",
+     "type": "text",
+     "placeholder": "Ava, 13",
+     "required": true
+    }
+   ],
+   "prompt": "Analyse this week's usage for {child}: {report}. Sections: a table (App | Hours | Type: creative/social/passive | Concern level), bullets of patterns (time of day, weekday vs weekend, sleep encroachment), a callout with the single change worth making this week, and a quote with how to share the findings with the child so it doesn't feel like surveillance.",
+   "shape": "table, bullets, callout, quote",
+   "button": "Analyse",
+   "loading": "Adding up…"
+  }
+ ]
+}

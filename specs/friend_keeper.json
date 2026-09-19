@@ -1,0 +1,223 @@
+{
+ "id": "friend_keeper",
+ "name": "Friend Keeper",
+ "tagline": "Keep the friendships that matter from fading",
+ "category": "Social",
+ "colors": [
+  "#F9A825",
+  "#00ACC1",
+  "#EC407A"
+ ],
+ "icon": "star",
+ "about": "Friend Keeper helps busy adults maintain real friendships: reconnect after months of silence, plan hangs that fit real life, handle a falling-out, and know when a friendship has run its course.",
+ "persona": "You are a loyal, unfussy friend-of-friends: you know adult friendship survives on small consistent gestures, you never guilt the user for a long gap, and you write messages that sound like a person, not a greeting card.",
+ "onboarding": {
+  "title": "Good friends, kept",
+  "subtitle": "Tell us about the people you don't want to lose.",
+  "bullets": [
+   "Reconnect messages that don't feel awkward",
+   "Low-effort hangs for full calendars",
+   "Repair or release a friendship"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "friends",
+   "label": "Friends you want to keep close",
+   "type": "text",
+   "placeholder": "Ben (uni), Rosa (old job), the Thursday group"
+  },
+  {
+   "key": "life",
+   "label": "Life stage",
+   "type": "chips",
+   "options": [
+    "Studying",
+    "Early career",
+    "Young kids",
+    "Mid-life busy",
+    "Kids left home",
+    "Retired"
+   ]
+  },
+  {
+   "key": "energy",
+   "label": "Social energy",
+   "type": "chips",
+   "options": [
+    "Low",
+    "Medium",
+    "High"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "reconnect",
+   "title": "Reconnect",
+   "subtitle": "It's been months; break the silence",
+   "emoji": "📱",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Friend",
+     "type": "text",
+     "placeholder": "Rosa",
+     "required": true
+    },
+    {
+     "key": "gap",
+     "label": "Since when / why",
+     "type": "text",
+     "placeholder": "8 months — she had a baby, I moved"
+    },
+    {
+     "key": "channel",
+     "label": "Send via",
+     "type": "chips",
+     "options": [
+      "Text",
+      "Voice note",
+      "Email",
+      "Call script"
+     ],
+     "default": "Text"
+    }
+   ],
+   "prompt": "Write a reconnect to {who} after a gap of {gap}, via {channel}. Give 3 quote sections (light, warm, honest-about-the-gap) each under 60 words, none opening with an apology, each ending with a low-pressure specific suggestion. Then bullets on what to do if they don't reply within a fortnight, and a callout on why the gap is rarely as loaded for them as for you.",
+   "shape": "quote, bullets, callout",
+   "button": "Write it",
+   "loading": "Warming up…"
+  },
+  {
+   "id": "hang",
+   "title": "Plan a hang",
+   "subtitle": "Fits both calendars, costs little",
+   "emoji": "🍜",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Who",
+     "type": "text",
+     "placeholder": "the Thursday group",
+     "required": true
+    },
+    {
+     "key": "limits",
+     "label": "Constraints",
+     "type": "text",
+     "placeholder": "we all have kids, weeknights only, 2 hours max"
+    },
+    {
+     "key": "budget",
+     "label": "Budget each",
+     "type": "number",
+     "placeholder": "20"
+    }
+   ],
+   "prompt": "Plan hangs with {who} within: {limits}, about {budget} per person. 5 ideas as cards (meta = hours · cost · planning effort), a quote with the group message proposing the top pick with two date options, and a checklist for the organiser so it actually happens.",
+   "shape": "cards, quote, checklist",
+   "button": "Suggest hangs",
+   "loading": "Finding a slot…"
+  },
+  {
+   "id": "fallout",
+   "title": "We fell out",
+   "subtitle": "Say the hard thing without losing them",
+   "emoji": "💔",
+   "inputs": [
+    {
+     "key": "what",
+     "label": "What happened",
+     "type": "longtext",
+     "placeholder": "she skipped my birthday, then posted from another party",
+     "required": true
+    },
+    {
+     "key": "want",
+     "label": "I want to",
+     "type": "chips",
+     "options": [
+      "Clear the air",
+      "Get an apology",
+      "Understand their side",
+      "Decide if it's worth it"
+     ],
+     "default": "Clear the air"
+    }
+   ],
+   "prompt": "Falling-out: {what}. I want to {want}. Text with a fair reading of both sides (3–4 sentences), a quote with an opening message that names the hurt without an accusation, a table (If they respond with… | It probably means | Your next move) with 4 responses, and a callout on the difference between a repairable rupture and a pattern.",
+   "shape": "text, quote, table, callout",
+   "button": "Help me say it",
+   "loading": "Choosing words…"
+  },
+  {
+   "id": "fade",
+   "title": "Is it fading?",
+   "subtitle": "One-sided? Outgrown? Just busy?",
+   "emoji": "🌅",
+   "inputs": [
+    {
+     "key": "signs",
+     "label": "What you've noticed",
+     "type": "longtext",
+     "placeholder": "I always initiate, cancels last minute, but great when we do meet",
+     "required": true
+    },
+    {
+     "key": "years",
+     "label": "Years of friendship",
+     "type": "number",
+     "placeholder": "12"
+    }
+   ],
+   "prompt": "Signs: {signs}, friendship of {years} years. Give a kv (Most likely: busy, drifting, one-sided or outgrown | Confidence | What would confirm it), bullets of 3 low-cost tests over the next month, a quote with a direct-but-kind check-in line, and text on how to let a friendship go down a gear without a dramatic ending.",
+   "shape": "kv, bullets, quote, text",
+   "button": "Read the signs",
+   "loading": "Looking closer…"
+  },
+  {
+   "id": "milestone",
+   "title": "Say something real",
+   "subtitle": "Birthday, promotion, loss, big news",
+   "emoji": "🎈",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Friend",
+     "type": "text",
+     "placeholder": "Ben",
+     "required": true
+    },
+    {
+     "key": "event",
+     "label": "What's happened",
+     "type": "text",
+     "placeholder": "his dad died last week",
+     "required": true
+    },
+    {
+     "key": "form",
+     "label": "Form",
+     "type": "chips",
+     "options": [
+      "Text",
+      "Card",
+      "Voice note",
+      "In person"
+     ],
+     "default": "Text"
+    }
+   ],
+   "prompt": "Write a {form} message to {who} about: {event}. Give 2 quote sections — one short (under 30 words) and one fuller (under 90 words) — specific to this friend and event, avoiding clichés. Then bullets of 3 concrete offers of help or celebration that are easy to accept, and a callout on the follow-up to send a few weeks later.",
+   "shape": "quote, bullets, callout",
+   "button": "Write it",
+   "loading": "Meaning it…"
+  }
+ ]
+}

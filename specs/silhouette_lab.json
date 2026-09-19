@@ -1,0 +1,207 @@
+{
+ "id": "silhouette_lab",
+ "name": "Silhouette Lab",
+ "tagline": "Clothes that flatter your shape, whatever it is",
+ "category": "Lifestyle",
+ "colors": [
+  "#8E24AA",
+  "#26C6DA",
+  "#FFB300"
+ ],
+ "icon": "spark",
+ "about": "Silhouette Lab works out your body shape from four measurements, then tells you which necklines, rises, hems and fabrics balance your proportions, with a body-positive approach that talks about emphasis, never hiding.",
+ "persona": "You are a warm personal stylist trained in proportion and line: every body is a good body, you talk about balance and emphasis, and you never use the words hide, fix or flaw.",
+ "onboarding": {
+  "title": "Know your lines",
+  "subtitle": "A few measurements unlock advice made for your proportions.",
+  "bullets": [
+   "Your shape from 4 measurements",
+   "Necklines, rises and hems that balance you",
+   "Verdicts on pieces before you buy"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "height",
+   "label": "Height (cm)",
+   "type": "number",
+   "placeholder": "165"
+  },
+  {
+   "key": "shape",
+   "label": "Shape (if known)",
+   "type": "chips",
+   "options": [
+    "Not sure yet",
+    "Hourglass",
+    "Pear",
+    "Apple",
+    "Rectangle",
+    "Inverted triangle"
+   ],
+   "default": "Not sure yet"
+  },
+  {
+   "key": "love",
+   "label": "What you love to show off",
+   "type": "text",
+   "placeholder": "waist, legs, shoulders"
+  }
+ ],
+ "tools": [
+  {
+   "id": "shape",
+   "title": "Find my shape",
+   "subtitle": "4 measurements → your proportions",
+   "emoji": "📏",
+   "inputs": [
+    {
+     "key": "measures",
+     "label": "Shoulders / bust / waist / hips (cm)",
+     "type": "text",
+     "placeholder": "40 / 92 / 74 / 98",
+     "required": true
+    },
+    {
+     "key": "legs",
+     "label": "Legs vs torso",
+     "type": "chips",
+     "options": [
+      "Long legs",
+      "Balanced",
+      "Long torso",
+      "Not sure"
+     ],
+     "default": "Not sure"
+    }
+   ],
+   "prompt": "From the measurements {measures}, the profile height and leg-to-torso balance '{legs}', identify the body shape and vertical proportions. Sections: kv (shape, key ratios, vertical type, where the eye naturally goes), text explaining the reasoning in plain words, bullets of 6 silhouette principles that balance these proportions, and a callout reminding that shape is a styling tool, not a grade.",
+   "shape": "kv, text, bullets, callout",
+   "button": "Find my shape",
+   "loading": "Measuring up…"
+  },
+  {
+   "id": "verdict",
+   "title": "Will this suit me?",
+   "subtitle": "Photo of a piece → verdict and styling",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the garment (hanger, listing or on you)",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "plan",
+     "label": "Where you'd wear it",
+     "type": "text",
+     "placeholder": "office, with heels"
+    }
+   ],
+   "prompt": "Judge the garment in the photo for the profile's shape, to be worn {plan}. kv (verdict: yes / yes with styling / skip, neckline, rise or hem, fabric weight, fit note), bullets on styling it so it balances the profile's proportions, a table (Pair with | Why), and a callout on the one alteration that would make it perfect.",
+   "shape": "kv, bullets, table, callout",
+   "button": "Judge it",
+   "loading": "Sizing it up…"
+  },
+  {
+   "id": "jeans",
+   "title": "Jeans finder",
+   "subtitle": "Rise, leg and inseam for your shape",
+   "emoji": "👖",
+   "inputs": [
+    {
+     "key": "leg",
+     "label": "Leg you're after",
+     "type": "chips",
+     "options": [
+      "Straight",
+      "Wide",
+      "Bootcut",
+      "Skinny",
+      "Barrel",
+      "Not sure"
+     ],
+     "default": "Not sure"
+    },
+    {
+     "key": "stretch",
+     "label": "Stretch",
+     "type": "chips",
+     "options": [
+      "Rigid",
+      "A little",
+      "Very stretchy"
+     ],
+     "default": "A little"
+    }
+   ],
+   "prompt": "Recommend jeans for the profile's shape and height with leg preference '{leg}' and stretch '{stretch}'. Table (Style | Rise | Inseam guide | Wash | Why it works), steps for the changing room (what to check, in order), bullets of hem and shoe pairings for each pick, and a callout on sizing differences between brands.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Find jeans",
+   "loading": "Trying on…"
+  },
+  {
+   "id": "occasion",
+   "title": "Dress for the occasion",
+   "subtitle": "Silhouettes for the event",
+   "emoji": "✨",
+   "inputs": [
+    {
+     "key": "event",
+     "label": "Event",
+     "type": "text",
+     "placeholder": "black-tie wedding in October",
+     "required": true
+    },
+    {
+     "key": "comfort",
+     "label": "Comfort level",
+     "type": "chips",
+     "options": [
+      "Very covered",
+      "Balanced",
+      "Show a little",
+      "Bold"
+     ],
+     "default": "Balanced"
+    }
+   ],
+   "prompt": "Plan looks for '{event}' at comfort level '{comfort}', built around the profile's shape and what they love to show off. 3 cards (silhouette + fabric + shoe, meta = formality · ease of movement), a table (Neckline | Waist | Hem | Verdict for this shape), a checklist of undergarments and fit prep, and a quote with one confidence line to say to the mirror.",
+   "shape": "cards, table, checklist, quote",
+   "button": "Plan looks",
+   "loading": "Sketching…"
+  },
+  {
+   "id": "balance",
+   "title": "Proportion play",
+   "subtitle": "Look taller, longer, balanced",
+   "emoji": "⚖️",
+   "inputs": [
+    {
+     "key": "goal",
+     "label": "I want to look",
+     "type": "chips",
+     "options": [
+      "Taller",
+      "Longer-legged",
+      "Balanced top & bottom",
+      "More waisted",
+      "Broader-shouldered",
+      "Softer-lined"
+     ],
+     "default": "Taller"
+    }
+   ],
+   "prompt": "Techniques to look {goal} for the profile's shape and height. Steps (one technique each: hem length, rise, colour blocking, shoe, tuck, layering), a table (Do | Instead of | Why), bullets naming 5 pieces to search for by name, and a callout on the styling myths that do not hold up.",
+   "shape": "steps, table, bullets, callout",
+   "button": "Show me",
+   "loading": "Adjusting lines…"
+  }
+ ]
+}

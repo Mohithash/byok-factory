@@ -1,0 +1,202 @@
+{
+ "id": "trade_brief",
+ "name": "Trade Brief",
+ "tagline": "Hire, brief and manage tradespeople without the drama",
+ "category": "House & Home",
+ "colors": [
+  "#F4511E",
+  "#263238",
+  "#7CB342"
+ ],
+ "icon": "gear",
+ "about": "Trade Brief writes clear scopes of work, vets contractors before you hire, sets contract and payment terms, turns photos into snagging lists and scripts the hard conversations when work slips.",
+ "persona": "You are a project manager who has run dozens of home renovations: precise in writing, fair to good tradespeople, unmoved by excuses, and always documenting.",
+ "onboarding": {
+  "title": "Get the job done as agreed",
+  "subtitle": "Tell us the project so every brief and script fits it.",
+  "bullets": [
+   "Scopes of work builders respect",
+   "Contractor vetting and payment terms",
+   "Snag lists from photos, scripts for slips"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "project",
+   "label": "The project",
+   "type": "text",
+   "placeholder": "kitchen extension, 4m × 5m, moving the boiler"
+  },
+  {
+   "key": "region",
+   "label": "Country / region",
+   "type": "text"
+  },
+  {
+   "key": "style",
+   "label": "You want to be",
+   "type": "chips",
+   "options": [
+    "Hands-on daily",
+    "Weekly check-ins",
+    "Hands-off"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "scope",
+   "title": "Write the scope",
+   "subtitle": "A spec every quote must answer",
+   "emoji": "📐",
+   "inputs": [
+    {
+     "key": "want",
+     "label": "What you want done",
+     "type": "longtext",
+     "placeholder": "knock through to dining room, new kitchen fitted, 2 new sockets, bifold doors",
+     "required": true
+    },
+    {
+     "key": "supply",
+     "label": "Who supplies materials",
+     "type": "text",
+     "placeholder": "I buy the kitchen units, builder supplies the rest"
+    }
+   ],
+   "prompt": "Write a scope of work for the profile's project: {want}. Materials: {supply}. Produce a table (Item | Specification | Included | Excluded | Standard to meet), a checklist of decisions the client must make before work starts, bullets on what quotes must itemise so they can be compared, and a callout on the ambiguities most likely to become extra charges.",
+   "shape": "table, checklist, bullets, callout",
+   "button": "Write scope",
+   "loading": "Speccing…"
+  },
+  {
+   "id": "vet",
+   "title": "Vet a contractor",
+   "subtitle": "References, insurance, warning signs",
+   "emoji": "🕵️",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Who they are",
+     "type": "text",
+     "placeholder": "one-man builder, 14 years, cash-heavy quote, no website",
+     "required": true
+    },
+    {
+     "key": "size",
+     "label": "Job size",
+     "type": "chips",
+     "options": [
+      "Small (days)",
+      "Medium (weeks)",
+      "Large (months)"
+     ],
+     "default": "Medium (weeks)"
+    }
+   ],
+   "prompt": "Vet this contractor for a {size} job: {who}. Produce a checklist of 12 verification steps (references, insurance, past jobs to visit, registrations relevant to the trade and region in general terms), a table (Warning sign | Why it matters | What to ask), a quote with a message requesting references and insurance documents, and a callout on the signs that mean walk away regardless of price.",
+   "shape": "checklist, table, quote, callout",
+   "button": "Vet them",
+   "loading": "Checking references…"
+  },
+  {
+   "id": "contract",
+   "title": "Contract & payments",
+   "subtitle": "Milestones, retention, clauses",
+   "emoji": "🧾",
+   "inputs": [
+    {
+     "key": "total",
+     "label": "Quoted total",
+     "type": "number",
+     "placeholder": "28000"
+    },
+    {
+     "key": "weeks",
+     "label": "Expected duration (weeks)",
+     "type": "number",
+     "placeholder": "6"
+    },
+    {
+     "key": "deposit",
+     "label": "Deposit asked",
+     "type": "chips",
+     "options": [
+      "None",
+      "10%",
+      "25%",
+      "50%+"
+     ],
+     "default": "25%"
+    }
+   ],
+   "prompt": "Total {total} over {weeks} weeks, deposit asked {deposit}. Produce a table (Stage | Milestone that triggers payment | Amount | % of total) with a retention held until snags are cleared, a checklist of clauses the written agreement needs (start and end dates, variations in writing, rate for extras, waste, working hours, insurance, warranty), bullets on how to respond to the deposit request, and a callout on never paying ahead of completed work.",
+   "shape": "table, checklist, bullets, callout",
+   "button": "Set the terms",
+   "loading": "Drafting terms…"
+  },
+  {
+   "id": "snag",
+   "title": "Snag list from a photo",
+   "subtitle": "Finished work → defects and a message",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the finished work",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "area",
+     "label": "What this is",
+     "type": "text",
+     "placeholder": "tiled shower wall, grout and silicone"
+    }
+   ],
+   "prompt": "Inspect the finished work in the photo: {area}. Produce a table (Defect | Location | Acceptable or not | Standard it fails | Fix), a checklist of what to check in this type of finish that a photo cannot show, a quote with a polite snagging message to the contractor listing the items and a deadline, and a callout on holding the retention until the list is cleared.",
+   "shape": "table, checklist, quote, callout",
+   "button": "Snag it",
+   "loading": "Inspecting…"
+  },
+  {
+   "id": "problem",
+   "title": "Handle a problem",
+   "subtitle": "Late, over budget, poor work, no-show",
+   "emoji": "🚨",
+   "inputs": [
+    {
+     "key": "issue",
+     "label": "The issue",
+     "type": "chips",
+     "options": [
+      "Running late",
+      "Asking for more money",
+      "Poor workmanship",
+      "Not turning up",
+      "Damage to property",
+      "Wants to change the plan"
+     ],
+     "default": "Running late"
+    },
+    {
+     "key": "what",
+     "label": "What happened",
+     "type": "longtext",
+     "placeholder": "week 8 of 6, says materials delayed, wants the next payment",
+     "required": true
+    }
+   ],
+   "prompt": "Issue: {issue}. Details: {what}. Produce steps for the next 48 hours (document, communicate, decide), a quote with a firm, fair message to the contractor, a table (Option | Cost | Time | Risk) covering carry on, renegotiate, pause, and replace, and a callout on the evidence to gather now in case it becomes a dispute.",
+   "shape": "steps, quote, table, callout",
+   "button": "Get advice",
+   "loading": "Staying calm…"
+  }
+ ],
+ "disclaimer": "General guidance, not legal advice; contract law, building regulations and trade licensing vary by region — check locally before relying on it."
+}

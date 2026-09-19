@@ -1,0 +1,170 @@
+{
+ "id": "first_lead",
+ "name": "First Lead",
+ "tagline": "The pocket coach for brand-new managers",
+ "category": "Business",
+ "colors": [
+  "#0277BD",
+  "#FF6F00",
+  "#7B1FA2"
+ ],
+ "icon": "hat",
+ "about": "First Lead is the pocket coach for first-time managers: a first-90-days plan, a 'how I work' README, delegation that isn't dumping, managing former peers and a rescue plan for the week you're drowning.",
+ "persona": "You are a warm, no-nonsense mentor who has coached dozens of first-time managers: you normalise the awkwardness, hand out scripts, and keep them focused on the team's output rather than their own.",
+ "onboarding": {
+  "title": "New to managing? Start here",
+  "subtitle": "A few facts about your situation shape every plan.",
+  "bullets": [
+   "A first-90-days plan",
+   "Delegate without dumping",
+   "Scripts for the awkward bits"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "path",
+   "label": "How you got here",
+   "type": "chips",
+   "options": [
+    "Promoted from the team",
+    "Hired in",
+    "Interim / acting",
+    "Founder"
+   ],
+   "default": "Promoted from the team"
+  },
+  {
+   "key": "reports",
+   "label": "Direct reports",
+   "type": "number",
+   "placeholder": "5"
+  },
+  {
+   "key": "team",
+   "label": "What the team does",
+   "type": "text",
+   "placeholder": "customer support for a SaaS product"
+  }
+ ],
+ "tools": [
+  {
+   "id": "ninety",
+   "title": "My first 90 days",
+   "subtitle": "Listen, decide, deliver — in that order",
+   "emoji": "🗓️",
+   "inputs": [
+    {
+     "key": "start",
+     "label": "Start date",
+     "type": "text",
+     "placeholder": "next Monday"
+    },
+    {
+     "key": "context",
+     "label": "What you're walking into",
+     "type": "longtext",
+     "placeholder": "two people wanted the job; backlog is huge; my manager wants faster response times",
+     "required": true
+    }
+   ],
+   "prompt": "Build a first-90-days plan for a new manager starting {start} in this situation: {context}, given the profile's path and team. Table (Weeks | Listen | Decide | Deliver | Don't) for weeks 0–2, 3–6 and 7–12, a checklist of the 10 conversations to have in the first two weeks, bullets of early wins to look for, and a callout on the classic mistake for the profile's path.",
+   "shape": "table, checklist, bullets, callout",
+   "button": "Build plan",
+   "loading": "Mapping 90 days…"
+  },
+  {
+   "id": "readme",
+   "title": "My manager README",
+   "subtitle": "Tell the team how you work",
+   "emoji": "📖",
+   "inputs": [
+    {
+     "key": "prefs",
+     "label": "How you actually work",
+     "type": "longtext",
+     "placeholder": "I reply to chat slowly; I like written proposals; I get quiet when stressed; I hate surprises",
+     "required": true
+    }
+   ],
+   "prompt": "Write a 'how I work' README from: {prefs}. Quote with the full document under 350 words in sections (what I expect, how to reach me, how I give feedback, my quirks, what I'm working on as a manager), bullets on what to leave out because it reads as a demand, and a callout on how to share it without it feeling self-important.",
+   "shape": "quote, bullets, callout",
+   "button": "Write README",
+   "loading": "Describing you…"
+  },
+  {
+   "id": "delegate",
+   "title": "What should I delegate?",
+   "subtitle": "Keep, delegate, drop or automate",
+   "emoji": "📤",
+   "inputs": [
+    {
+     "key": "tasks",
+     "label": "Your week's tasks",
+     "type": "longtext",
+     "placeholder": "weekly report; approving refunds; hiring screen calls; escalation rota; 1:1s; roadmap input",
+     "required": true
+    }
+   ],
+   "prompt": "Sort these tasks: {tasks}. Table (Task | Keep / Delegate / Drop / Automate | To whom (role) | Why), keeping only what needs your authority or relationships; then steps for handing over the biggest delegation including check-in points, a quote with how to frame it to the person as growth not dumping, and a callout on the task you're keeping for the wrong reason.",
+   "shape": "table, steps, quote, callout",
+   "button": "Sort tasks",
+   "loading": "Letting go…"
+  },
+  {
+   "id": "peers",
+   "title": "Managing former peers",
+   "subtitle": "When your friend is now your report",
+   "emoji": "🤝",
+   "inputs": [
+    {
+     "key": "situation",
+     "label": "What's awkward",
+     "type": "longtext",
+     "placeholder": "my friend Tom is now my report and still jokes about my old mistakes in standup",
+     "required": true
+    }
+   ],
+   "prompt": "Handle this: {situation}. Text naming what's really going on and what's normal, steps for a reset conversation with the person, a quote with the opening line, bullets of boundaries to set on friendship and information, and a callout on behaviours that would be a problem no matter the history.",
+   "shape": "text, steps, quote, bullets, callout",
+   "button": "Help me",
+   "loading": "Untangling…"
+  },
+  {
+   "id": "drowning",
+   "title": "I'm drowning",
+   "subtitle": "Triage a week that's too much",
+   "emoji": "🆘",
+   "inputs": [
+    {
+     "key": "week",
+     "label": "What this week looks like",
+     "type": "longtext",
+     "placeholder": "23 meetings, 3 escalations, my own tickets, review due Friday",
+     "required": true
+    },
+    {
+     "key": "feel",
+     "label": "Right now you feel",
+     "type": "chips",
+     "options": [
+      "Behind",
+      "Guilty",
+      "Useless",
+      "Angry",
+      "Numb"
+     ],
+     "default": "Behind"
+    }
+   ],
+   "prompt": "Triage this week: {week}, feeling {feel}. Checklist of what to cancel, delegate or shorten today with the exact message to send for each, a kv (hours reclaimed, one thing to do first, one thing to tell your manager), bullets on the pattern that created this, and a callout normalising that this is the standard month-three wall.",
+   "shape": "checklist, kv, bullets, callout",
+   "button": "Triage",
+   "loading": "Bailing water…"
+  }
+ ]
+}

@@ -1,0 +1,192 @@
+{
+ "id": "public_post",
+ "name": "Public Post",
+ "tagline": "Government jobs: applications that actually get referred",
+ "category": "Business",
+ "colors": [
+  "#004D40",
+  "#BF360C",
+  "#78909C"
+ ],
+ "icon": "globe",
+ "about": "Public Post helps you get hired into federal, state, local and civil-service roles: converting a private-sector résumé into the long government format, writing KSA and competency statements, decoding announcements, preparing for clearance and background checks, and scored panel interviews.",
+ "persona": "You are a former HR specialist for a government agency: meticulous, patient with bureaucracy, and firm that honesty on forms matters more than polish.",
+ "onboarding": {
+  "title": "Serve, and get paid for it",
+  "subtitle": "Your country and target level tune the format and the jargon.",
+  "bullets": [
+   "Private to government résumé conversion",
+   "KSA and competency statements",
+   "Clearance and panel-interview prep"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "country",
+   "label": "System",
+   "type": "chips",
+   "options": [
+    "US federal",
+    "US state/local",
+    "UK civil service",
+    "Canada public service",
+    "Australia APS/state",
+    "Other"
+   ]
+  },
+  {
+   "key": "target",
+   "label": "Target roles / series",
+   "type": "text",
+   "placeholder": "IT specialist GS-12, or EO in DWP"
+  },
+  {
+   "key": "status",
+   "label": "Status",
+   "type": "chips",
+   "options": [
+    "Private sector",
+    "Current public servant",
+    "Veteran",
+    "Recent graduate",
+    "Contractor"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "resume",
+   "title": "Government résumé",
+   "subtitle": "Convert your CV to the long format",
+   "emoji": "📄",
+   "inputs": [
+    {
+     "key": "resume",
+     "label": "Paste your current résumé",
+     "type": "longtext",
+     "placeholder": "Senior analyst, Acme Corp, 2019–present…",
+     "required": true
+    },
+    {
+     "key": "announcement",
+     "label": "Paste the announcement / job ad",
+     "type": "longtext",
+     "placeholder": "Specialized experience: one year equivalent to GS-11…",
+     "required": true
+    }
+   ],
+   "prompt": "Convert {resume} into the format expected by the profile's system for {announcement}. Provide text (the rewritten experience section with hours per week, dates, supervisor placeholders and detailed duty paragraphs that mirror the specialized-experience language); a table (Announcement requirement | Where it is now evidenced | Strength); bullets on what to add (grades, salary, clearance, veterans' preference documents where relevant); and a callout on length norms and the phrases that get applications screened out.",
+   "shape": "text, table, bullets, callout",
+   "button": "Convert",
+   "loading": "Formatting…"
+  },
+  {
+   "id": "ksa",
+   "title": "KSA / competency statement",
+   "subtitle": "Selection criteria and behaviour examples",
+   "emoji": "🧾",
+   "inputs": [
+    {
+     "key": "criterion",
+     "label": "The criterion or competency",
+     "type": "text",
+     "placeholder": "Communicating and Influencing",
+     "required": true
+    },
+    {
+     "key": "example",
+     "label": "Your example in rough notes",
+     "type": "longtext",
+     "placeholder": "led migration project, 3 teams, delivered under budget…",
+     "required": true
+    }
+   ],
+   "prompt": "Write a competency statement for '{criterion}' from {example} in the style the profile's system expects (KSA, Success Profiles behaviour, or STAR selection criteria). Provide text (a 250-word STAR answer with measurable results); a quote with a 100-word compressed version for word-limited forms; bullets of what assessors score and what is missing from the example; and a callout on the rating scale used.",
+   "shape": "text, quote, bullets, callout",
+   "button": "Write it",
+   "loading": "Evidencing…"
+  },
+  {
+   "id": "decode",
+   "title": "Decode the announcement",
+   "subtitle": "Grade, series, who may apply, questionnaire",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "announcement",
+     "label": "Paste the announcement",
+     "type": "longtext",
+     "placeholder": "Open to: all US citizens… GS-0343-11/12… questionnaire…",
+     "required": true
+    }
+   ],
+   "prompt": "Decode {announcement} for the profile. Give kv (grade or band, salary range, who may apply, hiring path or scheme, closing date, location and remote status, promotion potential); a table (Questionnaire or eligibility item | Honest self-rating advice | Evidence to cite); steps for submitting a complete package by the deadline; and a callout on inflated self-ratings and the documents that cause rejection.",
+   "shape": "kv, table, steps, callout",
+   "button": "Decode",
+   "loading": "Decoding…"
+  },
+  {
+   "id": "clearance",
+   "title": "Clearance & background",
+   "subtitle": "Prepare the forms without the panic",
+   "emoji": "🛂",
+   "inputs": [
+    {
+     "key": "level",
+     "label": "Level",
+     "type": "chips",
+     "options": [
+      "Basic background check",
+      "Public trust / BPSS",
+      "Secret / SC",
+      "Top secret / DV",
+      "Not sure"
+     ],
+     "default": "Not sure"
+    },
+    {
+     "key": "concerns",
+     "label": "Anything you're worried about",
+     "type": "text",
+     "placeholder": "old debt, foreign contacts, a caution at 19"
+    }
+   ],
+   "prompt": "Prepare for a {level} check given the concerns {concerns} and the profile's system. Provide a checklist of records and details to gather (addresses, employers, references, travel, finances); a table (Concern | How it is usually viewed | How to disclose it well); kv (typical timeline, who investigates, what to expect in an interview); and a callout that honest full disclosure beats omission, plus when to consult a lawyer.",
+   "shape": "checklist, table, kv, callout",
+   "button": "Prepare me",
+   "loading": "Filing…"
+  },
+  {
+   "id": "panel",
+   "title": "Structured interview",
+   "subtitle": "Scored panels, STAR every time",
+   "emoji": "🎤",
+   "inputs": [
+    {
+     "key": "focus",
+     "label": "Focus",
+     "type": "chips",
+     "options": [
+      "Leadership",
+      "Analysis & judgement",
+      "Customer / public service",
+      "Delivering at pace",
+      "Technical",
+      "Mixed"
+     ],
+     "default": "Mixed"
+    }
+   ],
+   "prompt": "Run a structured panel interview focused on {focus} for the profile's target roles. Provide 6 questions as cards (meta = competency · scoring level) with STAR model answers using the profile's background; a quote with a strong 'why public service' answer; bullets on how scored panels work and why every answer needs a result; and a checklist of questions to ask the panel.",
+   "shape": "cards, quote, bullets, checklist",
+   "button": "Start panel",
+   "loading": "Convening…"
+  }
+ ],
+ "disclaimer": "Government hiring, clearance and pay information is general guidance, not legal advice; follow the official announcement and agency instructions."
+}

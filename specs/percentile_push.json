@@ -1,0 +1,202 @@
+{
+ "id": "percentile_push",
+ "name": "Percentile Push",
+ "tagline": "GRE vocab, quant comparisons and essays, drilled to a score",
+ "category": "Education",
+ "colors": [
+  "#4A148C",
+  "#00ACC1",
+  "#FFB300"
+ ],
+ "icon": "brain",
+ "about": "Percentile Push drills GRE Verbal (text completion, sentence equivalence, reading) and Quant (quantitative comparison, data interpretation) in exam format, builds root-based vocabulary sets and grades your Analyze an Issue essays on the 0–6 scale.",
+ "persona": "You are a GRE tutor with a mathematician's precision and a lexicographer's love of words: you show the logic of each question and the trap it sets.",
+ "onboarding": {
+  "title": "Push your percentile, section by section",
+  "subtitle": "Your programme and target scores focus the drills.",
+  "bullets": [
+   "Verbal and Quant in exam format",
+   "Root-based vocabulary sets",
+   "Issue essays graded 0–6"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "target",
+   "label": "Target V / Q / AW",
+   "type": "text",
+   "placeholder": "160 / 165 / 4.5"
+  },
+  {
+   "key": "program",
+   "label": "Programme applying to",
+   "type": "text",
+   "placeholder": "MSc Computer Science"
+  },
+  {
+   "key": "weak",
+   "label": "Weakest",
+   "type": "chips",
+   "options": [
+    "Verbal",
+    "Quant",
+    "Writing"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "verbal",
+   "title": "Verbal drill",
+   "subtitle": "Text completion, sentence equivalence, reading",
+   "emoji": "🔤",
+   "inputs": [
+    {
+     "key": "type",
+     "label": "Type",
+     "type": "chips",
+     "options": [
+      "Text completion",
+      "Sentence equivalence",
+      "Reading comprehension"
+     ],
+     "default": "Text completion"
+    },
+    {
+     "key": "n",
+     "label": "Questions",
+     "type": "chips",
+     "options": [
+      "5",
+      "8"
+     ],
+     "default": "5"
+    }
+   ],
+   "prompt": "Write {n} GRE-format {type} questions at the profile's target level: cards (each with the stem and its options, meta = difficulty · skill), a table (No. | Answer | Logic clue in the sentence or passage | Trap option and why), and bullets with every tested word's definition and a one-line mnemonic.",
+   "shape": "cards, table, bullets",
+   "button": "Drill verbal",
+   "loading": "Opening the lexicon…"
+  },
+  {
+   "id": "quant",
+   "title": "Quant comparison drill",
+   "subtitle": "Quantity A vs B, plus data and algebra",
+   "emoji": "➗",
+   "inputs": [
+    {
+     "key": "area",
+     "label": "Area",
+     "type": "chips",
+     "options": [
+      "Arithmetic & number properties",
+      "Algebra",
+      "Geometry",
+      "Data interpretation",
+      "Counting & probability",
+      "Mixed"
+     ],
+     "default": "Mixed"
+    },
+    {
+     "key": "n",
+     "label": "Questions",
+     "type": "chips",
+     "options": [
+      "5",
+      "8"
+     ],
+     "default": "5"
+    }
+   ],
+   "prompt": "Write {n} GRE Quant questions on {area}, at least half as Quantitative Comparison (Quantity A vs Quantity B with the standard four answer choices): cards (question, meta = format · target seconds), steps for each solution using the fastest method (plugging numbers, elimination, estimation), a table (No. | Answer | Time-saver | Common wrong choice), and a callout on when to use the on-screen calculator and when not to.",
+   "shape": "cards, steps, table, callout",
+   "button": "Drill quant",
+   "loading": "Comparing A and B…"
+  },
+  {
+   "id": "vocab",
+   "title": "Root-based vocab set",
+   "subtitle": "12 words from one root or theme",
+   "emoji": "🌳",
+   "inputs": [
+    {
+     "key": "root",
+     "label": "Root or theme",
+     "type": "text",
+     "placeholder": "bene / mal, or 'words about speech'",
+     "required": true
+    }
+   ],
+   "prompt": "Build a GRE vocabulary set around {root}: a table (Word | Part of speech | Meaning | GRE-style sentence | Root breakdown) with 12 rows, a kv of near-synonym pairs that sentence equivalence likes to pair, bullets of 3 mnemonics, and a quote with a short paragraph that uses 6 of the words correctly.",
+   "shape": "table, kv, bullets, quote",
+   "button": "Build set",
+   "loading": "Digging up roots…"
+  },
+  {
+   "id": "essay",
+   "title": "Grade my Issue essay",
+   "subtitle": "0–6 score with the fixes that raise it",
+   "emoji": "🖋️",
+   "inputs": [
+    {
+     "key": "prompt",
+     "label": "The issue prompt",
+     "type": "text",
+     "placeholder": "Universities should require every student to take…",
+     "required": true
+    },
+    {
+     "key": "essay",
+     "label": "Your essay",
+     "type": "longtext",
+     "placeholder": "paste your essay…",
+     "required": true
+    }
+   ],
+   "prompt": "Grade this Analyze an Issue essay on the prompt '{prompt}': {essay}. Sections: kv (score 0–6 in half points, word count, paragraph count), a table (Scoring dimension | Evidence in the essay | What a 6 would do), bullets with 4 rewritten sentences that fix the biggest weakness, steps for a 30-minute plan (3 minutes outlining, 24 writing, 3 proofreading), and a callout on the one structural habit to change.",
+   "shape": "kv, table, bullets, steps, callout",
+   "button": "Grade it",
+   "loading": "Reading closely…"
+  },
+  {
+   "id": "plan",
+   "title": "Study plan",
+   "subtitle": "Weeks, hours and milestones to your targets",
+   "emoji": "🗓️",
+   "inputs": [
+    {
+     "key": "weeks",
+     "label": "Weeks left",
+     "type": "chips",
+     "options": [
+      "4",
+      "8",
+      "12"
+     ],
+     "default": "8"
+    },
+    {
+     "key": "hours",
+     "label": "Hours per week",
+     "type": "chips",
+     "options": [
+      "5",
+      "8",
+      "12"
+     ],
+     "default": "8"
+    }
+   ],
+   "prompt": "Plan {weeks} weeks of GRE study at {hours} hours a week for the profile's targets and weakest section: table (Week | Verbal focus | Quant focus | Writing | Practice test?), bullets of score milestones to hit at each quarter, a checklist for test week (ID, ScoreSelect decision, section-adaptive strategy, calculator practice), and a callout on how the section-adaptive design should shape your approach to the first section.",
+   "shape": "table, bullets, checklist, callout",
+   "button": "Plan it",
+   "loading": "Allocating hours…"
+  }
+ ]
+}

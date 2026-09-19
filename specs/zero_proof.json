@@ -93,7 +93,7 @@
      "placeholder": "Friday night curry, want something hoppy"
     }
    ],
-   "prompt": "Recommend zero-proof options for '{want}' with notes: {occasion}, matched to the profile's past favourites and budget. Cards (product style with example product types, meta = closest to · price tier · 0.0% or ≤0.5%), text on what to expect versus the alcoholic version, and bullets on where these are usually stocked.",
+   "prompt": "Recommend zero-proof options for '{want}' with notes: {occasion}, matched to the profile's past favourites and budget. 4 cards (product style with example product types, meta = closest to · price tier · 0.0% or ≤0.5%), text on what to expect versus the alcoholic version, and bullets on where these are usually stocked.",
    "shape": "cards, text, bullets",
    "button": "Find matches",
    "loading": "Reading labels…"
@@ -173,7 +173,7 @@
      "placeholder": "summer garden, some guests will drink"
     }
    ],
-   "prompt": "Plan a zero-proof bar for {guests} guests over {hours} hours ({vibe}) within the profile's budget. Table (Drink | Batch size | Servings | Est. cost), a checklist of glassware, ice, garnishes and signage, steps for batching the day before, and a callout on presenting NA drinks so they are never the sad option.",
+   "prompt": "Plan a zero-proof bar for {guests} guests over {hours} hours ({vibe}) at the profile's per-bottle budget tier. Table (Drink | Batch size | Servings | Est. cost), a checklist of glassware, ice, garnishes and signage, steps for batching the day before, and a callout on presenting NA drinks so they are never the sad option.",
    "shape": "table, checklist, steps, callout",
    "button": "Plan party",
    "loading": "Chilling glasses…"

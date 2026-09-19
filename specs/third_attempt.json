@@ -1,0 +1,211 @@
+{
+ "id": "third_attempt",
+ "name": "Third Attempt",
+ "tagline": "Programming and meet prep for squat, bench, deadlift",
+ "category": "Health & Fitness",
+ "colors": [
+  "#B71C1C",
+  "#263238",
+  "#FFD600"
+ ],
+ "icon": "graph",
+ "about": "Third Attempt writes powerlifting blocks from your current maxes, picks meet-day attempts and warm-up timing, fixes sticking points and plans a weight cut that will not cost you kilos on the platform.",
+ "persona": "You are a powerlifting coach who has handled hundreds of meets: percentage-based, RPE-literate, conservative with openers and honest about what a lifter needs versus what they want.",
+ "onboarding": {
+  "title": "What are your numbers?",
+  "subtitle": "Current maxes and your federation shape every block and attempt.",
+  "bullets": [
+   "Blocks from your real maxes",
+   "Attempt selection and warm-up timing",
+   "Sticking-point fixes"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "maxes",
+   "label": "Current maxes (kg)",
+   "type": "text",
+   "placeholder": "S 140 / B 90 / D 180"
+  },
+  {
+   "key": "exp",
+   "label": "Experience",
+   "type": "chips",
+   "options": [
+    "First year",
+    "1–3 years",
+    "3+ years",
+    "Competed before"
+   ]
+  },
+  {
+   "key": "fed",
+   "label": "Federation and class",
+   "type": "text",
+   "placeholder": "IPF, 83 kg, raw"
+  }
+ ],
+ "tools": [
+  {
+   "id": "block",
+   "title": "Build a block",
+   "subtitle": "Percentage or RPE, 4–8 weeks",
+   "emoji": "📈",
+   "inputs": [
+    {
+     "key": "weeks",
+     "label": "Length",
+     "type": "chips",
+     "options": [
+      "4 weeks",
+      "6 weeks",
+      "8 weeks"
+     ],
+     "default": "6 weeks"
+    },
+    {
+     "key": "style",
+     "label": "Loading",
+     "type": "chips",
+     "options": [
+      "Percentage",
+      "RPE",
+      "Mixed"
+     ],
+     "default": "Mixed"
+    },
+    {
+     "key": "days",
+     "label": "Days/week",
+     "type": "chips",
+     "options": [
+      "3",
+      "4",
+      "5"
+     ],
+     "default": "4"
+    }
+   ],
+   "prompt": "Write a {weeks} powerlifting block with {style} loading, {days} training days per week, from the profile maxes and experience. Sections: a table (Week | Day | Main lift | Sets x reps | % or RPE | Load kg), bullets on accessory selection and why, a callout on the deload and taper logic, and kv (projected squat, bench and deadlift at block end).",
+   "shape": "table, bullets, callout, kv",
+   "button": "Write block",
+   "loading": "Loading the bar…"
+  },
+  {
+   "id": "attempts",
+   "title": "Pick my attempts",
+   "subtitle": "Openers to thirds plus warm-ups",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "recent",
+     "label": "Best recent training lifts",
+     "type": "text",
+     "placeholder": "S 150x1 @RPE 9, B 95x2, D 190x1"
+    },
+    {
+     "key": "meetdate",
+     "label": "Meet date",
+     "type": "text",
+     "placeholder": "in 3 weeks"
+    }
+   ],
+   "prompt": "Select meet attempts from the profile maxes and these recent lifts: {recent}, meet {meetdate}. Sections: a table (Lift | Opener | Second | Third conservative | Third if flying), steps for warm-up timing per lift counted back from the flight (attempts out, warm-up loads, reps), a callout on the opener rule (a weight you could triple on a bad day), and bullets on what to change if a second attempt misses.",
+   "shape": "table, steps, callout, bullets",
+   "button": "Pick attempts",
+   "loading": "Chalking hands…"
+  },
+  {
+   "id": "stick",
+   "title": "Fix a sticking point",
+   "subtitle": "Where the lift fails and why",
+   "emoji": "🔧",
+   "inputs": [
+    {
+     "key": "lift",
+     "label": "Lift",
+     "type": "chips",
+     "options": [
+      "Squat",
+      "Bench",
+      "Deadlift"
+     ],
+     "default": "Deadlift"
+    },
+    {
+     "key": "where",
+     "label": "Where it fails",
+     "type": "chips",
+     "options": [
+      "Off the floor or bottom",
+      "Mid-range",
+      "Lockout",
+      "Unracking or setup"
+     ],
+     "default": "Mid-range"
+    },
+    {
+     "key": "detail",
+     "label": "Details",
+     "type": "text",
+     "placeholder": "hips shoot up, bar drifts forward"
+    }
+   ],
+   "prompt": "The {lift} fails at '{where}': {detail}. Sections: bullets ranking the likely technical and strength causes, a table (Cause | Fix exercise | Sets x reps | Weeks to expect change), steps for a technique drill with a light bar, and a quote with the single cue to think during the rep.",
+   "shape": "bullets, table, steps, quote",
+   "button": "Diagnose",
+   "loading": "Reviewing footage…"
+  },
+  {
+   "id": "cut",
+   "title": "Make weight",
+   "subtitle": "A weigh-in plan that keeps your strength",
+   "emoji": "⚖️",
+   "inputs": [
+    {
+     "key": "now",
+     "label": "Current bodyweight (kg)",
+     "type": "number",
+     "placeholder": "86"
+    },
+    {
+     "key": "limit",
+     "label": "Class limit (kg)",
+     "type": "number",
+     "placeholder": "83"
+    },
+    {
+     "key": "window",
+     "label": "Weigh-in to lifting",
+     "type": "chips",
+     "options": [
+      "2 hours",
+      "24 hours"
+     ],
+     "default": "2 hours"
+    }
+   ],
+   "prompt": "Plan making weight from {now} kg to a {limit} kg limit with a {window} weigh-in window. Sections: kv (kg to lose, how much via diet versus water, go or no-go verdict), a table (Days out | Food | Fluids | Sodium | Training), steps for the refeed after weigh-in, and a callout on hard limits (only a small water cut for a 2-hour window; no diuretics, saunas or extreme cuts).",
+   "shape": "kv, table, steps, callout",
+   "button": "Plan the cut",
+   "loading": "Checking the scale…"
+  },
+  {
+   "id": "meetday",
+   "title": "Meet-day playbook",
+   "subtitle": "Gear, timing, food, headspace",
+   "emoji": "🏟️",
+   "inputs": [],
+   "prompt": "Write a meet-day playbook for the profile federation and experience. Sections: a checklist for the gear bag (belt, sleeves, singlet, chalk, food, membership card), a table (Time | What to do | Eat and drink), bullets on rack heights, commands and common red lights in the profile federation, and a quote with a pre-attempt mantra.",
+   "shape": "checklist, table, bullets, quote",
+   "button": "Playbook",
+   "loading": "Warming up…"
+  }
+ ],
+ "disclaimer": "Not medical advice. Weight cuts and maximal lifting carry risk: never cut water beyond a small margin for a same-day weigh-in, and see a clinician about persistent pain."
+}

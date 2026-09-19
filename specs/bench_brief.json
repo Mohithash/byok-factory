@@ -1,0 +1,206 @@
+{
+ "id": "bench_brief",
+ "name": "Bench Brief",
+ "tagline": "Walk into every practical knowing exactly what to do",
+ "category": "Education",
+ "colors": [
+  "#2E7D32",
+  "#F4511E",
+  "#1E88E5"
+ ],
+ "icon": "drop",
+ "about": "Bench Brief preps you before a lab practical: protocol walk-throughs with timings and hazards, risk assessments, clean lab-notebook entries, a methods section written properly, and drills for practical exams.",
+ "persona": "You are a friendly lab demonstrator with a safety-first mindset: precise about technique, honest about what usually goes wrong, and never a substitute for the supervisor in the room.",
+ "onboarding": {
+  "title": "Own the bench",
+  "subtitle": "Tell us your subject and level so every walkthrough uses the right techniques.",
+  "bullets": [
+   "Protocol walk-throughs with timings",
+   "Risk assessments and notebook entries",
+   "Practical-exam drills"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "subject",
+   "label": "Lab subject",
+   "type": "chips",
+   "options": [
+    "Chemistry",
+    "Biology",
+    "Biochemistry",
+    "Physics",
+    "Engineering",
+    "Pharmacy",
+    "Environmental"
+   ],
+   "default": "Chemistry"
+  },
+  {
+   "key": "level",
+   "label": "Level",
+   "type": "chips",
+   "options": [
+    "Year 1",
+    "Year 2",
+    "Final year",
+    "Master's"
+   ],
+   "default": "Year 1"
+  },
+  {
+   "key": "kit",
+   "label": "Equipment you've used before",
+   "type": "text",
+   "placeholder": "pipettes, spectrophotometer, PCR"
+  }
+ ],
+ "tools": [
+  {
+   "id": "prelab",
+   "title": "Pre-lab brief",
+   "subtitle": "Paste the protocol → what to expect",
+   "emoji": "📋",
+   "inputs": [
+    {
+     "key": "protocol",
+     "label": "Protocol / lab script",
+     "type": "longtext",
+     "placeholder": "paste the method from the lab manual",
+     "required": true
+    },
+    {
+     "key": "minutes",
+     "label": "Session length (min)",
+     "type": "number",
+     "placeholder": "180"
+    }
+   ],
+   "prompt": "Protocol: {protocol}. Session: {minutes} minutes. Produce steps for the practical with a time budget per step that fits the session and includes waiting periods, a table (Step | What can go wrong | How to tell | Fix), a checklist of every value and observation to record (with units and precision), and a callout on the single most common mistake for this technique at the profile's level.",
+   "shape": "steps, table, checklist, callout",
+   "button": "Brief me",
+   "loading": "Reading the script…"
+  },
+  {
+   "id": "risk",
+   "title": "Risk assessment",
+   "subtitle": "Chemicals + equipment → hazards and controls",
+   "emoji": "⚠️",
+   "inputs": [
+    {
+     "key": "materials",
+     "label": "Chemicals, organisms, equipment",
+     "type": "longtext",
+     "placeholder": "conc. HCl, ethanol, Bunsen burner, E. coli K-12",
+     "required": true
+    },
+    {
+     "key": "scale",
+     "label": "Scale",
+     "type": "chips",
+     "options": [
+      "Test-tube",
+      "Bench (100 mL–1 L)",
+      "Pilot / larger"
+     ],
+     "default": "Test-tube"
+    }
+   ],
+   "prompt": "Materials: {materials}. Scale: {scale}. Build a table (Substance or equipment | Hazard class | Route of exposure | Control measure | Disposal), a checklist of PPE and setup checks before starting, steps for the emergency response to the two most likely incidents (spill, splash, burn, cut), and a callout stating this is a draft the supervisor must approve against the institution's own COSHH or equivalent forms.",
+   "shape": "table, checklist, steps, callout",
+   "button": "Assess",
+   "loading": "Checking hazards…"
+  },
+  {
+   "id": "notebook",
+   "title": "Notebook entry",
+   "subtitle": "Messy notes → a proper lab-book page",
+   "emoji": "📓",
+   "inputs": [
+    {
+     "key": "notes",
+     "label": "Your raw notes",
+     "type": "longtext",
+     "placeholder": "weighed 2.03 g NaCl, dissolved in ~50 mL, heated 5 min, went cloudy…",
+     "required": true
+    },
+    {
+     "key": "aim",
+     "label": "Aim of the experiment",
+     "type": "text",
+     "placeholder": "determine the solubility of…"
+    }
+   ],
+   "prompt": "Aim: {aim}. Raw notes: {notes}. Rewrite as a lab-notebook entry: kv (Date, Title, Aim, Hypothesis, Materials, Method reference), a table of observations and measurements (Time | Action | Observation or value | Units | Notes), bullets of deviations from the protocol that must be recorded, and a callout on notebook rules: no erasing, single-line strikethrough, date and sign every page.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Write entry",
+   "loading": "Tidying…"
+  },
+  {
+   "id": "methods",
+   "title": "Write the methods",
+   "subtitle": "Past tense, reproducible, no results",
+   "emoji": "✍️",
+   "inputs": [
+    {
+     "key": "what",
+     "label": "What you actually did",
+     "type": "longtext",
+     "placeholder": "including any changes from the script",
+     "required": true
+    },
+    {
+     "key": "style",
+     "label": "House style",
+     "type": "chips",
+     "options": [
+      "Passive past tense",
+      "Active past tense",
+      "Numbered protocol"
+     ],
+     "default": "Passive past tense"
+    }
+   ],
+   "prompt": "What was done: {what}. Style: {style}. Write a text methods section that another student could reproduce (quantities, concentrations, instruments with model where given, times, temperatures), then bullets of what markers deduct for in methods (results creeping in, missing controls, vague 'appropriate amount'), and a checklist to compare the draft against the original protocol so no step is missing.",
+   "shape": "text, bullets, checklist",
+   "button": "Draft methods",
+   "loading": "Writing it up…"
+  },
+  {
+   "id": "drill",
+   "title": "Practical exam drill",
+   "subtitle": "Rehearse a technique out loud",
+   "emoji": "🧪",
+   "inputs": [
+    {
+     "key": "technique",
+     "label": "Technique",
+     "type": "text",
+     "placeholder": "serial dilution",
+     "required": true
+    },
+    {
+     "key": "mode",
+     "label": "Drill",
+     "type": "chips",
+     "options": [
+      "Talk me through it",
+      "Quiz me",
+      "Common errors"
+     ],
+     "default": "Talk me through it"
+    }
+   ],
+   "prompt": "Technique: {technique}. Mode: {mode}. Produce steps for the technique with the exact hand movements, volumes and checks an examiner watches for, a table (Examiner checks | What good looks like | Marks lost for), a quote with a mnemonic or one-line cue for the trickiest step, and bullets of 6 questions the examiner might ask at the bench with short model answers (make them harder if the mode is 'Quiz me', error-focused if 'Common errors').",
+   "shape": "steps, table, quote, bullets",
+   "button": "Drill",
+   "loading": "Setting up…"
+  }
+ ],
+ "disclaimer": "Safety information here is general and must never replace your institution's risk assessment, your lab manual or the supervisor in the room."
+}

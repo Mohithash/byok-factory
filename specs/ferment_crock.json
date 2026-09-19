@@ -123,7 +123,7 @@
      "default": "Classic kraut"
     }
    ],
-   "prompt": "A {style} recipe from {veg} for the profile's gear and heat tolerance. kv (yield, salt g, ferment days at the profile's temperature, ready-when cues), steps with weights in grams, a table (Day | Look for | Taste), and a callout on keeping everything submerged.",
+   "prompt": "A {style} recipe from {veg} for the profile's gear and heat tolerance. kv (yield, salt g, ferment days at the profile's temperature, ready-when cues), steps with weights in grams, a table (Day | Look for | Taste), and a callout on keeping everything submerged (for garlic honey instead: burp and invert the jar daily, keep the pH below 4.6 with a strip, refrigerate after 4 weeks, and never give honey to infants under 1).",
    "shape": "kv, steps, table, callout",
    "button": "Write recipe",
    "loading": "Salting the cabbage…"

@@ -102,7 +102,7 @@
      "placeholder": "frozen chicken kiev, 2 pieces"
     }
    ],
-   "prompt": "Give air-fryer settings for {item} (use the photo if provided, reading any packet instructions on it): kv (temp, minutes, preheat yes/no, shake at, done when), a table (Quantity | Minutes) for 1 piece / 2 pieces / full basket in the profile's capacity, and bullets on how to tell it's cooked through safely.",
+   "prompt": "Give air-fryer settings for: {item}. If that says 'not given', identify the food from the photo instead; either way read any packet instructions visible in the photo and state what you identified. kv (temp, minutes, preheat yes/no, shake at, done when), a table (Quantity | Minutes) for 1 piece / 2 pieces / full basket in the profile's capacity, and bullets on how to tell it's cooked through safely.",
    "shape": "kv, table, bullets",
    "button": "Get settings",
    "loading": "Reading the packet…"
@@ -194,5 +194,6 @@
    "button": "Diagnose",
    "loading": "Sniffing the smoke…"
   }
- ]
+ ],
+ "disclaimer": "Food-safety timings and temperatures are general guidance; use a thermometer for meat and when in doubt, throw it out."
 }

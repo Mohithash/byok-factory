@@ -1,0 +1,169 @@
+{
+ "id": "okr_studio",
+ "name": "OKR Studio",
+ "tagline": "Quarterly goals your team can actually measure",
+ "category": "Business",
+ "colors": [
+  "#00897B",
+  "#F4511E",
+  "#3949AB"
+ ],
+ "icon": "star",
+ "about": "OKR Studio drafts objectives and key results from your strategy, scores them for quality, cascades them to teams, runs weekly check-ins and grades the quarter honestly.",
+ "persona": "You are an OKR coach who has run planning at fast-growing startups: outcome-obsessed, ruthless about vanity metrics, and clear that OKRs are not a task list.",
+ "onboarding": {
+  "title": "Fewer goals, better goals",
+  "subtitle": "Your company context makes the goals specific.",
+  "bullets": [
+   "Draft OKRs from strategy",
+   "Cascade to teams without chaos",
+   "Weekly check-ins & quarter grading"
+  ]
+ },
+ "profile": [
+  {
+   "key": "company",
+   "label": "Company & what it does",
+   "type": "text",
+   "placeholder": "Acme — invoicing for plumbers"
+  },
+  {
+   "key": "team",
+   "label": "Team size",
+   "type": "number",
+   "placeholder": "18"
+  },
+  {
+   "key": "stage",
+   "label": "Stage",
+   "type": "chips",
+   "options": [
+    "Pre-launch",
+    "Early revenue",
+    "Scaling",
+    "Profitable"
+   ]
+  },
+  {
+   "key": "focus",
+   "label": "This quarter's big theme",
+   "type": "text",
+   "placeholder": "retention before growth"
+  }
+ ],
+ "tools": [
+  {
+   "id": "draft",
+   "title": "Draft company OKRs",
+   "subtitle": "Strategy → measurable objectives",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "strategy",
+     "label": "Strategy / priorities in your words",
+     "type": "longtext",
+     "placeholder": "cut churn, launch mobile app, raise Series A in Q3",
+     "required": true
+    },
+    {
+     "key": "count",
+     "label": "Objectives",
+     "type": "chips",
+     "options": [
+      "2",
+      "3",
+      "4"
+     ],
+     "default": "3"
+    }
+   ],
+   "prompt": "Draft {count} company objectives from: {strategy}, for the profile company and its quarterly theme. Table (Objective | Key result | Baseline | Target | Suggested owner | Leading or lagging), bullets explaining why each objective earns its place, and a callout listing what was deliberately left out and why.",
+   "shape": "table, bullets, callout",
+   "button": "Draft OKRs",
+   "loading": "Aiming…"
+  },
+  {
+   "id": "score",
+   "title": "Score my OKRs",
+   "subtitle": "Outputs vs outcomes, measurability",
+   "emoji": "🧪",
+   "inputs": [
+    {
+     "key": "okrs",
+     "label": "Paste your OKRs",
+     "type": "longtext",
+     "placeholder": "O1: Delight customers. KR1: Ship 5 features…",
+     "required": true
+    }
+   ],
+   "prompt": "Score these OKRs: {okrs}. Table (Item | Outcome or output? | Measurable? | Ambitious? | Score /10 | Rewrite), a callout on the most common failure pattern seen here, and a checklist of edits to make before publishing them.",
+   "shape": "table, callout, checklist",
+   "button": "Score them",
+   "loading": "Grading…"
+  },
+  {
+   "id": "cascade",
+   "title": "Cascade to a team",
+   "subtitle": "Team KRs that ladder up",
+   "emoji": "🪜",
+   "inputs": [
+    {
+     "key": "teamname",
+     "label": "Team",
+     "type": "text",
+     "placeholder": "Growth",
+     "required": true
+    },
+    {
+     "key": "parent",
+     "label": "Company objective they support",
+     "type": "text",
+     "placeholder": "Reduce churn from 5% to 3%",
+     "required": true
+    }
+   ],
+   "prompt": "Cascade the company objective '{parent}' to the {teamname} team. Table (Team KR | How it ladders up | Metric source | Weekly check), steps for a 45-minute team OKR workshop, and bullets of cross-team dependencies to surface early.",
+   "shape": "table, steps, bullets",
+   "button": "Cascade",
+   "loading": "Aligning…"
+  },
+  {
+   "id": "checkin",
+   "title": "Weekly check-in",
+   "subtitle": "Confidence, blockers, next actions",
+   "emoji": "🗓️",
+   "inputs": [
+    {
+     "key": "progress",
+     "label": "This week's numbers & notes",
+     "type": "longtext",
+     "placeholder": "KR1 at 40% (target 50% by now), KR2 blocked on data team",
+     "required": true
+    }
+   ],
+   "prompt": "Run a weekly OKR check-in on: {progress}. Table (KR | Confidence: green / amber / red | Why | Next action | Owner), bullets of the 3 things to discuss at Monday's meeting, and a quote with a 4-line Slack update for the company.",
+   "shape": "table, bullets, quote",
+   "button": "Check in",
+   "loading": "Taking stock…"
+  },
+  {
+   "id": "grade",
+   "title": "Grade the quarter",
+   "subtitle": "Honest scores and lessons",
+   "emoji": "🏁",
+   "inputs": [
+    {
+     "key": "results",
+     "label": "Final results per KR",
+     "type": "longtext",
+     "placeholder": "KR1: 0.7, KR2: hit, KR3: missed badly because…",
+     "required": true
+    }
+   ],
+   "prompt": "Grade the quarter from: {results}. Table (KR | Score 0–1 | Verdict | Lesson), text with an honest 5-sentence narrative for the all-hands, bullets of what to carry, kill or reset next quarter, and a callout on whether the misses were ambition or execution.",
+   "shape": "table, text, bullets, callout",
+   "button": "Grade it",
+   "loading": "Marking…"
+  }
+ ]
+}

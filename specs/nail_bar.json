@@ -1,0 +1,231 @@
+{
+ "id": "nail_bar",
+ "name": "Nail Bar",
+ "tagline": "Salon-level nails at home, and healthier ones too",
+ "category": "Beauty",
+ "colors": [
+  "#FF4081",
+  "#3949AB",
+  "#B2FF59"
+ ],
+ "icon": "drop",
+ "about": "Nail Bar designs nail sets for any occasion, walks you through a home manicure or gel application, compares gel, acrylic, dip and press-ons for your life, and spots nail health problems from a photo.",
+ "persona": "You are a licensed nail technician and educator: precise about prep and cure times, honest about damage, and quick to say when a nail needs a doctor rather than a file.",
+ "onboarding": {
+  "title": "Nails that suit your life",
+  "subtitle": "Length, lifestyle and the kit you own shape every answer.",
+  "bullets": [
+   "Set designs for any occasion",
+   "Step-by-step manicures and gel",
+   "Nail health checks from a photo"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "nails",
+   "label": "Your nails are",
+   "type": "chips",
+   "options": [
+    "Short natural",
+    "Medium natural",
+    "Long natural",
+    "Gel extensions",
+    "Acrylics",
+    "Press-ons"
+   ],
+   "default": "Short natural"
+  },
+  {
+   "key": "hands",
+   "label": "Your hands",
+   "type": "chips",
+   "options": [
+    "Desk job",
+    "Hands-on work",
+    "Lots of washing",
+    "Sport / gym",
+    "Cooking"
+   ],
+   "multi": true
+  },
+  {
+   "key": "kit",
+   "label": "Kit you own",
+   "type": "text",
+   "placeholder": "UV lamp, gel base and top, 6 polishes"
+  }
+ ],
+ "tools": [
+  {
+   "id": "design",
+   "title": "Design a set",
+   "subtitle": "Occasion + vibe → looks",
+   "emoji": "💅",
+   "inputs": [
+    {
+     "key": "occasion",
+     "label": "Occasion",
+     "type": "text",
+     "placeholder": "friend's wedding, sage green dress",
+     "required": true
+    },
+    {
+     "key": "shape",
+     "label": "Shape",
+     "type": "chips",
+     "options": [
+      "Square",
+      "Squoval",
+      "Round",
+      "Almond",
+      "Coffin",
+      "Stiletto"
+     ],
+     "default": "Almond"
+    },
+    {
+     "key": "vibe",
+     "label": "Vibe",
+     "type": "chips",
+     "options": [
+      "Minimal",
+      "French twist",
+      "Chrome",
+      "Floral",
+      "Bold colour",
+      "Nail art"
+     ],
+     "default": "Minimal"
+    }
+   ],
+   "prompt": "Design nail sets for '{occasion}' in a {shape} shape with a {vibe} vibe, for the profile's nails and lifestyle. 3 cards (name, colours as polish-shade descriptors, art details, meta = difficulty · minutes), steps for the most doable design at home, a checklist of tools and products needed, and a callout on exactly what to tell a salon tech if outsourcing.",
+   "shape": "cards, steps, checklist, callout",
+   "button": "Design",
+   "loading": "Painting…"
+  },
+  {
+   "id": "mani",
+   "title": "Home manicure",
+   "subtitle": "Prep, paint, cure, finish",
+   "emoji": "🧴",
+   "inputs": [
+    {
+     "key": "type",
+     "label": "Type",
+     "type": "chips",
+     "options": [
+      "Regular polish",
+      "Gel",
+      "Builder gel",
+      "Press-ons",
+      "Dip powder"
+     ],
+     "default": "Regular polish"
+    },
+    {
+     "key": "time",
+     "label": "Time",
+     "type": "chips",
+     "options": [
+      "20 min",
+      "45 min",
+      "90 min"
+     ],
+     "default": "45 min"
+    }
+   ],
+   "prompt": "Walk through a {type} manicure in {time} using the profile's kit. Steps with timings (prep, cuticles, shaping, base, colour, cure or dry, top, aftercare), a table (Common mistake | What it causes | Fix), bullets on making it last a week longer, and a callout on lamp safety and keeping uncured gel off skin.",
+   "shape": "steps, table, bullets, callout",
+   "button": "Start",
+   "loading": "Prepping…"
+  },
+  {
+   "id": "compare",
+   "title": "Gel, acrylic, dip or press-on?",
+   "subtitle": "The right system for your life",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "priority",
+     "label": "Priority",
+     "type": "chips",
+     "options": [
+      "Nail health",
+      "Longevity",
+      "Cost",
+      "Speed",
+      "Looks"
+     ],
+     "default": "Nail health"
+    },
+    {
+     "key": "budget",
+     "label": "Monthly budget",
+     "type": "number",
+     "placeholder": "40"
+    }
+   ],
+   "prompt": "Compare gel, acrylic, dip powder, builder gel and press-ons for the profile's hands and nails, priority '{priority}', monthly budget {budget}. Table (System | Wear time | Cost per month | Damage risk | Removal | Best for), text with one clear recommendation and why, bullets of questions to ask a salon, and a callout on the removal habits that wreck nails.",
+   "shape": "table, text, bullets, callout",
+   "button": "Compare",
+   "loading": "Weighing up…"
+  },
+  {
+   "id": "health",
+   "title": "Check my nails",
+   "subtitle": "Photo → what the nail is saying",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Clear photo of bare nails",
+     "type": "photo",
+     "placeholder": "No polish, good light",
+     "required": true
+    },
+    {
+     "key": "notes",
+     "label": "Anything you've noticed",
+     "type": "text",
+     "placeholder": "peeling since gel removal"
+    }
+   ],
+   "prompt": "Look at the bare nails in the photo with the notes '{notes}'. Table (Sign seen | Likely everyday cause | What helps), steps for a 4-week recovery routine, bullets of habits and foods that support nail growth, and a callout listing signs (dark streaks, thickening, lifting, pain, spreading discolouration) that need a doctor or dermatologist rather than a manicure.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Check",
+   "loading": "Looking closely…"
+  },
+  {
+   "id": "remove",
+   "title": "Remove safely",
+   "subtitle": "Gel, acrylic, dip or glue",
+   "emoji": "🧽",
+   "inputs": [
+    {
+     "key": "what",
+     "label": "Removing",
+     "type": "chips",
+     "options": [
+      "Gel polish",
+      "Builder gel",
+      "Acrylics",
+      "Dip powder",
+      "Press-on glue",
+      "Glitter polish"
+     ],
+     "default": "Gel polish"
+    }
+   ],
+   "prompt": "Safe at-home removal of {what}: steps with timings and what it should look like at each stage, a checklist of supplies, bullets on aftercare for the next 48 hours, and a callout on when to stop and go to a salon instead.",
+   "shape": "steps, checklist, bullets, callout",
+   "button": "Remove",
+   "loading": "Soaking…"
+  }
+ ],
+ "disclaimer": "Not medical advice; see a doctor or dermatologist for nail infections, discolouration, pain or changes that persist."
+}

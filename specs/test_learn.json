@@ -1,0 +1,183 @@
+{
+ "id": "test_learn",
+ "name": "Test & Learn",
+ "tagline": "A/B tests designed, sized and read out honestly",
+ "category": "Business",
+ "colors": [
+  "#303F9F",
+  "#EC407A",
+  "#C0CA33"
+ ],
+ "icon": "scale",
+ "about": "Test & Learn turns ideas into crisp hypotheses, sizes and schedules A/B tests, reads results without fooling yourself and keeps a prioritised experiment backlog.",
+ "persona": "You are a product experimentation lead: rigorous about statistics, allergic to peeking and p-hacking, and focused on decisions rather than significance theatre.",
+ "onboarding": {
+  "title": "Run tests you can trust",
+  "subtitle": "A little about your product and traffic sharpens every calculation.",
+  "bullets": [
+   "Hypotheses with a clear success metric",
+   "Sample size and duration in seconds",
+   "Readouts that say ship, iterate or stop"
+  ]
+ },
+ "profile": [
+  {
+   "key": "product",
+   "label": "Product / site",
+   "type": "text",
+   "placeholder": "SaaS onboarding flow"
+  },
+  {
+   "key": "traffic",
+   "label": "Weekly visitors or users",
+   "type": "number",
+   "placeholder": "20000"
+  },
+  {
+   "key": "metric",
+   "label": "Primary metric and baseline",
+   "type": "text",
+   "placeholder": "signup conversion, 4.2%"
+  },
+  {
+   "key": "platform",
+   "label": "Testing platform",
+   "type": "chips",
+   "options": [
+    "Optimizely",
+    "VWO",
+    "LaunchDarkly",
+    "GrowthBook",
+    "Custom",
+    "None yet"
+   ],
+   "default": "None yet"
+  }
+ ],
+ "tools": [
+  {
+   "id": "hypothesis",
+   "title": "Write the hypothesis",
+   "subtitle": "Idea → testable statement",
+   "emoji": "💡",
+   "inputs": [
+    {
+     "key": "idea",
+     "label": "Your idea",
+     "type": "text",
+     "placeholder": "shorten the signup form to 3 fields",
+     "required": true
+    },
+    {
+     "key": "why",
+     "label": "Why you think it helps",
+     "type": "text",
+     "placeholder": "drop-off at the phone-number field"
+    }
+   ],
+   "prompt": "Turn '{idea}' (reasoning: {why}) into an experiment plan for the profile's product. Kv (hypothesis in 'If we… then… because…' form, primary metric, guardrail metrics, minimum detectable effect, audience, variants), a quote with a one-paragraph test brief, bullets of what would justify abandoning the test early, and a callout on the confounders to control.",
+   "shape": "kv, quote, bullets, callout",
+   "button": "Write hypothesis",
+   "loading": "Framing…"
+  },
+  {
+   "id": "size",
+   "title": "Sample size & duration",
+   "subtitle": "How long to run it",
+   "emoji": "⏱️",
+   "inputs": [
+    {
+     "key": "baseline",
+     "label": "Baseline conversion %",
+     "type": "number",
+     "placeholder": "4.2"
+    },
+    {
+     "key": "mde",
+     "label": "Minimum lift to detect (relative %)",
+     "type": "number",
+     "placeholder": "10"
+    },
+    {
+     "key": "variants",
+     "label": "Variants incl. control",
+     "type": "chips",
+     "options": [
+      "2",
+      "3",
+      "4"
+     ],
+     "default": "2"
+    }
+   ],
+   "prompt": "Baseline {baseline}%, relative MDE {mde}%, {variants} variants, using the profile's weekly traffic. Kv (visitors per variant, total visitors, weeks to run at current traffic, power, significance level), a table 'Trade-offs' (MDE | Per variant | Weeks) for MDE 5, 10, 15 and 20%, a callout on running whole weekly cycles and never stopping early, and bullets on shortening the test without cheating.",
+   "shape": "kv, table, callout, bullets",
+   "button": "Calculate",
+   "loading": "Powering up…"
+  },
+  {
+   "id": "readout",
+   "title": "Read my results",
+   "subtitle": "Paste numbers → decision",
+   "emoji": "📈",
+   "inputs": [
+    {
+     "key": "results",
+     "label": "Results",
+     "type": "longtext",
+     "placeholder": "Control: 10,250 users, 431 conversions\nVariant: 10,180 users, 478 conversions\nRan 14 days",
+     "required": true
+    },
+    {
+     "key": "guardrails",
+     "label": "Guardrail metrics (optional)",
+     "type": "text",
+     "placeholder": "refund rate flat, page load +40ms"
+    }
+   ],
+   "prompt": "Analyse the A/B results: {results}, guardrails: {guardrails}. Kv (conversion per variant, relative lift, confidence interval, p-value or probability to beat control, sample-ratio check), a text verdict of ship / iterate / stop with reasoning, a table 'Risks' (Risk | Present? | Evidence), and a callout on novelty effects and how long to monitor after shipping.",
+   "shape": "kv, text, table, callout",
+   "button": "Read results",
+   "loading": "Calculating lift…"
+  },
+  {
+   "id": "pitfalls",
+   "title": "Pre-launch check",
+   "subtitle": "Catch the mistakes before launch",
+   "emoji": "🛑",
+   "inputs": [
+    {
+     "key": "setup",
+     "label": "Describe the test setup",
+     "type": "longtext",
+     "placeholder": "50/50 split on new visitors, tracking via GA4 event, 2 weeks, metric = signup",
+     "required": true
+    }
+   ],
+   "prompt": "Review this test setup: {setup}. Checklist covering randomisation, tracking, metric definition, sample-ratio mismatch, seasonality, overlapping tests and stopping rules (each item states what pass looks like), bullets of the specific problems spotted, and a callout on the single most likely way this test gives a false result.",
+   "shape": "checklist, bullets, callout",
+   "button": "Check setup",
+   "loading": "Inspecting…"
+  },
+  {
+   "id": "backlog",
+   "title": "Prioritise the backlog",
+   "subtitle": "Which test next",
+   "emoji": "🗂️",
+   "inputs": [
+    {
+     "key": "ideas",
+     "label": "Test ideas (one per line)",
+     "type": "longtext",
+     "placeholder": "new pricing page\nsocial proof on checkout\nremove coupon field",
+     "required": true
+    }
+   ],
+   "prompt": "Prioritise these experiment ideas for the profile's product: {ideas}. Table 'Backlog' (Idea | Impact 1–5 | Confidence 1–5 | Ease 1–5 | ICE score | Suggested metric), cards for the top 3 (meta = expected weeks · risk), and a callout on ideas that should simply be shipped without a test, or dropped.",
+   "shape": "table, cards, callout",
+   "button": "Prioritise",
+   "loading": "Scoring ideas…"
+  }
+ ],
+ "disclaimer": "Statistical estimates here are approximations; confirm with your experimentation platform or a statistician before high-stakes or revenue-affecting decisions."
+}

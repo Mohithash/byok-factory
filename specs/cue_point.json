@@ -1,0 +1,222 @@
+{
+ "id": "cue_point",
+ "name": "Cue Point",
+ "tagline": "DJ sets that flow, transitions that land",
+ "category": "Music & Audio",
+ "colors": [
+  "#6200EA",
+  "#00BFA5",
+  "#FF6D00"
+ ],
+ "icon": "bolt",
+ "about": "Cue Point builds DJ sets with an energy arc, suggests transitions between two exact tracks, drills beatmatching and harmonic mixing on your gear, digs for tracks and preps you for the first gig.",
+ "persona": "You are a club DJ and tutor: structure-first, honest about crowd reading, fluent in BPM, keys and phrasing, and you always tie theory back to what your hands do on the deck.",
+ "onboarding": {
+  "title": "Mix like the room is listening",
+  "subtitle": "Your gear and genres shape every set and lesson.",
+  "bullets": [
+   "Set plans with an energy arc",
+   "Transitions for two exact tracks",
+   "Beatmatching and key-mixing drills"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "gear",
+   "label": "Gear",
+   "type": "chips",
+   "options": [
+    "Controller + laptop",
+    "CDJs/XDJs",
+    "Vinyl",
+    "Standalone all-in-one",
+    "Phone/tablet app"
+   ]
+  },
+  {
+   "key": "genre",
+   "label": "Genres",
+   "type": "chips",
+   "options": [
+    "House",
+    "Techno",
+    "Drum & bass",
+    "Hip-hop",
+    "Open format / weddings",
+    "Disco/funk",
+    "Afrobeats",
+    "Latin"
+   ],
+   "multi": true
+  },
+  {
+   "key": "exp",
+   "label": "Experience",
+   "type": "chips",
+   "options": [
+    "Never mixed",
+    "Bedroom",
+    "Played a few gigs",
+    "Regular gigs"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "set",
+   "title": "Plan a set",
+   "subtitle": "Slots, BPMs, keys and an energy arc",
+   "emoji": "🎧",
+   "inputs": [
+    {
+     "key": "event",
+     "label": "Event",
+     "type": "text",
+     "placeholder": "friend's 30th, 90 minutes, mixed crowd",
+     "required": true
+    },
+    {
+     "key": "energy",
+     "label": "Shape",
+     "type": "chips",
+     "options": [
+      "Warm-up",
+      "Peak time",
+      "Closing",
+      "Full arc"
+     ],
+     "default": "Full arc"
+    },
+    {
+     "key": "tracks",
+     "label": "Tracks you own / like",
+     "type": "longtext",
+     "placeholder": "paste a list, or leave blank"
+    }
+   ],
+   "prompt": "Plan a set for {event} with a {energy} shape, drawing on these tracks where given: {tracks}. Sections: a table (Slot | Minutes | Track or style | BPM | Key (Camelot) | Energy 1–10), text on the arc and where to take risks, and a callout on the two moments most likely to lose the floor and what to do.",
+   "shape": "table, text, callout",
+   "button": "Plan set",
+   "loading": "Building the arc…"
+  },
+  {
+   "id": "transition",
+   "title": "Mix A into B",
+   "subtitle": "Bar counts, EQ moves, alternatives",
+   "emoji": "🔁",
+   "inputs": [
+    {
+     "key": "a",
+     "label": "Track A",
+     "type": "text",
+     "placeholder": "artist — title",
+     "required": true
+    },
+    {
+     "key": "b",
+     "label": "Track B",
+     "type": "text",
+     "placeholder": "artist — title",
+     "required": true
+    }
+   ],
+   "prompt": "Suggest how to mix from '{a}' into '{b}' on the profile gear: kv (BPM of each, keys, Camelot compatibility, tempo change needed), steps with bar counts for the transition (where to cue B, EQ moves, when to swap the bass), and bullets of 2 alternative techniques (echo out, loop roll, acapella) with when to use each.",
+   "shape": "kv, steps, bullets",
+   "button": "Plan transition",
+   "loading": "Counting bars…"
+  },
+  {
+   "id": "drill",
+   "title": "Practice drill",
+   "subtitle": "Beatmatching, phrasing, EQ, keys",
+   "emoji": "🥁",
+   "inputs": [
+    {
+     "key": "skill",
+     "label": "Skill",
+     "type": "chips",
+     "options": [
+      "Beatmatching by ear",
+      "Phrasing & counting bars",
+      "EQ mixing",
+      "Harmonic mixing",
+      "Loops & hot cues",
+      "Scratching basics"
+     ],
+     "default": "Beatmatching by ear"
+    },
+    {
+     "key": "minutes",
+     "label": "Minutes",
+     "type": "chips",
+     "options": [
+      "15",
+      "30",
+      "45"
+     ],
+     "default": "30"
+    }
+   ],
+   "prompt": "A {minutes}-minute {skill} practice session for the profile gear and experience: steps with what to listen for and how to know it's right, a checklist of common mistakes to self-check, and a table for a 2-week progression (Day | Drill | Difficulty tweak).",
+   "shape": "steps, checklist, table",
+   "button": "Start drill",
+   "loading": "Syncing nothing…"
+  },
+  {
+   "id": "gig",
+   "title": "Gig prep",
+   "subtitle": "Gear, USBs, soundcheck and the room",
+   "emoji": "🎟️",
+   "inputs": [
+    {
+     "key": "venue",
+     "label": "The gig",
+     "type": "text",
+     "placeholder": "bar, 2 hours, house, they have XDJ-1000s",
+     "required": true
+    }
+   ],
+   "prompt": "Prepare for: {venue}. Sections: a checklist of gear and USB prep (library export, backups, adapters, headphones), steps for the first 10 minutes on unfamiliar gear (gain staging, monitor level, soundcheck), bullets on reading the room, and a callout on hearing protection and safe volume.",
+   "shape": "checklist, steps, bullets, callout",
+   "button": "Prep me",
+   "loading": "Packing the bag…"
+  },
+  {
+   "id": "crate",
+   "title": "Crate digging",
+   "subtitle": "12 tracks that fit a sound and a slot",
+   "emoji": "📦",
+   "inputs": [
+    {
+     "key": "ref",
+     "label": "Sounds like",
+     "type": "text",
+     "placeholder": "early-2000s French house, filtered disco",
+     "required": true
+    },
+    {
+     "key": "use",
+     "label": "For",
+     "type": "chips",
+     "options": [
+      "Warm-up",
+      "Peak",
+      "Closing",
+      "Wildcards"
+     ],
+     "default": "Peak"
+    }
+   ],
+   "prompt": "Recommend 12 tracks similar to '{ref}' suited for {use} within the profile genres: table (Artist | Track | Year | BPM | Key | Why it fits), bullets of 3 labels or artists to explore next, and a callout on buying sources and checking versions (radio edit vs extended mix).",
+   "shape": "table, bullets, callout",
+   "button": "Dig",
+   "loading": "Flipping crates…"
+  }
+ ],
+ "disclaimer": "Protect your hearing: use earplugs and keep monitor levels sensible. General guidance only."
+}

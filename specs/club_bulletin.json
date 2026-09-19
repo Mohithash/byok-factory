@@ -1,0 +1,168 @@
+{
+ "id": "club_bulletin",
+ "name": "Club Bulletin",
+ "tagline": "Newsletters and notices your members actually read",
+ "category": "Social",
+ "colors": [
+  "#00695C",
+  "#FF7043",
+  "#3949AB"
+ ],
+ "icon": "note",
+ "about": "Club Bulletin writes the communications for any community group: monthly newsletters from scrappy notes, event announcements in three lengths, welcome packs for new members, member spotlights and a critique of the poster from a photo.",
+ "persona": "You are a friendly community-communications editor: concise, warm, allergic to jargon and walls of text, and you always give the reader one clear thing to do.",
+ "onboarding": {
+  "title": "Say it once, clearly",
+  "subtitle": "Tell us about your group and how you reach people.",
+  "bullets": [
+   "Newsletters from your notes",
+   "Announcements in 3 lengths",
+   "Welcome packs and spotlights"
+  ]
+ },
+ "profile": [
+  {
+   "key": "group",
+   "label": "Group",
+   "type": "text",
+   "placeholder": "Northfield Cycling Club, about 120 members"
+  },
+  {
+   "key": "channels",
+   "label": "Channels",
+   "type": "chips",
+   "options": [
+    "Email",
+    "WhatsApp",
+    "Facebook group",
+    "Noticeboard",
+    "Website"
+   ],
+   "multi": true
+  },
+  {
+   "key": "voice",
+   "label": "Voice",
+   "type": "chips",
+   "options": [
+    "Friendly",
+    "Formal",
+    "Playful",
+    "Short & punchy"
+   ],
+   "default": "Friendly"
+  }
+ ],
+ "tools": [
+  {
+   "id": "newsletter",
+   "title": "Monthly newsletter",
+   "subtitle": "Scrappy notes into a clean issue",
+   "emoji": "📰",
+   "inputs": [
+    {
+     "key": "notes",
+     "label": "This month's notes",
+     "type": "longtext",
+     "placeholder": "club rode 300km total; kit orders close 20th; Sue won the vets race; AGM 5 Nov; need marshals for the sportive",
+     "required": true
+    },
+    {
+     "key": "length",
+     "label": "Length",
+     "type": "chips",
+     "options": [
+      "Short (200 words)",
+      "Standard (400 words)",
+      "Long (700 words)"
+     ],
+     "default": "Standard (400 words)"
+    }
+   ],
+   "prompt": "Write the newsletter at {length} from: {notes}, in the group's voice. Sections: text with a headline, a warm intro and the news in scannable sub-sections, a table of dates (Date | What | Where | Action), a checklist of asks with clear owners and deadlines, and a quote with the subject line plus two alternatives.",
+   "shape": "text, table, checklist, quote",
+   "button": "Write it",
+   "loading": "Typesetting…"
+  },
+  {
+   "id": "announce",
+   "title": "Announce an event",
+   "subtitle": "One event, three lengths",
+   "emoji": "📣",
+   "inputs": [
+    {
+     "key": "event",
+     "label": "Event details",
+     "type": "text",
+     "placeholder": "Club sportive Sun 8 Sept, 60/100km, 15 entry, marshals needed",
+     "required": true
+    }
+   ],
+   "prompt": "Announce: {event}. Sections: three quotes — a 40-word WhatsApp version, a 120-word email or Facebook version, and a 15-word noticeboard headline with sub-line — then kv (call to action, deadline, link or contact placeholder, best send time), and bullets on a 3-message reminder sequence.",
+   "shape": "quote, kv, bullets",
+   "button": "Announce",
+   "loading": "Ringing the bell…"
+  },
+  {
+   "id": "welcome",
+   "title": "New member pack",
+   "subtitle": "Everything a newcomer needs to know",
+   "emoji": "🤝",
+   "inputs": [
+    {
+     "key": "basics",
+     "label": "How the group works",
+     "type": "text",
+     "placeholder": "rides Sat 8am from the café, subs 25/yr, WhatsApp for chat, kit via website"
+    }
+   ],
+   "prompt": "Build a welcome pack from: {basics}. Sections: a quote with a 150-word welcome message, kv (where and when, cost, how to get help, who's who), a checklist for the first month (join the chat, first session, pay subs, meet the buddy), and bullets of unwritten rules explained kindly.",
+   "shape": "quote, kv, checklist, bullets",
+   "button": "Build pack",
+   "loading": "Opening the door…"
+  },
+  {
+   "id": "spotlight",
+   "title": "Member spotlight",
+   "subtitle": "Questions or a finished piece",
+   "emoji": "🌟",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Member",
+     "type": "text",
+     "placeholder": "Sue, joined 2019, just won her age category",
+     "required": true
+    },
+    {
+     "key": "answers",
+     "label": "Their answers (if you have them)",
+     "type": "text"
+    }
+   ],
+   "prompt": "Feature {who}. If answers are provided here — {answers} — write the piece; otherwise write the questions and a draft structure. Sections: bullets of 8 interview questions tuned to the group, text of a 200-word spotlight piece (or its structure if no answers yet), a quote with a one-line pull quote, and a callout on getting consent for the photo and story before publishing.",
+   "shape": "bullets, text, quote, callout",
+   "button": "Spotlight",
+   "loading": "Warming the lights…"
+  },
+  {
+   "id": "poster",
+   "title": "Poster check",
+   "subtitle": "Photo → what to fix",
+   "emoji": "🖼️",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of your poster or flyer",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Critique the poster in the photo. Sections: a table (Element | Now | Fix), bullets on hierarchy and readability from 3 metres away, a quote with a rewritten headline and sub-line, and a callout on what a public poster needs (contact, permission to post, accessibility basics).",
+   "shape": "table, bullets, quote, callout",
+   "button": "Check poster",
+   "loading": "Squinting…"
+  }
+ ],
+ "disclaimer": "Handle members' contact details and photos under your local data-protection rules and with consent; this is writing help, not legal advice."
+}

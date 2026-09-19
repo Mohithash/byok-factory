@@ -1,0 +1,202 @@
+{
+ "id": "handshake_docs",
+ "name": "Handshake",
+ "tagline": "Simple written agreements for everyday deals",
+ "category": "Tools",
+ "colors": [
+  "#EF6C00",
+  "#5D4037",
+  "#43A047"
+ ],
+ "icon": "note",
+ "about": "Handshake drafts short, plain-English agreements for everyday deals — lending money to a friend, splitting a flat, selling a used car, a small freelance job, borrowing equipment — so everyone remembers the same thing later.",
+ "persona": "You are a friendly drafter of simple agreements: short sentences, every 'what if' covered, no legalese unless it earns its place, and honest about when a lawyer should look.",
+ "onboarding": {
+  "title": "Put it in writing, kindly",
+  "subtitle": "Where you are affects what makes an agreement enforceable.",
+  "bullets": [
+   "Plain-English agreements in minutes",
+   "Every 'what if' covered",
+   "Signing and witnessing guidance"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "region",
+   "label": "Country / state",
+   "type": "text",
+   "placeholder": "Ireland"
+  },
+  {
+   "key": "use",
+   "label": "Most common deal",
+   "type": "chips",
+   "options": [
+    "Lending money",
+    "Housemates",
+    "Selling something",
+    "Small freelance job",
+    "Borrowing / sharing"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "loan",
+   "title": "Personal loan agreement",
+   "subtitle": "Lend to friends and stay friends",
+   "emoji": "💶",
+   "inputs": [
+    {
+     "key": "parties",
+     "label": "Who lends to whom",
+     "type": "text",
+     "placeholder": "Me → my brother Dan",
+     "required": true
+    },
+    {
+     "key": "amount",
+     "label": "Amount",
+     "type": "number",
+     "placeholder": "2000"
+    },
+    {
+     "key": "terms",
+     "label": "Repayment idea",
+     "type": "text",
+     "placeholder": "200/month from June, no interest"
+    }
+   ],
+   "prompt": "Draft a personal loan agreement: {parties}, amount {amount}, repayment: {terms}. Output a quote with the full agreement (parties, amount, repayment dates, interest stated or zero, late-payment rule, early repayment, what happens if a payment is missed, governing region, signature lines), a table (Date | Payment | Balance after), and a callout on gift-versus-loan clarity and when interest may have tax implications.",
+   "shape": "quote, table, callout",
+   "button": "Draft",
+   "loading": "Writing it down…"
+  },
+  {
+   "id": "flat",
+   "title": "Housemate agreement",
+   "subtitle": "Rent, bills, chores, leaving",
+   "emoji": "🏠",
+   "inputs": [
+    {
+     "key": "people",
+     "label": "Who lives there",
+     "type": "text",
+     "placeholder": "3 of us, Sam on the lease",
+     "required": true
+    },
+    {
+     "key": "rules",
+     "label": "What you've agreed so far",
+     "type": "longtext",
+     "placeholder": "rent split by room size, bills equal, 1 month notice to leave…",
+     "required": true
+    }
+   ],
+   "prompt": "Housemates: {people}. Agreed so far: {rules}. Produce a quote with a housemate agreement (contributions and due dates, bills, deposit shares, guests, cleaning, quiet hours, notice to leave and replacement-housemate process, dispute steps), a checklist of things they haven't decided yet, and a callout on how this relates to the actual tenancy with the landlord.",
+   "shape": "quote, checklist, callout",
+   "button": "Draft",
+   "loading": "Splitting fairly…"
+  },
+  {
+   "id": "sale",
+   "title": "Private sale receipt",
+   "subtitle": "Sold as seen, done right",
+   "emoji": "🚗",
+   "inputs": [
+    {
+     "key": "item",
+     "label": "What's being sold",
+     "type": "text",
+     "placeholder": "2014 Ford Fiesta, 82k miles",
+     "required": true
+    },
+    {
+     "key": "price",
+     "label": "Price",
+     "type": "number",
+     "placeholder": "3200"
+    },
+    {
+     "key": "known",
+     "label": "Known faults / condition",
+     "type": "text",
+     "placeholder": "small dent rear bumper, inspection valid till Nov"
+    }
+   ],
+   "prompt": "Draft a bill of sale and receipt for {item} at {price}, disclosed condition: {known}. Quote the document (buyer, seller, item identifiers, price, payment method, a 'sold as described' statement with the disclosed faults, date of handover, signatures), a checklist of handover steps for this kind of item in the profile region (ownership transfer, keys, documents), and a callout on what 'sold as seen' does and doesn't protect against.",
+   "shape": "quote, checklist, callout",
+   "button": "Draft receipt",
+   "loading": "Shaking on it…"
+  },
+  {
+   "id": "gig",
+   "title": "Small job agreement",
+   "subtitle": "Scope, price, deadline, changes",
+   "emoji": "🛠️",
+   "inputs": [
+    {
+     "key": "job",
+     "label": "The job",
+     "type": "text",
+     "placeholder": "build a 5-page website for a florist",
+     "required": true
+    },
+    {
+     "key": "price",
+     "label": "Price",
+     "type": "number",
+     "placeholder": "900"
+    },
+    {
+     "key": "timeline",
+     "label": "Timeline and payment",
+     "type": "text",
+     "placeholder": "2 weeks, half upfront"
+    }
+   ],
+   "prompt": "Write a one-page agreement for {job} at {price}, timeline and payment: {timeline}. Quote the agreement (scope with what's excluded, deliverables, revisions allowed, payment schedule, deadline, change requests, cancellation, who owns the work, signatures), a table (Milestone | Due | Payment), and bullets on the three clauses that prevent most freelance disputes.",
+   "shape": "quote, table, bullets",
+   "button": "Draft",
+   "loading": "Scoping…"
+  },
+  {
+   "id": "sign",
+   "title": "Make it count",
+   "subtitle": "Signing, witnessing, storing",
+   "emoji": "✅",
+   "inputs": [
+    {
+     "key": "kind",
+     "label": "Agreement type",
+     "type": "chips",
+     "options": [
+      "Loan",
+      "Housemates",
+      "Sale",
+      "Small job",
+      "Borrowing equipment",
+      "Other"
+     ],
+     "default": "Loan"
+    },
+    {
+     "key": "value",
+     "label": "Value involved",
+     "type": "number",
+     "placeholder": "2000"
+    }
+   ],
+   "prompt": "For a {kind} agreement worth {value} in the profile region: kv (does it need a witness, wet signature or e-signature, how many copies, how long to keep), steps to sign and store properly, and a callout on when the value or subject means a professional should draft it instead.",
+   "shape": "kv, steps, callout",
+   "button": "Check",
+   "loading": "Dotting the i's…"
+  }
+ ],
+ "disclaimer": "General information only, not legal advice; rules differ by country and state and change over time — check official sources or a qualified professional before acting."
+}

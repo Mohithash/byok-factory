@@ -131,7 +131,7 @@
      "placeholder": "usually 3 minutes in, then I give up"
     }
    ],
-   "prompt": "The problem: {problem}; detail: {detail}. Text explaining in plain words why this happens and why it isn't failure, a table (Adjustment | How | Try it for), steps for the next session using the top adjustment, and a quote with a one-line reframe to remember.",
+   "prompt": "The problem: {problem}; detail: {detail}. Text explaining in plain words why this happens and why it isn't failure, a table of 3–4 rows (Adjustment | How | Try it for), steps for the next session using the top adjustment, and a quote with a one-line reframe to remember.",
    "shape": "text, table, steps, quote",
    "button": "Fix it",
    "loading": "Adjusting…"

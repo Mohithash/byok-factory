@@ -1,0 +1,167 @@
+{
+ "id": "handbook_ink",
+ "name": "Handbook Ink",
+ "tagline": "Company policies written for humans, not lawyers",
+ "category": "Business",
+ "colors": [
+  "#37474F",
+  "#7CB342",
+  "#EF6C00"
+ ],
+ "icon": "book",
+ "about": "Handbook Ink drafts the policies a growing startup needs — remote work, expenses, leave, security, conduct — in plain English, reviews the ones you already have, answers 'what's our rule?' questions and rolls policies out so people actually read them.",
+ "persona": "You are a people-ops writer who has built handbooks for remote startups: plain-spoken, fair, practical, and clear about where local law must be checked.",
+ "onboarding": {
+  "title": "A handbook people will actually read",
+  "subtitle": "Your company's shape decides what each policy needs to cover.",
+  "bullets": [
+   "Plain-English policy drafts",
+   "Review what you already have",
+   "Rollout that gets read"
+  ]
+ },
+ "profile": [
+  {
+   "key": "company",
+   "label": "Company",
+   "type": "text",
+   "placeholder": "Acme"
+  },
+  {
+   "key": "size",
+   "label": "Team size",
+   "type": "number",
+   "placeholder": "22"
+  },
+  {
+   "key": "setup",
+   "label": "Work setup",
+   "type": "chips",
+   "options": [
+    "Fully remote",
+    "Hybrid",
+    "Office-first"
+   ]
+  },
+  {
+   "key": "countries",
+   "label": "Countries you employ in",
+   "type": "text",
+   "placeholder": "UK, Portugal, US contractors"
+  }
+ ],
+ "tools": [
+  {
+   "id": "draft",
+   "title": "Draft a policy",
+   "subtitle": "Pick a policy, add your stance",
+   "emoji": "🖋️",
+   "inputs": [
+    {
+     "key": "policy",
+     "label": "Policy",
+     "type": "chips",
+     "options": [
+      "Remote & flexible work",
+      "Expenses",
+      "Leave & holidays",
+      "Equipment & security",
+      "Code of conduct",
+      "Social media",
+      "Parental leave",
+      "Anti-harassment",
+      "Data protection"
+     ],
+     "default": "Remote & flexible work"
+    },
+    {
+     "key": "stance",
+     "label": "Your stance / must-haves",
+     "type": "text",
+     "placeholder": "core hours 11–3, £500 desk budget"
+    }
+   ],
+   "prompt": "Draft the {policy} policy for the profile company, respecting: {stance}. Sections: a quote with the full policy in plain English (Purpose, Who it covers, The rules, How to request or claim, Questions), a kv (owner, review date, related policies), bullets of decisions the founders still need to make, and a callout on points that vary by country and need legal review.",
+   "shape": "quote, kv, bullets, callout",
+   "button": "Draft policy",
+   "loading": "Inking…"
+  },
+  {
+   "id": "review",
+   "title": "Review my policy",
+   "subtitle": "Vague, unfair or risky clauses",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "text",
+     "label": "Paste the policy",
+     "type": "longtext",
+     "placeholder": "Employees may work remotely at the discretion of…",
+     "required": true
+    }
+   ],
+   "prompt": "Review this policy: {text}. Table (Clause | Issue: vague / unfair / risky / missing | Suggested fix), a text section on tone and readability with an estimated reading age, and a checklist of edits to make before re-publishing.",
+   "shape": "table, text, checklist",
+   "button": "Review",
+   "loading": "Reading closely…"
+  },
+  {
+   "id": "scenario",
+   "title": "What's our rule?",
+   "subtitle": "A real situation → a fair answer",
+   "emoji": "🤔",
+   "inputs": [
+    {
+     "key": "situation",
+     "label": "The situation",
+     "type": "longtext",
+     "placeholder": "an engineer wants to work from Bali for 3 months",
+     "required": true
+    }
+   ],
+   "prompt": "A manager asks how to handle: {situation}. Text with a fair recommended answer for the profile company, bullets of the policy gaps it exposes, a quote with a message the manager can send the employee, and a callout on legal or tax angles to check first.",
+   "shape": "text, bullets, quote, callout",
+   "button": "Decide",
+   "loading": "Weighing it up…"
+  },
+  {
+   "id": "rollout",
+   "title": "Roll it out",
+   "subtitle": "Announce, explain, get acknowledged",
+   "emoji": "📣",
+   "inputs": [
+    {
+     "key": "which",
+     "label": "Policy or handbook being launched",
+     "type": "text",
+     "placeholder": "new expenses policy",
+     "required": true
+    }
+   ],
+   "prompt": "Plan the rollout of {which} to the profile team. Steps (announce, explain, acknowledge, remind) with timing, a quote with the announcement message, and a checklist covering acknowledgement tracking and where the policy will live.",
+   "shape": "steps, quote, checklist",
+   "button": "Plan rollout",
+   "loading": "Scheduling…"
+  },
+  {
+   "id": "gaps",
+   "title": "Handbook gap check",
+   "subtitle": "What's missing at your size",
+   "emoji": "🧩",
+   "inputs": [
+    {
+     "key": "have",
+     "label": "Policies you already have",
+     "type": "longtext",
+     "placeholder": "expenses, holidays, code of conduct",
+     "required": true
+    }
+   ],
+   "prompt": "Given the policies already in place: {have}, and the profile's size, setup and countries, produce a table (Missing policy | Why it matters at this size | Priority | Effort), a callout on the single most urgent gap, and bullets of policies that are overkill for now.",
+   "shape": "table, callout, bullets",
+   "button": "Find gaps",
+   "loading": "Auditing…"
+  }
+ ],
+ "disclaimer": "Policy drafts are starting points, not legal advice; have an employment lawyer review before adopting, especially across countries."
+}

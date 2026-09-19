@@ -1,0 +1,196 @@
+{
+ "id": "lecture_lens",
+ "name": "Lecture Lens",
+ "tagline": "Slides and scribbles into notes you'll actually revise",
+ "category": "Education",
+ "colors": [
+  "#F9A825",
+  "#283593",
+  "#E53935"
+ ],
+ "icon": "bulb",
+ "about": "Lecture Lens turns photos of slides and messy lecture scribbles into Cornell-style notes, flashcards, concept maps and a weekly consolidation session, so notes get made once and used many times.",
+ "persona": "You are a learning-skills tutor who lives by active recall and spaced repetition: crisp, structured, and always turning content into questions.",
+ "onboarding": {
+  "title": "Notes that work for you",
+  "subtitle": "Tell us your modules and how you like to learn.",
+  "bullets": [
+   "Slide photo → structured notes",
+   "Cornell format and flashcards",
+   "Weekly consolidation sessions"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "modules",
+   "label": "Modules this term",
+   "type": "text",
+   "placeholder": "Cell Biology, Statistics 1, Genetics"
+  },
+  {
+   "key": "style",
+   "label": "Notes style",
+   "type": "chips",
+   "options": [
+    "Cornell",
+    "Outline",
+    "Mind map",
+    "Q&A"
+   ],
+   "default": "Cornell"
+  },
+  {
+   "key": "tool",
+   "label": "Where notes live",
+   "type": "chips",
+   "options": [
+    "Paper",
+    "Notion / OneNote",
+    "Anki",
+    "Google Docs",
+    "Other"
+   ],
+   "default": "Notion / OneNote"
+  }
+ ],
+ "tools": [
+  {
+   "id": "slide",
+   "title": "Snap a slide",
+   "subtitle": "Photo → what it means and what's examinable",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the slide or board",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "module",
+     "label": "Module",
+     "type": "text",
+     "placeholder": "Cell Biology"
+    }
+   ],
+   "prompt": "From the photo (module: {module}), write a text explanation of the slide in plain language at the level of a student meeting it for the first time, a kv of every term or symbol defined, bullets of the 3 things a lecturer usually wants remembered from a slide like this, and a callout with the exam question it is most likely to become.",
+   "shape": "text, kv, bullets, callout",
+   "button": "Explain slide",
+   "loading": "Zooming in…"
+  },
+  {
+   "id": "cornell",
+   "title": "Cornell my notes",
+   "subtitle": "Messy notes → cues, notes, summary",
+   "emoji": "📓",
+   "inputs": [
+    {
+     "key": "notes",
+     "label": "Your lecture notes",
+     "type": "longtext",
+     "placeholder": "paste or type the mess",
+     "required": true
+    },
+    {
+     "key": "topic",
+     "label": "Lecture topic",
+     "type": "text",
+     "placeholder": "Krebs cycle"
+    }
+   ],
+   "prompt": "Topic: {topic}. Notes: {notes}. Restructure into a table (Cue or question | Notes) where every cue is a question the notes column answers, then text with a 3-sentence summary in the student's voice, a checklist of gaps and unclear points to check against the slides or textbook, and bullets on which items are pure recall versus need understanding.",
+   "shape": "table, text, checklist, bullets",
+   "button": "Cornell it",
+   "loading": "Restructuring…"
+  },
+  {
+   "id": "cards",
+   "title": "Make flashcards",
+   "subtitle": "Notes → 15 spaced-repetition cards",
+   "emoji": "🗂️",
+   "inputs": [
+    {
+     "key": "source",
+     "label": "Notes or slide text",
+     "type": "longtext",
+     "required": true
+    },
+    {
+     "key": "mix",
+     "label": "Card mix",
+     "type": "chips",
+     "options": [
+      "Mostly recall",
+      "Mostly understanding",
+      "Balanced",
+      "Cloze deletions"
+     ],
+     "default": "Balanced"
+    }
+   ],
+   "prompt": "Source: {source}. Mix: {mix}. Produce a table of 15 cards (Front | Back | Type: recall / why / apply / cloze) written so the front has one answer and the back is under 25 words, formatted so it can be pasted into the profile's notes tool. Then bullets on a review schedule (day 1, 3, 7, 14, 30) and a callout on the two cards most likely to be too vague and how to split them.",
+   "shape": "table, bullets, callout",
+   "button": "Make cards",
+   "loading": "Cutting cards…"
+  },
+  {
+   "id": "map",
+   "title": "Concept map",
+   "subtitle": "Topic → nodes and links",
+   "emoji": "🕸️",
+   "inputs": [
+    {
+     "key": "topic",
+     "label": "Topic",
+     "type": "text",
+     "placeholder": "photosynthesis",
+     "required": true
+    },
+    {
+     "key": "notes",
+     "label": "Your notes (optional)",
+     "type": "longtext"
+    }
+   ],
+   "prompt": "Topic: {topic}. Notes: {notes}. Build a table (Concept | Links to | Relationship in 3–5 words) with 12–20 links suitable for drawing, steps for laying it out on one page (centre, first ring, second ring, cross-links), a quote with the one-sentence takeaway that should sit under the map, and bullets of 3 cross-links students usually miss.",
+   "shape": "table, steps, quote, bullets",
+   "button": "Map it",
+   "loading": "Connecting dots…"
+  },
+  {
+   "id": "weekly",
+   "title": "Weekly consolidation",
+   "subtitle": "90 minutes that beat cramming",
+   "emoji": "📅",
+   "inputs": [
+    {
+     "key": "covered",
+     "label": "What each module covered this week",
+     "type": "longtext",
+     "placeholder": "Cell Bio: membranes, transport; Stats: t-tests…",
+     "required": true
+    },
+    {
+     "key": "time",
+     "label": "Time available",
+     "type": "chips",
+     "options": [
+      "45 min",
+      "90 min",
+      "2 hours"
+     ],
+     "default": "90 min"
+    }
+   ],
+   "prompt": "This week: {covered}. Time: {time}. Build steps for a consolidation session within the time (per block: module, activity, minutes) mixing recall, self-testing and one synthesis task, a table (Module | Weakest topic | Why it's weak | Fix this week), and a checklist of what to carry into next week's lectures (questions to ask, prep reading).",
+   "shape": "steps, table, checklist",
+   "button": "Plan session",
+   "loading": "Consolidating…"
+  }
+ ]
+}

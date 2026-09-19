@@ -1,0 +1,188 @@
+{
+ "id": "first_rep",
+ "name": "First Rep",
+ "tagline": "Your first gym programme, minus the fear",
+ "category": "Health & Fitness",
+ "colors": [
+  "#00897B",
+  "#3949AB",
+  "#FFD54F"
+ ],
+ "icon": "spark",
+ "about": "First Rep gets a nervous beginner through the gym door: it identifies any machine from a photo and shows how to use it, writes a simple 8-week starter programme, explains etiquette, and finds a replacement when the kit you need is taken.",
+ "persona": "You are a friendly gym-floor coach for absolute beginners: zero jargon, zero judgement, form before load, and you answer the questions people are embarrassed to ask.",
+ "onboarding": {
+  "title": "First time in a gym?",
+  "subtitle": "Tell First Rep about your gym and goals; it will handle the awkward bits.",
+  "bullets": [
+   "Identify any machine from a photo",
+   "Simple 8-week starter plan",
+   "Etiquette and what to do when kit is taken"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "gym",
+   "label": "Gym type",
+   "type": "chips",
+   "options": [
+    "Big-box chain",
+    "Small local gym",
+    "Hotel or building gym",
+    "Not joined yet"
+   ]
+  },
+  {
+   "key": "goal",
+   "label": "Goal",
+   "type": "chips",
+   "options": [
+    "Feel stronger",
+    "Lose fat",
+    "Tone up",
+    "Confidence and habit",
+    "Doctor told me to"
+   ]
+  },
+  {
+   "key": "days",
+   "label": "Days/week",
+   "type": "chips",
+   "options": [
+    "2",
+    "3",
+    "4"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "machine",
+   "title": "What is this machine?",
+   "subtitle": "Photo into name, muscles and setup",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the machine",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Identify the machine in the photo. Sections: kv (name, muscles worked, beginner difficulty, what to adjust: seat, pad or pin), steps for setting it up and doing one clean rep, bullets on the 3 mistakes beginners make on it, and a callout on the starting-weight rule (a weight you can do 12 comfortable reps with).",
+   "shape": "kv, steps, bullets, callout",
+   "button": "Identify",
+   "loading": "Reading the labels…"
+  },
+  {
+   "id": "programme",
+   "title": "8-week starter plan",
+   "subtitle": "Full body, simple, progressive",
+   "emoji": "🗓️",
+   "inputs": [
+    {
+     "key": "style",
+     "label": "Prefer",
+     "type": "chips",
+     "options": [
+      "Mostly machines",
+      "Machines and dumbbells",
+      "Free weights",
+      "Whatever is free"
+     ],
+     "default": "Machines and dumbbells"
+    },
+    {
+     "key": "minutes",
+     "label": "Minutes per visit",
+     "type": "chips",
+     "options": [
+      "30",
+      "45",
+      "60"
+     ],
+     "default": "45"
+    }
+   ],
+   "prompt": "Write an 8-week beginner programme for the profile gym, goal and days, using {style}, {minutes} minutes per visit. Sections: a table (Weeks | Day | Exercise | Sets x reps | How to progress), steps for the first visit minute by minute (arrive, warm up, session, stretch), a checklist of what to bring and record, and a callout on week-one soreness and when to rest.",
+   "shape": "table, steps, checklist, callout",
+   "button": "Write plan",
+   "loading": "Writing week one…"
+  },
+  {
+   "id": "taken",
+   "title": "Kit is taken",
+   "subtitle": "Swap to something free right now",
+   "emoji": "🔁",
+   "inputs": [
+    {
+     "key": "exercise",
+     "label": "Exercise you planned",
+     "type": "text",
+     "placeholder": "leg press",
+     "required": true
+    },
+    {
+     "key": "free",
+     "label": "What looks free",
+     "type": "text",
+     "placeholder": "dumbbells, a cable machine, the mats"
+    }
+   ],
+   "prompt": "Replace {exercise} with what is free: {free}. Sections: cards for 3 alternatives (meta = same muscles? · difficulty · kit), steps for the best alternative with setup and form cues, a callout on how to politely ask to work in on a machine, and a quote with the exact sentence to say.",
+   "shape": "cards, steps, callout, quote",
+   "button": "Swap",
+   "loading": "Looking around…"
+  },
+  {
+   "id": "etiquette",
+   "title": "Etiquette and fears",
+   "subtitle": "The unwritten rules, answered",
+   "emoji": "🙋",
+   "inputs": [
+    {
+     "key": "question",
+     "label": "What are you worried about",
+     "type": "text",
+     "placeholder": "will people judge me, do I wipe the bench",
+     "required": true
+    }
+   ],
+   "prompt": "Answer this beginner worry warmly and specifically for the profile gym type: {question}. Sections: text answering it honestly, bullets of unwritten rules that apply (re-racking, wiping, sharing, phones, mirrors), a checklist for a stress-free visit, and a quote with one reassuring line to remember at the door.",
+   "shape": "text, bullets, checklist, quote",
+   "button": "Reassure me",
+   "loading": "Walking in with you…"
+  },
+  {
+   "id": "form",
+   "title": "Check my form",
+   "subtitle": "Photo of a squat, row or press",
+   "emoji": "🎥",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo mid-rep",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "exercise",
+     "label": "Exercise",
+     "type": "text",
+     "placeholder": "goblet squat",
+     "required": true
+    }
+   ],
+   "prompt": "Check the {exercise} in the photo for a beginner. Sections: bullets on what looks good first, a table (Fix | Why | Cue), steps for a lighter practice set to groove the fix, and a callout on the signs that mean lower the weight today.",
+   "shape": "bullets, table, steps, callout",
+   "button": "Check form",
+   "loading": "Watching the rep…"
+  }
+ ],
+ "disclaimer": "Not medical advice. Stop if you feel sharp pain, dizziness or chest symptoms, and check with a clinician before starting a new programme if you have a health condition or injury."
+}

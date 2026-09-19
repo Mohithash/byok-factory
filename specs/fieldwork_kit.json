@@ -1,0 +1,225 @@
+{
+ "id": "fieldwork_kit",
+ "name": "Fieldwork Kit",
+ "tagline": "Surveys, interviews and ethics forms that get approved",
+ "category": "Education",
+ "colors": [
+  "#006064",
+  "#AD1457",
+  "#9E9D24"
+ ],
+ "icon": "note",
+ "about": "Fieldwork Kit helps student researchers design questionnaires, write interview guides, draft ethics applications and consent forms, recruit participants and take a first pass at coding qualitative data.",
+ "persona": "You are a research-methods lecturer and ethics-committee reviewer: practical, protective of participants, and insistent that nothing is collected before approval.",
+ "onboarding": {
+  "title": "Collect data properly",
+  "subtitle": "Your study design shapes every instrument and form.",
+  "bullets": [
+   "Questionnaires without leading questions",
+   "Interview guides with probes",
+   "Ethics applications and consent sheets"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "study",
+   "label": "Your study in one or two sentences",
+   "type": "longtext",
+   "placeholder": "Interviews with 12 nurses about shift handovers"
+  },
+  {
+   "key": "participants",
+   "label": "Participants",
+   "type": "chips",
+   "options": [
+    "Adults (general)",
+    "Students",
+    "Professionals / employees",
+    "Patients or service users",
+    "Children / under 18",
+    "Vulnerable groups"
+   ],
+   "default": "Adults (general)"
+  },
+  {
+   "key": "approach",
+   "label": "Approach",
+   "type": "chips",
+   "options": [
+    "Quantitative",
+    "Qualitative",
+    "Mixed methods"
+   ],
+   "default": "Qualitative"
+  }
+ ],
+ "tools": [
+  {
+   "id": "survey",
+   "title": "Design a questionnaire",
+   "subtitle": "Constructs → clean questions",
+   "emoji": "📊",
+   "inputs": [
+    {
+     "key": "constructs",
+     "label": "What you need to measure",
+     "type": "longtext",
+     "placeholder": "job satisfaction, intention to leave, perceived support",
+     "required": true
+    },
+    {
+     "key": "length",
+     "label": "Max minutes to complete",
+     "type": "number",
+     "placeholder": "8"
+    },
+    {
+     "key": "platform",
+     "label": "Platform",
+     "type": "chips",
+     "options": [
+      "Qualtrics",
+      "Google Forms",
+      "Microsoft Forms",
+      "Paper",
+      "Other"
+     ],
+     "default": "Google Forms"
+    }
+   ],
+   "prompt": "Constructs: {constructs}. Max length: {length} minutes. Platform: {platform}. Produce a table (# | Question | Type | Scale or options | Construct measured) in a logical order (screeners → easy → sensitive → demographics) that fits the time limit, bullets of pitfalls checked (leading, double-barrelled, acquiescence, missing 'prefer not to say'), steps for a 5-person pilot and what to change after it, and a callout on validated scales that may already exist for these constructs and the permission needed to use them.",
+   "shape": "table, bullets, steps, callout",
+   "button": "Design survey",
+   "loading": "Drafting items…"
+  },
+  {
+   "id": "interview",
+   "title": "Interview guide",
+   "subtitle": "Opening, core questions, probes, close",
+   "emoji": "🎙️",
+   "inputs": [
+    {
+     "key": "aims",
+     "label": "What you want to learn",
+     "type": "longtext",
+     "placeholder": "how handovers fail and what nurses do to cope",
+     "required": true
+    },
+    {
+     "key": "style",
+     "label": "Style",
+     "type": "chips",
+     "options": [
+      "Semi-structured",
+      "Structured",
+      "Narrative / life history",
+      "Focus group"
+     ],
+     "default": "Semi-structured"
+    },
+    {
+     "key": "mins",
+     "label": "Interview length (min)",
+     "type": "number",
+     "placeholder": "45"
+    }
+   ],
+   "prompt": "Aims: {aims}. Style: {style}. Length: {mins} minutes. Write steps for the guide (opening script, warm-up, 6–8 core questions each with 2 probes, closing) with minutes per section, a quote with the verbatim opening including consent reminder and recording check, a checklist for the interviewer (equipment, safeguarding, what to do if the participant is upset), and bullets on avoiding leading questions specific to the profile's participants.",
+   "shape": "steps, quote, checklist, bullets",
+   "button": "Build guide",
+   "loading": "Composing…"
+  },
+  {
+   "id": "ethics",
+   "title": "Ethics application",
+   "subtitle": "Study → risks, mitigations, attachments",
+   "emoji": "📋",
+   "inputs": [
+    {
+     "key": "design",
+     "label": "Study design in detail",
+     "type": "longtext",
+     "placeholder": "who, how recruited, what they'll do, where data is stored",
+     "required": true
+    },
+    {
+     "key": "data",
+     "label": "Data sensitivity",
+     "type": "chips",
+     "options": [
+      "Anonymous",
+      "Pseudonymised",
+      "Identifiable",
+      "Special category (health, ethnicity…)"
+     ],
+     "default": "Pseudonymised"
+    }
+   ],
+   "prompt": "Design: {design}. Data: {data}. Draft a kv of the sections a typical university ethics form asks for (Aims, Participants and recruitment, Procedure, Risks to participants, Risks to researcher, Data storage and retention, Withdrawal, Debrief) with a filled paragraph each. Then a table (Risk | Likelihood | Mitigation | Who to contact), a checklist of attachments (info sheet, consent form, recruitment text, instruments, gatekeeper letters), and a callout that this is a draft: the institution's committee decides, and no data may be collected before written approval.",
+   "shape": "kv, table, checklist, callout",
+   "button": "Draft application",
+   "loading": "Filling the form…"
+  },
+  {
+   "id": "consent",
+   "title": "Info sheet & consent",
+   "subtitle": "Participant-facing documents",
+   "emoji": "✅",
+   "inputs": [
+    {
+     "key": "title",
+     "label": "Study title",
+     "type": "text",
+     "required": true
+    },
+    {
+     "key": "contact",
+     "label": "Your name, role, email",
+     "type": "text",
+     "placeholder": "Priya Shah, MSc student, p.shah@…"
+    }
+   ],
+   "prompt": "Study: {title}. Researcher: {contact}. Write text for a participant information sheet in plain language (purpose, what taking part involves and how long, risks and benefits, confidentiality and data handling, right to withdraw, who to complain to), a checklist of consent statements a participant ticks and initials, and a quote with a short recruitment message for email or a poster that a gatekeeper would approve. Base the details on the profile's study and participants.",
+   "shape": "text, checklist, quote",
+   "button": "Write documents",
+   "loading": "Drafting…"
+  },
+  {
+   "id": "code",
+   "title": "Code my transcripts",
+   "subtitle": "Excerpts → codes and candidate themes",
+   "emoji": "🏷️",
+   "inputs": [
+    {
+     "key": "excerpts",
+     "label": "Transcript excerpts",
+     "type": "longtext",
+     "placeholder": "P3: 'Handover is when everything goes wrong, you just hope…'",
+     "required": true
+    },
+    {
+     "key": "method",
+     "label": "Method",
+     "type": "chips",
+     "options": [
+      "Thematic analysis (reflexive)",
+      "Content analysis",
+      "Framework analysis",
+      "Grounded theory (initial coding)"
+     ],
+     "default": "Thematic analysis (reflexive)"
+    }
+   ],
+   "prompt": "Excerpts: {excerpts}. Method: {method}. Produce a table (Excerpt | Initial code | Candidate theme | Note) with codes staying close to participants' words, bullets of emerging candidate themes with the excerpts supporting each, steps for the next stage of the chosen method (collating, reviewing, defining themes), and a callout on reflexivity: what assumptions the researcher should log about this coding pass.",
+   "shape": "table, bullets, steps, callout",
+   "button": "Code it",
+   "loading": "Reading closely…"
+  }
+ ],
+ "disclaimer": "Templates and drafts here do not replace your institution's ethics process or your supervisor's approval. Never collect data from people before ethics approval is granted."
+}

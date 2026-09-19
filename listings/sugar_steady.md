@@ -5,7 +5,7 @@
 **Short description (≤80):** Steadier blood sugar, day after day
 
 ## Full description
-Steady Sugar helps people with type 2 diabetes or prediabetes read their glucose log for patterns, estimate carbs from a plate photo, time meals and walks, and handle sick days calmly.
+Steady Sugar helps people with diabetes or prediabetes read their glucose log for patterns, estimate carbs from a plate photo, time meals and walks, and handle sick days calmly.
 
 WHAT'S INSIDE
 • Read my glucose log — Paste readings → patterns

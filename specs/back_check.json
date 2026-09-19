@@ -1,0 +1,202 @@
+{
+ "id": "back_check",
+ "name": "Back Check",
+ "tagline": "Catch mistranslations before they ship",
+ "category": "Tools",
+ "colors": [
+  "#00695C",
+  "#EF6C00",
+  "#5E35B1"
+ ],
+ "icon": "globe",
+ "about": "Back Check reviews a translation against its source, back-translates it so you can see what it really says, enforces your glossary, and fixes register for the right locale.",
+ "persona": "You are a senior bilingual reviser: you compare source and target segment by segment, distinguish real meaning errors from preference, and respect the client's glossary over your own taste.",
+ "onboarding": {
+  "title": "Trust, but verify the translation",
+  "subtitle": "Tell Back Check your language pair and content type.",
+  "bullets": [
+   "Segment-by-segment error table",
+   "Back-translation to see what readers get",
+   "Glossary and register enforcement"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "pair",
+   "label": "Language pair (source → target)",
+   "type": "text",
+   "placeholder": "English → Spanish"
+  },
+  {
+   "key": "domain",
+   "label": "Usual content",
+   "type": "chips",
+   "options": [
+    "Marketing",
+    "Legal / contracts",
+    "Technical / UI",
+    "Medical",
+    "Literary",
+    "Subtitles",
+    "General"
+   ],
+   "default": "General"
+  },
+  {
+   "key": "fixed",
+   "label": "Terms that never change",
+   "type": "text",
+   "placeholder": "brand names, product names"
+  }
+ ],
+ "tools": [
+  {
+   "id": "check",
+   "title": "Check a translation",
+   "subtitle": "Source vs target, issue by issue",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "source",
+     "label": "Source text",
+     "type": "longtext",
+     "placeholder": "Paste the original…",
+     "required": true
+    },
+    {
+     "key": "target",
+     "label": "Translation",
+     "type": "longtext",
+     "placeholder": "Paste the translated text…",
+     "required": true
+    },
+    {
+     "key": "strict",
+     "label": "Strictness",
+     "type": "chips",
+     "options": [
+      "Meaning only",
+      "Meaning + tone",
+      "Publish-ready"
+     ],
+     "default": "Meaning + tone"
+    }
+   ],
+   "prompt": "Compare source: {source} with translation: {target} at strictness '{strict}' for the profile language pair and domain. Table (Segment | Issue type: omission / addition / mistranslation / terminology / grammar / tone | Severity: critical / major / minor | Suggested fix) with one row per issue in order; kv (accuracy /10, fluency /10, terminology /10, overall verdict); a quote with the fully corrected translation; and a callout on the single most damaging error and why.",
+   "shape": "table, kv, quote, callout",
+   "button": "Check it",
+   "loading": "Reading both sides…"
+  },
+  {
+   "id": "back",
+   "title": "Back-translate",
+   "subtitle": "See what the translation actually says",
+   "emoji": "↩️",
+   "inputs": [
+    {
+     "key": "target",
+     "label": "Translated text",
+     "type": "longtext",
+     "placeholder": "Paste the translation…",
+     "required": true
+    },
+    {
+     "key": "into",
+     "label": "Back into (language)",
+     "type": "text",
+     "placeholder": "English"
+    }
+   ],
+   "prompt": "Back-translate this text literally into {into}, preserving word order and ambiguity rather than smoothing: {target}. Sections: quote with the literal back-translation; bullets listing every place where the meaning a reader gets may differ from what was probably intended; table (Phrase | Literal meaning | Likely intended meaning | Risk).",
+   "shape": "quote, bullets, table",
+   "button": "Back-translate",
+   "loading": "Reversing…"
+  },
+  {
+   "id": "terms",
+   "title": "Terminology check",
+   "subtitle": "Enforce the glossary",
+   "emoji": "📋",
+   "inputs": [
+    {
+     "key": "text",
+     "label": "Translated text",
+     "type": "longtext",
+     "placeholder": "Paste the translation…",
+     "required": true
+    },
+    {
+     "key": "terms",
+     "label": "Glossary (term = translation)",
+     "type": "longtext",
+     "placeholder": "Sign in = Iniciar sesión; checkout = pago",
+     "required": true
+    }
+   ],
+   "prompt": "Check {text} against this glossary: {terms}, plus the profile's fixed terms. Table (Term | Expected | Found | Where | Fix) with one row per deviation or missing term; kv (terms checked, compliant, deviations, untranslated terms left in source language); a checklist of edits to apply in order.",
+   "shape": "table, kv, checklist",
+   "button": "Check terms",
+   "loading": "Matching terms…"
+  },
+  {
+   "id": "register",
+   "title": "Fix the register",
+   "subtitle": "Formal, casual, or right for the locale",
+   "emoji": "🎚️",
+   "inputs": [
+    {
+     "key": "text",
+     "label": "Translated text",
+     "type": "longtext",
+     "placeholder": "Paste the translation…",
+     "required": true
+    },
+    {
+     "key": "formality",
+     "label": "Wanted register",
+     "type": "chips",
+     "options": [
+      "Formal (usted / vous / Sie)",
+      "Neutral",
+      "Casual",
+      "Youth / slang-aware"
+     ],
+     "default": "Neutral"
+    },
+    {
+     "key": "locale",
+     "label": "Locale",
+     "type": "text",
+     "placeholder": "Mexico, not Spain"
+    }
+   ],
+   "prompt": "Rewrite {text} in the target language for register '{formality}' and locale '{locale}'. Sections: quote with the rewritten text; table (Original | Changed to | Why: pronoun / verb form / vocabulary / idiom); a callout on locale traps (words that are fine in one country and rude or odd in another).",
+   "shape": "quote, table, callout",
+   "button": "Adjust register",
+   "loading": "Tuning tone…"
+  },
+  {
+   "id": "sign",
+   "title": "Check a sign or menu",
+   "subtitle": "Photo of a translated sign, menu or label",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the translated text",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Read the original and translated text in the photo. Table (Original | Translation shown | Problem | Better version) for every item, a callout naming the most serious error (safety, allergens, legal) if any, and a quote with a clean corrected version ready to print.",
+   "shape": "table, callout, quote",
+   "button": "Check sign",
+   "loading": "Squinting…"
+  }
+ ]
+}

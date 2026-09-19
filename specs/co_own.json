@@ -1,0 +1,181 @@
+{
+ "id": "co_own",
+ "name": "Co-Own",
+ "tagline": "Buy a home with someone else, and stay friends",
+ "category": "Finance",
+ "colors": [
+  "#6A1B9A",
+  "#26C6DA",
+  "#FFB74D"
+ ],
+ "icon": "scale",
+ "about": "Co-Own helps friends, siblings, couples and parent-child buyers model unequal contributions, agree what happens when life changes, split the monthly costs fairly and have the awkward conversations early.",
+ "persona": "You are a fair-minded co-ownership guide: you turn money and feelings into clear scenarios, insist that every 'what if' is written down before completion, and never take sides.",
+ "onboarding": {
+  "title": "Agree it now, not in court",
+  "subtitle": "Who's buying with whom shapes every scenario.",
+  "bullets": [
+   "Ownership splits from real contributions",
+   "Every 'what if' modelled",
+   "Scripts for the hard conversations"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "who",
+   "label": "Buying with",
+   "type": "chips",
+   "options": [
+    "Partner",
+    "Friend(s)",
+    "Sibling(s)",
+    "Parent helping",
+    "Group of 3+"
+   ]
+  },
+  {
+   "key": "region",
+   "label": "Country / region",
+   "type": "text"
+  },
+  {
+   "key": "price",
+   "label": "Target price",
+   "type": "number",
+   "placeholder": "400000"
+  }
+ ],
+ "tools": [
+  {
+   "id": "split",
+   "title": "Split the ownership",
+   "subtitle": "Contributions → fair equity shares",
+   "emoji": "🍰",
+   "inputs": [
+    {
+     "key": "contribs",
+     "label": "Who puts in what",
+     "type": "longtext",
+     "placeholder": "Me: 40k deposit, pays 60% of mortgage; Sam: 15k deposit, 40%; Sam's parents gifting 10k",
+     "required": true
+    }
+   ],
+   "prompt": "Contributions: {contribs}, price from the profile. Produce a table (Person | Deposit | Monthly share | Fair equity % | Equal-split %) for three models — deposits treated as loans, deposits as equity, and floating shares that update with payments — then text recommending which model fits this group and why, bullets on how gifts and family loans should be recorded, and a callout on recording the split legally rather than informally.",
+   "shape": "table, text, bullets, callout",
+   "button": "Model it",
+   "loading": "Dividing fairly…"
+  },
+  {
+   "id": "agreement",
+   "title": "Agreement points",
+   "subtitle": "Every clause a co-ownership deal needs",
+   "emoji": "📜",
+   "inputs": [
+    {
+     "key": "term",
+     "label": "How long you expect to co-own",
+     "type": "chips",
+     "options": [
+      "1–3 years",
+      "3–7 years",
+      "Indefinitely"
+     ],
+     "default": "3–7 years"
+    }
+   ],
+   "prompt": "For the profile's co-owners planning to co-own for {term}, produce a checklist of every clause a co-ownership or trust agreement should cover (shares, contributions, sale triggers, buy-out valuation, notice periods, occupancy, renting rooms, repairs, death, disputes), a kv (clause → a sensible default for this group), bullets on which points usually cause the biggest arguments, and a callout on getting it drafted by a property lawyer in the region.",
+   "shape": "checklist, kv, bullets, callout",
+   "button": "List the clauses",
+   "loading": "Drafting…"
+  },
+  {
+   "id": "whatif",
+   "title": "What if…",
+   "subtitle": "Break-up, job move, one wants out",
+   "emoji": "🎲",
+   "inputs": [
+    {
+     "key": "event",
+     "label": "Scenario",
+     "type": "chips",
+     "options": [
+      "One wants out",
+      "Break-up",
+      "One loses income",
+      "Job move abroad",
+      "One dies",
+      "New partner moves in",
+      "Want to rent it out"
+     ],
+     "default": "One wants out"
+    },
+    {
+     "key": "detail",
+     "label": "Details",
+     "type": "text",
+     "placeholder": "after 2 years; the other can't afford to buy them out"
+    }
+   ],
+   "prompt": "Model the scenario '{event}' for the profile's co-owners: {detail}. Produce steps of what should happen in order, a table (Option | How it works | Who bears the cost | Timeline) with at least 3 resolutions, a kv of the numbers involved (using the profile price and typical selling costs), and a callout on what to have already written into the agreement to make this painless.",
+   "shape": "steps, table, kv, callout",
+   "button": "Play it out",
+   "loading": "Imagining…"
+  },
+  {
+   "id": "monthly",
+   "title": "Monthly money",
+   "subtitle": "Split mortgage, bills and repairs fairly",
+   "emoji": "🧾",
+   "inputs": [
+    {
+     "key": "mortgage",
+     "label": "Monthly mortgage",
+     "type": "number",
+     "placeholder": "1450"
+    },
+    {
+     "key": "costs",
+     "label": "Other costs and who uses what",
+     "type": "longtext",
+     "placeholder": "bills 260, insurance 40, service charge 120; Alex has the bigger room",
+     "required": true
+    }
+   ],
+   "prompt": "Mortgage {mortgage} plus: {costs}. Produce a table (Cost | Total | Split rule | Person A | Person B | Others) applying a fair rule to each line (equity share, equal, or usage), a kv (each person's monthly total, joint account top-up, repairs fund per month), steps to run a joint account cleanly, and a callout on keeping ownership shares separate from shared living costs.",
+   "shape": "table, kv, steps, callout",
+   "button": "Split the costs",
+   "loading": "Adding up…"
+  },
+  {
+   "id": "talk",
+   "title": "The conversation",
+   "subtitle": "Scripts for the money talks",
+   "emoji": "🗣️",
+   "inputs": [
+    {
+     "key": "topic",
+     "label": "Talk about",
+     "type": "chips",
+     "options": [
+      "Unequal deposits",
+      "Exit plan",
+      "Partner moving in",
+      "Someone's behind on payments",
+      "Selling up"
+     ],
+     "default": "Exit plan"
+    }
+   ],
+   "prompt": "Script a conversation about '{topic}' for the profile's co-owners. Produce a quote with an opening message proposing the talk, steps for the conversation itself (frame, facts, options, decision, write-up), bullets of phrases that keep it fair and phrases to avoid, and a callout on what to write down and send afterwards.",
+   "shape": "quote, steps, bullets, callout",
+   "button": "Script it",
+   "loading": "Choosing words…"
+  }
+ ],
+ "disclaimer": "General information, not legal advice; property law, tenancy rules and taxes vary by country and region — check with a qualified local professional before relying on it."
+}

@@ -1,0 +1,207 @@
+{
+ "id": "teen_harbour",
+ "name": "Teen Harbour",
+ "tagline": "Support a struggling teen with a plan, not just worry",
+ "category": "Parenting",
+ "colors": [
+  "#00838F",
+  "#F06292",
+  "#FFD54F"
+ ],
+ "icon": "heart",
+ "about": "Teen Harbour helps parents of teenagers with anxiety, low mood or self-harm build a safety plan, find and prepare for therapy, ask school for support, and get through exam season and bad nights.",
+ "persona": "You are a youth-mental-health clinician speaking to parents: warm, plain-spoken, evidence-based, clear about crisis lines, and never diagnosing from a message.",
+ "onboarding": {
+  "title": "You don't have to guess",
+  "subtitle": "A few details let us tailor the plan and point to the right services.",
+  "bullets": [
+   "A safety plan you build together",
+   "Therapy: find, fund, prepare",
+   "School support requests"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "teen",
+   "label": "Teen (name, age)",
+   "type": "text",
+   "placeholder": "Sam, 15"
+  },
+  {
+   "key": "concern",
+   "label": "Main concern",
+   "type": "chips",
+   "options": [
+    "Anxiety",
+    "Low mood",
+    "Self-harm",
+    "Eating",
+    "Panic attacks",
+    "School refusal",
+    "Not sure"
+   ],
+   "multi": true
+  },
+  {
+   "key": "country",
+   "label": "Country",
+   "type": "chips",
+   "options": [
+    "UK",
+    "US",
+    "Canada",
+    "Australia",
+    "Ireland",
+    "India",
+    "Other"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "safety",
+   "title": "Safety plan",
+   "subtitle": "Build it together, tonight",
+   "emoji": "🛟",
+   "inputs": [
+    {
+     "key": "triggers",
+     "label": "What tends to set things off",
+     "type": "longtext",
+     "placeholder": "exam results, arguments with Dad, late nights scrolling",
+     "required": true
+    },
+    {
+     "key": "people",
+     "label": "People they trust",
+     "type": "text",
+     "placeholder": "cousin Jess, Mr Patel at school"
+    }
+   ],
+   "prompt": "Draft a collaborative safety plan for the profile's teen with triggers: {triggers} and trusted people: {people}. Sections: a kv using the standard safety-plan headings (warning signs, coping things I can do alone, people and places that distract me, people I can ask for help, professionals and crisis lines for the profile's country, making my environment safer), a quote with how to introduce the plan to the teen so it doesn't feel like punishment, a checklist of what to make safer at home (medicines, sharps, alcohol), and a callout on what to do if there is immediate risk tonight.",
+   "shape": "kv, quote, checklist, callout",
+   "button": "Draft plan",
+   "loading": "Anchoring…"
+  },
+  {
+   "id": "therapy",
+   "title": "Find & prep for therapy",
+   "subtitle": "Types, cost, first session",
+   "emoji": "🧭",
+   "inputs": [
+    {
+     "key": "route",
+     "label": "Route",
+     "type": "chips",
+     "options": [
+      "Public / school-referred",
+      "Private",
+      "Insurance",
+      "Online",
+      "Not sure"
+     ],
+     "default": "Not sure"
+    },
+    {
+     "key": "budget",
+     "label": "Budget per session (if private)",
+     "type": "number",
+     "placeholder": "80"
+    },
+    {
+     "key": "prefs",
+     "label": "Preferences",
+     "type": "text",
+     "placeholder": "female therapist, evenings, not CBT again"
+    }
+   ],
+   "prompt": "Guide a parent to therapy for the profile's teen: route {route}, budget {budget} per session, preferences {prefs}. Sections: a table (Therapy type | Good for | Typical wait | Typical cost in the profile's country), steps to get a referral or vet a private therapist (credentials to check, questions for the first call), a checklist of what to prepare for the first session, and a callout on confidentiality between therapist, teen and parent.",
+   "shape": "table, steps, checklist, callout",
+   "button": "Guide me",
+   "loading": "Searching…"
+  },
+  {
+   "id": "school",
+   "title": "Ask the school",
+   "subtitle": "Support request letter",
+   "emoji": "🏫",
+   "inputs": [
+    {
+     "key": "situation",
+     "label": "What's happening at school",
+     "type": "longtext",
+     "placeholder": "panic before assessments, missed 8 days this term",
+     "required": true
+    },
+    {
+     "key": "ask",
+     "label": "What you want",
+     "type": "chips",
+     "options": [
+      "Adjustments for tests",
+      "Safe space or pass",
+      "Reduced timetable",
+      "Counsellor access",
+      "Communication plan",
+      "Not sure"
+     ],
+     "multi": true
+    }
+   ],
+   "prompt": "Situation: {situation}. Asking for: {ask}. Sections: a quote with a complete email to the pastoral lead or counsellor (under 250 words, factual, requests a meeting and specific adjustments), bullets of adjustments schools commonly grant for mental-health needs in the profile's country and the formal routes (for example a 504 plan, SEN support or an individual healthcare plan), a checklist of documents to bring, and a callout on what to do if the school is unresponsive.",
+   "shape": "quote, bullets, checklist, callout",
+   "button": "Write letter",
+   "loading": "Drafting…"
+  },
+  {
+   "id": "exams",
+   "title": "Exam-season plan",
+   "subtitle": "Pressure without collapse",
+   "emoji": "📚",
+   "inputs": [
+    {
+     "key": "exams",
+     "label": "Exams and dates",
+     "type": "text",
+     "placeholder": "GCSEs, 12 May – 20 June",
+     "required": true
+    },
+    {
+     "key": "signs",
+     "label": "What you're seeing",
+     "type": "longtext",
+     "placeholder": "not sleeping, crying at revision, says she'll fail everything"
+    }
+   ],
+   "prompt": "Plan exam season for the profile's teen: {exams}. Current signs: {signs}. Sections: a table (Week | Parent's job | What to stop doing | Check-in question), steps for a panic-before-exam protocol the teen can run alone, bullets on sleep, food and movement basics that matter more than extra revision hours, a quote with what to say the night before the first exam, and a callout on signs that this is beyond exam stress.",
+   "shape": "table, steps, bullets, quote, callout",
+   "button": "Plan season",
+   "loading": "Steadying…"
+  },
+  {
+   "id": "night",
+   "title": "After a bad night",
+   "subtitle": "Repair, rest, next steps",
+   "emoji": "🌤️",
+   "inputs": [
+    {
+     "key": "what",
+     "label": "What happened",
+     "type": "longtext",
+     "placeholder": "found messages about not wanting to be here; we talked till 2am",
+     "required": true
+    }
+   ],
+   "prompt": "After: {what}. Sections: a callout first on whether this needs same-day professional contact and exactly who to call in the profile's country, steps for today (rest, supervision, who else to tell, what to say to siblings), a quote with a short message to send the teen this morning, bullets for the parent's own support, and a kv of what to observe over the next 72 hours.",
+   "shape": "callout, steps, quote, bullets, kv",
+   "button": "Help me today",
+   "loading": "Here with you…"
+  }
+ ],
+ "disclaimer": "This is general information, not therapy or medical advice. If your teen is in immediate danger, call emergency services or your local crisis line now."
+}

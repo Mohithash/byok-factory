@@ -1,0 +1,172 @@
+{
+ "id": "will_wise",
+ "name": "Will Wise",
+ "tagline": "Understand wills before you write one",
+ "category": "Tools",
+ "colors": [
+  "#6D4C41",
+  "#8E24AA",
+  "#FFB300"
+ ],
+ "icon": "heart",
+ "about": "Will Wise explains what a will does, what happens without one, how to choose executors and guardians, what to include, and when to update it — so you arrive at a solicitor or will-writing service already knowing what you want.",
+ "persona": "You are a warm, clear estate-planning educator: you explain general principles, avoid jargon, respect family complexity, and are honest about when professional drafting is essential.",
+ "onboarding": {
+  "title": "Know what you want your will to do",
+  "subtitle": "Inheritance rules differ a lot by country; tell us yours.",
+  "bullets": [
+   "What happens with no will",
+   "Executors, guardians and gifts explained",
+   "A worksheet ready for a professional"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "region",
+   "label": "Country / state",
+   "type": "text",
+   "placeholder": "Scotland, UK"
+  },
+  {
+   "key": "family",
+   "label": "Family situation",
+   "type": "chips",
+   "options": [
+    "Single",
+    "Married / civil partner",
+    "Partner, not married",
+    "Divorced",
+    "Widowed"
+   ]
+  },
+  {
+   "key": "kids",
+   "label": "Children",
+   "type": "chips",
+   "options": [
+    "None",
+    "Under 18",
+    "Adults",
+    "Both"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "intestacy",
+   "title": "If I died without a will",
+   "subtitle": "Who would inherit, roughly",
+   "emoji": "🌳",
+   "inputs": [
+    {
+     "key": "assets",
+     "label": "Main assets",
+     "type": "text",
+     "placeholder": "house (joint), savings 40k, pension"
+    },
+    {
+     "key": "people",
+     "label": "Key people",
+     "type": "text",
+     "placeholder": "partner Maya, two kids, estranged brother"
+    }
+   ],
+   "prompt": "For the profile family situation with assets: {assets} and people: {people} — explain in text how intestacy rules in the profile region generally distribute an estate, a table (Person | Likely to inherit? | Why) including anyone who would get nothing, bullets of assets that usually pass outside a will (joint property, pensions, insurance), and a callout on who could be left exposed.",
+   "shape": "text, table, bullets, callout",
+   "button": "Show me",
+   "loading": "Tracing the tree…"
+  },
+  {
+   "id": "roles",
+   "title": "Choose executors and guardians",
+   "subtitle": "The people, not the paperwork",
+   "emoji": "👥",
+   "inputs": [
+    {
+     "key": "candidates",
+     "label": "People you're considering",
+     "type": "text",
+     "placeholder": "sister (organised, lives abroad), best friend, my adult son"
+    },
+    {
+     "key": "role",
+     "label": "Role",
+     "type": "chips",
+     "options": [
+      "Executor",
+      "Guardian for children",
+      "Both"
+     ],
+     "default": "Both"
+    }
+   ],
+   "prompt": "Candidates: {candidates}. Role: {role}. Produce a table (Person | Strengths | Concerns | Suitable for) comparing them, bullets on what each role actually involves and how many to name, a quote with a message asking someone to take the role, and a callout on backup appointments.",
+   "shape": "table, bullets, quote, callout",
+   "button": "Compare",
+   "loading": "Weighing the people…"
+  },
+  {
+   "id": "worksheet",
+   "title": "My will worksheet",
+   "subtitle": "Everything a drafter will ask",
+   "emoji": "📝",
+   "inputs": [
+    {
+     "key": "wishes",
+     "label": "Your wishes in your own words",
+     "type": "longtext",
+     "placeholder": "House to Maya, savings split between the kids, 2k to the dog shelter, my guitar to Tom…",
+     "required": true
+    }
+   ],
+   "prompt": "From: {wishes} — build a kv worksheet (executors, guardians, specific gifts, residuary estate split, funeral wishes, digital accounts, backup beneficiaries), a checklist of information to bring to a will-writer, bullets flagging anything ambiguous or likely to cause a dispute in the wishes, and a callout on why a self-typed version of this should still be professionally drafted or checked.",
+   "shape": "kv, checklist, bullets, callout",
+   "button": "Build worksheet",
+   "loading": "Organising wishes…"
+  },
+  {
+   "id": "update",
+   "title": "Does my will need updating?",
+   "subtitle": "Life changed; did the paper?",
+   "emoji": "🔄",
+   "inputs": [
+    {
+     "key": "changes",
+     "label": "What's changed since you wrote it",
+     "type": "longtext",
+     "placeholder": "got married, bought a flat, one executor died…",
+     "required": true
+    }
+   ],
+   "prompt": "Changes: {changes}. Give a table (Change | Effect on an existing will in the profile region | Action needed), steps to update (codicil versus new will, revoking, storage), and a callout on marriage, divorce and moving countries as events that can silently change a will's effect.",
+   "shape": "table, steps, callout",
+   "button": "Check",
+   "loading": "Reviewing…"
+  },
+  {
+   "id": "terms",
+   "title": "Decode will words",
+   "subtitle": "Residue? Per stirpes? Life interest?",
+   "emoji": "📖",
+   "inputs": [
+    {
+     "key": "terms",
+     "label": "Terms to explain",
+     "type": "text",
+     "placeholder": "residuary estate, per stirpes, life interest, codicil",
+     "required": true
+    }
+   ],
+   "prompt": "For each of: {terms} — a table (Term | Plain English | Example in a family), and a quote with one-line memory hooks for the trickiest ones.",
+   "shape": "table, quote",
+   "button": "Explain",
+   "loading": "Translating…"
+  }
+ ],
+ "disclaimer": "General information only, not legal advice; rules differ by country and state and change over time — check official sources or a qualified professional before acting."
+}

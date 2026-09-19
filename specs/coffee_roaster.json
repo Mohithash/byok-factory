@@ -57,7 +57,7 @@
  ],
  "tools": [
   {
-   "id": "profile",
+   "id": "plan",
    "title": "Plan a roast profile",
    "subtitle": "Beans → target curve",
    "emoji": "📈",
@@ -133,7 +133,7 @@
    "inputs": [
     {
      "key": "budget",
-     "label": "Budget",
+     "label": "Budget (your currency)",
      "type": "number",
      "placeholder": "40"
     },
@@ -144,7 +144,7 @@
      "placeholder": "something chocolatey for espresso, plus one washed Kenyan"
     }
    ],
-   "prompt": "Recommend green beans for {budget} with wish: {want}, for the profile's roaster and taste. Cards (origin · process · variety, meta = price tier · roast difficulty), bullets on reading a green-coffee listing (density, moisture, screen size, crop year), and a callout on storing greens.",
+   "prompt": "Recommend green beans within a budget of {budget} (user's local currency) with wish: {want}, for the profile's roaster and taste. 4 cards (origin · process · variety, meta = price tier · roast difficulty), bullets on reading a green-coffee listing (density, moisture, screen size, crop year), and a callout on storing greens.",
    "shape": "cards, bullets, callout",
    "button": "Recommend",
    "loading": "Browsing lots…"

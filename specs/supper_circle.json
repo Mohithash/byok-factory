@@ -1,0 +1,184 @@
+{
+ "id": "supper_circle",
+ "name": "Supper Circle",
+ "tagline": "A rotating dinner club that actually keeps going",
+ "category": "Social",
+ "colors": [
+  "#BF360C",
+  "#FBC02D",
+  "#4A148C"
+ ],
+ "icon": "cup",
+ "about": "Supper Circle runs a rotating dinner club among friends or neighbours: a fair hosting rota, themed host briefs that respect every diet at the table, sensible money rules, a newcomer's first night and the nudges that keep the club alive when life gets busy.",
+ "persona": "You are a generous, organised dinner-club convenor: you love a theme and good food, hate fuss, and quietly make sure the vegan and the shy newcomer both have a great night.",
+ "onboarding": {
+  "title": "Same good people, month after month",
+  "subtitle": "Tell us about your circle and how often you meet.",
+  "bullets": [
+   "A fair hosting rota",
+   "Menus that suit every diet at the table",
+   "Nudges that keep the club alive"
+  ]
+ },
+ "profile": [
+  {
+   "key": "members",
+   "label": "Members and diets",
+   "type": "text",
+   "placeholder": "Sam & Jo (veggie), Ana (no pork), Lee, Priya (gluten-free)"
+  },
+  {
+   "key": "cadence",
+   "label": "How often",
+   "type": "chips",
+   "options": [
+    "Weekly",
+    "Fortnightly",
+    "Monthly",
+    "Every other month"
+   ],
+   "default": "Monthly"
+  },
+  {
+   "key": "style",
+   "label": "Style",
+   "type": "chips",
+   "options": [
+    "Host cooks everything",
+    "Host does main, others bring",
+    "Potluck",
+    "Rotating restaurant"
+   ],
+   "default": "Host cooks everything"
+  }
+ ],
+ "tools": [
+  {
+   "id": "rota",
+   "title": "Hosting rota",
+   "subtitle": "Who hosts when, fairly",
+   "emoji": "🔄",
+   "inputs": [
+    {
+     "key": "start",
+     "label": "Start month",
+     "type": "text",
+     "placeholder": "October"
+    },
+    {
+     "key": "constraints",
+     "label": "Constraints",
+     "type": "text",
+     "placeholder": "Ana can't host until spring, Lee's flat fits 6 max"
+    }
+   ],
+   "prompt": "Build a hosting rota for the circle starting {start} with constraints: {constraints}. Sections: a table (Date | Host | Theme suggestion | Notes), bullets explaining why the order is fair, a quote with the announcement message for the group chat, and a callout on swap rules for when someone has to drop out.",
+   "shape": "table, bullets, quote, callout",
+   "button": "Build rota",
+   "loading": "Passing the salt…"
+  },
+  {
+   "id": "theme",
+   "title": "Host brief",
+   "subtitle": "Theme, menu and timings for the host",
+   "emoji": "🍽️",
+   "inputs": [
+    {
+     "key": "theme",
+     "label": "Theme (or 'surprise me')",
+     "type": "text",
+     "placeholder": "Levantine night"
+    },
+    {
+     "key": "guests",
+     "label": "Guests",
+     "type": "number",
+     "placeholder": "8"
+    },
+    {
+     "key": "effort",
+     "label": "Host effort",
+     "type": "chips",
+     "options": [
+      "Easy",
+      "Medium",
+      "Show-off"
+     ],
+     "default": "Medium"
+    }
+   ],
+   "prompt": "The host is doing {theme} for {guests} guests at {effort} effort, respecting every diet listed in the profile. Sections: cards for the menu (starter, main, side, dessert; meta = make-ahead? · which diets it covers), a table of timings for the day (Time | Task | Delegable?), a checklist shopping list grouped by shop section, and a callout on labelling allergens and asking guests about allergies before cooking.",
+   "shape": "cards, table, checklist, callout",
+   "button": "Plan the night",
+   "loading": "Preheating…"
+  },
+  {
+   "id": "money",
+   "title": "Money rules",
+   "subtitle": "Keep it generous, not awkward",
+   "emoji": "💸",
+   "inputs": [
+    {
+     "key": "model",
+     "label": "Preferred model",
+     "type": "chips",
+     "options": [
+      "Host pays",
+      "Split evenly each time",
+      "Monthly kitty",
+      "Bring-your-own"
+     ],
+     "default": "Host pays"
+    },
+    {
+     "key": "tensions",
+     "label": "Any tensions",
+     "type": "text",
+     "placeholder": "one host always over-spends, students on tight budgets"
+    }
+   ],
+   "prompt": "Set fair money rules for the circle on a {model} basis, given: {tensions}. Sections: kv (per-person budget cap, who covers drinks, kitty amount if any, how extras like a taxi or a special bottle are handled), a quote with a kind, clear message announcing the rules, bullets on keeping it fun rather than accountancy, and a callout on the money situations that most often break dinner clubs.",
+   "shape": "kv, quote, bullets, callout",
+   "button": "Set rules",
+   "loading": "Splitting fairly…"
+  },
+  {
+   "id": "revive",
+   "title": "Attendance rescue",
+   "subtitle": "When the chat goes quiet",
+   "emoji": "🚑",
+   "inputs": [
+    {
+     "key": "problem",
+     "label": "What's happening",
+     "type": "text",
+     "placeholder": "last two dinners only 4 came, chat's gone quiet",
+     "required": true
+    }
+   ],
+   "prompt": "The circle's problem: {problem}. Sections: text diagnosing the likely cause in a few sentences, steps for a 6-week revival plan (dates, format changes, who to message personally), a quote with a no-guilt check-in message for the whole group, and cards for 3 lower-effort formats to try (meta = effort · cost).",
+   "shape": "text, steps, quote, cards",
+   "button": "Rescue it",
+   "loading": "Relighting candles…"
+  },
+  {
+   "id": "newcomer",
+   "title": "Add a newcomer",
+   "subtitle": "Their first dinner, done well",
+   "emoji": "👋",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Who's joining",
+     "type": "text",
+     "placeholder": "Jo's new partner, quite shy, coeliac"
+    }
+   ],
+   "prompt": "Bring {who} into the circle well. Sections: steps for the first dinner they attend (seating, introductions, what to tell the host in advance), a quote with a welcome message explaining how the circle works, bullets of conversation openers tailored to the members in the profile, and a callout on updating the diet list and the rota.",
+   "shape": "steps, quote, bullets, callout",
+   "button": "Welcome them",
+   "loading": "Pulling up a chair…"
+  }
+ ],
+ "disclaimer": "Always ask guests directly about allergies and intolerances; menu ideas are suggestions, not allergen guarantees."
+}

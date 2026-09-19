@@ -1,0 +1,203 @@
+{
+ "id": "brevet_card",
+ "name": "Brevet Card",
+ "tagline": "Audax and ultra-distance rides, timed to the control",
+ "category": "Sports",
+ "colors": [
+  "#1A237E",
+  "#FFC107",
+  "#E53935"
+ ],
+ "icon": "clock",
+ "about": "Brevet Card plans randonnées and ultra-distance cycling events from 200 km to 1,200 km: control deadlines, sleep stops, night-riding kit and a strategy for when you drift behind the clock.",
+ "persona": "You are a randonneur mentor with thousands of brevet kilometres: calm, arithmetic-minded about minimum speeds, and blunt about sleep debt and night-riding risks.",
+ "onboarding": {
+  "title": "Ride through the night, arrive in time",
+  "subtitle": "Tell us your typical speeds and how you sleep on the road.",
+  "bullets": [
+   "Control-by-control time budgets",
+   "Sleep and night-riding strategy",
+   "Recovery plans when you're behind"
+  ]
+ },
+ "profile": [
+  {
+   "key": "speed",
+   "label": "Moving average on long rides (km/h)",
+   "type": "number",
+   "placeholder": "23"
+  },
+  {
+   "key": "stops",
+   "label": "Stop style",
+   "type": "chips",
+   "options": [
+    "Quick and rolling",
+    "Proper meals",
+    "Long café stops"
+   ]
+  },
+  {
+   "key": "sleep",
+   "label": "Sleeps on rides",
+   "type": "chips",
+   "options": [
+    "Never",
+    "Cat-naps",
+    "Hotel every night"
+   ]
+  },
+  {
+   "key": "longest",
+   "label": "Longest ride so far",
+   "type": "chips",
+   "options": [
+    "100 km",
+    "200 km",
+    "300 km",
+    "400 km",
+    "600 km+"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "controls",
+   "title": "Time-budget the controls",
+   "subtitle": "Deadlines, buffers, stop lengths",
+   "emoji": "⏱️",
+   "inputs": [
+    {
+     "key": "event",
+     "label": "Event",
+     "type": "text",
+     "placeholder": "600 km, 40h limit, start 06:00 Saturday",
+     "required": true
+    },
+    {
+     "key": "controls",
+     "label": "Controls (km, name)",
+     "type": "longtext",
+     "placeholder": "0 Start; 85 Ludlow; 172 Welshpool; 300 Aberystwyth…",
+     "required": true
+    }
+   ],
+   "prompt": "For {event} with controls: {controls}, using the profile moving speed and stop style, build a table (Control | km | Opens | Closes | Planned arrival | Stop minutes | Buffer). Then kv (required average, planned average, total stop time, sleep window), bullets on which controls are tight, and a callout on the rule for leaving a control on time.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Build card",
+   "loading": "Doing the maths…"
+  },
+  {
+   "id": "sleep",
+   "title": "Sleep strategy",
+   "subtitle": "Where and how long to sleep",
+   "emoji": "😴",
+   "inputs": [
+    {
+     "key": "event",
+     "label": "Event & limit",
+     "type": "text",
+     "placeholder": "1,000 km, 75h, start 04:00",
+     "required": true
+    },
+    {
+     "key": "style",
+     "label": "Sleeping",
+     "type": "chips",
+     "options": [
+      "Hotel/hostel",
+      "Control sleep stop",
+      "Bivvy/bus shelter",
+      "Nap only"
+     ],
+     "default": "Control sleep stop"
+    }
+   ],
+   "prompt": "Sleep plan for {event} with {style} sleeping and the profile habits: table (Night | Location km | Sleep from → to | Hours | Why here), steps for a fast reset on waking (kit, food, lights), bullets on spotting dangerous drowsiness, and a callout on what to do the moment you feel micro-sleeps.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Plan sleep",
+   "loading": "Counting winks…"
+  },
+  {
+   "id": "night",
+   "title": "Night-ride kit check",
+   "subtitle": "Photo of your lights & layers",
+   "emoji": "🔦",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of your night kit",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "conditions",
+     "label": "Expected night",
+     "type": "text",
+     "placeholder": "8 hours dark, 5°C, drizzle, unlit lanes"
+    }
+   ],
+   "prompt": "Check the kit in the photo for: {conditions}. Table (Item | Seen | Verdict | Note) covering lights, reflectives, layers, power and spares, a checklist of anything missing, kv (front runtime needed, rear runtime needed, battery bank estimate), and a callout on visibility rules most riders get wrong.",
+   "shape": "table, checklist, kv, callout",
+   "button": "Check kit",
+   "loading": "Lighting up…"
+  },
+  {
+   "id": "behind",
+   "title": "I'm behind the clock",
+   "subtitle": "Rescue the ride",
+   "emoji": "🚨",
+   "inputs": [
+    {
+     "key": "status",
+     "label": "Where you are",
+     "type": "text",
+     "placeholder": "km 380 of 600, 45 min inside the limit, headwind, nauseous",
+     "required": true
+    },
+    {
+     "key": "hours",
+     "label": "Hours to the next close",
+     "type": "number",
+     "placeholder": "6"
+    }
+   ],
+   "prompt": "Status: {status} with {hours} hours until the next control closes. Give a text verdict (finishable or not, and the required speed), then steps for the next 2 hours (position, stops, food approach, drafting), bullets of time leaks to cut, and a callout on the point at which abandoning is the right call.",
+   "shape": "text, steps, bullets, callout",
+   "button": "Rescue plan",
+   "loading": "Regrouping…"
+  },
+  {
+   "id": "progress",
+   "title": "Step up a distance",
+   "subtitle": "From your longest ride to the next",
+   "emoji": "📈",
+   "inputs": [
+    {
+     "key": "target",
+     "label": "Next distance",
+     "type": "chips",
+     "options": [
+      "200 km",
+      "300 km",
+      "400 km",
+      "600 km",
+      "1,000 km+"
+     ],
+     "default": "300 km"
+    },
+    {
+     "key": "weeks",
+     "label": "Weeks until it",
+     "type": "number",
+     "placeholder": "10"
+    }
+   ],
+   "prompt": "Progression from the profile longest ride to {target} in {weeks} weeks: table (Week | Long ride km | Purpose | Practise this), bullets on the skills that change at this distance (pacing, eating on the move, contact points), a checklist of kit to test on training rides, and a callout on saddle and hand issues that need attention early.",
+   "shape": "table, bullets, checklist, callout",
+   "button": "Plan the step",
+   "loading": "Going longer…"
+  }
+ ],
+ "disclaimer": "Riding long distances tired is dangerous. Stop when drowsy; follow event rules and local traffic law. Not medical advice."
+}

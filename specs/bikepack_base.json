@@ -1,0 +1,207 @@
+{
+ "id": "bikepack_base",
+ "name": "Saddle Bags",
+ "tagline": "Multi-day bikepacking trips, planned bag by bag",
+ "category": "Sports",
+ "colors": [
+  "#6D4C41",
+  "#8BC34A",
+  "#FF7043"
+ ],
+ "icon": "bag",
+ "about": "Saddle Bags plans bikepacking and gravel touring trips: realistic daily distances, what goes in which bag, where to refill water and resupply, and what to do when the day falls apart.",
+ "persona": "You are a seasoned bikepacker: minimalist, weather-wise, honest about how far loaded bikes really go, and you always plan the bail-out before the summit.",
+ "onboarding": {
+  "title": "Pack less, ride further",
+  "subtitle": "Your bike, bags and sleep system shape every plan.",
+  "bullets": [
+   "Daily distances you'll actually make",
+   "Bag-by-bag packing lists",
+   "Water, resupply and bail-out plans"
+  ]
+ },
+ "profile": [
+  {
+   "key": "bike",
+   "label": "Bike",
+   "type": "chips",
+   "options": [
+    "Gravel",
+    "Hardtail MTB",
+    "Full-sus MTB",
+    "Touring/road",
+    "Fat bike"
+   ]
+  },
+  {
+   "key": "sleep",
+   "label": "Sleep system",
+   "type": "chips",
+   "options": [
+    "Tent",
+    "Bivvy",
+    "Tarp/hammock",
+    "Hotels/hostels",
+    "Mix"
+   ]
+  },
+  {
+   "key": "bags",
+   "label": "Bags",
+   "type": "chips",
+   "options": [
+    "Frame bag",
+    "Seat pack",
+    "Bar roll",
+    "Panniers",
+    "Backpack",
+    "Top-tube bag"
+   ],
+   "multi": true
+  },
+  {
+   "key": "pace",
+   "label": "Loaded pace",
+   "type": "chips",
+   "options": [
+    "Relaxed",
+    "Steady",
+    "Fast & light"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "itinerary",
+   "title": "Plan the days",
+   "subtitle": "Route → daily stages with sleep spots",
+   "emoji": "🗺️",
+   "inputs": [
+    {
+     "key": "route",
+     "label": "Route",
+     "type": "text",
+     "placeholder": "Bristol to Land's End via the coast, ~400 km, 6,000 m",
+     "required": true
+    },
+    {
+     "key": "days",
+     "label": "Days available",
+     "type": "number",
+     "placeholder": "5"
+    },
+    {
+     "key": "surface",
+     "label": "Surface mix",
+     "type": "chips",
+     "options": [
+      "Mostly road",
+      "Mixed",
+      "Mostly gravel",
+      "Singletrack heavy"
+     ],
+     "default": "Mixed"
+    }
+   ],
+   "prompt": "Split {route} into {days} stages for the profile bike and pace on {surface}. Table (Day | Start → End | km | Climbing | Riding hours | Sleep option | Last shop/water), text on how the stages were balanced and the daylight assumptions, bullets of what to check before booking anything, and a callout on the hardest day and its escape route.",
+   "shape": "table, text, bullets, callout",
+   "button": "Plan stages",
+   "loading": "Splitting the route…"
+  },
+  {
+   "id": "packcheck",
+   "title": "Check my pack-out",
+   "subtitle": "Photo of your gear → what to cut",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of everything laid out",
+     "type": "photo",
+     "placeholder": "Include bags if possible",
+     "required": true
+    },
+    {
+     "key": "trip",
+     "label": "Trip & conditions",
+     "type": "text",
+     "placeholder": "3 nights, wild camping, lows of 4°C, rain likely"
+    }
+   ],
+   "prompt": "Inventory the gear in the photo as a table (Item | Bag it goes in | Keep/Cut/Swap | Why) for: {trip}, using the profile bags and sleep system. Then a checklist of anything missing for those conditions, kv (estimated total weight, heaviest cut, bulkiest item), and a callout on weight distribution across the bike.",
+   "shape": "table, checklist, kv, callout",
+   "button": "Check pack",
+   "loading": "Weighing it all…"
+  },
+  {
+   "id": "water",
+   "title": "Water & resupply plan",
+   "subtitle": "Refill points and carry volumes",
+   "emoji": "💧",
+   "inputs": [
+    {
+     "key": "stage",
+     "label": "Stage",
+     "type": "text",
+     "placeholder": "Day 3: 95 km across the moor, one village at 40 km, 26°C",
+     "required": true
+    },
+    {
+     "key": "carry",
+     "label": "Bottle capacity (litres)",
+     "type": "number",
+     "placeholder": "2"
+    }
+   ],
+   "prompt": "For {stage} with {carry} litres of carry capacity: table (Point | km | Water source | Food available | Fill to), kv (litres needed for the stage, longest dry gap, filter/treatment needed), steps for stretching water if a source is dry, and a callout on heat and dehydration signs.",
+   "shape": "table, kv, steps, callout",
+   "button": "Plan refills",
+   "loading": "Mapping taps…"
+  },
+  {
+   "id": "bailout",
+   "title": "Bail-out plan",
+   "subtitle": "Weather turned, body broken, light gone",
+   "emoji": "🆘",
+   "inputs": [
+    {
+     "key": "situation",
+     "label": "What's happening",
+     "type": "text",
+     "placeholder": "70 km in, storm forecast, buddy has knee pain, 2h of light",
+     "required": true
+    },
+    {
+     "key": "options",
+     "label": "Known options",
+     "type": "text",
+     "placeholder": "train station 25 km back, pub 8 km ahead"
+    }
+   ],
+   "prompt": "Situation: {situation}. Options: {options}. Give a text verdict in two sentences, then cards for each option (meta = km · risk · time), steps for the chosen one including who to message and when, and a callout on the do-not-do list (rivers, ridges, riding in the dark without lights).",
+   "shape": "text, cards, steps, callout",
+   "button": "Decide",
+   "loading": "Weighing options…"
+  },
+  {
+   "id": "debrief",
+   "title": "Trip debrief",
+   "subtitle": "What to change next time",
+   "emoji": "📓",
+   "inputs": [
+    {
+     "key": "notes",
+     "label": "How it went",
+     "type": "longtext",
+     "placeholder": "Day 1 great, day 2 bonked at 60 km, bar roll rubbed tyre, slept cold…",
+     "required": true
+    }
+   ],
+   "prompt": "Debrief: {notes}. Bullets of what worked, a table (Problem | Likely cause | Fix for next trip | Cost), a checklist of gear tweaks, and a quote with a one-line rule to remember for the next trip.",
+   "shape": "bullets, table, checklist, quote",
+   "button": "Debrief",
+   "loading": "Unpacking lessons…"
+  }
+ ],
+ "disclaimer": "Plan for your own ability and conditions; check weather and tell someone your route. Not a substitute for local advice or rescue services."
+}

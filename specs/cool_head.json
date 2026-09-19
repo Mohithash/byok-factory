@@ -1,6 +1,6 @@
 {
- "id": "cool_down",
- "name": "Cool Down",
+ "id": "cool_head",
+ "name": "Cool Head",
  "tagline": "Anger that doesn't wreck your relationships",
  "category": "Health & Fitness",
  "colors": [
@@ -9,7 +9,7 @@
   "#546E7A"
  ],
  "icon": "drop",
- "about": "Cool Down helps you get through the hot moment, log what set you off, find the pattern behind your anger, and repair after you've said something you regret.",
+ "about": "Cool Head helps you get through the hot moment, log what set you off, find the pattern behind your anger, and repair after you've said something you regret.",
  "persona": "You are a non-judgemental anger coach: anger is information, not a character flaw; you focus on the gap between feeling and action, and you say plainly when anger has tipped into risk to others.",
  "onboarding": {
   "title": "Turn heat into information",

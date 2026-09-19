@@ -1,0 +1,208 @@
+{
+ "id": "meter_mate",
+ "name": "Meter Mate",
+ "tagline": "Scansion, form and rhyme help for poets",
+ "category": "Books & Reference",
+ "colors": [
+  "#4A148C",
+  "#F48FB1",
+  "#FFD54F"
+ ],
+ "icon": "moon",
+ "about": "Meter Mate scans your lines for stress and syllables, checks a poem against its form, workshops it like a good reading group, and finds rhymes that fit the mood.",
+ "persona": "You are a generous poetry workshop leader with a technician's ear: you mark stresses precisely, know the forms, praise specifically, and never flatten a poem into prose.",
+ "onboarding": {
+  "title": "Hear every line",
+  "subtitle": "Tell Meter Mate what you write and who you read.",
+  "bullets": [
+   "Line-by-line scansion",
+   "Form checks for sonnets, villanelles, haiku and more",
+   "Workshop notes and rhyme finder"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "forms",
+   "label": "Forms you write",
+   "type": "chips",
+   "options": [
+    "Free verse",
+    "Sonnet",
+    "Haiku / tanka",
+    "Villanelle",
+    "Ghazal",
+    "Slam / spoken word",
+    "Rhymed quatrains"
+   ],
+   "default": "Free verse",
+   "multi": true
+  },
+  {
+   "key": "poets",
+   "label": "Poets you admire",
+   "type": "text"
+  },
+  {
+   "key": "goal",
+   "label": "Goal",
+   "type": "chips",
+   "options": [
+    "Publish",
+    "Workshop",
+    "Perform",
+    "For myself"
+   ],
+   "default": "For myself"
+  }
+ ],
+ "tools": [
+  {
+   "id": "scan",
+   "title": "Scan my meter",
+   "subtitle": "Stress and syllable map per line",
+   "emoji": "🎼",
+   "inputs": [
+    {
+     "key": "poem",
+     "label": "Poem",
+     "type": "longtext",
+     "placeholder": "Paste the poem…",
+     "required": true
+    },
+    {
+     "key": "meter",
+     "label": "Intended meter",
+     "type": "chips",
+     "options": [
+      "Iambic pentameter",
+      "Iambic tetrameter",
+      "Trochaic",
+      "Anapestic",
+      "Syllabic (count only)",
+      "Not sure"
+     ],
+     "default": "Not sure"
+    }
+   ],
+   "prompt": "Scan this poem against intended meter '{meter}': {poem}. Table (Line | Syllables | Stress pattern using ˘ and / | Feet | Notes) for every line; bullets naming the lines where the rhythm stumbles and the substitution involved (trochaic inversion, feminine ending, spondee); a quote with the two roughest lines smoothed while keeping the sense.",
+   "shape": "table, bullets, quote",
+   "button": "Scan it",
+   "loading": "Tapping out feet…"
+  },
+  {
+   "id": "form",
+   "title": "Form check",
+   "subtitle": "Does it obey the form?",
+   "emoji": "📐",
+   "inputs": [
+    {
+     "key": "poem",
+     "label": "Poem",
+     "type": "longtext",
+     "placeholder": "Paste the poem…",
+     "required": true
+    },
+    {
+     "key": "form",
+     "label": "Form",
+     "type": "chips",
+     "options": [
+      "Sonnet (Shakespearean)",
+      "Sonnet (Petrarchan)",
+      "Villanelle",
+      "Haiku",
+      "Tanka",
+      "Sestina",
+      "Ghazal",
+      "Limerick",
+      "Pantoum"
+     ],
+     "default": "Sonnet (Shakespearean)"
+    }
+   ],
+   "prompt": "Check {poem} against the rules of the {form}. Checklist of the form's rules (line count, meter, rhyme scheme, refrains or repeated words, volta or turn, syllable counts) each marked met or not; table (Line | Rhyme letter found | Expected | OK?); a callout on the turn or refrain placement; steps to bring the poem into form with the least damage.",
+   "shape": "checklist, table, callout, steps",
+   "button": "Check form",
+   "loading": "Counting lines…"
+  },
+  {
+   "id": "workshop",
+   "title": "Workshop this poem",
+   "subtitle": "Notes like a good reading group",
+   "emoji": "💬",
+   "inputs": [
+    {
+     "key": "poem",
+     "label": "Poem",
+     "type": "longtext",
+     "placeholder": "Paste the poem…",
+     "required": true
+    },
+    {
+     "key": "ask",
+     "label": "What you want feedback on",
+     "type": "text",
+     "placeholder": "the ending feels flat"
+    }
+   ],
+   "prompt": "Workshop {poem}; the poet asks about: {ask}. Bullets of 3 specific strengths quoting the words; table (Line | Suggestion | Why) for up to 8 lines; text on image, sound and line-break choices; a quote with one stanza revised as an example; a callout naming any cliché or abstraction to cut.",
+   "shape": "bullets, table, text, quote, callout",
+   "button": "Workshop it",
+   "loading": "Reading aloud…"
+  },
+  {
+   "id": "rhyme",
+   "title": "Rhyme & sound finder",
+   "subtitle": "Perfect, slant and vowel rhymes",
+   "emoji": "🔔",
+   "inputs": [
+    {
+     "key": "word",
+     "label": "Word",
+     "type": "text",
+     "placeholder": "silver",
+     "required": true
+    },
+    {
+     "key": "kind",
+     "label": "Kind",
+     "type": "chips",
+     "options": [
+      "Perfect",
+      "Slant",
+      "Assonance",
+      "Consonance",
+      "All"
+     ],
+     "default": "All"
+    },
+    {
+     "key": "mood",
+     "label": "Mood or topic",
+     "type": "text",
+     "placeholder": "loss"
+    }
+   ],
+   "prompt": "Find rhymes for '{word}' of kind '{kind}' suited to the mood '{mood}'. Table (Type | Words, 8 to 12 each | Fits the mood?); bullets with 4 line fragments using the best matches; a callout on rhymes that would sound forced.",
+   "shape": "table, bullets, callout",
+   "button": "Find rhymes",
+   "loading": "Hunting echoes…"
+  },
+  {
+   "id": "prompt",
+   "title": "Today's prompt",
+   "subtitle": "Three prompts for your forms",
+   "emoji": "✨",
+   "inputs": [],
+   "prompt": "Give 3 writing prompts tuned to the profile forms, admired poets and goal as cards (meta = form · minutes); steps for a 15-minute draft session; a quote with one possible opening line for the first prompt.",
+   "shape": "cards, steps, quote",
+   "button": "Inspire me",
+   "loading": "Calling the muse…"
+  }
+ ]
+}

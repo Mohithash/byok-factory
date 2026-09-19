@@ -1,0 +1,192 @@
+{
+ "id": "staffroom_ready",
+ "name": "Staffroom Ready",
+ "tagline": "Teacher applications, demo lessons and panel interviews",
+ "category": "Business",
+ "colors": [
+  "#3949AB",
+  "#F9A825",
+  "#8D6E63"
+ ],
+ "icon": "book",
+ "about": "Staffroom Ready gets K-12 teachers hired: it decodes school and district postings, plans the demo lesson minute by minute, drafts a teaching philosophy in your voice, runs panel interviews and assembles a portfolio that shows evidence, not adjectives.",
+ "persona": "You are a former principal who has sat on hundreds of hiring panels: warm, specific, allergic to jargon, and honest about what schools actually screen for.",
+ "onboarding": {
+  "title": "Get the classroom you want",
+  "subtitle": "Your subject, level and status shape every answer.",
+  "bullets": [
+   "Demo lessons that panels remember",
+   "Teaching philosophy in your voice",
+   "Panel interview practice"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "level",
+   "label": "Level",
+   "type": "chips",
+   "options": [
+    "Early years",
+    "Primary/Elementary",
+    "Middle",
+    "High school",
+    "SEND/Special ed"
+   ]
+  },
+  {
+   "key": "subject",
+   "label": "Subject(s)",
+   "type": "text",
+   "placeholder": "Maths, some physics"
+  },
+  {
+   "key": "status",
+   "label": "Status",
+   "type": "chips",
+   "options": [
+    "Student teacher",
+    "NQT/first year",
+    "Experienced",
+    "Returning to teaching",
+    "Career changer"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "decode",
+   "title": "Decode a posting",
+   "subtitle": "What the school really wants",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "posting",
+     "label": "Paste the job ad / person spec",
+     "type": "longtext",
+     "placeholder": "We seek an inspirational teacher of…",
+     "required": true
+    },
+    {
+     "key": "school",
+     "label": "School website notes (optional)",
+     "type": "text",
+     "placeholder": "Ofsted good 2023, 60% pupil premium"
+    }
+   ],
+   "prompt": "Analyse {posting} plus the notes {school}. Produce kv (school type, likely priorities, pay scale or range, application format, deadline), a table (Criterion | Essential or desirable | Evidence from the profile | Strength 1–5), bullets of phrases to mirror in the application, and a callout on warning signs or gaps to address head-on.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Decode",
+   "loading": "Reading the ad…"
+  },
+  {
+   "id": "demo",
+   "title": "Plan my demo lesson",
+   "subtitle": "Timed, differentiated, observable",
+   "emoji": "🍎",
+   "inputs": [
+    {
+     "key": "topic",
+     "label": "Topic given",
+     "type": "text",
+     "placeholder": "Fractions of amounts, Year 5",
+     "required": true
+    },
+    {
+     "key": "minutes",
+     "label": "Minutes",
+     "type": "number",
+     "placeholder": "30"
+    },
+    {
+     "key": "class",
+     "label": "What you know about the class",
+     "type": "text",
+     "placeholder": "28 pupils, 4 EAL, 2 with EHCPs"
+    }
+   ],
+   "prompt": "Plan a {minutes}-minute demo lesson on {topic} for {class}. Give steps with minute-by-minute timings (hook, modelling, guided practice, independent task, plenary), each naming what the observer sees pupils doing; a table (Group | Adaptation | Resource) for differentiation; a checklist of resources to bring and backup plans if tech fails; and a callout on the three things panels mark hardest: behaviour routines, questioning, checking for understanding.",
+   "shape": "steps, table, checklist, callout",
+   "button": "Plan lesson",
+   "loading": "Sharpening chalk…"
+  },
+  {
+   "id": "philosophy",
+   "title": "Teaching philosophy",
+   "subtitle": "A statement that sounds like you",
+   "emoji": "✍️",
+   "inputs": [
+    {
+     "key": "beliefs",
+     "label": "What you believe about learning",
+     "type": "longtext",
+     "placeholder": "every kid can do maths, mistakes are data…",
+     "required": true
+    },
+    {
+     "key": "story",
+     "label": "One moment that shows it",
+     "type": "longtext",
+     "placeholder": "the time a refuser finished a whole problem set…"
+    }
+   ],
+   "prompt": "Draft a 350-word teaching philosophy statement from {beliefs} and the story {story}, matched to the profile's level and subject. Provide text (the full statement, first person, concrete, no clichés), a quote with a two-sentence version for a cover letter, bullets of evidence the writer could add, and a callout on phrases that panels read as empty.",
+   "shape": "text, quote, bullets, callout",
+   "button": "Draft it",
+   "loading": "Writing…"
+  },
+  {
+   "id": "panel",
+   "title": "Panel interview",
+   "subtitle": "Teacher-specific questions with STAR answers",
+   "emoji": "🎤",
+   "inputs": [
+    {
+     "key": "focus",
+     "label": "Focus",
+     "type": "chips",
+     "options": [
+      "Behaviour & routines",
+      "Data & progress",
+      "Safeguarding",
+      "Parents & SEND",
+      "Mixed"
+     ],
+     "default": "Mixed"
+    }
+   ],
+   "prompt": "Run a mock panel interview focused on {focus} for the profile. Give 7 questions as cards (meta = what it tests · who usually asks it) with STAR model answers drawn from the profile's level and subject, a quote with a strong answer to 'why this school', bullets of safeguarding phrasing that must be exactly right, and a checklist of questions to ask the panel.",
+   "shape": "cards, quote, bullets, checklist",
+   "button": "Start mock",
+   "loading": "Convening panel…"
+  },
+  {
+   "id": "portfolio",
+   "title": "Build my portfolio",
+   "subtitle": "Evidence over adjectives",
+   "emoji": "📁",
+   "inputs": [
+    {
+     "key": "format",
+     "label": "Format",
+     "type": "chips",
+     "options": [
+      "Physical binder",
+      "Digital site",
+      "PDF",
+      "Slides"
+     ],
+     "default": "PDF"
+    }
+   ],
+   "prompt": "Design a teaching portfolio in {format} for the profile's status and level. Provide a table (Section | Artefact to include | What it proves | Pages or slides), a checklist of artefacts to collect this term (anonymised work samples, data trackers, feedback, lesson plans), steps for assembling it in a weekend, and a callout on pupil privacy and permissions.",
+   "shape": "table, checklist, steps, callout",
+   "button": "Design it",
+   "loading": "Curating…"
+  }
+ ]
+}

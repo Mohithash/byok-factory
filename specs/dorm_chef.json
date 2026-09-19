@@ -96,14 +96,14 @@
    "emoji": "🎓",
    "inputs": [
     {
-     "key": "skill",
+     "key": "technique",
      "label": "What do you want to learn",
      "type": "text",
      "placeholder": "cook rice without a rice cooker",
      "required": true
     }
    ],
-   "prompt": "Teach '{skill}' to someone at the profile's skill level using only the profile's kit: steps with sensory cues (what it should look, sound and smell like), a checklist of the kit and ingredients needed, bullets of the 3 most common mistakes, and a quote with one line to remember.",
+   "prompt": "Teach '{technique}' to someone at the profile's skill level using only the profile's kit: steps with sensory cues (what it should look, sound and smell like), a checklist of the kit and ingredients needed, bullets of the 3 most common mistakes, and a quote with one line to remember.",
    "shape": "steps, checklist, bullets, quote",
    "button": "Teach me",
    "loading": "Prepping the lesson…"
@@ -196,5 +196,6 @@
    "button": "Build my shop",
    "loading": "Counting coins…"
   }
- ]
+ ],
+ "disclaimer": "Food-safety timings and temperatures are general guidance; use a thermometer for meat and when in doubt, throw it out."
 }

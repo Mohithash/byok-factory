@@ -1,0 +1,186 @@
+{
+ "id": "nature_detective",
+ "name": "Nature Detective",
+ "tagline": "Backyard science: hunts, IDs and a nature journal",
+ "category": "Education",
+ "colors": [
+  "#33691E",
+  "#FF8F00",
+  "#0277BD"
+ ],
+ "icon": "leaf",
+ "about": "Nature Detective turns walks and gardens into science: scavenger hunts by season and place, photo identification of bugs, leaves, tracks and rocks pitched for kids, nature-journal prompts, and long-running investigations like a bird count or a bean race.",
+ "persona": "You are a field naturalist and outdoor educator for children: observant, safety-first, keen on 'look, don't grab', and you love turning one small find into a big question.",
+ "onboarding": {
+  "title": "Every walk is a field trip",
+  "subtitle": "Tell us where you explore and who's coming.",
+  "bullets": [
+   "Scavenger hunts by season",
+   "Photo ID pitched for kids",
+   "Investigations that last weeks"
+  ]
+ },
+ "profile": [
+  {
+   "key": "kids",
+   "label": "Kids' names & ages",
+   "type": "text",
+   "placeholder": "Eli 5, Rosa 8"
+  },
+  {
+   "key": "where",
+   "label": "Where you explore",
+   "type": "text",
+   "placeholder": "city park in Manchester, small back garden"
+  },
+  {
+   "key": "season",
+   "label": "Season now",
+   "type": "chips",
+   "options": [
+    "Spring",
+    "Summer",
+    "Autumn",
+    "Winter"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "hunt",
+   "title": "Scavenger hunt",
+   "subtitle": "A hunt for today's walk",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "place",
+     "label": "Place",
+     "type": "chips",
+     "options": [
+      "Garden",
+      "Park",
+      "Woods",
+      "Beach",
+      "Pond / river",
+      "Street"
+     ],
+     "default": "Park"
+    },
+    {
+     "key": "minutes",
+     "label": "Minutes",
+     "type": "number",
+     "placeholder": "30"
+    }
+   ],
+   "prompt": "Create a {minutes}-minute scavenger hunt for the profile kids at the {place} in the profile season and region. Sections: a checklist of 12 things to find graded easy to hard with a one-line clue each, a table of 4 bonus challenges (Challenge | Skill: observe, measure, listen, compare | Points), bullets on the rules (look don't take, no picking, hands off fungi), and a quote with a 'detective briefing' to read at the start.",
+   "shape": "checklist, table, bullets, quote",
+   "button": "Make hunt",
+   "loading": "Sniffing trails…"
+  },
+  {
+   "id": "identify",
+   "title": "What did we find?",
+   "subtitle": "Photo → kid-level ID",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the bug, plant, track, feather or rock",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "spot",
+     "label": "Where exactly",
+     "type": "text",
+     "placeholder": "under a log in the park"
+    }
+   ],
+   "prompt": "Identify the find in the photo (found: {spot}) as far as the image allows, for the profile kids and region. Sections: kv (Most likely, Also could be, Confidence, Size, Where it lives, Safe to handle?), a text section with 3 kid-level fun facts, bullets of 2 things to observe or measure before leaving it be, and a callout on safety (stings, toxins, wash hands, never eat).",
+   "shape": "kv, text, bullets, callout",
+   "button": "Identify",
+   "loading": "Checking the guide…"
+  },
+  {
+   "id": "journal",
+   "title": "Nature journal page",
+   "subtitle": "Prompts to draw and write",
+   "emoji": "📓",
+   "inputs": [
+    {
+     "key": "find",
+     "label": "Today's find or moment",
+     "type": "text",
+     "placeholder": "a snail on the fence after rain",
+     "required": true
+    },
+    {
+     "key": "age",
+     "label": "For",
+     "type": "chips",
+     "options": [
+      "Younger (draw + label)",
+      "Older (draw + write)",
+      "Both"
+     ],
+     "default": "Both"
+    }
+   ],
+   "prompt": "Design a nature-journal page about '{find}' for {age} from the profile kids. Sections: a checklist of what to draw and label, a kv of 5 observation prompts (Prompt → example answer), a quote with a 4-line poem or sentence frame they can complete, and bullets on adding date, weather and place like a real naturalist.",
+   "shape": "checklist, kv, quote, bullets",
+   "button": "Make page",
+   "loading": "Sharpening pencils…"
+  },
+  {
+   "id": "investigate",
+   "title": "Long investigation",
+   "subtitle": "A multi-week science project",
+   "emoji": "🔬",
+   "inputs": [
+    {
+     "key": "project",
+     "label": "Project",
+     "type": "chips",
+     "options": [
+      "Bird count at a feeder",
+      "Bean race (light vs dark)",
+      "Puddle and weather log",
+      "Minibeast hotel survey",
+      "Moon diary",
+      "Leaf colour tracker",
+      "Snail speed trials"
+     ],
+     "default": "Bean race (light vs dark)"
+    },
+    {
+     "key": "weeks",
+     "label": "Weeks",
+     "type": "chips",
+     "options": [
+      "2",
+      "4",
+      "6"
+     ],
+     "default": "4"
+    }
+   ],
+   "prompt": "Plan the investigation '{project}' over {weeks} weeks for the profile kids. Sections: steps for setup with a materials list, a table (Week | What to do | What to record | Question to discuss), a kv of the science behind it in kid terms (Concept → one line), and a callout on fair testing and what to do if the results come out 'wrong'.",
+   "shape": "steps, table, kv, callout",
+   "button": "Plan project",
+   "loading": "Planting seeds…"
+  },
+  {
+   "id": "season",
+   "title": "This month outside",
+   "subtitle": "What's happening in nature now",
+   "emoji": "🍂",
+   "inputs": [],
+   "prompt": "For the profile region and season this month, describe what the kids can find outdoors. Sections: cards for 6 things to look or listen for (meta = where · time of day · how likely), a table (When | Event: migration, blossom, frost, fledglings | Where to see it), bullets of 3 questions to ask on the next walk, and a callout on seasonal hazards (ticks, sun, ice, giant hogweed).",
+   "shape": "cards, table, bullets, callout",
+   "button": "Show me",
+   "loading": "Checking seasons…"
+  }
+ ],
+ "disclaimer": "Identifications are best guesses from a photo. Never eat, taste or handle wild plants, fungi or animals based on an ID here; supervise children near water and roads."
+}

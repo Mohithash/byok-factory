@@ -9,7 +9,7 @@
   "#5C6BC0"
  ],
  "icon": "drop",
- "about": "Steady Sugar helps people with type 2 diabetes or prediabetes read their glucose log for patterns, estimate carbs from a plate photo, time meals and walks, and handle sick days calmly.",
+ "about": "Steady Sugar helps people with diabetes or prediabetes read their glucose log for patterns, estimate carbs from a plate photo, time meals and walks, and handle sick days calmly.",
  "persona": "You are a diabetes educator: calm, numbers-literate, never judgemental; you explain what a pattern might mean and always defer medication and insulin changes to the care team.",
  "onboarding": {
   "title": "Know your numbers, keep them steady",
@@ -17,7 +17,7 @@
   "bullets": [
    "Glucose log pattern finder",
    "Carbs from a plate photo",
-   "Sick-day and hypo plans"
+   "Sick-day plans that keep you safe"
   ]
  },
  "profile": [
@@ -170,7 +170,7 @@
      "default": "Flatten after-meal spikes"
     }
    ],
-   "prompt": "Given today: {day} and the focus '{goal}', build a table (Time | Meal or movement | Why it helps | Watch-out) covering the whole day, then bullets on how to sequence food at each meal (veg and protein before carbs, 10-minute walk after), and a callout on hypo risk with exercise for the treatment type in the profile and what to carry.",
+   "prompt": "Given today: {day} and the focus '{goal}', build a table (Time | Meal or movement | Why it helps | Watch-out) covering the whole day, then 3 bullets on how to sequence food at each meal (veg and protein before carbs, 10-minute walk after), and a callout on hypo risk with exercise for the treatment type in the profile and what to carry.",
    "shape": "table, bullets, callout",
    "button": "Plan my day",
    "loading": "Timing it…"

@@ -1,0 +1,194 @@
+{
+ "id": "lit_matrix",
+ "name": "Lit Matrix",
+ "tagline": "A literature review that argues, not a list of summaries",
+ "category": "Education",
+ "colors": [
+  "#4527A0",
+  "#827717",
+  "#FF8F00"
+ ],
+ "icon": "graph",
+ "about": "Lit Matrix builds database search strings, logs each paper into a synthesis matrix, groups them into themes, finds the gap your study fills and turns your notes into synthesis paragraphs that compare rather than list.",
+ "persona": "You are a research-methods tutor who teaches systematic searching and synthesis: rigorous about sources, blunt about paper-by-paper listing, and insistent that every theme relates back to the research question.",
+ "onboarding": {
+  "title": "Build the review",
+  "subtitle": "Your research question anchors every search, matrix row and paragraph.",
+  "bullets": [
+   "Boolean search strings per database",
+   "Synthesis matrix, one paper at a time",
+   "Themes, gaps and synthesis paragraphs"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "rq",
+   "label": "Your research question",
+   "type": "longtext",
+   "placeholder": "How does remote work affect junior employees' skill development?"
+  },
+  {
+   "key": "field",
+   "label": "Field",
+   "type": "chips",
+   "options": [
+    "Social sciences",
+    "Health / medicine",
+    "Business",
+    "Education",
+    "STEM / engineering",
+    "Humanities",
+    "Law"
+   ],
+   "default": "Social sciences"
+  },
+  {
+   "key": "scope",
+   "label": "Review type",
+   "type": "chips",
+   "options": [
+    "Undergraduate dissertation",
+    "Master's thesis",
+    "Systematic review",
+    "PhD chapter"
+   ],
+   "default": "Undergraduate dissertation"
+  }
+ ],
+ "tools": [
+  {
+   "id": "search",
+   "title": "Search strings",
+   "subtitle": "Boolean strings per database",
+   "emoji": "🔎",
+   "inputs": [
+    {
+     "key": "concepts",
+     "label": "Key concepts",
+     "type": "longtext",
+     "placeholder": "remote work; skill development; early-career employees",
+     "required": true
+    },
+    {
+     "key": "limits",
+     "label": "Limits",
+     "type": "text",
+     "placeholder": "2015 onwards, English, peer-reviewed"
+    }
+   ],
+   "prompt": "Concepts: {concepts}. Limits: {limits}. Build a table (Concept | Synonyms and related terms | Truncation / wildcards) with at least 5 alternatives per concept, then a second table (Database | Search string | Filters to apply) for 4 databases appropriate to the profile's field with full Boolean syntax, a kv of inclusion and exclusion criteria written so two people would apply them the same way, and a callout on recording the search (date, hits, database) for the methods section.",
+   "shape": "table, kv, callout",
+   "button": "Build strings",
+   "loading": "Combining terms…"
+  },
+  {
+   "id": "add",
+   "title": "Add a paper",
+   "subtitle": "Abstract or notes → matrix row",
+   "emoji": "📄",
+   "inputs": [
+    {
+     "key": "paper",
+     "label": "Citation + abstract or your notes",
+     "type": "longtext",
+     "placeholder": "Smith & Lee (2021)… paste the abstract",
+     "required": true
+    },
+    {
+     "key": "why",
+     "label": "Why you picked it",
+     "type": "text",
+     "placeholder": "highly cited, same population"
+    }
+   ],
+   "prompt": "Paper: {paper}. Reason chosen: {why}. Extract a kv (Citation, Aim, Theory or framework, Design and method, Sample and setting, Key findings, Limitations, Quality rating and why). Then a table with a single synthesis-matrix row (Author, year | Concept A | Concept B | Concept C | Relevance to RQ) using concepts drawn from the profile's research question, bullets on how it agrees or conflicts with typical findings in the field, and a callout on anything in the abstract that needs checking in the full text before citing.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Add to matrix",
+   "loading": "Filing…"
+  },
+  {
+   "id": "themes",
+   "title": "Find the themes",
+   "subtitle": "Many papers → themes and the gap",
+   "emoji": "🧭",
+   "inputs": [
+    {
+     "key": "matrix",
+     "label": "Paste your matrix or notes on several papers",
+     "type": "longtext",
+     "placeholder": "Smith 2021: mentoring drops 40% remote; Ahmed 2020: …",
+     "required": true
+    }
+   ],
+   "prompt": "Notes: {matrix}. Group the papers into 3–5 themes as a table (Theme | Papers | Where they agree | Where they conflict | Strength of evidence), write text identifying the gap or tension the profile's research question can address and the sentence that states it, bullets of alternative structures for the review (chronological, thematic, methodological) with which fits best and why, and a callout warning of any theme resting on a single paper.",
+   "shape": "table, text, bullets, callout",
+   "button": "Find themes",
+   "loading": "Sorting the pile…"
+  },
+  {
+   "id": "appraise",
+   "title": "Appraise a study",
+   "subtitle": "Is it strong enough to lean on?",
+   "emoji": "🔬",
+   "inputs": [
+    {
+     "key": "method",
+     "label": "The paper's method section or your summary",
+     "type": "longtext",
+     "placeholder": "cross-sectional survey, n=120, one company, self-report",
+     "required": true
+    },
+    {
+     "key": "design",
+     "label": "Design",
+     "type": "chips",
+     "options": [
+      "RCT / experiment",
+      "Survey / cross-sectional",
+      "Qualitative interviews",
+      "Case study",
+      "Review / meta-analysis",
+      "Mixed methods",
+      "Not sure"
+     ],
+     "default": "Not sure"
+    }
+   ],
+   "prompt": "Method: {method}. Design: {design}. Appraise with a table (Criterion | Verdict | Why) using criteria appropriate to the design (sampling, measurement validity, confounders, reflexivity, analysis transparency, generalisability), a kv with an overall rating (Strong / Moderate / Weak) and the one sentence to use when citing it with appropriate hedging, and bullets of limitations the student can raise in the review without being unfair.",
+   "shape": "table, kv, bullets",
+   "button": "Appraise",
+   "loading": "Scrutinising…"
+  },
+  {
+   "id": "synth",
+   "title": "Synthesis paragraph",
+   "subtitle": "Your notes on a theme → one argued paragraph",
+   "emoji": "✍️",
+   "inputs": [
+    {
+     "key": "theme",
+     "label": "Theme",
+     "type": "text",
+     "placeholder": "loss of informal mentoring in remote teams",
+     "required": true
+    },
+    {
+     "key": "evidence",
+     "label": "Your notes: who found what",
+     "type": "longtext",
+     "placeholder": "Smith 2021 found…; Ahmed 2020 contradicts…; Ng 2022 explains…",
+     "required": true
+    }
+   ],
+   "prompt": "Theme: {theme}. Evidence: {evidence}. Write a text paragraph plan (claim → evidence compared → explanation of disagreement → link to RQ) with the key sentence written out for each move, then a quote with one model synthesis paragraph built strictly from the student's notes, citing in author-date form and using comparison language (whereas, similarly, in contrast), and bullets showing three places where the paragraph avoids paper-by-paper listing and how.",
+   "shape": "text, quote, bullets",
+   "button": "Synthesise",
+   "loading": "Weaving…"
+  }
+ ]
+}

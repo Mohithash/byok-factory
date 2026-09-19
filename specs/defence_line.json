@@ -1,0 +1,179 @@
+{
+ "id": "defence_line",
+ "name": "Defence Line",
+ "tagline": "Been sent a claim or demand? Respond properly",
+ "category": "Tools",
+ "colors": [
+  "#263238",
+  "#0097A7",
+  "#F9A825"
+ ],
+ "icon": "shield",
+ "about": "Defence Line helps people on the receiving end of a demand letter, debt collector or small claim: decode the document, meet the deadline, draft a response or defence, weigh a settlement and check for a counterclaim.",
+ "persona": "You are a level-headed defence-side paralegal: you find the deadline first, separate valid demands from bluster, and help the user respond in writing without admitting what they shouldn't.",
+ "onboarding": {
+  "title": "Don't ignore it — answer it",
+  "subtitle": "Deadlines and procedures depend on where you are.",
+  "bullets": [
+   "Decode any demand or claim form",
+   "Responses that protect you",
+   "Settlement maths and counterclaims"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "region",
+   "label": "Country / state",
+   "type": "text",
+   "placeholder": "New South Wales, Australia"
+  },
+  {
+   "key": "who",
+   "label": "Who is chasing you",
+   "type": "chips",
+   "options": [
+    "A company",
+    "An individual",
+    "A debt collector",
+    "A former landlord or client",
+    "Not sure"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "decode",
+   "title": "Decode the letter",
+   "subtitle": "Photo or paste → what it really means",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the letter / claim form",
+     "type": "photo"
+    },
+    {
+     "key": "text",
+     "label": "Or paste the text",
+     "type": "longtext"
+    }
+   ],
+   "prompt": "Read the document (photo and/or text: {text}). Produce a kv (sender, type of document — informal demand, letter before action, court claim or collector notice — amount, deadline, what happens if ignored), text explaining in plain English how serious this stage is in the profile region, a checklist of immediate actions ordered by urgency, and a callout on any threats in the letter that are commonly overstated.",
+   "shape": "kv, text, checklist, callout",
+   "button": "Decode",
+   "loading": "Between the lines…"
+  },
+  {
+   "id": "respond",
+   "title": "Reply to a demand",
+   "subtitle": "Firm, careful, no admissions",
+   "emoji": "✉️",
+   "inputs": [
+    {
+     "key": "claim",
+     "label": "What they say you owe and why",
+     "type": "longtext",
+     "placeholder": "They claim 600 for a cancelled booking; I cancelled within their own 48h policy…",
+     "required": true
+    },
+    {
+     "key": "stance",
+     "label": "Your position",
+     "type": "chips",
+     "options": [
+      "I don't owe this",
+      "I owe some of it",
+      "I owe it but can't pay now",
+      "Need more information"
+     ],
+     "default": "I don't owe this"
+    }
+   ],
+   "prompt": "Their claim: {claim}. Position: {stance}. Draft the reply as a quote (heading, reference, a request for documents if relevant, your position stated without unnecessary admissions, and what you propose next), then bullets of phrases to avoid, and a callout on responding before the deadline and keeping proof of sending.",
+   "shape": "quote, bullets, callout",
+   "button": "Draft reply",
+   "loading": "Choosing words…"
+  },
+  {
+   "id": "defence",
+   "title": "Draft my defence",
+   "subtitle": "Answer a court claim point by point",
+   "emoji": "🛡️",
+   "inputs": [
+    {
+     "key": "particulars",
+     "label": "Paste the claim / particulars",
+     "type": "longtext",
+     "placeholder": "…",
+     "required": true
+    },
+    {
+     "key": "side",
+     "label": "Your side of the story",
+     "type": "longtext",
+     "placeholder": "…",
+     "required": true
+    }
+   ],
+   "prompt": "Claim: {particulars}. Your account: {side}. Produce a table (Their allegation | Admit / Deny / Cannot admit | Your response | Evidence), then the defence as numbered steps in plain formal language, a kv of the typical response deadlines and options in the profile region (acknowledge, defend, counterclaim, admit part), and a callout on the risk of a default judgment.",
+   "shape": "table, steps, kv, callout",
+   "button": "Build defence",
+   "loading": "Lining up…"
+  },
+  {
+   "id": "settle",
+   "title": "Settle or fight?",
+   "subtitle": "Numbers before feelings",
+   "emoji": "🧮",
+   "inputs": [
+    {
+     "key": "claimed",
+     "label": "Amount claimed",
+     "type": "number",
+     "placeholder": "600"
+    },
+    {
+     "key": "offer",
+     "label": "What you could offer",
+     "type": "number",
+     "placeholder": "250"
+    },
+    {
+     "key": "odds",
+     "label": "How strong is their case (your honest view)",
+     "type": "text",
+     "placeholder": "weak — no signed terms"
+    }
+   ],
+   "prompt": "Claimed {claimed}, possible offer {offer}, their case: {odds}. Build a table (Option | Cost to you | Time | Stress | Likely outcome) for pay in full, settle, defend and counterclaim; a quote with a without-prejudice settlement offer message; and a callout explaining 'without prejudice' and getting any settlement in writing as full and final.",
+   "shape": "table, quote, callout",
+   "button": "Compare",
+   "loading": "Running numbers…"
+  },
+  {
+   "id": "counter",
+   "title": "Counterclaim check",
+   "subtitle": "Do they owe you too?",
+   "emoji": "🔄",
+   "inputs": [
+    {
+     "key": "losses",
+     "label": "What you lost because of them",
+     "type": "longtext",
+     "placeholder": "They kept my deposit and I paid 120 for a replacement hire…",
+     "required": true
+    }
+   ],
+   "prompt": "Losses: {losses}. Bullets of potential counterclaim heads with rough values, a checklist of evidence for each, and text on whether a counterclaim usually costs a fee and how it interacts with the main claim in the profile region.",
+   "shape": "bullets, checklist, text",
+   "button": "Check",
+   "loading": "Turning the tables…"
+  }
+ ],
+ "disclaimer": "General information only, not legal advice; rules differ by country and state and change over time — check official sources or a qualified professional before acting."
+}

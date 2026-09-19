@@ -1,0 +1,172 @@
+{
+ "id": "red_pen",
+ "name": "Red Pen",
+ "tagline": "Grammar fixes that teach you the rule behind them",
+ "category": "Education",
+ "colors": [
+  "#B71C1C",
+  "#263238",
+  "#FFC107"
+ ],
+ "icon": "note",
+ "about": "Red Pen marks up your writing like a patient editor: every correction comes with the rule, the reason and a drill so the same mistake stops showing up.",
+ "persona": "You are a precise, encouraging copy editor and grammar teacher: you correct, name the rule, explain why in one line, and never rewrite the writer's voice away.",
+ "onboarding": {
+  "title": "Learn from every correction",
+  "subtitle": "Tell Red Pen which English you write and where you tend to slip.",
+  "bullets": [
+   "Every fix explained with its rule",
+   "Punctuation clinic for commas, dashes and more",
+   "Drills built from your own weak spots"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "variety",
+   "label": "English variety",
+   "type": "chips",
+   "options": [
+    "US",
+    "UK",
+    "Australian",
+    "Canadian"
+   ],
+   "default": "US"
+  },
+  {
+   "key": "level",
+   "label": "Your level",
+   "type": "chips",
+   "options": [
+    "Native speaker",
+    "Advanced learner",
+    "Intermediate learner"
+   ],
+   "default": "Native speaker"
+  },
+  {
+   "key": "weak",
+   "label": "Known weak spots",
+   "type": "text",
+   "placeholder": "commas, articles, tenses"
+  }
+ ],
+ "tools": [
+  {
+   "id": "markup",
+   "title": "Mark up my text",
+   "subtitle": "Corrections with the rule behind each one",
+   "emoji": "✍️",
+   "inputs": [
+    {
+     "key": "text",
+     "label": "Your text",
+     "type": "longtext",
+     "placeholder": "Paste a paragraph, email or essay…",
+     "required": true
+    },
+    {
+     "key": "depth",
+     "label": "Depth",
+     "type": "chips",
+     "options": [
+      "Errors only",
+      "Errors + style",
+      "Everything"
+     ],
+     "default": "Errors + style"
+    }
+   ],
+   "prompt": "Edit this text at depth '{depth}' in the profile's English variety: {text}. Produce a table (No. | Original | Corrected | Rule | Why, one line) with one row per change, ordered as they appear; then a quote section containing the full corrected text; then kv counting errors by type (punctuation, agreement, tense, word choice, spelling, style); and a callout naming the single pattern to work on next.",
+   "shape": "table, quote, kv, callout",
+   "button": "Mark it up",
+   "loading": "Uncapping the pen…"
+  },
+  {
+   "id": "rule",
+   "title": "Explain a rule",
+   "subtitle": "Who vs whom, lay vs lie, that vs which…",
+   "emoji": "📖",
+   "inputs": [
+    {
+     "key": "rule",
+     "label": "Rule or confusion",
+     "type": "text",
+     "placeholder": "who vs whom",
+     "required": true
+    }
+   ],
+   "prompt": "Explain '{rule}' for the profile level. Sections: text (the rule in two plain sentences), table (Wrong | Right | Why) with 5 contrasting pairs, steps giving a 3-step decision test to apply in the moment, then a checklist of 5 sentences for the user to mark right or wrong, with the answers in a callout at the end.",
+   "shape": "text, table, steps, checklist, callout",
+   "button": "Explain",
+   "loading": "Checking the rule…"
+  },
+  {
+   "id": "punct",
+   "title": "Punctuation clinic",
+   "subtitle": "Fix one mark at a time",
+   "emoji": "🔧",
+   "inputs": [
+    {
+     "key": "sample",
+     "label": "Your text",
+     "type": "longtext",
+     "placeholder": "Paste a few sentences…",
+     "required": true
+    },
+    {
+     "key": "mark",
+     "label": "Focus mark",
+     "type": "chips",
+     "options": [
+      "Commas",
+      "Semicolons & colons",
+      "Apostrophes",
+      "Dashes & hyphens",
+      "Quotation marks",
+      "All"
+     ],
+     "default": "All"
+    }
+   ],
+   "prompt": "Review the punctuation in: {sample}, focusing on '{mark}'. Table (Sentence | Problem | Fixed sentence | Rule) for every issue, a quote with the corrected text, bullets listing each rule used in plain words with a mini example, and a callout on the most common myth about this mark in the profile's variety.",
+   "shape": "table, quote, bullets, callout",
+   "button": "Fix punctuation",
+   "loading": "Counting commas…"
+  },
+  {
+   "id": "drills",
+   "title": "Drill my weak spots",
+   "subtitle": "10 practice sentences from your profile",
+   "emoji": "🏋️",
+   "inputs": [],
+   "prompt": "Using the profile's weak spots and level, build 10 fill-in or fix-it drill sentences as steps (each step: the sentence with the tricky spot marked, and what to decide), a table (No. | Rule tested | Common trap) and a callout containing all 10 answers so the user can check afterwards.",
+   "shape": "steps, table, callout",
+   "button": "Drill me",
+   "loading": "Sharpening pencils…"
+  },
+  {
+   "id": "page",
+   "title": "Correct a page",
+   "subtitle": "Photo of printed or handwritten text",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the page",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Transcribe the text in the photo, then correct it. Sections: quote with the corrected transcription, table (Original | Corrected | Rule) for every change, kv (words, errors found, error rate per 100 words) and a callout flagging any words that were hard to read and may be wrong.",
+   "shape": "quote, table, kv, callout",
+   "button": "Correct page",
+   "loading": "Reading the page…"
+  }
+ ]
+}

@@ -1,0 +1,226 @@
+{
+ "id": "morning_launch",
+ "name": "Launch Pad",
+ "tagline": "School mornings and bedtimes that run themselves",
+ "category": "Parenting",
+ "colors": [
+  "#F57C00",
+  "#1E88E5",
+  "#8BC34A"
+ ],
+ "icon": "sun",
+ "about": "Launch Pad builds morning, after-school and bedtime routines for school-age kids, timed backwards from the bus, with printable checklists kids can run themselves.",
+ "persona": "You are a calm, systems-minded parent coach for ages 5–12: you design routines around real constraints, put the child in charge of a checklist, and never shame anyone for chaos.",
+ "onboarding": {
+  "title": "Out the door on time",
+  "subtitle": "Tell us about your kids and your mornings; we'll build routines that stick.",
+  "bullets": [
+   "Backward-timed morning routines",
+   "Bedtime that actually ends",
+   "Kid-run checklists"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "kids",
+   "label": "Kids (name, age)",
+   "type": "text",
+   "placeholder": "Leo 6, Mia 10"
+  },
+  {
+   "key": "leave",
+   "label": "School leave time",
+   "type": "text",
+   "placeholder": "07:45"
+  },
+  {
+   "key": "style",
+   "label": "Household",
+   "type": "chips",
+   "options": [
+    "Two parents",
+    "Solo parent",
+    "Shared custody",
+    "Grandparent-led"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "morning",
+   "title": "Morning routine",
+   "subtitle": "Backward from leave time",
+   "emoji": "🌅",
+   "inputs": [
+    {
+     "key": "wake",
+     "label": "Current wake time",
+     "type": "text",
+     "placeholder": "06:50"
+    },
+    {
+     "key": "pain",
+     "label": "What goes wrong",
+     "type": "longtext",
+     "placeholder": "shoes missing, Mia dawdles over breakfast, I end up shouting",
+     "required": true
+    },
+    {
+     "key": "prep",
+     "label": "Night-before prep OK?",
+     "type": "chips",
+     "options": [
+      "Yes",
+      "Some",
+      "No"
+     ],
+     "default": "Some"
+    }
+   ],
+   "prompt": "Design a school-morning routine for the profile's kids, working backwards from the leave time. Current wake time: {wake}. What goes wrong: {pain}. Night-before prep: {prep}. Sections: a table (Time | Kid(s) | Task | Parent does) at 5-minute granularity, a checklist per child written in kid-friendly words they can tick themselves, bullets for what moves to the night before, and a callout on the one change most likely to end the shouting.",
+   "shape": "table, checklist, bullets, callout",
+   "button": "Build morning",
+   "loading": "Setting alarms…"
+  },
+  {
+   "id": "bedtime",
+   "title": "Bedtime routine",
+   "subtitle": "Wind-down that ends on time",
+   "emoji": "🌙",
+   "inputs": [
+    {
+     "key": "child",
+     "label": "Which child",
+     "type": "text",
+     "placeholder": "Leo, 6",
+     "required": true
+    },
+    {
+     "key": "bed",
+     "label": "Target lights-out",
+     "type": "text",
+     "placeholder": "20:00"
+    },
+    {
+     "key": "issues",
+     "label": "What happens now",
+     "type": "longtext",
+     "placeholder": "gets a second wind after bath, 6 callbacks for water",
+     "required": true
+    }
+   ],
+   "prompt": "Build a bedtime routine for {child} with lights-out at {bed}. Current problems: {issues}. Sections: steps with clock times from dinner to lights-out (each step 15 minutes or less), a kv of the 'callback budget' (how many, what counts, what to say when it's spent), bullets on age-appropriate sleep needs and the screens cut-off, and a quote with the exact goodnight script to repeat word-for-word every night.",
+   "shape": "steps, kv, bullets, quote",
+   "button": "Build bedtime",
+   "loading": "Dimming lights…"
+  },
+  {
+   "id": "afterschool",
+   "title": "After-school reset",
+   "subtitle": "Snack, decompress, then the rest",
+   "emoji": "🎒",
+   "inputs": [
+    {
+     "key": "home",
+     "label": "Home at",
+     "type": "chips",
+     "options": [
+      "15:00",
+      "15:30",
+      "16:00",
+      "16:30",
+      "17:00+"
+     ],
+     "default": "15:30"
+    },
+    {
+     "key": "activities",
+     "label": "Activities this week",
+     "type": "chips",
+     "options": [
+      "None",
+      "1–2",
+      "3+"
+     ],
+     "default": "1–2"
+    },
+    {
+     "key": "mood",
+     "label": "How they usually arrive",
+     "type": "text",
+     "placeholder": "hungry and grumpy, melts down over nothing"
+    }
+   ],
+   "prompt": "Plan the after-school window for the profile's kids: home at {home}, activities: {activities}, they usually arrive {mood}. Sections: a table (Time | Block | What it looks like | Screens?) from arrival to dinner, bullets explaining restraint collapse and why the first 30 minutes are for snack and decompression, a checklist for a 'landing zone' by the door (bags, shoes, notes from school), and a callout on when homework should NOT start.",
+   "shape": "table, bullets, checklist, callout",
+   "button": "Plan afternoon",
+   "loading": "Landing…"
+  },
+  {
+   "id": "chart",
+   "title": "Routine chart",
+   "subtitle": "Printable, kid-owned",
+   "emoji": "📋",
+   "inputs": [
+    {
+     "key": "which",
+     "label": "Routine",
+     "type": "chips",
+     "options": [
+      "Morning",
+      "Bedtime",
+      "After school",
+      "Weekend"
+     ],
+     "default": "Morning"
+    },
+    {
+     "key": "child",
+     "label": "Child",
+     "type": "text",
+     "placeholder": "Mia, 10",
+     "required": true
+    },
+    {
+     "key": "reader",
+     "label": "Reads yet?",
+     "type": "chips",
+     "options": [
+      "Pre-reader (pictures)",
+      "Early reader",
+      "Fluent"
+     ],
+     "default": "Fluent"
+    }
+   ],
+   "prompt": "Create a {which} routine chart for {child}, who is a {reader}. Sections: a checklist of 6–10 items in the child's own voice (with an emoji per item if pre-reader), a kv of how to introduce it (where to hang it, who ticks, when to retire it), bullets on rewards that don't backfire, and a callout on what to do the first time it's ignored.",
+   "shape": "checklist, kv, bullets, callout",
+   "button": "Make chart",
+   "loading": "Laminating…"
+  },
+  {
+   "id": "late",
+   "title": "We're always late",
+   "subtitle": "Diagnose the bottleneck",
+   "emoji": "⏰",
+   "inputs": [
+    {
+     "key": "story",
+     "label": "Describe this morning",
+     "type": "longtext",
+     "placeholder": "Woke 6:50, breakfast 7:10, Leo couldn't find PE kit, left 8:02 (needed 7:45)",
+     "required": true
+    }
+   ],
+   "prompt": "Diagnose lateness from: {story}. Sections: a table (Step | Planned | Actual | Minutes lost | Cause), bullets ranking the three biggest bottlenecks with one fix each, steps for a 'reset week' that changes one thing per day, and a quote with a non-shaming line to say to the kids about the new plan.",
+   "shape": "table, bullets, steps, quote",
+   "button": "Diagnose",
+   "loading": "Rewinding…"
+  }
+ ]
+}

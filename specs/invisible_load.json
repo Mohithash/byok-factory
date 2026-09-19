@@ -1,0 +1,198 @@
+{
+ "id": "invisible_load",
+ "name": "Invisible Load",
+ "tagline": "Share the mental load, not just the chores",
+ "category": "Lifestyle",
+ "colors": [
+  "#3949AB",
+  "#FF6F00",
+  "#00ACC1"
+ ],
+ "icon": "scale",
+ "about": "Invisible Load makes the hidden work of running a home visible — the noticing, planning and remembering — then helps couples split it fairly, talk about it without a fight, and keep the deal alive.",
+ "persona": "You are a fair-minded household-labour coach: you count noticing and planning as work, you avoid gender score-keeping, and you give couples language and systems rather than lectures.",
+ "onboarding": {
+  "title": "See the whole job",
+  "subtitle": "Tell us who lives here and how the work feels right now.",
+  "bullets": [
+   "Inventory every invisible task",
+   "Split by ownership, not favours",
+   "Raise it without starting a fight"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "partner",
+   "label": "Partner's name",
+   "type": "text",
+   "placeholder": "Alex"
+  },
+  {
+   "key": "household",
+   "label": "Household",
+   "type": "text",
+   "placeholder": "2 adults, 2 kids (4 and 7), a dog"
+  },
+  {
+   "key": "feel",
+   "label": "Right now it feels",
+   "type": "chips",
+   "options": [
+    "Fair",
+    "A bit lopsided",
+    "Very lopsided",
+    "We fight about it"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "inventory",
+   "title": "Inventory the load",
+   "subtitle": "Everything that keeps this house running",
+   "emoji": "📋",
+   "inputs": [
+    {
+     "key": "week",
+     "label": "A typical week, as it happens",
+     "type": "longtext",
+     "placeholder": "I book dentist, remember PE kit, plan meals, Alex cooks Tue/Thu, bins…",
+     "required": true
+    },
+    {
+     "key": "include",
+     "label": "Include",
+     "type": "chips",
+     "options": [
+      "Kids",
+      "Pets",
+      "Extended family",
+      "Finances",
+      "Home maintenance"
+     ],
+     "multi": true
+    }
+   ],
+   "prompt": "From this week: {week}, covering {include}. Build a table (Task | Notice and plan | Execute | Owned by now | Hours per week est.) with at least 20 rows including the invisible planning tasks implied but not mentioned, a kv (Total tasks | Owned by each partner | Tasks with no clear owner | Biggest invisible task), and a callout on why noticing and planning count as work.",
+   "shape": "table, kv, callout",
+   "button": "Make it visible",
+   "loading": "Counting everything…"
+  },
+  {
+   "id": "split",
+   "title": "Re-split fairly",
+   "subtitle": "Full ownership, start to finish",
+   "emoji": "⚖️",
+   "inputs": [
+    {
+     "key": "tasks",
+     "label": "Tasks to re-split",
+     "type": "longtext",
+     "placeholder": "meal planning, school admin, laundry, bills, birthday gifts",
+     "required": true
+    },
+    {
+     "key": "constraints",
+     "label": "Constraints",
+     "type": "text",
+     "placeholder": "Alex travels Mon–Wed; I work weekends"
+    }
+   ],
+   "prompt": "Re-split: {tasks} given {constraints}. Table (Task | New owner | Standard we agree on | Done by when), bullets on the minimum standard each task needs so the owner can do it their own way, steps for a 30-minute deal meeting, and a callout on the trap of one partner as manager and the other as helper.",
+   "shape": "table, bullets, steps, callout",
+   "button": "Split it",
+   "loading": "Balancing…"
+  },
+  {
+   "id": "raise",
+   "title": "Raise it with my partner",
+   "subtitle": "Without 'you never…'",
+   "emoji": "💬",
+   "inputs": [
+    {
+     "key": "frustration",
+     "label": "What I'm frustrated about",
+     "type": "longtext",
+     "placeholder": "I plan every meal and they ask 'what's for dinner' like it's magic",
+     "required": true
+    },
+    {
+     "key": "mood",
+     "label": "Their likely reaction",
+     "type": "chips",
+     "options": [
+      "Defensive",
+      "Willing but oblivious",
+      "Dismissive",
+      "Already tried, slid back"
+     ],
+     "default": "Willing but oblivious"
+    }
+   ],
+   "prompt": "Frustration: {frustration}; partner will probably be {mood}. Give a quote with an opener (under 60 words, one specific example, an invitation not an indictment), a table (If they say… | You say…) with 4 replies, bullets on what to leave out, and a callout on picking a time that isn't mid-task.",
+   "shape": "quote, table, bullets, callout",
+   "button": "Word it",
+   "loading": "Choosing words…"
+  },
+  {
+   "id": "meeting",
+   "title": "Weekly household meeting",
+   "subtitle": "15 minutes, one agenda",
+   "emoji": "🗓️",
+   "inputs": [
+    {
+     "key": "coming",
+     "label": "Coming up this week",
+     "type": "text",
+     "placeholder": "school trip Thu, Alex's mum visiting Sat"
+    },
+    {
+     "key": "issues",
+     "label": "Anything slipping?",
+     "type": "chips",
+     "options": [
+      "Nothing",
+      "One task keeps dropping",
+      "Resentment building",
+      "New season or schedule"
+     ],
+     "default": "Nothing"
+    }
+   ],
+   "prompt": "This week: {coming}; status: {issues}. Produce a 15-minute agenda as steps with minutes per item (appreciations, what's coming, who has what, one fix, calendar), a checklist of decisions to leave the meeting with, and a quote with a light way to open it so it doesn't feel like a performance review.",
+   "shape": "steps, checklist, quote",
+   "button": "Build agenda",
+   "loading": "Setting the table…"
+  },
+  {
+   "id": "slipped",
+   "title": "The deal slipped",
+   "subtitle": "Back to doing it all again",
+   "emoji": "📉",
+   "inputs": [
+    {
+     "key": "what",
+     "label": "What's slipped",
+     "type": "longtext",
+     "placeholder": "I'm back to doing all the school admin",
+     "required": true
+    },
+    {
+     "key": "weeks",
+     "label": "Weeks since the deal",
+     "type": "number",
+     "placeholder": "6"
+    }
+   ],
+   "prompt": "Deal slipped: {what}, {weeks} weeks after agreeing. Text with the most likely reason (unclear standard, no deadline, silent takeover, life change) in 2–3 sentences, a table (Task | Original agreement | What happened | Fix), a quote with a non-accusing reset line, and a callout on the difference between a lapse and a partner who has quietly opted out.",
+   "shape": "text, table, quote, callout",
+   "button": "Reset the deal",
+   "loading": "Rebalancing…"
+  }
+ ]
+}

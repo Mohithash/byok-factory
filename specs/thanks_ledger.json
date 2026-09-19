@@ -70,7 +70,7 @@
      "default": "Flat"
     }
    ],
-   "prompt": "From this day: {day} (mood: {mood}) draw out 3 gratitude entries as cards (title = the specific thing, meta = who or what made it happen), each 1–2 sentences naming a sensory detail. Then a quote with a one-line entry to copy into the journal, and if the mood is Rough, a callout that acknowledges the hard part before the gratitude.",
+   "prompt": "From this day: {day} (mood: {mood}) draw out 3 gratitude entries as cards (title = the specific thing, meta = who or what made it happen), each 1–2 sentences naming a sensory detail, using the profile's people by name where they appear. Then a quote with a one-line entry to copy into the journal, and if the mood is Rough, a callout that acknowledges the hard part before the gratitude.",
    "shape": "cards, quote, callout",
    "button": "Find my three",
    "loading": "Sifting the day…"
@@ -171,7 +171,7 @@
      "default": "Everyday"
     }
    ],
-   "prompt": "Write 30 gratitude prompts with the '{flavour}' flavour as a table (Day | Prompt | Twist for a bad day). Keep prompts specific and answerable in one sentence, no two alike. End with bullets on how to use the jar when journaling feels forced.",
+   "prompt": "Write 30 gratitude prompts with the '{flavour}' flavour, suited to the profile's journaling time, as a table (Day | Prompt | Twist for a bad day). Keep prompts specific and answerable in one sentence, no two alike. End with bullets on how to use the jar when journaling feels forced.",
    "shape": "table, bullets",
    "button": "Fill the jar",
    "loading": "Writing prompts…"

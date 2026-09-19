@@ -1,0 +1,212 @@
+{
+ "id": "sunny_sixteen",
+ "name": "Sunny Sixteen",
+ "tagline": "Film photography: expose, develop and fix, frame by frame",
+ "category": "Photography",
+ "colors": [
+  "#F9A825",
+  "#424242",
+  "#C62828"
+ ],
+ "icon": "camera",
+ "about": "Sunny Sixteen is a film photographer's pocket assistant: exposure without a light meter, film stock picks, push/pull and reciprocity maths, home developing recipes, and a diagnosis of any negative or scan from a photo.",
+ "persona": "You are a darkroom veteran who still shoots every week: precise with stops and seconds, generous with beginners, and clear that film rewards deliberate choices over expensive gear.",
+ "onboarding": {
+  "title": "Expose for the shadows",
+  "subtitle": "Your cameras and film stocks shape every answer.",
+  "bullets": [
+   "Exposure without a light meter",
+   "Stock, push and pull decisions",
+   "Developing recipes and diagnoses"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "cameras",
+   "label": "Cameras you shoot",
+   "type": "text",
+   "placeholder": "Pentax K1000, Olympus mju II"
+  },
+  {
+   "key": "format",
+   "label": "Formats",
+   "type": "chips",
+   "options": [
+    "35mm",
+    "120 medium format",
+    "Instant",
+    "Large format"
+   ],
+   "multi": true
+  },
+  {
+   "key": "dev",
+   "label": "Developing",
+   "type": "chips",
+   "options": [
+    "Lab develops",
+    "I develop B&W",
+    "I develop colour too"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "meter",
+   "title": "Meter this scene",
+   "subtitle": "Aperture and shutter with no meter",
+   "emoji": "☀️",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the scene (optional)",
+     "type": "photo"
+    },
+    {
+     "key": "scene",
+     "label": "Scene & light",
+     "type": "text",
+     "placeholder": "overcast street, late afternoon, subject in shade",
+     "required": true
+    },
+    {
+     "key": "iso",
+     "label": "Film ISO",
+     "type": "number",
+     "placeholder": "400"
+    }
+   ],
+   "prompt": "Using the photo if provided and: {scene} at ISO {iso} — kv (recommended aperture + shutter, EV, where to place the shadows, sunny-16 base and the correction applied), a table (Aperture | Shutter | Use when) with 4 equivalent exposures, and a callout on the exposure risk in this scene (backlight, snow, high contrast).",
+   "shape": "kv, table, callout",
+   "button": "Meter it",
+   "loading": "Reading the light…"
+  },
+  {
+   "id": "stock",
+   "title": "Pick a film",
+   "subtitle": "Three stocks for the shoot and the look",
+   "emoji": "🎞️",
+   "inputs": [
+    {
+     "key": "look",
+     "label": "Look",
+     "type": "chips",
+     "options": [
+      "Fine grain / neutral",
+      "Punchy colour",
+      "Muted / pastel",
+      "Classic B&W",
+      "High-contrast B&W",
+      "Low light"
+     ],
+     "default": "Classic B&W"
+    },
+    {
+     "key": "shoot",
+     "label": "What you're shooting",
+     "type": "text",
+     "placeholder": "wedding reception indoors, mixed light"
+    }
+   ],
+   "prompt": "Recommend film for {shoot} with a {look} look on the profile formats: cards for 3 stocks (meta = ISO · price tier · process) with why each fits, a table (Stock | Box ISO | Shoot at | Latitude | Grain), and bullets on how to expose each one in this situation.",
+   "shape": "cards, table, bullets",
+   "button": "Recommend",
+   "loading": "Opening the fridge…"
+  },
+  {
+   "id": "push",
+   "title": "Push, pull & reciprocity",
+   "subtitle": "The maths and what to tell the lab",
+   "emoji": "➕",
+   "inputs": [
+    {
+     "key": "film",
+     "label": "Film & box ISO",
+     "type": "text",
+     "placeholder": "HP5 Plus 400",
+     "required": true
+    },
+    {
+     "key": "what",
+     "label": "Do",
+     "type": "chips",
+     "options": [
+      "Push 1 stop",
+      "Push 2 stops",
+      "Pull 1 stop",
+      "Long exposure (reciprocity)"
+     ],
+     "default": "Push 1 stop"
+    },
+    {
+     "key": "detail",
+     "label": "Details",
+     "type": "text",
+     "placeholder": "metered 30 seconds at f/16"
+    }
+   ],
+   "prompt": "For {film}, {what}, details: {detail}. Sections: kv (shoot at EI, corrected exposure time if reciprocity applies, development change, expected contrast and grain), steps for what to tell the lab or set in the tank, and a callout on the trade-offs and when not to bother.",
+   "shape": "kv, steps, callout",
+   "button": "Calculate",
+   "loading": "Counting stops…"
+  },
+  {
+   "id": "develop",
+   "title": "Developing recipe",
+   "subtitle": "Times, dilutions, agitation",
+   "emoji": "🧴",
+   "inputs": [
+    {
+     "key": "roll",
+     "label": "Film & how it was shot",
+     "type": "text",
+     "placeholder": "Kodak Tri-X 400 shot at 400",
+     "required": true
+    },
+    {
+     "key": "developer",
+     "label": "Developer",
+     "type": "chips",
+     "options": [
+      "D-76 / ID-11",
+      "Rodinal",
+      "HC-110",
+      "Xtol",
+      "Cinestill Df96",
+      "C-41 kit",
+      "Not sure"
+     ],
+     "default": "Not sure"
+    }
+   ],
+   "prompt": "A home-developing recipe for {roll} in {developer} (pick and justify one if 'Not sure') at 20°C: table (Step | Chemistry & dilution | Time | Agitation | Temp), a checklist of what to prepare before opening the tank, bullets on the 3 most common mistakes, and a callout on chemical safety and disposal.",
+   "shape": "table, checklist, bullets, callout",
+   "button": "Get recipe",
+   "loading": "Mixing chemistry…"
+  },
+  {
+   "id": "diagnose",
+   "title": "Diagnose a negative",
+   "subtitle": "Photo of a negative, scan or print → cause",
+   "emoji": "🔎",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the negative, scan or print",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Examine the image and identify the problem(s) — underexposure, overexposure, light leak, uneven development, scratches, fog, colour cast or a camera fault — as a table (Symptom seen | Likely cause | Camera, film or lab? | Fix next time), text on whether this frame is salvageable in scanning or editing, and steps to test the camera if a fault is suspected.",
+   "shape": "table, text, steps",
+   "button": "Diagnose",
+   "loading": "Against the light…"
+  }
+ ],
+ "disclaimer": "Developing chemicals need gloves, ventilation and proper disposal; follow the manufacturer's safety data sheet."
+}

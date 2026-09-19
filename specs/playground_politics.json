@@ -1,0 +1,209 @@
+{
+ "id": "playground_politics",
+ "name": "Playground Politics",
+ "tagline": "Friendship trouble and bullying, handled with care",
+ "category": "Parenting",
+ "colors": [
+  "#C2185B",
+  "#00ACC1",
+  "#7CB342"
+ ],
+ "icon": "chat",
+ "about": "Playground Politics helps parents of 5–12s through friendship fallouts, bullying at school, party exclusions and playdate nerves, with scripts for kids, letters for teachers and social-skills practice at home.",
+ "persona": "You are a school counsellor with twenty years on the playground: you distinguish conflict from bullying, coach kids rather than fixing it for them, and keep parents from going nuclear.",
+ "onboarding": {
+  "title": "Kind kids, thick skins",
+  "subtitle": "Tell us about your child and their social world.",
+  "bullets": [
+   "Conflict vs bullying, clarified",
+   "Scripts your child can use",
+   "Teacher escalation that works"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "child",
+   "label": "Child (name, age)",
+   "type": "text",
+   "placeholder": "Ruby, 9"
+  },
+  {
+   "key": "temperament",
+   "label": "Temperament",
+   "type": "chips",
+   "options": [
+    "Shy",
+    "Big feelings",
+    "Bossy",
+    "Anxious",
+    "Class clown",
+    "Easygoing"
+   ],
+   "multi": true
+  },
+  {
+   "key": "school",
+   "label": "School context",
+   "type": "text",
+   "placeholder": "small village school, one class per year"
+  }
+ ],
+ "tools": [
+  {
+   "id": "sort",
+   "title": "Conflict or bullying?",
+   "subtitle": "What's really going on",
+   "emoji": "🔎",
+   "inputs": [
+    {
+     "key": "story",
+     "label": "What your child told you",
+     "type": "longtext",
+     "placeholder": "Ella said she can't sit with them at lunch anymore, third day running",
+     "required": true
+    },
+    {
+     "key": "long",
+     "label": "How long",
+     "type": "chips",
+     "options": [
+      "Today",
+      "This week",
+      "Weeks",
+      "Months"
+     ],
+     "default": "This week"
+    }
+   ],
+   "prompt": "Assess: {story}, going on for {long}. Sections: a kv (verdict: normal conflict, relational aggression or bullying; the evidence for it; power imbalance?; repetition?), a table (What your child could do | What you do | What the school does), a quote with what to say to your child tonight, and a callout on the signs that mean escalate now.",
+   "shape": "kv, table, quote, callout",
+   "button": "Assess",
+   "loading": "Listening…"
+  },
+  {
+   "id": "coach",
+   "title": "Coach my child",
+   "subtitle": "Words for tomorrow",
+   "emoji": "🗣️",
+   "inputs": [
+    {
+     "key": "situation",
+     "label": "Situation",
+     "type": "text",
+     "placeholder": "kids call him 'baby' when he cries",
+     "required": true
+    },
+    {
+     "key": "goal",
+     "label": "Goal",
+     "type": "chips",
+     "options": [
+      "Stand up for themselves",
+      "Make a new friend",
+      "Join a game",
+      "Say no to a friend",
+      "Apologise and repair"
+     ],
+     "default": "Stand up for themselves"
+    }
+   ],
+   "prompt": "Coach the profile's child to {goal} in this situation: {situation}. Sections: a quote with 3 short lines the child can actually say (age-appropriate, not adult-sounding), steps for a 5-minute role-play at home where the parent plays the other kid, bullets on body language and where to stand, and a callout on what to do if it doesn't work the first time.",
+   "shape": "quote, steps, bullets, callout",
+   "button": "Coach",
+   "loading": "Rehearsing…"
+  },
+  {
+   "id": "teacher",
+   "title": "Escalate to school",
+   "subtitle": "Letter, meeting, follow-up",
+   "emoji": "🏫",
+   "inputs": [
+    {
+     "key": "facts",
+     "label": "Facts with dates",
+     "type": "longtext",
+     "placeholder": "12 Mar: pushed off bench; 14 Mar: lunch taken; told Miss T twice",
+     "required": true
+    },
+    {
+     "key": "stage",
+     "label": "Stage",
+     "type": "chips",
+     "options": [
+      "First contact",
+      "Follow-up – nothing changed",
+      "Formal complaint"
+     ],
+     "default": "First contact"
+    }
+   ],
+   "prompt": "Write a '{stage}' message for a bullying concern: {facts}. Sections: a quote with a complete email (factual, dated, asks for specific actions and a reply date, under 220 words), a checklist of what to ask for (supervision points, seating, a named adult for the child, a review date), bullets on the school's likely policy steps, and a callout on the escalation route above the class teacher and when to use it.",
+   "shape": "quote, checklist, bullets, callout",
+   "button": "Write it",
+   "loading": "Drafting…"
+  },
+  {
+   "id": "party",
+   "title": "Party & playdate",
+   "subtitle": "Exclusions, invites, nerves",
+   "emoji": "🎈",
+   "inputs": [
+    {
+     "key": "issue",
+     "label": "Issue",
+     "type": "chips",
+     "options": [
+      "Not invited",
+      "Wants to invite only some of the class",
+      "First playdate nerves",
+      "Hosting a kid they clash with",
+      "Sleepover worries"
+     ],
+     "default": "Not invited"
+    },
+    {
+     "key": "details",
+     "label": "Details",
+     "type": "text",
+     "placeholder": "whole class went except her and one boy"
+    }
+   ],
+   "prompt": "Handle '{issue}': {details}. Sections: text on what to say and not say to the child about it, steps for the parent (including whether to contact the other parent, with wording), a quote with a message to the other parent if appropriate, and bullets of a plan for the day itself.",
+   "shape": "text, steps, quote, bullets",
+   "button": "Handle it",
+   "loading": "Thinking it through…"
+  },
+  {
+   "id": "skills",
+   "title": "Social skills practice",
+   "subtitle": "Games that teach it",
+   "emoji": "🎲",
+   "inputs": [
+    {
+     "key": "skill",
+     "label": "Skill",
+     "type": "chips",
+     "options": [
+      "Reading faces",
+      "Taking turns in conversation",
+      "Losing gracefully",
+      "Joining a group",
+      "Being a good sport",
+      "Handling teasing"
+     ],
+     "default": "Joining a group"
+    }
+   ],
+   "prompt": "Plan two weeks of practising '{skill}' with the profile's child. Sections: cards of 5 games or routines (meta = minutes · players), a table (Day | Activity | What to notice | Praise this), bullets on generalising it to school, and a callout on when a skills gap might need an assessment.",
+   "shape": "cards, table, bullets, callout",
+   "button": "Plan practice",
+   "loading": "Setting up…"
+  }
+ ],
+ "disclaimer": "General parenting guidance. If a child is being physically hurt or threatened, involve the school immediately and, where needed, the police."
+}

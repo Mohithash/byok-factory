@@ -1,0 +1,195 @@
+{
+ "id": "crew_chief",
+ "name": "Crew Chief",
+ "tagline": "Ultra race-day logistics for runners and their crews",
+ "category": "Sports",
+ "colors": [
+  "#4A148C",
+  "#FF8F00",
+  "#00BFA5"
+ ],
+ "icon": "shield",
+ "about": "Crew Chief runs the logistics of an ultra: aid-station split sheets, crew and pacer plans, drop-bag packing, sleep strategy for 100+ miles and a playbook for when things go wrong.",
+ "persona": "You are a veteran ultra crew chief: calm, checklist-driven, ruthless about time at aid stations, and kind about the low points every runner hits.",
+ "onboarding": {
+  "title": "Get the runner to the finish",
+  "subtitle": "Tell us about the race and who's on the crew.",
+  "bullets": [
+   "Split sheets by aid station",
+   "Crew and pacer plans",
+   "Problem playbook for the low points"
+  ]
+ },
+ "profile": [
+  {
+   "key": "race",
+   "label": "Race",
+   "type": "text",
+   "placeholder": "Lakeland 100, July, 105 miles, 6,300 m"
+  },
+  {
+   "key": "distance",
+   "label": "Distance",
+   "type": "chips",
+   "options": [
+    "50 km",
+    "50 miles",
+    "100 km",
+    "100 miles",
+    "Multi-day"
+   ]
+  },
+  {
+   "key": "crew",
+   "label": "Crew & pacers",
+   "type": "text",
+   "placeholder": "partner driving, brother pacing from mile 60"
+  },
+  {
+   "key": "goal",
+   "label": "Goal",
+   "type": "text",
+   "placeholder": "finish, ideally under 36h"
+  }
+ ],
+ "tools": [
+  {
+   "id": "splits",
+   "title": "Split sheet",
+   "subtitle": "Aid station arrival windows",
+   "emoji": "⏱️",
+   "inputs": [
+    {
+     "key": "stations",
+     "label": "Aid stations (mile/km, name, cutoff)",
+     "type": "longtext",
+     "placeholder": "0 Coniston; 11 Seathwaite 03:15 cutoff; 26 Eskdale 07:00…",
+     "required": true
+    },
+    {
+     "key": "pace",
+     "label": "Expected pace",
+     "type": "text",
+     "placeholder": "14 min/mile early, slowing to 20 overnight"
+    }
+   ],
+   "prompt": "Build a split sheet for the profile race and goal from: {stations} at {pace}. Table (Aid station | Distance | Cutoff | Arrival: fast / expected / slow | Time there | Crew access?), kv (buffer at the tightest cutoff, planned total stop time, sunset/sunrise crossings), bullets on which stations to move through fast, and a callout on the point where the plan must switch to survival pacing.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Build sheet",
+   "loading": "Calculating splits…"
+  },
+  {
+   "id": "crewplan",
+   "title": "Crew & pacer plan",
+   "subtitle": "Who does what, where, when",
+   "emoji": "🚐",
+   "inputs": [
+    {
+     "key": "access",
+     "label": "Crew access points",
+     "type": "text",
+     "placeholder": "Braithwaite mile 32, Dalemain mile 59, Ambleside mile 90",
+     "required": true
+    },
+    {
+     "key": "needs",
+     "label": "Runner's needs",
+     "type": "text",
+     "placeholder": "hates gels after 50 miles, needs foot tape at halfway, gets grumpy"
+    }
+   ],
+   "prompt": "Crew plan for the profile crew at: {access}, given runner needs: {needs}. Table (Stop | Arrive by | Who | Set-up | Runner does | Crew does | Leave by), a checklist of what the crew car carries, a quote with the exact words to use when the runner wants to quit, and a callout on crewing rules races commonly enforce.",
+   "shape": "table, checklist, quote, callout",
+   "button": "Plan crew",
+   "loading": "Briefing the crew…"
+  },
+  {
+   "id": "dropbags",
+   "title": "Drop bags",
+   "subtitle": "What goes in which bag",
+   "emoji": "🎒",
+   "inputs": [
+    {
+     "key": "bags",
+     "label": "Drop-bag points",
+     "type": "text",
+     "placeholder": "mile 26, mile 59 (night), mile 79",
+     "required": true
+    },
+    {
+     "key": "weather",
+     "label": "Forecast",
+     "type": "chips",
+     "options": [
+      "Hot",
+      "Mild",
+      "Cold/wet",
+      "Mixed"
+     ],
+     "default": "Mixed"
+    }
+   ],
+   "prompt": "Pack drop bags for {bags} in {weather} for the profile distance. Cards per bag (meta = distance · day/night · minutes budget) listing contents, a table (Item | Bag(s) | Why), a checklist for labelling and sealing, and a callout on the items that ruin a race when forgotten (headtorch battery, socks, lube).",
+   "shape": "cards, table, checklist, callout",
+   "button": "Pack bags",
+   "loading": "Zipping bags…"
+  },
+  {
+   "id": "sleep",
+   "title": "Sleep & night strategy",
+   "subtitle": "100 miles and beyond",
+   "emoji": "🌙",
+   "inputs": [
+    {
+     "key": "hours",
+     "label": "Expected hours on course",
+     "type": "number",
+     "placeholder": "34"
+    },
+    {
+     "key": "sleeper",
+     "label": "How you cope with no sleep",
+     "type": "text",
+     "placeholder": "fine to 24h then hallucinate"
+    }
+   ],
+   "prompt": "Night and sleep strategy for {hours} hours on the profile race given: {sleeper}. Table (Time on course | Clock time | Sleep or push | Where | Minutes), steps for a 15-minute trail nap that works, bullets on caffeine timing and light, and a callout on sleep-deprivation signs the crew must watch for.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Plan nights",
+   "loading": "Dimming lights…"
+  },
+  {
+   "id": "problem",
+   "title": "Something's wrong",
+   "subtitle": "Nausea, blisters, lows",
+   "emoji": "🩹",
+   "inputs": [
+    {
+     "key": "issue",
+     "label": "Issue",
+     "type": "chips",
+     "options": [
+      "Nausea / can't eat",
+      "Blisters / hot spots",
+      "Deep low / wants to quit",
+      "Cramps",
+      "Cold / shivering",
+      "Chafing"
+     ],
+     "default": "Nausea / can't eat"
+    },
+    {
+     "key": "detail",
+     "label": "Details",
+     "type": "text",
+     "placeholder": "mile 70, hasn't eaten in 3h, still peeing"
+    }
+   ],
+   "prompt": "Playbook for {issue} with: {detail}. Steps for the next 20 minutes, bullets of what to try next if that fails, a table (Symptom | Keep going | Slow down | Stop and get medical help) for triage, and a callout listing the red flags where the crew must call race medical.",
+   "shape": "steps, bullets, table, callout",
+   "button": "Fix it",
+   "loading": "Working the problem…"
+  }
+ ],
+ "disclaimer": "Ultras are dangerous. Follow race medical staff, respect cutoffs, and seek help for confusion, chest pain, no urine or severe swelling. Not medical advice."
+}

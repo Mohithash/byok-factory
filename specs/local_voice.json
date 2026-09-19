@@ -1,0 +1,166 @@
+{
+ "id": "local_voice",
+ "name": "Local Voice",
+ "tagline": "Organise your neighbours and get the council to act",
+ "category": "Social",
+ "colors": [
+  "#B71C1C",
+  "#FDD835",
+  "#263238"
+ ],
+ "icon": "mic",
+ "about": "Local Voice helps residents organise around a local issue — a dangerous crossing, a closing library, a planning application — with a map of who actually decides, petitions and letters that get answered, a public meeting plan, door-knocking scripts and press copy.",
+ "persona": "You are a seasoned community organiser: practical, non-partisan, respectful of officials and neighbours alike, and clear that lawful, well-evidenced campaigns are the ones that win.",
+ "onboarding": {
+  "title": "Turn a grumble into a campaign",
+  "subtitle": "Tell us the issue and where it is; we'll map the route to a decision.",
+  "bullets": [
+   "Petitions and letters that get answered",
+   "Public meeting plans",
+   "Door-knocking and press scripts"
+  ]
+ },
+ "profile": [
+  {
+   "key": "issue",
+   "label": "The issue",
+   "type": "text",
+   "placeholder": "speeding on Elm Road outside the primary school"
+  },
+  {
+   "key": "area",
+   "label": "Area / council",
+   "type": "text",
+   "placeholder": "Elm Road, Greenford, Ealing Council"
+  },
+  {
+   "key": "stage",
+   "label": "Stage",
+   "type": "chips",
+   "options": [
+    "Just noticed",
+    "Gathering support",
+    "Formal campaign",
+    "Decision pending"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "map",
+   "title": "Who decides?",
+   "subtitle": "The route from evidence to decision",
+   "emoji": "🗺️",
+   "inputs": [
+    {
+     "key": "known",
+     "label": "What you already know",
+     "type": "text",
+     "placeholder": "councillor's name is on a leaflet, there's a residents' association"
+    }
+   ],
+   "prompt": "Map the route to a decision on the profile's issue, given: {known}. Sections: a table (Body or person | What they control | How to reach them | The ask), steps for the campaign in order from evidence to decision, bullets of the evidence worth collecting first, and a callout that procedures differ by council and country and must be checked locally.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Map it",
+   "loading": "Mapping power…"
+  },
+  {
+   "id": "petition",
+   "title": "Petition & letter",
+   "subtitle": "Wording officials take seriously",
+   "emoji": "✍️",
+   "inputs": [
+    {
+     "key": "ask",
+     "label": "Format",
+     "type": "chips",
+     "options": [
+      "Petition",
+      "Letter to councillor",
+      "Formal objection / representation",
+      "All three"
+     ],
+     "default": "All three"
+    },
+    {
+     "key": "evidence",
+     "label": "Evidence so far",
+     "type": "text",
+     "placeholder": "3 near-misses this term, 2 photos, 40 signatures"
+    }
+   ],
+   "prompt": "Draft the {ask} using this evidence: {evidence}. Sections: a quote with the petition wording (one clear ask, under 100 words) and/or the letter text as appropriate, kv (who it goes to, signatures typically needed for a hearing, deadline, delivery method), bullets on what makes officials take a document seriously, and a callout on data protection when collecting names and addresses.",
+   "shape": "quote, kv, bullets, callout",
+   "button": "Draft it",
+   "loading": "Sharpening pencils…"
+  },
+  {
+   "id": "meeting",
+   "title": "Public meeting",
+   "subtitle": "A run-sheet that stays civil",
+   "emoji": "🏛️",
+   "inputs": [
+    {
+     "key": "when",
+     "label": "When and where",
+     "type": "text",
+     "placeholder": "Thu 7pm, school hall, councillor invited"
+    },
+    {
+     "key": "expected",
+     "label": "Expected turnout",
+     "type": "number",
+     "placeholder": "50"
+    }
+   ],
+   "prompt": "Plan a public meeting: {when}, around {expected} people. Sections: a table run-sheet (Time | Item | Who | Purpose), a quote with the chair's opening and the rules for speaking, a checklist for setup and follow-up (sign-in sheet, note-taker, press, accessibility), and a callout on keeping it civil when tempers run high.",
+   "shape": "table, quote, checklist, callout",
+   "button": "Plan meeting",
+   "loading": "Setting chairs…"
+  },
+  {
+   "id": "doors",
+   "title": "Door-knocking script",
+   "subtitle": "45 seconds on the doorstep",
+   "emoji": "🚪",
+   "inputs": [
+    {
+     "key": "goal",
+     "label": "Goal",
+     "type": "chips",
+     "options": [
+      "Signatures",
+      "Meeting turnout",
+      "Volunteers",
+      "Survey"
+     ],
+     "default": "Signatures"
+    }
+   ],
+   "prompt": "Write a door-knocking script aimed at {goal} for the profile's issue. Sections: a quote with the 45-second doorstep script, a table of objections and replies (They say | You say), bullets on safety and etiquette (go in pairs, sensible hours, respect no-cold-calling signs, leave a note), and a checklist for the clipboard.",
+   "shape": "quote, table, bullets, checklist",
+   "button": "Write script",
+   "loading": "Lacing boots…"
+  },
+  {
+   "id": "press",
+   "title": "Press & social",
+   "subtitle": "Get the story out, factually",
+   "emoji": "📰",
+   "inputs": [
+    {
+     "key": "hook",
+     "label": "News hook",
+     "type": "text",
+     "placeholder": "council votes next week; 200 signatures",
+     "required": true
+    }
+   ],
+   "prompt": "Publicise the campaign with this hook: {hook}. Sections: a quote with a 200-word press release (headline, a resident's quote, the ask, contact line), cards for 3 social posts (meta = platform · goal), a table (Outlet type | Angle | When to send), and a callout on staying factual and avoiding claims about named individuals.",
+   "shape": "quote, cards, table, callout",
+   "button": "Get coverage",
+   "loading": "Calling the paper…"
+  }
+ ],
+ "disclaimer": "Not legal advice: rules on petitions, protests, data protection and planning objections vary by council and country; check them before you act."
+}

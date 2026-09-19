@@ -1,0 +1,198 @@
+{
+ "id": "badge_bound",
+ "name": "Badge Bound",
+ "tagline": "Police, fire and EMS hiring from written test to oral board",
+ "category": "Business",
+ "colors": [
+  "#0D47A1",
+  "#C62828",
+  "#FFB300"
+ ],
+ "icon": "shield",
+ "about": "Badge Bound guides police, firefighter, paramedic, EMT, corrections and dispatch candidates through the hiring pipeline: process maps, written exam prep, physical ability test plans, background packet and polygraph preparation, and oral board practice.",
+ "persona": "You are a retired training sergeant who has sat on oral boards and background units: direct, fair, big on integrity, and clear that fitness plans are general guidance.",
+ "onboarding": {
+  "title": "Earn the badge",
+  "subtitle": "Your target service and agency tune every stage.",
+  "bullets": [
+   "The full hiring pipeline, staged",
+   "Oral board practice with feedback",
+   "Physical test training plans"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "service",
+   "label": "Service",
+   "type": "chips",
+   "options": [
+    "Police",
+    "Fire",
+    "EMS/Paramedic",
+    "Corrections",
+    "Dispatch/911",
+    "Border/Customs"
+   ]
+  },
+  {
+   "key": "agency",
+   "label": "Agency you're targeting",
+   "type": "text",
+   "placeholder": "Denver PD / county fire district"
+  },
+  {
+   "key": "stage",
+   "label": "Where you are",
+   "type": "chips",
+   "options": [
+    "Researching",
+    "Applied",
+    "Written test next",
+    "Physical test next",
+    "Background",
+    "Oral board",
+    "Academy offer"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "pipeline",
+   "title": "Map the process",
+   "subtitle": "Every stage, timeline and what fails people",
+   "emoji": "🗺️",
+   "inputs": [
+    {
+     "key": "country",
+     "label": "Country / state",
+     "type": "text",
+     "placeholder": "USA, Colorado"
+    }
+   ],
+   "prompt": "Map the hiring pipeline for the profile's service and agency in {country}. Provide a table (Stage | What happens | Typical wait | What fails candidates | How to prep); a checklist of documents to assemble now (ID, driving record, education, references, military records); kv (minimum requirements: age, education, residency, driving, plus common automatic disqualifiers); and a callout to confirm details with the agency's recruiting unit.",
+   "shape": "table, checklist, kv, callout",
+   "button": "Map it",
+   "loading": "Plotting route…"
+  },
+  {
+   "id": "written",
+   "title": "Written exam prep",
+   "subtitle": "Reading, report writing, judgement, maths",
+   "emoji": "✏️",
+   "inputs": [
+    {
+     "key": "area",
+     "label": "Practise",
+     "type": "chips",
+     "options": [
+      "Reading comprehension",
+      "Report writing & grammar",
+      "Situational judgement",
+      "Maths & data",
+      "Mechanical aptitude (fire)",
+      "Mixed"
+     ],
+     "default": "Mixed"
+    }
+   ],
+   "prompt": "Generate a practice set on {area} in the style of entry exams for the profile's service. Provide a table (No. | Question | Answer | Why) with 10 questions; steps for attacking the hardest question type under time pressure; bullets of common wording traps; and a callout on test-day logistics and what score usually makes the eligibility list.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Test me",
+   "loading": "Sharpening pencils…"
+  },
+  {
+   "id": "physical",
+   "title": "Physical test plan",
+   "subtitle": "CPAT, POPAT, PAT and academy fitness",
+   "emoji": "🏃",
+   "inputs": [
+    {
+     "key": "test",
+     "label": "Test name / events",
+     "type": "text",
+     "placeholder": "CPAT: stair climb, hose drag, ladder raise…",
+     "required": true
+    },
+    {
+     "key": "weeks",
+     "label": "Weeks until the test",
+     "type": "number",
+     "placeholder": "8"
+    },
+    {
+     "key": "fitness",
+     "label": "Current fitness",
+     "type": "text",
+     "placeholder": "run 2 miles in 18 min, 10 push-ups"
+    }
+   ],
+   "prompt": "Build a {weeks}-week training plan for {test} starting from {fitness} for the profile. Provide a table (Week | Sessions | Focus | Test-specific drill) that progresses safely; steps for test day (warm-up, pacing, event-order tips); bullets of technique cues for the hardest events; and a callout on injury red flags, rest days and getting a medical check before starting.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Build plan",
+   "loading": "Lacing up…"
+  },
+  {
+   "id": "background",
+   "title": "Background & polygraph",
+   "subtitle": "Disclose well, omit nothing",
+   "emoji": "🗂️",
+   "inputs": [
+    {
+     "key": "history",
+     "label": "Anything that might come up",
+     "type": "longtext",
+     "placeholder": "smoked weed twice in college, one speeding ticket, fired from a retail job at 19…"
+    },
+    {
+     "key": "part",
+     "label": "Part of the process",
+     "type": "chips",
+     "options": [
+      "Personal history statement",
+      "Background interview",
+      "Polygraph / CVSA",
+      "Psych evaluation",
+      "All"
+     ],
+     "default": "All"
+    }
+   ],
+   "prompt": "Prepare the profile for '{part}' given the history {history}. Provide a checklist of the records and people investigators will contact; a table (Issue | How agencies usually view it | How to disclose it honestly and briefly); steps for the interview or polygraph day (sleep, honesty, consistency with the written statement); a quote with an example of a good disclosure; and a callout that omissions fail more candidates than the issue itself, plus when to get legal advice.",
+   "shape": "checklist, table, steps, quote, callout",
+   "button": "Prepare me",
+   "loading": "Reviewing file…"
+  },
+  {
+   "id": "oral",
+   "title": "Oral board practice",
+   "subtitle": "Why us, ethics, use of force, teamwork",
+   "emoji": "🎙️",
+   "inputs": [
+    {
+     "key": "focus",
+     "label": "Focus",
+     "type": "chips",
+     "options": [
+      "Why this agency",
+      "Integrity & ethics",
+      "Use of force / scene safety",
+      "Teamwork & conflict",
+      "Community & communication",
+      "Mixed"
+     ],
+     "default": "Mixed"
+    }
+   ],
+   "prompt": "Run an oral board focused on {focus} for the profile's service and agency. Provide 6 questions as cards (meta = what it tests · the answer that fails) with model answers that show judgement, honesty and chain-of-command awareness; a quote with a 60-second opening statement; bullets on dress, posture, eye contact and closing; and a callout on the questions where a scripted-sounding answer hurts.",
+   "shape": "cards, quote, bullets, callout",
+   "button": "Start board",
+   "loading": "Board convening…"
+  }
+ ],
+ "disclaimer": "Fitness plans are general guidance; get medical clearance before training. Hiring and background information is not legal advice; follow the agency's official process."
+}

@@ -1,0 +1,189 @@
+{
+ "id": "gravity_gym",
+ "name": "Gravity Gym",
+ "tagline": "Pull-ups, handstands and levers, one rung at a time",
+ "category": "Health & Fitness",
+ "colors": [
+  "#1A237E",
+  "#FFC400",
+  "#26C6DA"
+ ],
+ "icon": "star",
+ "about": "Gravity Gym is a calisthenics coach that maps the road from zero pull-ups to muscle-ups, handstands, front levers and pistol squats, with skill sessions, photo form checks and plateau fixes.",
+ "persona": "You are a calisthenics coach with a gymnastics background: patient about progressions, strict on form, and clear that skills are earned with consistency, not intensity.",
+ "onboarding": {
+  "title": "Where are you on the bar?",
+  "subtitle": "Your current numbers set the starting rung of every progression.",
+  "bullets": [
+   "Progression trees for every skill",
+   "Sessions for bar, rings or floor",
+   "Fix a stalled skill"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "gear",
+   "label": "Equipment",
+   "type": "chips",
+   "options": [
+    "Pull-up bar",
+    "Rings",
+    "Parallettes",
+    "Dip bars",
+    "Resistance bands",
+    "Floor only"
+   ],
+   "multi": true
+  },
+  {
+   "key": "numbers",
+   "label": "Current numbers",
+   "type": "text",
+   "placeholder": "3 pull-ups, 10 push-ups, 20 s hollow hold"
+  },
+  {
+   "key": "days",
+   "label": "Training days/week",
+   "type": "chips",
+   "options": [
+    "2",
+    "3",
+    "4",
+    "5"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "roadmap",
+   "title": "Skill roadmap",
+   "subtitle": "Every rung from where you are to the skill",
+   "emoji": "🗺️",
+   "inputs": [
+    {
+     "key": "skill",
+     "label": "Skill",
+     "type": "chips",
+     "options": [
+      "First pull-up",
+      "Muscle-up",
+      "Handstand",
+      "Front lever",
+      "Back lever",
+      "Pistol squat",
+      "L-sit",
+      "Planche lean"
+     ],
+     "default": "Handstand"
+    }
+   ],
+   "prompt": "Build the progression road to a {skill} from the profile numbers and equipment. Sections: steps listing each progression rung in order with the hold time or rep target needed to graduate, a table (Rung | Sets x reps or secs | Sessions per week | Typical weeks), bullets on prerequisite strength or mobility, and a callout on the most common way people get stuck on this skill.",
+   "shape": "steps, table, bullets, callout",
+   "button": "Map it",
+   "loading": "Charting rungs…"
+  },
+  {
+   "id": "session",
+   "title": "Today's skill session",
+   "subtitle": "Skill work while fresh, then strength",
+   "emoji": "🤸",
+   "inputs": [
+    {
+     "key": "minutes",
+     "label": "Minutes",
+     "type": "chips",
+     "options": [
+      "20",
+      "35",
+      "50"
+     ],
+     "default": "35"
+    },
+    {
+     "key": "emphasis",
+     "label": "Emphasis",
+     "type": "chips",
+     "options": [
+      "Push",
+      "Pull",
+      "Legs and core",
+      "Handstand",
+      "Full body"
+     ],
+     "default": "Full body"
+    }
+   ],
+   "prompt": "Write a {minutes}-minute calisthenics session with emphasis '{emphasis}' for the profile equipment and numbers. Sections: steps for a wrist, shoulder and scapula warm-up, a table for the session (Block | Exercise | Sets x reps or secs | Rest | Form cue) with skill work first, bullets on how to scale each exercise up or down, and a callout on stopping a set when form breaks.",
+   "shape": "steps, table, bullets, callout",
+   "button": "Build session",
+   "loading": "Finding the bar…"
+  },
+  {
+   "id": "form",
+   "title": "Check my form",
+   "subtitle": "Photo of a hold or rep",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo at the hardest point of the rep",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "move",
+     "label": "Movement",
+     "type": "text",
+     "placeholder": "tuck front lever",
+     "required": true
+    }
+   ],
+   "prompt": "Assess the {move} in the photo. Sections: bullets on body position (scapula, hips, elbows, feet), a table (Fault | Why it matters | Drill to fix), steps for one corrective drill with sets and reps, and a callout if the position suggests stepping back a rung.",
+   "shape": "bullets, table, steps, callout",
+   "button": "Assess",
+   "loading": "Studying lines…"
+  },
+  {
+   "id": "stuck",
+   "title": "Break a plateau",
+   "subtitle": "Stalled reps or a skill that will not come",
+   "emoji": "🧱",
+   "inputs": [
+    {
+     "key": "stall",
+     "label": "What is stuck",
+     "type": "text",
+     "placeholder": "stuck at 8 pull-ups for 2 months",
+     "required": true
+    },
+    {
+     "key": "tried",
+     "label": "What you have tried",
+     "type": "text",
+     "placeholder": "greasing the groove, weighted sets"
+    }
+   ],
+   "prompt": "Diagnose this plateau: {stall}. Already tried: {tried}. Sections: bullets ranking the likely causes (volume, frequency, weak link, recovery, technique), a table of 3 four-week fixes (Approach | What changes | How to run it | Expect), steps for the single best fix, and a callout on when a plateau is really a sleep or recovery problem.",
+   "shape": "bullets, table, steps, callout",
+   "button": "Diagnose",
+   "loading": "Loosening the bolt…"
+  },
+  {
+   "id": "test",
+   "title": "Test day",
+   "subtitle": "Re-measure the profile numbers",
+   "emoji": "📏",
+   "inputs": [],
+   "prompt": "Design a test day to re-measure the profile numbers and set the next 8 weeks. Sections: steps for the test order with rest between tests, a table (Test | Standard for the next skill | Your last number | Pass or retest), a checklist of what to record, and a callout on not testing while fatigued or sore.",
+   "shape": "steps, table, checklist, callout",
+   "button": "Plan test day",
+   "loading": "Setting the bar…"
+  }
+ ],
+ "disclaimer": "Not medical advice. Stop if you feel sharp pain, dizziness or chest symptoms, and check with a clinician before starting a new programme if you have a health condition or injury."
+}

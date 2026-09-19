@@ -1,0 +1,219 @@
+{
+ "id": "coparent_calm",
+ "name": "Co-Parent Calm",
+ "tagline": "Raise the kids together, even apart",
+ "category": "Parenting",
+ "colors": [
+  "#00838F",
+  "#7CB342",
+  "#FFA000"
+ ],
+ "icon": "calendar",
+ "about": "Co-Parent Calm helps separated parents keep messages businesslike, build custody and holiday schedules that work, handle disagreements, and explain changes to the kids in words that don't wound.",
+ "persona": "You are a steady co-parenting coordinator: child-centred, allergic to point-scoring, and precise about keeping written communication brief, informative, friendly and firm.",
+ "onboarding": {
+  "title": "Kids first, drama last",
+  "subtitle": "Tell us about the kids and the current arrangement.",
+  "bullets": [
+   "Messages rewritten to defuse, not escalate",
+   "Custody and holiday schedules",
+   "Age-appropriate scripts for the kids"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "kids",
+   "label": "Kids (names, ages)",
+   "type": "text",
+   "placeholder": "Leo 6, Ava 9"
+  },
+  {
+   "key": "ex",
+   "label": "Co-parent's name",
+   "type": "text",
+   "placeholder": "Chris"
+  },
+  {
+   "key": "tone",
+   "label": "Communication is",
+   "type": "chips",
+   "options": [
+    "Civil",
+    "Tense",
+    "Hostile",
+    "Minimal"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "biff",
+   "title": "Rewrite my message",
+   "subtitle": "Brief, informative, friendly, firm",
+   "emoji": "✉️",
+   "inputs": [
+    {
+     "key": "draft",
+     "label": "What I want to send",
+     "type": "longtext",
+     "placeholder": "You're late AGAIN and Leo was crying, this is the third time…",
+     "required": true
+    },
+    {
+     "key": "goal",
+     "label": "I need",
+     "type": "chips",
+     "options": [
+      "An answer",
+      "A change in behaviour",
+      "To document it",
+      "To decline a request"
+     ],
+     "default": "A change in behaviour"
+    }
+   ],
+   "prompt": "Rewrite this message so it is brief, informative, friendly and firm, goal: {goal}: {draft}. Give a quote with the rewritten message (under 80 words, no blame words, no questions they can dodge), a table (Original phrase | Why it escalates | Replacement), a callout on what to leave out entirely, and bullets on when to simply not reply.",
+   "shape": "quote, table, callout, bullets",
+   "button": "Rewrite",
+   "loading": "Cooling it down…"
+  },
+  {
+   "id": "schedule",
+   "title": "Build a schedule",
+   "subtitle": "2-2-3, week-on/off, or custom",
+   "emoji": "📅",
+   "inputs": [
+    {
+     "key": "split",
+     "label": "Time split",
+     "type": "chips",
+     "options": [
+      "50/50",
+      "60/40",
+      "70/30",
+      "Every other weekend"
+     ],
+     "default": "50/50"
+    },
+    {
+     "key": "constraints",
+     "label": "Constraints",
+     "type": "text",
+     "placeholder": "I work nights Mon–Wed, school is nearer my ex"
+    },
+    {
+     "key": "ages",
+     "label": "Youngest child is",
+     "type": "chips",
+     "options": [
+      "Under 3",
+      "3–6",
+      "7–12",
+      "Teen"
+     ],
+     "default": "3–6"
+    }
+   ],
+   "prompt": "Design custody schedules for a {split} split, constraints: {constraints}, youngest child {ages}. Present 3 options as cards (meta = transitions per week · longest gap from each parent), a table of the recommended option over a 2-week cycle (Day | With | Handover time | Handover place), bullets on why fewer transitions matter at this age, and a callout that any schedule should be written into a formal parenting plan.",
+   "shape": "cards, table, bullets, callout",
+   "button": "Build options",
+   "loading": "Drawing the weeks…"
+  },
+  {
+   "id": "holidays",
+   "title": "Holiday plan",
+   "subtitle": "Birthdays, school breaks, festivals",
+   "emoji": "🎂",
+   "inputs": [
+    {
+     "key": "dates",
+     "label": "Occasions this year",
+     "type": "text",
+     "placeholder": "Xmas, Easter break, Leo's birthday 14 May, summer 6 weeks"
+    },
+    {
+     "key": "method",
+     "label": "Preferred method",
+     "type": "chips",
+     "options": [
+      "Alternate years",
+      "Split each holiday",
+      "Fixed by tradition",
+      "Suggest for me"
+     ],
+     "default": "Suggest for me"
+    }
+   ],
+   "prompt": "Allocate these occasions: {dates} using {method}. Table (Occasion | This year | Next year | Handover details), a quote with the message proposing it to the co-parent, a checklist of details to agree in advance (travel, gifts, calls with the other parent), and a callout on keeping birthdays about the child rather than the parents.",
+   "shape": "table, quote, checklist, callout",
+   "button": "Allocate",
+   "loading": "Splitting dates…"
+  },
+  {
+   "id": "disagree",
+   "title": "We disagree",
+   "subtitle": "School, screens, medical, new partners",
+   "emoji": "⚖️",
+   "inputs": [
+    {
+     "key": "issue",
+     "label": "The disagreement",
+     "type": "longtext",
+     "placeholder": "they want to move Ava to a private school 40 min away",
+     "required": true
+    },
+    {
+     "key": "stakes",
+     "label": "Stakes",
+     "type": "chips",
+     "options": [
+      "Minor — let it go?",
+      "Medium",
+      "Major — affects the kids' lives"
+     ],
+     "default": "Medium"
+    }
+   ],
+   "prompt": "Disagreement: {issue}, stakes: {stakes}. Text separating what is genuinely about the child from what is about the adults (2–3 sentences), a table (Option | Effect on child | Effect on each parent | Reversible?), steps to propose a trial period or mediation, and a callout on which decisions typically need both parents' consent and when to seek legal advice.",
+   "shape": "text, table, steps, callout",
+   "button": "Work it through",
+   "loading": "Weighing it…"
+  },
+  {
+   "id": "kidtalk",
+   "title": "Tell the kids",
+   "subtitle": "Explaining changes at their level",
+   "emoji": "🧒",
+   "inputs": [
+    {
+     "key": "change",
+     "label": "What's changing",
+     "type": "longtext",
+     "placeholder": "Dad is moving in with his girlfriend and her son",
+     "required": true
+    },
+    {
+     "key": "who",
+     "label": "Telling",
+     "type": "chips",
+     "options": [
+      "One child",
+      "All together",
+      "Each separately"
+     ],
+     "default": "All together"
+    }
+   ],
+   "prompt": "Change to explain: {change}, telling {who}. Using the profile ages, give a quote with a short script per child (honest, no adult details), bullets of the questions they will probably ask with one-line answers, a checklist for the week after, and a callout on signs a child is struggling and may need extra support.",
+   "shape": "quote, bullets, checklist, callout",
+   "button": "Draft the talk",
+   "loading": "Finding the words…"
+  }
+ ],
+ "disclaimer": "Not legal advice. Custody, consent and relocation rules differ by jurisdiction; confirm arrangements with a family lawyer or mediator."
+}

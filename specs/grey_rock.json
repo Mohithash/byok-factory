@@ -1,0 +1,203 @@
+{
+ "id": "grey_rock",
+ "name": "Grey Rock",
+ "tagline": "Stay steady with a difficult relative",
+ "category": "Lifestyle",
+ "colors": [
+  "#546E7A",
+  "#8D6E63",
+  "#26C6DA"
+ ],
+ "icon": "moon",
+ "about": "Grey Rock helps you deal with a parent, sibling or relative who guilts, manipulates or explodes: low-reaction replies, plans for visits and holidays, contact levels that protect you, and support for the grief that comes with it.",
+ "persona": "You are a trauma-informed family-dynamics coach: you never diagnose the relative, you name behaviours not labels, you respect the user's choice on how much contact to keep, and you put the user's safety first.",
+ "onboarding": {
+  "title": "You don't have to take the bait",
+  "subtitle": "Tell us who the difficult person is and what contact looks like now.",
+  "bullets": [
+   "Low-reaction replies that end the loop",
+   "Visit and holiday survival plans",
+   "Decide contact levels without guilt"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "person",
+   "label": "The person (relationship)",
+   "type": "text",
+   "placeholder": "my mother"
+  },
+  {
+   "key": "behaviours",
+   "label": "What they do",
+   "type": "chips",
+   "options": [
+    "Guilt trips",
+    "Criticism",
+    "Rage",
+    "Silent treatment",
+    "Rewriting history",
+    "Triangulating others",
+    "Money control"
+   ],
+   "multi": true
+  },
+  {
+   "key": "contact",
+   "label": "Contact now",
+   "type": "chips",
+   "options": [
+    "Daily",
+    "Weekly",
+    "Occasional",
+    "Low contact",
+    "No contact"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "reply",
+   "title": "Grey-rock reply",
+   "subtitle": "Respond without feeding it",
+   "emoji": "🪨",
+   "inputs": [
+    {
+     "key": "message",
+     "label": "What they sent / said",
+     "type": "longtext",
+     "placeholder": "'I guess I'm just a terrible mother then. Don't bother coming Sunday.'",
+     "required": true
+    },
+    {
+     "key": "channel",
+     "label": "Via",
+     "type": "chips",
+     "options": [
+      "Text",
+      "Call",
+      "In person",
+      "Through a relative"
+     ],
+     "default": "Text"
+    }
+   ],
+   "prompt": "They said ({channel}): {message}. Text identifying the hook in one sentence (guilt, threat, bait, reversal), then 3 quote sections: minimal (under 12 words), neutral-informational (under 30 words), and no-reply with what to do instead; then a table (If they escalate with… | Your response) for 3 escalations, and a callout on not justifying, arguing, defending or explaining.",
+   "shape": "text, quote, table, callout",
+   "button": "Draft reply",
+   "loading": "Going grey…"
+  },
+  {
+   "id": "visit",
+   "title": "Visit survival plan",
+   "subtitle": "Get in, get out, stay intact",
+   "emoji": "🚪",
+   "inputs": [
+    {
+     "key": "event",
+     "label": "The occasion",
+     "type": "text",
+     "placeholder": "Dad's 70th, 4 hours at their house"
+    },
+    {
+     "key": "ally",
+     "label": "Who's on your side there",
+     "type": "text",
+     "placeholder": "my brother, my partner"
+    }
+   ],
+   "prompt": "Occasion: {event}; allies: {ally}. Steps for before, during and after (arrival time, exit line, ride home), a checklist of things to arrange with allies beforehand (signal, seating, rescue), bullets of 5 safe topics and 3 to deflect, a quote with the exact exit line, and a callout on the emotional crash the day after.",
+   "shape": "steps, checklist, bullets, quote, callout",
+   "button": "Plan it",
+   "loading": "Mapping exits…"
+  },
+  {
+   "id": "contact",
+   "title": "Contact level",
+   "subtitle": "More, less, or none — thinking it through",
+   "emoji": "📉",
+   "inputs": [
+    {
+     "key": "why",
+     "label": "What's prompting the question",
+     "type": "longtext",
+     "placeholder": "every call ends with me crying; she told my aunt I'm unstable",
+     "required": true
+    },
+    {
+     "key": "leaning",
+     "label": "I'm leaning towards",
+     "type": "chips",
+     "options": [
+      "Keep as is",
+      "Reduce",
+      "Structured low contact",
+      "A break",
+      "No contact"
+     ],
+     "default": "Reduce"
+    }
+   ],
+   "prompt": "Prompting this: {why}; leaning: {leaning}. Give a table (Option | What it looks like | Cost to you | Cost to others | Reversible?) across 4 contact levels, a kv of rules for the leaning option (frequency, channels, topics off-limits, what ends a call), a quote announcing the change if one is needed (short, no justification), and a callout on grief and doubt being normal and not evidence of a wrong decision.",
+   "shape": "table, kv, quote, callout",
+   "button": "Think it through",
+   "loading": "Weighing options…"
+  },
+  {
+   "id": "reality",
+   "title": "Reality check",
+   "subtitle": "Am I overreacting?",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "incident",
+     "label": "What happened",
+     "type": "longtext",
+     "placeholder": "she 'forgot' my birthday then said I never call",
+     "required": true
+    },
+    {
+     "key": "pattern",
+     "label": "Has this happened before?",
+     "type": "text",
+     "placeholder": "yes, most years"
+    }
+   ],
+   "prompt": "Incident: {incident}; pattern: {pattern}. Text with a plain, non-diagnostic read of the behaviour (3 sentences), a table (What they said | What happened | What you're being asked to believe), bullets of what a reasonable person could feel here, and a callout on keeping a dated log for your own clarity.",
+   "shape": "text, table, bullets, callout",
+   "button": "Check reality",
+   "loading": "Looking clearly…"
+  },
+  {
+   "id": "relay",
+   "title": "Relatives who relay",
+   "subtitle": "When others carry messages for them",
+   "emoji": "📨",
+   "inputs": [
+    {
+     "key": "said",
+     "label": "What the relay said",
+     "type": "longtext",
+     "placeholder": "Auntie says mum is heartbroken and I should just apologise",
+     "required": true
+    },
+    {
+     "key": "relay",
+     "label": "Who relayed it",
+     "type": "text",
+     "placeholder": "my aunt"
+    }
+   ],
+   "prompt": "Relayed by {relay}: {said}. A quote with a warm-but-closed reply to the relay (keeps the relationship, refuses the errand, under 40 words), bullets on what not to share with anyone who reports back, a table (If the relay says… | You say…) with 3 follow-ups, and a callout on protecting the relatives you still want.",
+   "shape": "quote, bullets, table, callout",
+   "button": "Reply",
+   "loading": "Closing the loop…"
+  }
+ ],
+ "disclaimer": "Coaching, not therapy or a diagnosis of anyone. If you are in danger, being threatened or financially controlled, contact a support line or emergency services."
+}

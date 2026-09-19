@@ -1,0 +1,199 @@
+{
+ "id": "retro_room",
+ "name": "Retro Room",
+ "tagline": "Team rituals people don't dread",
+ "category": "Business",
+ "colors": [
+  "#AD1457",
+  "#00897B",
+  "#FFA726"
+ ],
+ "icon": "bulb",
+ "about": "Retro Room designs team rituals that people actually show up for: retrospectives matched to the team's mood, standups that stay short, working agreements everyone owns and recognition that feels real.",
+ "persona": "You are a facilitator who has run hundreds of retros: format-flexible, allergic to blame, and ruthless about turning talk into two or three actions with owners.",
+ "onboarding": {
+  "title": "Rituals worth showing up for",
+  "subtitle": "Tell us how your team works and we'll fit the formats.",
+  "bullets": [
+   "Retro formats matched to the mood",
+   "Sticky notes → themes and actions",
+   "Standups and agreements that stick"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "size",
+   "label": "Team size",
+   "type": "number",
+   "placeholder": "7"
+  },
+  {
+   "key": "mode",
+   "label": "Team mode",
+   "type": "chips",
+   "options": [
+    "Co-located",
+    "Hybrid",
+    "Fully remote"
+   ],
+   "default": "Hybrid"
+  },
+  {
+   "key": "cycle",
+   "label": "Cycle",
+   "type": "chips",
+   "options": [
+    "Weekly",
+    "Fortnightly sprints",
+    "Monthly",
+    "Project-based"
+   ],
+   "default": "Fortnightly sprints"
+  }
+ ],
+ "tools": [
+  {
+   "id": "design",
+   "title": "Design a retro",
+   "subtitle": "A format for how the team feels",
+   "emoji": "🎨",
+   "inputs": [
+    {
+     "key": "mood",
+     "label": "Team mood right now",
+     "type": "chips",
+     "options": [
+      "Tired",
+      "Just shipped big",
+      "After a failure",
+      "Flat and routine",
+      "New team",
+      "Tense"
+     ],
+     "default": "Flat and routine"
+    },
+    {
+     "key": "minutes",
+     "label": "Minutes",
+     "type": "number",
+     "placeholder": "60"
+    },
+    {
+     "key": "focus",
+     "label": "Anything to focus on",
+     "type": "text",
+     "placeholder": "the release process"
+    }
+   ],
+   "prompt": "Design a {minutes}-minute retrospective for a team that is '{mood}', focus: {focus}, for the profile's size and mode. kv (format name and why it fits, tools needed, prime directive to read aloud), steps with timings for each activity including the check-in and the close, bullets of prompts for the main activity, and a callout on the facilitation trap most likely with this mood.",
+   "shape": "kv, steps, bullets, callout",
+   "button": "Design retro",
+   "loading": "Picking a format…"
+  },
+  {
+   "id": "themes",
+   "title": "Theme the sticky notes",
+   "subtitle": "Raw notes → themes, actions, summary",
+   "emoji": "🗂️",
+   "inputs": [
+    {
+     "key": "notes",
+     "label": "Paste all the notes",
+     "type": "longtext",
+     "placeholder": "deploys are scary; nobody reviews PRs on Fridays; loved the pairing week; too many meetings…",
+     "required": true
+    }
+   ],
+   "prompt": "Cluster these retro notes: {notes}. Table (Theme | Notes in it | Sentiment | Suggested votes) with at most 6 themes, bullets of 3 discussion questions for the top theme, a checklist of 2–3 concrete actions each with an owner placeholder and a due date, and a quote with a one-paragraph summary to post in the team channel.",
+   "shape": "table, bullets, checklist, quote",
+   "button": "Cluster",
+   "loading": "Sorting stickies…"
+  },
+  {
+   "id": "charter",
+   "title": "Working agreements",
+   "subtitle": "'We…' statements the team will own",
+   "emoji": "📜",
+   "inputs": [
+    {
+     "key": "pains",
+     "label": "What keeps going wrong",
+     "type": "longtext",
+     "placeholder": "people join late; decisions get re-opened in DMs; unclear who reviews what",
+     "required": true
+    },
+    {
+     "key": "scope",
+     "label": "Scope",
+     "type": "chips",
+     "options": [
+      "Meetings",
+      "Communication",
+      "Code & reviews",
+      "Everything"
+     ],
+     "default": "Everything"
+    }
+   ],
+   "prompt": "Draft team working agreements for scope '{scope}' addressing: {pains}, suited to the profile's team mode. Checklist of 6–10 agreements phrased as observable 'We…' statements, a table (Agreement | Why | How we'll notice it slipping), steps for a 30-minute session where the team edits and owns them, and a quote with the intro line the manager says so it isn't a top-down rulebook.",
+   "shape": "checklist, table, steps, quote",
+   "button": "Draft charter",
+   "loading": "Drafting 'we'…"
+  },
+  {
+   "id": "standup",
+   "title": "Fix our standup",
+   "subtitle": "Shorter, peer-to-peer, remote-friendly",
+   "emoji": "⏱️",
+   "inputs": [
+    {
+     "key": "problem",
+     "label": "What's wrong with it",
+     "type": "longtext",
+     "placeholder": "runs 25 minutes; people report to me not each other; remote folks stay silent",
+     "required": true
+    }
+   ],
+   "prompt": "Redesign the standup given: {problem} for the profile's team mode and size. kv (format, length, speaking order, who goes first, async alternative), steps for the first week of the new format, a callout on the manager's own behaviour to change, and bullets of signals to check after two weeks.",
+   "shape": "kv, steps, callout, bullets",
+   "button": "Fix it",
+   "loading": "Trimming minutes…"
+  },
+  {
+   "id": "celebrate",
+   "title": "Celebrate a win",
+   "subtitle": "Recognition that names real contributions",
+   "emoji": "🎉",
+   "inputs": [
+    {
+     "key": "win",
+     "label": "The win",
+     "type": "text",
+     "placeholder": "shipped the migration two weeks early",
+     "required": true
+    },
+    {
+     "key": "style",
+     "label": "Team style",
+     "type": "chips",
+     "options": [
+      "Low-key",
+      "Loud",
+      "Remote-friendly",
+      "Budget-free"
+     ],
+     "default": "Remote-friendly"
+    }
+   ],
+   "prompt": "Plan recognition for '{win}' in a '{style}' style. Cards of 4 ideas (meta = cost · minutes to organise), a quote with what the manager says to the team naming specific contributions, and a callout on making sure quieter contributors get named too.",
+   "shape": "cards, quote, callout",
+   "button": "Plan it",
+   "loading": "Popping corks…"
+  }
+ ]
+}

@@ -1,0 +1,183 @@
+{
+ "id": "slow_wardrobe",
+ "name": "Slow Wardrobe",
+ "tagline": "Buy less, choose well, wear it for years",
+ "category": "Lifestyle",
+ "colors": [
+  "#33691E",
+  "#8D6E63",
+  "#F9A825"
+ ],
+ "icon": "leaf",
+ "about": "Slow Wardrobe helps you buy fewer, better clothes: decode sustainability claims and fabric labels, calculate cost per wear, decide whether to repair, rework or replace, and run a 30-day challenge with what you own.",
+ "persona": "You are a sustainable-fashion educator with a mending kit: evidence-led, budget-realistic, allergic to greenwashing and equally allergic to guilt-tripping.",
+ "onboarding": {
+  "title": "A wardrobe that lasts",
+  "subtitle": "Tell us how you shop today and what you want to change.",
+  "bullets": [
+   "Greenwashing and fabric decoders",
+   "Cost-per-wear on any purchase",
+   "Repair, rework or replace verdicts"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "habit",
+   "label": "Right now you",
+   "type": "chips",
+   "options": [
+    "Shop weekly",
+    "Shop monthly",
+    "Rarely shop",
+    "Mostly second-hand"
+   ],
+   "default": "Shop monthly"
+  },
+  {
+   "key": "goal",
+   "label": "Goal",
+   "type": "chips",
+   "options": [
+    "Spend less",
+    "Lower impact",
+    "Better quality",
+    "Fewer, better outfits"
+   ],
+   "multi": true
+  },
+  {
+   "key": "mend",
+   "label": "Mending skills",
+   "type": "chips",
+   "options": [
+    "None",
+    "Sew a button",
+    "Hand-stitch",
+    "Machine"
+   ],
+   "default": "Sew a button"
+  }
+ ],
+ "tools": [
+  {
+   "id": "claim",
+   "title": "Decode a sustainability claim",
+   "subtitle": "What the label really means",
+   "emoji": "🔎",
+   "inputs": [
+    {
+     "key": "claim",
+     "label": "The claim or label text",
+     "type": "longtext",
+     "placeholder": "Conscious collection — made with 30% recycled polyester",
+     "required": true
+    },
+    {
+     "key": "brand",
+     "label": "Brand type",
+     "type": "text",
+     "placeholder": "high-street fast fashion"
+    }
+   ],
+   "prompt": "Analyse the claim '{claim}' from a {brand} brand. Table (Claim phrase | What it actually guarantees | What it leaves out | Question to ask), kv of certifications that would back it up (e.g. GOTS, Fairtrade, OEKO-TEX, B Corp, each with what it covers), bullets of red-flag phrases spotted, and a callout with a plain verdict on how much weight the claim deserves.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Decode",
+   "loading": "Reading the label…"
+  },
+  {
+   "id": "cpw",
+   "title": "Cost per wear",
+   "subtitle": "Is it worth the price?",
+   "emoji": "🧮",
+   "inputs": [
+    {
+     "key": "item",
+     "label": "The item and price",
+     "type": "text",
+     "placeholder": "wool coat, 180",
+     "required": true
+    },
+    {
+     "key": "wears",
+     "label": "Realistic wears per year",
+     "type": "number",
+     "placeholder": "60"
+    },
+    {
+     "key": "years",
+     "label": "Years it should last",
+     "type": "number",
+     "placeholder": "5"
+    }
+   ],
+   "prompt": "Calculate cost per wear for {item} at {wears} wears a year over {years} years. kv (cost per wear, break-even wears, cost per year), a table comparing it with a cheaper and a pricier alternative (Option | Price | Expected life | Cost per wear | Impact note), bullets of what would shorten its life, and a callout with a buy / wait / skip verdict for the profile's goal.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Calculate",
+   "loading": "Doing the maths…"
+  },
+  {
+   "id": "fabric",
+   "title": "Fabric decoder",
+   "subtitle": "Composition label → longevity and care",
+   "emoji": "🧵",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the composition / care label",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "use",
+     "label": "What the item is",
+     "type": "text",
+     "placeholder": "everyday T-shirt"
+    }
+   ],
+   "prompt": "Read the fibre composition in the photo for a '{use}'. Table (Fibre | % | Durability | Comfort | Environmental note | Care), text on whether this blend suits the use, bullets of better compositions to look for next time, and a callout on microfibre shedding and washing.",
+   "shape": "table, text, bullets, callout",
+   "button": "Decode",
+   "loading": "Reading fibres…"
+  },
+  {
+   "id": "repair",
+   "title": "Repair, rework or replace?",
+   "subtitle": "Photo of the damage → verdict",
+   "emoji": "🪡",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the damage",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "item",
+     "label": "The item and how loved it is",
+     "type": "text",
+     "placeholder": "favourite jeans, 4 years old"
+    }
+   ],
+   "prompt": "Assess the damage in the photo on '{item}' for the profile's mending skill. kv (verdict: repair / rework / replace, difficulty, time, cost at home versus tailor), steps for the repair or rework, a checklist of materials, and a callout on visible-mending styles if hiding the fix is not possible.",
+   "shape": "kv, steps, checklist, callout",
+   "button": "Decide",
+   "loading": "Inspecting…"
+  },
+  {
+   "id": "challenge",
+   "title": "30-day wear challenge",
+   "subtitle": "A month of wearing what you own",
+   "emoji": "📅",
+   "inputs": [],
+   "prompt": "Design a 30-day challenge for the profile to wear only what they own, get neglected pieces to 30 wears and reset shopping habits. Table (Week | Theme | Daily prompt), a checklist for the setup (audit, wear log, no-buy rules), bullets of what to do when temptation hits, and a quote with a mantra for the month.",
+   "shape": "table, checklist, bullets, quote",
+   "button": "Start",
+   "loading": "Planning the month…"
+  }
+ ]
+}

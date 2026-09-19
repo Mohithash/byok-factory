@@ -1,0 +1,209 @@
+{
+ "id": "complaint_ladder",
+ "name": "Complaint Ladder",
+ "tagline": "Escalate a consumer complaint until it's fixed",
+ "category": "Tools",
+ "colors": [
+  "#B71C1C",
+  "#FB8C00",
+  "#37474F"
+ ],
+ "icon": "cart",
+ "about": "Complaint Ladder turns a bad purchase or lousy service into a clear escalation plan: a first complaint that cites your rights, the follow-up when they ignore you, a chargeback or ombudsman route, and a log that keeps the timeline straight.",
+ "persona": "You are a calm consumer-rights advocate: you write firm, polite, evidence-led complaints, cite the general principles of consumer law for the user's region, and always say which step comes next.",
+ "onboarding": {
+  "title": "Get it fixed, refunded or replaced",
+  "subtitle": "Tell us where you are so the rights we mention fit.",
+  "bullets": [
+   "Complaint letters that cite your rights",
+   "Chargeback and ombudsman routes",
+   "A timeline log for every promise"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "region",
+   "label": "Country / state",
+   "type": "text",
+   "placeholder": "England, UK"
+  },
+  {
+   "key": "style",
+   "label": "Tone you prefer",
+   "type": "chips",
+   "options": [
+    "Polite but firm",
+    "Formal",
+    "Short and blunt"
+   ],
+   "default": "Polite but firm"
+  }
+ ],
+ "tools": [
+  {
+   "id": "first",
+   "title": "First complaint",
+   "subtitle": "A letter or email that gets taken seriously",
+   "emoji": "✉️",
+   "inputs": [
+    {
+     "key": "issue",
+     "label": "What happened",
+     "type": "longtext",
+     "placeholder": "Bought a washing machine 3 weeks ago, it leaks, store says contact the manufacturer…",
+     "required": true
+    },
+    {
+     "key": "want",
+     "label": "What you want",
+     "type": "text",
+     "placeholder": "full refund / repair / replacement"
+    },
+    {
+     "key": "channel",
+     "label": "Send as",
+     "type": "chips",
+     "options": [
+      "Email",
+      "Letter",
+      "Web form / chat"
+     ],
+     "default": "Email"
+    }
+   ],
+   "prompt": "The problem: {issue}. Desired outcome: {want}. Channel: {channel}. Write the complaint as a quote (subject line, dated facts in order, the remedy requested, a 14-day deadline, and one line noting the general consumer rights that apply in the profile region). Then bullets of attachments to include and a callout on what to do if they ignore it.",
+   "shape": "quote, bullets, callout",
+   "button": "Write it",
+   "loading": "Sharpening the pen…"
+  },
+  {
+   "id": "escalate",
+   "title": "They fobbed me off",
+   "subtitle": "Next rung of the ladder",
+   "emoji": "🪜",
+   "inputs": [
+    {
+     "key": "history",
+     "label": "What's happened so far",
+     "type": "longtext",
+     "placeholder": "Emailed 1 May, replied offering a 20% voucher, I declined, silence since…",
+     "required": true
+    },
+    {
+     "key": "company",
+     "label": "Company type",
+     "type": "chips",
+     "options": [
+      "Retailer",
+      "Airline",
+      "Telecom / utility",
+      "Bank / insurer",
+      "Online marketplace",
+      "Tradesperson",
+      "Other"
+     ],
+     "default": "Retailer"
+    }
+   ],
+   "prompt": "History: {history}. Company type: {company}. Give a steps escalation ladder specific to a {company} in the profile region (manager → formal complaint → regulator, ombudsman or ADR → chargeback → small claims), a quote with the escalation message that references their previous response, and a kv of typical deadlines and time limits at each rung.",
+   "shape": "steps, quote, kv",
+   "button": "Escalate",
+   "loading": "Climbing…"
+  },
+  {
+   "id": "chargeback",
+   "title": "Chargeback or card claim",
+   "subtitle": "Get your card provider to reverse it",
+   "emoji": "💳",
+   "inputs": [
+    {
+     "key": "paid",
+     "label": "Paid with",
+     "type": "chips",
+     "options": [
+      "Credit card",
+      "Debit card",
+      "PayPal / wallet",
+      "Bank transfer",
+      "Buy now pay later"
+     ],
+     "default": "Credit card"
+    },
+    {
+     "key": "amount",
+     "label": "Amount",
+     "type": "number",
+     "placeholder": "349"
+    },
+    {
+     "key": "reason",
+     "label": "Why",
+     "type": "text",
+     "placeholder": "item never arrived / not as described / faulty"
+    }
+   ],
+   "prompt": "Paid by {paid}, amount {amount}, reason: {reason}. Explain in text whether a chargeback or similar provider claim is likely available for this payment type in the profile region and the usual time limit, then a checklist of evidence to gather, and a quote with the dispute statement to submit to the provider.",
+   "shape": "text, checklist, quote",
+   "button": "Draft claim",
+   "loading": "Dialling the bank…"
+  },
+  {
+   "id": "rights",
+   "title": "Know my rights",
+   "subtitle": "Faulty, late, not as described?",
+   "emoji": "📖",
+   "inputs": [
+    {
+     "key": "bought",
+     "label": "What you bought and when",
+     "type": "text",
+     "placeholder": "laptop, 8 months ago, online",
+     "required": true
+    },
+    {
+     "key": "problem",
+     "label": "Problem",
+     "type": "chips",
+     "options": [
+      "Faulty",
+      "Not as described",
+      "Never arrived",
+      "Wrong item",
+      "Poor service",
+      "Price / hidden fees"
+     ],
+     "default": "Faulty"
+    }
+   ],
+   "prompt": "Purchase: {bought}. Problem: {problem}. Produce a kv of the remedies generally available in the profile region (refund, repair, replacement, price reduction) with the usual time windows, a table (Remedy | Who must prove what | Typical timeframe | Notes), and a callout on common seller excuses that are not valid (e.g. 'contact the manufacturer', 'no receipt, no refund').",
+   "shape": "kv, table, callout",
+   "button": "Explain",
+   "loading": "Reading the rules…"
+  },
+  {
+   "id": "log",
+   "title": "Complaint log",
+   "subtitle": "Tidy your timeline into evidence",
+   "emoji": "🗂️",
+   "inputs": [
+    {
+     "key": "notes",
+     "label": "Paste your notes / messages",
+     "type": "longtext",
+     "placeholder": "3 Apr ordered; 12 Apr arrived damaged; chat with Sam said refund in 5 days…",
+     "required": true
+    }
+   ],
+   "prompt": "Turn these notes into a dated table (Date | Who | Channel | What was said or promised | Evidence), bullets of missing evidence to collect now, and a callout with the single most important deadline coming up. Notes: {notes}.",
+   "shape": "table, bullets, callout",
+   "button": "Build log",
+   "loading": "Filing it…"
+  }
+ ],
+ "disclaimer": "General information only, not legal advice; rules differ by country and state and change over time — check official sources or a qualified professional before acting."
+}

@@ -1,0 +1,197 @@
+{
+ "id": "admit_road",
+ "name": "Admit Road",
+ "tagline": "College applications, timed and costed, for parents",
+ "category": "Education",
+ "colors": [
+  "#1A237E",
+  "#FFC107",
+  "#00897B"
+ ],
+ "icon": "hat",
+ "about": "Admit Road gives parents a month-by-month application timeline, builds a balanced college list around budget and fit, decodes financial-aid offers side by side, and preps campus visits and counsellor brag sheets.",
+ "persona": "You are a former admissions officer turned family advisor: candid about odds and cost, allergic to prestige panic, and firm that the student owns the essays.",
+ "onboarding": {
+  "title": "The road to a good-fit yes",
+  "subtitle": "Tell us where your student is and what you can afford.",
+  "bullets": [
+   "Month-by-month timeline",
+   "Balanced list, real costs",
+   "Aid offers decoded"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "student",
+   "label": "Student (name, grade/year)",
+   "type": "text",
+   "placeholder": "Maya, Grade 11"
+  },
+  {
+   "key": "system",
+   "label": "Applying in",
+   "type": "chips",
+   "options": [
+    "US",
+    "UK (UCAS)",
+    "Canada",
+    "Australia",
+    "India",
+    "Europe",
+    "Mixed"
+   ]
+  },
+  {
+   "key": "budget",
+   "label": "Family budget per year",
+   "type": "number",
+   "placeholder": "20000"
+  }
+ ],
+ "tools": [
+  {
+   "id": "timeline",
+   "title": "Build the timeline",
+   "subtitle": "From now to decision day",
+   "emoji": "🗓️",
+   "inputs": [
+    {
+     "key": "start",
+     "label": "Starting point",
+     "type": "chips",
+     "options": [
+      "Grade 9/10 – early",
+      "Grade 11 – on time",
+      "Grade 12 – late start",
+      "Gap year"
+     ],
+     "default": "Grade 11 – on time"
+    },
+    {
+     "key": "aims",
+     "label": "Aims",
+     "type": "text",
+     "placeholder": "engineering, Common App + 2 UC schools, needs aid"
+    }
+   ],
+   "prompt": "Build an application timeline for the profile's student starting at '{start}', aims: {aims}, in the profile's system. Sections: a table (Month | Student does | Parent does | Deadline type), a checklist of documents and accounts to set up now (tests, transcripts, FAFSA/CSS or the local equivalent, recommendation requests), bullets on the difference between early and regular rounds, and a callout on the tasks parents must not do for the student.",
+   "shape": "table, checklist, bullets, callout",
+   "button": "Build timeline",
+   "loading": "Plotting…"
+  },
+  {
+   "id": "list",
+   "title": "College list builder",
+   "subtitle": "Reach, match, likely — and affordable",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "stats",
+     "label": "Grades, tests, activities",
+     "type": "longtext",
+     "placeholder": "3.7 GPA, 1350 SAT, robotics captain, part-time job",
+     "required": true
+    },
+    {
+     "key": "wants",
+     "label": "What they want",
+     "type": "text",
+     "placeholder": "mid-size, near a city, strong CS, not too far from home"
+    },
+    {
+     "key": "prefs",
+     "label": "Priorities",
+     "type": "chips",
+     "options": [
+      "Cost",
+      "Prestige",
+      "Specific program",
+      "Location",
+      "Campus vibe",
+      "Sports or arts"
+     ],
+     "multi": true
+    }
+   ],
+   "prompt": "Build a balanced college list from: {stats}, wants: {wants}, priorities: {prefs}, within the profile's budget. Sections: a table of 12 schools (School | Tier: reach/match/likely | Est. net cost after typical aid | Why it fits | Watch-out), bullets on how the list is balanced and which to visit first, a callout on sticker price versus net price and merit-aid strategy, and a kv of next actions per tier.",
+   "shape": "table, bullets, callout, kv",
+   "button": "Build list",
+   "loading": "Shortlisting…"
+  },
+  {
+   "id": "visit",
+   "title": "Campus visit kit",
+   "subtitle": "What to ask, what to notice",
+   "emoji": "🏛️",
+   "inputs": [
+    {
+     "key": "school",
+     "label": "School",
+     "type": "text",
+     "placeholder": "University of Michigan",
+     "required": true
+    },
+    {
+     "key": "format",
+     "label": "Format",
+     "type": "chips",
+     "options": [
+      "Official tour",
+      "Self-guided",
+      "Virtual",
+      "Admitted-student day"
+     ],
+     "default": "Official tour"
+    }
+   ],
+   "prompt": "Prepare a {format} visit to {school} for the profile's student. Sections: a checklist of what to observe (the dining hall at noon, the library on a weeknight, the notice boards), bullets of 8 questions the student asks (not the parent) with the answer to hope for, a table (Question for the financial-aid office | Why it matters), and a quote with a 3-line debrief prompt for the car ride home.",
+   "shape": "checklist, bullets, table, quote",
+   "button": "Prep visit",
+   "loading": "Packing…"
+  },
+  {
+   "id": "aid",
+   "title": "Decode aid offers",
+   "subtitle": "Compare real net cost",
+   "emoji": "💵",
+   "inputs": [
+    {
+     "key": "offers",
+     "label": "Paste the offers",
+     "type": "longtext",
+     "placeholder": "School A: COA 62k, grant 30k, loan 5.5k, work-study 2k. School B: …",
+     "required": true
+    }
+   ],
+   "prompt": "Decode and compare: {offers}. Sections: a table (School | Cost of attendance | Gift aid | Loans | Work-study | True net cost | 4-year estimate), a callout on which lines are free money versus debt and any one-year-only awards, bullets on how to appeal for more aid and what evidence works, and a quote with a short, polite appeal email the family can send.",
+   "shape": "table, callout, bullets, quote",
+   "button": "Compare",
+   "loading": "Crunching…"
+  },
+  {
+   "id": "brag",
+   "title": "Brag sheet",
+   "subtitle": "For counsellor & recommenders",
+   "emoji": "📝",
+   "inputs": [
+    {
+     "key": "notes",
+     "label": "Stories, achievements, growth",
+     "type": "longtext",
+     "placeholder": "started robotics club, cared for grandma, improved chem from C to A",
+     "required": true
+    }
+   ],
+   "prompt": "Turn {notes} into a parent brag sheet for the counsellor and recommenders of the profile's student. Sections: a kv (three words that describe them with an anecdote each, a challenge overcome, what they do when nobody's watching, growth since Grade 9), bullets of concrete achievements with numbers, a quote with a 150-word paragraph a counsellor could adapt, and a callout on what recommenders don't want to read.",
+   "shape": "kv, bullets, quote, callout",
+   "button": "Write sheet",
+   "loading": "Bragging tastefully…"
+  }
+ ],
+ "disclaimer": "Cost and aid figures are estimates, not financial advice; verify with each institution's official net-price calculator and aid office."
+}

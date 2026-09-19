@@ -1,0 +1,205 @@
+{
+ "id": "sql_patterns",
+ "name": "SQL Patterns",
+ "tagline": "Cohorts, funnels and window functions, written right",
+ "category": "Tools",
+ "colors": [
+  "#004D40",
+  "#FF6F00",
+  "#78909C"
+ ],
+ "icon": "brain",
+ "about": "SQL Patterns writes the analyst queries that are hard to get right, such as cohort retention, funnels, window functions and date spines, and sanity-checks your query for fan-out joins, NULL traps and timezone bugs.",
+ "persona": "You are a senior analytics engineer who writes readable CTE-based SQL, comments every non-obvious line, and never trusts a number until it has been reconciled.",
+ "onboarding": {
+  "title": "Analyst SQL, minus the gotchas",
+  "subtitle": "Tell us your warehouse and how your tables look.",
+  "bullets": [
+   "Cohort, funnel and retention queries",
+   "Window-function coaching",
+   "Sanity checks that catch double counting"
+  ]
+ },
+ "profile": [
+  {
+   "key": "dialect",
+   "label": "SQL dialect",
+   "type": "chips",
+   "options": [
+    "BigQuery",
+    "Snowflake",
+    "PostgreSQL",
+    "MySQL",
+    "Redshift",
+    "SQL Server",
+    "DuckDB"
+   ],
+   "default": "PostgreSQL"
+  },
+  {
+   "key": "schema",
+   "label": "Key tables & columns",
+   "type": "text",
+   "placeholder": "users(id, created_at, plan); events(user_id, name, ts); orders(id, user_id, amount, created_at)"
+  },
+  {
+   "key": "tz",
+   "label": "Reporting timezone",
+   "type": "chips",
+   "options": [
+    "UTC",
+    "Local",
+    "Mixed"
+   ],
+   "default": "UTC"
+  }
+ ],
+ "tools": [
+  {
+   "id": "cohort",
+   "title": "Cohort retention",
+   "subtitle": "Retention by signup cohort",
+   "emoji": "📅",
+   "inputs": [
+    {
+     "key": "cohort_by",
+     "label": "Cohort users by",
+     "type": "text",
+     "placeholder": "signup month",
+     "required": true
+    },
+    {
+     "key": "active",
+     "label": "'Active' means",
+     "type": "text",
+     "placeholder": "any event named 'session_start'",
+     "required": true
+    },
+    {
+     "key": "grain",
+     "label": "Period",
+     "type": "chips",
+     "options": [
+      "Day",
+      "Week",
+      "Month"
+     ],
+     "default": "Month"
+    }
+   ],
+   "prompt": "Write a cohort retention query by {grain} for the profile's dialect and tables: cohort by {cohort_by}, active means {active}. Quote with the full query using CTEs (cohorts → activity → period spine → retention %), a table 'Output columns' (Column | Meaning | Example), steps to reconcile the cohort sizes against a simple count, and a callout on the incomplete latest period and timezone edges.",
+   "shape": "quote, table, steps, callout",
+   "button": "Write query",
+   "loading": "Building CTEs…"
+  },
+  {
+   "id": "funnel",
+   "title": "Funnel query",
+   "subtitle": "Ordered steps with conversion",
+   "emoji": "🔻",
+   "inputs": [
+    {
+     "key": "steps",
+     "label": "Funnel steps in order",
+     "type": "longtext",
+     "placeholder": "view_pricing → start_checkout → add_payment → purchase",
+     "required": true
+    },
+    {
+     "key": "window",
+     "label": "Conversion window",
+     "type": "chips",
+     "options": [
+      "Same session",
+      "24 hours",
+      "7 days",
+      "30 days"
+     ],
+     "default": "7 days"
+    },
+    {
+     "key": "order",
+     "label": "Step order",
+     "type": "chips",
+     "options": [
+      "Strict order",
+      "Any order"
+     ],
+     "default": "Strict order"
+    }
+   ],
+   "prompt": "Write a funnel query for the steps {steps} with a {window} window and {order} matching, in the profile's dialect. Quote with the full query, a kv explaining how each step is attributed (first occurrence, dedupe, window), a table 'Output' (Step | Users | Conversion from previous | Conversion from first), and a callout on user-level versus event-level funnels.",
+   "shape": "quote, kv, table, callout",
+   "button": "Write funnel",
+   "loading": "Stacking steps…"
+  },
+  {
+   "id": "window",
+   "title": "Window function coach",
+   "subtitle": "Running totals, ranks, gaps, lags",
+   "emoji": "🪟",
+   "inputs": [
+    {
+     "key": "task",
+     "label": "What you need",
+     "type": "text",
+     "placeholder": "previous order date per customer and days since",
+     "required": true
+    }
+   ],
+   "prompt": "Solve '{task}' with window functions in the profile's dialect. Quote with the query, a table 'Anatomy' (Clause | What it does here | Common mistake), text explaining PARTITION BY versus GROUP BY for this case in 3 sentences, and bullets of 3 variations (different frame, ties, NULL handling).",
+   "shape": "quote, table, text, bullets",
+   "button": "Coach me",
+   "loading": "Framing rows…"
+  },
+  {
+   "id": "check",
+   "title": "Sanity-check my query",
+   "subtitle": "Fan-outs, NULLs, double counts",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "sql",
+     "label": "Paste your query",
+     "type": "longtext",
+     "placeholder": "SELECT u.plan, COUNT(*) FROM users u JOIN orders o ON o.user_id = u.id GROUP BY 1",
+     "required": true
+    }
+   ],
+   "prompt": "Review for correctness, not performance: {sql}. Table 'Findings' (Clause | Issue (fan-out join, NULL in NOT IN, COUNT(*) vs COUNT DISTINCT, timezone, date boundary, filter after outer join) | Impact | Fix), a quote with the corrected query, a checklist of reconciliation queries that prove the numbers, and a callout on the single most likely wrong number this query produces today.",
+   "shape": "table, quote, checklist, callout",
+   "button": "Check query",
+   "loading": "Hunting bugs…"
+  },
+  {
+   "id": "spine",
+   "title": "Dates & gaps",
+   "subtitle": "Date spines, fill-forward, period-over-period",
+   "emoji": "🦴",
+   "inputs": [
+    {
+     "key": "need",
+     "label": "Pattern",
+     "type": "chips",
+     "options": [
+      "Date spine with zeros",
+      "Fill forward missing values",
+      "Period-over-period change",
+      "Rolling 7 and 28 day"
+     ],
+     "default": "Date spine with zeros"
+    },
+    {
+     "key": "table",
+     "label": "Table and date column",
+     "type": "text",
+     "placeholder": "orders.created_at"
+    }
+   ],
+   "prompt": "Write the '{need}' pattern for {table} in the profile's dialect and timezone. Quote with the query, steps explaining why a plain GROUP BY fails here, a table 'Sample output' with 5 rows, and a callout on week starts, timezone conversion and daylight-saving edges.",
+   "shape": "quote, steps, table, callout",
+   "button": "Write pattern",
+   "loading": "Generating dates…"
+  }
+ ]
+}

@@ -1,0 +1,200 @@
+{
+ "id": "passage_gym",
+ "name": "Passage Gym",
+ "tagline": "Reading comprehension drills for SAT, ACT, GRE and IELTS",
+ "category": "Education",
+ "colors": [
+  "#5D4037",
+  "#26A69A",
+  "#FFA000"
+ ],
+ "icon": "book",
+ "about": "Passage Gym turns any passage into exam-style questions for your test, teaches the reading strategy each question type needs, drills vocabulary in context and checks your reading speed against the test's real pace.",
+ "persona": "You are a reading-skills coach for standardised tests: you show where the answer lives in the text, name the trap in every wrong option, and build speed without skimming into guesses.",
+ "onboarding": {
+  "title": "Read faster, miss less",
+  "subtitle": "Your test sets the passage style, question types and pace.",
+  "bullets": [
+   "Any passage into exam questions",
+   "Strategy per question type",
+   "Speed and pacing drills"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "test",
+   "label": "Test",
+   "type": "chips",
+   "options": [
+    "SAT",
+    "ACT",
+    "GRE",
+    "IELTS",
+    "TOEFL",
+    "LSAT",
+    "Other"
+   ]
+  },
+  {
+   "key": "goal",
+   "label": "Goal",
+   "type": "text",
+   "placeholder": "stop losing marks on inference questions"
+  }
+ ],
+ "tools": [
+  {
+   "id": "make",
+   "title": "Passage → questions",
+   "subtitle": "Paste anything, get exam-style questions",
+   "emoji": "📄",
+   "inputs": [
+    {
+     "key": "passage",
+     "label": "Paste a passage",
+     "type": "longtext",
+     "placeholder": "paste 200–600 words from an article, textbook or novel…",
+     "required": true
+    },
+    {
+     "key": "n",
+     "label": "Questions",
+     "type": "chips",
+     "options": [
+      "4",
+      "6",
+      "8"
+     ],
+     "default": "6"
+    }
+   ],
+   "prompt": "Write {n} questions in the profile test's real style on this passage: {passage}. Cards (question with lettered options, meta = question type), a table (No. | Answer | Sentence that proves it | Trap in the best distractor), and a callout on the time this passage should take on the profile's test.",
+   "shape": "cards, table, callout",
+   "button": "Make questions",
+   "loading": "Reading closely…"
+  },
+  {
+   "id": "generate",
+   "title": "Fresh practice passage",
+   "subtitle": "Original passage in your test's style",
+   "emoji": "🆕",
+   "inputs": [
+    {
+     "key": "genre",
+     "label": "Genre",
+     "type": "chips",
+     "options": [
+      "Science",
+      "Social science",
+      "Humanities",
+      "Literary fiction",
+      "Historical document",
+      "Paired passages"
+     ],
+     "default": "Science"
+    },
+    {
+     "key": "length",
+     "label": "Length",
+     "type": "chips",
+     "options": [
+      "Short (200 words)",
+      "Medium (400 words)",
+      "Long (700 words)"
+     ],
+     "default": "Medium (400 words)"
+    }
+   ],
+   "prompt": "Write an original {genre} passage of {length} in the style the profile's test uses as a text section, then 5 exam-format questions as cards (question with options, meta = type), a table (No. | Answer | Evidence location), and bullets of 4 vocabulary-in-context words from the passage with their meaning here.",
+   "shape": "text, cards, table, bullets",
+   "button": "Generate",
+   "loading": "Writing the passage…"
+  },
+  {
+   "id": "strategy",
+   "title": "Question-type strategy",
+   "subtitle": "Method, kill rules, worked example",
+   "emoji": "🧭",
+   "inputs": [
+    {
+     "key": "qtype",
+     "label": "Question type",
+     "type": "chips",
+     "options": [
+      "Main idea",
+      "Inference",
+      "Vocabulary in context",
+      "Function / purpose",
+      "Author's tone",
+      "Evidence support",
+      "Paired passages"
+     ],
+     "default": "Inference"
+    }
+   ],
+   "prompt": "Coach {qtype} questions for the profile's test: steps for the method (what to read first, what to underline, how to predict before looking at options), a table (Wrong-answer pattern | How it looks | Kill rule), a text worked example with a 120-word mini-passage and one question, and a quote with a one-line reminder to use in the exam.",
+   "shape": "steps, table, text, quote",
+   "button": "Coach me",
+   "loading": "Underlining…"
+  },
+  {
+   "id": "speed",
+   "title": "Reading speed check",
+   "subtitle": "WPM vs what your test demands",
+   "emoji": "⏱️",
+   "inputs": [
+    {
+     "key": "words",
+     "label": "Words in what you just read",
+     "type": "number",
+     "placeholder": "450"
+    },
+    {
+     "key": "seconds",
+     "label": "Seconds it took",
+     "type": "number",
+     "placeholder": "180"
+    },
+    {
+     "key": "understood",
+     "label": "Understanding",
+     "type": "chips",
+     "options": [
+      "Got it all",
+      "Got the gist",
+      "Lost the thread"
+     ],
+     "default": "Got the gist"
+    }
+   ],
+   "prompt": "Reading speed: {words} words in {seconds} seconds with understanding '{understood}'. Give kv (words per minute, target WPM for the profile's test, gap), a table (Test | Passage length | Questions | Minutes | Required WPM) comparing common tests, steps for a 2-week speed programme with daily drills, and a callout on when faster reading starts costing accuracy.",
+   "shape": "kv, table, steps, callout",
+   "button": "Check speed",
+   "loading": "Timing you…"
+  },
+  {
+   "id": "explain",
+   "title": "Explain a missed question",
+   "subtitle": "Where the answer lived and why you missed it",
+   "emoji": "🔎",
+   "inputs": [
+    {
+     "key": "q",
+     "label": "Question, extract, options and answers",
+     "type": "longtext",
+     "placeholder": "paste the passage extract, question, options, your answer and the correct answer…",
+     "required": true
+    }
+   ],
+   "prompt": "Explain this missed question: {q}. Text on exactly where in the extract the answer is proven, a table (Option | Why right or wrong | Trap type), bullets on the reading habit that led to the miss, and a quote with the rule to apply next time.",
+   "shape": "text, table, bullets, quote",
+   "button": "Explain",
+   "loading": "Tracing evidence…"
+  }
+ ]
+}

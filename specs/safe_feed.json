@@ -1,0 +1,226 @@
+{
+ "id": "safe_feed",
+ "name": "Safe Feed",
+ "tagline": "Social media, group chats and strangers — handled calmly",
+ "category": "Parenting",
+ "colors": [
+  "#00695C",
+  "#EF6C00",
+  "#3949AB"
+ ],
+ "icon": "shield",
+ "about": "Safe Feed helps parents get a child ready for social media, lock down privacy settings platform by platform, respond to cyberbullying or a scary message, and defuse group-chat drama.",
+ "persona": "You are an online-safety educator who has sat with hundreds of families: practical, non-judgemental, clear about when to involve the school or police, and never in favour of secret surveillance.",
+ "onboarding": {
+  "title": "Online, and OK",
+  "subtitle": "Tell us your child's age and platforms; we'll make the settings and the conversations concrete.",
+  "bullets": [
+   "Platform-by-platform settings",
+   "Cyberbullying response plan",
+   "Group-chat drama, defused"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "child",
+   "label": "Child (name, age)",
+   "type": "text",
+   "placeholder": "Priya, 12"
+  },
+  {
+   "key": "platforms",
+   "label": "Platforms they use or want",
+   "type": "chips",
+   "options": [
+    "YouTube",
+    "TikTok",
+    "Instagram",
+    "Snapchat",
+    "Discord",
+    "WhatsApp",
+    "Roblox",
+    "BeReal"
+   ],
+   "multi": true
+  },
+  {
+   "key": "country",
+   "label": "Country",
+   "type": "chips",
+   "options": [
+    "UK",
+    "US",
+    "Canada",
+    "Australia",
+    "India",
+    "Other"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "ready",
+   "title": "Ready for this app?",
+   "subtitle": "Readiness + the rules",
+   "emoji": "✅",
+   "inputs": [
+    {
+     "key": "platform",
+     "label": "Platform",
+     "type": "chips",
+     "options": [
+      "TikTok",
+      "Instagram",
+      "Snapchat",
+      "Discord",
+      "WhatsApp",
+      "YouTube",
+      "Roblox",
+      "BeReal"
+     ],
+     "default": "Instagram"
+    },
+    {
+     "key": "context",
+     "label": "Why now, and your worries",
+     "type": "longtext",
+     "placeholder": "best friend is on it, worried about DMs from strangers",
+     "required": true
+    }
+   ],
+   "prompt": "Assess whether the profile's child is ready for {platform}. Context: {context}. Sections: a kv (minimum age, what the platform actually exposes kids to, private by default?, DM controls, disappearing content?), a table (Readiness sign | Yes/Not yet | How to tell), a checklist of the conditions for a yes, and a quote with a two-sentence answer for the child whichever way it goes.",
+   "shape": "kv, table, checklist, quote",
+   "button": "Assess",
+   "loading": "Scrolling…"
+  },
+  {
+   "id": "settings",
+   "title": "Lock down settings",
+   "subtitle": "Step-by-step per platform",
+   "emoji": "🔒",
+   "inputs": [
+    {
+     "key": "platform",
+     "label": "Platform",
+     "type": "chips",
+     "options": [
+      "TikTok",
+      "Instagram",
+      "Snapchat",
+      "Discord",
+      "WhatsApp",
+      "YouTube",
+      "Roblox"
+     ],
+     "default": "TikTok"
+    },
+    {
+     "key": "device",
+     "label": "On",
+     "type": "chips",
+     "options": [
+      "iPhone",
+      "Android",
+      "Console",
+      "Browser"
+     ],
+     "default": "Android"
+    }
+   ],
+   "prompt": "Walk a parent through privacy and safety settings for {platform} on {device} for a child of the profile's age. Sections: steps in menu order (name each toggle and the value to set), a checklist of settings to re-check monthly, a callout on settings that reset after app updates or account changes, and bullets on the settings the child will most want to undo and how to talk about it.",
+   "shape": "steps, checklist, callout, bullets",
+   "button": "Show me",
+   "loading": "Toggling…"
+  },
+  {
+   "id": "incident",
+   "title": "Something happened",
+   "subtitle": "Bullying, threats, exposure",
+   "emoji": "🚨",
+   "inputs": [
+    {
+     "key": "what",
+     "label": "What happened",
+     "type": "chips",
+     "options": [
+      "Nasty messages",
+      "Exclusion from group",
+      "Threats",
+      "Shared photo of them",
+      "Sexual message from adult",
+      "Saw disturbing content",
+      "Scam or pressure"
+     ],
+     "default": "Nasty messages"
+    },
+    {
+     "key": "details",
+     "label": "What you know so far",
+     "type": "longtext",
+     "placeholder": "screenshots in a class group chat, started Tuesday, names of two kids",
+     "required": true
+    }
+   ],
+   "prompt": "A parent reports: {what}. Details: {details}. Sections: a callout first on whether this needs the police, the platform or the school today and why, steps for the next 24 hours (preserve evidence, don't delete, what to report where), a quote with what to say to the child in the first two minutes, bullets on what NOT to do (confronting other parents, taking the phone away as punishment), and a kv of the reporting routes and hotlines for the profile's country.",
+   "shape": "callout, steps, quote, bullets, kv",
+   "button": "Help now",
+   "loading": "On it…"
+  },
+  {
+   "id": "drama",
+   "title": "Group-chat drama",
+   "subtitle": "Friend fallout, screenshots, pile-ons",
+   "emoji": "💬",
+   "inputs": [
+    {
+     "key": "story",
+     "label": "What's going on",
+     "type": "longtext",
+     "placeholder": "left out of a new group, someone screenshotted her message",
+     "required": true
+    },
+    {
+     "key": "role",
+     "label": "Your child is",
+     "type": "chips",
+     "options": [
+      "The target",
+      "A bystander",
+      "The one who sent it",
+      "Not sure"
+     ],
+     "default": "The target"
+    }
+   ],
+   "prompt": "Group-chat situation: {story}. The child is {role}. Sections: text explaining the dynamics in plain language, a quote with a conversation opener that doesn't lead with blame, steps to help the child decide (leave, mute, respond, report), bullets of exact messages the child could send if they choose to respond, and a callout on repair if the child was the one in the wrong.",
+   "shape": "text, quote, steps, bullets, callout",
+   "button": "Untangle",
+   "loading": "Reading the thread…"
+  },
+  {
+   "id": "stranger",
+   "title": "Who is this account?",
+   "subtitle": "Friend requests and DMs",
+   "emoji": "🕵️",
+   "inputs": [
+    {
+     "key": "account",
+     "label": "Describe the account or paste the messages",
+     "type": "longtext",
+     "placeholder": "says he's 14, no mutual friends, asks to move to Snapchat, sends Robux gifts",
+     "required": true
+    }
+   ],
+   "prompt": "Assess the account and messages: {account}. Sections: a table (Red flag | Present? | Why it matters), a kv verdict (risk level, likely pattern such as grooming, scam or peer, next action), steps to check together with the child (mutual friends, reverse image search, account age), and a quote with what to say to the child so they'll keep telling you next time.",
+   "shape": "table, kv, steps, quote",
+   "button": "Check account",
+   "loading": "Looking closer…"
+  }
+ ],
+ "disclaimer": "General online-safety guidance, not legal advice. If a child is in immediate danger contact emergency services; for sexual exploitation use your national reporting hotline."
+}

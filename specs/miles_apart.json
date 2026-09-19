@@ -1,0 +1,212 @@
+{
+ "id": "miles_apart",
+ "name": "Miles Apart",
+ "tagline": "Long-distance love that feels close",
+ "category": "Lifestyle",
+ "colors": [
+  "#1E88E5",
+  "#F4511E",
+  "#8E24AA"
+ ],
+ "icon": "plane",
+ "about": "Miles Apart keeps long-distance couples connected: finds the hours you're both awake, plans virtual dates and visits worth the airfare, and maps the path to living in the same place.",
+ "persona": "You are an upbeat long-distance-relationship coach who has done it yourself: practical about time zones and budgets, honest about the hard parts, never saccharine.",
+ "onboarding": {
+  "title": "Closer than the map says",
+  "subtitle": "Tell us where you both are and how often you can visit.",
+  "bullets": [
+   "Overlap hours across time zones",
+   "Virtual dates beyond video calls",
+   "A real plan to close the gap"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "partner",
+   "label": "Partner's name",
+   "type": "text",
+   "placeholder": "Priya"
+  },
+  {
+   "key": "cities",
+   "label": "Your city → their city",
+   "type": "text",
+   "placeholder": "Manchester → Toronto"
+  },
+  {
+   "key": "visits",
+   "label": "We see each other",
+   "type": "chips",
+   "options": [
+    "Every few weeks",
+    "Every 2–3 months",
+    "Twice a year",
+    "Rarely"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "overlap",
+   "title": "Find our hours",
+   "subtitle": "When we're both awake and free",
+   "emoji": "🕰️",
+   "inputs": [
+    {
+     "key": "mine",
+     "label": "My typical day",
+     "type": "text",
+     "placeholder": "work 9–6, gym 7pm, bed 11:30"
+    },
+    {
+     "key": "theirs",
+     "label": "Their typical day",
+     "type": "text",
+     "placeholder": "shifts 7–3, free evenings, bed 10"
+    }
+   ],
+   "prompt": "Using the profile cities for time zones, my day: {mine}; their day: {theirs}. Produce a table (My local time | Their local time | Both free? | Best use) for each waking hour of a typical weekday, a kv (Golden window weekdays | Golden window weekends | Overlap hours per week | Who is losing sleep), bullets of the best weekend windows, and a callout on the daylight-saving dates that will shift this schedule.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Find overlap",
+   "loading": "Syncing clocks…"
+  },
+  {
+   "id": "vdate",
+   "title": "Plan a virtual date",
+   "subtitle": "Better than 'so how was your day'",
+   "emoji": "🎬",
+   "inputs": [
+    {
+     "key": "vibe",
+     "label": "Vibe",
+     "type": "chips",
+     "options": [
+      "Playful",
+      "Romantic",
+      "Cook together",
+      "Deep talk",
+      "Lazy Sunday"
+     ],
+     "default": "Playful"
+    },
+    {
+     "key": "length",
+     "label": "Minutes",
+     "type": "number",
+     "placeholder": "90"
+    },
+    {
+     "key": "budget",
+     "label": "Budget",
+     "type": "text",
+     "placeholder": "under 20"
+    }
+   ],
+   "prompt": "Design 4 virtual dates that are {vibe}, about {length} minutes, budget {budget}, as cards (meta = minutes · cost · prep needed). Then steps to run the best one from opening message to goodnight, and a checklist of what each person sets up beforehand.",
+   "shape": "cards, steps, checklist",
+   "button": "Plan the date",
+   "loading": "Setting the scene…"
+  },
+  {
+   "id": "visit",
+   "title": "Make the visit count",
+   "subtitle": "Plan the days you actually get",
+   "emoji": "🧳",
+   "inputs": [
+    {
+     "key": "days",
+     "label": "Days together",
+     "type": "number",
+     "placeholder": "4"
+    },
+    {
+     "key": "where",
+     "label": "Where",
+     "type": "chips",
+     "options": [
+      "My place",
+      "Their place",
+      "Meet in the middle"
+     ],
+     "default": "Their place"
+    },
+    {
+     "key": "wishes",
+     "label": "We both want to",
+     "type": "text",
+     "placeholder": "one proper dinner, meet their friends, do nothing one day"
+    }
+   ],
+   "prompt": "Plan {days} days at {where} with these wishes: {wishes}. Table (Day | Morning | Afternoon | Evening | Alone time?), a callout on the re-entry wobble (first hours awkward, last day sad) and how to handle both, bullets of 3 conversations worth having in person rather than on a call, and a checklist for the goodbye day.",
+   "shape": "table, callout, bullets, checklist",
+   "button": "Plan the visit",
+   "loading": "Packing…"
+  },
+  {
+   "id": "drift",
+   "title": "We're drifting",
+   "subtitle": "When calls feel like a chore",
+   "emoji": "🌫️",
+   "inputs": [
+    {
+     "key": "whats_up",
+     "label": "What's going on",
+     "type": "longtext",
+     "placeholder": "calls got short, they seem distracted, I'm resentful about always booking flights",
+     "required": true
+    },
+    {
+     "key": "want",
+     "label": "I want to",
+     "type": "chips",
+     "options": [
+      "Raise it gently",
+      "Understand what's happening",
+      "Decide if this still works"
+     ],
+     "default": "Raise it gently"
+    }
+   ],
+   "prompt": "Situation: {whats_up}. Goal: {want}. Text naming the likely dynamic in plain words (2–3 sentences, no blame), a quote with an opening message or line to send tonight, bullets of what to listen for in their reply, and a callout on the difference between a rough patch and a sign to reconsider.",
+   "shape": "text, quote, bullets, callout",
+   "button": "Help me",
+   "loading": "Thinking it through…"
+  },
+  {
+   "id": "close",
+   "title": "Close the distance",
+   "subtitle": "The plan to end up in one place",
+   "emoji": "🗺️",
+   "inputs": [
+    {
+     "key": "horizon",
+     "label": "Target",
+     "type": "chips",
+     "options": [
+      "6 months",
+      "1 year",
+      "2 years",
+      "Not sure"
+     ],
+     "default": "1 year"
+    },
+    {
+     "key": "blockers",
+     "label": "What's in the way",
+     "type": "text",
+     "placeholder": "her visa, my lease, whose job moves"
+    }
+   ],
+   "prompt": "Build a closing-the-gap plan over {horizon} given blockers: {blockers}. Table (Milestone | Who | By when | Depends on), steps for the next 30 days, a kv of the honest questions each partner must answer alone first, and a callout that visa and employment rules vary and need official checking.",
+   "shape": "table, steps, kv, callout",
+   "button": "Build the plan",
+   "loading": "Plotting the route…"
+  }
+ ],
+ "disclaimer": "Relationship coaching only; immigration and employment rules must be checked with official sources."
+}

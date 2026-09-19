@@ -1,0 +1,196 @@
+{
+ "id": "hook_line",
+ "name": "Hook Line",
+ "tagline": "React components, hooks and re-renders, sorted",
+ "category": "Tools",
+ "colors": [
+  "#0E7490",
+  "#F97316",
+  "#7C3AED"
+ ],
+ "icon": "spark",
+ "about": "Hook Line writes React components and custom hooks in your conventions, explains why things re-render, picks state management for your app and checks your JSX for accessibility.",
+ "persona": "You are a senior React engineer: pragmatic, allergic to premature abstraction, and you always show the code first and the reasoning second.",
+ "onboarding": {
+  "title": "Ship components, not spinners",
+  "subtitle": "Tell us your stack so every snippet matches your codebase.",
+  "bullets": [
+   "Components and hooks in your conventions",
+   "Re-render and performance diagnosis",
+   "Accessibility checks on JSX"
+  ]
+ },
+ "profile": [
+  {
+   "key": "lang",
+   "label": "Language",
+   "type": "chips",
+   "options": [
+    "TypeScript",
+    "JavaScript"
+   ],
+   "default": "TypeScript"
+  },
+  {
+   "key": "framework",
+   "label": "Framework",
+   "type": "chips",
+   "options": [
+    "Next.js",
+    "Vite SPA",
+    "Remix",
+    "React Native",
+    "Other"
+   ]
+  },
+  {
+   "key": "styling",
+   "label": "Styling",
+   "type": "chips",
+   "options": [
+    "Tailwind",
+    "CSS Modules",
+    "styled-components",
+    "Plain CSS",
+    "MUI/Chakra"
+   ]
+  },
+  {
+   "key": "conventions",
+   "label": "Conventions",
+   "type": "text",
+   "placeholder": "named exports, arrow components, no barrel files"
+  }
+ ],
+ "tools": [
+  {
+   "id": "build",
+   "title": "Build a component",
+   "subtitle": "Describe it (or snap a mockup) → typed code",
+   "emoji": "🧩",
+   "inputs": [
+    {
+     "key": "spec",
+     "label": "What it should do",
+     "type": "longtext",
+     "placeholder": "a paginated table with sortable columns, a loading state and an empty state",
+     "required": true
+    },
+    {
+     "key": "photo",
+     "label": "Mockup or screenshot (optional)",
+     "type": "photo"
+    },
+    {
+     "key": "props",
+     "label": "Props it takes",
+     "type": "text",
+     "placeholder": "rows, onSort, pageSize"
+    }
+   ],
+   "prompt": "Write a React component for: {spec}, using the mockup photo for layout if one is attached. Props: {props}. Use the profile language, framework and styling. Sections: a quote containing the complete component code (typed props, accessible markup, no unused imports), a table of props (Prop | Type | Required | Description), bullets on the decisions made and the edge cases handled, and a callout on what to test first.",
+   "shape": "quote, table, bullets, callout",
+   "button": "Build it",
+   "loading": "Rendering…"
+  },
+  {
+   "id": "rerender",
+   "title": "Why does it re-render?",
+   "subtitle": "Paste a component, get the culprit",
+   "emoji": "🔁",
+   "inputs": [
+    {
+     "key": "code",
+     "label": "Component code",
+     "type": "longtext",
+     "placeholder": "paste the component and any hooks it uses",
+     "required": true
+    },
+    {
+     "key": "symptom",
+     "label": "What you're seeing",
+     "type": "text",
+     "placeholder": "the list lags when I type in the search box"
+    }
+   ],
+   "prompt": "Diagnose rendering behaviour in: {code}. Symptom: {symptom}. Sections: text naming the root cause in two sentences, a table (Cause | Where in the code | Fix | Impact high/med/low), a quote with the corrected code for the single highest-impact fix, and a callout on when NOT to reach for useMemo or useCallback.",
+   "shape": "text, table, quote, callout",
+   "button": "Diagnose",
+   "loading": "Profiling…"
+  },
+  {
+   "id": "hook",
+   "title": "Extract a custom hook",
+   "subtitle": "Turn effect soup into a reusable hook",
+   "emoji": "🪝",
+   "inputs": [
+    {
+     "key": "code",
+     "label": "Code to refactor",
+     "type": "longtext",
+     "placeholder": "the useEffect/useState tangle from a component",
+     "required": true
+    },
+    {
+     "key": "name",
+     "label": "Hook name",
+     "type": "text",
+     "placeholder": "useDebouncedSearch"
+    }
+   ],
+   "prompt": "Extract a custom hook called {name} from: {code}. Sections: a quote with the hook (typed parameters and return value, cleanup handled, stale-closure safe) followed by the component after adopting it, steps for the migration, bullets on what changed and why, and a callout on how to unit-test the hook in isolation.",
+   "shape": "quote, steps, bullets, callout",
+   "button": "Extract",
+   "loading": "Hooking…"
+  },
+  {
+   "id": "state",
+   "title": "Pick state management",
+   "subtitle": "Context, Zustand, Redux or server state?",
+   "emoji": "🗂️",
+   "inputs": [
+    {
+     "key": "app",
+     "label": "Describe the app and its state",
+     "type": "longtext",
+     "placeholder": "dashboard with auth, filters shared across pages, live prices via websocket",
+     "required": true
+    },
+    {
+     "key": "team",
+     "label": "Team size",
+     "type": "chips",
+     "options": [
+      "Solo",
+      "2–5",
+      "6+"
+     ],
+     "default": "2–5"
+    }
+   ],
+   "prompt": "Recommend state management for: {app}, team size {team}, given the profile framework. Sections: a table (Piece of state | Category: server/URL/local/global | Recommended tool | Why), cards for the top 2 overall options (meta = bundle size · learning curve), a quote with a minimal store or provider setup for the winner, and a callout on the most common mistake with that choice.",
+   "shape": "table, cards, quote, callout",
+   "button": "Recommend",
+   "loading": "Weighing options…"
+  },
+  {
+   "id": "a11y",
+   "title": "Accessibility check",
+   "subtitle": "JSX → what screen readers will hit",
+   "emoji": "♿",
+   "inputs": [
+    {
+     "key": "jsx",
+     "label": "JSX to check",
+     "type": "longtext",
+     "placeholder": "paste a form, modal, menu or list",
+     "required": true
+    }
+   ],
+   "prompt": "Audit the accessibility of: {jsx}. Sections: a table (Issue | Element | WCAG criterion | Severity), a quote with the corrected JSX, a checklist of keyboard interactions to verify by hand, and bullets on which ARIA attributes were unnecessary because native elements already cover them.",
+   "shape": "table, quote, checklist, bullets",
+   "button": "Audit",
+   "loading": "Reading the DOM…"
+  }
+ ]
+}

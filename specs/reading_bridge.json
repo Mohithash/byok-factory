@@ -1,0 +1,221 @@
+{
+ "id": "reading_bridge",
+ "name": "Reading Bridge",
+ "tagline": "Dyslexia-friendly reading practice, ten minutes a night",
+ "category": "Education",
+ "colors": [
+  "#D84315",
+  "#0097A7",
+  "#7CB342"
+ ],
+ "icon": "book",
+ "about": "Reading Bridge gives parents of dyslexic and struggling readers structured-literacy practice at home: phonics-pattern drills, decodable stories, book picks that match reading level and real interests, and assistive-tech setup.",
+ "persona": "You are a structured-literacy tutor (Orton-Gillingham trained) who coaches parents: explicit, multisensory, patient, and firm that ten minutes daily beats an hour on Sunday.",
+ "onboarding": {
+  "title": "Reading, one pattern at a time",
+  "subtitle": "Tell us your child's age, level and interests.",
+  "bullets": [
+   "Phonics drills for one pattern",
+   "Decodable stories they'll like",
+   "Books by level and interest"
+  ]
+ },
+ "profile": [
+  {
+   "key": "child",
+   "label": "Child (name, age)",
+   "type": "text",
+   "placeholder": "Zara, 8"
+  },
+  {
+   "key": "level",
+   "label": "Reads roughly like a",
+   "type": "chips",
+   "options": [
+    "Pre-reader",
+    "5-year-old",
+    "6-year-old",
+    "7-year-old",
+    "8-year-old",
+    "9–10-year-old",
+    "11+"
+   ]
+  },
+  {
+   "key": "interests",
+   "label": "Interests",
+   "type": "text",
+   "placeholder": "horses, Minecraft, gross facts"
+  },
+  {
+   "key": "dx",
+   "label": "Diagnosis",
+   "type": "chips",
+   "options": [
+    "Dyslexia",
+    "Suspected",
+    "Dysgraphia",
+    "Dyscalculia",
+    "None"
+   ],
+   "multi": true
+  }
+ ],
+ "tools": [
+  {
+   "id": "drill",
+   "title": "Tonight's drill",
+   "subtitle": "One pattern, multisensory",
+   "emoji": "🔤",
+   "inputs": [
+    {
+     "key": "pattern",
+     "label": "Pattern to work on",
+     "type": "text",
+     "placeholder": "silent e, 'ch' vs 'sh', -tion",
+     "required": true
+    },
+    {
+     "key": "minutes",
+     "label": "Minutes",
+     "type": "chips",
+     "options": [
+      "5",
+      "10",
+      "15"
+     ],
+     "default": "10"
+    }
+   ],
+   "prompt": "Plan a {minutes}-minute multisensory session on {pattern} for the profile's child. Sections: steps (review, teach with the rule in child words, sand or air writing, word reading, dictation) with minutes for each, a table (Word list | Read | Spell | Nonsense words), a kv with the rule stated exactly as the child should say it, and a callout on the error to expect and how to correct it without saying 'sound it out'.",
+   "shape": "steps, table, kv, callout",
+   "button": "Plan session",
+   "loading": "Sorting sounds…"
+  },
+  {
+   "id": "story",
+   "title": "Decodable story",
+   "subtitle": "Only patterns they know",
+   "emoji": "📖",
+   "inputs": [
+    {
+     "key": "known",
+     "label": "Patterns they've learned",
+     "type": "longtext",
+     "placeholder": "CVC, digraphs sh/ch/th, silent e, -ing",
+     "required": true
+    },
+    {
+     "key": "length",
+     "label": "Length",
+     "type": "chips",
+     "options": [
+      "80 words",
+      "150 words",
+      "250 words"
+     ],
+     "default": "150 words"
+    }
+   ],
+   "prompt": "Write a decodable story of about {length} for the profile's child using ONLY these patterns plus a few listed sight words: {known}. Weave in the profile's interests. Sections: text with the story (short sentences, generous line breaks), a kv of the sight words used, bullets with 3 comprehension questions and one 'find the word with the pattern' task, and a callout on how to handle it if they stumble.",
+   "shape": "text, kv, bullets, callout",
+   "button": "Write story",
+   "loading": "Once upon a…"
+  },
+  {
+   "id": "books",
+   "title": "Book picks",
+   "subtitle": "Right level, real interest",
+   "emoji": "📚",
+   "inputs": [
+    {
+     "key": "format",
+     "label": "Format",
+     "type": "chips",
+     "options": [
+      "Print",
+      "Audiobook",
+      "Graphic novel",
+      "Hi-lo (high interest, low level)",
+      "Any"
+     ],
+     "default": "Any"
+    }
+   ],
+   "prompt": "Recommend 8 {format} books for the profile's child matching the reading level AND the interests (not one or the other). Sections: cards (title and author, meta = reading level · pages · why they'll like it), bullets on hi-lo publishers and dyslexia-friendly fonts, and a callout on why audiobooks count as reading.",
+   "shape": "cards, bullets, callout",
+   "button": "Find books",
+   "loading": "Browsing shelves…"
+  },
+  {
+   "id": "explain",
+   "title": "Explain it to my child",
+   "subtitle": "Dyslexia, in their words",
+   "emoji": "💬",
+   "inputs": [
+    {
+     "key": "age",
+     "label": "Age band",
+     "type": "chips",
+     "options": [
+      "5–7",
+      "8–10",
+      "11–13",
+      "14+"
+     ],
+     "default": "8–10"
+    },
+    {
+     "key": "feeling",
+     "label": "What they've said",
+     "type": "text",
+     "placeholder": "says she's stupid, hides her book"
+    }
+   ],
+   "prompt": "Help a parent explain the profile's diagnosis to a child aged {age} who has said: {feeling}. Sections: a quote with a 2-minute script in plain, honest words (brain wiring, not intelligence; famous examples only if asked), bullets of questions the child might ask with answers, a kv of strengths to name that are typical for this profile, and a callout on phrases to avoid.",
+   "shape": "quote, bullets, kv, callout",
+   "button": "Get script",
+   "loading": "Choosing words…"
+  },
+  {
+   "id": "tech",
+   "title": "Assistive tech setup",
+   "subtitle": "Text-to-speech, dictation, fonts",
+   "emoji": "🎧",
+   "inputs": [
+    {
+     "key": "device",
+     "label": "Device",
+     "type": "chips",
+     "options": [
+      "iPad",
+      "Android tablet",
+      "Chromebook",
+      "Windows laptop",
+      "Mac",
+      "Phone"
+     ],
+     "default": "Chromebook"
+    },
+    {
+     "key": "need",
+     "label": "Need",
+     "type": "chips",
+     "options": [
+      "Reading text aloud",
+      "Writing by dictation",
+      "Spelling support",
+      "Audiobooks",
+      "All"
+     ],
+     "default": "All"
+    }
+   ],
+   "prompt": "Set up assistive tech for '{need}' on a {device} for the profile's child. Sections: steps for the built-in features (exact settings paths), a table (Tool | Free or paid | Best for | Set-up minutes), a checklist to hand the teacher so the same tools are allowed in class, and a callout on getting the child to actually use it without embarrassment.",
+   "shape": "steps, table, checklist, callout",
+   "button": "Set up",
+   "loading": "Switching on…"
+  }
+ ],
+ "disclaimer": "Home practice support, not a substitute for a formal assessment or specialist tuition."
+}

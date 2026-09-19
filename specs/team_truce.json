@@ -1,0 +1,176 @@
+{
+ "id": "team_truce",
+ "name": "Team Truce",
+ "tagline": "Untangle conflict between people on your team",
+ "category": "Business",
+ "colors": [
+  "#5D4037",
+  "#26C6DA",
+  "#FFCA28"
+ ],
+ "icon": "scale",
+ "about": "Team Truce helps managers untangle conflict between people on their team: map what's really going on, talk to each side, run a mediation that ends in agreements, reset the team afterwards and know when it's an HR matter.",
+ "persona": "You are a workplace mediator: multipartial rather than neutral, curious about the interests behind positions, and clear-eyed about when something is misconduct rather than conflict.",
+ "onboarding": {
+  "title": "Conflict without the drama",
+  "subtitle": "Your team context helps calibrate what's normal.",
+  "bullets": [
+   "Map the real conflict",
+   "Scripts for each side",
+   "Mediations that end in agreements"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "size",
+   "label": "Team size",
+   "type": "number",
+   "placeholder": "9"
+  },
+  {
+   "key": "mode",
+   "label": "Team mode",
+   "type": "chips",
+   "options": [
+    "Co-located",
+    "Hybrid",
+    "Remote"
+   ],
+   "default": "Hybrid"
+  },
+  {
+   "key": "hr",
+   "label": "HR support",
+   "type": "chips",
+   "options": [
+    "Yes",
+    "Limited",
+    "None"
+   ],
+   "default": "Limited"
+  }
+ ],
+ "tools": [
+  {
+   "id": "map",
+   "title": "Map the conflict",
+   "subtitle": "Positions, interests, fears",
+   "emoji": "🗺️",
+   "inputs": [
+    {
+     "key": "story",
+     "label": "What's happening",
+     "type": "longtext",
+     "placeholder": "Ana and Ben stopped talking after the launch; Ben says Ana took credit; Ana says Ben missed deadlines; the team is picking sides",
+     "required": true
+    }
+   ],
+   "prompt": "Map this conflict: {story}. Table (Party | Position | Likely underlying interest | Fear | What they need to hear), text with your read of the type — task, process, relationship or values — and how far it has escalated, bullets of what the manager may have contributed, and a callout on whether anything described crosses into harassment, discrimination or bullying that must go to HR.",
+   "shape": "table, text, bullets, callout",
+   "button": "Map it",
+   "loading": "Hearing both sides…"
+  },
+  {
+   "id": "sides",
+   "title": "Talk to one side",
+   "subtitle": "A one-on-one that doesn't take sides",
+   "emoji": "👤",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Who you're talking to",
+     "type": "text",
+     "placeholder": "Ana",
+     "required": true
+    },
+    {
+     "key": "their",
+     "label": "What you know of their view",
+     "type": "longtext",
+     "placeholder": "feels Ben undermines her in front of the team",
+     "required": true
+    }
+   ],
+   "prompt": "Prep a one-on-one with {who} about the conflict, given: {their}. Steps for a 30-minute conversation, a quote with an opening that doesn't take sides, bullets of 6 questions that move from venting to interests, a kv (what to promise, what not to promise, what to say if they ask what the other person said), and a callout on when to stop and escalate.",
+   "shape": "steps, quote, bullets, kv, callout",
+   "button": "Prep it",
+   "loading": "Staying even…"
+  },
+  {
+   "id": "mediate",
+   "title": "Run a mediation",
+   "subtitle": "Ground rules to agreements",
+   "emoji": "🕊️",
+   "inputs": [
+    {
+     "key": "parties",
+     "label": "Who",
+     "type": "text",
+     "placeholder": "Ana and Ben",
+     "required": true
+    },
+    {
+     "key": "issues",
+     "label": "The issues on the table",
+     "type": "longtext",
+     "placeholder": "credit for the launch; missed deadlines; tone in code reviews",
+     "required": true
+    },
+    {
+     "key": "minutes",
+     "label": "Minutes",
+     "type": "number",
+     "placeholder": "60"
+    }
+   ],
+   "prompt": "Plan a {minutes}-minute mediation between {parties} on: {issues}. Steps with timings (ground rules, each side uninterrupted, reframing, options, agreements), a quote with the ground rules to read aloud, a table (Issue | Possible agreement | How we'll know it's kept), and a callout on what to do if one party refuses or it turns hostile.",
+   "shape": "steps, quote, table, callout",
+   "button": "Plan session",
+   "loading": "Setting the table…"
+  },
+  {
+   "id": "reset",
+   "title": "Reset the team",
+   "subtitle": "Recover the room after a fight",
+   "emoji": "🔄",
+   "inputs": [
+    {
+     "key": "aftermath",
+     "label": "Where the team is now",
+     "type": "longtext",
+     "placeholder": "people still whisper; two juniors are anxious; Ben is quieter",
+     "required": true
+    }
+   ],
+   "prompt": "Plan a team reset after conflict given: {aftermath}, for the profile's team size and mode. Steps for the next 2 weeks (what the manager says in the team meeting, 1:1s to hold, norms to reinstate), a quote with a team-meeting statement under 120 words that acknowledges without airing details, a checklist of signals the team has recovered, and a callout on the mistake of pretending it didn't happen.",
+   "shape": "steps, quote, checklist, callout",
+   "button": "Plan reset",
+   "loading": "Clearing the air…"
+  },
+  {
+   "id": "escalate",
+   "title": "HR or handle it?",
+   "subtitle": "Conflict, or conduct?",
+   "emoji": "🚨",
+   "inputs": [
+    {
+     "key": "facts",
+     "label": "What happened, factually",
+     "type": "longtext",
+     "placeholder": "Ben called Ana 'hysterical' in a meeting; second time; Ana asked me to keep it quiet",
+     "required": true
+    }
+   ],
+   "prompt": "Assess: {facts}. Text with a clear view on whether this is a conflict to mediate or a conduct matter for HR and why, bullets of what the manager must do in the next 24 hours regardless, a quote with what to say to the person who asked for it to be kept quiet, and a callout on record-keeping and the limits of confidentiality a manager can promise.",
+   "shape": "text, bullets, quote, callout",
+   "button": "Assess",
+   "loading": "Checking the line…"
+  }
+ ],
+ "disclaimer": "General management guidance, not legal or HR advice. Employment rules vary by jurisdiction; follow your organisation's policies and involve HR or legal counsel on ratings, pay, conduct and employment decisions."
+}

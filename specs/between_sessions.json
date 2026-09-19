@@ -128,7 +128,7 @@
      "default": "Can do a tiny version"
     }
    ],
-   "prompt": "Build a graded exposure ladder for {fear}, starting from '{start}'. Table (Rung | Situation | Predicted anxiety 0–100 | Safety behaviour to drop | Repeat until), steps for how to run a single exposure (before, during and after ratings), and a callout on when to pause and check with the therapist.",
+   "prompt": "Build a graded exposure ladder for {fear}, starting from '{start}'. Table with exactly 10 rungs ordered easiest to hardest (Rung | Situation | Predicted anxiety 0–100 | Safety behaviour to drop | Repeat until), steps for how to run a single exposure (before, during and after ratings), and a callout on when to pause and check with the therapist.",
    "shape": "table, steps, callout",
    "button": "Build ladder",
    "loading": "Setting the rungs…"

@@ -1,0 +1,201 @@
+{
+ "id": "gather_round",
+ "name": "Gather Round",
+ "tagline": "Start a meetup people keep coming back to",
+ "category": "Social",
+ "colors": [
+  "#E65100",
+  "#0277BD",
+  "#7CB342"
+ ],
+ "icon": "pin",
+ "about": "Gather Round helps you launch and run a recurring meetup — a walking group, language exchange, sketching club, parents' coffee morning, anything — with a six-week launch plan, listings that fill the room, a first-timer welcome script and fixes for flaky RSVPs.",
+ "persona": "You are an experienced community organiser who has started a dozen groups: encouraging, specific, honest that the first six weeks are the hard part, and firm about newcomers feeling safe and included.",
+ "onboarding": {
+  "title": "Find your people, then keep them",
+  "subtitle": "Tell us the group you want to run and where.",
+  "bullets": [
+   "A 6-week launch plan",
+   "Listings that fill the room",
+   "Welcome scripts and no-show fixes"
+  ]
+ },
+ "profile": [
+  {
+   "key": "group",
+   "label": "Your group",
+   "type": "text",
+   "placeholder": "Sunday sketching walks, Bristol"
+  },
+  {
+   "key": "stage",
+   "label": "Stage",
+   "type": "chips",
+   "options": [
+    "Just an idea",
+    "First event planned",
+    "Running, but small",
+    "Running well"
+   ]
+  },
+  {
+   "key": "venue",
+   "label": "Usual venue",
+   "type": "chips",
+   "options": [
+    "Café / pub",
+    "Outdoors",
+    "Library / community hall",
+    "Online",
+    "Rotating"
+   ]
+  },
+  {
+   "key": "size",
+   "label": "Ideal size",
+   "type": "chips",
+   "options": [
+    "4–8",
+    "8–15",
+    "15–30",
+    "30+"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "launch",
+   "title": "Launch plan",
+   "subtitle": "From idea to first six events",
+   "emoji": "🚀",
+   "inputs": [
+    {
+     "key": "first",
+     "label": "Target first-event date",
+     "type": "text",
+     "placeholder": "3 weeks from now"
+    },
+    {
+     "key": "budget",
+     "label": "Budget",
+     "type": "chips",
+     "options": [
+      "Zero",
+      "A little",
+      "Some sponsorship"
+     ],
+     "default": "Zero"
+    }
+   ],
+   "prompt": "Build a launch plan for the group with the first event on {first} and a {budget} budget. Sections: a table (Week | Goal | Actions | Success sign) covering 6 weeks, a checklist of what must be decided before announcing (name, cadence, venue rules, cost, code of conduct), cards for 3 places to find the first members (meta = effort · likely reach), and a callout on the biggest reasons new groups die.",
+   "shape": "table, checklist, cards, callout",
+   "button": "Plan launch",
+   "loading": "Pinning the map…"
+  },
+  {
+   "id": "listing",
+   "title": "Write the listing",
+   "subtitle": "Event copy for every channel",
+   "emoji": "📣",
+   "inputs": [
+    {
+     "key": "details",
+     "label": "Next event details",
+     "type": "text",
+     "placeholder": "Sun 10am, Harbourside, bring a sketchbook",
+     "required": true
+    },
+    {
+     "key": "where",
+     "label": "Posting to",
+     "type": "chips",
+     "options": [
+      "Event platform",
+      "Facebook / community group",
+      "Poster",
+      "WhatsApp broadcast",
+      "All"
+     ],
+     "default": "All"
+    }
+   ],
+   "prompt": "Write listings for: {details}, aimed at {where}. Sections: a quote with a 120-word event description (what, who it's for, what to bring, what happens if it rains), a second quote with a 30-word short version, kv (3 title options, best posting times, keywords or hashtags), and bullets on what puts first-timers off in a listing.",
+   "shape": "quote, kv, bullets",
+   "button": "Write it",
+   "loading": "Spreading the word…"
+  },
+  {
+   "id": "welcome",
+   "title": "First-timer welcome",
+   "subtitle": "The host's first 15 minutes",
+   "emoji": "👋",
+   "inputs": [
+    {
+     "key": "format",
+     "label": "How the session runs",
+     "type": "text",
+     "placeholder": "20 min chat, 90 min drawing, coffee after"
+    }
+   ],
+   "prompt": "The session runs: {format}. Sections: steps for the host's first 15 minutes (greeting, names, pairing newcomers with regulars, explaining the format), a quote with a 60-second welcome speech, bullets of icebreaker questions specific to the group's interest, and a callout on safety and inclusion basics (leaving early is fine, no pressure to share, how to raise a concern).",
+   "shape": "steps, quote, bullets, callout",
+   "button": "Get the script",
+   "loading": "Setting out chairs…"
+  },
+  {
+   "id": "noshow",
+   "title": "Fix flaky RSVPs",
+   "subtitle": "Turn 20 yeses into 15 people",
+   "emoji": "🎈",
+   "inputs": [
+    {
+     "key": "rsvp",
+     "label": "Typical RSVPs",
+     "type": "number",
+     "placeholder": "20"
+    },
+    {
+     "key": "show",
+     "label": "Typical turnout",
+     "type": "number",
+     "placeholder": "6"
+    },
+    {
+     "key": "tried",
+     "label": "What you've tried",
+     "type": "text",
+     "placeholder": "reminder the day before"
+    }
+   ],
+   "prompt": "RSVPs {rsvp}, turnout {show}; tried so far: {tried}. Sections: text explaining the likely reasons for the gap, a table (Tactic | Why it works | Effort | Try when), a quote with a reminder message that raises turnout without nagging, and steps for a 4-event experiment to find what works for this group.",
+   "shape": "text, table, quote, steps",
+   "button": "Fix it",
+   "loading": "Counting chairs…"
+  },
+  {
+   "id": "grow",
+   "title": "Hand over & grow",
+   "subtitle": "Co-hosts, splits and stepping back",
+   "emoji": "🌱",
+   "inputs": [
+    {
+     "key": "goal",
+     "label": "Goal",
+     "type": "chips",
+     "options": [
+      "Recruit co-hosts",
+      "Split into two groups",
+      "Add a second format",
+      "Step back without it dying"
+     ],
+     "default": "Recruit co-hosts"
+    }
+   ],
+   "prompt": "Goal: {goal}. Sections: steps to get there over 8 weeks, cards for the roles to fill (meta = hours/month · skills), a quote with the ask-message to a regular you'd like as a co-host, and a callout on what to write down so the group survives you.",
+   "shape": "steps, cards, quote, callout",
+   "button": "Plan it",
+   "loading": "Growing roots…"
+  }
+ ],
+ "disclaimer": "Meeting strangers carries some risk: use public venues, tell someone your plans, and follow local rules for events in public spaces."
+}

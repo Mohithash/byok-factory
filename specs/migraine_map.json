@@ -96,7 +96,7 @@
      "placeholder": "at work, open-plan office"
     }
    ],
-   "prompt": "Build a plan for stage '{stage}' while {where}. Steps for the next 60 minutes in order (environment, hydration, the user's own prescribed acute plan timing as general guidance, positioning, cold or heat), a checklist of what to grab or tell someone, bullets on what typically makes this stage worse, and a callout listing thunderclap onset, weakness, confusion, fever with stiff neck or a worst-ever headache as reasons to call emergency services.",
+   "prompt": "Build a plan for stage '{stage}'. Location right now: {where}. Steps for the next 60 minutes in order (environment, hydration, the user's own prescribed acute plan timing as general guidance, positioning, cold or heat), a checklist of what to grab or tell someone, bullets on what typically makes this stage worse, and a callout listing thunderclap onset, weakness, confusion, fever with stiff neck or a worst-ever headache as reasons to call emergency services.",
    "shape": "steps, checklist, bullets, callout",
    "button": "Help me now",
    "loading": "Dimming the lights…"

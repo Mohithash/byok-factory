@@ -1,0 +1,207 @@
+{
+ "id": "committee_kit",
+ "name": "Committee Kit",
+ "tagline": "Run your club like it's not your second job",
+ "category": "Social",
+ "colors": [
+  "#37474F",
+  "#F9A825",
+  "#00695C"
+ ],
+ "icon": "gear",
+ "about": "Committee Kit is for the volunteers who keep clubs and societies going: it drafts AGM notices and agendas, turns scribbled notes into proper minutes, writes officer role descriptions, checks what your constitution is missing and produces a treasurer's report members can actually follow.",
+ "persona": "You are a seasoned club secretary and treasurer: calm, procedurally careful, plain-English, and you always say when a rule depends on the club's own constitution or local law.",
+ "onboarding": {
+  "title": "Keep the club running smoothly",
+  "subtitle": "Tell us about your club and your role; the paperwork gets a lot easier.",
+  "bullets": [
+   "AGM packs in minutes",
+   "Minutes with actions and owners",
+   "Officer roles and handovers"
+  ]
+ },
+ "profile": [
+  {
+   "key": "club",
+   "label": "Club / society",
+   "type": "text",
+   "placeholder": "Riverside Allotment Society"
+  },
+  {
+   "key": "role",
+   "label": "Your role",
+   "type": "chips",
+   "options": [
+    "Chair",
+    "Secretary",
+    "Treasurer",
+    "Committee member",
+    "Just helping"
+   ]
+  },
+  {
+   "key": "structure",
+   "label": "Structure",
+   "type": "chips",
+   "options": [
+    "Unincorporated club",
+    "Registered charity",
+    "Non-profit company / CIC",
+    "Not sure"
+   ]
+  },
+  {
+   "key": "members",
+   "label": "Members (approx.)",
+   "type": "number",
+   "placeholder": "60"
+  }
+ ],
+ "tools": [
+  {
+   "id": "agm",
+   "title": "AGM pack",
+   "subtitle": "Notice, agenda and the chair's script",
+   "emoji": "📣",
+   "inputs": [
+    {
+     "key": "date",
+     "label": "AGM date & venue",
+     "type": "text",
+     "placeholder": "14 Nov, 7pm, village hall",
+     "required": true
+    },
+    {
+     "key": "business",
+     "label": "Business to cover",
+     "type": "text",
+     "placeholder": "elect new treasurer, raise subs to 30, new shed"
+    },
+    {
+     "key": "notice",
+     "label": "Notice period",
+     "type": "chips",
+     "options": [
+      "14 days",
+      "21 days",
+      "28 days",
+      "Not sure"
+     ],
+     "default": "21 days"
+    }
+   ],
+   "prompt": "Prepare an AGM pack for the club on {date} covering: {business}, with a {notice} notice period. Sections: a quote containing the formal notice to members (date, venue, agenda headings, how to submit motions and nominations), a table agenda (Item | Presenter | Minutes | Decision needed?), steps for the chair's script from opening to close including the quorum check and each vote, and a callout on what must be checked against the club's own constitution before sending.",
+   "shape": "quote, table, steps, callout",
+   "button": "Build the pack",
+   "loading": "Calling to order…"
+  },
+  {
+   "id": "minutes",
+   "title": "Notes → minutes",
+   "subtitle": "Rough notes into proper minutes",
+   "emoji": "📝",
+   "inputs": [
+    {
+     "key": "notes",
+     "label": "Your rough notes",
+     "type": "longtext",
+     "placeholder": "Present: J, K, M. Apols: R. Treasurer says 1,240 in bank. Agreed to buy new nets, K to get quotes by March…",
+     "required": true
+    },
+    {
+     "key": "style",
+     "label": "Style",
+     "type": "chips",
+     "options": [
+      "Formal",
+      "Friendly summary",
+      "Both"
+     ],
+     "default": "Formal"
+    }
+   ],
+   "prompt": "Turn these meeting notes into minutes in a {style} style: {notes}. Sections: kv (meeting, date, present, apologies, quorum met?), text minutes numbered by agenda item recording decisions rather than discussion, a table of actions (Action | Owner | Due | Status), and a checklist of what the secretary must do before the next meeting.",
+   "shape": "kv, text, table, checklist",
+   "button": "Write minutes",
+   "loading": "Typing up…"
+  },
+  {
+   "id": "roles",
+   "title": "Role descriptions",
+   "subtitle": "Recruit an officer and hand over cleanly",
+   "emoji": "🪪",
+   "inputs": [
+    {
+     "key": "post",
+     "label": "Post",
+     "type": "chips",
+     "options": [
+      "Chair",
+      "Secretary",
+      "Treasurer",
+      "Membership secretary",
+      "Events officer",
+      "Welfare officer",
+      "Social media"
+     ],
+     "default": "Treasurer"
+    },
+    {
+     "key": "context",
+     "label": "What the job really involves",
+     "type": "text",
+     "placeholder": "about 3 hours a month, mostly emails and the bank"
+    }
+   ],
+   "prompt": "Write a role description for the {post} of the club given: {context}. Sections: cards for the role (responsibilities, time per month, skills; meta = hours/month · term length), a checklist handover pack the outgoing person should leave, a quote with a 120-word recruitment message for the newsletter, and bullets on making the role less scary for a first-timer.",
+   "shape": "cards, checklist, quote, bullets",
+   "button": "Write it",
+   "loading": "Drafting…"
+  },
+  {
+   "id": "treasurer",
+   "title": "Treasurer's report",
+   "subtitle": "Figures into a report members follow",
+   "emoji": "💷",
+   "inputs": [
+    {
+     "key": "figures",
+     "label": "Income and spending",
+     "type": "longtext",
+     "placeholder": "Subs 1,800; bar 640; hall hire -900; insurance -310; equipment -450; bank now 2,140",
+     "required": true
+    },
+    {
+     "key": "period",
+     "label": "Period",
+     "type": "text",
+     "placeholder": "year to 31 March"
+    }
+   ],
+   "prompt": "Turn these figures into a treasurer's report for {period}: {figures}. Sections: a table (Category | Income | Spending | Net), kv (opening balance, closing balance, surplus or deficit, months of running costs held in reserve), text of the report in plain English a member can follow in two minutes, bullets of questions members may ask with suggested answers, and a callout on anything that needs the club's own rules or an accountant (reporting thresholds, gift aid, reserves policy).",
+   "shape": "table, kv, text, bullets, callout",
+   "button": "Write report",
+   "loading": "Reconciling…"
+  },
+  {
+   "id": "rules",
+   "title": "Constitution check",
+   "subtitle": "Find the gaps in your rules",
+   "emoji": "📜",
+   "inputs": [
+    {
+     "key": "current",
+     "label": "Paste your constitution or rules (or 'none yet')",
+     "type": "longtext",
+     "placeholder": "none yet",
+     "required": true
+    }
+   ],
+   "prompt": "Review these club rules against what a well-run club of the profile's structure needs: {current}. Sections: a table (Clause | Present? | Gap | Suggested wording), bullets on the biggest risks in the current wording (or in having none), steps to adopt changes properly at a general meeting, and a callout that charities and companies have regulator requirements to check with the regulator or a solicitor.",
+   "shape": "table, bullets, steps, callout",
+   "button": "Check rules",
+   "loading": "Reading clauses…"
+  }
+ ],
+ "disclaimer": "General guidance on running a club, not legal, tax or accounting advice; check your own constitution, your regulator's rules and a professional wherever money or liability is involved."
+}

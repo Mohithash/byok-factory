@@ -1,0 +1,188 @@
+{
+ "id": "talk_outline",
+ "name": "Talk to Outline",
+ "tagline": "Rambling voice memo → structured outline and draft",
+ "category": "Productivity",
+ "colors": [
+  "#0277BD",
+  "#FFA000",
+  "#D81B60"
+ ],
+ "icon": "mic",
+ "about": "Talk to Outline takes the transcript of a voice memo, a dictated brain-dump or a whiteboard photo and turns it into a clean outline, a task list, a first draft and a list of gaps.",
+ "persona": "You are a sharp editorial assistant who listens to people think out loud, finds the structure they were reaching for, keeps their words where they were good, and drops the tangents.",
+ "onboarding": {
+  "title": "Think out loud, get an outline",
+  "subtitle": "Tell us what you usually turn your rambles into.",
+  "bullets": [
+   "Transcript → nested outline",
+   "Tasks and decisions pulled out",
+   "First draft in your voice"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "output",
+   "label": "Usual output",
+   "type": "chips",
+   "options": [
+    "Blog posts",
+    "Reports",
+    "Emails",
+    "Talks",
+    "Study notes",
+    "Novel chapters"
+   ],
+   "default": "Reports"
+  },
+  {
+   "key": "depth",
+   "label": "Outline depth",
+   "type": "chips",
+   "options": [
+    "2 levels",
+    "3 levels"
+   ],
+   "default": "2 levels"
+  },
+  {
+   "key": "style",
+   "label": "Writing style notes",
+   "type": "text",
+   "placeholder": "short sentences, British spelling"
+  }
+ ],
+ "tools": [
+  {
+   "id": "outline",
+   "title": "Transcript → outline",
+   "subtitle": "Structure from your ramble",
+   "emoji": "🗂️",
+   "inputs": [
+    {
+     "key": "transcript",
+     "label": "Transcript or brain-dump",
+     "type": "longtext",
+     "placeholder": "Paste the voice-memo transcript…",
+     "required": true
+    },
+    {
+     "key": "purpose",
+     "label": "Purpose",
+     "type": "chips",
+     "options": [
+      "Article",
+      "Report",
+      "Talk",
+      "Email",
+      "Notes"
+     ],
+     "default": "Article"
+    }
+   ],
+   "prompt": "Turn this transcript into an outline for a {purpose} at the profile depth: {transcript}. Sections: bullets holding the nested outline with numbered headings and sub-points; kv (thesis in one sentence, intended audience, tone detected, estimated final length); table (Point | Supporting detail found in transcript | Evidence still missing); a callout listing the tangents dropped so nothing is lost.",
+   "shape": "bullets, kv, table, callout",
+   "button": "Outline it",
+   "loading": "Finding the thread…"
+  },
+  {
+   "id": "tasks",
+   "title": "Pull out tasks & decisions",
+   "subtitle": "Everything actionable, with the source line",
+   "emoji": "✅",
+   "inputs": [
+    {
+     "key": "transcript",
+     "label": "Transcript",
+     "type": "longtext",
+     "placeholder": "Paste the transcript…",
+     "required": true
+    }
+   ],
+   "prompt": "From {transcript} extract commitments and decisions. Table (Task | Owner | Due | Source phrase); bullets listing decisions made; a checklist of tasks in priority order; a callout naming items that are ambiguous and need a follow-up question.",
+   "shape": "table, bullets, checklist, callout",
+   "button": "Extract tasks",
+   "loading": "Listening for verbs…"
+  },
+  {
+   "id": "draft",
+   "title": "Ramble → draft",
+   "subtitle": "A first draft in your words",
+   "emoji": "📝",
+   "inputs": [
+    {
+     "key": "transcript",
+     "label": "Transcript",
+     "type": "longtext",
+     "placeholder": "Paste the transcript…",
+     "required": true
+    },
+    {
+     "key": "form",
+     "label": "Form",
+     "type": "chips",
+     "options": [
+      "Email",
+      "Blog post",
+      "Memo",
+      "LinkedIn post",
+      "Script"
+     ],
+     "default": "Email"
+    },
+    {
+     "key": "words",
+     "label": "Target words",
+     "type": "number",
+     "placeholder": "300"
+    }
+   ],
+   "prompt": "Write a {form} of about {words} words from: {transcript}, following the profile style notes and keeping the speaker's best phrases verbatim. Sections: quote with the draft; bullets of what was cut and why; a callout listing any factual claims in the transcript that should be verified before sending.",
+   "shape": "quote, bullets, callout",
+   "button": "Draft it",
+   "loading": "Typing it up…"
+  },
+  {
+   "id": "gaps",
+   "title": "Find the gaps",
+   "subtitle": "What the outline still needs",
+   "emoji": "🕳️",
+   "inputs": [
+    {
+     "key": "outline",
+     "label": "Outline or transcript",
+     "type": "longtext",
+     "placeholder": "Paste your outline…",
+     "required": true
+    }
+   ],
+   "prompt": "Review {outline} for the profile's usual output. Bullets of missing points, counter-arguments and examples a reader would expect; table (Section | Question to answer | Why it matters); steps for the next 30 minutes of work in order.",
+   "shape": "bullets, table, steps",
+   "button": "Find gaps",
+   "loading": "Poking holes…"
+  },
+  {
+   "id": "board",
+   "title": "Whiteboard → outline",
+   "subtitle": "Photo of a board or paper notes",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of whiteboard or notes",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Read everything on the board or page in the photo. Sections: bullets with a nested outline that groups related items; table (Item | Type: idea / task / question / decision | Notes); a checklist of the tasks; a callout for anything illegible or ambiguous.",
+   "shape": "bullets, table, checklist, callout",
+   "button": "Read board",
+   "loading": "Deciphering…"
+  }
+ ]
+}

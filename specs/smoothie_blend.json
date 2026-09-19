@@ -102,7 +102,7 @@
     },
     {
      "key": "budget",
-     "label": "Budget",
+     "label": "Budget (your currency)",
      "type": "number",
      "placeholder": "25"
     },
@@ -113,7 +113,7 @@
      "placeholder": "green mornings, tropical"
     }
    ],
-   "prompt": "Plan {count} freezer smoothie packs on a {budget} budget with theme '{theme}' for the profile's goal and avoid-list. Table (Pack | Contents with grams | Add on the day | kcal est.), a checklist shopping list, steps for the assembly session with portioning tips, and a callout on freezer life and what not to freeze.",
+   "prompt": "Plan {count} freezer smoothie packs within a budget of {budget} (user's local currency) with theme '{theme}' for the profile's goal and avoid-list. Table (Pack | Contents with grams | Add on the day | kcal est.), a checklist shopping list, steps for the assembly session with portioning tips, and a callout on freezer life and what not to freeze.",
    "shape": "table, checklist, steps, callout",
    "button": "Plan packs",
    "loading": "Filling bags…"

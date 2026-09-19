@@ -1,0 +1,200 @@
+{
+ "id": "trade_ticket",
+ "name": "Trade Ticket",
+ "tagline": "Apprenticeships, tickets and job-site hires in the trades",
+ "category": "Business",
+ "colors": [
+  "#E65100",
+  "#37474F",
+  "#FDD835"
+ ],
+ "icon": "wrench",
+ "about": "Trade Ticket helps electricians, plumbers, welders, HVAC techs, carpenters and other tradespeople get apprenticeships, pass aptitude tests, sort licences and safety tickets, pitch themselves on site and choose between union, non-union and going solo.",
+ "persona": "You are a journeyman turned training coordinator: plain-spoken, safety-first, respectful of the trade, and honest about the money.",
+ "onboarding": {
+  "title": "Get on the tools",
+  "subtitle": "Your trade and region decide the tickets and the path.",
+  "bullets": [
+   "Apprenticeship applications and tests",
+   "Licence and ticket checker",
+   "Union vs non-union, with numbers"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "trade",
+   "label": "Trade",
+   "type": "chips",
+   "options": [
+    "Electrical",
+    "Plumbing/Gas",
+    "HVAC/R",
+    "Welding",
+    "Carpentry",
+    "Heavy equipment",
+    "Ironwork",
+    "Painting/Finishing",
+    "Other"
+   ]
+  },
+  {
+   "key": "stage",
+   "label": "Stage",
+   "type": "chips",
+   "options": [
+    "Want an apprenticeship",
+    "Apprentice",
+    "Journeyman",
+    "Master/Licensed",
+    "Switching trades"
+   ]
+  },
+  {
+   "key": "region",
+   "label": "Region",
+   "type": "text",
+   "placeholder": "Ontario / Ohio / NSW"
+  }
+ ],
+ "tools": [
+  {
+   "id": "apprentice",
+   "title": "Get an apprenticeship",
+   "subtitle": "Union, non-union and pre-apprenticeship routes",
+   "emoji": "🧰",
+   "inputs": [
+    {
+     "key": "background",
+     "label": "Your background",
+     "type": "text",
+     "placeholder": "warehouse job, some DIY, good at maths",
+     "required": true
+    },
+    {
+     "key": "route",
+     "label": "Route",
+     "type": "chips",
+     "options": [
+      "Union (JATC/ABC)",
+      "Non-union employer",
+      "Pre-apprenticeship",
+      "Not sure"
+     ],
+     "default": "Not sure"
+    }
+   ],
+   "prompt": "Plan an apprenticeship application for the profile's trade and region via {route}, starting from {background}. Give steps (find sponsors, aptitude test, interview, ranking, employer placement) with realistic timelines and typical intake windows; a checklist of documents and prerequisites (age, education, driving licence, physical); a table (Route | Pay while learning | Time to journeyman | Pros | Cons); and a quote with a 60-second answer to 'why this trade'.",
+   "shape": "steps, checklist, table, quote",
+   "button": "Plan it",
+   "loading": "Lining up…"
+  },
+  {
+   "id": "aptitude",
+   "title": "Aptitude test practice",
+   "subtitle": "Algebra, reading and mechanical reasoning",
+   "emoji": "📏",
+   "inputs": [
+    {
+     "key": "area",
+     "label": "Practise",
+     "type": "chips",
+     "options": [
+      "Algebra & functions",
+      "Reading comprehension",
+      "Mechanical reasoning",
+      "Spatial",
+      "Mixed"
+     ],
+     "default": "Mixed"
+    },
+    {
+     "key": "length",
+     "label": "Length",
+     "type": "chips",
+     "options": [
+      "10 questions",
+      "20 questions"
+     ],
+     "default": "10 questions"
+    }
+   ],
+   "prompt": "Generate a {length} practice set on {area} in the style of trade entrance aptitude tests for the profile's trade. Provide a table (No. | Question | Answer | Method) with every question and worked answer, steps for the fastest method on the hardest question type, bullets of timing strategy, and a callout on what score ranks well and how retakes work.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Test me",
+   "loading": "Setting the test…"
+  },
+  {
+   "id": "tickets",
+   "title": "Licence & ticket check",
+   "subtitle": "What you need to work legally",
+   "emoji": "🪪",
+   "inputs": [
+    {
+     "key": "job",
+     "label": "Job you're going for",
+     "type": "text",
+     "placeholder": "commercial electrician, high-rise",
+     "required": true
+    }
+   ],
+   "prompt": "For {job} in the profile's region and trade: a table (Licence or ticket | Who issues it | Prerequisites | Cost | Renewal) covering the trade licence, safety tickets (working at heights, confined space, OSHA/CSCS/White Card equivalents), first aid and equipment cards; steps to get the missing ones fastest; a kv of what to carry on day one; and a callout to verify with the official regulator.",
+   "shape": "table, steps, kv, callout",
+   "button": "Check",
+   "loading": "Checking cards…"
+  },
+  {
+   "id": "pitch",
+   "title": "Job-site pitch",
+   "subtitle": "How to get hired by a foreman",
+   "emoji": "🏗️",
+   "inputs": [
+    {
+     "key": "how",
+     "label": "Approach",
+     "type": "chips",
+     "options": [
+      "Walk-on / cold visit",
+      "Phone call",
+      "Text or email",
+      "Referral"
+     ],
+     "default": "Phone call"
+    },
+    {
+     "key": "employer",
+     "label": "Who",
+     "type": "text",
+     "placeholder": "mid-size electrical contractor, mostly commercial"
+    }
+   ],
+   "prompt": "Write a job-site pitch for the profile via {how} to {employer}. Provide a quote with the exact script or message (under 90 seconds), bullets of what to have ready (tickets, tools, boots, references, availability), kv (best time to approach, who to ask for, follow-up timing), and a callout on the things foremen quietly screen out.",
+   "shape": "quote, bullets, kv, callout",
+   "button": "Write pitch",
+   "loading": "Drafting…"
+  },
+  {
+   "id": "path",
+   "title": "Union, non-union or solo",
+   "subtitle": "Compare the money and the life",
+   "emoji": "⚖️",
+   "inputs": [
+    {
+     "key": "numbers",
+     "label": "Rates you've been offered or seen",
+     "type": "text",
+     "placeholder": "union scale $42 + benefits; non-union $35; own jobs $80/hr but slow"
+    }
+   ],
+   "prompt": "Compare union, non-union employment and self-employment for the profile's trade and region using {numbers}. Table (Factor | Union | Non-union | Self-employed) covering hourly, benefits and pension, overtime, steadiness, training, tool and vehicle costs, licensing and insurance; kv with a rough annual net estimate for each and the assumptions; bullets of questions to ask before choosing; and a callout on insurance, tax set-asides and cash-flow risk when going solo.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Compare",
+   "loading": "Adding up…"
+  }
+ ],
+ "disclaimer": "Pay, licensing and safety information is general guidance, not financial or legal advice; confirm with your regulator and a qualified adviser."
+}

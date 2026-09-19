@@ -1,0 +1,255 @@
+{
+ "id": "cite_sure",
+ "name": "Cite Sure",
+ "tagline": "Every reference right, every style, no integrity scare",
+ "category": "Education",
+ "colors": [
+  "#4E342E",
+  "#F9A825",
+  "#00838F"
+ ],
+ "icon": "book",
+ "about": "Cite Sure builds and fixes references in APA, MLA, Chicago, Harvard, IEEE or Vancouver, checks a bibliography from a photo, converts whole lists between styles and tells you whether a paraphrase is too close to the source.",
+ "persona": "You are a meticulous academic librarian: exact about punctuation and italics, calm about integrity questions, and clear when a source lacks the fields a style needs.",
+ "onboarding": {
+  "title": "Reference without the dread",
+  "subtitle": "Set your default style and how you cite in-text; every tool uses it.",
+  "bullets": [
+   "References built from a DOI, URL or scraps",
+   "Bibliography checked from a photo",
+   "Paraphrase-too-close checks"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "style",
+   "label": "Default style",
+   "type": "chips",
+   "options": [
+    "APA 7",
+    "MLA 9",
+    "Chicago (notes)",
+    "Chicago (author-date)",
+    "Harvard",
+    "IEEE",
+    "Vancouver",
+    "OSCOLA"
+   ],
+   "default": "APA 7"
+  },
+  {
+   "key": "dept",
+   "label": "Department / course",
+   "type": "text",
+   "placeholder": "Psychology, 2nd year"
+  },
+  {
+   "key": "intext",
+   "label": "In-text preference",
+   "type": "chips",
+   "options": [
+    "Author-date",
+    "Numeric",
+    "Footnotes"
+   ],
+   "default": "Author-date"
+  }
+ ],
+ "tools": [
+  {
+   "id": "build",
+   "title": "Build a reference",
+   "subtitle": "DOI, URL or scraps → formatted entry",
+   "emoji": "📎",
+   "inputs": [
+    {
+     "key": "source",
+     "label": "Source details",
+     "type": "longtext",
+     "placeholder": "doi:10.1037/… or 'Smith 2019 Nature article about sleep and memory'",
+     "required": true
+    },
+    {
+     "key": "type",
+     "label": "Source type",
+     "type": "chips",
+     "options": [
+      "Journal article",
+      "Book",
+      "Book chapter",
+      "Website",
+      "Report",
+      "Thesis",
+      "Lecture / slides",
+      "Video",
+      "Dataset",
+      "Not sure"
+     ],
+     "default": "Not sure"
+    },
+    {
+     "key": "override",
+     "label": "Style override",
+     "type": "chips",
+     "options": [
+      "Use my default",
+      "APA 7",
+      "MLA 9",
+      "Chicago (notes)",
+      "Chicago (author-date)",
+      "Harvard",
+      "IEEE",
+      "Vancouver"
+     ],
+     "default": "Use my default"
+    }
+   ],
+   "prompt": "Source: {source}. Type: {type}. Style: {override} (if 'Use my default', use the profile's style). Produce a kv of every field the style needs (author, year, title, container, volume/issue, pages, publisher, DOI/URL, access date), marking any you could not find as 'MISSING — check'. Then a quote containing the reference-list entry exactly formatted, a second quote with the in-text citation in first and subsequent forms, and a callout on any guess you made (e.g. inferred year) that the student must verify.",
+   "shape": "kv, quote, callout",
+   "button": "Build it",
+   "loading": "Formatting…"
+  },
+  {
+   "id": "scan",
+   "title": "Check my bibliography",
+   "subtitle": "Photo of a reference list → fixes",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo or screenshot of your reference list",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "target",
+     "label": "Should be in",
+     "type": "chips",
+     "options": [
+      "My default style",
+      "APA 7",
+      "MLA 9",
+      "Chicago",
+      "Harvard",
+      "IEEE",
+      "Vancouver"
+     ],
+     "default": "My default style"
+    }
+   ],
+   "prompt": "Read every entry in the reference-list photo and check it against {target} (if 'My default style', use the profile's style). Table (# | Entry as written | Problems | Corrected entry) covering ordering, punctuation, italics, capitalisation, missing DOIs and hanging indents. Then a checklist of global fixes to apply across the whole list, and a callout on the single most common error found.",
+   "shape": "table, checklist, callout",
+   "button": "Check list",
+   "loading": "Reading the list…"
+  },
+  {
+   "id": "close",
+   "title": "Too close to the source?",
+   "subtitle": "Paraphrase vs patchwriting check",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "original",
+     "label": "Original passage",
+     "type": "longtext",
+     "placeholder": "paste the source text",
+     "required": true
+    },
+    {
+     "key": "mine",
+     "label": "Your version",
+     "type": "longtext",
+     "placeholder": "paste your sentence(s)",
+     "required": true
+    },
+    {
+     "key": "cited",
+     "label": "Have you cited it?",
+     "type": "chips",
+     "options": [
+      "Yes",
+      "No",
+      "Not sure how"
+     ],
+     "default": "Yes"
+    }
+   ],
+   "prompt": "Original: {original}. Student's version: {mine}. Cited: {cited}. Compare them in a table (Source phrase | Student phrase | Verdict: copied / patchwritten / paraphrased / original), give a text verdict on whether a marker or similarity checker would flag it and why, steps to rewrite it into a genuine paraphrase that changes structure not just words, a quote with one properly attributed rewrite in the profile's style, and a callout on when a direct quotation is the honest choice.",
+   "shape": "table, text, steps, quote, callout",
+   "button": "Check it",
+   "loading": "Comparing…"
+  },
+  {
+   "id": "convert",
+   "title": "Convert a list",
+   "subtitle": "Change every entry to another style",
+   "emoji": "🔁",
+   "inputs": [
+    {
+     "key": "list",
+     "label": "Paste your reference list",
+     "type": "longtext",
+     "required": true
+    },
+    {
+     "key": "frm",
+     "label": "From",
+     "type": "chips",
+     "options": [
+      "APA 7",
+      "MLA 9",
+      "Chicago",
+      "Harvard",
+      "IEEE",
+      "Vancouver",
+      "Mixed / unknown"
+     ],
+     "default": "Mixed / unknown"
+    },
+    {
+     "key": "to",
+     "label": "To",
+     "type": "chips",
+     "options": [
+      "APA 7",
+      "MLA 9",
+      "Chicago (notes)",
+      "Chicago (author-date)",
+      "Harvard",
+      "IEEE",
+      "Vancouver"
+     ],
+     "default": "APA 7"
+    }
+   ],
+   "prompt": "Convert this list from {frm} to {to}: {list}. Output a quote containing the full converted list in the order the target style requires (alphabetical or numeric), then a table (Entry | What changed) and a callout listing entries where the original lacked information the target style needs.",
+   "shape": "quote, table, callout",
+   "button": "Convert",
+   "loading": "Reformatting…"
+  },
+  {
+   "id": "rule",
+   "title": "Ask a citation rule",
+   "subtitle": "Odd sources, secondary cites, et al.",
+   "emoji": "❓",
+   "inputs": [
+    {
+     "key": "q",
+     "label": "Your question",
+     "type": "text",
+     "placeholder": "how do I cite a lecture recording in Harvard?",
+     "required": true
+    }
+   ],
+   "prompt": "Question: {q} — answer for the profile's style unless the question names another. Give a text answer in plain English, a kv with the exact pattern (reference-list form and in-text form) plus one filled example, and bullets on the 3 nearby rules students confuse with this one (secondary citations, same author same year, no date).",
+   "shape": "text, kv, bullets",
+   "button": "Answer",
+   "loading": "Checking the manual…"
+  }
+ ]
+}

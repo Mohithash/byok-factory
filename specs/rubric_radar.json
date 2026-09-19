@@ -1,0 +1,188 @@
+{
+ "id": "rubric_radar",
+ "name": "Rubric Radar",
+ "tagline": "Decode the brief, hit the top band, learn from feedback",
+ "category": "Education",
+ "colors": [
+  "#B71C1C",
+  "#455A64",
+  "#FFC107"
+ ],
+ "icon": "scale",
+ "about": "Rubric Radar reads assignment briefs and marking rubrics so you write to the top band, translates marker feedback into concrete fixes, calculates what you need on the next assessment and drafts extension requests that get approved.",
+ "persona": "You are a study-skills adviser who has read thousands of rubrics: forensic about criteria, plain-spoken about what 'critical analysis' actually means, and honest about grade maths.",
+ "onboarding": {
+  "title": "Play the assessment game well",
+  "subtitle": "Your course and target grade shape every plan.",
+  "bullets": [
+   "Briefs and rubrics decoded",
+   "Feedback turned into fixes",
+   "Grade calculator and extension emails"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "course",
+   "label": "Course",
+   "type": "text",
+   "placeholder": "BA History, year 2"
+  },
+  {
+   "key": "target",
+   "label": "Target grade",
+   "type": "chips",
+   "options": [
+    "Pass",
+    "Merit / 2:2",
+    "Distinction / 2:1",
+    "First / A"
+   ],
+   "default": "Distinction / 2:1"
+  },
+  {
+   "key": "system",
+   "label": "Grading system",
+   "type": "chips",
+   "options": [
+    "UK classification",
+    "US GPA / letters",
+    "Percentage",
+    "ECTS / other"
+   ],
+   "default": "UK classification"
+  }
+ ],
+ "tools": [
+  {
+   "id": "brief",
+   "title": "Decode the brief",
+   "subtitle": "Paste the assignment → what they really want",
+   "emoji": "🔎",
+   "inputs": [
+    {
+     "key": "brief",
+     "label": "Assignment brief",
+     "type": "longtext",
+     "placeholder": "paste the task description",
+     "required": true
+    }
+   ],
+   "prompt": "Brief: {brief}. Extract a kv (Task in one sentence, Word count, Weighting, Due date, Format and referencing, Submission route). Then a table (Requirement | Where the brief says it | How it will be assessed) including implicit requirements hidden in verbs like 'evaluate' or 'critically discuss', a checklist of deliverables and formatting to tick before submitting, and a callout on the most commonly missed requirement in briefs like this.",
+   "shape": "kv, table, checklist, callout",
+   "button": "Decode brief",
+   "loading": "Between the lines…"
+  },
+  {
+   "id": "rubric",
+   "title": "Rubric to plan",
+   "subtitle": "Criteria → what the top band looks like",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "rubric",
+     "label": "Marking rubric / criteria",
+     "type": "longtext",
+     "placeholder": "paste the grid or descriptors",
+     "required": true
+    },
+    {
+     "key": "piece",
+     "label": "What you're writing",
+     "type": "text",
+     "placeholder": "2,500-word essay on the causes of the 1848 revolutions"
+    }
+   ],
+   "prompt": "Rubric: {rubric}. Piece: {piece}. Produce a table (Criterion | Weight | Top-band descriptor in plain English | What that looks like in this piece | Words to spend) aimed at the profile's target grade, bullets translating vague rubric words (critical, synthesis, originality, structure) into observable features, and steps for a self-marking pass the night before submission.",
+   "shape": "table, bullets, steps",
+   "button": "Plan to rubric",
+   "loading": "Mapping criteria…"
+  },
+  {
+   "id": "feedback",
+   "title": "Decode feedback",
+   "subtitle": "Marker comments → fixes for next time",
+   "emoji": "📝",
+   "inputs": [
+    {
+     "key": "comments",
+     "label": "Marker's comments",
+     "type": "longtext",
+     "placeholder": "'Good grasp but descriptive in places; engage more critically with the secondary literature.'",
+     "required": true
+    },
+    {
+     "key": "mark",
+     "label": "Mark received",
+     "type": "text",
+     "placeholder": "58"
+    }
+   ],
+   "prompt": "Feedback: {comments}. Mark: {mark}. Build a table (Comment | What it actually means | Evidence a marker looks for | Fix next time), text on the gap between the mark and the profile's target and which single change closes most of it, steps for applying the fixes on the next assignment from planning to final read, and a quote with a short, non-defensive email asking the marker for a feedback conversation.",
+   "shape": "table, text, steps, quote",
+   "button": "Decode feedback",
+   "loading": "Translating…"
+  },
+  {
+   "id": "grade",
+   "title": "What do I need?",
+   "subtitle": "Current marks → required scores",
+   "emoji": "🧮",
+   "inputs": [
+    {
+     "key": "marks",
+     "label": "Marks so far with weights",
+     "type": "longtext",
+     "placeholder": "Essay 1: 62 (30%), Presentation: 70 (20%)",
+     "required": true
+    },
+    {
+     "key": "remaining",
+     "label": "Remaining assessments with weights",
+     "type": "longtext",
+     "placeholder": "Exam (50%)",
+     "required": true
+    }
+   ],
+   "prompt": "So far: {marks}. Remaining: {remaining}. Compute a kv (Current weighted average, Weight remaining, Mark needed on remaining for the profile's target, Mark needed for the band below, Best achievable), a table (Remaining assessment | Weight | Needed for target | Needed for band below), and a callout on realism: how the needed mark compares to marks so far and where the effort pays most.",
+   "shape": "kv, table, callout",
+   "button": "Calculate",
+   "loading": "Doing the maths…"
+  },
+  {
+   "id": "extension",
+   "title": "Extension request",
+   "subtitle": "Say the right thing, attach the right evidence",
+   "emoji": "📨",
+   "inputs": [
+    {
+     "key": "reason",
+     "label": "Why you need it",
+     "type": "longtext",
+     "placeholder": "flu since Monday, GP note available",
+     "required": true
+    },
+    {
+     "key": "days",
+     "label": "Days requested",
+     "type": "text",
+     "placeholder": "5"
+    },
+    {
+     "key": "deadline",
+     "label": "Original deadline",
+     "type": "text",
+     "placeholder": "Friday 14th"
+    }
+   ],
+   "prompt": "Reason: {reason}. Requesting: {days} days. Deadline: {deadline}. Write a quote with a concise, honest extension-request email that states the reason, the evidence attached, the new date requested and a commitment, then a checklist of evidence and forms universities typically ask for in this situation, bullets on what usually strengthens or weakens a request, and a callout on the alternative if the extension is refused (late-penalty maths, mitigating-circumstances routes).",
+   "shape": "quote, checklist, bullets, callout",
+   "button": "Draft request",
+   "loading": "Writing carefully…"
+  }
+ ]
+}

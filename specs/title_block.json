@@ -1,0 +1,194 @@
+{
+ "id": "title_block",
+ "name": "Title Block",
+ "tagline": "Engineering jobs: portfolio, technical rounds, PE path",
+ "category": "Business",
+ "colors": [
+  "#37474F",
+  "#FF6F00",
+  "#0097A7"
+ ],
+ "icon": "gear",
+ "about": "Title Block helps mechanical, civil, electrical, chemical and industrial engineers land roles: portfolio entries with real outcomes, technical interview drills by discipline, EIT-to-PE licensure roadmaps, posting decoders and offer comparisons.",
+ "persona": "You are a principal engineer who hires for a multidisciplinary firm: rigorous about fundamentals, generous with practical tips, and clear that safety and ethics are never negotiable.",
+ "onboarding": {
+  "title": "Engineer your next role",
+  "subtitle": "Discipline and level set the technical depth.",
+  "bullets": [
+   "Portfolio entries with real outcomes",
+   "Discipline-specific technical drills",
+   "EIT to PE roadmap"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "discipline",
+   "label": "Discipline",
+   "type": "chips",
+   "options": [
+    "Mechanical",
+    "Civil/Structural",
+    "Electrical",
+    "Chemical/Process",
+    "Industrial",
+    "Aerospace",
+    "Environmental"
+   ]
+  },
+  {
+   "key": "level",
+   "label": "Level",
+   "type": "chips",
+   "options": [
+    "Student/intern",
+    "Graduate/EIT",
+    "3–7 years",
+    "Senior/PE",
+    "Manager"
+   ]
+  },
+  {
+   "key": "tools",
+   "label": "Tools & software",
+   "type": "text",
+   "placeholder": "SolidWorks, ANSYS, Python"
+  }
+ ],
+ "tools": [
+  {
+   "id": "project",
+   "title": "Portfolio entry",
+   "subtitle": "One project, told like an engineer",
+   "emoji": "📐",
+   "inputs": [
+    {
+     "key": "project",
+     "label": "Describe a project",
+     "type": "longtext",
+     "placeholder": "redesigned a conveyor bracket that kept cracking…",
+     "required": true
+    },
+    {
+     "key": "photo",
+     "label": "Drawing or photo (optional)",
+     "type": "photo"
+    }
+   ],
+   "prompt": "Turn {project} (and the drawing or photo if provided) into a portfolio entry for the profile's discipline. Give cards for the entry (meta = role · tools · quantified outcome) covering problem, constraints, analysis and result; a quote with a 30-second spoken version for interviews; a table (Skill shown | Evidence in this project | Posting keyword); and a callout on what to redact for confidentiality.",
+   "shape": "cards, quote, table, callout",
+   "button": "Write entry",
+   "loading": "Drafting…"
+  },
+  {
+   "id": "technical",
+   "title": "Technical drill",
+   "subtitle": "Fundamentals questions for your discipline",
+   "emoji": "🧮",
+   "inputs": [
+    {
+     "key": "topic",
+     "label": "Topic",
+     "type": "chips",
+     "options": [
+      "Statics & mechanics",
+      "Thermo & fluids",
+      "Circuits & power",
+      "Controls",
+      "Materials",
+      "Process & mass balance",
+      "Structures & loads",
+      "Manufacturing",
+      "Codes & standards"
+     ],
+     "default": "Statics & mechanics"
+    },
+    {
+     "key": "format",
+     "label": "Interview format",
+     "type": "chips",
+     "options": [
+      "Whiteboard",
+      "Verbal",
+      "Take-home",
+      "Panel"
+     ],
+     "default": "Verbal"
+    }
+   ],
+   "prompt": "Drill {topic} in a {format} format for the profile's discipline and level. Provide a table (Question | What it tests | Key formula or concept | Strong answer in one line) with 8 questions, steps that fully solve the hardest one showing units and assumptions, bullets of clarifying questions to ask before solving, and a callout on whiteboard etiquette and recovering from a wrong path.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Drill me",
+   "loading": "Sharpening pencil…"
+  },
+  {
+   "id": "licence",
+   "title": "EIT to PE roadmap",
+   "subtitle": "Exams, experience, references",
+   "emoji": "🪪",
+   "inputs": [
+    {
+     "key": "region",
+     "label": "State / country",
+     "type": "text",
+     "placeholder": "Texas",
+     "required": true
+    }
+   ],
+   "prompt": "Map the professional licensure path in {region} for the profile's discipline and level. Provide steps (FE/EIT or equivalent, qualifying experience, references, PE exam or chartership, application) with realistic timelines; kv (exam format, pass rates, fees, study hours); a checklist of experience records to start keeping now; and a callout to confirm with the licensing board since rules change.",
+   "shape": "steps, kv, checklist, callout",
+   "button": "Map it",
+   "loading": "Plotting…"
+  },
+  {
+   "id": "posting",
+   "title": "Decode a posting",
+   "subtitle": "Required vs nice-to-have, plus gaps",
+   "emoji": "🔎",
+   "inputs": [
+    {
+     "key": "posting",
+     "label": "Paste the job posting",
+     "type": "longtext",
+     "placeholder": "Mechanical Design Engineer II… GD&T, FEA, DFM…",
+     "required": true
+    }
+   ],
+   "prompt": "Analyse {posting} against the profile. Give a table (Requirement | Must or nice | Your evidence | Gap-closer) for every requirement; kv (seniority level, likely salary band, clearance or citizenship needs, travel, on-site expectations); bullets of five keywords to work into the résumé; and a callout on any mismatch that makes applying a poor use of time.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Decode",
+   "loading": "Parsing…"
+  },
+  {
+   "id": "offers",
+   "title": "Compare offers",
+   "subtitle": "Base, bonus, OT exemption, PE support",
+   "emoji": "⚖️",
+   "inputs": [
+    {
+     "key": "offer_a",
+     "label": "Offer A",
+     "type": "longtext",
+     "placeholder": "$82k, 5% bonus, hybrid, pays PE fees",
+     "required": true
+    },
+    {
+     "key": "offer_b",
+     "label": "Offer B",
+     "type": "longtext",
+     "placeholder": "$88k, exempt with 50-hr weeks, relocation $5k",
+     "required": true
+    }
+   ],
+   "prompt": "Compare {offer_a} with {offer_b} for the profile. Table (Factor | A | B | Edge) covering base, bonus, overtime status and real hours, relocation, PE support and mentorship, growth path, commute and cost of living; kv with an estimated effective hourly rate for each; bullets of what to negotiate; and a callout on exempt-status hours and clawbacks.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Compare",
+   "loading": "Calculating…"
+  }
+ ],
+ "disclaimer": "Salary and licensing information is general guidance, not financial or legal advice; verify with the licensing board and employer."
+}

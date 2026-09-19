@@ -1,0 +1,177 @@
+{
+ "id": "thru_line",
+ "name": "Thru Line",
+ "tagline": "Long-distance hikes planned from permit to finish",
+ "category": "Sports",
+ "colors": [
+  "#2E7D32",
+  "#8D6E63",
+  "#FDD835"
+ ],
+ "icon": "hat",
+ "about": "Thru Line plans multi-week and thru-hikes: sections and zero days, resupply and bounce-box strategy, a pack shakedown from a photo, and a reset plan when the schedule slips.",
+ "persona": "You are a triple-crown thru-hiker turned planner: ultralight but not dogmatic, realistic about town days and morale, and always thinking three resupplies ahead.",
+ "onboarding": {
+  "title": "Walk far, plan light",
+  "subtitle": "Your trail and daily mileage drive the whole plan.",
+  "bullets": [
+   "Sections, zero days and permits",
+   "Resupply and bounce-box strategy",
+   "Pack shakedowns from a photo"
+  ]
+ },
+ "profile": [
+  {
+   "key": "trail",
+   "label": "Trail",
+   "type": "text",
+   "placeholder": "Pacific Crest Trail NOBO / West Highland Way"
+  },
+  {
+   "key": "daily",
+   "label": "Comfortable daily km",
+   "type": "number",
+   "placeholder": "28"
+  },
+  {
+   "key": "style",
+   "label": "Style",
+   "type": "chips",
+   "options": [
+    "Ultralight",
+    "Lightweight",
+    "Comfort"
+   ]
+  },
+  {
+   "key": "resupply",
+   "label": "Resupply preference",
+   "type": "chips",
+   "options": [
+    "Buy in towns",
+    "Mail boxes",
+    "Mix"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "sections",
+   "title": "Section the trail",
+   "subtitle": "Days, zeros and town stops",
+   "emoji": "🗺️",
+   "inputs": [
+    {
+     "key": "span",
+     "label": "Trail span",
+     "type": "text",
+     "placeholder": "Campo to Kennedy Meadows, 1,120 km",
+     "required": true
+    },
+    {
+     "key": "dates",
+     "label": "Start date & deadline",
+     "type": "text",
+     "placeholder": "start 20 April, must be in the Sierra by 10 June"
+    }
+   ],
+   "prompt": "Section {span} for {dates} at the profile daily distance and style. Table (Section | km | Days | Town/resupply | Zero or nero | Notes), kv (total days, zeros, average km including zeros, buffer days), bullets on permits and seasonal gates, and a callout on the section most people underestimate.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Section it",
+   "loading": "Pacing the miles…"
+  },
+  {
+   "id": "shakedown",
+   "title": "Pack shakedown",
+   "subtitle": "Photo → what to send home",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of your gear laid out",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "conditions",
+     "label": "Trail conditions",
+     "type": "text",
+     "placeholder": "desert start, nights 2°C, later snow"
+    }
+   ],
+   "prompt": "Shakedown the gear in the photo for: {conditions}, respecting the profile style. Table (Item | Verdict: keep / send home / swap | Why | Grams saved est.), kv (estimated base weight, target base weight, biggest win), a checklist of anything missing, and a callout on the one comfort item worth keeping.",
+   "shape": "table, kv, checklist, callout",
+   "button": "Shake it down",
+   "loading": "Weighing gear…"
+  },
+  {
+   "id": "resupply",
+   "title": "Resupply strategy",
+   "subtitle": "Boxes, towns and bounce boxes",
+   "emoji": "📦",
+   "inputs": [
+    {
+     "key": "stretch",
+     "label": "Stretch",
+     "type": "text",
+     "placeholder": "Sierra: Kennedy Meadows to Mammoth, 9 days, bear canister required",
+     "required": true
+    },
+    {
+     "key": "needs",
+     "label": "Needs",
+     "type": "text",
+     "placeholder": "vegan, prescription meds every 3 weeks, new shoes at 800 km"
+    }
+   ],
+   "prompt": "Resupply plan for {stretch} with needs: {needs} and the profile preference. Table (Stop | km | Method: buy / box / bounce | Days of food | What to add here), steps for mailing a box that arrives on time, bullets on carrying limits (bear cans, weight), and a callout on the towns that reliably run out of things.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Plan resupply",
+   "loading": "Packing boxes…"
+  },
+  {
+   "id": "slip",
+   "title": "I'm behind schedule",
+   "subtitle": "Reset the plan without a blow-up",
+   "emoji": "🔁",
+   "inputs": [
+    {
+     "key": "status",
+     "label": "Status",
+     "type": "text",
+     "placeholder": "km 600 of 1,100, 4 days behind, shin pain, morale low",
+     "required": true
+    },
+    {
+     "key": "fixed",
+     "label": "Fixed deadlines",
+     "type": "text",
+     "placeholder": "flight home 12 Sept, friend joining at km 900 on 20 Aug"
+    }
+   ],
+   "prompt": "Status: {status}. Fixed deadlines: {fixed}. Text verdict in two sentences, then cards for 3 options (skip a section, increase km, drop a zero; meta = days saved · body cost · morale cost), steps for the recommended option, and a callout on the injury signs that mean rest is non-negotiable.",
+   "shape": "text, cards, steps, callout",
+   "button": "Reset plan",
+   "loading": "Reworking days…"
+  },
+  {
+   "id": "town",
+   "title": "Town-day checklist",
+   "subtitle": "Get in, get done, get out",
+   "emoji": "🏘️",
+   "inputs": [
+    {
+     "key": "town",
+     "label": "Town & time",
+     "type": "text",
+     "placeholder": "Bishop, arrive Friday 3pm, leave Sunday morning"
+    }
+   ],
+   "prompt": "Town-day plan for {town}: steps in order (post office, food, shower, charge, gear, rest) with times, a checklist of what to buy and post, kv (budget estimate, hitch/shuttle notes, opening hours to check), and a quote with a one-line rule against getting stuck in the town vortex.",
+   "shape": "steps, checklist, kv, quote",
+   "button": "Plan town day",
+   "loading": "Hitching to town…"
+  }
+ ],
+ "disclaimer": "Long trails carry weather, water and wildlife risks. Check permits, current trail conditions and closures with official sources. Not medical advice."
+}

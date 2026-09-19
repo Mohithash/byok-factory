@@ -1,0 +1,216 @@
+{
+ "id": "thesis_pilot",
+ "name": "Thesis Pilot",
+ "tagline": "From vague topic to submitted dissertation",
+ "category": "Education",
+ "colors": [
+  "#1A237E",
+  "#00897B",
+  "#FFB300"
+ ],
+ "icon": "pin",
+ "about": "Thesis Pilot turns a fuzzy topic into a defensible research question, plans your chapters backwards from the deadline, preps every supervisor meeting and gets you ready for the viva.",
+ "persona": "You are a seasoned dissertation supervisor: rigorous about scope, allergic to vague questions, generous with structure, and firm that the student does the writing.",
+ "onboarding": {
+  "title": "Land the dissertation",
+  "subtitle": "Tell us your level, field and deadline so every plan fits your calendar.",
+  "bullets": [
+   "Research questions that are actually doable",
+   "Chapter plans with real dates",
+   "Supervisor meetings and viva prep"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "level",
+   "label": "Level",
+   "type": "chips",
+   "options": [
+    "Undergraduate",
+    "Master's",
+    "PhD"
+   ],
+   "default": "Undergraduate"
+  },
+  {
+   "key": "field",
+   "label": "Field / discipline",
+   "type": "text",
+   "placeholder": "sociology, mechanical engineering…"
+  },
+  {
+   "key": "deadline",
+   "label": "Submission deadline",
+   "type": "text",
+   "placeholder": "15 May"
+  }
+ ],
+ "tools": [
+  {
+   "id": "scope",
+   "title": "Scope my question",
+   "subtitle": "From a topic to 3 doable questions",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "topic",
+     "label": "Your topic or interest",
+     "type": "longtext",
+     "placeholder": "social media and loneliness in first-year students",
+     "required": true
+    },
+    {
+     "key": "method",
+     "label": "Methods you can use",
+     "type": "chips",
+     "options": [
+      "Survey",
+      "Interviews",
+      "Experiment",
+      "Secondary data",
+      "Literature-based",
+      "Not sure"
+     ],
+     "default": "Not sure",
+     "multi": true
+    },
+    {
+     "key": "words",
+     "label": "Word limit",
+     "type": "number",
+     "placeholder": "10000"
+    }
+   ],
+   "prompt": "Topic: {topic}. Available methods: {method}. Word limit: {words}. Propose 3 research questions as cards (meta = method · feasibility for the profile's level and deadline), then a table (Question | What you'd need | Biggest risk | Verdict). Finish with a callout on scope creep: the one thing to cut if the question is still too big.",
+   "shape": "cards, table, callout",
+   "button": "Scope it",
+   "loading": "Narrowing down…"
+  },
+  {
+   "id": "plan",
+   "title": "Chapter plan",
+   "subtitle": "Backwards from the deadline",
+   "emoji": "🗓️",
+   "inputs": [
+    {
+     "key": "question",
+     "label": "Your research question",
+     "type": "text",
+     "required": true
+    },
+    {
+     "key": "stage",
+     "label": "Where you are",
+     "type": "chips",
+     "options": [
+      "Nothing written",
+      "Lit review drafted",
+      "Data collected",
+      "Analysis done",
+      "Full draft exists"
+     ],
+     "default": "Nothing written"
+    },
+    {
+     "key": "weekly",
+     "label": "Hours per week",
+     "type": "number",
+     "placeholder": "12"
+    }
+   ],
+   "prompt": "Research question: {question}. Current stage: {stage}. Available: {weekly} hours per week until the profile's deadline. Build a chapter plan as a table (Chapter | Target words | Start | Draft due | Depends on), then steps for the next 14 days with a concrete output per session, and a callout on the buffer: how many days are reserved for formatting, references and supervisor feedback.",
+   "shape": "table, steps, callout",
+   "button": "Plan chapters",
+   "loading": "Working backwards…"
+  },
+  {
+   "id": "meeting",
+   "title": "Prep a supervisor meeting",
+   "subtitle": "Agenda, questions, follow-up email",
+   "emoji": "🧑‍🏫",
+   "inputs": [
+    {
+     "key": "done",
+     "label": "What you've done since last time",
+     "type": "longtext",
+     "placeholder": "finished 8 of 12 interviews, started coding transcripts"
+    },
+    {
+     "key": "stuck",
+     "label": "Where you're stuck",
+     "type": "longtext",
+     "placeholder": "not sure whether to use thematic analysis or grounded theory",
+     "required": true
+    }
+   ],
+   "prompt": "Since last meeting: {done}. Stuck on: {stuck}. Produce a checklist agenda for a 30-minute meeting (5 items, most important first, with minutes each), bullets of 5 precise questions that get decisions rather than vague advice, and a quote with the email to send 24 hours beforehand summarising progress and attaching the agenda.",
+   "shape": "checklist, bullets, quote",
+   "button": "Prep meeting",
+   "loading": "Setting the agenda…"
+  },
+  {
+   "id": "unstick",
+   "title": "Unblock a chapter",
+   "subtitle": "Stuck, behind or overwhelmed",
+   "emoji": "🧱",
+   "inputs": [
+    {
+     "key": "chapter",
+     "label": "Chapter",
+     "type": "chips",
+     "options": [
+      "Introduction",
+      "Literature review",
+      "Methodology",
+      "Results",
+      "Discussion",
+      "Conclusion",
+      "Abstract"
+     ],
+     "default": "Literature review"
+    },
+    {
+     "key": "problem",
+     "label": "What's going wrong",
+     "type": "longtext",
+     "placeholder": "I have 40 papers and no argument",
+     "required": true
+    }
+   ],
+   "prompt": "Chapter: {chapter}. Problem: {problem}. Explain in text what this chapter must do for the examiner and the one job the student is probably over-complicating. Then steps for a 90-minute session that ends with something on the page (each step with minutes and a concrete output), a kv of the section headings this chapter usually needs with target word counts for the profile's level, and a callout on what NOT to do (more reading, rewriting the intro).",
+   "shape": "text, steps, kv, callout",
+   "button": "Unblock me",
+   "loading": "Loosening the knot…"
+  },
+  {
+   "id": "viva",
+   "title": "Viva prep",
+   "subtitle": "Predict the questions, rehearse the answers",
+   "emoji": "🎓",
+   "inputs": [
+    {
+     "key": "summary",
+     "label": "Summary of your thesis",
+     "type": "longtext",
+     "placeholder": "Mixed-methods study of… found that…",
+     "required": true
+    },
+    {
+     "key": "weak",
+     "label": "Weakest part (honest)",
+     "type": "text",
+     "placeholder": "small sample, one university"
+    }
+   ],
+   "prompt": "Thesis summary: {summary}. Self-declared weakness: {weak}. Produce a table of 10 likely examiner questions (Question | Why they ask it | Strong answer in one line), ordered from warm-up to hardest. Then a quote with a 90-second opening statement the student can rehearse, a checklist for viva day (what to bring, how to handle 'I don't know'), and a callout on turning the weakness into a limitations-and-future-work answer.",
+   "shape": "table, quote, checklist, callout",
+   "button": "Prep viva",
+   "loading": "Interrogating…"
+  }
+ ]
+}

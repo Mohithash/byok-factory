@@ -1,0 +1,201 @@
+{
+ "id": "tri_brick",
+ "name": "Brick Builder",
+ "tagline": "Three sports, one week, no missed sessions",
+ "category": "Sports",
+ "colors": [
+  "#00838F",
+  "#FF6F00",
+  "#3949AB"
+ ],
+ "icon": "calendar",
+ "about": "Brick Builder fits swim, bike and run into your real week, writes brick sessions, sets up your transition and times your race day from alarm to finish line.",
+ "persona": "You are a triathlon coach who specialises in age-groupers with jobs: balanced across all three sports, obsessed with transitions and logistics, allergic to junk volume.",
+ "onboarding": {
+  "title": "Make the three sports fit",
+  "subtitle": "Your race distance and weak sport steer every plan.",
+  "bullets": [
+   "Weekly plans that balance all three",
+   "Brick sessions and transition drills",
+   "Race-day timeline to the minute"
+  ]
+ },
+ "profile": [
+  {
+   "key": "distance",
+   "label": "Race distance",
+   "type": "chips",
+   "options": [
+    "Sprint",
+    "Olympic",
+    "70.3",
+    "Full"
+   ]
+  },
+  {
+   "key": "weak",
+   "label": "Weakest sport",
+   "type": "chips",
+   "options": [
+    "Swim",
+    "Bike",
+    "Run"
+   ]
+  },
+  {
+   "key": "hours",
+   "label": "Hours/week",
+   "type": "chips",
+   "options": [
+    "4–6",
+    "7–9",
+    "10–12",
+    "13+"
+   ]
+  },
+  {
+   "key": "race",
+   "label": "Next race & date",
+   "type": "text",
+   "placeholder": "Olympic, Blenheim, 7 June"
+  }
+ ],
+ "tools": [
+  {
+   "id": "week",
+   "title": "Plan my week",
+   "subtitle": "All three sports around your life",
+   "emoji": "🗓️",
+   "inputs": [
+    {
+     "key": "schedule",
+     "label": "This week's constraints",
+     "type": "text",
+     "placeholder": "pool only Mon/Wed 6am, long bike Sat, kids Sunday",
+     "required": true
+    },
+    {
+     "key": "phase",
+     "label": "Phase",
+     "type": "chips",
+     "options": [
+      "Base",
+      "Build",
+      "Peak",
+      "Taper",
+      "Recovery"
+     ],
+     "default": "Build"
+    }
+   ],
+   "prompt": "Plan one {phase} week for the profile distance, hours and weak sport within: {schedule}. Table (Day | AM session | PM session | Duration | Purpose), bullets on which session matters most and which to drop first if life intervenes, and a callout on the extra attention the weak sport gets this week.",
+   "shape": "table, bullets, callout",
+   "button": "Plan week",
+   "loading": "Juggling sports…"
+  },
+  {
+   "id": "brick",
+   "title": "Build a brick",
+   "subtitle": "Bike → run without jelly legs",
+   "emoji": "🧱",
+   "inputs": [
+    {
+     "key": "type",
+     "label": "Brick",
+     "type": "chips",
+     "options": [
+      "Bike→run",
+      "Swim→bike",
+      "Race-sim mini-tri",
+      "Run-off-bike repeats"
+     ],
+     "default": "Bike→run"
+    },
+    {
+     "key": "minutes",
+     "label": "Total minutes",
+     "type": "number",
+     "placeholder": "75"
+    }
+   ],
+   "prompt": "A {minutes}-minute {type} brick for the profile distance: steps with each segment as duration · intensity · cue, including the transition practice in between, kv (target effort per leg, transition target time, fuel to take), bullets on what jelly legs are telling you, and a callout on when to cut it short.",
+   "shape": "steps, kv, bullets, callout",
+   "button": "Build brick",
+   "loading": "Stacking bricks…"
+  },
+  {
+   "id": "transition",
+   "title": "Transition setup",
+   "subtitle": "Photo of your kit → lay it out",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of your race kit laid out",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "weather",
+     "label": "Race weather",
+     "type": "chips",
+     "options": [
+      "Hot",
+      "Mild",
+      "Cold",
+      "Wet"
+     ],
+     "default": "Mild"
+    }
+   ],
+   "prompt": "Check the kit in the photo for a {weather} race at the profile distance: table (Item | Seen | Needed for | Note), a checklist of what is missing, steps for laying out T1 and T2 in order of use, and a callout on the three things most often forgotten (race belt, nutrition, chip).",
+   "shape": "table, checklist, steps, callout",
+   "button": "Check transition",
+   "loading": "Laying out kit…"
+  },
+  {
+   "id": "raceday",
+   "title": "Race-day timeline",
+   "subtitle": "Alarm to finish line",
+   "emoji": "🏁",
+   "inputs": [
+    {
+     "key": "start",
+     "label": "Wave start time",
+     "type": "text",
+     "placeholder": "07:40",
+     "required": true
+    },
+    {
+     "key": "logistics",
+     "label": "Logistics",
+     "type": "text",
+     "placeholder": "30 min drive, transition closes 07:00, bike racked night before"
+    }
+   ],
+   "prompt": "Build a race-day timeline for a {start} start with: {logistics}, for the profile distance. Steps with clock times from alarm to start (eat, travel, rack, wetsuit, warm-up), a table (Leg | Target time | Effort | Fuel/drink | Reminder), a callout on the pre-race mistakes that cost the most, and a quote with a one-line mantra for the swim start.",
+   "shape": "steps, table, callout, quote",
+   "button": "Build timeline",
+   "loading": "Setting alarms…"
+  },
+  {
+   "id": "taper",
+   "title": "Taper me",
+   "subtitle": "Last 2 weeks, fresh not flat",
+   "emoji": "🪶",
+   "inputs": [
+    {
+     "key": "recent",
+     "label": "Recent training load",
+     "type": "text",
+     "placeholder": "12 h/week for 6 weeks, long ride 4 h, long run 90 min"
+    }
+   ],
+   "prompt": "A 2-week taper for the profile race after: {recent}. Table (Day | Swim | Bike | Run | Notes) with volume dropping and intensity kept, bullets on sleep, food and kit admin by day, a callout on taper anxiety and phantom niggles, and a checklist for the final 48 hours.",
+   "shape": "table, bullets, callout, checklist",
+   "button": "Plan taper",
+   "loading": "Sharpening up…"
+  }
+ ],
+ "disclaimer": "Training guidance only. Open-water swimming carries real risk: never swim alone and follow event safety briefings. Not medical advice."
+}

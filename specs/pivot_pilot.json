@@ -1,0 +1,186 @@
+{
+ "id": "pivot_pilot",
+ "name": "Pivot Pilot",
+ "tagline": "Answers from your spreadsheet, not just formulas",
+ "category": "Tools",
+ "colors": [
+  "#1B5E20",
+  "#00897B",
+  "#FFB300"
+ ],
+ "icon": "graph",
+ "about": "Pivot Pilot reads a pasted table or CSV and tells you what it says: summary stats, the pivot that answers your question, outliers worth checking and what-if scenarios, all in Excel or Google Sheets terms.",
+ "persona": "You are a sharp, plain-spoken spreadsheet analyst who works in Excel and Google Sheets, shows the numbers behind every claim and says clearly when the data cannot answer the question.",
+ "onboarding": {
+  "title": "Paste a table, get the story",
+  "subtitle": "Tell us which spreadsheet you use and what your data is usually about.",
+  "bullets": [
+   "Findings from pasted data, with numbers",
+   "Pivot tables designed for your question",
+   "Outliers and what-ifs, explained"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "tool",
+   "label": "Spreadsheet",
+   "type": "chips",
+   "options": [
+    "Excel",
+    "Google Sheets",
+    "LibreOffice",
+    "Numbers"
+   ],
+   "default": "Excel"
+  },
+  {
+   "key": "level",
+   "label": "Comfort level",
+   "type": "chips",
+   "options": [
+    "Beginner",
+    "Comfortable",
+    "Power user"
+   ],
+   "default": "Comfortable"
+  },
+  {
+   "key": "domain",
+   "label": "Your data is usually about",
+   "type": "text",
+   "placeholder": "sales, inventory, HR…"
+  }
+ ],
+ "tools": [
+  {
+   "id": "analyse",
+   "title": "Analyse my table",
+   "subtitle": "Paste rows → what they say",
+   "emoji": "🔎",
+   "inputs": [
+    {
+     "key": "data",
+     "label": "Paste your data (CSV or tab-separated, with headers)",
+     "type": "longtext",
+     "placeholder": "date,region,units,revenue\n2024-01-03,North,12,480…",
+     "required": true
+    },
+    {
+     "key": "question",
+     "label": "What do you want to know?",
+     "type": "text",
+     "placeholder": "which region is slipping?"
+    }
+   ],
+   "prompt": "Analyse this data: {data}. The user's question: {question}. Produce a table 'Summary' (Column | Type | Min | Max | Mean or top value | Missing) covering every column, then bullets with the 5 most important findings each backed by a specific number, a kv 'Answer' (Answer, Confidence, Caveat) addressing the question directly, and a callout naming what this data cannot answer and which extra column would fix that.",
+   "shape": "table, bullets, kv, callout",
+   "button": "Analyse",
+   "loading": "Reading the rows…"
+  },
+  {
+   "id": "pivot",
+   "title": "Design a pivot",
+   "subtitle": "Question → rows, columns, values",
+   "emoji": "🧮",
+   "inputs": [
+    {
+     "key": "columns",
+     "label": "Column headers you have",
+     "type": "text",
+     "placeholder": "Date, Rep, Product, Region, Units, Revenue",
+     "required": true
+    },
+    {
+     "key": "question",
+     "label": "Question to answer",
+     "type": "text",
+     "placeholder": "revenue by product per quarter",
+     "required": true
+    }
+   ],
+   "prompt": "Design the pivot table that answers '{question}' from the columns {columns} in the profile's spreadsheet tool. Sections: kv (Rows, Columns, Values with aggregation, Filters, Sort), steps to build it click-by-click in that tool, a quote with the equivalent single formula (SUMIFS, QUERY or GROUPBY as appropriate), and bullets of 3 follow-up pivots that usually come next.",
+   "shape": "kv, steps, quote, bullets",
+   "button": "Design pivot",
+   "loading": "Arranging fields…"
+  },
+  {
+   "id": "outliers",
+   "title": "Hunt for outliers",
+   "subtitle": "Find the rows that don't belong",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "data",
+     "label": "Paste the column(s) to check",
+     "type": "longtext",
+     "placeholder": "order_id,amount\n1001,45.00\n1002,4500.00…",
+     "required": true
+    },
+    {
+     "key": "method",
+     "label": "Sensitivity",
+     "type": "chips",
+     "options": [
+      "Strict",
+      "Balanced",
+      "Loose"
+     ],
+     "default": "Balanced"
+    }
+   ],
+   "prompt": "Check {data} for outliers and anomalies at '{method}' sensitivity. Table 'Flagged' (Row | Value | Why flagged | Likely cause | Action), a kv of the thresholds used (method, lower bound, upper bound, count flagged, % of rows), a checklist of verification steps to complete before deleting anything, and a callout on flagged values that are probably real and should be kept.",
+   "shape": "table, kv, checklist, callout",
+   "button": "Find outliers",
+   "loading": "Scanning rows…"
+  },
+  {
+   "id": "whatif",
+   "title": "What-if scenario",
+   "subtitle": "Change an assumption, see the effect",
+   "emoji": "🔮",
+   "inputs": [
+    {
+     "key": "model",
+     "label": "Current numbers",
+     "type": "longtext",
+     "placeholder": "price 20, units 1500/month, unit cost 8, fixed costs 10000",
+     "required": true
+    },
+    {
+     "key": "change",
+     "label": "What changes?",
+     "type": "text",
+     "placeholder": "price up 10%, units drop 5%",
+     "required": true
+    }
+   ],
+   "prompt": "Starting from {model}, apply the scenario '{change}'. Table 'Scenario' (Metric | Now | After | Change | % change), text explaining the mechanics in 3 sentences, bullets of 3 alternative scenarios worth testing next, and a quote with the Excel/Sheets formula to build a one-variable data table for this.",
+   "shape": "table, text, bullets, quote",
+   "button": "Run scenario",
+   "loading": "Crunching…"
+  },
+  {
+   "id": "audit",
+   "title": "Audit a screenshot",
+   "subtitle": "Photo of a sheet → problems",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Screenshot of the spreadsheet",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Review the spreadsheet in the photo. Table 'Issues' (Cell/Area | Problem | Risk | Fix), bullets on layout improvements (headers, freeze panes, number formats, named ranges, hard-coded numbers), a checklist for making it safe to share, and a callout on the single change that reduces errors most.",
+   "shape": "table, bullets, checklist, callout",
+   "button": "Audit sheet",
+   "loading": "Zooming in…"
+  }
+ ]
+}

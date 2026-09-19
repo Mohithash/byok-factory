@@ -1,0 +1,217 @@
+{
+ "id": "range_finder",
+ "name": "Range Finder",
+ "tagline": "Mobility that fixes your squat, press and hinge",
+ "category": "Health & Fitness",
+ "colors": [
+  "#6A1B9A",
+  "#AEEA00",
+  "#FF6D00"
+ ],
+ "icon": "gear",
+ "about": "Range Finder is mobility for people who lift: it screens your squat and overhead positions from a photo, finds the joint limiting a lift, and writes pre-lift warm-ups and 4-week range programmes for ankles, hips, thoracic spine and shoulders.",
+ "persona": "You are a strength coach who takes mobility seriously: you test before you stretch, you load new range so it sticks, and you never prescribe 30 minutes of foam rolling.",
+ "onboarding": {
+  "title": "Which lift feels restricted?",
+  "subtitle": "Your lifts and sticky joints decide the screens and drills.",
+  "bullets": [
+   "Screen positions from a photo",
+   "Find the limiting joint",
+   "Load new range so it stays"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "lifts",
+   "label": "Lifts you train",
+   "type": "chips",
+   "options": [
+    "Back squat",
+    "Front squat",
+    "Overhead press",
+    "Snatch or clean",
+    "Deadlift",
+    "Bench"
+   ],
+   "multi": true
+  },
+  {
+   "key": "sticky",
+   "label": "Sticky areas",
+   "type": "chips",
+   "options": [
+    "Ankles",
+    "Hips",
+    "Thoracic spine",
+    "Shoulders",
+    "Wrists",
+    "Hamstrings"
+   ],
+   "multi": true
+  }
+ ],
+ "tools": [
+  {
+   "id": "screen",
+   "title": "Screen a position",
+   "subtitle": "Photo at the bottom of a squat or overhead",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo at the bottom of the squat or with arms overhead",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "position",
+     "label": "Position",
+     "type": "chips",
+     "options": [
+      "Squat bottom",
+      "Overhead reach",
+      "Front rack",
+      "Hinge or deadlift setup",
+      "Deep lunge"
+     ],
+     "default": "Squat bottom"
+    }
+   ],
+   "prompt": "Screen the {position} in the photo. Sections: a table (Joint | What I see | Likely limiter: mobility, stability or technique | Test to confirm), steps for the confirming at-home test with a pass mark, bullets on what to change in the lift today, and a callout on when a restriction is a job for a clinician (pain, pinching, injury history).",
+   "shape": "table, steps, bullets, callout",
+   "button": "Screen",
+   "loading": "Drawing angles…"
+  },
+  {
+   "id": "fix",
+   "title": "Fix a restriction",
+   "subtitle": "Depth, lockout, heels, butt wink…",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "problem",
+     "label": "Problem",
+     "type": "chips",
+     "options": [
+      "Cannot squat to depth",
+      "Heels lift in the squat",
+      "Cannot lock out overhead",
+      "Front rack hurts wrists",
+      "Rounded back on the hinge",
+      "Butt wink at the bottom"
+     ],
+     "default": "Cannot squat to depth"
+    }
+   ],
+   "prompt": "Solve '{problem}' for the profile lifts and sticky areas. Sections: bullets ranking the likely culprits (ankle, hip, thoracic, shoulder, technique), a table (Drill | Joint | Sets x reps or seconds | When to do it | Retest), steps for a 5-minute test, drill, retest sequence, and a callout on drills to skip if there is pinching or sharp pain.",
+   "shape": "bullets, table, steps, callout",
+   "button": "Fix it",
+   "loading": "Finding the limiter…"
+  },
+  {
+   "id": "warmup",
+   "title": "Pre-lift warm-up",
+   "subtitle": "Minutes tailored to today's lift",
+   "emoji": "🔥",
+   "inputs": [
+    {
+     "key": "lift",
+     "label": "Today's main lift",
+     "type": "chips",
+     "options": [
+      "Squat",
+      "Deadlift",
+      "Overhead press",
+      "Bench",
+      "Olympic lifts",
+      "Full body"
+     ],
+     "default": "Squat"
+    },
+    {
+     "key": "minutes",
+     "label": "Minutes",
+     "type": "chips",
+     "options": [
+      "5",
+      "8",
+      "12"
+     ],
+     "default": "8"
+    }
+   ],
+   "prompt": "Write a {minutes}-minute warm-up before {lift} for the profile sticky areas. Sections: steps in order (drill · reps or seconds · what it opens), a table (Drill | Target joint | Cue), a callout on how to know you are warm enough (a feeling, not a time), and bullets on empty-bar ramp sets after the warm-up.",
+   "shape": "steps, table, callout, bullets",
+   "button": "Warm up",
+   "loading": "Greasing joints…"
+  },
+  {
+   "id": "programme",
+   "title": "4-week range programme",
+   "subtitle": "Daily minutes, one joint at a time",
+   "emoji": "📅",
+   "inputs": [
+    {
+     "key": "joint",
+     "label": "Joint",
+     "type": "chips",
+     "options": [
+      "Ankles",
+      "Hips",
+      "Thoracic spine",
+      "Shoulders",
+      "Wrists",
+      "Hamstrings"
+     ],
+     "default": "Hips"
+    },
+    {
+     "key": "minutes",
+     "label": "Daily minutes",
+     "type": "chips",
+     "options": [
+      "10",
+      "15",
+      "20"
+     ],
+     "default": "10"
+    }
+   ],
+   "prompt": "Write a 4-week {joint} range programme at {minutes} minutes per day for the profile lifts. Sections: a table (Week | Daily drills | Sets x reps or holds | Loading progression), steps for the two key drills with form cues, a checklist of weekly retests with measurable targets (for example knee-to-wall cm), and a callout on loading new range in the lift so it sticks.",
+   "shape": "table, steps, checklist, callout",
+   "button": "Build programme",
+   "loading": "Opening range…"
+  },
+  {
+   "id": "cooldown",
+   "title": "Post-session reset",
+   "subtitle": "5 minutes after lifting",
+   "emoji": "🧊",
+   "inputs": [
+    {
+     "key": "lift",
+     "label": "What you just trained",
+     "type": "chips",
+     "options": [
+      "Squat",
+      "Deadlift",
+      "Press",
+      "Pull",
+      "Full body"
+     ],
+     "default": "Full body"
+    }
+   ],
+   "prompt": "A 5-minute post-{lift} reset for the profile sticky areas. Sections: steps (drill · seconds · breathing), bullets on what to skip when very fatigued, and a quote with a single line on why long static stretching belongs in a separate session.",
+   "shape": "steps, bullets, quote",
+   "button": "Reset",
+   "loading": "Cooling down…"
+  }
+ ],
+ "disclaimer": "Not medical advice. Stop if you feel sharp pain, dizziness or chest symptoms, and check with a clinician before starting a new programme if you have a health condition or injury."
+}

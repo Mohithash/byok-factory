@@ -1,0 +1,187 @@
+{
+ "id": "why_machine",
+ "name": "Why Machine",
+ "tagline": "'But why?' answered at their level, with a demo",
+ "category": "Parenting",
+ "colors": [
+  "#00838F",
+  "#FFB300",
+  "#E53935"
+ ],
+ "icon": "bulb",
+ "about": "Why Machine turns your child's endless questions — why is the sky blue, where does rain come from, why do we sneeze — into age-perfect answers, a five-minute demo with household stuff, follow-up questions that keep them curious, and a bedtime explainer you can read aloud.",
+ "persona": "You are a children's science communicator: accurate, honest about 'we don't fully know', vivid with analogies, and you match every word to the child's age.",
+ "onboarding": {
+  "title": "Never say 'because it just is' again",
+  "subtitle": "Tell us your child's age and what they're into.",
+  "bullets": [
+   "Age-perfect answers",
+   "5-minute demos from the kitchen",
+   "Questions that keep them curious"
+  ]
+ },
+ "profile": [
+  {
+   "key": "child",
+   "label": "Child's name & age",
+   "type": "text",
+   "placeholder": "Noah, 6"
+  },
+  {
+   "key": "into",
+   "label": "Loves right now",
+   "type": "text",
+   "placeholder": "volcanoes, space, sharks"
+  },
+  {
+   "key": "depth",
+   "label": "Answers should be",
+   "type": "chips",
+   "options": [
+    "Simple and short",
+    "Medium",
+    "Full detail — they'll want more"
+   ],
+   "default": "Medium"
+  }
+ ],
+ "tools": [
+  {
+   "id": "why",
+   "title": "Answer a why",
+   "subtitle": "Their question, their level",
+   "emoji": "❓",
+   "inputs": [
+    {
+     "key": "question",
+     "label": "The question",
+     "type": "text",
+     "placeholder": "why is the sky blue?",
+     "required": true
+    },
+    {
+     "key": "when",
+     "label": "Situation",
+     "type": "chips",
+     "options": [
+      "Right now, quick",
+      "We've got 10 minutes",
+      "Bedtime — calm"
+     ],
+     "default": "Right now, quick"
+    }
+   ],
+   "prompt": "Answer '{question}' for the profile child ({when}). Sections: a quote with the answer in the parent's voice at the profile depth and age (max 6 sentences, one analogy drawn from the profile's interests), text with the accurate grown-up version in 3 sentences, bullets of 3 follow-up questions the child might ask with one-line answers, and a callout on what science doesn't fully know here or a common myth to avoid.",
+   "shape": "quote, text, bullets, callout",
+   "button": "Answer it",
+   "loading": "Thinking hard…"
+  },
+  {
+   "id": "demo",
+   "title": "5-minute demo",
+   "subtitle": "Show it, don't just say it",
+   "emoji": "🧪",
+   "inputs": [
+    {
+     "key": "concept",
+     "label": "Concept to show",
+     "type": "text",
+     "placeholder": "why boats float",
+     "required": true
+    },
+    {
+     "key": "have",
+     "label": "What you have to hand",
+     "type": "text",
+     "placeholder": "bowl, tin foil, coins, water"
+    }
+   ],
+   "prompt": "Design a 5-minute demonstration of '{concept}' for the profile child using: {have} (substitute common household items if needed). Sections: a checklist of materials, steps with a 'what do you think will happen?' prediction moment, a quote with the one-sentence explanation to say afterwards at the child's level, and a callout with safety notes and a mess rating.",
+   "shape": "checklist, steps, quote, callout",
+   "button": "Set up demo",
+   "loading": "Gathering jars…"
+  },
+  {
+   "id": "explainer",
+   "title": "Bedtime explainer",
+   "subtitle": "A read-aloud on any topic",
+   "emoji": "🌙",
+   "inputs": [
+    {
+     "key": "topic",
+     "label": "Topic",
+     "type": "text",
+     "placeholder": "how volcanoes work",
+     "required": true
+    },
+    {
+     "key": "length",
+     "label": "Length",
+     "type": "chips",
+     "options": [
+      "2 minutes",
+      "5 minutes"
+     ],
+     "default": "2 minutes"
+    }
+   ],
+   "prompt": "Write a {length} read-aloud explainer on {topic} for the profile child, told as a gentle journey with the child as the narrator's companion, accurate throughout, using their interests from the profile as touchpoints. Sections: the explainer as a quote in short paragraphs, a kv of 4 big words used (Word → kid definition), bullets of 3 'tomorrow, look for…' observations, and a callout on the one misconception to correct if they repeat it.",
+   "shape": "quote, kv, bullets, callout",
+   "button": "Write it",
+   "loading": "Tucking in facts…"
+  },
+  {
+   "id": "week",
+   "title": "Curiosity week",
+   "subtitle": "7 days of tiny science",
+   "emoji": "📅",
+   "inputs": [
+    {
+     "key": "theme",
+     "label": "Theme",
+     "type": "chips",
+     "options": [
+      "Weather",
+      "Water",
+      "Light and shadow",
+      "Bodies",
+      "Bugs and plants",
+      "Space",
+      "Kitchen chemistry",
+      "Sound"
+     ],
+     "default": "Water"
+    }
+   ],
+   "prompt": "Plan a 7-day '{theme}' curiosity week for the profile child, 10 minutes a day, zero special equipment. Sections: a table (Day | Question of the day | 10-minute activity | Materials), cards for the 2 best activities (meta = minutes · mess · wow factor), a checklist for the parent, and a callout on the safety points across the week.",
+   "shape": "table, cards, checklist, callout",
+   "button": "Plan week",
+   "loading": "Bottling wonder…"
+  },
+  {
+   "id": "spotted",
+   "title": "What is this?",
+   "subtitle": "Photo of the thing they're asking about",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of what your child is asking about",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "asked",
+     "label": "What they asked",
+     "type": "text",
+     "placeholder": "why is it that colour?"
+    }
+   ],
+   "prompt": "Identify what's in the photo as best you can and answer the child's question '{asked}' at the profile level. Sections: kv (What it probably is, Confidence, Fun fact, Safe to touch?), a quote with the answer in the parent's voice, bullets of 2 things to look at more closely right now, and a callout on any safety point (don't touch, don't eat, wash hands).",
+   "shape": "kv, quote, bullets, callout",
+   "button": "Tell me",
+   "loading": "Zooming in…"
+  }
+ ],
+ "disclaimer": "Demos and experiments need an adult; read the safety callout before starting and keep small parts, hot things and chemicals away from little hands."
+}

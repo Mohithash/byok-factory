@@ -1,0 +1,189 @@
+{
+ "id": "colour_season",
+ "name": "Colour Season",
+ "tagline": "The colours that make you look awake and alive",
+ "category": "Beauty",
+ "colors": [
+  "#FF7043",
+  "#0288D1",
+  "#43A047"
+ ],
+ "icon": "sun",
+ "about": "Colour Season works out your seasonal colour palette from a daylight photo, tells you whether a specific colour flatters you, builds a shopping palette with hex codes and matches makeup and hair colour to it.",
+ "persona": "You are a trained personal colour analyst: precise about undertone, depth and chroma, clear that a photo is a starting point rather than a verdict, and never rigid about rules.",
+ "onboarding": {
+  "title": "Find your best colours",
+  "subtitle": "Natural hair, eye and skin details make the analysis sharper.",
+  "bullets": [
+   "Your season from a daylight photo",
+   "Yes / no verdicts on any colour",
+   "Shopping palette with hex codes"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "hair",
+   "label": "Natural hair colour",
+   "type": "text",
+   "placeholder": "dark ash brown"
+  },
+  {
+   "key": "eyes",
+   "label": "Eye colour",
+   "type": "text",
+   "placeholder": "grey-green"
+  },
+  {
+   "key": "season",
+   "label": "Season if known",
+   "type": "chips",
+   "options": [
+    "Not sure",
+    "Spring",
+    "Summer",
+    "Autumn",
+    "Winter"
+   ],
+   "default": "Not sure"
+  }
+ ],
+ "tools": [
+  {
+   "id": "analyse",
+   "title": "Find my season",
+   "subtitle": "Daylight photo → season",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Face photo in daylight, no makeup, plain background",
+     "type": "photo",
+     "placeholder": "Near a window, no filters",
+     "required": true
+    },
+    {
+     "key": "jewellery",
+     "label": "Looks better on you",
+     "type": "chips",
+     "options": [
+      "Gold",
+      "Silver",
+      "Both",
+      "Not sure"
+     ],
+     "default": "Not sure"
+    }
+   ],
+   "prompt": "Analyse the photo with the profile's natural hair and eye colour and the jewellery preference '{jewellery}'. kv (undertone, depth, chroma, season and sub-season, confidence), text explaining the reasoning in plain words, a table (Your best colours | Neutrals | Colours to wear away from the face), and a callout on lighting limits and how to confirm with drapes at home.",
+   "shape": "kv, text, table, callout",
+   "button": "Analyse",
+   "loading": "Reading light…"
+  },
+  {
+   "id": "verdict",
+   "title": "Does this colour suit me?",
+   "subtitle": "Colour name or photo → verdict",
+   "emoji": "🎨",
+   "inputs": [
+    {
+     "key": "colour",
+     "label": "Colour or item",
+     "type": "text",
+     "placeholder": "mustard yellow jumper",
+     "required": true
+    },
+    {
+     "key": "photo",
+     "label": "Photo of it (optional)",
+     "type": "photo"
+    }
+   ],
+   "prompt": "Judge '{colour}' (and the photo if given) against the profile's season. kv (verdict: great / fine / wear it away from the face, why), bullets of the closer shade to look for instead, a table (Wear it with | Effect), and a callout on how lipstick or accessories can bridge a colour that is slightly off.",
+   "shape": "kv, bullets, table, callout",
+   "button": "Judge",
+   "loading": "Holding it up…"
+  },
+  {
+   "id": "palette",
+   "title": "Build my palette",
+   "subtitle": "Shopping palette with hex codes",
+   "emoji": "🧩",
+   "inputs": [
+    {
+     "key": "size",
+     "label": "Palette size",
+     "type": "chips",
+     "options": [
+      "12 colours",
+      "24 colours"
+     ],
+     "default": "12 colours"
+    },
+    {
+     "key": "use",
+     "label": "Mostly for",
+     "type": "chips",
+     "options": [
+      "Work",
+      "Casual",
+      "Evening",
+      "Everything"
+     ],
+     "default": "Everything"
+    }
+   ],
+   "prompt": "Build a {size} palette for {use} for the profile's season. Table (Colour name | Hex | Role: neutral / main / accent | Pairs with), bullets of 6 outfit colour formulas from the palette, kv (metals, denim wash, white versus cream, black verdict), and a callout on the two colours to buy first.",
+   "shape": "table, bullets, kv, callout",
+   "button": "Build palette",
+   "loading": "Mixing swatches…"
+  },
+  {
+   "id": "makeup",
+   "title": "Makeup for my season",
+   "subtitle": "Lip, blush, brow, liner",
+   "emoji": "💋",
+   "inputs": [
+    {
+     "key": "look",
+     "label": "Look",
+     "type": "chips",
+     "options": [
+      "Natural",
+      "Work",
+      "Evening",
+      "Bold"
+     ],
+     "default": "Natural"
+    }
+   ],
+   "prompt": "Recommend {look} makeup colours for the profile's season. Table (Product | Shade family | Descriptor to search for | Avoid), bullets on quick undertone tests for lipstick, and a callout on the one product where a wrong undertone shows most.",
+   "shape": "table, bullets, callout",
+   "button": "Recommend",
+   "loading": "Swatching…"
+  },
+  {
+   "id": "hair",
+   "title": "Hair colour for my season",
+   "subtitle": "Before you book the colourist",
+   "emoji": "💇",
+   "inputs": [
+    {
+     "key": "wish",
+     "label": "What you're thinking",
+     "type": "text",
+     "placeholder": "going lighter, maybe caramel highlights",
+     "required": true
+    }
+   ],
+   "prompt": "Advise on '{wish}' for the profile's season and natural colour. kv (verdict, shade family that harmonises, tones to avoid, maintenance level), bullets of exactly what to say to the colourist, a table (Option | Effect on skin | Upkeep), and a callout on doing a strand test first.",
+   "shape": "kv, bullets, table, callout",
+   "button": "Advise",
+   "loading": "Consulting…"
+  }
+ ]
+}

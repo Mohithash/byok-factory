@@ -1,0 +1,201 @@
+{
+ "id": "survey_sense",
+ "name": "Survey Sense",
+ "tagline": "Read your home survey like a builder, then negotiate",
+ "category": "House & Home",
+ "colors": [
+  "#5D4037",
+  "#FF5252",
+  "#00ACC1"
+ ],
+ "icon": "shield",
+ "about": "Survey Sense turns a home survey or inspection report into a prioritised defect list with cost bands, explains photos of cracks and damp, and arms you to renegotiate or walk away.",
+ "persona": "You are a calm building surveyor with a builder's pragmatism: you separate cosmetic from structural, give cost bands not false precision, and say plainly when a specialist is needed.",
+ "onboarding": {
+  "title": "Every defect, ranked and priced",
+  "subtitle": "Tell us the property basics so the ranking fits its age and type.",
+  "bullets": [
+   "Survey reports decoded and ranked",
+   "Photos of cracks and damp explained",
+   "Negotiation scripts backed by numbers"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "type",
+   "label": "Property type",
+   "type": "chips",
+   "options": [
+    "Flat / apartment",
+    "Terraced",
+    "Semi-detached",
+    "Detached",
+    "Bungalow",
+    "New build"
+   ]
+  },
+  {
+   "key": "age",
+   "label": "Approx. year built",
+   "type": "text",
+   "placeholder": "1930s"
+  },
+  {
+   "key": "region",
+   "label": "Country / region",
+   "type": "text"
+  }
+ ],
+ "tools": [
+  {
+   "id": "decode",
+   "title": "Decode my survey",
+   "subtitle": "Paste the report → ranked defects",
+   "emoji": "📋",
+   "inputs": [
+    {
+     "key": "report",
+     "label": "Paste the report (or the findings section)",
+     "type": "longtext",
+     "placeholder": "Roof: several slipped slates… Damp: high readings to rear wall…",
+     "required": true
+    },
+    {
+     "key": "price",
+     "label": "Agreed price",
+     "type": "number",
+     "placeholder": "325000"
+    }
+   ],
+   "prompt": "Decode this survey for the profile's property, agreed price {price}: {report}. Produce a table (Defect | Severity 1–5 | Likely cause | Cost band | Urgency) ordered by severity, bullets of what is normal for a property of this age and type versus what is not, a checklist of specialist reports or quotes to obtain before committing, and a callout on the findings that justify renegotiating or walking away.",
+   "shape": "table, bullets, checklist, callout",
+   "button": "Decode",
+   "loading": "Reading the report…"
+  },
+  {
+   "id": "photo",
+   "title": "What's this?",
+   "subtitle": "Photo of a crack, stain or bulge",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the crack, stain or problem",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "where",
+     "label": "Where and what you notice",
+     "type": "text",
+     "placeholder": "hairline crack above bay window, inside, worse in summer"
+    }
+   ],
+   "prompt": "Identify what the photo most likely shows given: {where}. Produce a kv (most likely explanation, other possibilities, severity, typical fix, cost band), steps to investigate further yourself safely, bullets of questions for a surveyor or specialist, and a callout on the signs that would make this urgent.",
+   "shape": "kv, steps, bullets, callout",
+   "button": "Identify",
+   "loading": "Looking closely…"
+  },
+  {
+   "id": "negotiate",
+   "title": "Renegotiate the price",
+   "subtitle": "Turn findings into a number",
+   "emoji": "💬",
+   "inputs": [
+    {
+     "key": "findings",
+     "label": "Key findings and quotes",
+     "type": "longtext",
+     "placeholder": "roof repairs quoted 4,200; damp course 1,800; boiler at end of life",
+     "required": true
+    },
+    {
+     "key": "price",
+     "label": "Agreed price",
+     "type": "number",
+     "placeholder": "325000"
+    },
+    {
+     "key": "market",
+     "label": "Market",
+     "type": "chips",
+     "options": [
+      "Buyer's market",
+      "Balanced",
+      "Seller's market"
+     ],
+     "default": "Balanced"
+    }
+   ],
+   "prompt": "Findings: {findings}. Agreed price {price} in a {market}. Produce a table (Item | Quoted cost | Ask for | Justification) with a total, text giving the realistic reduction range and what the seller will likely accept, a quote with the exact message to the agent presenting the findings and the revised offer, and a callout on when to accept a partial reduction versus walking away.",
+   "shape": "table, text, quote, callout",
+   "button": "Build the case",
+   "loading": "Building the case…"
+  },
+  {
+   "id": "which",
+   "title": "Which survey do I need?",
+   "subtitle": "Levels, costs, add-on checks",
+   "emoji": "🧭",
+   "inputs": [
+    {
+     "key": "property",
+     "label": "The property",
+     "type": "text",
+     "placeholder": "1890s terrace with loft conversion and cellar",
+     "required": true
+    },
+    {
+     "key": "plans",
+     "label": "Your plans",
+     "type": "chips",
+     "options": [
+      "Live as is",
+      "Light refresh",
+      "Major renovation",
+      "Rent it out"
+     ],
+     "default": "Live as is"
+    }
+   ],
+   "prompt": "Property: {property}, plans: {plans}, region from the profile. Produce a table (Survey level | Covers | Doesn't cover | Typical cost | Best for) of the survey and inspection types available in general terms, text recommending one for this property and why, a checklist of extra specialist checks worth adding (drains, electrics, timber, asbestos, boundaries), and a callout on the difference between a lender's valuation and a survey.",
+   "shape": "table, text, checklist, callout",
+   "button": "Recommend",
+   "loading": "Weighing it up…"
+  },
+  {
+   "id": "questions",
+   "title": "Question the surveyor",
+   "subtitle": "Before the visit or after the report",
+   "emoji": "❓",
+   "inputs": [
+    {
+     "key": "when",
+     "label": "When",
+     "type": "chips",
+     "options": [
+      "Before the survey",
+      "After reading the report"
+     ],
+     "default": "After reading the report"
+    },
+    {
+     "key": "worries",
+     "label": "Your worries",
+     "type": "text",
+     "placeholder": "the extension, the roof, damp"
+    }
+   ],
+   "prompt": "Stage: {when}. Worries: {worries}. Produce a checklist of 12 questions to ask the surveyor covering the worries and the profile's property type, bullets on what a vague answer usually means, a quote with a short email requesting clarification, and a callout on what a survey cannot promise in general terms.",
+   "shape": "checklist, bullets, quote, callout",
+   "button": "Prepare questions",
+   "loading": "Sharpening…"
+  }
+ ],
+ "disclaimer": "General guidance, not a professional survey; structural, electrical, gas and damp issues need a qualified inspector, and all costs are rough estimates."
+}

@@ -1,0 +1,235 @@
+{
+ "id": "unit_fit",
+ "name": "Unit Fit",
+ "tagline": "Land the nursing job on the unit you actually want",
+ "category": "Business",
+ "colors": [
+  "#00897B",
+  "#EF5350",
+  "#5C6BC0"
+ ],
+ "icon": "heart",
+ "about": "Unit Fit helps RNs, LPNs and new grads find the right unit, tailor real clinical experience to postings, rehearse scenario interviews, check licence and cert requirements, and compare offers line by line.",
+ "persona": "You are a nurse recruiter turned career mentor: clinically literate, straight-talking about ratios and differentials, and never willing to let anyone overstate their scope of practice.",
+ "onboarding": {
+  "title": "Find your unit",
+  "subtitle": "Tell us your licence, experience and the shifts you can work.",
+  "bullets": [
+   "Unit and specialty matching",
+   "Clinical scenario interviews",
+   "Offer comparisons with differentials"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "licence",
+   "label": "Licence",
+   "type": "chips",
+   "options": [
+    "RN",
+    "LPN/LVN",
+    "New grad RN",
+    "NP/APRN",
+    "Student"
+   ]
+  },
+  {
+   "key": "experience",
+   "label": "Experience",
+   "type": "text",
+   "placeholder": "2 yrs med-surg, ACLS, Epic"
+  },
+  {
+   "key": "shifts",
+   "label": "Shifts you can work",
+   "type": "chips",
+   "options": [
+    "Days",
+    "Nights",
+    "Weekends",
+    "12s",
+    "8s",
+    "Per diem"
+   ],
+   "multi": true
+  }
+ ],
+ "tools": [
+  {
+   "id": "match",
+   "title": "Match me to a unit",
+   "subtitle": "Specialties that fit your temperament",
+   "emoji": "🩺",
+   "inputs": [
+    {
+     "key": "pace",
+     "label": "Pace you like",
+     "type": "chips",
+     "options": [
+      "Calm & steady",
+      "Busy but predictable",
+      "Adrenaline"
+     ],
+     "default": "Busy but predictable"
+    },
+    {
+     "key": "patients",
+     "label": "Patient contact",
+     "type": "chips",
+     "options": [
+      "Long relationships",
+      "Quick turnover",
+      "Critical/technical",
+      "Community"
+     ],
+     "default": "Quick turnover"
+    },
+    {
+     "key": "avoid",
+     "label": "Anything to avoid",
+     "type": "text",
+     "placeholder": "paeds, night rotations"
+    }
+   ],
+   "prompt": "Recommend nursing units for the profile given pace '{pace}', patient contact '{patients}' and avoiding: {avoid}. Give 5 units as cards (meta = typical ratio · shift pattern · entry difficulty) with why each fits, a table (Unit | Certs that help | Typical differentials | How to get a foot in), and bullets of questions to ask on a unit shadow day.",
+   "shape": "cards, table, bullets",
+   "button": "Match me",
+   "loading": "Rounding…"
+  },
+  {
+   "id": "bullets",
+   "title": "Clinical bullets",
+   "subtitle": "Turn shift duties into posting-matched bullets",
+   "emoji": "📝",
+   "inputs": [
+    {
+     "key": "posting",
+     "label": "Paste the job posting",
+     "type": "longtext",
+     "placeholder": "Seeking RN for 32-bed telemetry unit…",
+     "required": true
+    },
+    {
+     "key": "duties",
+     "label": "What you actually do on shift",
+     "type": "longtext",
+     "placeholder": "titrate drips, 5:1 ratio, precept new grads…",
+     "required": true
+    }
+   ],
+   "prompt": "Compare the posting {posting} with the nurse's real duties {duties}. Produce bullets of 6 résumé-ready achievement lines that use the posting's language, ratios, acuity, equipment and EHR names honestly; a table (Posting requirement | Your evidence | Gap?) covering every listed requirement; and a callout on anything in the posting the nurse should NOT claim without documented competency.",
+   "shape": "bullets, table, callout",
+   "button": "Write bullets",
+   "loading": "Charting…"
+  },
+  {
+   "id": "scenario",
+   "title": "Scenario interview",
+   "subtitle": "Clinical and behavioural questions with SBAR answers",
+   "emoji": "🗣️",
+   "inputs": [
+    {
+     "key": "unit",
+     "label": "Unit interviewing for",
+     "type": "chips",
+     "options": [
+      "Med-surg",
+      "ICU",
+      "ED",
+      "L&D",
+      "Paeds",
+      "OR",
+      "Oncology",
+      "Psych",
+      "Home health",
+      "Clinic"
+     ],
+     "default": "Med-surg"
+    },
+    {
+     "key": "focus",
+     "label": "Drill",
+     "type": "chips",
+     "options": [
+      "Clinical scenarios",
+      "Behavioural",
+      "Mixed"
+     ],
+     "default": "Mixed"
+    }
+   ],
+   "prompt": "Build a mock interview for a {unit} position, focus {focus}, calibrated to the profile's experience. Give 6 questions as cards (meta = type · what the panel is scoring), each with a model answer structured as SBAR or STAR; a quote with a 45-second 'tell me about yourself' for this unit; and a checklist of questions the nurse should ask about ratios, orientation length and float policy.",
+   "shape": "cards, quote, checklist",
+   "button": "Start mock",
+   "loading": "Paging the panel…"
+  },
+  {
+   "id": "licence",
+   "title": "Licence & certs check",
+   "subtitle": "What you need before day one",
+   "emoji": "📋",
+   "inputs": [
+    {
+     "key": "state",
+     "label": "State / country of the job",
+     "type": "text",
+     "placeholder": "Texas",
+     "required": true
+    },
+    {
+     "key": "target",
+     "label": "Target unit",
+     "type": "chips",
+     "options": [
+      "Med-surg",
+      "ICU",
+      "ED",
+      "L&D",
+      "Paeds",
+      "OR",
+      "Oncology",
+      "Psych",
+      "Travel"
+     ],
+     "default": "Med-surg"
+    }
+   ],
+   "prompt": "For a {target} job in {state} with the profile's current licence: kv (licence pathway — compact, endorsement or new application; typical processing time; fees; fingerprinting), a table (Certification | Required or preferred | Provider | Renewal) covering BLS, ACLS, PALS, NIHSS, TNCC, CCRN or the unit's equivalents, steps in order with realistic timelines, and a callout to verify with the official board site.",
+   "shape": "kv, table, steps, callout",
+   "button": "Check",
+   "loading": "Verifying…"
+  },
+  {
+   "id": "offers",
+   "title": "Compare offers",
+   "subtitle": "Differentials, bonuses and the fine print",
+   "emoji": "⚖️",
+   "inputs": [
+    {
+     "key": "offer_a",
+     "label": "Offer A",
+     "type": "longtext",
+     "placeholder": "$38/hr, $4 nights, $10k sign-on with 2-yr clawback, 5:1",
+     "required": true
+    },
+    {
+     "key": "offer_b",
+     "label": "Offer B",
+     "type": "longtext",
+     "placeholder": "$41/hr, no differential, self-scheduling, 6:1",
+     "required": true
+    }
+   ],
+   "prompt": "Compare {offer_a} and {offer_b} for the profile's shifts. Table (Factor | Offer A | Offer B | Edge) covering base, differentials, realistic annual gross for the shift mix, sign-on terms, ratio, scheduling, PTO and tuition support; kv with an estimated annual difference and the assumptions used; bullets of questions to settle before signing; and a callout on sign-on clawbacks and probation.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Compare",
+   "loading": "Crunching…"
+  }
+ ],
+ "disclaimer": "Pay and licensing details are general guidance, not financial or legal advice; confirm with the employer and your nursing board."
+}

@@ -1,0 +1,210 @@
+{
+ "id": "reading_rocket",
+ "name": "Reading Rocket",
+ "tagline": "From sounding out to reading smoothly and loving it",
+ "category": "Education",
+ "colors": [
+  "#D81B60",
+  "#3949AB",
+  "#FFC107"
+ ],
+ "icon": "bolt",
+ "about": "Reading Rocket builds fluency and confidence in 6–10-year-olds who can decode but read slowly or reluctantly: levelled passages with a words-per-minute target, reader's-theatre scripts, comprehension checks and book matches for kids who say reading is boring.",
+ "persona": "You are a reading-intervention teacher: you know repeated, choral and echo reading, you pitch text at the exact level, and you treat 'I hate reading' as a matching problem, not a character flaw.",
+ "onboarding": {
+  "title": "Make reading feel easy",
+  "subtitle": "Tell us how they read now and what they're into.",
+  "bullets": [
+   "Passages at their exact level",
+   "Reader's-theatre scripts",
+   "Book matches for reluctant readers"
+  ]
+ },
+ "profile": [
+  {
+   "key": "child",
+   "label": "Child's name & age",
+   "type": "text",
+   "placeholder": "Sam, 8"
+  },
+  {
+   "key": "level",
+   "label": "Reads like",
+   "type": "chips",
+   "options": [
+    "Sounds out most words",
+    "Reads slowly, word by word",
+    "Fluent but avoids reading",
+    "Fluent and reads for fun"
+   ]
+  },
+  {
+   "key": "into",
+   "label": "Interests",
+   "type": "text",
+   "placeholder": "football, Minecraft, gross facts"
+  },
+  {
+   "key": "wcpm",
+   "label": "Words per minute (if known)",
+   "type": "number",
+   "placeholder": "60"
+  }
+ ],
+ "tools": [
+  {
+   "id": "passage",
+   "title": "Levelled passage",
+   "subtitle": "A short text for repeated reading",
+   "emoji": "🚀",
+   "inputs": [
+    {
+     "key": "topic",
+     "label": "Topic",
+     "type": "text",
+     "placeholder": "a goalkeeper who is secretly a robot"
+    },
+    {
+     "key": "words",
+     "label": "Length",
+     "type": "chips",
+     "options": [
+      "80 words",
+      "120 words",
+      "180 words"
+     ],
+     "default": "120 words"
+    },
+    {
+     "key": "genre",
+     "label": "Genre",
+     "type": "chips",
+     "options": [
+      "Story",
+      "Fact file",
+      "Joke page",
+      "Comic script",
+      "Instructions"
+     ],
+     "default": "Story"
+    }
+   ],
+   "prompt": "Write a {words} {genre} about {topic} pitched at the profile child's reading level and interests. Sections: the passage as a quote (short paragraphs, mostly decodable, 3–4 stretch words), a kv of the stretch words (Word → meaning in one line), steps for a 4-day repeated-reading routine (echo, choral, timed, perform) with a words-per-minute goal based on the profile, and a table of 4 comprehension questions (Question | Type: literal, inference, vocabulary | Answer).",
+   "shape": "quote, kv, steps, table",
+   "button": "Write passage",
+   "loading": "Launching…"
+  },
+  {
+   "id": "theatre",
+   "title": "Reader's theatre",
+   "subtitle": "A script to perform together",
+   "emoji": "🎤",
+   "inputs": [
+    {
+     "key": "idea",
+     "label": "Script idea",
+     "type": "text",
+     "placeholder": "two pirates argue about a map",
+     "required": true
+    },
+    {
+     "key": "parts",
+     "label": "Parts",
+     "type": "chips",
+     "options": [
+      "2 (child + parent)",
+      "3 (child + parent + sibling)",
+      "4 (family)"
+     ],
+     "default": "2 (child + parent)"
+    }
+   ],
+   "prompt": "Write a 3-minute reader's-theatre script about {idea} for {parts}, giving the child the part with the most lines at the profile reading level and the adults harder vocabulary. Sections: a quote containing the full script with speaker labels and stage directions in brackets, bullets on expression cues (punctuation → voice), a checklist for the rehearse-then-perform routine, and a callout on praising specific fluency wins.",
+   "shape": "quote, bullets, checklist, callout",
+   "button": "Write script",
+   "loading": "Casting…"
+  },
+  {
+   "id": "match",
+   "title": "Book match",
+   "subtitle": "Books they'll actually finish",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "format",
+     "label": "Format",
+     "type": "chips",
+     "options": [
+      "Graphic novel",
+      "Chapter book",
+      "Non-fiction",
+      "Joke / fact book",
+      "Series to binge",
+      "Audiobook + book"
+     ],
+     "default": "Graphic novel"
+    },
+    {
+     "key": "hated",
+     "label": "Books they abandoned",
+     "type": "text",
+     "placeholder": "Harry Potter — too long"
+    }
+   ],
+   "prompt": "Recommend 8 real, in-print {format} titles for the profile child's age, level and interests, avoiding what went wrong with: {hated}. Cards (Title by Author, meta = reading level · pages · hook in five words), a table (Title | Why it will land | First-chapter test: the bit to read aloud to them), and a callout on letting kids quit books without guilt.",
+   "shape": "cards, table, callout",
+   "button": "Match books",
+   "loading": "Scanning shelves…"
+  },
+  {
+   "id": "check",
+   "title": "Check comprehension",
+   "subtitle": "After they read: did it go in?",
+   "emoji": "🧠",
+   "inputs": [
+    {
+     "key": "text",
+     "label": "What they read",
+     "type": "text",
+     "placeholder": "chapter 3 of Dog Man Unleashed",
+     "required": true
+    },
+    {
+     "key": "mode",
+     "label": "Mode",
+     "type": "chips",
+     "options": [
+      "Quick chat",
+      "Written answers",
+      "Draw and explain"
+     ],
+     "default": "Quick chat"
+    }
+   ],
+   "prompt": "Create a {mode} comprehension check on {text} for the profile child. Sections: a table of 6 questions ordered easy to hard (Question | Skill: retrieval, inference, vocabulary, summary, prediction | Model answer), a quote with a friendly way to open the chat that doesn't feel like a test, bullets on what weak answers in each skill mean, and a callout on the one skill to practise next.",
+   "shape": "table, quote, bullets, callout",
+   "button": "Make check",
+   "loading": "Between the lines…"
+  },
+  {
+   "id": "listen",
+   "title": "Listen to them read",
+   "subtitle": "Paste what you noticed, get a plan",
+   "emoji": "👂",
+   "inputs": [
+    {
+     "key": "notes",
+     "label": "What you noticed",
+     "type": "longtext",
+     "placeholder": "skipped small words, read 'house' as 'horse', stopped at commas",
+     "required": true
+    }
+   ],
+   "prompt": "Analyse these observations of the profile child reading aloud: {notes}. Sections: a table (Observation | Likely cause | Fix to try this week), bullets of 3 praise lines to use (specific, not 'good job'), steps for a 10-minute daily routine for the next week, and a callout on signs that mean ask the school for a reading assessment.",
+   "shape": "table, bullets, steps, callout",
+   "button": "Analyse",
+   "loading": "Listening…"
+  }
+ ],
+ "disclaimer": "General reading support, not an assessment for dyslexia or other learning differences; ask the school or a specialist if you're concerned."
+}

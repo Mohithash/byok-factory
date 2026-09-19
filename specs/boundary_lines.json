@@ -1,0 +1,194 @@
+{
+ "id": "boundary_lines",
+ "name": "Boundary Lines",
+ "tagline": "Say no without the guilt spiral",
+ "category": "Lifestyle",
+ "colors": [
+  "#37474F",
+  "#E53935",
+  "#FDD835"
+ ],
+ "icon": "shield",
+ "about": "Boundary Lines gives you the words to decline, delay and draw a line — with a boss, a parent, a friend or a partner — and helps you hold it when the pushback comes.",
+ "persona": "You are a direct, kind assertiveness coach: you distinguish boundaries (what you will do) from control (what others must do), keep scripts short, and never shame the user for wanting to be liked.",
+ "onboarding": {
+  "title": "Your yes should mean yes",
+  "subtitle": "Tell us where saying no is hardest.",
+  "bullets": [
+   "Scripts for the awkward no",
+   "Handle pushback without folding",
+   "Know when a boundary is reasonable"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "hardest",
+   "label": "Hardest to say no to",
+   "type": "chips",
+   "options": [
+    "Parents",
+    "Partner",
+    "Friends",
+    "Boss / colleagues",
+    "Kids",
+    "Everyone"
+   ],
+   "multi": true
+  },
+  {
+   "key": "style",
+   "label": "When pushed I usually",
+   "type": "chips",
+   "options": [
+    "Cave",
+    "Over-explain",
+    "Go cold",
+    "Blow up"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "decline",
+   "title": "Say no to this",
+   "subtitle": "A request you don't want to accept",
+   "emoji": "🙅",
+   "inputs": [
+    {
+     "key": "ask",
+     "label": "The request",
+     "type": "longtext",
+     "placeholder": "my sister wants me to host Christmas again",
+     "required": true
+    },
+    {
+     "key": "relationship",
+     "label": "From",
+     "type": "chips",
+     "options": [
+      "Family",
+      "Partner",
+      "Friend",
+      "Work",
+      "Neighbour / other"
+     ],
+     "default": "Family"
+    },
+    {
+     "key": "firmness",
+     "label": "Firmness",
+     "type": "chips",
+     "options": [
+      "Soft no",
+      "Clear no",
+      "Final no"
+     ],
+     "default": "Clear no"
+    }
+   ],
+   "prompt": "Request: {ask}, from {relationship}, firmness level {firmness}. Give 3 quote sections — a text-message version, a spoken version, and a one-liner for when you're put on the spot — each under 40 words with no apology stacking. Then bullets on what NOT to add (excuses, over-explaining), and a callout on the guilt that follows and why it fades.",
+   "shape": "quote, bullets, callout",
+   "button": "Give me words",
+   "loading": "Drafting the no…"
+  },
+  {
+   "id": "pushback",
+   "title": "They pushed back",
+   "subtitle": "Rehearse round two",
+   "emoji": "🔁",
+   "inputs": [
+    {
+     "key": "said",
+     "label": "What they said after your no",
+     "type": "longtext",
+     "placeholder": "'After everything I've done for you?'",
+     "required": true
+    },
+    {
+     "key": "goal",
+     "label": "I want to",
+     "type": "chips",
+     "options": [
+      "Hold the line",
+      "Offer a smaller yes",
+      "End the conversation"
+     ],
+     "default": "Hold the line"
+    }
+   ],
+   "prompt": "After the no, they said: {said}. Goal: {goal}. Text naming the tactic in one sentence (guilt, urgency, silence, bargaining) without demonising them, a table (If they say… | You say… | Then you do…) with 4 rounds, a quote with the broken-record line to repeat verbatim, and a callout on when leaving the room is the boundary.",
+   "shape": "text, table, quote, callout",
+   "button": "Prep round two",
+   "loading": "Bracing…"
+  },
+  {
+   "id": "reasonable",
+   "title": "Is this reasonable?",
+   "subtitle": "Check a boundary before you set it",
+   "emoji": "🧭",
+   "inputs": [
+    {
+     "key": "boundary",
+     "label": "The boundary I want",
+     "type": "longtext",
+     "placeholder": "no work messages after 7pm",
+     "required": true
+    },
+    {
+     "key": "cost",
+     "label": "What it costs them",
+     "type": "text",
+     "placeholder": "my manager loses evening availability"
+    }
+   ],
+   "prompt": "Proposed boundary: {boundary}. Cost to others: {cost}. Assess it in a kv (Boundary or control? | Reasonable? | Likely reaction | Your part to own), text explaining the verdict in 2–3 sentences, a quote with the boundary reworded as what YOU will do rather than what THEY must do, and bullets of 3 ways to soften delivery without softening substance.",
+   "shape": "kv, text, quote, bullets",
+   "button": "Check it",
+   "loading": "Weighing it up…"
+  },
+  {
+   "id": "audit",
+   "title": "Weekly asks audit",
+   "subtitle": "Where your time and energy actually went",
+   "emoji": "📋",
+   "inputs": [
+    {
+     "key": "asks",
+     "label": "Requests you got this week",
+     "type": "longtext",
+     "placeholder": "Mum: drive her Tues; boss: weekend deck; friend: lend £200; school: bake sale",
+     "required": true
+    }
+   ],
+   "prompt": "Requests this week: {asks}. Table (Request | You said | Wanted to say | Cost to you 1–5 | Pattern), bullets naming the 2 patterns that show up most, steps for one boundary to set next week starting with the lowest-stakes person, and a quote with the opening line for that conversation.",
+   "shape": "table, bullets, steps, quote",
+   "button": "Audit",
+   "loading": "Tallying asks…"
+  },
+  {
+   "id": "guilt",
+   "title": "Guilt talk-down",
+   "subtitle": "The spiral after you held the line",
+   "emoji": "🌀",
+   "inputs": [
+    {
+     "key": "feeling",
+     "label": "What's going round your head",
+     "type": "longtext",
+     "placeholder": "I'm selfish, she'll never forgive me, I should just call and say yes",
+     "required": true
+    }
+   ],
+   "prompt": "Thoughts after holding a boundary: {feeling}. Text with a calm reality-check (3–4 sentences, no toxic positivity), a table (Thought | Distortion | Fairer version), a checklist for the next 24 hours (no undoing texts, one grounding action, one kind thing for yourself), and a callout on when persistent guilt or fear suggests talking to a therapist.",
+   "shape": "text, table, checklist, callout",
+   "button": "Talk me down",
+   "loading": "Steadying…"
+  }
+ ],
+ "disclaimer": "Coaching, not therapy. If you ever feel unsafe, controlled or afraid of someone close to you, contact a domestic-abuse helpline or emergency services."
+}

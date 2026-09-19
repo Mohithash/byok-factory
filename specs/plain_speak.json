@@ -1,0 +1,210 @@
+{
+ "id": "plain_speak",
+ "name": "Plain Speak",
+ "tagline": "Turn jargon into words anyone understands",
+ "category": "Tools",
+ "colors": [
+  "#1565C0",
+  "#FF8F00",
+  "#43A047"
+ ],
+ "icon": "chat",
+ "about": "Plain Speak rewrites dense letters, policies, forms and instructions into plain language at the reading level you choose, and shows exactly what changed and why.",
+ "persona": "You are a plain-language editor trained on government and healthcare clear-writing standards: short sentences, active voice, everyday words, meaning preserved, never patronising.",
+ "onboarding": {
+  "title": "Say it so anyone gets it",
+  "subtitle": "Set your audience and target reading level once; every rewrite follows it.",
+  "bullets": [
+   "Rewrites with a before/after readability score",
+   "Decode letters and forms from a photo",
+   "Jargon glossaries in one tap"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "audience",
+   "label": "Usual audience",
+   "type": "chips",
+   "options": [
+    "General public",
+    "Customers",
+    "Patients",
+    "Students",
+    "Colleagues"
+   ],
+   "default": "General public"
+  },
+  {
+   "key": "grade",
+   "label": "Target reading level",
+   "type": "chips",
+   "options": [
+    "Grade 5–6",
+    "Grade 7–8",
+    "Grade 9–10"
+   ],
+   "default": "Grade 7–8"
+  },
+  {
+   "key": "voice",
+   "label": "Voice",
+   "type": "chips",
+   "options": [
+    "Warm",
+    "Neutral",
+    "Direct"
+   ],
+   "default": "Neutral"
+  }
+ ],
+ "tools": [
+  {
+   "id": "rewrite",
+   "title": "Rewrite in plain language",
+   "subtitle": "Same meaning, half the effort to read",
+   "emoji": "🔁",
+   "inputs": [
+    {
+     "key": "text",
+     "label": "Text to simplify",
+     "type": "longtext",
+     "placeholder": "Paste the paragraph, policy or letter…",
+     "required": true
+    },
+    {
+     "key": "keep",
+     "label": "Must keep exactly",
+     "type": "chips",
+     "options": [
+      "Legal terms",
+      "Numbers",
+      "Names",
+      "Nothing special"
+     ],
+     "default": "Nothing special",
+     "multi": true
+    },
+    {
+     "key": "aud",
+     "label": "Audience for this piece",
+     "type": "text",
+     "placeholder": "leave blank to use profile"
+    }
+   ],
+   "prompt": "Rewrite in plain language for the audience '{aud}' (fall back to the profile audience, reading level and voice), keeping exactly: {keep}. Text: {text}. Sections: quote with the full rewrite; table (Original phrase | Plain version | Why) for the 8 most important changes; kv (words before/after, average sentence length before/after, estimated reading grade before/after); and a callout on any place where simplifying could change the meaning.",
+   "shape": "quote, table, kv, callout",
+   "button": "Make it plain",
+   "loading": "Untangling…"
+  },
+  {
+   "id": "score",
+   "title": "Readability report",
+   "subtitle": "Where readers get stuck and why",
+   "emoji": "📊",
+   "inputs": [
+    {
+     "key": "text",
+     "label": "Text to check",
+     "type": "longtext",
+     "placeholder": "Paste up to a page…",
+     "required": true
+    }
+   ],
+   "prompt": "Assess readability of: {text}. kv (estimated reading grade, average sentence length, longest sentence in words, share of passive sentences, jargon count, target grade from profile); table (Sentence | Problem: long / passive / jargon / nominalisation / vague | Fix) for the 10 worst sentences; bullets with the top 3 changes that would move the grade most.",
+   "shape": "kv, table, bullets",
+   "button": "Score it",
+   "loading": "Measuring sentences…"
+  },
+  {
+   "id": "letter",
+   "title": "Decode a letter or form",
+   "subtitle": "Photo → what it says and what to do",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the letter, notice or form",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "worry",
+     "label": "What you need to know",
+     "type": "text",
+     "placeholder": "do I owe money? is there a deadline?"
+    }
+   ],
+   "prompt": "Read the document in the photo and answer the user's concern: {worry}. Sections: text with a plain-language summary in 3 sentences; kv (who sent it, what they want, deadline, amount or cost, reference numbers); a checklist of actions in order; and a callout on anything that must not be ignored or that needs a phone call.",
+   "shape": "text, kv, checklist, callout",
+   "button": "Decode it",
+   "loading": "Reading small print…"
+  },
+  {
+   "id": "glossary",
+   "title": "Jargon glossary",
+   "subtitle": "Every technical term, defined plainly",
+   "emoji": "📚",
+   "inputs": [
+    {
+     "key": "text",
+     "label": "Text containing jargon",
+     "type": "longtext",
+     "placeholder": "Paste the document…",
+     "required": true
+    },
+    {
+     "key": "style",
+     "label": "Definition style",
+     "type": "chips",
+     "options": [
+      "One line",
+      "With an example",
+      "For a 12-year-old"
+     ],
+     "default": "One line"
+    }
+   ],
+   "prompt": "Extract every jargon term, acronym or technical phrase from: {text}. Table (Term | Plain definition | Example in context) in definition style '{style}', ordered by how often the term appears; then a quote with a two-sentence 'Before you read' intro that uses none of the jargon.",
+   "shape": "table, quote",
+   "button": "Build glossary",
+   "loading": "Collecting terms…"
+  },
+  {
+   "id": "explain",
+   "title": "Explain it for…",
+   "subtitle": "The same idea for a specific reader",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "topic",
+     "label": "Text or topic",
+     "type": "longtext",
+     "placeholder": "Paste text or name a concept, e.g. how APR works",
+     "required": true
+    },
+    {
+     "key": "as",
+     "label": "Explain for",
+     "type": "chips",
+     "options": [
+      "A 10-year-old",
+      "A busy manager",
+      "A new customer",
+      "A nervous patient"
+     ],
+     "default": "A busy manager"
+    }
+   ],
+   "prompt": "Explain {topic} for '{as}' in the profile voice. Sections: text of at most 120 words, bullets of the 3 things they must remember, a quote with one analogy they could repeat to someone else, and a callout on what this explanation deliberately leaves out.",
+   "shape": "text, bullets, quote, callout",
+   "button": "Explain",
+   "loading": "Simplifying…"
+  }
+ ],
+ "disclaimer": "Plain rewrites can lose legal, financial or medical nuance; check important documents with the sender or a qualified professional."
+}

@@ -1,0 +1,201 @@
+{
+ "id": "tenure_track",
+ "name": "Tenure Track",
+ "tagline": "Faculty applications from statements to startup package",
+ "category": "Business",
+ "colors": [
+  "#4A148C",
+  "#C0CA33",
+  "#00838F"
+ ],
+ "icon": "hat",
+ "about": "Tenure Track guides PhDs and postdocs through the academic job market: research and teaching statements, the job talk, the two-day campus visit and negotiating the startup package, tuned to R1, teaching-focused and community-college searches.",
+ "persona": "You are a department chair who has run many faculty searches: candid about what committees skim versus read, supportive of non-traditional paths, and precise about negotiation norms.",
+ "onboarding": {
+  "title": "From ABD to appointment",
+  "subtitle": "Your field and target institutions tune the advice.",
+  "bullets": [
+   "Statements committees finish reading",
+   "Job talk and Q&A planning",
+   "Startup package negotiation"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "field",
+   "label": "Field & subfield",
+   "type": "text",
+   "placeholder": "Ecology — plant-pollinator networks"
+  },
+  {
+   "key": "stage",
+   "label": "Stage",
+   "type": "chips",
+   "options": [
+    "ABD",
+    "Recent PhD",
+    "Postdoc",
+    "Adjunct/VAP",
+    "Industry, returning"
+   ]
+  },
+  {
+   "key": "targets",
+   "label": "Targeting",
+   "type": "chips",
+   "options": [
+    "R1",
+    "R2/regional",
+    "Liberal arts",
+    "Community college",
+    "Outside US"
+   ],
+   "multi": true
+  }
+ ],
+ "tools": [
+  {
+   "id": "research",
+   "title": "Research statement",
+   "subtitle": "Vision, agenda, fundability",
+   "emoji": "🔬",
+   "inputs": [
+    {
+     "key": "work",
+     "label": "Your dissertation or current work in plain words",
+     "type": "longtext",
+     "placeholder": "I study how urban heat changes bee foraging…",
+     "required": true
+    },
+    {
+     "key": "plans",
+     "label": "Next 3–5 years",
+     "type": "longtext",
+     "placeholder": "two grants, one field system, one undergrad-friendly project"
+    }
+   ],
+   "prompt": "Draft a research statement outline from {work} and {plans} for the profile's targets. Provide steps for the structure (opening problem, contributions so far, three future directions, funding targets, fit) stating what each paragraph must contain; text with the opening paragraph fully written; a table (Direction | First paper | Funding source | Student involvement); and a callout on tailoring length and emphasis by institution type.",
+   "shape": "steps, text, table, callout",
+   "button": "Outline it",
+   "loading": "Drafting…"
+  },
+  {
+   "id": "teaching",
+   "title": "Teaching statement",
+   "subtitle": "Evidence-based, not adjectives",
+   "emoji": "📚",
+   "inputs": [
+    {
+     "key": "taught",
+     "label": "What you've taught and how",
+     "type": "longtext",
+     "placeholder": "TA'd intro bio, designed a seminar on…",
+     "required": true
+    },
+    {
+     "key": "courses",
+     "label": "Courses you'd want to teach",
+     "type": "text",
+     "placeholder": "Ecology, Biostatistics"
+    }
+   ],
+   "prompt": "Draft a teaching statement from {taught} and the proposed courses {courses}, tuned to the profile's targets. Give text (a 500-word draft with one concrete classroom example and one piece of evidence), bullets of evidence to gather (evaluations, syllabi, outcomes), a table (Institution type | What to emphasise | What to cut), and a quote with a one-line teaching philosophy for the cover letter.",
+   "shape": "text, bullets, table, quote",
+   "button": "Draft it",
+   "loading": "Writing…"
+  },
+  {
+   "id": "jobtalk",
+   "title": "Plan the job talk",
+   "subtitle": "45 minutes, then the hard questions",
+   "emoji": "🎓",
+   "inputs": [
+    {
+     "key": "title",
+     "label": "Talk title / topic",
+     "type": "text",
+     "placeholder": "Pollinator networks in warming cities",
+     "required": true
+    },
+    {
+     "key": "minutes",
+     "label": "Minutes for the talk",
+     "type": "number",
+     "placeholder": "45"
+    },
+    {
+     "key": "audience",
+     "label": "Audience",
+     "type": "chips",
+     "options": [
+      "Whole department",
+      "Subfield only",
+      "Mixed with students",
+      "Teaching demo"
+     ],
+     "default": "Whole department"
+    }
+   ],
+   "prompt": "Plan a {minutes}-minute job talk on '{title}' for {audience}. Provide a table (Slide range | Minutes | Content | Purpose) with a 2-minute buffer, steps for rehearsal over two weeks, cards of 8 likely hard questions (meta = who asks · intent) with answer strategies, and a callout on the mistakes that sink talks: too much data, no big picture, ignoring the non-specialists.",
+   "shape": "table, steps, cards, callout",
+   "button": "Plan talk",
+   "loading": "Rehearsing…"
+  },
+  {
+   "id": "visit",
+   "title": "Campus visit",
+   "subtitle": "Two days of interviews, meals and one-on-ones",
+   "emoji": "🏛️",
+   "inputs": [
+    {
+     "key": "schedule",
+     "label": "Paste the itinerary",
+     "type": "longtext",
+     "placeholder": "8:00 breakfast with chair, 9:00 dean, 10:00 grad students…",
+     "required": true
+    },
+    {
+     "key": "concerns",
+     "label": "What you want to find out",
+     "type": "text",
+     "placeholder": "spousal hire, startup, teaching load"
+    }
+   ],
+   "prompt": "Prepare for the campus visit itinerary {schedule}, aiming to learn about {concerns}. Produce a table (Meeting | What they assess | What to ask | What to avoid), a checklist of things to pack and prepare, a quote with graceful answers to 'do you have other offers' and to salary questions during the visit, and a callout on meals, alcohol and the dinner that is still an interview.",
+   "shape": "table, checklist, quote, callout",
+   "button": "Prep visit",
+   "loading": "Mapping campus…"
+  },
+  {
+   "id": "offer",
+   "title": "Negotiate the offer",
+   "subtitle": "Startup, salary, teaching load, spousal",
+   "emoji": "💼",
+   "inputs": [
+    {
+     "key": "offer",
+     "label": "Paste the offer terms",
+     "type": "longtext",
+     "placeholder": "$78k 9-month, $150k startup, 2-2 load, 1 semester leave",
+     "required": true
+    },
+    {
+     "key": "needs",
+     "label": "What your research needs",
+     "type": "text",
+     "placeholder": "field truck, -80 freezer, two grad students"
+    }
+   ],
+   "prompt": "Review the offer {offer} against the research needs {needs} for the profile. Give a table (Item | Offered | Ask | Justification | Priority), a quote with the negotiation email, bullets of items usually negotiable by institution type (startup, course releases, summer salary, moving, spousal, tenure clock), and a callout on tone, timing and what can cause an offer to be withdrawn.",
+   "shape": "table, quote, bullets, callout",
+   "button": "Build my ask",
+   "loading": "Negotiating…"
+  }
+ ],
+ "disclaimer": "Salary and contract guidance is general information, not financial or legal advice; norms vary by institution and country."
+}

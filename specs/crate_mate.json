@@ -1,0 +1,201 @@
+{
+ "id": "crate_mate",
+ "name": "Crate Mate",
+ "tagline": "Borrow errors explained, types designed, crates picked",
+ "category": "Tools",
+ "colors": [
+  "#B7410E",
+  "#2B2B2B",
+  "#DEA584"
+ ],
+ "icon": "brain",
+ "about": "Crate Mate explains borrow-checker and lifetime errors with a working fix, designs idiomatic type models, recommends crates with trade-offs, ports code from other languages and decodes clippy.",
+ "persona": "You are a patient Rustacean: you explain ownership in terms of who is responsible for the data, prefer the simplest lifetime-free design, and never reach for unsafe without justification.",
+ "onboarding": {
+  "title": "Make the borrow checker your friend",
+  "subtitle": "Your edition and domain shape the advice.",
+  "bullets": [
+   "Borrow and lifetime errors fixed",
+   "Idiomatic type design",
+   "Crate picks with trade-offs"
+  ]
+ },
+ "profile": [
+  {
+   "key": "edition",
+   "label": "Edition",
+   "type": "chips",
+   "options": [
+    "2021",
+    "2024"
+   ],
+   "default": "2021"
+  },
+  {
+   "key": "domain",
+   "label": "Building",
+   "type": "chips",
+   "options": [
+    "CLI tools",
+    "Web services",
+    "Embedded",
+    "Systems/OS",
+    "WASM",
+    "Game dev"
+   ]
+  },
+  {
+   "key": "runtime",
+   "label": "Async runtime",
+   "type": "chips",
+   "options": [
+    "tokio",
+    "async-std",
+    "smol",
+    "None"
+   ],
+   "default": "tokio"
+  },
+  {
+   "key": "level",
+   "label": "Rust experience",
+   "type": "chips",
+   "options": [
+    "New",
+    "Comfortable",
+    "Advanced"
+   ],
+   "default": "Comfortable"
+  }
+ ],
+ "tools": [
+  {
+   "id": "borrow",
+   "title": "Fix a borrow error",
+   "subtitle": "rustc error → why, and the fix",
+   "emoji": "🦀",
+   "inputs": [
+    {
+     "key": "error",
+     "label": "Compiler error",
+     "type": "longtext",
+     "placeholder": "error[E0502]: cannot borrow `v` as mutable because it is also borrowed as immutable",
+     "required": true
+    },
+    {
+     "key": "code",
+     "label": "The code",
+     "type": "longtext",
+     "placeholder": "the function or block it points at",
+     "required": true
+    }
+   ],
+   "prompt": "Explain and fix: {error} in: {code}. Sections: text explaining in plain terms who owns what and why the compiler objects (three sentences, no jargon dump), a quote with the fixed code preferring restructuring over clone or Rc, a table of alternative fixes (Approach | When to use | Cost), and a callout on the general rule so it doesn't happen again.",
+   "shape": "text, quote, table, callout",
+   "button": "Fix it",
+   "loading": "Consulting rustc…"
+  },
+  {
+   "id": "types",
+   "title": "Design the types",
+   "subtitle": "Domain → enums, structs, traits",
+   "emoji": "🧬",
+   "inputs": [
+    {
+     "key": "domain",
+     "label": "Domain to model",
+     "type": "longtext",
+     "placeholder": "a payment that can be pending, settled or refunded; refunds reference the settlement",
+     "required": true
+    }
+   ],
+   "prompt": "Model in idiomatic Rust: {domain}. Sections: a quote with the types (make illegal states unrepresentable with enums, newtypes for ids, sensible derives), a table (Type | Role | Key invariant), bullets on trait choices and why, and a callout on where lifetimes or generics were avoided on purpose.",
+   "shape": "quote, table, bullets, callout",
+   "button": "Design types",
+   "loading": "Deriving…"
+  },
+  {
+   "id": "crates",
+   "title": "Pick crates",
+   "subtitle": "Task → crate shortlist with trade-offs",
+   "emoji": "📦",
+   "inputs": [
+    {
+     "key": "need",
+     "label": "What you need",
+     "type": "text",
+     "placeholder": "HTTP client with retries and JSON",
+     "required": true
+    },
+    {
+     "key": "priority",
+     "label": "Priority",
+     "type": "chips",
+     "options": [
+      "Small binary",
+      "Speed",
+      "Ergonomics",
+      "Minimal deps",
+      "Well maintained"
+     ],
+     "default": "Well maintained"
+    }
+   ],
+   "prompt": "Recommend crates for: {need}, prioritising {priority}, for the profile domain and async runtime. Sections: a table (Crate | Fit | Maturity | Trade-off), a quote with the Cargo.toml lines and a 15-line usage example for the top pick, and a callout on licence or maintenance red flags to check on crates.io.",
+   "shape": "table, quote, callout",
+   "button": "Recommend",
+   "loading": "Browsing crates.io…"
+  },
+  {
+   "id": "port",
+   "title": "Port to Rust",
+   "subtitle": "Python, Go, C or TS → idiomatic Rust",
+   "emoji": "🔁",
+   "inputs": [
+    {
+     "key": "source",
+     "label": "Source code",
+     "type": "longtext",
+     "placeholder": "paste the function or module",
+     "required": true
+    },
+    {
+     "key": "from",
+     "label": "From",
+     "type": "chips",
+     "options": [
+      "Python",
+      "Go",
+      "C/C++",
+      "TypeScript",
+      "Java/Kotlin"
+     ],
+     "default": "Python"
+    }
+   ],
+   "prompt": "Port this {from} code to idiomatic Rust: {source}. Sections: a quote with the Rust version (Result-based errors, iterators over index loops, no unwrap in library code), a table (Original construct | Rust equivalent | Note), bullets on behaviour differences (integer overflow, unicode, nulls, exceptions), and a callout on what to test first.",
+   "shape": "quote, table, bullets, callout",
+   "button": "Port it",
+   "loading": "Rewriting…"
+  },
+  {
+   "id": "clippy",
+   "title": "Explain clippy",
+   "subtitle": "Warnings → what they mean and whether to care",
+   "emoji": "🔧",
+   "inputs": [
+    {
+     "key": "warnings",
+     "label": "cargo clippy output",
+     "type": "longtext",
+     "placeholder": "warning: this `.map` can be written more concisely …",
+     "required": true
+    }
+   ],
+   "prompt": "Explain these clippy warnings: {warnings}. Sections: a table (Lint | Meaning | Fix | Worth it? yes/no/style), a quote with the fixed code for the ones worth fixing, and a callout on which lints are reasonable to allow and how to do that at crate or item level.",
+   "shape": "table, quote, callout",
+   "button": "Explain",
+   "loading": "Reading lints…"
+  }
+ ]
+}

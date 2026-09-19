@@ -1,0 +1,199 @@
+{
+ "id": "claim_coach",
+ "name": "Claim Coach",
+ "tagline": "Small claims court, prepared step by step",
+ "category": "Tools",
+ "colors": [
+  "#4527A0",
+  "#C6A700",
+  "#00897B"
+ ],
+ "icon": "scale",
+ "about": "Claim Coach helps you decide whether a small claim is worth it, write the letter before action, organise evidence into a bundle, draft the claim itself and rehearse the hearing.",
+ "persona": "You are a patient, litigation-savvy paralegal who explains small-claims procedure in plain English, keeps the user focused on evidence and remedies, and never overstates the odds.",
+ "onboarding": {
+  "title": "Take it to court, calmly",
+  "subtitle": "Procedures differ by country and state; tell us where you'd file.",
+  "bullets": [
+   "Is it worth it? Honest maths",
+   "Letters before action that settle",
+   "Claim drafts and hearing prep"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "region",
+   "label": "Where you'd file (country / state)",
+   "type": "text",
+   "placeholder": "Texas, USA"
+  },
+  {
+   "key": "dispute",
+   "label": "Dispute type",
+   "type": "chips",
+   "options": [
+    "Unpaid money",
+    "Faulty goods or work",
+    "Deposit",
+    "Damage to property",
+    "Other"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "worth",
+   "title": "Is it worth it?",
+   "subtitle": "Costs, odds, time — honestly",
+   "emoji": "⚖️",
+   "inputs": [
+    {
+     "key": "facts",
+     "label": "The facts in brief",
+     "type": "longtext",
+     "placeholder": "Builder took an 1,800 deposit in March, never started, ignores calls…",
+     "required": true
+    },
+    {
+     "key": "amount",
+     "label": "Amount claimed",
+     "type": "number",
+     "placeholder": "1800"
+    },
+    {
+     "key": "evidence",
+     "label": "Evidence you have",
+     "type": "text",
+     "placeholder": "texts, bank transfer, one written quote"
+    }
+   ],
+   "prompt": "Facts: {facts}. Amount: {amount}. Evidence: {evidence}. Give a kv (likely court track or small-claims limit for the profile region, typical filing-fee band, time to hearing, recoverable costs), a table (Factor | For you | Against you) on the strength of the case, text with a frank recommendation (claim, letter first, or walk away), and a callout on limitation periods.",
+   "shape": "kv, table, text, callout",
+   "button": "Assess",
+   "loading": "Weighing it up…"
+  },
+  {
+   "id": "lba",
+   "title": "Letter before action",
+   "subtitle": "The letter that often settles it",
+   "emoji": "✉️",
+   "inputs": [
+    {
+     "key": "to",
+     "label": "Who you're claiming against",
+     "type": "text",
+     "placeholder": "Joe Bloggs Builders Ltd",
+     "required": true
+    },
+    {
+     "key": "amount",
+     "label": "Amount",
+     "type": "number",
+     "placeholder": "1800"
+    },
+    {
+     "key": "basis",
+     "label": "Why they owe you",
+     "type": "longtext",
+     "placeholder": "Paid deposit 3 Mar for a patio; no work done; contract says start within 4 weeks…",
+     "required": true
+    }
+   ],
+   "prompt": "Draft a letter before action to {to} for {amount}. Quote the letter (heading, dated facts, the basis in plain words from {basis}, the sum claimed with a note on interest, a 14-day deadline, and a statement that a claim will be filed without further notice). Then a checklist of enclosures and a callout on proof of posting and keeping a copy.",
+   "shape": "quote, checklist, callout",
+   "button": "Draft letter",
+   "loading": "Setting a deadline…"
+  },
+  {
+   "id": "bundle",
+   "title": "Evidence bundle",
+   "subtitle": "Order your proof like a lawyer would",
+   "emoji": "📁",
+   "inputs": [
+    {
+     "key": "evidence",
+     "label": "List everything you have",
+     "type": "longtext",
+     "placeholder": "screenshots of texts 3–20 Mar, bank statement, photos of site, quote PDF…",
+     "required": true
+    }
+   ],
+   "prompt": "From: {evidence} — produce a table (Exhibit | Description | Date | What it proves | Gap?), steps to assemble a paginated bundle (index, chronology, labelling), bullets of evidence you should still try to obtain (witness statements, expert quotes), and a callout on what not to include.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Organise",
+   "loading": "Tabbing the bundle…"
+  },
+  {
+   "id": "claim",
+   "title": "Draft the claim",
+   "subtitle": "Particulars of claim, plain and complete",
+   "emoji": "📝",
+   "inputs": [
+    {
+     "key": "story",
+     "label": "Full story with dates",
+     "type": "longtext",
+     "placeholder": "…",
+     "required": true
+    },
+    {
+     "key": "amount",
+     "label": "Amount",
+     "type": "number",
+     "placeholder": "1800"
+    },
+    {
+     "key": "remedy",
+     "label": "You want",
+     "type": "chips",
+     "options": [
+      "Money back",
+      "Money + interest",
+      "Money + costs",
+      "Return of item or performance"
+     ],
+     "default": "Money + interest"
+    }
+   ],
+   "prompt": "Story: {story}. Amount: {amount}. Remedy: {remedy}. Write the particulars of claim as numbered steps (parties, agreement, breach, loss, remedy sought), then a kv of the form fields typical for a small claim in the profile region (court, fee, service method), and a callout on being truthful and consistent with the letter before action.",
+   "shape": "steps, kv, callout",
+   "button": "Draft claim",
+   "loading": "Drafting…"
+  },
+  {
+   "id": "hearing",
+   "title": "Hearing day",
+   "subtitle": "What to say, what they'll ask",
+   "emoji": "🎤",
+   "inputs": [
+    {
+     "key": "weak",
+     "label": "Weakest point of your case",
+     "type": "text",
+     "placeholder": "no signed contract, only a text agreeing the price"
+    },
+    {
+     "key": "format",
+     "label": "Hearing format",
+     "type": "chips",
+     "options": [
+      "In person",
+      "Phone",
+      "Video"
+     ],
+     "default": "In person"
+    }
+   ],
+   "prompt": "Prepare the user for a small-claims hearing ({format}) where the weak spot is: {weak}. Give steps for the day (arrival, order of events, how to address the judge), a quote with a 60-second opening statement, a table (Likely question | Honest answer | Evidence to point to) including the weak spot, and bullets on etiquette and what to bring.",
+   "shape": "steps, quote, table, bullets",
+   "button": "Rehearse",
+   "loading": "Taking the stand…"
+  }
+ ],
+ "disclaimer": "General information only, not legal advice; rules differ by country and state and change over time — check official sources or a qualified professional before acting."
+}

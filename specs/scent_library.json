@@ -1,0 +1,199 @@
+{
+ "id": "scent_library",
+ "name": "Scent Library",
+ "tagline": "Find, decode and wear fragrance like you mean it",
+ "category": "Beauty",
+ "colors": [
+  "#4A148C",
+  "#00897B",
+  "#FFD54F"
+ ],
+ "icon": "book",
+ "about": "Scent Library recommends fragrances from what you already love, decodes any bottle from a photo, organises a scent wardrobe by season and occasion, and teaches layering and longevity.",
+ "persona": "You are a perfumer-trained fragrance consultant: fluent in notes and families, price-honest, allergic to hype, and fond of the one-sentence description that makes a scent make sense.",
+ "onboarding": {
+  "title": "What do you want to smell like?",
+  "subtitle": "Your favourites and dislikes are the best clue we have.",
+  "bullets": [
+   "Recommendations from what you love",
+   "Bottle decoder from a photo",
+   "Layering and longevity tricks"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "loves",
+   "label": "Scents you love",
+   "type": "text",
+   "placeholder": "Bleu de Chanel, fresh laundry, vetiver"
+  },
+  {
+   "key": "hates",
+   "label": "Scents you avoid",
+   "type": "text",
+   "placeholder": "sweet vanilla, heavy musk"
+  },
+  {
+   "key": "skin",
+   "label": "Fragrance on you tends to",
+   "type": "chips",
+   "options": [
+    "Fade fast",
+    "Last all day",
+    "Go sweeter",
+    "Go sharper",
+    "Not sure"
+   ],
+   "default": "Not sure"
+  }
+ ],
+ "tools": [
+  {
+   "id": "next",
+   "title": "Find my next scent",
+   "subtitle": "Loves + occasion → shortlist",
+   "emoji": "🧭",
+   "inputs": [
+    {
+     "key": "for",
+     "label": "For",
+     "type": "chips",
+     "options": [
+      "Everyday",
+      "Office",
+      "Date night",
+      "Special occasion",
+      "Gym / fresh",
+      "Signature scent"
+     ],
+     "default": "Everyday"
+    },
+    {
+     "key": "price",
+     "label": "Price",
+     "type": "chips",
+     "options": [
+      "Budget",
+      "Mid",
+      "Designer",
+      "Niche"
+     ],
+     "default": "Mid"
+    },
+    {
+     "key": "notes",
+     "label": "Anything specific",
+     "type": "text",
+     "placeholder": "something with fig or tea"
+    }
+   ],
+   "prompt": "Recommend fragrances for '{for}' at a {price} price point, wishes: {notes}, based on the profile's loves and hates. 5 cards (fragrance, house, family, meta = longevity · sillage · price tier) each with a one-sentence 'smells like', a table (Fragrance | Top | Heart | Base | Similar but cheaper), bullets on testing them in store, and a callout on blind-buying versus decants.",
+   "shape": "cards, table, bullets, callout",
+   "button": "Recommend",
+   "loading": "Sniffing…"
+  },
+  {
+   "id": "decode",
+   "title": "Decode a bottle",
+   "subtitle": "Photo → what it is and who it suits",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the bottle or box",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Identify the fragrance in the photo as best you can. kv (name, house, concentration, family, launch era, typical price, longevity, best season), text describing how it smells over the first hours, bullets of 3 similar scents at different prices, and a callout on spotting fakes and checking batch codes.",
+   "shape": "kv, text, bullets, callout",
+   "button": "Decode",
+   "loading": "Reading the label…"
+  },
+  {
+   "id": "wardrobe",
+   "title": "Scent wardrobe",
+   "subtitle": "The right bottle for the season and moment",
+   "emoji": "🗄️",
+   "inputs": [
+    {
+     "key": "owned",
+     "label": "Fragrances you own",
+     "type": "longtext",
+     "placeholder": "Dior Sauvage, Le Labo Santal 33, a rose oud sample…",
+     "required": true
+    },
+    {
+     "key": "slots",
+     "label": "Cover",
+     "type": "chips",
+     "options": [
+      "Seasons",
+      "Occasions",
+      "Both"
+     ],
+     "default": "Both"
+    }
+   ],
+   "prompt": "Organise {owned} into a scent wardrobe covering {slots} for the profile. Table (Slot | Bottle | Why | Sprays), bullets of the gaps to fill next with one suggested candidate each, kv (storage, shelf life, signs a bottle has turned), and a callout on the bottles that overlap so much one could be sold or gifted.",
+   "shape": "table, bullets, kv, callout",
+   "button": "Organise",
+   "loading": "Arranging…"
+  },
+  {
+   "id": "layer",
+   "title": "Layering lab",
+   "subtitle": "Combine what you own",
+   "emoji": "🧪",
+   "inputs": [
+    {
+     "key": "bottles",
+     "label": "Bottles to combine",
+     "type": "longtext",
+     "placeholder": "a vanilla body oil, a citrus EDT, a woody EDP",
+     "required": true
+    }
+   ],
+   "prompt": "Design layering combinations from {bottles}. Table (Combo | Order & spray count | Where on the body | Result), steps for one full layered routine from shower to spray, bullets on which families clash, and a callout on going lighter when testing at work or indoors.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Combine",
+   "loading": "Mixing…"
+  },
+  {
+   "id": "last",
+   "title": "Make it last",
+   "subtitle": "Longevity for your skin and climate",
+   "emoji": "⏳",
+   "inputs": [
+    {
+     "key": "climate",
+     "label": "Climate today",
+     "type": "chips",
+     "options": [
+      "Cold",
+      "Mild",
+      "Hot & dry",
+      "Hot & humid"
+     ],
+     "default": "Mild"
+    },
+    {
+     "key": "hours",
+     "label": "Hours it needs to last",
+     "type": "number",
+     "placeholder": "10"
+    }
+   ],
+   "prompt": "Make fragrance last {hours} hours in {climate} weather for the profile's skin behaviour. Steps (moisturising, spray points, timing, clothing, top-ups), a table (Spot | Projection | Longevity | Note), bullets of habits that kill longevity, and a callout on skin sensitivity and patch-testing new scents.",
+   "shape": "steps, table, bullets, callout",
+   "button": "Make it last",
+   "loading": "Setting…"
+  }
+ ],
+ "disclaimer": "Patch-test new fragrances and stop use if skin reacts; this is general guidance, not medical advice."
+}

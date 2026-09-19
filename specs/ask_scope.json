@@ -1,0 +1,172 @@
+{
+ "id": "ask_scope",
+ "name": "Scope the Ask",
+ "tagline": "Turn vague data requests into clear, sized specs",
+ "category": "Productivity",
+ "colors": [
+  "#5C6BC0",
+  "#FF8A65",
+  "#66BB6A"
+ ],
+ "icon": "chat",
+ "about": "Scope the Ask helps analysts turn 'can you pull some numbers?' into a clear spec: the decision behind it, the metrics and cuts, the data needed, the clarifying questions to send and an honest effort estimate.",
+ "persona": "You are a seasoned analytics manager who protects analysts' time: you find the decision behind every request, ask few but sharp questions, and never start building before the definition of done is agreed.",
+ "onboarding": {
+  "title": "Fewer re-dos, clearer asks",
+  "subtitle": "Tell us about your team and data so scoping fits.",
+  "bullets": [
+   "Find the decision behind the request",
+   "Clarifying questions ready to send",
+   "Effort estimates you can defend"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "team",
+   "label": "Your team & tools",
+   "type": "text",
+   "placeholder": "2 analysts, BigQuery + Looker"
+  },
+  {
+   "key": "load",
+   "label": "Current workload",
+   "type": "chips",
+   "options": [
+    "Light",
+    "Normal",
+    "Slammed"
+   ],
+   "default": "Normal"
+  }
+ ],
+ "tools": [
+  {
+   "id": "spec",
+   "title": "Scope this request",
+   "subtitle": "Message → spec",
+   "emoji": "🧭",
+   "inputs": [
+    {
+     "key": "request",
+     "label": "Paste the request",
+     "type": "longtext",
+     "placeholder": "Hey, can you get me churn by region for the QBR? Need it by Thursday",
+     "required": true
+    },
+    {
+     "key": "who",
+     "label": "Who asked",
+     "type": "text",
+     "placeholder": "VP Sales"
+    }
+   ],
+   "prompt": "Scope the request '{request}' from {who}. Kv (underlying decision, real question, metrics, dimensions and cuts, time range, grain, deliverable format, deadline), a table 'Data needed' (Source | Tables or fields | Available? | Risk), a checklist 'Definition of done', and a callout on what to push back on.",
+   "shape": "kv, table, checklist, callout",
+   "button": "Scope it",
+   "loading": "Reading between…"
+  },
+  {
+   "id": "questions",
+   "title": "Clarifying questions",
+   "subtitle": "Ask once, not five times",
+   "emoji": "❓",
+   "inputs": [
+    {
+     "key": "request",
+     "label": "The request",
+     "type": "longtext",
+     "placeholder": "can you pull engagement numbers for the new feature?",
+     "required": true
+    },
+    {
+     "key": "channel",
+     "label": "Send via",
+     "type": "chips",
+     "options": [
+      "Slack/Teams",
+      "Email",
+      "In a meeting"
+     ],
+     "default": "Slack/Teams"
+    }
+   ],
+   "prompt": "For the request {request}, write the clarifying questions to send via {channel}. Quote with the message (at most 5 questions, each paired with a default assumption so work can start now), a table 'Why each question' (Question | What changes depending on the answer), and bullets on what to assume if there is no reply.",
+   "shape": "quote, table, bullets",
+   "button": "Draft questions",
+   "loading": "Sharpening…"
+  },
+  {
+   "id": "estimate",
+   "title": "Estimate effort",
+   "subtitle": "Hours, risks, shortcuts",
+   "emoji": "⏳",
+   "inputs": [
+    {
+     "key": "scope",
+     "label": "Scoped work",
+     "type": "longtext",
+     "placeholder": "churn by region and plan, last 4 quarters, Looker dashboard plus a one-pager",
+     "required": true
+    },
+    {
+     "key": "quality",
+     "label": "Quality bar",
+     "type": "chips",
+     "options": [
+      "Quick and rough",
+      "Solid",
+      "Board-ready"
+     ],
+     "default": "Solid"
+    }
+   ],
+   "prompt": "Estimate the effort for {scope} at a '{quality}' bar for the profile's team and current workload. Table 'Breakdown' (Task | Hours low / likely / high | Dependency | Risk), kv (total likely hours, earliest realistic date, biggest uncertainty), bullets describing a cheaper version that answers 80% of the question, and a callout on hidden work (data cleaning, definition disputes, review cycles).",
+   "shape": "table, kv, bullets, callout",
+   "button": "Estimate",
+   "loading": "Counting hours…"
+  },
+  {
+   "id": "triage",
+   "title": "Triage the queue",
+   "subtitle": "Which requests first",
+   "emoji": "📋",
+   "inputs": [
+    {
+     "key": "requests",
+     "label": "Requests (one per line)",
+     "type": "longtext",
+     "placeholder": "CEO: revenue by cohort for board\nMarketing: UTM clean-up\nSupport: ticket volume trend",
+     "required": true
+    }
+   ],
+   "prompt": "Triage these requests for the profile's team and workload: {requests}. Table 'Queue' (Request | Decision it supports | Value 1–5 | Effort 1–5 | Urgency | Order), bullets on requests to combine or decline, a quote with a polite defer-or-decline message template, and a callout on self-serve alternatives worth building.",
+   "shape": "table, bullets, quote, callout",
+   "button": "Triage",
+   "loading": "Sorting queue…"
+  },
+  {
+   "id": "handoff",
+   "title": "Deliver & close",
+   "subtitle": "A handoff note that prevents re-asks",
+   "emoji": "✅",
+   "inputs": [
+    {
+     "key": "delivered",
+     "label": "What you delivered and key caveats",
+     "type": "longtext",
+     "placeholder": "dashboard link; churn = cancellations / active at period start; excludes trials",
+     "required": true
+    }
+   ],
+   "prompt": "Write the handoff for {delivered}. Quote with the delivery message (what it answers, how to read it, caveats, where it lives), a kv (owner, refresh schedule, definitions link, expiry), a checklist of follow-ups to schedule, and bullets on what to log in the request archive.",
+   "shape": "quote, kv, checklist, bullets",
+   "button": "Write handoff",
+   "loading": "Wrapping up…"
+  }
+ ]
+}

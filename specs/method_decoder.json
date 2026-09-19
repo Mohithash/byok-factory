@@ -1,0 +1,189 @@
+{
+ "id": "method_decoder",
+ "name": "Method Decoder",
+ "tagline": "Why does school do maths like that? Decoded.",
+ "category": "Education",
+ "colors": [
+  "#1565C0",
+  "#FF7043",
+  "#43A047"
+ ],
+ "icon": "brain",
+ "about": "Method Decoder explains the methods primary schools teach now — bar models, number lines, partitioning, column methods, grid multiplication, bus-stop division, fraction walls — so you can help with homework without confusing your child.",
+ "persona": "You are a primary maths lead who trains parents: you show the school method faithfully, explain why it's taught, and translate between how you learned it and how they learn it.",
+ "onboarding": {
+  "title": "Help without the homework fights",
+  "subtitle": "Tell us the year group and which curriculum they follow.",
+  "bullets": [
+   "Every modern method, worked",
+   "Homework photo → how to help",
+   "Your way vs the school way"
+  ]
+ },
+ "profile": [
+  {
+   "key": "child",
+   "label": "Child's name & year/grade",
+   "type": "text",
+   "placeholder": "Zara, Year 3"
+  },
+  {
+   "key": "curriculum",
+   "label": "Curriculum",
+   "type": "chips",
+   "options": [
+    "England",
+    "Scotland",
+    "US Common Core",
+    "Australia",
+    "Ireland",
+    "Other"
+   ]
+  },
+  {
+   "key": "you",
+   "label": "You learned maths",
+   "type": "chips",
+   "options": [
+    "Traditional column methods",
+    "Mixed",
+    "Never felt confident"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "method",
+   "title": "Explain a method",
+   "subtitle": "A worked example the school way",
+   "emoji": "📐",
+   "inputs": [
+    {
+     "key": "method",
+     "label": "Method or topic",
+     "type": "text",
+     "placeholder": "bar model for word problems",
+     "required": true
+    },
+    {
+     "key": "example",
+     "label": "Example question (optional)",
+     "type": "text",
+     "placeholder": "24 apples shared between 4 boxes"
+    }
+   ],
+   "prompt": "Explain the school method '{method}' for the profile child's year and curriculum, using the example: {example} (invent one if blank). Sections: steps of the worked example exactly as the school would set it out, a kv of the vocabulary the teacher uses (Term → meaning), a table (Common child mistake | Why it happens | What to say), and a callout on why this method is taught before the shortcut.",
+   "shape": "steps, kv, table, callout",
+   "button": "Explain",
+   "loading": "Drawing bars…"
+  },
+  {
+   "id": "homework",
+   "title": "Decode this homework",
+   "subtitle": "Photo → method and how to help",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the homework or worked example",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Read the homework in the photo. Sections: kv (Topic, Method expected, Year-group objective, Difficulty for this child), steps for solving the first question the school way, a quote with exactly what the parent can say to prompt without telling the answer, and a checklist of how to check the remaining answers.",
+   "shape": "kv, steps, quote, checklist",
+   "button": "Decode",
+   "loading": "Reading the sheet…"
+  },
+  {
+   "id": "translate",
+   "title": "My way vs school way",
+   "subtitle": "Bridge the two so nobody's confused",
+   "emoji": "🔁",
+   "inputs": [
+    {
+     "key": "topic",
+     "label": "Topic",
+     "type": "text",
+     "placeholder": "long division",
+     "required": true
+    },
+    {
+     "key": "myway",
+     "label": "How you'd do it",
+     "type": "text",
+     "placeholder": "borrow from the next column"
+    }
+   ],
+   "prompt": "Compare how the parent does {topic} ('{myway}') with the school method for the profile curriculum and year. Sections: a table (Step | Your way | School way | Same idea because…), a callout on which parts of your way to keep quiet about for now, steps to check an answer using your way without showing it, and a quote with one sentence to say if the child says 'that's not how we do it'.",
+   "shape": "table, callout, steps, quote",
+   "button": "Compare",
+   "loading": "Translating…"
+  },
+  {
+   "id": "practice",
+   "title": "Practice set",
+   "subtitle": "Questions in the school format",
+   "emoji": "✏️",
+   "inputs": [
+    {
+     "key": "topic",
+     "label": "Topic",
+     "type": "text",
+     "placeholder": "adding fractions with different denominators",
+     "required": true
+    },
+    {
+     "key": "count",
+     "label": "Questions",
+     "type": "chips",
+     "options": [
+      "5",
+      "10",
+      "15"
+     ],
+     "default": "10"
+    },
+    {
+     "key": "level",
+     "label": "Level",
+     "type": "chips",
+     "options": [
+      "Fluency",
+      "Reasoning",
+      "Problem solving"
+     ],
+     "default": "Fluency"
+    }
+   ],
+   "prompt": "Write {count} {level} questions on {topic} in the style and layout of the profile curriculum for that year. Sections: a table (No. | Question | Answer | Method hint), steps for the full working of the hardest one, bullets on the misconceptions each question is designed to catch, and a callout on how long the set should take.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Make set",
+   "loading": "Setting questions…"
+  },
+  {
+   "id": "year",
+   "title": "What they learn this year",
+   "subtitle": "The year's maths in plain English",
+   "emoji": "🗓️",
+   "inputs": [
+    {
+     "key": "term",
+     "label": "Term",
+     "type": "chips",
+     "options": [
+      "Whole year",
+      "Autumn / Term 1",
+      "Spring / Term 2",
+      "Summer / Term 3"
+     ],
+     "default": "Whole year"
+    }
+   ],
+   "prompt": "Summarise the maths objectives for the profile child's year and curriculum for {term}. Sections: a table (Strand | What they'll be able to do | Method used | How to spot trouble at home), a kv of the 10 key vocabulary words (Term → meaning), a checklist of things to try at home per strand, and a callout on the topics parents most often teach differently.",
+   "shape": "table, kv, checklist, callout",
+   "button": "Show me",
+   "loading": "Reading syllabus…"
+  }
+ ]
+}

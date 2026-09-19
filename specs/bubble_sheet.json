@@ -1,0 +1,201 @@
+{
+ "id": "bubble_sheet",
+ "name": "Bubble Sheet",
+ "tagline": "SAT and ACT prep that targets what you actually miss",
+ "category": "Education",
+ "colors": [
+  "#0D47A1",
+  "#FFC107",
+  "#E53935"
+ ],
+ "icon": "note",
+ "about": "Bubble Sheet drills SAT and ACT sections with exam-format questions, explains every wrong answer, teaches the grammar and maths rules the tests reuse, and plans your timing for test day.",
+ "persona": "You are a veteran SAT/ACT tutor who knows the question patterns the test-makers reuse, explains the fastest legitimate route to each answer, and never pads.",
+ "onboarding": {
+  "title": "Raise the number that matters",
+  "subtitle": "Your test, target score and date shape every drill.",
+  "bullets": [
+   "Section drills in real exam format",
+   "Every miss explained, pattern named",
+   "Timing plans for test day"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "test",
+   "label": "Test",
+   "type": "chips",
+   "options": [
+    "SAT",
+    "ACT",
+    "Both"
+   ]
+  },
+  {
+   "key": "scores",
+   "label": "Current → target score",
+   "type": "text",
+   "placeholder": "1250 → 1400"
+  },
+  {
+   "key": "date",
+   "label": "Test date",
+   "type": "text",
+   "placeholder": "7 March"
+  }
+ ],
+ "tools": [
+  {
+   "id": "drill",
+   "title": "Section drill",
+   "subtitle": "Exam-format questions on one section",
+   "emoji": "✏️",
+   "inputs": [
+    {
+     "key": "section",
+     "label": "Section",
+     "type": "chips",
+     "options": [
+      "SAT Reading & Writing",
+      "SAT Math",
+      "ACT English",
+      "ACT Math",
+      "ACT Reading",
+      "ACT Science"
+     ],
+     "default": "SAT Math"
+    },
+    {
+     "key": "topic",
+     "label": "Focus (optional)",
+     "type": "text",
+     "placeholder": "linear equations, transitions"
+    },
+    {
+     "key": "n",
+     "label": "Questions",
+     "type": "chips",
+     "options": [
+      "5",
+      "10"
+     ],
+     "default": "5"
+    }
+   ],
+   "prompt": "Write {n} exam-format questions for {section}, focused on {topic} if given, pitched at the profile's target score: cards (question with 4 lettered options, meta = skill · difficulty), then a table (No. | Answer | Fastest route | Trap option and why it tempts), and a callout with the one time-saving habit for this section.",
+   "shape": "cards, table, callout",
+   "button": "Drill me",
+   "loading": "Sharpening pencils…"
+  },
+  {
+   "id": "miss",
+   "title": "Explain my misses",
+   "subtitle": "Paste wrong answers → the pattern behind them",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "misses",
+     "label": "Questions you missed",
+     "type": "longtext",
+     "placeholder": "paste the question, options, your answer and the right answer…",
+     "required": true
+    }
+   ],
+   "prompt": "For each missed question in: {misses} — produce a table (No. | Skill tested | Why your answer was wrong | Why the key is right), bullets naming the recurring error pattern across them, steps for a 3-day fix routine for that pattern, and a quote with a one-line rule to say before every similar question.",
+   "shape": "table, bullets, steps, quote",
+   "button": "Find the pattern",
+   "loading": "Reading your misses…"
+  },
+  {
+   "id": "rules",
+   "title": "Grammar & maths rules",
+   "subtitle": "The rules as the test disguises them",
+   "emoji": "📐",
+   "inputs": [
+    {
+     "key": "area",
+     "label": "Area",
+     "type": "chips",
+     "options": [
+      "Punctuation",
+      "Transitions",
+      "Verb & pronoun agreement",
+      "Linear equations & systems",
+      "Quadratics & functions",
+      "Ratios, percents & data",
+      "Geometry & trig"
+     ],
+     "default": "Punctuation"
+    }
+   ],
+   "prompt": "Teach {area} the way the profile's test actually tests it: a table (Rule | How the test disguises it | Tell-tale sign | Example), steps for a decision procedure to apply under time pressure, and 3 cards of mini-questions (meta = answer) to check understanding.",
+   "shape": "table, steps, cards",
+   "button": "Teach me",
+   "loading": "Decoding the test…"
+  },
+  {
+   "id": "photo",
+   "title": "Solve from a photo",
+   "subtitle": "Snap a question, get the fastest route",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of a practice question",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "mode",
+     "label": "Mode",
+     "type": "chips",
+     "options": [
+      "Full solution",
+      "Hint only",
+      "Check my answer"
+     ],
+     "default": "Full solution"
+    },
+    {
+     "key": "myanswer",
+     "label": "Your answer (if checking)",
+     "type": "text",
+     "placeholder": "B"
+    }
+   ],
+   "prompt": "Read the question in the photo. Mode: {mode}; the user's answer: {myanswer}. Give kv (question type, skill, target time in seconds), steps for the fastest legitimate route to the answer (in 'Hint only' mode give only the first two steps and stop), bullets on why each wrong option is wrong, and a callout on the shortcut or trap specific to this question type.",
+   "shape": "kv, steps, bullets, callout",
+   "button": "Solve",
+   "loading": "Reading the photo…"
+  },
+  {
+   "id": "timing",
+   "title": "Test-day timing plan",
+   "subtitle": "Pacing, checkpoints and skip rules",
+   "emoji": "⏱️",
+   "inputs": [
+    {
+     "key": "pace",
+     "label": "Your pacing problem",
+     "type": "chips",
+     "options": [
+      "Run out of time",
+      "Finish early, careless errors",
+      "Freeze on hard ones",
+      "Fine, just want a plan"
+     ],
+     "default": "Run out of time"
+    }
+   ],
+   "prompt": "Build a pacing plan for the profile's test with the problem '{pace}': table (Section | Questions | Minutes | Halfway checkpoint | Skip rule), a checklist for the night before and the morning (ID, admission ticket, approved calculator, snacks, watch), steps for what to do when a question stalls, and a callout on guessing strategy given there is no wrong-answer penalty.",
+   "shape": "table, checklist, steps, callout",
+   "button": "Plan my pacing",
+   "loading": "Setting the clock…"
+  }
+ ]
+}

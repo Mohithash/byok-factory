@@ -1,0 +1,189 @@
+{
+ "id": "metric_tree",
+ "name": "Metric Tree",
+ "tagline": "KPI dashboards that show what actually drives results",
+ "category": "Business",
+ "colors": [
+  "#2E7D32",
+  "#F9A825",
+  "#455A64"
+ ],
+ "icon": "leaf",
+ "about": "Metric Tree helps analysts and founders define the metrics that matter, design dashboards people actually read, write metric definitions everyone agrees on and narrate the weekly numbers.",
+ "persona": "You are a pragmatic analytics lead: you prefer five metrics with owners to fifty without, define every metric precisely, and write commentary that leads with the change and its cause.",
+ "onboarding": {
+  "title": "Fewer metrics, better decisions",
+  "subtitle": "Tell us about the business so every metric fits.",
+  "bullets": [
+   "North-star and driver trees",
+   "Dashboard layouts tile by tile",
+   "Weekly commentary from raw numbers"
+  ]
+ },
+ "profile": [
+  {
+   "key": "business",
+   "label": "Business",
+   "type": "text",
+   "placeholder": "B2B SaaS, 40 staff, £2m ARR"
+  },
+  {
+   "key": "tool",
+   "label": "Dashboard tool",
+   "type": "chips",
+   "options": [
+    "Looker Studio",
+    "Power BI",
+    "Tableau",
+    "Metabase",
+    "Google Sheets",
+    "Excel"
+   ],
+   "default": "Google Sheets"
+  },
+  {
+   "key": "cadence",
+   "label": "Review cadence",
+   "type": "chips",
+   "options": [
+    "Daily",
+    "Weekly",
+    "Monthly"
+   ],
+   "default": "Weekly"
+  }
+ ],
+ "tools": [
+  {
+   "id": "tree",
+   "title": "Build a metric tree",
+   "subtitle": "Goal → drivers → inputs",
+   "emoji": "🌳",
+   "inputs": [
+    {
+     "key": "goal",
+     "label": "Top-level goal",
+     "type": "text",
+     "placeholder": "grow net revenue 30% this year",
+     "required": true
+    },
+    {
+     "key": "team",
+     "label": "Team or function",
+     "type": "text",
+     "placeholder": "marketing + product"
+    }
+   ],
+   "prompt": "Build a metric tree for '{goal}' owned by {team} in the profile's business. Kv (north-star metric, its definition, why it is the north star), a table 'Tree' (Level | Metric | Formula | Parent metric | Owner | Leading or lagging), bullets on the 3 input metrics with the most leverage, and a callout on vanity metrics to leave off.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Build tree",
+   "loading": "Growing branches…"
+  },
+  {
+   "id": "layout",
+   "title": "Design the dashboard",
+   "subtitle": "Tiles, charts, comparisons",
+   "emoji": "🧱",
+   "inputs": [
+    {
+     "key": "metrics",
+     "label": "Metrics to include",
+     "type": "longtext",
+     "placeholder": "MRR, net new MRR, churn %, CAC, activation rate, NPS",
+     "required": true
+    },
+    {
+     "key": "audience",
+     "label": "For",
+     "type": "chips",
+     "options": [
+      "Leadership",
+      "Team",
+      "Board",
+      "Myself"
+     ],
+     "default": "Leadership"
+    }
+   ],
+   "prompt": "Design a {audience} dashboard for {metrics} in the profile's tool and review cadence. Table 'Layout' (Position | Metric | Visual (big number / line / bar / table) | Comparison (vs target / prior period) | Filter), steps to build the top row in that tool, a checklist of dashboard hygiene (date-range control, definitions link, last-refreshed stamp, colour rules), and a callout on what to cut to keep it on one screen.",
+   "shape": "table, steps, checklist, callout",
+   "button": "Design layout",
+   "loading": "Placing tiles…"
+  },
+  {
+   "id": "define",
+   "title": "Define a metric",
+   "subtitle": "A definition everyone agrees on",
+   "emoji": "📖",
+   "inputs": [
+    {
+     "key": "metric",
+     "label": "Metric name",
+     "type": "text",
+     "placeholder": "activation rate",
+     "required": true
+    },
+    {
+     "key": "context",
+     "label": "How it's used today",
+     "type": "text",
+     "placeholder": "product counts it differently from marketing"
+    }
+   ],
+   "prompt": "Write a metric definition for '{metric}' given: {context}. Kv (definition, formula, numerator, denominator, inclusions, exclusions, time window, grain, source table, owner, refresh), a table 'Edge cases' (Case | Counted? | Why), a quote with the one-sentence definition for the dashboard tooltip, and a callout on how the definition will shift historical numbers.",
+   "shape": "kv, table, quote, callout",
+   "button": "Define metric",
+   "loading": "Pinning it down…"
+  },
+  {
+   "id": "narrate",
+   "title": "Narrate this period",
+   "subtitle": "Numbers → commentary",
+   "emoji": "🗣️",
+   "inputs": [
+    {
+     "key": "numbers",
+     "label": "This period vs last",
+     "type": "longtext",
+     "placeholder": "MRR 212k (prev 204k), churn 2.1% (prev 1.6%), new logos 14 (prev 19)",
+     "required": true
+    },
+    {
+     "key": "context",
+     "label": "What happened",
+     "type": "text",
+     "placeholder": "price rise on the 1st, a sales rep left"
+    }
+   ],
+   "prompt": "Write the commentary for {numbers} given the context: {context}, matching the profile's review cadence. Text with a 3-sentence headline summary leading with the biggest change and its cause, a table 'Movements' (Metric | Value | Change | Driver | Action), bullets of questions to investigate before the next review, and a callout on any number that looks like a data issue rather than a real change.",
+   "shape": "text, table, bullets, callout",
+   "button": "Write commentary",
+   "loading": "Reading numbers…"
+  },
+  {
+   "id": "alerts",
+   "title": "Set alert thresholds",
+   "subtitle": "Know when a metric needs attention",
+   "emoji": "🚨",
+   "inputs": [
+    {
+     "key": "metric",
+     "label": "Metric",
+     "type": "text",
+     "placeholder": "daily signups",
+     "required": true
+    },
+    {
+     "key": "history",
+     "label": "Recent values",
+     "type": "longtext",
+     "placeholder": "last 14 days: 41, 38, 45, 52, 40, 12, 15, 44, 47…"
+    }
+   ],
+   "prompt": "Propose alert thresholds for {metric} using the history: {history}. Kv (normal range, warning threshold, critical threshold, method used, expected false alarms per month), a table 'Alert rules' (Rule | Condition | Who is notified | First action), bullets on seasonality and weekday effects to account for, and a callout on alert fatigue.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Set alerts",
+   "loading": "Drawing lines…"
+  }
+ ]
+}

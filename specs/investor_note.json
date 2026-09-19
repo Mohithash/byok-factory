@@ -1,0 +1,197 @@
+{
+ "id": "investor_note",
+ "name": "Investor Note",
+ "tagline": "Monthly investor updates that keep the money warm",
+ "category": "Business",
+ "colors": [
+  "#1565C0",
+  "#FFB300",
+  "#43A047"
+ ],
+ "icon": "note",
+ "about": "Investor Note drafts your monthly investor update, frames tough news honestly, turns raw metrics into a clean snapshot and writes the asks that actually get investors to help.",
+ "persona": "You are a chief-of-staff who has written hundreds of investor updates: candid, concise, numbers-first, with no spin and no fluff.",
+ "onboarding": {
+  "title": "Updates investors actually read",
+  "subtitle": "Tell us who you write to and what you track.",
+  "bullets": [
+   "Monthly update in minutes",
+   "Honest framing for bad months",
+   "Asks that get answered"
+  ]
+ },
+ "profile": [
+  {
+   "key": "company",
+   "label": "Company",
+   "type": "text",
+   "placeholder": "Acme"
+  },
+  {
+   "key": "investors",
+   "label": "Who reads it",
+   "type": "chips",
+   "options": [
+    "Angels",
+    "Seed fund",
+    "Series A+ board",
+    "Friends & family"
+   ],
+   "multi": true
+  },
+  {
+   "key": "metrics",
+   "label": "Metrics you track",
+   "type": "text",
+   "placeholder": "MRR, churn, runway, signups"
+  },
+  {
+   "key": "cadence",
+   "label": "Cadence",
+   "type": "chips",
+   "options": [
+    "Monthly",
+    "Quarterly"
+   ],
+   "default": "Monthly"
+  }
+ ],
+ "tools": [
+  {
+   "id": "update",
+   "title": "Draft this month's update",
+   "subtitle": "Notes → a full update email",
+   "emoji": "📨",
+   "inputs": [
+    {
+     "key": "wins",
+     "label": "Highlights, lowlights, numbers",
+     "type": "longtext",
+     "placeholder": "MRR 42k (+9%), churn 3.1%, hired a designer, lost the Foo deal",
+     "required": true
+    },
+    {
+     "key": "asks",
+     "label": "What you need help with",
+     "type": "text",
+     "placeholder": "intros to fintech CFOs, a fractional CFO"
+    }
+   ],
+   "prompt": "Write the investor update for the profile company at its cadence from these notes: {wins}, with these asks: {asks}. Sections: a quote holding the full email (TL;DR, Highlights, Lowlights, Metrics, Asks, Thank-yous; under 400 words), a table (Metric | This period | Last period | Change | Note), and a callout on anything in the notes that read as spin and how it was reworded.",
+   "shape": "quote, table, callout",
+   "button": "Draft update",
+   "loading": "Writing…"
+  },
+  {
+   "id": "badnews",
+   "title": "Deliver bad news",
+   "subtitle": "Frame a miss without spin",
+   "emoji": "🌧️",
+   "inputs": [
+    {
+     "key": "news",
+     "label": "What went wrong",
+     "type": "longtext",
+     "placeholder": "missed the quarter by 30%, co-founder leaving",
+     "required": true
+    },
+    {
+     "key": "severity",
+     "label": "How bad",
+     "type": "chips",
+     "options": [
+      "Bump in the road",
+      "Serious",
+      "Existential"
+     ],
+     "default": "Serious"
+    }
+   ],
+   "prompt": "Frame this {severity} news for investors: {news}. Text explaining the honest framing strategy, a quote with the paragraph exactly as it should appear in the update, bullets of the corrective actions to list alongside it, and a callout on what not to say or hide.",
+   "shape": "text, quote, bullets, callout",
+   "button": "Frame it",
+   "loading": "Choosing words…"
+  },
+  {
+   "id": "snapshot",
+   "title": "Metrics snapshot",
+   "subtitle": "Paste numbers → investor-ready table",
+   "emoji": "📊",
+   "inputs": [
+    {
+     "key": "numbers",
+     "label": "Paste your numbers",
+     "type": "longtext",
+     "placeholder": "Jan MRR 30k, Feb 33k, Mar 36k; churn 4%, 3.5%, 3.1%; cash 900k; burn 80k",
+     "required": true
+    }
+   ],
+   "prompt": "Turn {numbers} into an investor-ready snapshot: table (Metric | Latest | Trend | Commentary), kv (runway months, monthly growth rate, burn multiple, net new MRR — compute where possible and mark estimates), bullets of the 3 metrics investors will zoom in on, and a callout flagging any metric that is missing for this stage.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Build snapshot",
+   "loading": "Crunching…"
+  },
+  {
+   "id": "ask",
+   "title": "Write the ask",
+   "subtitle": "Specific, forwardable requests",
+   "emoji": "🙋",
+   "inputs": [
+    {
+     "key": "need",
+     "label": "What you need",
+     "type": "text",
+     "placeholder": "an intro to Stripe's partnerships team",
+     "required": true
+    },
+    {
+     "key": "type",
+     "label": "Type",
+     "type": "chips",
+     "options": [
+      "Intro",
+      "Advice",
+      "Hire",
+      "Customer",
+      "Bridge funding"
+     ],
+     "default": "Intro"
+    }
+   ],
+   "prompt": "Write a {type} ask for: {need}. A quote with the ask paragraph for the update (specific and one-click actionable), a second quote with a forwardable blurb an investor can paste to make the introduction, and bullets on how to follow up without nagging.",
+   "shape": "quote, bullets",
+   "button": "Write ask",
+   "loading": "Asking nicely…"
+  },
+  {
+   "id": "roundnews",
+   "title": "Announce the round",
+   "subtitle": "Investors, team or public",
+   "emoji": "🎉",
+   "inputs": [
+    {
+     "key": "round",
+     "label": "Round details",
+     "type": "text",
+     "placeholder": "£2m seed led by X, with Y and Z participating",
+     "required": true
+    },
+    {
+     "key": "channel",
+     "label": "For",
+     "type": "chips",
+     "options": [
+      "Investor update",
+      "Team all-hands",
+      "Press / LinkedIn"
+     ],
+     "default": "Investor update"
+    }
+   ],
+   "prompt": "Write the round announcement for {channel}: {round}. A quote with the full announcement, bullets of who to thank and name, kv (what changes now, what does not change), and a callout on details to keep confidential for this channel.",
+   "shape": "quote, bullets, kv, callout",
+   "button": "Announce",
+   "loading": "Popping corks…"
+  }
+ ]
+}

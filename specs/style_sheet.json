@@ -1,0 +1,202 @@
+{
+ "id": "style_sheet",
+ "name": "Style Sheet",
+ "tagline": "Consistency for long manuscripts, chapter by chapter",
+ "category": "Tools",
+ "colors": [
+  "#37474F",
+  "#00ACC1",
+  "#FF7043"
+ ],
+ "icon": "gear",
+ "about": "Style Sheet builds a copyeditor's style sheet from your manuscript, checks new chapters against it, converts between US and UK conventions, scans for continuity slips and trims to a word count.",
+ "persona": "You are a meticulous copyeditor: you record decisions rather than impose taste, follow the chosen house style, and flag inconsistencies with their exact location.",
+ "onboarding": {
+  "title": "One manuscript, one set of rules",
+  "subtitle": "Tell Style Sheet what you are writing and which conventions you follow.",
+  "bullets": [
+   "Auto-built style sheet from a sample",
+   "Chapter checks against your decisions",
+   "US ↔ UK conversion and continuity scans"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "kind",
+   "label": "Manuscript type",
+   "type": "chips",
+   "options": [
+    "Novel",
+    "Non-fiction book",
+    "Thesis",
+    "Corporate report",
+    "Blog series"
+   ],
+   "default": "Novel"
+  },
+  {
+   "key": "english",
+   "label": "English",
+   "type": "chips",
+   "options": [
+    "US",
+    "UK",
+    "Oxford spelling",
+    "Australian"
+   ],
+   "default": "UK"
+  },
+  {
+   "key": "guide",
+   "label": "House style",
+   "type": "chips",
+   "options": [
+    "Chicago",
+    "AP",
+    "APA",
+    "New Hart's Rules",
+    "None / my own"
+   ],
+   "default": "None / my own"
+  }
+ ],
+ "tools": [
+  {
+   "id": "build",
+   "title": "Build my style sheet",
+   "subtitle": "Decisions extracted from a sample",
+   "emoji": "🧾",
+   "inputs": [
+    {
+     "key": "text",
+     "label": "Chapter or sample",
+     "type": "longtext",
+     "placeholder": "Paste a chapter…",
+     "required": true
+    }
+   ],
+   "prompt": "Extract style decisions from: {text}, respecting the profile English and house style. Table (Item | Chosen form | Variants seen | Rule or reason) covering spellings, hyphenation, capitalisation, numbers, names and recurring terms; kv (numbers policy, serial comma, quotation marks, dashes, italics for titles and thoughts, time and date format); bullets of decisions the author still needs to make.",
+   "shape": "table, kv, bullets",
+   "button": "Build sheet",
+   "loading": "Noting decisions…"
+  },
+  {
+   "id": "check",
+   "title": "Check a chapter",
+   "subtitle": "Find every departure from the sheet",
+   "emoji": "🔎",
+   "inputs": [
+    {
+     "key": "text",
+     "label": "Chapter text",
+     "type": "longtext",
+     "placeholder": "Paste the chapter…",
+     "required": true
+    },
+    {
+     "key": "sheet",
+     "label": "Your style sheet",
+     "type": "longtext",
+     "placeholder": "grey not gray; Dr with no full stop; 1990s not 1990's…",
+     "required": true
+    }
+   ],
+   "prompt": "Check {text} against this style sheet: {sheet}, plus the profile English and house style. Table (Location: quote 4 to 6 words | Found | Should be | Sheet rule); kv (issues by category: spelling, hyphenation, capitals, numbers, punctuation); a checklist of fixes to apply in order; a callout where the sheet itself is contradictory or silent.",
+   "shape": "table, kv, checklist, callout",
+   "button": "Check chapter",
+   "loading": "Comparing…"
+  },
+  {
+   "id": "convert",
+   "title": "US ↔ UK convert",
+   "subtitle": "Spelling, punctuation and vocabulary",
+   "emoji": "🔁",
+   "inputs": [
+    {
+     "key": "text",
+     "label": "Text",
+     "type": "longtext",
+     "placeholder": "Paste the text…",
+     "required": true
+    },
+    {
+     "key": "to",
+     "label": "Convert to",
+     "type": "chips",
+     "options": [
+      "UK",
+      "US",
+      "Australian"
+     ],
+     "default": "UK"
+    }
+   ],
+   "prompt": "Convert {text} to {to} conventions. Sections: quote with the converted text; table (Original | Converted | Category: spelling / punctuation / vocabulary / date and units) for every change; a callout on what was deliberately left alone (quoted speech, proper nouns, titles of works).",
+   "shape": "quote, table, callout",
+   "button": "Convert",
+   "loading": "Swapping letters…"
+  },
+  {
+   "id": "continuity",
+   "title": "Continuity scan",
+   "subtitle": "Names, ages, eye colours, timelines",
+   "emoji": "🧵",
+   "inputs": [
+    {
+     "key": "text",
+     "label": "Chapters or notes",
+     "type": "longtext",
+     "placeholder": "Paste one or more chapters…",
+     "required": true
+    }
+   ],
+   "prompt": "Scan {text} for continuity. Table (Fact: character trait / place / object / date | First mention | Later mention | Conflict?) ; bullets reconstructing the timeline in order with any impossible gaps; a checklist of facts to verify in the rest of the manuscript.",
+   "shape": "table, bullets, checklist",
+   "button": "Scan",
+   "loading": "Cross-referencing…"
+  },
+  {
+   "id": "trim",
+   "title": "Trim to length",
+   "subtitle": "Cut to a word count without losing the voice",
+   "emoji": "✂️",
+   "inputs": [
+    {
+     "key": "text",
+     "label": "Text",
+     "type": "longtext",
+     "placeholder": "Paste the text…",
+     "required": true
+    },
+    {
+     "key": "target",
+     "label": "Target word count",
+     "type": "number",
+     "placeholder": "800"
+    },
+    {
+     "key": "protect",
+     "label": "Protect",
+     "type": "chips",
+     "options": [
+      "Quotes",
+      "Numbers",
+      "Voice",
+      "Nothing"
+     ],
+     "default": "Voice",
+     "multi": true
+    }
+   ],
+   "prompt": "Trim {text} to at most {target} words while protecting: {protect}. Sections: quote with the trimmed text; kv (words before, words after, percent removed); table (Cut | Why it could go) for the 10 biggest cuts; a callout on anything that could not be cut without changing the meaning.",
+   "shape": "quote, kv, table, callout",
+   "button": "Trim it",
+   "loading": "Cutting carefully…"
+  }
+ ]
+}

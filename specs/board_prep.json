@@ -1,0 +1,175 @@
+{
+ "id": "board_prep",
+ "name": "Board Prep",
+ "tagline": "Board meetings that end with decisions, not dread",
+ "category": "Business",
+ "colors": [
+  "#283593",
+  "#C0CA33",
+  "#E53935"
+ ],
+ "icon": "calendar",
+ "about": "Board Prep builds your board deck outline and pre-read memo, drafts a timed agenda, anticipates the hard questions and turns your raw notes into clean minutes and action lists.",
+ "persona": "You are an experienced startup board secretary and CFO: structured, candid, and focused on getting the board to make decisions rather than admire slides.",
+ "onboarding": {
+  "title": "Run the board, don't just report to it",
+  "subtitle": "Your board's makeup shapes the prep.",
+  "bullets": [
+   "Deck & pre-read in one go",
+   "Anticipate the hard questions",
+   "Minutes & actions from notes"
+  ]
+ },
+ "profile": [
+  {
+   "key": "company",
+   "label": "Company",
+   "type": "text",
+   "placeholder": "Acme"
+  },
+  {
+   "key": "board",
+   "label": "Board members",
+   "type": "chips",
+   "options": [
+    "Founders only",
+    "Founders + lead investor",
+    "Independent director",
+    "Observer(s)"
+   ],
+   "multi": true
+  },
+  {
+   "key": "frequency",
+   "label": "Meeting cadence",
+   "type": "chips",
+   "options": [
+    "Monthly",
+    "Every 6 weeks",
+    "Quarterly"
+   ],
+   "default": "Quarterly"
+  },
+  {
+   "key": "stage",
+   "label": "Stage & key metric",
+   "type": "text",
+   "placeholder": "Seed, MRR"
+  }
+ ],
+ "tools": [
+  {
+   "id": "deck",
+   "title": "Board deck outline",
+   "subtitle": "Sections, slides, timings",
+   "emoji": "🖥️",
+   "inputs": [
+    {
+     "key": "period",
+     "label": "What happened this period",
+     "type": "longtext",
+     "placeholder": "hit 100 customers, missed hiring plan, cash 14 months",
+     "required": true
+    },
+    {
+     "key": "decisions",
+     "label": "Decisions needed",
+     "type": "chips",
+     "options": [
+      "None",
+      "1",
+      "2–3",
+      "Many"
+     ],
+     "default": "1"
+    }
+   ],
+   "prompt": "Outline the board deck for the profile company covering: {period}, with {decisions} decisions required. Table (# | Section | Slide title | Key numbers or points | Minutes), a kv (headline message, biggest risk, the ask of the board), and a callout on what belongs in the appendix instead of the main deck.",
+   "shape": "table, kv, callout",
+   "button": "Outline deck",
+   "loading": "Structuring…"
+  },
+  {
+   "id": "preread",
+   "title": "Pre-read memo",
+   "subtitle": "Facts → the memo they read beforehand",
+   "emoji": "📄",
+   "inputs": [
+    {
+     "key": "content",
+     "label": "Key facts and numbers",
+     "type": "longtext",
+     "placeholder": "MRR 80k +12% QoQ; burn 110k; churn 2.5%; two big deals pending",
+     "required": true
+    }
+   ],
+   "prompt": "Write the board pre-read memo from: {content}. A quote with the full memo (Summary, Metrics, Progress vs plan, Risks, Decisions requested, Asks; under 700 words), a table (Decision | Options | Recommendation | Deadline), and bullets of the questions the memo should pre-empt.",
+   "shape": "quote, table, bullets",
+   "button": "Write memo",
+   "loading": "Drafting…"
+  },
+  {
+   "id": "agenda",
+   "title": "Agenda & timing",
+   "subtitle": "Discussion time, not just reporting",
+   "emoji": "⏱️",
+   "inputs": [
+    {
+     "key": "minutes",
+     "label": "Meeting length (minutes)",
+     "type": "number",
+     "placeholder": "120"
+    },
+    {
+     "key": "topics",
+     "label": "Topics to cover",
+     "type": "text",
+     "placeholder": "Q3 results, Series A timing, exec hire"
+    }
+   ],
+   "prompt": "Build a {minutes}-minute board agenda for: {topics}. Table (Time | Item | Owner | Purpose: inform / discuss / decide | Pre-read?), a callout on protecting time for discussion over reporting, and a checklist for the 48 hours before the meeting.",
+   "shape": "table, callout, checklist",
+   "button": "Build agenda",
+   "loading": "Timing it…"
+  },
+  {
+   "id": "questions",
+   "title": "Hard questions",
+   "subtitle": "What they'll ask where you're weak",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "weak",
+     "label": "Where you're weakest right now",
+     "type": "text",
+     "placeholder": "sales hiring behind, CAC rising",
+     "required": true
+    }
+   ],
+   "prompt": "Given the weak spots: {weak}, list the hard questions this board will ask. Table (Question | Who will ask it | Honest answer outline | Data to bring), a quote with a 3-sentence opening that frames the weak spots before they are raised, and bullets on handling a question with no good answer yet.",
+   "shape": "table, quote, bullets",
+   "button": "Prepare me",
+   "loading": "Anticipating…"
+  },
+  {
+   "id": "minutes",
+   "title": "Minutes from notes",
+   "subtitle": "Raw notes → formal minutes + actions",
+   "emoji": "🗒️",
+   "inputs": [
+    {
+     "key": "notes",
+     "label": "Your raw meeting notes",
+     "type": "longtext",
+     "placeholder": "discussed Q3; board wants hiring plan revised; approved option grants…",
+     "required": true
+    }
+   ],
+   "prompt": "Turn these notes into board minutes: {notes}. A quote with formal minutes (attendees, quorum note, items discussed, resolutions passed, actions), a table (Action | Owner | Due date), and a callout on resolutions that may need formal written consent or a filing.",
+   "shape": "quote, table, callout",
+   "button": "Write minutes",
+   "loading": "Recording…"
+  }
+ ],
+ "disclaimer": "Board materials and minutes drafts are not legal advice; confirm governance and filing requirements with counsel."
+}

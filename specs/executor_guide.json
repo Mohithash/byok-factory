@@ -1,0 +1,177 @@
+{
+ "id": "executor_guide",
+ "name": "Executor Guide",
+ "tagline": "Named executor? Here's what to do, in order",
+ "category": "Tools",
+ "colors": [
+  "#2E7D32",
+  "#6D4C41",
+  "#FBC02D"
+ ],
+ "icon": "calendar",
+ "about": "Executor Guide walks a newly appointed executor or next of kin through the weeks after a death: the first tasks, decoding the will, notifying banks and agencies, building the estate inventory, and keeping beneficiaries informed.",
+ "persona": "You are a gentle, organised estate-administration guide: you take things one week at a time, explain general procedure for the user's region, and are honest about when a probate professional is worth it.",
+ "onboarding": {
+  "title": "One step at a time",
+  "subtitle": "Procedures differ by country; tell us where the estate is.",
+  "bullets": [
+   "A week-by-week task list",
+   "Notification letters ready to send",
+   "Estate inventory and beneficiary updates"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "region",
+   "label": "Country / state where the estate is",
+   "type": "text",
+   "placeholder": "Ohio, USA"
+  },
+  {
+   "key": "role",
+   "label": "Your role",
+   "type": "chips",
+   "options": [
+    "Named executor",
+    "Next of kin, no will",
+    "Administrator",
+    "Helping a family member"
+   ]
+  },
+  {
+   "key": "size",
+   "label": "Rough estate size",
+   "type": "text",
+   "placeholder": "house + 30k savings"
+  }
+ ],
+ "tools": [
+  {
+   "id": "first",
+   "title": "First 30 days",
+   "subtitle": "What matters now, what can wait",
+   "emoji": "🗓️",
+   "inputs": [
+    {
+     "key": "died",
+     "label": "Date of death and situation",
+     "type": "text",
+     "placeholder": "12 May, at home, will held by a solicitor"
+    }
+   ],
+   "prompt": "Situation: {died}. Produce steps for the first 30 days grouped by week (registration and certificates, funeral, securing property, finding the will, stopping payments), a checklist of documents to gather, a kv of typical timelines and grants (probate or equivalent) in the profile region, and a callout on what an executor should not do before authority is granted.",
+   "shape": "steps, checklist, kv, callout",
+   "button": "Start",
+   "loading": "Taking it slowly…"
+  },
+  {
+   "id": "will",
+   "title": "Decode the will",
+   "subtitle": "Photo or paste → who gets what",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the will",
+     "type": "photo"
+    },
+    {
+     "key": "text",
+     "label": "Or paste the text",
+     "type": "longtext"
+    }
+   ],
+   "prompt": "Read the will (photo and/or text: {text}). Produce a kv (testator, date, executors, guardians, specific gifts, residue split), a table (Beneficiary | What they receive | Conditions | Notes), bullets of ambiguities or clauses that need professional interpretation, and a callout on validity basics to check (signature, witnesses, later codicils).",
+   "shape": "kv, table, bullets, callout",
+   "button": "Decode",
+   "loading": "Reading carefully…"
+  },
+  {
+   "id": "notify",
+   "title": "Notification letters",
+   "subtitle": "Banks, pensions, utilities, subscriptions",
+   "emoji": "✉️",
+   "inputs": [
+    {
+     "key": "org",
+     "label": "Organisation",
+     "type": "text",
+     "placeholder": "Nationwide bank account",
+     "required": true
+    },
+    {
+     "key": "ask",
+     "label": "You need them to",
+     "type": "chips",
+     "options": [
+      "Freeze the account and send a balance",
+      "Close and release funds",
+      "Transfer to a survivor",
+      "Cancel a service",
+      "Stop marketing"
+     ],
+     "default": "Freeze the account and send a balance"
+    }
+   ],
+   "prompt": "Write a notification letter to {org} asking them to: {ask}. Quote the letter (deceased's details as placeholders, your role, what you're asking, documents enclosed, contact details). Then a checklist of enclosures usually required, and a table (Organisation type | Typical requirement | Typical response time).",
+   "shape": "quote, checklist, table",
+   "button": "Write letter",
+   "loading": "Addressing…"
+  },
+  {
+   "id": "inventory",
+   "title": "Estate inventory",
+   "subtitle": "Assets, debts, values",
+   "emoji": "📊",
+   "inputs": [
+    {
+     "key": "items",
+     "label": "List what you know so far",
+     "type": "longtext",
+     "placeholder": "house ~250k joint with spouse, ISA 18k, car, credit card debt 2k, loan to nephew 5k…",
+     "required": true
+    }
+   ],
+   "prompt": "From: {items} — build a table (Asset or debt | Owner | Est. value | Passes via will? | Evidence needed), a kv of totals (gross estate, debts, net estate), bullets of valuations still needed and how to obtain them, and a callout on the order in which debts and gifts are generally paid.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Build inventory",
+   "loading": "Adding up…"
+  },
+  {
+   "id": "family",
+   "title": "Update the beneficiaries",
+   "subtitle": "Keep everyone calm and informed",
+   "emoji": "💬",
+   "inputs": [
+    {
+     "key": "status",
+     "label": "Where things are",
+     "type": "longtext",
+     "placeholder": "grant applied for last week, house being valued, cousin keeps asking for money",
+     "required": true
+    },
+    {
+     "key": "tone",
+     "label": "Tone",
+     "type": "chips",
+     "options": [
+      "Warm",
+      "Neutral / formal",
+      "Firm but kind"
+     ],
+     "default": "Warm"
+    }
+   ],
+   "prompt": "Status: {status}. Tone: {tone}. Write a quote with an update message to beneficiaries (what's done, what's next, realistic timing, why nothing can be paid out yet), bullets on handling pressure from impatient relatives, and a callout on an executor's duty to treat beneficiaries even-handedly and keep records.",
+   "shape": "quote, bullets, callout",
+   "button": "Draft update",
+   "loading": "Choosing kind words…"
+  }
+ ],
+ "disclaimer": "General information only, not legal advice; rules differ by country and state and change over time — check official sources or a qualified professional before acting."
+}

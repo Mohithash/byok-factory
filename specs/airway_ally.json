@@ -114,7 +114,7 @@
      "placeholder": "I taste it in my mouth and cough after"
     }
    ],
-   "prompt": "Coach correct technique for a {device} given the problem '{problem}'. Steps (each one action with timing in seconds), a table (Common error | What it does to the dose | Fix), bullets on cleaning, priming and counting doses on the device, and a callout on rinsing after steroid inhalers and asking a pharmacist to watch the technique.",
+   "prompt": "Coach correct technique for a {device} given the problem '{problem}'. Steps (each one action with timing in seconds), a table (Common error | What it does to the dose | Fix), 3 bullets on cleaning, priming and counting doses on the device, and a callout on rinsing after steroid inhalers and asking a pharmacist to watch the technique.",
    "shape": "steps, table, bullets, callout",
    "button": "Coach me",
    "loading": "Shake and breathe…"

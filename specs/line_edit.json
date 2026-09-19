@@ -1,0 +1,179 @@
+{
+ "id": "line_edit",
+ "name": "Line Editor",
+ "tagline": "Fiction prose tightened, sentence by sentence",
+ "category": "Books & Reference",
+ "colors": [
+  "#BF360C",
+  "#004D40",
+  "#FFCA28"
+ ],
+ "icon": "bulb",
+ "about": "Line Editor works at the sentence level of your fiction: filter words, adverbs, telling, dialogue tags, POV and tense slips, and the first page an agent reads.",
+ "persona": "You are a fiction line editor who protects the author's voice: you cut what is slack, name each habit precisely, and show rather than lecture.",
+ "onboarding": {
+  "title": "Keep the voice, lose the slack",
+  "subtitle": "Tell Line Editor your genre, POV and voice so edits stay yours.",
+  "bullets": [
+   "Sentence-level edit table",
+   "Show-don't-tell rewrites",
+   "POV, tense and dialogue-tag checks"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "genre",
+   "label": "Genre",
+   "type": "chips",
+   "options": [
+    "Literary",
+    "Thriller / crime",
+    "Romance",
+    "Fantasy / SF",
+    "YA",
+    "Horror",
+    "Memoir"
+   ],
+   "default": "Literary"
+  },
+  {
+   "key": "pov",
+   "label": "POV & tense",
+   "type": "chips",
+   "options": [
+    "First past",
+    "First present",
+    "Third limited past",
+    "Third limited present",
+    "Omniscient"
+   ],
+   "default": "Third limited past"
+  },
+  {
+   "key": "voice",
+   "label": "Voice notes",
+   "type": "text",
+   "placeholder": "sparse, dry humour; no semicolons"
+  }
+ ],
+ "tools": [
+  {
+   "id": "pass",
+   "title": "Line edit a passage",
+   "subtitle": "Filter words, adverbs, echoes, rhythm",
+   "emoji": "✂️",
+   "inputs": [
+    {
+     "key": "text",
+     "label": "Passage",
+     "type": "longtext",
+     "placeholder": "Paste up to a scene…",
+     "required": true
+    },
+    {
+     "key": "focus",
+     "label": "Focus",
+     "type": "chips",
+     "options": [
+      "Everything",
+      "Filter words & adverbs",
+      "Sentence rhythm",
+      "Clarity"
+     ],
+     "default": "Everything"
+    }
+   ],
+   "prompt": "Line edit {text} with focus '{focus}', keeping the profile genre, POV and voice notes. Table (Sentence | Issue: filter word / adverb / telling / echo / rhythm / vague | Rewrite); quote with the full edited passage; kv (words before, words after, adverbs removed, filter words removed); a callout naming the one habit that appears most and how to catch it in future.",
+   "shape": "table, quote, kv, callout",
+   "button": "Edit",
+   "loading": "Sharpening…"
+  },
+  {
+   "id": "show",
+   "title": "Show, don't tell",
+   "subtitle": "Three ways to show one telling line",
+   "emoji": "🎭",
+   "inputs": [
+    {
+     "key": "telling",
+     "label": "The telling sentence",
+     "type": "text",
+     "placeholder": "She was terrified.",
+     "required": true
+    },
+    {
+     "key": "context",
+     "label": "Scene context",
+     "type": "text",
+     "placeholder": "alone in a car park at night"
+    }
+   ],
+   "prompt": "Rewrite the telling sentence '{telling}' in context: {context}, in the profile POV and voice. Cards with 3 shown versions (meta = technique: body / action / setting-as-mirror), each at most 2 sentences; bullets on when telling is the better choice; a callout on the cliché versions to avoid.",
+   "shape": "cards, bullets, callout",
+   "button": "Show me",
+   "loading": "Entering the scene…"
+  },
+  {
+   "id": "tags",
+   "title": "Dialogue tag pass",
+   "subtitle": "Said, beats, and cut adverbs",
+   "emoji": "💬",
+   "inputs": [
+    {
+     "key": "dialogue",
+     "label": "Dialogue",
+     "type": "longtext",
+     "placeholder": "Paste the exchange…",
+     "required": true
+    }
+   ],
+   "prompt": "Edit the tags and beats in: {dialogue}. Sections: quote with the revised exchange (said or asked where a tag is needed, action beats instead of adverbs, tags removed where the speaker is clear); table (Original tag or beat | Change | Why); a callout on over-beating and floating heads.",
+   "shape": "quote, table, callout",
+   "button": "Fix tags",
+   "loading": "Listening in…"
+  },
+  {
+   "id": "pov",
+   "title": "POV & tense check",
+   "subtitle": "Head-hops, slips, filtered perception",
+   "emoji": "👁️",
+   "inputs": [
+    {
+     "key": "text",
+     "label": "Passage",
+     "type": "longtext",
+     "placeholder": "Paste the passage…",
+     "required": true
+    }
+   ],
+   "prompt": "Check {text} against the profile POV and tense. Table (Line | Slip type: POV break / head-hop / tense slip / filtered perception / knowledge the narrator cannot have | Fix); bullets explaining filtered perception with examples from the text; quote with the corrected lines only.",
+   "shape": "table, bullets, quote",
+   "button": "Check POV",
+   "loading": "Watching the camera…"
+  },
+  {
+   "id": "first",
+   "title": "First-page verdict",
+   "subtitle": "Would an agent keep reading?",
+   "emoji": "📄",
+   "inputs": [
+    {
+     "key": "page",
+     "label": "Your first 300 words",
+     "type": "longtext",
+     "placeholder": "Paste the opening…",
+     "required": true
+    }
+   ],
+   "prompt": "Assess this opening as an agent's reader would: {page}. kv (hook /10, voice /10, clarity /10, would turn the page: yes / maybe / no); bullets of what is working, quoting the words; table (Line | Problem | Fix); a quote with a punchier version of the first sentence in the same voice; a callout on the most common opening-page pet peeves this page triggers.",
+   "shape": "kv, bullets, table, quote, callout",
+   "button": "Judge my page",
+   "loading": "Reading as an agent…"
+  }
+ ]
+}

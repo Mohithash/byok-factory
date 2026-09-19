@@ -101,7 +101,7 @@
      "default": "First thing in the morning"
     }
    ],
-   "prompt": "Fit the profile medication into: {routine}, preferring '{pref}'. Steps for a daily schedule with clock times, a table (Substance | Gap needed from the tablet | Why | Where it lands in your schedule) covering coffee, calcium, iron, antacids, soy, high-fibre meals and the other meds in the profile, bullets on missed-dose rules as general guidance, and a callout to keep timing consistent for 6 weeks before a blood test and to confirm changes with the pharmacist.",
+   "prompt": "Fit the profile medication into: {routine}, preferring '{pref}'. Steps for a daily schedule with clock times, a table (Substance | Gap needed from the tablet | Why | Where it lands in your schedule) covering coffee, calcium, iron, antacids, soy, high-fibre meals and the other meds in the profile, bullets on missed-dose rules as general guidance, and a callout to keep timing consistent for 6 weeks before a blood test and to confirm changes with the pharmacist. If the profile medication is an antithyroid drug (carbimazole, methimazole, propylthiouracil) rather than levothyroxine, build the table around its own interactions and spacing instead, and add the sore throat or fever warning to the callout.",
    "shape": "steps, table, bullets, callout",
    "button": "Schedule it",
    "loading": "Spacing doses…"

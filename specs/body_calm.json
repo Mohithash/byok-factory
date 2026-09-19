@@ -13,11 +13,11 @@
  "persona": "You are a somatic-informed relaxation coach: unhurried, specific about muscles and breath, and clear that pain, numbness or trauma responses need a professional.",
  "onboarding": {
   "title": "Stress lives in the body too",
-  "subtitle": "Tell us where you tense up and how long you have.",
+  "subtitle": "Tell us where you tense up and what your days look like.",
   "bullets": [
    "PMR scripts timed to your slot",
    "Tension map from how you feel",
-   "Movement resets between meetings"
+   "Resets and cues that fit your day"
   ]
  },
  "profile": [
@@ -41,13 +41,14 @@
    "multi": true
   },
   {
-   "key": "slot",
-   "label": "Usual time available",
+   "key": "daytype",
+   "label": "Your day is mostly",
    "type": "chips",
    "options": [
-    "3 minutes",
-    "10 minutes",
-    "20 minutes"
+    "At a desk",
+    "On my feet",
+    "Driving",
+    "Caring for others"
    ]
   },
   {
@@ -154,7 +155,7 @@
      "default": "Small room"
     }
    ],
-   "prompt": "A movement reset for feeling '{state}' in a {space}, under 3 minutes: steps (movement · seconds · breathing pattern) matched to the state (discharge for wired or angry, gentle activation for frozen or foggy), bullets on how to tell it worked, and a callout on modifications for the profile's limits.",
+   "prompt": "A movement reset for feeling '{state}' in a {space}, under 3 minutes: steps (movement · seconds · breathing pattern) matched to the state (discharge for wired or angry, gentle activation for frozen or foggy), bullets on how to tell it worked, and a callout on modifications for the profile's limits and day type.",
    "shape": "steps, bullets, callout",
    "button": "Reset me",
    "loading": "Shaking loose…"
@@ -189,28 +190,34 @@
    "loading": "Dimming lights…"
   },
   {
-   "id": "premeet",
-   "title": "Pre-meeting release",
-   "subtitle": "Unclench before the hard thing",
-   "emoji": "⏱️",
+   "id": "cues",
+   "title": "Daily unclench cues",
+   "subtitle": "Tie tiny releases to things you already do",
+   "emoji": "🔔",
    "inputs": [
     {
-     "key": "next",
-     "label": "What's next",
-     "type": "text",
-     "placeholder": "difficult call with a client"
+     "key": "day",
+     "label": "Your typical day, roughly",
+     "type": "longtext",
+     "placeholder": "alarm 6:30, commute, back-to-back calls till 1, school pickup 3:30, TV after dinner",
+     "required": true
     },
     {
-     "key": "minutes",
-     "label": "Minutes you have",
-     "type": "number",
-     "placeholder": "2"
+     "key": "count",
+     "label": "How many cues",
+     "type": "chips",
+     "options": [
+      "3",
+      "5",
+      "8"
+     ],
+     "default": "5"
     }
    ],
-   "prompt": "In {minutes} minutes before '{next}': steps with a jaw, shoulder and breath release sequence sized to the time, a kv (Posture cue, Breath ratio, What to do with the hands), and a quote with one sentence to say to yourself walking in.",
-   "shape": "steps, kv, quote",
-   "button": "Release",
-   "loading": "Unclenching…"
+   "prompt": "Design {count} cue-based micro-releases for this day: {day}, targeting the profile's tension areas and day type. Table (Cue moment | Release move | Seconds | Area it unclenches), each release under 30 seconds and doable without anyone noticing, a checklist for day one in clock order, bullets on the two habits in this day most likely to re-tighten things (phone neck, breath-holding on calls), and a callout on how to know after a week whether it's working.",
+   "shape": "table, checklist, bullets, callout",
+   "button": "Set my cues",
+   "loading": "Placing reminders…"
   }
  ],
  "disclaimer": "Not therapy or medical advice. If you're in crisis or thinking about harming yourself or someone else, contact local emergency services or a crisis line now."

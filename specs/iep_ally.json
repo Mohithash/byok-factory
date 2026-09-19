@@ -1,0 +1,193 @@
+{
+ "id": "iep_ally",
+ "name": "IEP Ally",
+ "tagline": "Get your child the school support they're entitled to",
+ "category": "Parenting",
+ "colors": [
+  "#6A1B9A",
+  "#26A69A",
+  "#FF8F00"
+ ],
+ "icon": "scale",
+ "about": "IEP Ally walks parents through requesting an evaluation, decoding the psych-ed report, choosing accommodations that fit, and walking into the IEP, 504 or EHCP meeting prepared and calm.",
+ "persona": "You are a special-education advocate: you know the process cold for the US, UK and beyond, translate jargon into plain English, and keep everything factual and dated because paper trails win.",
+ "onboarding": {
+  "title": "Prepared, not outnumbered",
+  "subtitle": "Tell us your child's needs and your school system so the paperwork matches.",
+  "bullets": [
+   "Evaluation request letters",
+   "Reports in plain English",
+   "Meeting prep that works"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "child",
+   "label": "Child (name, age, grade)",
+   "type": "text",
+   "placeholder": "Eli, 8, Grade 3"
+  },
+  {
+   "key": "system",
+   "label": "System",
+   "type": "chips",
+   "options": [
+    "US (IEP/504)",
+    "UK (SEN support/EHCP)",
+    "Canada",
+    "Australia",
+    "Ireland",
+    "Other"
+   ]
+  },
+  {
+   "key": "needs",
+   "label": "Suspected or diagnosed",
+   "type": "chips",
+   "options": [
+    "Dyslexia",
+    "ADHD",
+    "Autism",
+    "Dyscalculia",
+    "Speech/language",
+    "Anxiety",
+    "Processing",
+    "Not sure yet"
+   ],
+   "multi": true
+  }
+ ],
+ "tools": [
+  {
+   "id": "request",
+   "title": "Request an evaluation",
+   "subtitle": "The letter that starts the clock",
+   "emoji": "✉️",
+   "inputs": [
+    {
+     "key": "concerns",
+     "label": "Your concerns, with examples",
+     "type": "longtext",
+     "placeholder": "reads 2 years below grade, avoids writing, teacher mentioned 'slow to finish'",
+     "required": true
+    },
+    {
+     "key": "history",
+     "label": "Anything already tried",
+     "type": "text",
+     "placeholder": "reading intervention group since January"
+    }
+   ],
+   "prompt": "Write a formal evaluation request for the profile's child in the profile's system. Concerns: {concerns}. Already tried: {history}. Sections: a quote with the complete letter (dated, addressed to the right role for the system, naming the areas to assess, citing the relevant law or code in one line, requesting a written response), a kv of what happens next and the legal timelines, a checklist of what to attach and how to send it so it's on record, and a callout on the common ways schools deflect and how to respond.",
+   "shape": "quote, kv, checklist, callout",
+   "button": "Write request",
+   "loading": "Starting the clock…"
+  },
+  {
+   "id": "decode",
+   "title": "Decode the report",
+   "subtitle": "Paste the evaluation → plain English",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "report",
+     "label": "Paste sections of the report",
+     "type": "longtext",
+     "placeholder": "WISC-V FSIQ 104, Processing Speed 78 (7th percentile), WIAT reading fluency 82…",
+     "required": true
+    }
+   ],
+   "prompt": "Explain this evaluation in plain English for a parent: {report}. Sections: a table (Test or index | Score | Percentile | What it measures | What it means at school), text summarising the child's profile in three sentences a parent could repeat, bullets of the specific needs this evidence supports, and a callout on what the report leaves out and what to ask the evaluator.",
+   "shape": "table, text, bullets, callout",
+   "button": "Decode",
+   "loading": "Translating…"
+  },
+  {
+   "id": "accom",
+   "title": "Accommodations that fit",
+   "subtitle": "From struggles to specifics",
+   "emoji": "🧩",
+   "inputs": [
+    {
+     "key": "struggles",
+     "label": "What's hard at school",
+     "type": "longtext",
+     "placeholder": "copying from the board, timed tests, remembering multi-step instructions",
+     "required": true
+    },
+    {
+     "key": "setting",
+     "label": "Setting",
+     "type": "chips",
+     "options": [
+      "Mainstream class",
+      "Small group",
+      "Special class",
+      "Home or online"
+     ],
+     "default": "Mainstream class"
+    }
+   ],
+   "prompt": "Propose accommodations and supports for the profile's child in a {setting} given: {struggles}. Sections: a table (Struggle | Accommodation | How it's delivered | How we'll know it works), bullets separating accommodations from modifications and specialist services, a kv of measurable goal wording examples (baseline → target → by when), and a callout on the vague phrases to reject in a plan.",
+   "shape": "table, bullets, kv, callout",
+   "button": "Propose",
+   "loading": "Matching…"
+  },
+  {
+   "id": "meeting",
+   "title": "Prep the meeting",
+   "subtitle": "Agenda, questions, your script",
+   "emoji": "🗂️",
+   "inputs": [
+    {
+     "key": "type",
+     "label": "Meeting",
+     "type": "chips",
+     "options": [
+      "Initial eligibility",
+      "Annual review",
+      "Amendment or complaint",
+      "Transition (new school)",
+      "Discipline or manifestation"
+     ],
+     "default": "Initial eligibility"
+    },
+    {
+     "key": "goals",
+     "label": "What you want out of it",
+     "type": "longtext",
+     "placeholder": "reading intervention 4×/week, extended time, a communication log"
+    }
+   ],
+   "prompt": "Prepare a parent for a {type} meeting for the profile's child, wanting: {goals}. Sections: a checklist of what to bring and send ahead, steps for the meeting in order (opening statement, listening, asking, declining to sign today), a quote with a 60-second opening statement about the child as a person, bullets of questions that expose vague plans, and a callout on the parent's rights in the room for the profile's system.",
+   "shape": "checklist, steps, quote, bullets, callout",
+   "button": "Prep me",
+   "loading": "Rehearsing…"
+  },
+  {
+   "id": "log",
+   "title": "Paper trail",
+   "subtitle": "Log an incident or call",
+   "emoji": "📒",
+   "inputs": [
+    {
+     "key": "event",
+     "label": "What happened",
+     "type": "longtext",
+     "placeholder": "called Mrs K, said aide 'not available', 3rd time this month",
+     "required": true
+    }
+   ],
+   "prompt": "Turn {event} into a dated record and a follow-up. Sections: a kv (date, people, what was said, what was agreed, evidence attached), a quote with a short follow-up email confirming the conversation in writing, bullets on whether this is a pattern that supports a formal complaint, and a callout on the escalation route in the profile's system.",
+   "shape": "kv, quote, bullets, callout",
+   "button": "Log it",
+   "loading": "Filing…"
+  }
+ ],
+ "disclaimer": "Education law and timelines vary by country and state; this is general guidance, not legal advice. Consider a local parent advocate or lawyer for disputes."
+}

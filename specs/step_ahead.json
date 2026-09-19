@@ -1,0 +1,203 @@
+{
+ "id": "step_ahead",
+ "name": "Step Ahead",
+ "tagline": "Find your footing as a stepparent",
+ "category": "Parenting",
+ "colors": [
+  "#5E35B1",
+  "#26A69A",
+  "#FF7043"
+ ],
+ "icon": "baby",
+ "about": "Step Ahead helps stepparents and blended families find their role: how involved to be and when, discipline agreements with your partner, new-family rituals, and what to say to 'you're not my mum'.",
+ "persona": "You are a seasoned blended-family counsellor: patient about the years it takes, clear that the biological parent leads on discipline early on, and respectful of the other household.",
+ "onboarding": {
+  "title": "Blend without breaking",
+  "subtitle": "Tell us who's in the family and how long you've been together.",
+  "bullets": [
+   "Your role, stage by stage",
+   "Discipline agreements with your partner",
+   "Rituals that make a new family"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "kids",
+   "label": "Stepkids and my kids (names, ages, whose)",
+   "type": "text",
+   "placeholder": "Mia 8 (theirs), Tom 14 (theirs), Ella 5 (mine)"
+  },
+  {
+   "key": "stage",
+   "label": "Together",
+   "type": "chips",
+   "options": [
+    "Dating",
+    "Living together under 1 year",
+    "1–3 years",
+    "3+ years"
+   ]
+  },
+  {
+   "key": "other_home",
+   "label": "Other parent",
+   "type": "chips",
+   "options": [
+    "Involved, civil",
+    "Involved, tense",
+    "Absent",
+    "Deceased"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "role",
+   "title": "My role right now",
+   "subtitle": "Involved enough, not too much",
+   "emoji": "🧭",
+   "inputs": [
+    {
+     "key": "situation",
+     "label": "What's happening",
+     "type": "longtext",
+     "placeholder": "Tom ignores me, partner wants me to enforce homework",
+     "required": true
+    },
+    {
+     "key": "push",
+     "label": "I'm being pushed to",
+     "type": "chips",
+     "options": [
+      "Do more discipline",
+      "Step back",
+      "Be 'a parent' already",
+      "Nothing — just unsure"
+     ],
+     "default": "Do more discipline"
+    }
+   ],
+   "prompt": "Situation: {situation}; pressure: {push}. Given the profile stage, give text on the realistic role for this stage in 3–4 sentences, a table (Area | Stepparent does | Bio parent does | Not yet), a quote with what to say to your partner about the ask, and a callout on the typical timeline for bonding with older kids.",
+   "shape": "text, table, quote, callout",
+   "button": "Define my role",
+   "loading": "Finding footing…"
+  },
+  {
+   "id": "discipline",
+   "title": "Discipline agreement",
+   "subtitle": "Same rules, agreed in private",
+   "emoji": "📜",
+   "inputs": [
+    {
+     "key": "flashpoints",
+     "label": "Where rules clash",
+     "type": "longtext",
+     "placeholder": "screens at bedtime, swearing, chores",
+     "required": true
+    },
+    {
+     "key": "who_enforces",
+     "label": "Currently",
+     "type": "chips",
+     "options": [
+      "Bio parent enforces",
+      "I enforce",
+      "Nobody consistently",
+      "Depends who's home"
+     ],
+     "default": "Depends who's home"
+    }
+   ],
+   "prompt": "Flashpoints: {flashpoints}; enforcement now: {who_enforces}. Build a table (Rule | Applies to whom | Who enforces | Consequence), steps for the private partner meeting to agree it, a quote with how the bio parent introduces the rules to the kids (stepparent present but not presenting), and a callout on the 'monitor, don't discipline' principle for the first year.",
+   "shape": "table, steps, quote, callout",
+   "button": "Draft agreement",
+   "loading": "Aligning rules…"
+  },
+  {
+   "id": "notmine",
+   "title": "'You're not my mum'",
+   "subtitle": "The line every stepparent hears",
+   "emoji": "🛡️",
+   "inputs": [
+    {
+     "key": "said",
+     "label": "What the child said / did",
+     "type": "longtext",
+     "placeholder": "'You can't tell me what to do, you're not my dad'",
+     "required": true
+    },
+    {
+     "key": "age",
+     "label": "Child's age",
+     "type": "chips",
+     "options": [
+      "Under 6",
+      "6–10",
+      "11–14",
+      "15+"
+     ],
+     "default": "11–14"
+    }
+   ],
+   "prompt": "The child ({age}) said: {said}. Give a quote with a calm in-the-moment reply (under 25 words, agrees with the true part, holds the house rule), text on what the child is really testing (2–3 sentences), bullets of 3 things not to say, and a checklist for the follow-up with your partner that evening.",
+   "shape": "quote, text, bullets, checklist",
+   "button": "Reply well",
+   "loading": "Staying calm…"
+  },
+  {
+   "id": "rituals",
+   "title": "New-family rituals",
+   "subtitle": "Traditions that belong to this household",
+   "emoji": "🍕",
+   "inputs": [
+    {
+     "key": "freq",
+     "label": "Frequency",
+     "type": "chips",
+     "options": [
+      "Weekly",
+      "Monthly",
+      "Holidays",
+      "Transitions between homes"
+     ],
+     "default": "Weekly"
+    },
+    {
+     "key": "likes",
+     "label": "What the kids enjoy",
+     "type": "text",
+     "placeholder": "Mia loves baking, Tom gaming, Ella dinosaurs"
+    }
+   ],
+   "prompt": "Suggest {freq} rituals for this blended family, kids' interests: {likes}. 5 cards (meta = minutes · cost · which kids), a quote with how to pitch the first one without making it a big deal, bullets on including the kids' other-household traditions respectfully, and a callout on what to do when a child refuses to join.",
+   "shape": "cards, quote, bullets, callout",
+   "button": "Suggest rituals",
+   "loading": "Blending…"
+  },
+  {
+   "id": "loyalty",
+   "title": "Loyalty binds",
+   "subtitle": "Kids caught between two homes",
+   "emoji": "💞",
+   "inputs": [
+    {
+     "key": "signs",
+     "label": "What you're seeing",
+     "type": "longtext",
+     "placeholder": "Mia says she's not allowed to like me, goes quiet after weekends at her mum's",
+     "required": true
+    }
+   ],
+   "prompt": "Observed: {signs}. Text explaining loyalty binds in plain language (3 sentences), a quote with what the stepparent can say to the child to release the pressure, a second quote for the bio parent to say, a checklist of things never to say about the other household, and a callout on when a family therapist helps.",
+   "shape": "text, quote, checklist, callout",
+   "button": "Ease the bind",
+   "loading": "Untangling…"
+  }
+ ],
+ "disclaimer": "Family coaching only. Custody, consent and safeguarding matters should be checked with a family lawyer or child-welfare professional."
+}

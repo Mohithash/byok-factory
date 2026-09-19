@@ -1,0 +1,175 @@
+{
+ "id": "school_ready",
+ "name": "School Ready",
+ "tagline": "Confident on day one of school, no flashcards",
+ "category": "Parenting",
+ "colors": [
+  "#FB8C00",
+  "#3949AB",
+  "#43A047"
+ ],
+ "icon": "hat",
+ "about": "School Ready prepares 3–5-year-olds for nursery, preschool or their first year of school: the skills that actually matter (self-care, listening, turn-taking, early letters and numbers), a countdown plan, separation-anxiety scripts and a first-week routine for the whole family.",
+ "persona": "You are an early-years teacher who has welcomed hundreds of new starters: calm, practical, and clear that independence and confidence beat academics at this age.",
+ "onboarding": {
+  "title": "Ready for the big day",
+  "subtitle": "Tell us the start date and what they can do already.",
+  "bullets": [
+   "Skills that actually matter",
+   "Countdown plan to the first day",
+   "Scripts for tearful goodbyes"
+  ]
+ },
+ "profile": [
+  {
+   "key": "child",
+   "label": "Child's name & age",
+   "type": "text",
+   "placeholder": "Theo, 4"
+  },
+  {
+   "key": "start",
+   "label": "Start date and setting",
+   "type": "text",
+   "placeholder": "3 September, Reception at Oak Primary"
+  },
+  {
+   "key": "temper",
+   "label": "Temperament",
+   "type": "chips",
+   "options": [
+    "Bold and social",
+    "Slow to warm up",
+    "Anxious about new places",
+    "Big feelings, quick recovery"
+   ]
+  },
+  {
+   "key": "worry",
+   "label": "Your biggest worry",
+   "type": "text",
+   "placeholder": "toileting, won't eat lunch"
+  }
+ ],
+ "tools": [
+  {
+   "id": "readiness",
+   "title": "Readiness check",
+   "subtitle": "What matters, what doesn't",
+   "emoji": "✅",
+   "inputs": [],
+   "prompt": "Create a school-readiness check for the profile child, start date and setting. Sections: a checklist grouped by area (self-care, communication, social, listening and attention, physical, early literacy and maths) with what 'ready enough' means for each, a table (Skill | Practise by | Playful way to practise | Fine if not yet), bullets on what schools genuinely do not expect, and a callout addressing the profile's biggest worry.",
+   "shape": "checklist, table, bullets, callout",
+   "button": "Check",
+   "loading": "Sharpening pencils…"
+  },
+  {
+   "id": "countdown",
+   "title": "Countdown plan",
+   "subtitle": "Weeks left → weekly focus",
+   "emoji": "📆",
+   "inputs": [
+    {
+     "key": "weeks",
+     "label": "Weeks until start",
+     "type": "number",
+     "placeholder": "6"
+    },
+    {
+     "key": "gaps",
+     "label": "Skills to work on",
+     "type": "text",
+     "placeholder": "zips, sitting for a story, name recognition"
+    }
+   ],
+   "prompt": "Build a {weeks}-week countdown plan for the profile child focusing on: {gaps}. Sections: a table (Week | Focus skill | Daily 5-minute game | Weekend outing or visit), steps for the final week (uniform tries, route walk, earlier bedtimes), a checklist of things to buy or label, and a callout on visiting the setting and meeting the teacher.",
+   "shape": "table, steps, checklist, callout",
+   "button": "Plan",
+   "loading": "Counting down…"
+  },
+  {
+   "id": "goodbye",
+   "title": "Goodbye script",
+   "subtitle": "Drop-offs without the drama",
+   "emoji": "👋",
+   "inputs": [
+    {
+     "key": "stage",
+     "label": "Situation",
+     "type": "chips",
+     "options": [
+      "Before the first day",
+      "Crying at the gate",
+      "Clingy after a good start",
+      "Refusing to go"
+     ],
+     "default": "Crying at the gate"
+    }
+   ],
+   "prompt": "Write a drop-off plan for '{stage}' matched to the profile child's temperament. Sections: a quote with the exact goodbye script (short, same words each day) and what NOT to say, steps for the drop-off routine from door to classroom, bullets on what the teacher will do after you leave and how to ask for updates, and a callout on when clinginess suggests something to look into.",
+   "shape": "quote, steps, bullets, callout",
+   "button": "Get script",
+   "loading": "Deep breaths…"
+  },
+  {
+   "id": "skill",
+   "title": "Teach a school skill",
+   "subtitle": "One independence skill, playfully",
+   "emoji": "🧥",
+   "inputs": [
+    {
+     "key": "skill",
+     "label": "Skill",
+     "type": "chips",
+     "options": [
+      "Putting on coat and shoes",
+      "Zips and buttons",
+      "Using the toilet alone",
+      "Opening lunch and eating in 20 min",
+      "Recognising their name",
+      "Asking for help",
+      "Sitting for a story",
+      "Sharing and turn-taking"
+     ],
+     "default": "Putting on coat and shoes"
+    },
+    {
+     "key": "days",
+     "label": "Days available",
+     "type": "number",
+     "placeholder": "10"
+    }
+   ],
+   "prompt": "Teach '{skill}' to the profile child in {days} days. Sections: steps broken into the smallest teachable parts with a rhyme or cue for each, a table (Day | Practice moment | Parent does | Child does), bullets on common blockers for the profile temperament, and a quote with the praise line that names the effort.",
+   "shape": "steps, table, bullets, quote",
+   "button": "Teach",
+   "loading": "Practising…"
+  },
+  {
+   "id": "firstweek",
+   "title": "First-week survival",
+   "subtitle": "Routine, meals, meltdowns",
+   "emoji": "🏫",
+   "inputs": [
+    {
+     "key": "hours",
+     "label": "School hours and travel",
+     "type": "text",
+     "placeholder": "8:45–3:15, 15-minute walk",
+     "required": true
+    },
+    {
+     "key": "notes",
+     "label": "Anything else",
+     "type": "text",
+     "placeholder": "after-school club Tuesdays, baby sibling"
+    }
+   ],
+   "prompt": "Design a first-week routine for the profile family given: {hours} and {notes}. Sections: a table (Time | Weekday routine | Who does what), a checklist for the night-before bag and the morning, bullets on after-school restraint collapse (snacks, quiet, no questions yet), and a callout on the profile's biggest worry with a fallback plan.",
+   "shape": "table, checklist, bullets, callout",
+   "button": "Plan week",
+   "loading": "Packing bags…"
+  }
+ ],
+ "disclaimer": "General guidance, not a developmental assessment. If you're concerned about your child's development, talk to your health visitor, paediatrician or the setting's SENCO."
+}

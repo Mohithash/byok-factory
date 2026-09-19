@@ -1,0 +1,197 @@
+{
+ "id": "offer_close",
+ "name": "Offer Close",
+ "tagline": "Land the candidate you want, let the rest down well",
+ "category": "Business",
+ "colors": [
+  "#1B5E20",
+  "#FFC107",
+  "#3949AB"
+ ],
+ "icon": "spark",
+ "about": "Offer Close handles the last mile of hiring for managers: selling the role to the candidate you want, running reference calls that reveal something, making the offer call, handling counter-offers and saying no to everyone else with grace.",
+ "persona": "You are a hiring manager's closer: honest about the role, candidate-centred, and clear that a hire who leaves in six months is worse than no hire.",
+ "onboarding": {
+  "title": "Close the candidate you want",
+  "subtitle": "A little about your team makes every pitch specific.",
+  "bullets": [
+   "Pitch the role to their motivations",
+   "Reference calls that reveal something",
+   "Offers, counter-offers and kind rejections"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "team",
+   "label": "Your team in one line",
+   "type": "text",
+   "placeholder": "8-person platform team at a Series B fintech"
+  },
+  {
+   "key": "sell",
+   "label": "Honest strengths of working here",
+   "type": "text",
+   "placeholder": "real ownership, small team, remote-first"
+  },
+  {
+   "key": "weak",
+   "label": "Honest weaknesses",
+   "type": "text",
+   "placeholder": "below-market base, on-call rota"
+  }
+ ],
+ "tools": [
+  {
+   "id": "pitch",
+   "title": "Sell the role",
+   "subtitle": "A pitch built on what they care about",
+   "emoji": "🎁",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Candidate",
+     "type": "text",
+     "placeholder": "Nadia, staff engineer from a big tech co",
+     "required": true
+    },
+    {
+     "key": "motives",
+     "label": "What you've learned they care about",
+     "type": "longtext",
+     "placeholder": "tired of politics; wants to ship; worried about stability; has a competing offer",
+     "required": true
+    }
+   ],
+   "prompt": "Build a pitch for {who} based on what they care about: {motives} and the profile's honest strengths and weaknesses. Table (Their motivation | What we offer | Story or evidence to tell | Weak spot to own), a quote with a 60-second spoken pitch, bullets of 3 people or experiences to put in front of them before they decide, and a callout on the one thing not to overpromise.",
+   "shape": "table, quote, bullets, callout",
+   "button": "Build pitch",
+   "loading": "Finding the angle…"
+  },
+  {
+   "id": "reference",
+   "title": "Reference call",
+   "subtitle": "Twenty minutes that actually tell you something",
+   "emoji": "📞",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Candidate and role",
+     "type": "text",
+     "placeholder": "Nadia, staff engineer",
+     "required": true
+    },
+    {
+     "key": "concerns",
+     "label": "What you want to verify or worry about",
+     "type": "longtext",
+     "placeholder": "how she handles conflict; whether she really led the migration",
+     "required": true
+    }
+   ],
+   "prompt": "Plan a 20-minute reference call about {who} to probe: {concerns}. Steps with timings, bullets of 8 questions ordered so the revealing ones come after rapport, a table (Concern | Question | Green-flag answer | Red-flag answer), and a callout on questions you must not ask in most jurisdictions.",
+   "shape": "steps, bullets, table, callout",
+   "button": "Plan call",
+   "loading": "Dialling…"
+  },
+  {
+   "id": "offer",
+   "title": "The offer call",
+   "subtitle": "Say the number and hold the room",
+   "emoji": "🤝",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Candidate",
+     "type": "text",
+     "placeholder": "Nadia",
+     "required": true
+    },
+    {
+     "key": "package",
+     "label": "Package",
+     "type": "text",
+     "placeholder": "base 165k, 0.1% equity, 4 weeks leave",
+     "required": true
+    },
+    {
+     "key": "risk",
+     "label": "Your read",
+     "type": "chips",
+     "options": [
+      "They'll accept",
+      "They're torn",
+      "They have a better offer",
+      "Anchored on a number we can't hit"
+     ],
+     "default": "They're torn"
+    }
+   ],
+   "prompt": "Script the offer call to {who} for {package} where your read is '{risk}'. Steps for the call including when to say the number, a quote with the opening 30 seconds, a table (If they say | You say | Room to move) covering start date, base, equity and title, and a callout on what to confirm in writing within an hour of the call.",
+   "shape": "steps, quote, table, callout",
+   "button": "Script call",
+   "loading": "Saying the number…"
+  },
+  {
+   "id": "counter",
+   "title": "Counter-offer & holdouts",
+   "subtitle": "When they stall or get countered",
+   "emoji": "⏳",
+   "inputs": [
+    {
+     "key": "situation",
+     "label": "What happened",
+     "type": "longtext",
+     "placeholder": "she got a counter from her employer at 180k and asked for a week",
+     "required": true
+    }
+   ],
+   "prompt": "Advise on this: {situation}. Text with an honest read of the odds and what the delay usually means, bullets of what you can offer that isn't base salary, a quote with the message to send today, and a callout on the point at which to walk away and who to line up as backup.",
+   "shape": "text, bullets, quote, callout",
+   "button": "Advise me",
+   "loading": "Reading the signals…"
+  },
+  {
+   "id": "decline",
+   "title": "Decline with dignity",
+   "subtitle": "Rejections that keep doors open",
+   "emoji": "🕊️",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Candidate",
+     "type": "text",
+     "placeholder": "Raj, final round",
+     "required": true
+    },
+    {
+     "key": "stage",
+     "label": "Stage reached",
+     "type": "chips",
+     "options": [
+      "Screen",
+      "Interview",
+      "Final round",
+      "Offer withdrawn"
+     ],
+     "default": "Final round"
+    },
+    {
+     "key": "why",
+     "label": "Real reason (private)",
+     "type": "text",
+     "placeholder": "strong but less depth on distributed systems than Nadia"
+    }
+   ],
+   "prompt": "Write the rejection for {who} at stage '{stage}', real reason: {why}. Quote with an email under 120 words that is specific, warm and honest without creating legal risk, bullets on whether and how to give feedback if they ask, and a callout on keeping the door open if they might fit a future role.",
+   "shape": "quote, bullets, callout",
+   "button": "Write it",
+   "loading": "Being kind…"
+  }
+ ],
+ "disclaimer": "General management guidance, not legal or HR advice. Employment rules vary by jurisdiction; follow your organisation's policies and involve HR or legal counsel on ratings, pay, conduct and employment decisions."
+}

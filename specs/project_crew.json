@@ -1,0 +1,197 @@
+{
+ "id": "project_crew",
+ "name": "Project Crew",
+ "tagline": "Group projects without the group chat meltdown",
+ "category": "Education",
+ "colors": [
+  "#E65100",
+  "#00ACC1",
+  "#7B1FA2"
+ ],
+ "icon": "chat",
+ "about": "Project Crew sets up a team charter, splits the work fairly, turns messy meetings into minutes with owners, scripts the awkward conversation with the teammate who has gone quiet, and writes honest peer assessments.",
+ "persona": "You are a calm project-team facilitator who has watched hundreds of student groups: fair, allergic to vagueness, and good at making conflict boring and procedural.",
+ "onboarding": {
+  "title": "Make the group work",
+  "subtitle": "Tell us about the project so plans, agendas and messages fit your team.",
+  "bullets": [
+   "Charters and fair task splits",
+   "Minutes with owners and dates",
+   "Scripts for the freeloader talk"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "project",
+   "label": "Project",
+   "type": "text",
+   "placeholder": "Marketing plan for a local café, 4,000 words + pitch"
+  },
+  {
+   "key": "size",
+   "label": "Team size",
+   "type": "number",
+   "placeholder": "4"
+  },
+  {
+   "key": "due",
+   "label": "Final deadline",
+   "type": "text",
+   "placeholder": "28 March"
+  }
+ ],
+ "tools": [
+  {
+   "id": "charter",
+   "title": "Team charter",
+   "subtitle": "Roles, rules and a kickoff message",
+   "emoji": "🤝",
+   "inputs": [
+    {
+     "key": "members",
+     "label": "Members and strengths / constraints",
+     "type": "longtext",
+     "placeholder": "Ana: good writer, away 10–14 Mar; Ben: does the numbers; …",
+     "required": true
+    },
+    {
+     "key": "grading",
+     "label": "How it's graded",
+     "type": "chips",
+     "options": [
+      "One group mark",
+      "Group mark + peer weighting",
+      "Individual sections",
+      "Not sure"
+     ],
+     "default": "One group mark"
+    }
+   ],
+   "prompt": "Members: {members}. Grading: {grading}. Create a table (Role | Person | Responsibilities | Backup) covering coordinator, editor, research and deliverable owners, a checklist of 8 ground rules the team agrees to (response times, where files live, what happens if someone misses a deadline), a kv of the meeting rhythm (when, where, how long, who runs it), and a quote with a friendly kickoff message for the group chat that gets everyone to confirm their role.",
+   "shape": "table, checklist, kv, quote",
+   "button": "Draft charter",
+   "loading": "Assembling the crew…"
+  },
+  {
+   "id": "split",
+   "title": "Split the work",
+   "subtitle": "Brief → tasks, owners, dates",
+   "emoji": "🧩",
+   "inputs": [
+    {
+     "key": "brief",
+     "label": "Assignment brief or deliverables",
+     "type": "longtext",
+     "placeholder": "report sections, slides, data analysis…",
+     "required": true
+    },
+    {
+     "key": "avail",
+     "label": "Availability clashes",
+     "type": "text",
+     "placeholder": "Ana away 10–14 Mar, Ben has exams week 6"
+    }
+   ],
+   "prompt": "Brief: {brief}. Availability: {avail}. Break the project into a table (Task | Owner | Est. hours | Due | Needs from others) that balances hours across the team and lands everything a week before the profile's deadline for integration. Then steps for the three integration milestones (first stitch, full draft, final polish) with what each person brings, and a callout on the highest-risk dependency and how to de-risk it now.",
+   "shape": "table, steps, callout",
+   "button": "Split it",
+   "loading": "Dealing the cards…"
+  },
+  {
+   "id": "minutes",
+   "title": "Minutes from my notes",
+   "subtitle": "Rough notes → decisions and actions",
+   "emoji": "📝",
+   "inputs": [
+    {
+     "key": "notes",
+     "label": "Rough meeting notes",
+     "type": "longtext",
+     "placeholder": "talked about intro, Ben will do charts by fri?, need to ask tutor re word count…",
+     "required": true
+    }
+   ],
+   "prompt": "Notes: {notes}. Write a kv (Date, Attendees, Absent, Next meeting), bullets of decisions made (one line each, no discussion), a checklist of actions in the form 'Owner — action — due date' with any missing owner or date marked '[decide]', and a quote with a short follow-up message for the group chat so people who missed it know exactly what to do.",
+   "shape": "kv, bullets, checklist, quote",
+   "button": "Write minutes",
+   "loading": "Capturing…"
+  },
+  {
+   "id": "talk",
+   "title": "The awkward conversation",
+   "subtitle": "Someone's not pulling their weight",
+   "emoji": "😬",
+   "inputs": [
+    {
+     "key": "situation",
+     "label": "What's happening",
+     "type": "longtext",
+     "placeholder": "Sam hasn't replied in 9 days and owns the data section",
+     "required": true
+    },
+    {
+     "key": "tone",
+     "label": "Tone",
+     "type": "chips",
+     "options": [
+      "Gentle check-in",
+      "Direct but kind",
+      "Formal / final warning"
+     ],
+     "default": "Direct but kind"
+    },
+    {
+     "key": "channel",
+     "label": "Channel",
+     "type": "chips",
+     "options": [
+      "Group chat",
+      "Private message",
+      "In person",
+      "Email to tutor"
+     ],
+     "default": "Private message"
+    }
+   ],
+   "prompt": "Situation: {situation}. Tone: {tone}. Channel: {channel}. Explain in text the likely reasons a teammate goes quiet and why the first message should offer an exit ramp. Then a quote with the exact message to send in the chosen channel and tone, plus a second version one step firmer, steps for the escalation ladder with time limits at each rung (message → call → group meeting → tutor), and a callout on documenting contributions before escalating.",
+   "shape": "text, quote, steps, callout",
+   "button": "Script it",
+   "loading": "Choosing words…"
+  },
+  {
+   "id": "peer",
+   "title": "Peer assessment",
+   "subtitle": "Fair, evidenced, not petty",
+   "emoji": "⚖️",
+   "inputs": [
+    {
+     "key": "contrib",
+     "label": "What each person did",
+     "type": "longtext",
+     "placeholder": "Ana wrote sections 1–2 and edited all; Ben charts late but good; …",
+     "required": true
+    },
+    {
+     "key": "format",
+     "label": "Format required",
+     "type": "chips",
+     "options": [
+      "Score out of 10 + comment",
+      "Percentage split",
+      "Written statement only"
+     ],
+     "default": "Score out of 10 + comment"
+    }
+   ],
+   "prompt": "Contributions: {contrib}. Format: {format}. Produce a table (Member | Delivered | Quality | Reliability | Suggested rating) with ratings justified by evidence not feelings, a quote with a fair written comment per member in the required format that a tutor could read without wincing, and a callout on what to do if the assessment is not anonymous.",
+   "shape": "table, quote, callout",
+   "button": "Assess fairly",
+   "loading": "Weighing it up…"
+  }
+ ]
+}

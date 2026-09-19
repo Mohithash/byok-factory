@@ -1,0 +1,197 @@
+{
+ "id": "review_writer",
+ "name": "Review Writer",
+ "tagline": "Fair, evidence-based reviews without the dread",
+ "category": "Business",
+ "colors": [
+  "#37474F",
+  "#FFB300",
+  "#00ACC1"
+ ],
+ "icon": "note",
+ "about": "Review Writer turns a year of scattered notes into fair, evidence-based performance reviews, checks your language for bias, calibrates ratings across the team and preps you to deliver the hard ones.",
+ "persona": "You are an experienced HR business partner and manager coach: evidence over adjectives, calibrated and fair, and aware that vague language is where bias hides.",
+ "onboarding": {
+  "title": "Reviews people can actually use",
+  "subtitle": "A few details about your review cycle keep the drafts on-format.",
+  "bullets": [
+   "Drafts from your notes and their self-review",
+   "Bias and vagueness check",
+   "Calibration across your team"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "scale",
+   "label": "Rating scale",
+   "type": "chips",
+   "options": [
+    "3-point",
+    "4-point",
+    "5-point",
+    "No ratings"
+   ],
+   "default": "5-point"
+  },
+  {
+   "key": "format",
+   "label": "Your company's review sections",
+   "type": "text",
+   "placeholder": "Impact, Behaviours, Growth areas"
+  },
+  {
+   "key": "teamtype",
+   "label": "Team type",
+   "type": "chips",
+   "options": [
+    "Engineering",
+    "Sales",
+    "Ops",
+    "Creative",
+    "Support",
+    "Mixed"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "draft",
+   "title": "Draft a review",
+   "subtitle": "Notes + self-review → full draft",
+   "emoji": "✍️",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Who and role",
+     "type": "text",
+     "placeholder": "Ana, product designer L3",
+     "required": true
+    },
+    {
+     "key": "evidence",
+     "label": "Your notes and examples",
+     "type": "longtext",
+     "placeholder": "led checkout redesign, +8% conversion; missed 2 deadlines in Q2; mentored intern…",
+     "required": true
+    },
+    {
+     "key": "self",
+     "label": "Their self-review (optional)",
+     "type": "longtext"
+    }
+   ],
+   "prompt": "Write a performance review for {who} on the profile's rating scale using its review sections, from this evidence: {evidence} and their self-review: {self}. Produce text for each section citing specific examples with outcomes, a kv (proposed rating, one-line justification, biggest strength, biggest gap), a table (Claim in self-review | Manager's view | Evidence) for anything where you and they differ, and a callout flagging statements that need more evidence before they go in.",
+   "shape": "text, kv, table, callout",
+   "button": "Draft review",
+   "loading": "Weighing evidence…"
+  },
+  {
+   "id": "bias",
+   "title": "Bias & vagueness check",
+   "subtitle": "Audit a draft before it's sent",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "review",
+     "label": "Paste a draft review",
+     "type": "longtext",
+     "placeholder": "Sam is a great team player but can be abrasive…",
+     "required": true
+    }
+   ],
+   "prompt": "Audit this review draft for bias and vagueness: {review}. Table (Phrase | Problem — personality not behaviour, gendered pattern, no evidence, recency | Rewrite), bullets on the overall balance of praise vs critique and whether the rating matches the text, and a quote with the rewritten review at the same length and rating.",
+   "shape": "table, bullets, quote",
+   "button": "Audit",
+   "loading": "Reading closely…"
+  },
+  {
+   "id": "calibrate",
+   "title": "Calibrate my team",
+   "subtitle": "Consistent ratings across people",
+   "emoji": "⚖️",
+   "inputs": [
+    {
+     "key": "team",
+     "label": "Your team with proposed ratings and one line each",
+     "type": "longtext",
+     "placeholder": "Ana 4 – shipped checkout; Ben 3 – solid, no stretch; Cai 5 – …",
+     "required": true
+    }
+   ],
+   "prompt": "Calibrate these proposed ratings on the profile's rating scale: {team}. Table (Person | Proposed | Suggested | Why) checking for consistency across similar evidence, bullets on distribution risks (too many top ratings, harshness toward one person, tenure or visibility bias), and steps to prepare for the calibration meeting including the one case to defend hardest.",
+   "shape": "table, bullets, steps",
+   "button": "Calibrate",
+   "loading": "Comparing…"
+  },
+  {
+   "id": "deliver",
+   "title": "Deliver a tough review",
+   "subtitle": "Script the conversation",
+   "emoji": "🎙️",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Who",
+     "type": "text",
+     "placeholder": "Ben",
+     "required": true
+    },
+    {
+     "key": "news",
+     "label": "The hard part",
+     "type": "chips",
+     "options": [
+      "Lower rating than they expect",
+      "No promotion this cycle",
+      "Behaviour problem",
+      "Role no longer a fit",
+      "Great review but no raise"
+     ],
+     "default": "Lower rating than they expect"
+    },
+    {
+     "key": "context",
+     "label": "Context",
+     "type": "text",
+     "placeholder": "he's been here 5 years and thinks he's a 5"
+    }
+   ],
+   "prompt": "Script the review conversation with {who} where the hard part is '{news}', context: {context}. Steps for the 45 minutes with timings, a quote with the exact first two minutes word-for-word, a table (If they say | You say) for 5 likely reactions including anger and silence, and a callout on what must not be promised or implied in the room.",
+   "shape": "steps, quote, table, callout",
+   "button": "Script it",
+   "loading": "Rehearsing…"
+  },
+  {
+   "id": "goals",
+   "title": "Next-cycle goals",
+   "subtitle": "Measurable goals for one person",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Who",
+     "type": "text",
+     "placeholder": "Ana",
+     "required": true
+    },
+    {
+     "key": "gaps",
+     "label": "Growth areas and team priorities",
+     "type": "longtext",
+     "placeholder": "needs to influence without authority; team priority is the mobile relaunch",
+     "required": true
+    }
+   ],
+   "prompt": "Write next-cycle goals for {who} from: {gaps}. Table (Goal | Measure of success | Evidence to collect | Check-in date) with 3–4 goals mixing delivery and growth, bullets of stretch opportunities on the team's roadmap that serve these goals, and a quote with the one paragraph to paste into the review system.",
+   "shape": "table, bullets, quote",
+   "button": "Set goals",
+   "loading": "Planning…"
+  }
+ ],
+ "disclaimer": "General management guidance, not legal or HR advice. Employment rules vary by jurisdiction; follow your organisation's policies and involve HR or legal counsel on ratings, pay, conduct and employment decisions."
+}

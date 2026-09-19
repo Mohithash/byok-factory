@@ -1,0 +1,203 @@
+{
+ "id": "summit_sheet",
+ "name": "Summit Sheet",
+ "tagline": "Plan mountain days you'll finish before dark",
+ "category": "Sports",
+ "colors": [
+  "#37474F",
+  "#43A047",
+  "#FFB300"
+ ],
+ "icon": "pin",
+ "about": "Summit Sheet plans day hikes and mountain days: realistic timings for your pace, kit for the forecast, a go/no-go check, a turnaround plan, and a route card to leave with someone.",
+ "persona": "You are a mountain leader: methodical about timings and escape routes, calm about weather, and firm that turning back is a skill.",
+ "onboarding": {
+  "title": "Know your timings before you start",
+  "subtitle": "Your pace and experience set every estimate.",
+  "bullets": [
+   "Timings from your real pace",
+   "Kit lists matched to the forecast",
+   "Route cards to leave with someone"
+  ]
+ },
+ "profile": [
+  {
+   "key": "experience",
+   "label": "Experience",
+   "type": "chips",
+   "options": [
+    "New to hills",
+    "Regular walker",
+    "Scrambler",
+    "Winter skills"
+   ]
+  },
+  {
+   "key": "pace",
+   "label": "Pace",
+   "type": "chips",
+   "options": [
+    "Steady",
+    "Average",
+    "Fast"
+   ]
+  },
+  {
+   "key": "terrain",
+   "label": "Usual terrain",
+   "type": "chips",
+   "options": [
+    "Lowland trails",
+    "Moorland",
+    "Mountains",
+    "Alpine"
+   ]
+  },
+  {
+   "key": "group",
+   "label": "Who you hike with",
+   "type": "text",
+   "placeholder": "partner, occasionally a dog"
+  }
+ ],
+ "tools": [
+  {
+   "id": "timing",
+   "title": "Time the route",
+   "subtitle": "Distance, ascent → realistic timings",
+   "emoji": "⏱️",
+   "inputs": [
+    {
+     "key": "route",
+     "label": "Route",
+     "type": "text",
+     "placeholder": "Snowdon via Rhyd Ddu, 12 km, 900 m ascent, out and back",
+     "required": true
+    },
+    {
+     "key": "start",
+     "label": "Start time",
+     "type": "text",
+     "placeholder": "08:30"
+    },
+    {
+     "key": "conditions",
+     "label": "Conditions",
+     "type": "chips",
+     "options": [
+      "Dry summer",
+      "Wet",
+      "Windy",
+      "Snow/ice",
+      "Very hot"
+     ],
+     "default": "Dry summer"
+    }
+   ],
+   "prompt": "Time {route} starting at {start} in {conditions} for the profile pace and experience, using Naismith's rule with corrections. Table (Leg | km | Ascent | Estimated time | Arrive by | Notes), kv (total moving time, with breaks, latest safe turnaround time, sunset margin), bullets on where the estimate is least reliable, and a callout on the turnaround rule.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Time it",
+   "loading": "Counting contours…"
+  },
+  {
+   "id": "kit",
+   "title": "Kit for the forecast",
+   "subtitle": "Pack list matched to conditions",
+   "emoji": "🎒",
+   "inputs": [
+    {
+     "key": "forecast",
+     "label": "Forecast",
+     "type": "text",
+     "placeholder": "summit 2°C, gusts 50 km/h, showers from 2pm",
+     "required": true
+    },
+    {
+     "key": "hours",
+     "label": "Hours out",
+     "type": "number",
+     "placeholder": "7"
+    }
+   ],
+   "prompt": "Kit list for {hours} hours out in: {forecast}, for the profile terrain and experience. Checklist grouped by 'On you', 'In the pack' and 'Emergency', a table (Layer | Purpose | Swap if warmer/colder), bullets on the one item people skip that matters most in this forecast, and a callout on group-shelter and headtorch rules.",
+   "shape": "checklist, table, bullets, callout",
+   "button": "Build kit list",
+   "loading": "Packing…"
+  },
+  {
+   "id": "gonogo",
+   "title": "Go or no-go?",
+   "subtitle": "Weather, ground, group → a verdict",
+   "emoji": "🚦",
+   "inputs": [
+    {
+     "key": "weather",
+     "label": "Mountain forecast",
+     "type": "text",
+     "placeholder": "70% chance of cloud on summits, 65 km/h gusts, wind chill -5",
+     "required": true
+    },
+    {
+     "key": "plan",
+     "label": "Plan & group",
+     "type": "text",
+     "placeholder": "Crib Goch with a first-timer, 4 people"
+    }
+   ],
+   "prompt": "Verdict on: {weather} with plan: {plan}. Text verdict in two sentences (go / modify / no-go), then a table (Factor | Reading | Risk | Mitigation), cards for 2 alternative lower-risk plans (meta = km · hours · exposure), and a callout on the conditions that are an automatic no-go.",
+   "shape": "text, table, cards, callout",
+   "button": "Get verdict",
+   "loading": "Reading the sky…"
+  },
+  {
+   "id": "routecard",
+   "title": "Route card to leave",
+   "subtitle": "Tell someone where you are",
+   "emoji": "📝",
+   "inputs": [
+    {
+     "key": "route",
+     "label": "Route & timings",
+     "type": "text",
+     "placeholder": "Helvellyn via Striding Edge, start 09:00 from Glenridding, back by 16:00",
+     "required": true
+    },
+    {
+     "key": "contacts",
+     "label": "Emergency contact & car",
+     "type": "text",
+     "placeholder": "Mum 07700 900123, silver Golf at Patterdale"
+    }
+   ],
+   "prompt": "Write a route card for {route} with {contacts}: kv (party, start point, route, escape routes, expected return, panic time, call this number if not heard), a quote with the exact message to send the contact, and bullets on what the contact should do at panic time (including asking emergency services for mountain rescue).",
+   "shape": "kv, quote, bullets",
+   "button": "Write card",
+   "loading": "Filling the card…"
+  },
+  {
+   "id": "packcheck",
+   "title": "Check my pack",
+   "subtitle": "Photo → what's missing",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of your pack contents",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "day",
+     "label": "The day",
+     "type": "text",
+     "placeholder": "winter walk, 6 hours, possible snow above 700 m"
+    }
+   ],
+   "prompt": "Inventory the photo as a table (Item | Category | Verdict) for: {day}, then a checklist of what is missing for the profile experience and terrain, and a callout on anything in the photo that is a liability (cotton, trainers, no light).",
+   "shape": "table, checklist, callout",
+   "button": "Check pack",
+   "loading": "Looking inside…"
+  }
+ ],
+ "disclaimer": "Mountain conditions change fast. Check official forecasts, carry navigation you can use, and call emergency services in an incident. This is planning help, not a safety guarantee."
+}

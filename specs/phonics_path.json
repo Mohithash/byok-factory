@@ -1,0 +1,204 @@
+{
+ "id": "phonics_path",
+ "name": "Phonics Path",
+ "tagline": "Sounds, blending and decodable stories, step by step",
+ "category": "Education",
+ "colors": [
+  "#E64A19",
+  "#1E88E5",
+  "#FDD835"
+ ],
+ "icon": "book",
+ "about": "Phonics Path gives parents a systematic phonics routine: today's sound with words and actions, blending games, decodable mini-stories that use only the sounds your child knows, and tricky-word practice matched to the scheme their school uses.",
+ "persona": "You are a systematic synthetic phonics specialist (Letters and Sounds, Read Write Inc., Jolly Phonics and Science-of-Reading aware): precise about grapheme–phoneme correspondences, playful with children, and you never use letter names when a sound is needed.",
+ "onboarding": {
+  "title": "Crack the reading code",
+  "subtitle": "Tell us your child's age, their school's scheme and the sounds they already know.",
+  "bullets": [
+   "Daily 10-minute sound lessons",
+   "Decodable stories from known sounds",
+   "Blending and tricky-word games"
+  ]
+ },
+ "profile": [
+  {
+   "key": "child",
+   "label": "Child's name & age",
+   "type": "text",
+   "placeholder": "Ava, 5"
+  },
+  {
+   "key": "scheme",
+   "label": "School scheme",
+   "type": "chips",
+   "options": [
+    "Letters and Sounds",
+    "Read Write Inc.",
+    "Jolly Phonics",
+    "Twinkl",
+    "US / Science of Reading",
+    "Not sure"
+   ]
+  },
+  {
+   "key": "known",
+   "label": "Sounds already secure",
+   "type": "text",
+   "placeholder": "s a t p i n m d g o c k"
+  },
+  {
+   "key": "accent",
+   "label": "Accent",
+   "type": "chips",
+   "options": [
+    "British",
+    "American",
+    "Australian",
+    "Other"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "lesson",
+   "title": "Today's sound",
+   "subtitle": "A 10-minute lesson for one grapheme",
+   "emoji": "🔤",
+   "inputs": [
+    {
+     "key": "sound",
+     "label": "Sound / grapheme",
+     "type": "text",
+     "placeholder": "sh",
+     "required": true
+    },
+    {
+     "key": "stage",
+     "label": "Stage",
+     "type": "chips",
+     "options": [
+      "Brand new",
+      "Practising",
+      "Nearly secure"
+     ],
+     "default": "Brand new"
+    }
+   ],
+   "prompt": "Plan a 10-minute lesson on the grapheme '{sound}' ({stage}) for the profile child, using only that grapheme plus the secure sounds in the profile. Sections: steps for the lesson (revisit, teach with a mnemonic and action, practise blending, apply in a sentence), a table of 8 decodable words (Word | Sounds spelled with dashes | Meaning cue), a quote with the exact pure-sound script the parent says (no letter names, no added 'uh'), and a callout on the most common mistake with this grapheme.",
+   "shape": "steps, table, quote, callout",
+   "button": "Plan lesson",
+   "loading": "Sounding out…"
+  },
+  {
+   "id": "story",
+   "title": "Decodable story",
+   "subtitle": "A mini-story from sounds they know",
+   "emoji": "📖",
+   "inputs": [
+    {
+     "key": "theme",
+     "label": "Theme",
+     "type": "text",
+     "placeholder": "a cat and a bug in a tin"
+    },
+    {
+     "key": "length",
+     "label": "Length",
+     "type": "chips",
+     "options": [
+      "6 sentences",
+      "12 sentences",
+      "20 sentences"
+     ],
+     "default": "12 sentences"
+    },
+    {
+     "key": "tricky",
+     "label": "Tricky words allowed",
+     "type": "text",
+     "placeholder": "the, I, to, no, go"
+    }
+   ],
+   "prompt": "Write a {length} decodable story about {theme} using ONLY the profile's secure sounds, plus these tricky words: {tricky}. Output the story as a quote (one short sentence per line, no other vocabulary), then bullets listing every word that might need pre-teaching, a kv of 3 comprehension questions to ask afterwards (Question → good answer), and a callout stating which secure sounds the story practises most.",
+   "shape": "quote, bullets, kv, callout",
+   "button": "Write story",
+   "loading": "Printing…"
+  },
+  {
+   "id": "blend",
+   "title": "Blending game",
+   "subtitle": "Word lists and games for a sound pattern",
+   "emoji": "🎲",
+   "inputs": [
+    {
+     "key": "pattern",
+     "label": "Pattern",
+     "type": "chips",
+     "options": [
+      "CVC",
+      "CCVC / CVCC",
+      "Digraphs",
+      "Split digraph",
+      "Polysyllabic"
+     ],
+     "default": "CVC"
+    },
+    {
+     "key": "game",
+     "label": "Game",
+     "type": "chips",
+     "options": [
+      "Robot talk",
+      "Sound buttons",
+      "Word hunt",
+      "Silly sentences",
+      "Fastest finger"
+     ],
+     "default": "Robot talk"
+    }
+   ],
+   "prompt": "Build a {pattern} blending session played as '{game}' using the profile child's secure sounds. Sections: a table of 12 words (Word | Sound buttons e.g. s-u-n | Real or nonsense), steps for how to play in under 5 minutes, bullets of 3 ways to make it harder or easier, and a callout on what to do if the child guesses from the first letter.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Make game",
+   "loading": "Shuffling sounds…"
+  },
+  {
+   "id": "tricky",
+   "title": "Tricky words",
+   "subtitle": "The words that can't be sounded out",
+   "emoji": "⭐",
+   "inputs": [
+    {
+     "key": "words",
+     "label": "Tricky words to learn",
+     "type": "longtext",
+     "placeholder": "said, was, you, they",
+     "required": true
+    }
+   ],
+   "prompt": "Teach these tricky words: {words}. Sections: a table (Word | Which part is tricky | Which part is decodable | Memory hook), steps for a 5-day practise-and-check routine, a quote with 4 silly sentences that use several of the words, and a checklist for the parent to tick as each word becomes automatic.",
+   "shape": "table, steps, quote, checklist",
+   "button": "Teach them",
+   "loading": "Spelling trouble…"
+  },
+  {
+   "id": "page",
+   "title": "Check a book page",
+   "subtitle": "Photo → is it decodable for them?",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of a page from the book",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Read the page in the photo and judge it against the profile's secure sounds. Sections: kv (Verdict: decodable / mostly / too hard, Sounds needed but not yet secure, Tricky words present, Suggested reading approach), a table of every word the child cannot yet decode (Word | Sound needed | Say it for them or teach it?), and bullets of 3 questions to ask about the page after reading.",
+   "shape": "kv, table, bullets",
+   "button": "Check page",
+   "loading": "Reading along…"
+  }
+ ],
+ "disclaimer": "Not a diagnostic tool. If reading progress stalls for several months, talk to the class teacher or a reading specialist."
+}

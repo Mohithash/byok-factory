@@ -1,0 +1,203 @@
+{
+ "id": "yield_finder",
+ "name": "Yield Finder",
+ "tagline": "Know if a rental property pays before you buy it",
+ "category": "Finance",
+ "colors": [
+  "#2E7D32",
+  "#EF6C00",
+  "#455A64"
+ ],
+ "icon": "coin",
+ "about": "Yield Finder analyses a rental property purchase on gross and net yield, monthly cash flow and stress-tested rates, compares two deals side by side and lays out a strategy from refurb to exit.",
+ "persona": "You are a numbers-first analyst for small property investors: conservative on rent and voids, explicit about every assumption, and honest when a deal only works on paper.",
+ "onboarding": {
+  "title": "Deals, judged by the numbers",
+  "subtitle": "Your financing and goals set the assumptions.",
+  "bullets": [
+   "Yield, cash flow and stress tests",
+   "Two deals compared side by side",
+   "Strategy from refurb to exit"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "region",
+   "label": "Country / region",
+   "type": "text"
+  },
+  {
+   "key": "goal",
+   "label": "Goal",
+   "type": "chips",
+   "options": [
+    "Monthly income",
+    "Long-term growth",
+    "Both"
+   ]
+  },
+  {
+   "key": "ltv",
+   "label": "Typical loan-to-value %",
+   "type": "number",
+   "placeholder": "75"
+  }
+ ],
+ "tools": [
+  {
+   "id": "deal",
+   "title": "Analyse a deal",
+   "subtitle": "Yield, cash flow, cash needed",
+   "emoji": "🧮",
+   "inputs": [
+    {
+     "key": "price",
+     "label": "Purchase price",
+     "type": "number",
+     "placeholder": "220000"
+    },
+    {
+     "key": "rent",
+     "label": "Expected monthly rent",
+     "type": "number",
+     "placeholder": "1250"
+    },
+    {
+     "key": "costs",
+     "label": "Known costs",
+     "type": "text",
+     "placeholder": "refurb 8k, service charge 1,200/yr, rate 5.5%"
+    }
+   ],
+   "prompt": "Price {price}, rent {rent} per month, costs: {costs}, financing from the profile. Produce a kv (gross yield, net yield, monthly cash flow after mortgage, cash-on-cash return, total cash needed including purchase costs), a table (Line | Monthly | Annual) of every income and cost line including voids, maintenance, management, insurance and a tax placeholder, bullets on the assumptions that most change the answer, and a callout giving a verdict at conservative rent and a 2-point higher rate.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Analyse",
+   "loading": "Running yields…"
+  },
+  {
+   "id": "compare",
+   "title": "Compare two deals",
+   "subtitle": "Side by side on what matters",
+   "emoji": "🆚",
+   "inputs": [
+    {
+     "key": "a",
+     "label": "Deal A",
+     "type": "longtext",
+     "placeholder": "2-bed flat 185k, rent 1,050, service charge 1,800/yr, lease 92 years",
+     "required": true
+    },
+    {
+     "key": "b",
+     "label": "Deal B",
+     "type": "longtext",
+     "placeholder": "3-bed terrace 240k, rent 1,300, needs 12k refurb, freehold",
+     "required": true
+    }
+   ],
+   "prompt": "Compare Deal A: {a} with Deal B: {b} for the profile's goal and financing. Produce a table (Metric | Deal A | Deal B) covering price, cash in, gross yield, net yield, cash flow, growth case, tenant demand, risk and effort; text with a verdict for the profile's goal; bullets of what to verify on each before offering; and a callout on the non-financial risk in each (lease, condition, area).",
+   "shape": "table, text, bullets, callout",
+   "button": "Compare",
+   "loading": "Side by side…"
+  },
+  {
+   "id": "stress",
+   "title": "Stress test",
+   "subtitle": "Rates up, rent down, voids doubled",
+   "emoji": "🌪️",
+   "inputs": [
+    {
+     "key": "rate",
+     "label": "Current rate %",
+     "type": "number",
+     "placeholder": "5.5"
+    },
+    {
+     "key": "void",
+     "label": "Void weeks per year",
+     "type": "number",
+     "placeholder": "3"
+    },
+    {
+     "key": "rent",
+     "label": "Monthly rent",
+     "type": "number",
+     "placeholder": "1250"
+    }
+   ],
+   "prompt": "Stress a rental at {rent} per month, {void} void weeks and {rate}% using the profile's loan-to-value. Produce a table (Scenario | Rate | Rent | Voids | Monthly cash flow | Annual) for base, rate +2 points, rent −10%, voids doubled, and all three at once; a kv (break-even rate, break-even rent, cash buffer for 6 months of the worst case); bullets on which levers the investor controls; and a callout on when a deal should be declined.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Stress it",
+   "loading": "Pushing it…"
+  },
+  {
+   "id": "strategy",
+   "title": "Refurb to exit",
+   "subtitle": "Phases, costs, exit options",
+   "emoji": "🗺️",
+   "inputs": [
+    {
+     "key": "plan",
+     "label": "Strategy",
+     "type": "chips",
+     "options": [
+      "Buy and hold",
+      "Refurb then rent",
+      "Refurb then sell",
+      "House share / rooms",
+      "Short-term let"
+     ],
+     "default": "Buy and hold"
+    },
+    {
+     "key": "property",
+     "label": "The property",
+     "type": "text",
+     "placeholder": "tired 3-bed near the hospital and university"
+    }
+   ],
+   "prompt": "Strategy {plan} for: {property}, goal and region from the profile. Produce steps from offer to stabilised income with timelines, a table (Phase | Cost | Duration | Risk | Exit option), bullets on licensing, planning and tax questions to check locally in general terms, and a callout on the point at which the strategy should be abandoned.",
+   "shape": "steps, table, bullets, callout",
+   "button": "Plan strategy",
+   "loading": "Mapping…"
+  },
+  {
+   "id": "area",
+   "title": "Research the area",
+   "subtitle": "What to verify before offering",
+   "emoji": "📍",
+   "inputs": [
+    {
+     "key": "area",
+     "label": "Area / neighbourhood",
+     "type": "text",
+     "placeholder": "Northfield, near the tram",
+     "required": true
+    },
+    {
+     "key": "tenant",
+     "label": "Target tenant",
+     "type": "chips",
+     "options": [
+      "Professionals",
+      "Families",
+      "Students",
+      "Key workers",
+      "Any"
+     ],
+     "default": "Any"
+    }
+   ],
+   "prompt": "Research plan for {area} targeting {tenant} tenants. Produce a checklist of 12 things to verify (rent evidence, void times, planned developments, transport, schools, crime, licensing, flood risk) with where to look in general terms, a table (Signal | Good sign | Bad sign), bullets of questions to ask letting agents, and a callout on the one-street-can-change-everything rule.",
+   "shape": "checklist, table, bullets, callout",
+   "button": "Research",
+   "loading": "Walking the streets…"
+  }
+ ],
+ "disclaimer": "General information, not financial or mortgage advice; rates, rules and taxes vary by country and lender — confirm figures with a regulated adviser before acting."
+}

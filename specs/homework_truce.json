@@ -1,0 +1,196 @@
+{
+ "id": "homework_truce",
+ "name": "Homework Truce",
+ "tagline": "End the nightly homework fight without doing it for them",
+ "category": "Parenting",
+ "colors": [
+  "#3949AB",
+  "#FF7043",
+  "#43A047"
+ ],
+ "icon": "note",
+ "about": "Homework Truce tackles the fight, not the fractions: it chunks assignments into timed sprints, sets up the workspace, builds motivation systems that don't backfire, and plans long projects backwards from the due date.",
+ "persona": "You are an executive-function coach for families: you treat refusal as a skills gap not a character flaw, keep parents out of the teacher's job, and give one small system at a time.",
+ "onboarding": {
+  "title": "Peace at the kitchen table",
+  "subtitle": "Tell us about your child and what the fight looks like.",
+  "bullets": [
+   "Chunked plans with timers",
+   "Motivation without bribery",
+   "Long projects, backwards-planned"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "child",
+   "label": "Child (name, age, grade)",
+   "type": "text",
+   "placeholder": "Noah, 9, Year 5"
+  },
+  {
+   "key": "pattern",
+   "label": "The fight usually is",
+   "type": "chips",
+   "options": [
+    "Refusing to start",
+    "Meltdown when stuck",
+    "Rushing and sloppy",
+    "Lying about having none",
+    "Takes hours"
+   ]
+  },
+  {
+   "key": "support",
+   "label": "Diagnoses or school support",
+   "type": "text",
+   "placeholder": "ADHD, 504 plan"
+  }
+ ],
+ "tools": [
+  {
+   "id": "standoff",
+   "title": "Break the standoff",
+   "subtitle": "They won't start. Right now.",
+   "emoji": "🧱",
+   "inputs": [
+    {
+     "key": "scene",
+     "label": "What's happening",
+     "type": "longtext",
+     "placeholder": "sitting there 40 min, says it's stupid, I've asked 5 times",
+     "required": true
+    },
+    {
+     "key": "left",
+     "label": "Minutes until bedtime",
+     "type": "number",
+     "placeholder": "60"
+    }
+   ],
+   "prompt": "A homework standoff: {scene}, with {left} minutes until bedtime. Sections: a callout deciding whether tonight is worth pushing at all, steps for the next 10 minutes (parent moves, exact wording, what to remove from the room), a quote with the one line to say instead of asking again, and bullets on what to tell the teacher tomorrow if it doesn't get done.",
+   "shape": "callout, steps, quote, bullets",
+   "button": "Unstick",
+   "loading": "Lowering the stakes…"
+  },
+  {
+   "id": "chunk",
+   "title": "Chunk this assignment",
+   "subtitle": "Photo or paste → timed sprints",
+   "emoji": "⏱️",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the assignment",
+     "type": "photo"
+    },
+    {
+     "key": "task",
+     "label": "Or describe it",
+     "type": "longtext",
+     "placeholder": "2-page report on volcanoes due Friday, 20 spelling words, maths sheet"
+    }
+   ],
+   "prompt": "Turn the assignment (from the photo and/or: {task}) into a plan for the profile's child without solving any of it. Sections: a table (Sprint | Minutes | Exactly what to do | Done when…), a checklist the child ticks as they go, a kv of break rules (length, what's allowed, how to come back), and a callout on where a parent should and should not help.",
+   "shape": "table, checklist, kv, callout",
+   "button": "Chunk it",
+   "loading": "Slicing…"
+  },
+  {
+   "id": "station",
+   "title": "Homework station",
+   "subtitle": "Photo of where they work",
+   "emoji": "🪑",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the homework spot",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "where",
+     "label": "It's in the",
+     "type": "chips",
+     "options": [
+      "Kitchen",
+      "Bedroom",
+      "Living room",
+      "Shared desk"
+     ],
+     "default": "Kitchen"
+    }
+   ],
+   "prompt": "Assess the homework spot in the photo (located in the {where}) for the profile's child. Sections: a table (Element | Now | Change | Why), a checklist for a 'homework caddy' so nothing needs fetching, bullets on noise, siblings and screens, and a callout on whether this room is the right place for this particular child.",
+   "shape": "table, checklist, bullets, callout",
+   "button": "Assess spot",
+   "loading": "Looking around…"
+  },
+  {
+   "id": "motivate",
+   "title": "Motivation system",
+   "subtitle": "Rewards that don't backfire",
+   "emoji": "🏆",
+   "inputs": [
+    {
+     "key": "goal",
+     "label": "Target behaviour",
+     "type": "chips",
+     "options": [
+      "Starts on time",
+      "Finishes without nagging",
+      "Checks work",
+      "Tells the truth about homework",
+      "Asks for help when stuck"
+     ],
+     "default": "Starts on time"
+    },
+    {
+     "key": "tried",
+     "label": "Already tried",
+     "type": "chips",
+     "options": [
+      "Sticker chart",
+      "Screen time as reward",
+      "Taking things away",
+      "Nothing formal"
+     ],
+     "default": "Nothing formal"
+    }
+   ],
+   "prompt": "Design a two-week motivation system for '{goal}' given the family already tried: {tried}. Sections: a kv (the behaviour in observable words, how it's tracked, the reward, when it fades), a table (Day | Expectation | Parent response if yes | If no), bullets on why punishment-based systems fail for this goal, and a quote introducing the system to the child in under 60 words.",
+   "shape": "kv, table, bullets, quote",
+   "button": "Design system",
+   "loading": "Building…"
+  },
+  {
+   "id": "project",
+   "title": "Long project planner",
+   "subtitle": "Backwards from the due date",
+   "emoji": "📅",
+   "inputs": [
+    {
+     "key": "brief",
+     "label": "The project",
+     "type": "longtext",
+     "placeholder": "Egypt diorama + 1-page write-up, due 24 May",
+     "required": true
+    },
+    {
+     "key": "busy",
+     "label": "Busy days or evenings",
+     "type": "text",
+     "placeholder": "football Tue & Thu"
+    }
+   ],
+   "prompt": "Backward-plan: {brief}, avoiding {busy}. Sections: a table (Date | Milestone | Minutes | Materials needed), a checklist of materials to buy this weekend, steps for the first session (which should be the boring bit), and a callout on how much the finished thing should look like a child made it.",
+   "shape": "table, checklist, steps, callout",
+   "button": "Plan project",
+   "loading": "Counting back…"
+  }
+ ]
+}

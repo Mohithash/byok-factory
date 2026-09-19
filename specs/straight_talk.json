@@ -1,0 +1,206 @@
+{
+ "id": "straight_talk",
+ "name": "Straight Talk",
+ "tagline": "Feedback that is kind, specific and unmissable",
+ "category": "Business",
+ "colors": [
+  "#C62828",
+  "#FDD835",
+  "#26A69A"
+ ],
+ "icon": "mic",
+ "about": "Straight Talk helps managers give feedback that is specific, kind and impossible to misread: scripting the conversation, rehearsing the pushback, fixing the words before you say them and making praise land.",
+ "persona": "You are a direct but humane feedback coach in the SBI and radical-candour tradition: behaviour not personality, one message per conversation, and never a compliment sandwich.",
+ "onboarding": {
+  "title": "Say the hard thing well",
+  "subtitle": "How you naturally communicate shapes the scripts.",
+  "bullets": [
+   "SBI scripts for any situation",
+   "Rehearse the pushback",
+   "Praise that actually lands"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "tone",
+   "label": "Your natural tone",
+   "type": "chips",
+   "options": [
+    "Blunt",
+    "Diplomatic",
+    "Conflict-avoidant",
+    "Warm but rambling"
+   ]
+  },
+  {
+   "key": "setting",
+   "label": "Usual setting",
+   "type": "chips",
+   "options": [
+    "In person",
+    "Video call",
+    "Chat / async"
+   ],
+   "default": "Video call"
+  }
+ ],
+ "tools": [
+  {
+   "id": "script",
+   "title": "Script the feedback",
+   "subtitle": "Situation → 90-second script",
+   "emoji": "🗣️",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Who",
+     "type": "text",
+     "placeholder": "Marcus, senior analyst",
+     "required": true
+    },
+    {
+     "key": "issue",
+     "label": "What happened and the impact",
+     "type": "longtext",
+     "placeholder": "interrupted the client twice in the QBR; client emailed me about it",
+     "required": true
+    },
+    {
+     "key": "severity",
+     "label": "Severity",
+     "type": "chips",
+     "options": [
+      "First mention",
+      "Pattern",
+      "Serious"
+     ],
+     "default": "First mention"
+    }
+   ],
+   "prompt": "Write feedback for {who} about: {issue} (severity: {severity}), adjusted for the profile's tone and setting. Quote with a Situation–Behaviour–Impact script under 90 seconds in plain spoken language, bullets of 3 questions to ask afterwards so it becomes a conversation, a kv (best time and place, what to leave out, the ask, follow-up date), and a callout on the one habit from the user's natural tone that would undermine the message.",
+   "shape": "quote, bullets, kv, callout",
+   "button": "Write script",
+   "loading": "Choosing words…"
+  },
+  {
+   "id": "rehearse",
+   "title": "Rehearse the pushback",
+   "subtitle": "Play out how they might react",
+   "emoji": "🥊",
+   "inputs": [
+    {
+     "key": "script",
+     "label": "Your planned feedback",
+     "type": "longtext",
+     "placeholder": "I want to talk about the QBR…",
+     "required": true
+    },
+    {
+     "key": "reaction",
+     "label": "Expect them to",
+     "type": "chips",
+     "options": [
+      "Get defensive",
+      "Go quiet",
+      "Cry",
+      "Argue the facts",
+      "Blame someone else",
+      "Agree too fast"
+     ],
+     "default": "Get defensive"
+    }
+   ],
+   "prompt": "Rehearse this feedback: {script}, assuming they {reaction}. Table (They say | You say | Why it works) for 5 escalating rounds, a callout on the moment to stop talking and listen, and bullets of 3 closing lines that keep the relationship intact without softening the ask.",
+   "shape": "table, callout, bullets",
+   "button": "Rehearse",
+   "loading": "Sparring…"
+  },
+  {
+   "id": "written",
+   "title": "Put it in writing",
+   "subtitle": "Recap, async note or formal record",
+   "emoji": "📨",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Who",
+     "type": "text",
+     "placeholder": "Marcus",
+     "required": true
+    },
+    {
+     "key": "said",
+     "label": "What was discussed or needs saying",
+     "type": "longtext",
+     "placeholder": "we agreed he'd let the client finish and check in with me before QBRs",
+     "required": true
+    },
+    {
+     "key": "purpose",
+     "label": "Purpose",
+     "type": "chips",
+     "options": [
+      "Recap after talking",
+      "Async first mention",
+      "Formal record"
+     ],
+     "default": "Recap after talking"
+    }
+   ],
+   "prompt": "Write a message to {who} covering: {said}, for the purpose '{purpose}' and the profile's usual setting. Quote with the full message (under 150 words, no jargon, a specific ask and a date), bullets on what to change if this becomes an HR record, and a callout on what should never go in writing.",
+   "shape": "quote, bullets, callout",
+   "button": "Write it",
+   "loading": "Typing…"
+  },
+  {
+   "id": "critique",
+   "title": "Critique what I said",
+   "subtitle": "Learn from a feedback moment that went badly",
+   "emoji": "🔁",
+   "inputs": [
+    {
+     "key": "transcript",
+     "label": "What you actually said (as best you remember)",
+     "type": "longtext",
+     "placeholder": "So, um, don't take this the wrong way but some people felt you were a bit much in the meeting…",
+     "required": true
+    }
+   ],
+   "prompt": "Critique this feedback as delivered: {transcript}. Table (What you said | Problem — hedging, vague, 'some people', personality label, sandwich | Better) line by line, a kv (clarity /10, kindness /10, did they know what to change: yes or no), and a quote with a short follow-up message that repairs the biggest problem without re-litigating everything.",
+   "shape": "table, kv, quote",
+   "button": "Critique",
+   "loading": "Replaying…"
+  },
+  {
+   "id": "praise",
+   "title": "Praise that lands",
+   "subtitle": "Specific recognition, not 'great job'",
+   "emoji": "🌟",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Who",
+     "type": "text",
+     "placeholder": "Lena",
+     "required": true
+    },
+    {
+     "key": "what",
+     "label": "What they did",
+     "type": "longtext",
+     "placeholder": "stayed late to fix the deploy and wrote a clear post-mortem",
+     "required": true
+    }
+   ],
+   "prompt": "Turn this into specific recognition for {who}: {what}. Quote with the exact words to say in person (behaviour, impact, why it matters to you) followed by a public version for team chat, and bullets on how to make praise feel earned rather than routine for this person.",
+   "shape": "quote, bullets",
+   "button": "Write praise",
+   "loading": "Finding the words…"
+  }
+ ]
+}
