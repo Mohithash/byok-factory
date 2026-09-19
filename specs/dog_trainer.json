@@ -1,0 +1,139 @@
+{
+ "id": "dog_trainer",
+ "name": "Good Dog",
+ "tagline": "Training plans and behaviour fixes for your dog",
+ "category": "Lifestyle",
+ "colors": [
+  "#8D6E63",
+  "#FF8F00",
+  "#26A69A"
+ ],
+ "icon": "paw",
+ "about": "Good Dog builds positive-reinforcement training plans, decodes behaviour problems, and helps with puppies, recall and reactivity.",
+ "persona": "You are a certified force-free dog trainer: patient, science-based, clear about management vs training.",
+ "onboarding": {
+  "title": "Train with kindness",
+  "subtitle": "Tell us about your dog.",
+  "bullets": [
+   "Step-by-step training plans",
+   "Behaviour troubleshooting",
+   "Puppy schedules"
+  ]
+ },
+ "profile": [
+  {
+   "key": "dog",
+   "label": "Dog's name, breed, age",
+   "type": "text",
+   "placeholder": "Milo, beagle, 8 months",
+   "required": true
+  },
+  {
+   "key": "issues",
+   "label": "Working on",
+   "type": "chips",
+   "options": [
+    "Pulling",
+    "Recall",
+    "Barking",
+    "Separation",
+    "Jumping",
+    "Reactivity",
+    "Toilet training"
+   ],
+   "multi": true
+  },
+  {
+   "key": "time",
+   "label": "Training time/day",
+   "type": "chips",
+   "options": [
+    "5 min",
+    "15 min",
+    "30 min"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "plan",
+   "title": "Teach a skill",
+   "subtitle": "A week-by-week plan",
+   "emoji": "🎓",
+   "inputs": [
+    {
+     "key": "skill",
+     "label": "Skill",
+     "type": "text",
+     "placeholder": "reliable recall",
+     "required": true
+    }
+   ],
+   "prompt": "A 4-week plan to teach {skill}: table (Week | Goal | Drill | Criteria to advance), steps for session 1, and a callout on common mistakes and when to go back a step.",
+   "shape": "table, steps, callout",
+   "button": "Plan",
+   "loading": "Planning…"
+  },
+  {
+   "id": "behaviour",
+   "title": "Fix a behaviour",
+   "subtitle": "Understand and change it",
+   "emoji": "🐾",
+   "inputs": [
+    {
+     "key": "problem",
+     "label": "What's happening",
+     "type": "text",
+     "placeholder": "barks at every passer-by from the window",
+     "required": true
+    }
+   ],
+   "prompt": "Analyse '{problem}': text (likely function of the behaviour), bullets (management now), steps (training protocol), and a callout on when to see a vet/behaviourist.",
+   "shape": "text, bullets, steps, callout",
+   "button": "Help",
+   "loading": "Analysing…"
+  },
+  {
+   "id": "puppy",
+   "title": "Puppy day plan",
+   "subtitle": "Sleep, toilet, play, training",
+   "emoji": "🐶",
+   "inputs": [
+    {
+     "key": "weeks",
+     "label": "Age in weeks",
+     "type": "number",
+     "placeholder": "12"
+    }
+   ],
+   "prompt": "A daily schedule for a {weeks}-week puppy: table (Time | Activity | Notes), a checklist of socialisation targets this week, and a callout on toilet-training timing.",
+   "shape": "table, checklist, callout",
+   "button": "Plan",
+   "loading": "Scheduling…"
+  },
+  {
+   "id": "enrich",
+   "title": "Enrichment ideas",
+   "subtitle": "Tire the brain",
+   "emoji": "🧩",
+   "inputs": [
+    {
+     "key": "weather",
+     "label": "Today",
+     "type": "chips",
+     "options": [
+      "Rainy",
+      "Hot",
+      "Normal"
+     ],
+     "default": "Normal"
+    }
+   ],
+   "prompt": "5 enrichment activities for the dog on a {weather} day: cards (activity, body = how, meta = minutes), and a callout on food-safety.",
+   "shape": "cards, callout",
+   "button": "Ideas",
+   "loading": "Thinking…"
+  }
+ ],
+ "disclaimer": "For medical symptoms or aggression that risks injury, consult a vet or qualified behaviourist."
+}

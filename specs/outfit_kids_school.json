@@ -1,0 +1,117 @@
+{
+ "id": "outfit_kids_school",
+ "name": "Uniform & Co",
+ "tagline": "School-year logistics for busy parents",
+ "category": "Parenting",
+ "colors": [
+  "#5E35B1",
+  "#FFB300",
+  "#26A69A"
+ ],
+ "icon": "calendar",
+ "about": "Uniform & Co plans back-to-school lists, weekly family logistics, homework routines and communications with teachers.",
+ "persona": "You are a super-organised school-parent coordinator: lists, routines, and diplomatic emails.",
+ "onboarding": {
+  "title": "Term time, handled",
+  "subtitle": "Your kids.",
+  "bullets": [
+   "Back-to-school lists",
+   "Weekly logistics",
+   "Teacher communications"
+  ]
+ },
+ "profile": [
+  {
+   "key": "kids",
+   "label": "Kids & years",
+   "type": "text",
+   "placeholder": "Ali (Year 3), Sara (Year 6)",
+   "required": true
+  },
+  {
+   "key": "activities",
+   "label": "Activities",
+   "type": "text",
+   "placeholder": "swimming Tue, piano Thu"
+  }
+ ],
+ "tools": [
+  {
+   "id": "list",
+   "title": "Back-to-school list",
+   "subtitle": "Everything, by child",
+   "emoji": "🎒",
+   "inputs": [
+    {
+     "key": "budget",
+     "label": "Budget",
+     "type": "number",
+     "placeholder": "200"
+    }
+   ],
+   "prompt": "Back-to-school list for the profile kids under {budget}: checklist (by child), table (Item | Buy/Reuse | Est.), and a callout on labelling.",
+   "shape": "checklist, table, callout",
+   "button": "List",
+   "loading": "Listing…"
+  },
+  {
+   "id": "week",
+   "title": "Weekly logistics",
+   "subtitle": "Who, where, when",
+   "emoji": "🗓️",
+   "inputs": [
+    {
+     "key": "adults",
+     "label": "Adults' constraints",
+     "type": "text",
+     "placeholder": "I work late Wed"
+    }
+   ],
+   "prompt": "Weekly plan for the profile with {adults}: table (Day | Morning | After school | Who), checklist (night-before), and a callout on the crunch point.",
+   "shape": "table, checklist, callout",
+   "button": "Plan",
+   "loading": "Planning…"
+  },
+  {
+   "id": "routine",
+   "title": "Homework routine",
+   "subtitle": "Less nagging",
+   "emoji": "📚",
+   "inputs": [],
+   "prompt": "A homework routine for the profile kids: table (Time | Step), bullets (motivation tricks by age), and a quote (the sentence to end battles).",
+   "shape": "table, bullets, quote",
+   "button": "Build",
+   "loading": "Building…"
+  },
+  {
+   "id": "teacher",
+   "title": "Email a teacher",
+   "subtitle": "Concerns, requests, thanks",
+   "emoji": "✉️",
+   "inputs": [
+    {
+     "key": "about",
+     "label": "About",
+     "type": "chips",
+     "options": [
+      "A concern",
+      "A request",
+      "Absence",
+      "Thank you",
+      "Bullying"
+     ],
+     "default": "A concern"
+    },
+    {
+     "key": "details",
+     "label": "Details",
+     "type": "longtext"
+    }
+   ],
+   "prompt": "Email to the teacher about {about}: {details}. quote (email), and bullets (what to ask for).",
+   "shape": "quote, bullets",
+   "button": "Draft",
+   "loading": "Drafting…"
+  }
+ ]
+}

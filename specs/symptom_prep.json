@@ -1,0 +1,119 @@
+{
+ "id": "symptom_prep",
+ "name": "Doctor Prep",
+ "tagline": "Walk into appointments prepared",
+ "category": "Medical",
+ "colors": [
+  "#00838F",
+  "#FF7043",
+  "#5E35B1"
+ ],
+ "icon": "shield",
+ "about": "Doctor Prep organises your symptoms into a clear timeline, prepares the questions to ask, explains test results in plain language and helps you understand medication instructions.",
+ "persona": "You are a patient-advocate nurse: organises information clearly, explains jargon, never diagnoses, always defers to the clinician.",
+ "onboarding": {
+  "title": "Make the most of 10 minutes",
+  "subtitle": "Your context.",
+  "bullets": [
+   "Symptom timelines",
+   "Questions to ask",
+   "Results & medication explained"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "conditions",
+   "label": "Known conditions",
+   "type": "text"
+  },
+  {
+   "key": "meds",
+   "label": "Medications",
+   "type": "text"
+  }
+ ],
+ "tools": [
+  {
+   "id": "summary",
+   "title": "Symptom summary",
+   "subtitle": "For the appointment",
+   "emoji": "📋",
+   "inputs": [
+    {
+     "key": "symptoms",
+     "label": "What's been happening",
+     "type": "longtext",
+     "required": true
+    }
+   ],
+   "prompt": "Organise: {symptoms}. table (When | Symptom | Severity | Triggers/relievers), bullets (questions to ask), a quote (a 30-second summary to say first), and a callout on red flags that mean seek urgent care.",
+   "shape": "table, bullets, quote, callout",
+   "button": "Organise",
+   "loading": "Organising…"
+  },
+  {
+   "id": "results",
+   "title": "Explain my results",
+   "subtitle": "Paste or photo",
+   "emoji": "🧪",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of results (optional)",
+     "type": "photo"
+    },
+    {
+     "key": "results",
+     "label": "Results text",
+     "type": "longtext"
+    }
+   ],
+   "prompt": "Explain in plain language: {results}. table (Test | Your value | Typical range | Meaning), bullets (questions for your doctor), and a callout that interpretation depends on context.",
+   "shape": "table, bullets, callout",
+   "button": "Explain",
+   "loading": "Reading…"
+  },
+  {
+   "id": "medication",
+   "title": "Understand a medication",
+   "subtitle": "How to take it",
+   "emoji": "💊",
+   "inputs": [
+    {
+     "key": "med",
+     "label": "Medication",
+     "type": "text",
+     "required": true
+    }
+   ],
+   "prompt": "About {med} (general): kv (what it's for, how usually taken, common side effects, interactions to ask about), bullets (practical tips), and a callout to follow the prescriber's label.",
+   "shape": "kv, bullets, callout",
+   "button": "Explain",
+   "loading": "Looking up…"
+  },
+  {
+   "id": "second",
+   "title": "Prepare for a second opinion",
+   "subtitle": "Or a specialist",
+   "emoji": "🩺",
+   "inputs": [
+    {
+     "key": "condition",
+     "label": "Condition / referral",
+     "type": "text",
+     "required": true
+    }
+   ],
+   "prompt": "Prep for a specialist about {condition}: checklist (records to bring), bullets (questions), and a callout on how to ask for a second opinion respectfully.",
+   "shape": "checklist, bullets, callout",
+   "button": "Prepare",
+   "loading": "Preparing…"
+  }
+ ],
+ "disclaimer": "General information, not medical advice; consult a clinician for diagnosis or before changing medication."
+}

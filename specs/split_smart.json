@@ -1,0 +1,156 @@
+{
+ "id": "split_smart",
+ "name": "Split Smart",
+ "tagline": "Fair bill splitting, no arguments",
+ "category": "Finance",
+ "colors": [
+  "#00695C",
+  "#F4B400",
+  "#6A4CB0"
+ ],
+ "icon": "coin",
+ "about": "Split Smart reads receipts, splits by item or share, handles tips and tax, and writes the message that gets everyone to pay.",
+ "persona": "You are a fair, tactful bill-splitting assistant who shows the maths.",
+ "onboarding": {
+  "title": "Never argue over the bill again",
+  "subtitle": "Set your currency and default tip.",
+  "bullets": [
+   "Receipt photo → per-person totals",
+   "Uneven splits and shared items",
+   "Ready-to-send payment messages"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "currency",
+   "label": "Currency symbol",
+   "type": "text",
+   "placeholder": "$",
+   "default": "$"
+  },
+  {
+   "key": "tip",
+   "label": "Default tip",
+   "type": "chips",
+   "options": [
+    "0%",
+    "10%",
+    "15%",
+    "18%",
+    "20%"
+   ],
+   "default": "15%"
+  }
+ ],
+ "tools": [
+  {
+   "id": "receipt",
+   "title": "Split a receipt",
+   "subtitle": "Photo + who had what",
+   "emoji": "🧾",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Receipt photo",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "who",
+     "label": "Who had what",
+     "type": "longtext",
+     "placeholder": "Ana: pasta + wine; Ben: steak; shared: starter, dessert"
+    }
+   ],
+   "prompt": "Read the receipt, then split using: {who}. Apply the default tip and tax proportionally. Table (Person | Items | Subtotal | Tax+tip share | Total), a text section showing the maths, and a quote with a friendly group message listing each amount.",
+   "shape": "table, text, quote",
+   "button": "Split it",
+   "loading": "Reading…"
+  },
+  {
+   "id": "manual",
+   "title": "Quick split",
+   "subtitle": "No photo, just numbers",
+   "emoji": "➗",
+   "inputs": [
+    {
+     "key": "total",
+     "label": "Total bill",
+     "type": "number",
+     "placeholder": "126.40"
+    },
+    {
+     "key": "people",
+     "label": "People & shares",
+     "type": "longtext",
+     "placeholder": "Ana 1, Ben 1, Cara 0.5 (only a starter)",
+     "required": true
+    }
+   ],
+   "prompt": "Split {total} among: {people} with the default tip. Table (Person | Share | Amount) and a quote with the message to send.",
+   "shape": "table, quote",
+   "button": "Split",
+   "loading": "Calculating…"
+  },
+  {
+   "id": "trip",
+   "title": "Trip settle-up",
+   "subtitle": "Who owes whom after a trip",
+   "emoji": "🧳",
+   "inputs": [
+    {
+     "key": "expenses",
+     "label": "Expenses",
+     "type": "longtext",
+     "placeholder": "Hotel 400 paid by Ana (all 3); dinner 90 paid by Ben (Ana, Ben)…",
+     "required": true
+    }
+   ],
+   "prompt": "Settle up: {expenses}. Table (Person | Paid | Owes | Net), then steps with the minimum number of transfers, and a quote with the settle-up message.",
+   "shape": "table, steps, quote",
+   "button": "Settle",
+   "loading": "Balancing…"
+  },
+  {
+   "id": "nudge",
+   "title": "Polite reminder",
+   "subtitle": "Chase money without awkwardness",
+   "emoji": "💬",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Who",
+     "type": "text",
+     "placeholder": "Ben",
+     "required": true
+    },
+    {
+     "key": "amount",
+     "label": "Amount",
+     "type": "number",
+     "placeholder": "32.50"
+    },
+    {
+     "key": "tone",
+     "label": "Tone",
+     "type": "chips",
+     "options": [
+      "Light",
+      "Direct",
+      "Very polite"
+     ],
+     "default": "Light"
+    }
+   ],
+   "prompt": "Write 3 short reminder messages to {who} for {amount}, tone {tone}, as quote sections, and bullets on timing.",
+   "shape": "quote, quote, quote, bullets",
+   "button": "Write",
+   "loading": "Drafting…"
+  }
+ ]
+}

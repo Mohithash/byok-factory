@@ -1,0 +1,145 @@
+{
+ "id": "posture_desk",
+ "name": "Desk Doctor",
+ "tagline": "Fix the aches from sitting all day",
+ "category": "Health & Fitness",
+ "colors": [
+  "#00838F",
+  "#FF7043",
+  "#7E57C2"
+ ],
+ "icon": "shield",
+ "about": "Desk Doctor sets up your workstation from a photo, prescribes micro-break routines, and builds mobility plans for neck, back, wrists and hips.",
+ "persona": "You are a physio-minded ergonomics coach: concise, practical, never diagnosing; you flag red flags.",
+ "onboarding": {
+  "title": "Sit better, hurt less",
+  "subtitle": "Tell us where it hurts and how you work.",
+  "bullets": [
+   "Workstation setup from a photo",
+   "Micro-break routines",
+   "Mobility plans"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "pain",
+   "label": "Where it aches",
+   "type": "chips",
+   "options": [
+    "Neck",
+    "Upper back",
+    "Lower back",
+    "Wrists",
+    "Hips",
+    "Eyes"
+   ],
+   "multi": true
+  },
+  {
+   "key": "setup",
+   "label": "Setup",
+   "type": "chips",
+   "options": [
+    "Laptop only",
+    "Monitor + laptop",
+    "Standing desk",
+    "Sofa/bed"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "setup",
+   "title": "Check my desk",
+   "subtitle": "Photo → adjustments",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of your workstation (side view)",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Assess the workstation photo: table (Element | Now | Target | How to fix), a checklist of free fixes, and a callout on what's worth buying if anything.",
+   "shape": "table, checklist, callout",
+   "button": "Assess",
+   "loading": "Measuring…"
+  },
+  {
+   "id": "breaks",
+   "title": "Micro-break routine",
+   "subtitle": "2 minutes every hour",
+   "emoji": "⏱️",
+   "inputs": [
+    {
+     "key": "focus",
+     "label": "Focus",
+     "type": "chips",
+     "options": [
+      "Neck & shoulders",
+      "Lower back",
+      "Wrists",
+      "Eyes",
+      "Whole body"
+     ],
+     "default": "Whole body"
+    }
+   ],
+   "prompt": "A 2-minute hourly routine for {focus}: steps (each with reps/seconds), bullets on cues, and a quote with a one-line reminder to set as an alarm label.",
+   "shape": "steps, bullets, quote",
+   "button": "Build",
+   "loading": "Stretching…"
+  },
+  {
+   "id": "mobility",
+   "title": "Mobility plan",
+   "subtitle": "10 min/day, 2 weeks",
+   "emoji": "🧘",
+   "inputs": [
+    {
+     "key": "area",
+     "label": "Area",
+     "type": "chips",
+     "options": [
+      "Neck",
+      "Thoracic",
+      "Lower back",
+      "Hips",
+      "Wrists"
+     ],
+     "default": "Lower back"
+    }
+   ],
+   "prompt": "A 2-week, 10-minute daily mobility plan for {area}: table (Day | Exercises | Sets×reps), steps for correct form of the two key moves, and a callout on red flags that mean stop and see a clinician.",
+   "shape": "table, steps, callout",
+   "button": "Plan",
+   "loading": "Planning…"
+  },
+  {
+   "id": "flare",
+   "title": "Pain right now",
+   "subtitle": "What to do today",
+   "emoji": "🩹",
+   "inputs": [
+    {
+     "key": "what",
+     "label": "What happened",
+     "type": "text",
+     "placeholder": "woke up with a stiff neck, can't turn left",
+     "required": true
+    }
+   ],
+   "prompt": "For: {what} — steps for the next 24h (heat/ice, movement, positions), bullets of what to avoid, and a callout listing symptoms that need urgent care.",
+   "shape": "steps, bullets, callout",
+   "button": "Help",
+   "loading": "Thinking…"
+  }
+ ],
+ "disclaimer": "This is general information, not medical advice; see a clinician for diagnosis or before changing medication."
+}

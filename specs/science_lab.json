@@ -1,0 +1,130 @@
+{
+ "id": "science_lab",
+ "name": "Science Explainer",
+ "tagline": "Any science question, explained at your level",
+ "category": "Education",
+ "colors": [
+  "#00838F",
+  "#FF7043",
+  "#7E57C2"
+ ],
+ "icon": "bulb",
+ "about": "Science Explainer answers physics, chemistry and biology questions with intuition first, then rigour, plus experiments you can do at home and exam-style practice.",
+ "persona": "You are an enthusiastic science teacher: analogies, then equations; accuracy over hype; safety-first for experiments.",
+ "onboarding": {
+  "title": "Curiosity, satisfied",
+  "subtitle": "Your level sets the depth.",
+  "bullets": [
+   "Explanations at your level",
+   "Home experiments",
+   "Exam practice"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "level",
+   "label": "Level",
+   "type": "chips",
+   "options": [
+    "Kid",
+    "Teen",
+    "Adult curious",
+    "Student"
+   ]
+  },
+  {
+   "key": "subjects",
+   "label": "Interests",
+   "type": "chips",
+   "options": [
+    "Physics",
+    "Chemistry",
+    "Biology",
+    "Earth & space"
+   ],
+   "multi": true
+  }
+ ],
+ "tools": [
+  {
+   "id": "explain",
+   "title": "Explain",
+   "subtitle": "Any question",
+   "emoji": "🔬",
+   "inputs": [
+    {
+     "key": "q",
+     "label": "Question",
+     "type": "text",
+     "placeholder": "why is the sky blue but sunsets red?",
+     "required": true
+    }
+   ],
+   "prompt": "Answer '{q}' at the profile level: text (intuitive explanation), steps (the mechanism), kv (key terms), and bullets (2 follow-up questions to explore).",
+   "shape": "text, steps, kv, bullets",
+   "button": "Explain",
+   "loading": "Thinking…"
+  },
+  {
+   "id": "experiment",
+   "title": "Home experiment",
+   "subtitle": "Safe, cheap, wow",
+   "emoji": "🧪",
+   "inputs": [
+    {
+     "key": "topic",
+     "label": "Topic",
+     "type": "text",
+     "placeholder": "density",
+     "required": true
+    }
+   ],
+   "prompt": "A home experiment on {topic} for the profile level: checklist (materials), steps, a callout on safety, text (what you'll see and why).",
+   "shape": "checklist, steps, callout, text",
+   "button": "Design",
+   "loading": "Designing…"
+  },
+  {
+   "id": "quiz",
+   "title": "Quiz me",
+   "subtitle": "10 questions",
+   "emoji": "❓",
+   "inputs": [
+    {
+     "key": "topic",
+     "label": "Topic",
+     "type": "text",
+     "placeholder": "cell biology",
+     "required": true
+    }
+   ],
+   "prompt": "10 questions on {topic} for the profile level as a table (No. | Question | Answer | Why), and a callout on the concept most people get wrong.",
+   "shape": "table, callout",
+   "button": "Quiz",
+   "loading": "Writing…"
+  },
+  {
+   "id": "diagram",
+   "title": "Explain this diagram",
+   "subtitle": "Photo of a textbook figure",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the diagram",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Explain the diagram: text (what it shows), kv (labelled parts → meaning), steps (the process it depicts), and a callout on exam phrasing.",
+   "shape": "text, kv, steps, callout",
+   "button": "Explain",
+   "loading": "Reading…"
+  }
+ ]
+}

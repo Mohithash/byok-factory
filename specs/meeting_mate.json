@@ -1,0 +1,130 @@
+{
+ "id": "meeting_mate",
+ "name": "Meeting Mate",
+ "tagline": "Agendas in, decisions out",
+ "category": "Productivity",
+ "colors": [
+  "#00695C",
+  "#FFB300",
+  "#5C6BC0"
+ ],
+ "icon": "note",
+ "about": "Meeting Mate writes tight agendas, turns messy notes into minutes with owners and deadlines, and drafts the follow-up email.",
+ "persona": "You are a crisp chief-of-staff: agendas with time boxes, minutes with owners, no fluff.",
+ "onboarding": {
+  "title": "Meetings that end on time",
+  "subtitle": "Your role shapes the tone.",
+  "bullets": [
+   "Time-boxed agendas",
+   "Notes → minutes with owners",
+   "Follow-up emails"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "role",
+   "label": "Your role",
+   "type": "text",
+   "placeholder": "product manager"
+  },
+  {
+   "key": "team",
+   "label": "Team / company",
+   "type": "text"
+  }
+ ],
+ "tools": [
+  {
+   "id": "agenda",
+   "title": "Write an agenda",
+   "subtitle": "Purpose → time-boxed plan",
+   "emoji": "📋",
+   "inputs": [
+    {
+     "key": "purpose",
+     "label": "Meeting purpose",
+     "type": "text",
+     "placeholder": "decide Q4 roadmap priorities",
+     "required": true
+    },
+    {
+     "key": "minutes",
+     "label": "Length (min)",
+     "type": "number",
+     "placeholder": "45"
+    },
+    {
+     "key": "people",
+     "label": "Attendees",
+     "type": "text",
+     "placeholder": "eng lead, design, sales"
+    }
+   ],
+   "prompt": "Agenda for '{purpose}', {minutes} min, attendees {people}. Table (Time | Item | Owner | Outcome), a callout on pre-reads, and a quote with the calendar-invite description.",
+   "shape": "table, callout, quote",
+   "button": "Write agenda",
+   "loading": "Drafting…"
+  },
+  {
+   "id": "minutes",
+   "title": "Notes → minutes",
+   "subtitle": "Paste raw notes",
+   "emoji": "📝",
+   "inputs": [
+    {
+     "key": "notes",
+     "label": "Raw notes",
+     "type": "longtext",
+     "placeholder": "jo said budget tight, sam to check vendor by fri, decided to delay launch…",
+     "required": true
+    }
+   ],
+   "prompt": "Turn into minutes: {notes}. Sections: bullets (decisions), table (Action | Owner | Due), bullets (open questions), and a quote with a 3-line summary for people who weren't there.",
+   "shape": "bullets, table, bullets, quote",
+   "button": "Make minutes",
+   "loading": "Tidying…"
+  },
+  {
+   "id": "followup",
+   "title": "Follow-up email",
+   "subtitle": "Send within the hour",
+   "emoji": "✉️",
+   "inputs": [
+    {
+     "key": "summary",
+     "label": "What was agreed",
+     "type": "longtext",
+     "required": true
+    }
+   ],
+   "prompt": "Follow-up email from the summary: {summary}. quote (subject + body), checklist of attachments/links to include.",
+   "shape": "quote, checklist",
+   "button": "Draft",
+   "loading": "Writing…"
+  },
+  {
+   "id": "cancel",
+   "title": "Should this be a meeting?",
+   "subtitle": "Or an email",
+   "emoji": "🤔",
+   "inputs": [
+    {
+     "key": "ask",
+     "label": "The meeting idea",
+     "type": "text",
+     "placeholder": "weekly status sync with 8 people",
+     "required": true
+    }
+   ],
+   "prompt": "Assess '{ask}': callout verdict (meeting / async / cancel), bullets of reasoning, and a quote with the async alternative message if applicable.",
+   "shape": "callout, bullets, quote",
+   "button": "Assess",
+   "loading": "Judging…"
+  }
+ ]
+}

@@ -1,0 +1,150 @@
+{
+ "id": "chess_coach",
+ "name": "Chess Coach",
+ "tagline": "Openings, tactics and post-game reviews",
+ "category": "Games",
+ "colors": [
+  "#37474F",
+  "#FFB300",
+  "#8D6E63"
+ ],
+ "icon": "star",
+ "about": "Chess Coach builds an opening repertoire for your level, drills tactics, reviews your games from PGN and explains plans in plain language.",
+ "persona": "You are a patient chess coach (FIDE-trainer style): principles over memorisation, honest about mistakes, level-appropriate.",
+ "onboarding": {
+  "title": "Play with a plan",
+  "subtitle": "Your level.",
+  "bullets": [
+   "Opening repertoire",
+   "Tactics drills",
+   "Game reviews"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "rating",
+   "label": "Rating",
+   "type": "chips",
+   "options": [
+    "<800",
+    "800–1200",
+    "1200–1600",
+    "1600–2000",
+    "2000+"
+   ]
+  },
+  {
+   "key": "colour",
+   "label": "Prefer",
+   "type": "chips",
+   "options": [
+    "White",
+    "Black",
+    "Both"
+   ]
+  },
+  {
+   "key": "style",
+   "label": "Style",
+   "type": "chips",
+   "options": [
+    "Attacking",
+    "Positional",
+    "Solid",
+    "Not sure"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "repertoire",
+   "title": "Build a repertoire",
+   "subtitle": "For your level",
+   "emoji": "📚",
+   "inputs": [
+    {
+     "key": "side",
+     "label": "As",
+     "type": "chips",
+     "options": [
+      "White",
+      "Black vs e4",
+      "Black vs d4"
+     ],
+     "default": "White"
+    }
+   ],
+   "prompt": "A repertoire as {side} for the profile: cards (opening, body = main ideas & key line, meta = difficulty), bullets (typical plans), and a callout on the trap to know.",
+   "shape": "cards, bullets, callout",
+   "button": "Build",
+   "loading": "Preparing…"
+  },
+  {
+   "id": "review",
+   "title": "Review my game",
+   "subtitle": "Paste PGN or moves",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "pgn",
+     "label": "PGN / moves",
+     "type": "longtext",
+     "required": true
+    }
+   ],
+   "prompt": "Review: {pgn}. table (Move | Issue | Better | Why), bullets (the 3 lessons), and a quote with one principle to remember.",
+   "shape": "table, bullets, quote",
+   "button": "Review",
+   "loading": "Analysing…"
+  },
+  {
+   "id": "tactics",
+   "title": "Tactics drill",
+   "subtitle": "10 patterns",
+   "emoji": "⚔️",
+   "inputs": [
+    {
+     "key": "theme",
+     "label": "Theme",
+     "type": "chips",
+     "options": [
+      "Forks",
+      "Pins",
+      "Skewers",
+      "Discovered attacks",
+      "Back rank",
+      "Mixed"
+     ],
+     "default": "Mixed"
+    }
+   ],
+   "prompt": "10 {theme} puzzles for the profile as a table (No. | Position (FEN or description) | Solution | Idea), and a callout on the spotting habit.",
+   "shape": "table, callout",
+   "button": "Drill",
+   "loading": "Setting up…"
+  },
+  {
+   "id": "plan",
+   "title": "What's the plan?",
+   "subtitle": "Describe a position",
+   "emoji": "🧭",
+   "inputs": [
+    {
+     "key": "position",
+     "label": "Position (FEN or description)",
+     "type": "longtext",
+     "required": true
+    }
+   ],
+   "prompt": "Plan for: {position}. text (assessment), bullets (candidate plans), steps (the next 3 moves with ideas), and a callout on what the opponent wants.",
+   "shape": "text, bullets, steps, callout",
+   "button": "Explain",
+   "loading": "Thinking…"
+  }
+ ]
+}

@@ -1,0 +1,102 @@
+{
+ "id": "dream_journal",
+ "name": "Dream Decoder",
+ "tagline": "Record dreams, notice patterns, sleep curious",
+ "category": "Lifestyle",
+ "colors": [
+  "#4527A0",
+  "#FFB300",
+  "#26C6DA"
+ ],
+ "icon": "moon",
+ "about": "Dream Decoder helps you capture dreams fast, explores possible meanings from several traditions without claiming certainty, and tracks recurring themes.",
+ "persona": "You are a curious, grounded dream companion: you offer perspectives (psychological, cultural, symbolic) as possibilities, never predictions.",
+ "onboarding": {
+  "title": "What was that about?",
+  "subtitle": "A little context.",
+  "bullets": [
+   "Fast capture prompts",
+   "Multi-perspective interpretations",
+   "Pattern tracking"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "lens",
+   "label": "Preferred lens",
+   "type": "chips",
+   "options": [
+    "Psychological",
+    "Symbolic",
+    "Cultural/mythic",
+    "Just curious"
+   ],
+   "multi": true
+  }
+ ],
+ "tools": [
+  {
+   "id": "decode",
+   "title": "Decode a dream",
+   "subtitle": "Tell it as you remember",
+   "emoji": "🌙",
+   "inputs": [
+    {
+     "key": "dream",
+     "label": "The dream",
+     "type": "longtext",
+     "required": true
+    }
+   ],
+   "prompt": "Explore: {dream}. kv (setting, characters, emotion, standout symbol), cards (3 interpretations from the profile lenses, meta = lens), bullets (questions to reflect on), and a callout that these are possibilities not facts.",
+   "shape": "kv, cards, bullets, callout",
+   "button": "Decode",
+   "loading": "Wondering…"
+  },
+  {
+   "id": "capture",
+   "title": "Capture prompts",
+   "subtitle": "Before it fades",
+   "emoji": "✍️",
+   "inputs": [],
+   "prompt": "A 2-minute capture routine: steps (questions to answer in order), and a quote with a template sentence.",
+   "shape": "steps, quote",
+   "button": "Show",
+   "loading": "Ready…"
+  },
+  {
+   "id": "patterns",
+   "title": "Find patterns",
+   "subtitle": "Paste several dreams",
+   "emoji": "🔁",
+   "inputs": [
+    {
+     "key": "dreams",
+     "label": "Several dreams",
+     "type": "longtext",
+     "required": true
+    }
+   ],
+   "prompt": "Patterns across: {dreams}. table (Theme | Appears in | Possible link to waking life), and a callout on what to try (e.g. sleep, stress).",
+   "shape": "table, callout",
+   "button": "Analyse",
+   "loading": "Reading…"
+  },
+  {
+   "id": "lucid",
+   "title": "Lucid dreaming",
+   "subtitle": "Beginner's plan",
+   "emoji": "✨",
+   "inputs": [],
+   "prompt": "A 2-week lucid-dreaming starter: table (Day | Practice | Minutes), bullets (reality checks), and a callout on sleep hygiene and who should skip it.",
+   "shape": "table, bullets, callout",
+   "button": "Plan",
+   "loading": "Planning…"
+  }
+ ]
+}

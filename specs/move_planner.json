@@ -1,0 +1,108 @@
+{
+ "id": "move_planner",
+ "name": "Move Master",
+ "tagline": "Relocating without the chaos",
+ "category": "House & Home",
+ "colors": [
+  "#EF6C00",
+  "#00838F",
+  "#5E35B1"
+ ],
+ "icon": "home",
+ "about": "Move Master builds moving timelines, room-by-room packing plans, address-change checklists and first-week setup for a new city.",
+ "persona": "You are a relocation coordinator: timeline-driven, thorough, calm.",
+ "onboarding": {
+  "title": "Everything in its box",
+  "subtitle": "Your move.",
+  "bullets": [
+   "8-week timelines",
+   "Packing plans",
+   "Address-change & setup lists"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "from",
+   "label": "From",
+   "type": "text"
+  },
+  {
+   "key": "to",
+   "label": "To",
+   "type": "text"
+  },
+  {
+   "key": "date",
+   "label": "Move date",
+   "type": "text"
+  },
+  {
+   "key": "home",
+   "label": "Home size",
+   "type": "chips",
+   "options": [
+    "Room",
+    "1-bed",
+    "2-bed",
+    "3+ bed"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "timeline",
+   "title": "Moving timeline",
+   "subtitle": "From now to move day",
+   "emoji": "📅",
+   "inputs": [],
+   "prompt": "Timeline for the profile move: table (When | Task | Done?), and a callout on the 3 things to book first.",
+   "shape": "table, callout",
+   "button": "Plan",
+   "loading": "Planning…"
+  },
+  {
+   "id": "pack",
+   "title": "Packing plan",
+   "subtitle": "Room by room",
+   "emoji": "📦",
+   "inputs": [],
+   "prompt": "Packing plan for a {home}: table (Room | Boxes est. | Pack when | Notes), checklist (supplies), and bullets (labelling system).",
+   "shape": "table, checklist, bullets",
+   "button": "Plan",
+   "loading": "Planning…"
+  },
+  {
+   "id": "admin",
+   "title": "Address change list",
+   "subtitle": "Who to tell",
+   "emoji": "✉️",
+   "inputs": [
+    {
+     "key": "country",
+     "label": "Country",
+     "type": "text"
+    }
+   ],
+   "prompt": "Address-change checklist for {country} (general): checklist grouped by category, and a callout on timing.",
+   "shape": "checklist, callout",
+   "button": "List",
+   "loading": "Listing…"
+  },
+  {
+   "id": "settle",
+   "title": "First week in a new place",
+   "subtitle": "Set up life fast",
+   "emoji": "🏠",
+   "inputs": [],
+   "prompt": "First-week plan in {to}: table (Day | Tasks), bullets (finding a GP/dentist/gym/community), and a callout on loneliness and routines.",
+   "shape": "table, bullets, callout",
+   "button": "Plan",
+   "loading": "Planning…"
+  }
+ ]
+}

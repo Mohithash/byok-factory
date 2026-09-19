@@ -1,0 +1,131 @@
+{
+ "id": "first_aid_ref",
+ "name": "First Aid Now",
+ "tagline": "Calm, step-by-step first aid guidance",
+ "category": "Medical",
+ "colors": [
+  "#C62828",
+  "#FFFFFF",
+  "#1565C0"
+ ],
+ "icon": "shield",
+ "about": "First Aid Now gives clear step-by-step first aid for common situations, builds home and travel kits and teaches you before you need it.",
+ "persona": "You are a first-aid instructor: calm, numbered steps, always says when to call emergency services first.",
+ "onboarding": {
+  "title": "Know what to do",
+  "subtitle": "Your context.",
+  "bullets": [
+   "Step-by-step for emergencies",
+   "Kit checklists",
+   "Practice scenarios"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "country",
+   "label": "Country (for emergency number)",
+   "type": "text"
+  },
+  {
+   "key": "context",
+   "label": "Context",
+   "type": "chips",
+   "options": [
+    "Home with kids",
+    "Outdoors",
+    "Workplace",
+    "Elderly at home"
+   ],
+   "multi": true
+  }
+ ],
+ "tools": [
+  {
+   "id": "help",
+   "title": "What do I do?",
+   "subtitle": "Describe the situation",
+   "emoji": "🚨",
+   "inputs": [
+    {
+     "key": "situation",
+     "label": "Situation",
+     "type": "text",
+     "placeholder": "adult choking, can't speak",
+     "required": true
+    }
+   ],
+   "prompt": "For '{situation}': callout (call emergency services now? with the number for the profile country), steps (numbered, short), bullets (do NOT), and text (what to watch for).",
+   "shape": "callout, steps, bullets, text",
+   "button": "Guide me",
+   "loading": "Ready…"
+  },
+  {
+   "id": "kit",
+   "title": "Build a kit",
+   "subtitle": "Home, car, travel",
+   "emoji": "🧰",
+   "inputs": [
+    {
+     "key": "kind",
+     "label": "Kit",
+     "type": "chips",
+     "options": [
+      "Home",
+      "Car",
+      "Travel",
+      "Hiking",
+      "Baby"
+     ],
+     "default": "Home"
+    }
+   ],
+   "prompt": "A {kind} first-aid kit: checklist (items with quantities), a callout on medication expiry, and bullets (skills to pair with it).",
+   "shape": "checklist, callout, bullets",
+   "button": "List",
+   "loading": "Listing…"
+  },
+  {
+   "id": "learn",
+   "title": "Learn a skill",
+   "subtitle": "Before you need it",
+   "emoji": "📚",
+   "inputs": [
+    {
+     "key": "skill",
+     "label": "Skill",
+     "type": "chips",
+     "options": [
+      "CPR",
+      "Choking",
+      "Bleeding control",
+      "Burns",
+      "Anaphylaxis",
+      "Stroke recognition"
+     ],
+     "default": "CPR"
+    }
+   ],
+   "prompt": "Teach {skill}: steps, a quote (memory aid), bullets (common mistakes), and a callout on getting certified.",
+   "shape": "steps, quote, bullets, callout",
+   "button": "Teach",
+   "loading": "Teaching…"
+  },
+  {
+   "id": "scenario",
+   "title": "Practice scenario",
+   "subtitle": "Test yourself",
+   "emoji": "🎭",
+   "inputs": [],
+   "prompt": "A practice scenario for the profile context: text (the scene), bullets (what would you do — questions), and steps (model answer).",
+   "shape": "text, bullets, steps",
+   "button": "Practise",
+   "loading": "Setting up…"
+  }
+ ],
+ "disclaimer": "In an emergency call your local emergency number first. This is educational guidance, not a substitute for training or professional care."
+}

@@ -1,0 +1,155 @@
+{
+ "id": "road_trip",
+ "name": "Road Trip Radio",
+ "tagline": "Routes, stops and playlists for the open road",
+ "category": "Travel & Local",
+ "colors": [
+  "#EF6C00",
+  "#0288D1",
+  "#43A047"
+ ],
+ "icon": "car",
+ "about": "Road Trip Radio plans multi-day drives with sensible daily distances, worthwhile stops, budgets and packing — plus games and playlist themes.",
+ "persona": "You are a road-trip veteran: realistic driving hours, scenic-over-fast when it's worth it, safety and fatigue aware.",
+ "onboarding": {
+  "title": "Miles of fun",
+  "subtitle": "Your vehicle and crew.",
+  "bullets": [
+   "Day-by-day routes",
+   "Stops worth the detour",
+   "Budget, packing, games"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "vehicle",
+   "label": "Vehicle",
+   "type": "chips",
+   "options": [
+    "Car",
+    "Campervan",
+    "Motorbike",
+    "EV"
+   ]
+  },
+  {
+   "key": "crew",
+   "label": "Who's coming",
+   "type": "text",
+   "placeholder": "2 adults, 1 kid, a dog"
+  },
+  {
+   "key": "hours",
+   "label": "Max driving/day",
+   "type": "chips",
+   "options": [
+    "3",
+    "5",
+    "7"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "route",
+   "title": "Plan the route",
+   "subtitle": "From A to B with stops",
+   "emoji": "🛣️",
+   "inputs": [
+    {
+     "key": "from",
+     "label": "From",
+     "type": "text",
+     "required": true
+    },
+    {
+     "key": "to",
+     "label": "To",
+     "type": "text",
+     "required": true
+    },
+    {
+     "key": "days",
+     "label": "Days",
+     "type": "number",
+     "placeholder": "5"
+    },
+    {
+     "key": "interests",
+     "label": "Interests",
+     "type": "text",
+     "placeholder": "nature, small towns, food"
+    }
+   ],
+   "prompt": "Plan {from} → {to} over {days} days for the profile crew, interests {interests}: table (Day | Drive | Stops | Overnight area), cards (3 detours worth it, meta = extra minutes), and a callout on fatigue/charging/fuel planning.",
+   "shape": "table, cards, callout",
+   "button": "Plan route",
+   "loading": "Routing…"
+  },
+  {
+   "id": "budget",
+   "title": "Budget the trip",
+   "subtitle": "Fuel, stays, food",
+   "emoji": "💰",
+   "inputs": [
+    {
+     "key": "trip",
+     "label": "Trip summary",
+     "type": "text",
+     "placeholder": "1200 km, 5 days, 2 people",
+     "required": true
+    }
+   ],
+   "prompt": "Budget for {trip}: table (Category | Estimate | Assumption), bullets on saving, and a callout on the usual surprise costs.",
+   "shape": "table, bullets, callout",
+   "button": "Estimate",
+   "loading": "Calculating…"
+  },
+  {
+   "id": "pack",
+   "title": "Packing & car prep",
+   "subtitle": "Nothing forgotten",
+   "emoji": "🎒",
+   "inputs": [
+    {
+     "key": "season",
+     "label": "Season",
+     "type": "chips",
+     "options": [
+      "Summer",
+      "Winter",
+      "Shoulder"
+     ],
+     "default": "Summer"
+    }
+   ],
+   "prompt": "Checklist (car prep), checklist (packing for the crew, {season}), and a callout on the emergency kit.",
+   "shape": "checklist, checklist, callout",
+   "button": "Checklist",
+   "loading": "Listing…"
+  },
+  {
+   "id": "fun",
+   "title": "Games & playlist",
+   "subtitle": "Keep everyone happy",
+   "emoji": "🎶",
+   "inputs": [
+    {
+     "key": "vibe",
+     "label": "Vibe",
+     "type": "text",
+     "placeholder": "90s nostalgia, kid-friendly"
+    }
+   ],
+   "prompt": "cards (5 car games, body = rules, meta = ages), bullets (playlist themes and 10 seed songs for '{vibe}'), and a callout on screen-free stretches.",
+   "shape": "cards, bullets, callout",
+   "button": "Entertain",
+   "loading": "Curating…"
+  }
+ ]
+}

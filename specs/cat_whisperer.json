@@ -1,0 +1,129 @@
+{
+ "id": "cat_whisperer",
+ "name": "Cat Sense",
+ "tagline": "Understand and care for your cat",
+ "category": "Lifestyle",
+ "colors": [
+  "#5E35B1",
+  "#FF7043",
+  "#26A69A"
+ ],
+ "icon": "paw",
+ "about": "Cat Sense decodes behaviour, plans enrichment and litter/feeding routines, and helps with introductions and stress.",
+ "persona": "You are a feline behaviour specialist: calm, practical, respectful of cats being cats.",
+ "onboarding": {
+  "title": "Happy cat, happy home",
+  "subtitle": "About your cat.",
+  "bullets": [
+   "Behaviour decoding",
+   "Enrichment & routines",
+   "Introductions & moves"
+  ]
+ },
+ "profile": [
+  {
+   "key": "cat",
+   "label": "Cat's name, age, indoor/outdoor",
+   "type": "text",
+   "placeholder": "Luna, 3, indoor",
+   "required": true
+  },
+  {
+   "key": "issues",
+   "label": "Concerns",
+   "type": "chips",
+   "options": [
+    "Scratching",
+    "Litter issues",
+    "Night zoomies",
+    "Aggression",
+    "Hiding",
+    "Overeating"
+   ],
+   "multi": true
+  }
+ ],
+ "tools": [
+  {
+   "id": "decode",
+   "title": "Why is my cat…",
+   "subtitle": "Behaviour explained",
+   "emoji": "🐱",
+   "inputs": [
+    {
+     "key": "behaviour",
+     "label": "Behaviour",
+     "type": "text",
+     "placeholder": "pees outside the litter box",
+     "required": true
+    }
+   ],
+   "prompt": "Explain '{behaviour}': text (likely reasons ranked), bullets of what to change at home, steps for the next week, and a callout on vet red flags.",
+   "shape": "text, bullets, steps, callout",
+   "button": "Decode",
+   "loading": "Observing…"
+  },
+  {
+   "id": "enrich",
+   "title": "Enrichment plan",
+   "subtitle": "Indoor cat, rich life",
+   "emoji": "🧶",
+   "inputs": [
+    {
+     "key": "budget",
+     "label": "Budget",
+     "type": "chips",
+     "options": [
+      "Free",
+      "Small",
+      "Splurge"
+     ],
+     "default": "Small"
+    }
+   ],
+   "prompt": "An enrichment plan ({budget}): cards (activity/setup, body, meta = cost), a table (Time | Routine) for a daily rhythm, and a callout on play technique.",
+   "shape": "cards, table, callout",
+   "button": "Plan",
+   "loading": "Planning…"
+  },
+  {
+   "id": "intro",
+   "title": "Introduce a new pet",
+   "subtitle": "Slow and safe",
+   "emoji": "🤝",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Who's coming",
+     "type": "text",
+     "placeholder": "second cat, 1 year old",
+     "required": true
+    }
+   ],
+   "prompt": "Introduction plan for {who}: table (Phase | Days | Steps | Move on when), a checklist of supplies, and a callout on signs to slow down.",
+   "shape": "table, checklist, callout",
+   "button": "Plan",
+   "loading": "Planning…"
+  },
+  {
+   "id": "vet",
+   "title": "Vet visit prep",
+   "subtitle": "Questions and symptoms",
+   "emoji": "🩺",
+   "inputs": [
+    {
+     "key": "reason",
+     "label": "Reason",
+     "type": "text",
+     "placeholder": "annual check, been sneezing",
+     "required": true
+    }
+   ],
+   "prompt": "Prep for a vet visit about {reason}: bullets (symptom log to bring), bullets (questions to ask), and a callout on carrier-stress reduction.",
+   "shape": "bullets, bullets, callout",
+   "button": "Prep",
+   "loading": "Preparing…"
+  }
+ ],
+ "disclaimer": "Not a substitute for veterinary care."
+}

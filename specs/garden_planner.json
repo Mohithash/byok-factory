@@ -1,0 +1,146 @@
+{
+ "id": "garden_planner",
+ "name": "Garden Planner",
+ "tagline": "What to sow, plant and harvest this month",
+ "category": "House & Home",
+ "colors": [
+  "#33691E",
+  "#FF8F00",
+  "#0288D1"
+ ],
+ "icon": "leaf",
+ "about": "Garden Planner builds sowing calendars for your climate, designs beds and balconies, and troubleshoots pests organically.",
+ "persona": "You are a market-gardener mentor: seasonal, organic-first, honest about what won't grow in your conditions.",
+ "onboarding": {
+  "title": "Grow more of what you eat",
+  "subtitle": "Your climate and space are everything.",
+  "bullets": [
+   "Monthly sowing calendars",
+   "Bed & balcony layouts",
+   "Organic pest fixes"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "where",
+   "label": "Location / climate zone",
+   "type": "text",
+   "placeholder": "Manchester, UK",
+   "required": true
+  },
+  {
+   "key": "space",
+   "label": "Space",
+   "type": "chips",
+   "options": [
+    "Balcony pots",
+    "Small bed",
+    "Allotment",
+    "Big garden"
+   ]
+  },
+  {
+   "key": "sun",
+   "label": "Sun",
+   "type": "chips",
+   "options": [
+    "Shade",
+    "Part sun",
+    "Full sun"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "month",
+   "title": "This month",
+   "subtitle": "Sow, plant, harvest",
+   "emoji": "📅",
+   "inputs": [
+    {
+     "key": "month",
+     "label": "Month",
+     "type": "text",
+     "placeholder": "April",
+     "required": true
+    }
+   ],
+   "prompt": "For {month} in the profile location: table (Crop | Sow/Plant/Harvest | Where | Notes), a checklist of jobs, and a callout on frost/heat risks.",
+   "shape": "table, checklist, callout",
+   "button": "Plan month",
+   "loading": "Checking…"
+  },
+  {
+   "id": "layout",
+   "title": "Design my space",
+   "subtitle": "Layout for what you want to grow",
+   "emoji": "📐",
+   "inputs": [
+    {
+     "key": "want",
+     "label": "I want to grow",
+     "type": "text",
+     "placeholder": "tomatoes, herbs, salad, strawberries",
+     "required": true
+    },
+    {
+     "key": "dims",
+     "label": "Dimensions",
+     "type": "text",
+     "placeholder": "2m × 1m bed"
+    }
+   ],
+   "prompt": "Design {dims} for {want} in the profile conditions: table (Position | Plant | Spacing | Companion), steps to set up, and a callout on watering.",
+   "shape": "table, steps, callout",
+   "button": "Design",
+   "loading": "Designing…"
+  },
+  {
+   "id": "pest",
+   "title": "Pest or disease?",
+   "subtitle": "Photo → organic fix",
+   "emoji": "🐛",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the damage",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "plant",
+     "label": "Plant",
+     "type": "text"
+    }
+   ],
+   "prompt": "Identify the pest/disease on {plant} from the photo: text (what it is, confidence), steps (organic control now), bullets (prevention), and a callout on when to remove the plant.",
+   "shape": "text, steps, bullets, callout",
+   "button": "Identify",
+   "loading": "Examining…"
+  },
+  {
+   "id": "seedling",
+   "title": "Seed to harvest",
+   "subtitle": "One crop, full guide",
+   "emoji": "🌱",
+   "inputs": [
+    {
+     "key": "crop",
+     "label": "Crop",
+     "type": "text",
+     "placeholder": "cherry tomatoes",
+     "required": true
+    }
+   ],
+   "prompt": "Guide for {crop} in the profile conditions: table (Stage | When | What to do), kv (spacing, depth, days to harvest, common problems), and a quote with the one tip that matters most.",
+   "shape": "table, kv, quote",
+   "button": "Guide",
+   "loading": "Growing…"
+  }
+ ]
+}

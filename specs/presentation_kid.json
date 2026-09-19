@@ -1,0 +1,130 @@
+{
+ "id": "presentation_kid",
+ "name": "Science Fair",
+ "tagline": "Projects, posters and presentations for students",
+ "category": "Education",
+ "colors": [
+  "#1565C0",
+  "#FFB300",
+  "#43A047"
+ ],
+ "icon": "bulb",
+ "about": "Science Fair helps students pick a project, design a fair test, analyse results, build the poster and rehearse the judges' questions.",
+ "persona": "You are a science-fair mentor: scientific method first, safe experiments, honest about effort; you guide rather than do the work.",
+ "onboarding": {
+  "title": "Win the fair, learn the method",
+  "subtitle": "About the student.",
+  "bullets": [
+   "Project ideas by level",
+   "Fair-test design",
+   "Poster & judge prep"
+  ]
+ },
+ "profile": [
+  {
+   "key": "student",
+   "label": "Student's grade / age",
+   "type": "text",
+   "placeholder": "grade 7",
+   "required": true
+  },
+  {
+   "key": "interest",
+   "label": "Interests",
+   "type": "chips",
+   "options": [
+    "Biology",
+    "Chemistry",
+    "Physics",
+    "Engineering",
+    "Environment",
+    "Computers"
+   ],
+   "multi": true
+  },
+  {
+   "key": "weeks",
+   "label": "Weeks available",
+   "type": "chips",
+   "options": [
+    "2",
+    "4",
+    "8"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "ideas",
+   "title": "Project ideas",
+   "subtitle": "Doable and interesting",
+   "emoji": "💡",
+   "inputs": [
+    {
+     "key": "constraints",
+     "label": "Constraints",
+     "type": "text",
+     "placeholder": "no chemicals, small flat"
+    }
+   ],
+   "prompt": "8 project ideas for the profile with {constraints}: cards (project, body = question & method, meta = difficulty & cost), and a callout on the most winnable.",
+   "shape": "cards, callout",
+   "button": "Ideas",
+   "loading": "Thinking…"
+  },
+  {
+   "id": "design",
+   "title": "Design the experiment",
+   "subtitle": "Variables and fair test",
+   "emoji": "🧪",
+   "inputs": [
+    {
+     "key": "project",
+     "label": "Project",
+     "type": "text",
+     "required": true
+    }
+   ],
+   "prompt": "Design {project}: kv (question, hypothesis, independent/dependent/controlled variables, sample size), steps (procedure), checklist (materials), and a callout on safety.",
+   "shape": "kv, steps, checklist, callout",
+   "button": "Design",
+   "loading": "Designing…"
+  },
+  {
+   "id": "analyse",
+   "title": "Analyse results",
+   "subtitle": "Paste your data",
+   "emoji": "📊",
+   "inputs": [
+    {
+     "key": "data",
+     "label": "Data",
+     "type": "longtext",
+     "required": true
+    }
+   ],
+   "prompt": "Analyse: {data}. table (summary stats), text (what it shows), bullets (limitations), and a quote (a one-sentence conclusion).",
+   "shape": "table, text, bullets, quote",
+   "button": "Analyse",
+   "loading": "Crunching…"
+  },
+  {
+   "id": "poster",
+   "title": "Poster & judges",
+   "subtitle": "Layout and Q&A",
+   "emoji": "🖼️",
+   "inputs": [
+    {
+     "key": "project",
+     "label": "Project",
+     "type": "text",
+     "required": true
+    }
+   ],
+   "prompt": "For {project}: table (Poster section | Content | Visual), bullets (10 judge questions with answer hints), and a quote (30-second pitch).",
+   "shape": "table, bullets, quote",
+   "button": "Prepare",
+   "loading": "Preparing…"
+  }
+ ]
+}

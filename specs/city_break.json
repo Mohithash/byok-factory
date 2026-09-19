@@ -1,0 +1,142 @@
+{
+ "id": "city_break",
+ "name": "City Break",
+ "tagline": "48 hours in any city, done right",
+ "category": "Travel & Local",
+ "colors": [
+  "#0277BD",
+  "#FF8F00",
+  "#2E7D32"
+ ],
+ "icon": "pin",
+ "about": "City Break plans weekend itineraries grouped by neighbourhood, finds food worth the walk, and handles logistics from the airport to the last train.",
+ "persona": "You are a seasoned travel editor: neighbourhood-first planning, honest about tourist traps, precise about logistics; you flag when facts may have changed.",
+ "onboarding": {
+  "title": "Weekend, planned",
+  "subtitle": "Your travel style.",
+  "bullets": [
+   "Neighbourhood-grouped days",
+   "Food & coffee picks",
+   "Transport & safety notes"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "style",
+   "label": "Style",
+   "type": "chips",
+   "options": [
+    "Food-first",
+    "Museums",
+    "Walking",
+    "Nightlife",
+    "Chill",
+    "Kids"
+   ],
+   "multi": true
+  },
+  {
+   "key": "budget",
+   "label": "Budget",
+   "type": "chips",
+   "options": [
+    "Shoestring",
+    "Mid",
+    "Splurge"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "plan",
+   "title": "Plan 48 hours",
+   "subtitle": "City + dates",
+   "emoji": "🗺️",
+   "inputs": [
+    {
+     "key": "city",
+     "label": "City",
+     "type": "text",
+     "placeholder": "Porto",
+     "required": true
+    },
+    {
+     "key": "when",
+     "label": "When",
+     "type": "text",
+     "placeholder": "next weekend, arriving Fri 6pm"
+    }
+   ],
+   "prompt": "48-hour plan for {city}, {when}, for the profile style/budget: table (Day/Time | Activity | Area | Note), cards (3 places to eat, meta = meal & price tier), and a callout on logistics (airport → centre, transport pass, safety).",
+   "shape": "table, cards, callout",
+   "button": "Plan",
+   "loading": "Planning…"
+  },
+  {
+   "id": "food",
+   "title": "Where to eat",
+   "subtitle": "Real, not touristy",
+   "emoji": "🍽️",
+   "inputs": [
+    {
+     "key": "city",
+     "label": "City / area",
+     "type": "text",
+     "required": true
+    },
+    {
+     "key": "craving",
+     "label": "Craving",
+     "type": "text",
+     "placeholder": "local, cheap, seafood"
+    }
+   ],
+   "prompt": "Food picks in {city} for '{craving}': cards (type of place/dish and where to look, meta = price tier), bullets on ordering etiquette, and a callout on tourist traps to skip.",
+   "shape": "cards, bullets, callout",
+   "button": "Find",
+   "loading": "Searching…"
+  },
+  {
+   "id": "rainy",
+   "title": "Rainy-day plan",
+   "subtitle": "Indoors, still great",
+   "emoji": "🌧️",
+   "inputs": [
+    {
+     "key": "city",
+     "label": "City",
+     "type": "text",
+     "required": true
+    }
+   ],
+   "prompt": "A rainy day in {city}: steps (a route of indoor stops), cards (3 options, meta = cost), and a callout on booking ahead.",
+   "shape": "steps, cards, callout",
+   "button": "Plan",
+   "loading": "Planning…"
+  },
+  {
+   "id": "phrases",
+   "title": "Local basics",
+   "subtitle": "Phrases, tipping, customs",
+   "emoji": "🗣️",
+   "inputs": [
+    {
+     "key": "city",
+     "label": "City / country",
+     "type": "text",
+     "required": true
+    }
+   ],
+   "prompt": "Local basics for {city}: table (Phrase | Pronunciation | Meaning), kv (tipping, plugs, water, cards vs cash, emergency number), and bullets on etiquette.",
+   "shape": "table, kv, bullets",
+   "button": "Brief me",
+   "loading": "Compiling…"
+  }
+ ],
+ "disclaimer": "Verify opening hours, prices and safety advice locally before relying on them."
+}

@@ -1,0 +1,150 @@
+{
+ "id": "songwriter",
+ "name": "Song Forge",
+ "tagline": "Lyrics, chords and structure for your next song",
+ "category": "Music & Audio",
+ "colors": [
+  "#AD1457",
+  "#FFB300",
+  "#00838F"
+ ],
+ "icon": "music",
+ "about": "Song Forge co-writes lyrics in your voice, suggests chord progressions and structures, and gives honest feedback on drafts.",
+ "persona": "You are a working songwriter and producer: specific imagery over clichés, prosody-aware, genre-fluent; you improve the writer's own lines.",
+ "onboarding": {
+  "title": "Finish the song",
+  "subtitle": "Your sound.",
+  "bullets": [
+   "Lyrics & rhyme help",
+   "Chords & structure",
+   "Draft feedback"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "genre",
+   "label": "Genres",
+   "type": "chips",
+   "options": [
+    "Pop",
+    "Indie",
+    "Hip-hop",
+    "R&B",
+    "Country",
+    "Rock",
+    "Folk",
+    "Electronic"
+   ],
+   "multi": true
+  },
+  {
+   "key": "instrument",
+   "label": "You play",
+   "type": "chips",
+   "options": [
+    "Guitar",
+    "Piano",
+    "Neither",
+    "Producer"
+   ]
+  },
+  {
+   "key": "influences",
+   "label": "Influences",
+   "type": "text"
+  }
+ ],
+ "tools": [
+  {
+   "id": "lyrics",
+   "title": "Write with me",
+   "subtitle": "Theme → verse/chorus",
+   "emoji": "🎤",
+   "inputs": [
+    {
+     "key": "theme",
+     "label": "Theme / story",
+     "type": "text",
+     "placeholder": "leaving a small town",
+     "required": true
+    },
+    {
+     "key": "mood",
+     "label": "Mood",
+     "type": "chips",
+     "options": [
+      "Hopeful",
+      "Bittersweet",
+      "Angry",
+      "Euphoric",
+      "Lonely"
+     ],
+     "default": "Bittersweet"
+    }
+   ],
+   "prompt": "Co-write on '{theme}', mood {mood}, in the profile genre: quote (verse 1), quote (chorus), bullets (3 alternative hooks), and a callout on imagery to avoid.",
+   "shape": "quote, quote, bullets, callout",
+   "button": "Write",
+   "loading": "Humming…"
+  },
+  {
+   "id": "chords",
+   "title": "Chords & structure",
+   "subtitle": "For this song",
+   "emoji": "🎸",
+   "inputs": [
+    {
+     "key": "key",
+     "label": "Key / vibe",
+     "type": "text",
+     "placeholder": "C major, driving",
+     "required": true
+    }
+   ],
+   "prompt": "For {key} in the profile genre: table (Section | Chords | Bars | Notes), bullets (2 alternative progressions), and a callout on where to modulate or drop out.",
+   "shape": "table, bullets, callout",
+   "button": "Suggest",
+   "loading": "Voicing…"
+  },
+  {
+   "id": "feedback",
+   "title": "Feedback on lyrics",
+   "subtitle": "Paste a draft",
+   "emoji": "📝",
+   "inputs": [
+    {
+     "key": "draft",
+     "label": "Lyrics",
+     "type": "longtext",
+     "required": true
+    }
+   ],
+   "prompt": "Feedback on: {draft}. table (Line | Issue | Stronger option), bullets (what's working), and a quote with the single line that should be the hook.",
+   "shape": "table, bullets, quote",
+   "button": "Review",
+   "loading": "Listening…"
+  },
+  {
+   "id": "title",
+   "title": "Titles & concepts",
+   "subtitle": "Get unstuck",
+   "emoji": "💡",
+   "inputs": [
+    {
+     "key": "seed",
+     "label": "Seed idea",
+     "type": "text"
+    }
+   ],
+   "prompt": "10 song concepts from '{seed}': cards (title, body = concept & POV, meta = genre), and a callout on the freshest one.",
+   "shape": "cards, callout",
+   "button": "Brainstorm",
+   "loading": "Riffing…"
+  }
+ ]
+}

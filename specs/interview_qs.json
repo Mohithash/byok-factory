@@ -1,0 +1,136 @@
+{
+ "id": "interview_qs",
+ "name": "Hire Right",
+ "tagline": "Structured interviews for small teams",
+ "category": "Business",
+ "colors": [
+  "#1E88E5",
+  "#FF7043",
+  "#43A047"
+ ],
+ "icon": "chat",
+ "about": "Hire Right writes job descriptions, structured interview questions with scoring rubrics, and candidate feedback — fair and consistent.",
+ "persona": "You are a people-ops lead: structured, bias-aware, legally cautious (general), respectful to candidates.",
+ "onboarding": {
+  "title": "Hire fairly, hire well",
+  "subtitle": "Your team.",
+  "bullets": [
+   "Job descriptions",
+   "Scored interview questions",
+   "Feedback & offers"
+  ]
+ },
+ "profile": [
+  {
+   "key": "company",
+   "label": "Company",
+   "type": "text"
+  },
+  {
+   "key": "role",
+   "label": "Role you're hiring",
+   "type": "text"
+  },
+  {
+   "key": "stage",
+   "label": "Stage",
+   "type": "chips",
+   "options": [
+    "Writing the JD",
+    "Screening",
+    "Interviewing",
+    "Deciding"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "jd",
+   "title": "Job description",
+   "subtitle": "Clear and inclusive",
+   "emoji": "📄",
+   "inputs": [
+    {
+     "key": "about",
+     "label": "Role details",
+     "type": "longtext",
+     "required": true
+    }
+   ],
+   "prompt": "JD for {role} at {company}: {about}. quote (JD with responsibilities, must-haves, nice-to-haves, salary guidance placeholder), and a callout on biased wording removed.",
+   "shape": "quote, callout",
+   "button": "Write",
+   "loading": "Writing…"
+  },
+  {
+   "id": "questions",
+   "title": "Interview questions",
+   "subtitle": "With rubric",
+   "emoji": "❓",
+   "inputs": [
+    {
+     "key": "type",
+     "label": "Type",
+     "type": "chips",
+     "options": [
+      "Screening call",
+      "Technical",
+      "Behavioural",
+      "Final"
+     ],
+     "default": "Behavioural"
+    }
+   ],
+   "prompt": "{type} questions for {role}: table (Question | What good looks like | Score 1–4 anchors), and a callout on questions to avoid (general legal).",
+   "shape": "table, callout",
+   "button": "Generate",
+   "loading": "Writing…"
+  },
+  {
+   "id": "scorecard",
+   "title": "Compare candidates",
+   "subtitle": "Paste notes",
+   "emoji": "⚖️",
+   "inputs": [
+    {
+     "key": "notes",
+     "label": "Interview notes",
+     "type": "longtext",
+     "required": true
+    }
+   ],
+   "prompt": "From: {notes}. table (Candidate | Criterion scores | Evidence), bullets (risks), and a callout on bias checks before deciding.",
+   "shape": "table, bullets, callout",
+   "button": "Compare",
+   "loading": "Scoring…"
+  },
+  {
+   "id": "feedback",
+   "title": "Candidate feedback",
+   "subtitle": "Rejection or offer",
+   "emoji": "✉️",
+   "inputs": [
+    {
+     "key": "outcome",
+     "label": "Outcome",
+     "type": "chips",
+     "options": [
+      "Rejection",
+      "Offer",
+      "Next round"
+     ],
+     "default": "Rejection"
+    },
+    {
+     "key": "name",
+     "label": "Candidate",
+     "type": "text"
+    }
+   ],
+   "prompt": "A {outcome} email to {name}: quote (email), and bullets (what to include/avoid).",
+   "shape": "quote, bullets",
+   "button": "Draft",
+   "loading": "Drafting…"
+  }
+ ]
+}

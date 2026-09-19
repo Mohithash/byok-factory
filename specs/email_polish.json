@@ -1,0 +1,145 @@
+{
+ "id": "email_polish",
+ "name": "Inbox Pilot",
+ "tagline": "Emails written, summarised and answered in seconds",
+ "category": "Communication",
+ "colors": [
+  "#00838F",
+  "#F4511E",
+  "#5E35B1"
+ ],
+ "icon": "chat",
+ "about": "Inbox Pilot drafts replies in your tone, summarises long threads, writes difficult emails (no, sorry, chase, escalate) and turns bullet points into polished messages.",
+ "persona": "You are an executive assistant with impeccable judgement: concise, warm, culturally aware, never robotic.",
+ "onboarding": {
+  "title": "Own your inbox",
+  "subtitle": "Your voice and sign-off.",
+  "bullets": [
+   "Replies in your tone",
+   "Thread summaries",
+   "Hard emails made easy"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "signoff",
+   "label": "Sign-off",
+   "type": "text",
+   "placeholder": "Best, Sam"
+  },
+  {
+   "key": "tone",
+   "label": "Default tone",
+   "type": "chips",
+   "options": [
+    "Friendly",
+    "Professional",
+    "Direct"
+   ],
+   "default": "Professional"
+  },
+  {
+   "key": "role",
+   "label": "Your role",
+   "type": "text"
+  }
+ ],
+ "tools": [
+  {
+   "id": "reply",
+   "title": "Reply to this",
+   "subtitle": "Paste the email",
+   "emoji": "↩️",
+   "inputs": [
+    {
+     "key": "email",
+     "label": "The email you received",
+     "type": "longtext",
+     "required": true
+    },
+    {
+     "key": "intent",
+     "label": "What you want to say",
+     "type": "text",
+     "placeholder": "yes but not before Friday"
+    }
+   ],
+   "prompt": "Reply to: {email}. Intent: {intent}. quote (reply in the profile tone), quote (shorter version), and bullets on anything to double-check before sending.",
+   "shape": "quote, quote, bullets",
+   "button": "Draft reply",
+   "loading": "Drafting…"
+  },
+  {
+   "id": "summarise",
+   "title": "Summarise a thread",
+   "subtitle": "Long → clear",
+   "emoji": "🧾",
+   "inputs": [
+    {
+     "key": "thread",
+     "label": "Thread",
+     "type": "longtext",
+     "required": true
+    }
+   ],
+   "prompt": "Summarise: {thread}. bullets (what's decided), table (Action | Owner | Due), bullets (open questions), and a quote (one-line status for your boss).",
+   "shape": "bullets, table, bullets, quote",
+   "button": "Summarise",
+   "loading": "Reading…"
+  },
+  {
+   "id": "hard",
+   "title": "The hard email",
+   "subtitle": "No, sorry, chase, escalate",
+   "emoji": "🧊",
+   "inputs": [
+    {
+     "key": "kind",
+     "label": "Kind",
+     "type": "chips",
+     "options": [
+      "Say no",
+      "Apologise",
+      "Chase",
+      "Escalate",
+      "Deliver bad news",
+      "Ask for a favour"
+     ],
+     "default": "Say no"
+    },
+    {
+     "key": "context",
+     "label": "Context",
+     "type": "longtext"
+    }
+   ],
+   "prompt": "Write a '{kind}' email for: {context}. quote (the email), bullets (why it works), and a callout on what NOT to include.",
+   "shape": "quote, bullets, callout",
+   "button": "Write",
+   "loading": "Writing…"
+  },
+  {
+   "id": "expand",
+   "title": "Bullets → email",
+   "subtitle": "Rough notes to polished",
+   "emoji": "🧱",
+   "inputs": [
+    {
+     "key": "notes",
+     "label": "Your notes",
+     "type": "longtext",
+     "required": true
+    }
+   ],
+   "prompt": "Turn into a polished email: {notes}. quote (subject + body), and bullets on tone tweaks for different recipients.",
+   "shape": "quote, bullets",
+   "button": "Polish",
+   "loading": "Polishing…"
+  }
+ ]
+}

@@ -1,0 +1,151 @@
+{
+ "id": "photo_mentor",
+ "name": "Shot Mentor",
+ "tagline": "Take better photos with the camera you have",
+ "category": "Photography",
+ "colors": [
+  "#263238",
+  "#FFB300",
+  "#00ACC1"
+ ],
+ "icon": "camera",
+ "about": "Shot Mentor critiques your photos, gives camera settings for any scene, plans shoots and teaches editing recipes.",
+ "persona": "You are a working photographer and teacher: composition-first, honest critiques, gear-agnostic.",
+ "onboarding": {
+  "title": "See better, shoot better",
+  "subtitle": "Your gear.",
+  "bullets": [
+   "Photo critiques",
+   "Settings for any scene",
+   "Shoot plans & edit recipes"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "gear",
+   "label": "Gear",
+   "type": "chips",
+   "options": [
+    "Phone",
+    "Mirrorless/DSLR",
+    "Film",
+    "Drone"
+   ],
+   "multi": true
+  },
+  {
+   "key": "interests",
+   "label": "Interests",
+   "type": "chips",
+   "options": [
+    "Portraits",
+    "Landscape",
+    "Street",
+    "Food",
+    "Product",
+    "Travel"
+   ],
+   "multi": true
+  }
+ ],
+ "tools": [
+  {
+   "id": "critique",
+   "title": "Critique my photo",
+   "subtitle": "Honest and useful",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Your photo",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Critique the photo: table (Aspect | Score/5 | Note) for composition, light, subject, colour, moment; bullets (3 specific improvements); a callout on the edit that would help most.",
+   "shape": "table, bullets, callout",
+   "button": "Critique",
+   "loading": "Looking…"
+  },
+  {
+   "id": "settings",
+   "title": "Settings for…",
+   "subtitle": "Any scene",
+   "emoji": "⚙️",
+   "inputs": [
+    {
+     "key": "scene",
+     "label": "Scene",
+     "type": "text",
+     "placeholder": "night street, handheld, phone",
+     "required": true
+    }
+   ],
+   "prompt": "Settings for {scene} on the profile gear: kv (mode, ISO, aperture, shutter, focus, white balance), steps (how to shoot it), and a callout on the common mistake.",
+   "shape": "kv, steps, callout",
+   "button": "Get settings",
+   "loading": "Metering…"
+  },
+  {
+   "id": "shoot",
+   "title": "Plan a shoot",
+   "subtitle": "Location, time, shot list",
+   "emoji": "🗺️",
+   "inputs": [
+    {
+     "key": "brief",
+     "label": "Brief",
+     "type": "text",
+     "placeholder": "golden-hour portraits of my friend in the city",
+     "required": true
+    }
+   ],
+   "prompt": "Plan: {brief}. kv (time, light direction, lens/phone mode), checklist (shot list), and a callout on backup plans.",
+   "shape": "kv, checklist, callout",
+   "button": "Plan",
+   "loading": "Planning…"
+  },
+  {
+   "id": "edit",
+   "title": "Edit recipe",
+   "subtitle": "For a look",
+   "emoji": "🎨",
+   "inputs": [
+    {
+     "key": "look",
+     "label": "Look",
+     "type": "chips",
+     "options": [
+      "Clean & bright",
+      "Moody",
+      "Film",
+      "Black & white",
+      "Vibrant"
+     ],
+     "default": "Film"
+    },
+    {
+     "key": "app",
+     "label": "App",
+     "type": "chips",
+     "options": [
+      "Lightroom",
+      "Snapseed",
+      "VSCO",
+      "Phone editor"
+     ],
+     "default": "Lightroom"
+    }
+   ],
+   "prompt": "An edit recipe for '{look}' in {app}: table (Control | Value | Why), steps (order), and a callout on not overdoing it.",
+   "shape": "table, steps, callout",
+   "button": "Recipe",
+   "loading": "Mixing…"
+  }
+ ]
+}

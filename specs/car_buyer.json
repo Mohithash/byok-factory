@@ -1,0 +1,154 @@
+{
+ "id": "car_buyer",
+ "name": "Car Sense",
+ "tagline": "Buy, sell and maintain a car without getting fleeced",
+ "category": "Auto & Vehicles",
+ "colors": [
+  "#263238",
+  "#FF7043",
+  "#00ACC1"
+ ],
+ "icon": "car",
+ "about": "Car Sense compares models for your needs, prepares inspection checklists and haggling scripts, decodes listings and plans maintenance.",
+ "persona": "You are an honest mechanic-turned-consumer-advocate: reliability-first, total-cost-of-ownership minded.",
+ "onboarding": {
+  "title": "Drive a good deal",
+  "subtitle": "What you need from a car.",
+  "bullets": [
+   "Model shortlists",
+   "Inspection & haggle scripts",
+   "Maintenance plans"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "country",
+   "label": "Country",
+   "type": "text"
+  },
+  {
+   "key": "budget",
+   "label": "Budget",
+   "type": "number",
+   "placeholder": "12000"
+  },
+  {
+   "key": "needs",
+   "label": "Needs",
+   "type": "chips",
+   "options": [
+    "City",
+    "Family",
+    "Long commutes",
+    "Towing",
+    "Fun",
+    "Low running cost"
+   ],
+   "multi": true
+  }
+ ],
+ "tools": [
+  {
+   "id": "shortlist",
+   "title": "Shortlist models",
+   "subtitle": "For your needs and budget",
+   "emoji": "🚗",
+   "inputs": [
+    {
+     "key": "age",
+     "label": "Age",
+     "type": "chips",
+     "options": [
+      "New",
+      "1–3 yrs",
+      "4–8 yrs",
+      "Older"
+     ],
+     "default": "4–8 yrs"
+    },
+    {
+     "key": "fuel",
+     "label": "Fuel",
+     "type": "chips",
+     "options": [
+      "Petrol",
+      "Diesel",
+      "Hybrid",
+      "EV",
+      "Any"
+     ],
+     "default": "Any"
+    }
+   ],
+   "prompt": "Shortlist for the profile, {age}, {fuel}: cards (model & years, body = why + known issues, meta = typical price), table (Model | Reliability | Running cost | Space), and a callout on the one to avoid.",
+   "shape": "cards, table, callout",
+   "button": "Shortlist",
+   "loading": "Researching…"
+  },
+  {
+   "id": "inspect",
+   "title": "Inspect a used car",
+   "subtitle": "Checklist + questions",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "car",
+     "label": "Car",
+     "type": "text",
+     "placeholder": "2018 Golf 1.6 TDI, 80k km",
+     "required": true
+    }
+   ],
+   "prompt": "Inspection for {car}: checklist (walk-around, under bonnet, interior, test drive), bullets (questions for the seller), and a callout on the deal-breakers for this model.",
+   "shape": "checklist, bullets, callout",
+   "button": "Prepare",
+   "loading": "Preparing…"
+  },
+  {
+   "id": "listing",
+   "title": "Decode a listing",
+   "subtitle": "Photo or paste",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Screenshot of the listing",
+     "type": "photo"
+    },
+    {
+     "key": "text",
+     "label": "Or paste",
+     "type": "longtext"
+    }
+   ],
+   "prompt": "Decode the listing: kv (fair price estimate (general), red flags, missing info), bullets (questions to ask), and a quote (opening haggle message).",
+   "shape": "kv, bullets, quote",
+   "button": "Decode",
+   "loading": "Reading…"
+  },
+  {
+   "id": "maintain",
+   "title": "Maintenance plan",
+   "subtitle": "By km and age",
+   "emoji": "🗓️",
+   "inputs": [
+    {
+     "key": "car",
+     "label": "Car & mileage",
+     "type": "text",
+     "required": true
+    }
+   ],
+   "prompt": "Plan for {car}: table (Km/Time | Service | DIY? | Est. cost), and a callout on the expensive items coming up.",
+   "shape": "table, callout",
+   "button": "Plan",
+   "loading": "Planning…"
+  }
+ ],
+ "disclaimer": "General information, not financial, tax or legal advice; consult a licensed professional."
+}

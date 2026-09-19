@@ -1,0 +1,37 @@
+{
+ "id": "pantry_pal", "name": "Pantry Pal", "tagline": "Dinner from what's already in your kitchen", "category": "Food & Drink",
+ "colors": ["#D9481F", "#2E7D32", "#F9A825"], "icon": "leaf",
+ "about": "Pantry Pal turns whatever is in your fridge into real dinner ideas, shopping lists and swaps. Bring your own AI key; nothing is stored anywhere but your phone.",
+ "persona": "You are a resourceful, warm home cook who knows real technique and cheap staples. You never suggest ingredients the user lacks without saying so.",
+ "onboarding": {"title": "What's in your kitchen?", "subtitle": "Tell Pantry Pal how you eat. Then snap or type what you have.", "bullets": ["Recipes from your actual pantry", "Swaps for anything missing", "Weekly plan + shopping list"]},
+ "profile": [
+  {"key": "name", "label": "Name", "type": "text"},
+  {"key": "diet", "label": "Diet", "type": "chips", "options": ["Anything", "Vegetarian", "Vegan", "Halal", "Keto", "Gluten-free"]},
+  {"key": "allergies", "label": "Allergies / avoid", "type": "text", "placeholder": "peanuts, shellfish…"},
+  {"key": "servings", "label": "Usual servings", "type": "chips", "options": ["1", "2", "4", "6"]}
+ ],
+ "tools": [
+  {"id": "cook", "title": "What can I cook?", "subtitle": "Recipes that use what you have", "emoji": "🍳",
+   "inputs": [{"key": "pantry", "label": "What's in your kitchen", "type": "longtext", "placeholder": "eggs, rice, half an onion, spinach, feta, soy sauce…", "required": true},
+              {"key": "mood", "label": "Mood", "type": "chips", "options": ["Quick", "Comfort", "Light", "High protein", "Spicy", "Kid-friendly"]},
+              {"key": "time", "label": "Max minutes", "type": "number", "placeholder": "30"}],
+   "prompt": "Pantry: {pantry}. Mood: {mood}. Max time: {time} minutes. Propose 3 recipes as cards (meta = minutes · missing count). Then give the full method of the best one as steps, and a bullets section 'Missing' listing anything not in the pantry (assume salt, pepper, oil, water).",
+   "shape": "cards, steps, bullets", "button": "Suggest recipes", "loading": "Raiding the pantry…"},
+  {"id": "scan", "title": "Scan my fridge", "subtitle": "Photo → inventory + ideas", "emoji": "📷",
+   "inputs": [{"key": "photo", "label": "Photo of your fridge or shelf", "type": "photo", "placeholder": "Open the door wide and get everything in frame.", "required": true}],
+   "prompt": "Catalogue every food item visible in the photo as a table (Item | Qty | Category | Use by (est.)). Then suggest 3 meals as cards using mostly these items, and a checklist of what to use first because it spoils soonest.",
+   "shape": "table, cards, checklist", "button": "Scan", "loading": "Looking inside…"},
+  {"id": "swap", "title": "Swap an ingredient", "subtitle": "Missing something? Fix it", "emoji": "🔁",
+   "inputs": [{"key": "missing", "label": "I don't have", "type": "text", "placeholder": "buttermilk", "required": true}, {"key": "recipe", "label": "For", "type": "text", "placeholder": "pancakes"}],
+   "prompt": "The user lacks {missing} for {recipe}. Give 3-5 substitutes as kv pairs (substitute → ratio & note), a callout on what changes in the result, and steps if any prep is needed.",
+   "shape": "kv, callout, steps", "button": "Find swaps", "loading": "Thinking…"},
+  {"id": "plan", "title": "Weekly plan", "subtitle": "Dinners + one shopping list", "emoji": "🗓️",
+   "inputs": [{"key": "days", "label": "Days", "type": "chips", "options": ["3", "5", "7"], "default": "5"}, {"key": "budget", "label": "Budget", "type": "chips", "options": ["Tight", "Normal", "Generous"]}, {"key": "notes", "label": "Notes", "type": "text", "placeholder": "no fish on Fridays, leftovers for lunch…"}],
+   "prompt": "Plan {days} dinners for the profile, budget {budget}, notes: {notes}. Reuse ingredients across days to cut waste. Sections: a table (Day | Dish | Minutes | Reuses), a checklist shopping list grouped by aisle, and a callout on batch-prep.",
+   "shape": "table, checklist, callout", "button": "Plan my week", "loading": "Planning…"},
+  {"id": "leftovers", "title": "Rescue leftovers", "subtitle": "Turn last night into tonight", "emoji": "♻️",
+   "inputs": [{"key": "leftovers", "label": "Leftovers", "type": "text", "placeholder": "half a roast chicken, cold rice", "required": true}],
+   "prompt": "Reinvent these leftovers: {leftovers}. 3 cards (dish, how, meta = minutes), then steps for the fastest one, then a callout on food safety (how long these keep).",
+   "shape": "cards, steps, callout", "button": "Rescue", "loading": "Reinventing…"}
+ ]
+}

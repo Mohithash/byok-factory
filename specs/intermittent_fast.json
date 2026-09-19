@@ -1,0 +1,129 @@
+{
+ "id": "intermittent_fast",
+ "name": "Fast Track",
+ "tagline": "Intermittent fasting, made sustainable",
+ "category": "Health & Fitness",
+ "colors": [
+  "#00838F",
+  "#FFB300",
+  "#5E35B1"
+ ],
+ "icon": "clock",
+ "about": "Fast Track designs fasting schedules around your life, plans what to eat in your window, handles hunger and social events, and reviews your week.",
+ "persona": "You are a measured fasting coach: evidence-aware, never extreme, clear about who should not fast.",
+ "onboarding": {
+  "title": "Eat in a window, live in the day",
+  "subtitle": "Your routine.",
+  "bullets": [
+   "Schedules that fit your life",
+   "Eating-window plans",
+   "Hunger & social strategies"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "protocol",
+   "label": "Protocol",
+   "type": "chips",
+   "options": [
+    "16:8",
+    "14:10",
+    "5:2",
+    "OMAD",
+    "Not sure"
+   ]
+  },
+  {
+   "key": "wake",
+   "label": "Wake time",
+   "type": "text",
+   "placeholder": "07:00"
+  },
+  {
+   "key": "goal",
+   "label": "Goal",
+   "type": "text"
+  }
+ ],
+ "tools": [
+  {
+   "id": "schedule",
+   "title": "My schedule",
+   "subtitle": "Window + timing",
+   "emoji": "⏰",
+   "inputs": [
+    {
+     "key": "life",
+     "label": "Your day",
+     "type": "text",
+     "placeholder": "gym at 6pm, family dinner at 8"
+    }
+   ],
+   "prompt": "A fasting schedule for the profile given: {life}. kv (window, first meal, last meal, coffee rules), table (Time | What), and a callout on who should not fast.",
+   "shape": "kv, table, callout",
+   "button": "Plan",
+   "loading": "Planning…"
+  },
+  {
+   "id": "window",
+   "title": "What to eat",
+   "subtitle": "In the window",
+   "emoji": "🍽️",
+   "inputs": [
+    {
+     "key": "kcal",
+     "label": "Calories target",
+     "type": "number",
+     "placeholder": "1800"
+    }
+   ],
+   "prompt": "Meals for the profile window at {kcal} kcal: cards (meal, meta = kcal & protein), and bullets (break-fast gently).",
+   "shape": "cards, bullets",
+   "button": "Plan",
+   "loading": "Planning…"
+  },
+  {
+   "id": "hunger",
+   "title": "I'm hungry",
+   "subtitle": "Get through it",
+   "emoji": "😖",
+   "inputs": [
+    {
+     "key": "when",
+     "label": "When",
+     "type": "text",
+     "placeholder": "3pm, 2 hours before window",
+     "required": true
+    }
+   ],
+   "prompt": "Hunger at {when}: steps (next 30 minutes), bullets (what's allowed), and a callout on when to just eat.",
+   "shape": "steps, bullets, callout",
+   "button": "Help",
+   "loading": "Thinking…"
+  },
+  {
+   "id": "review",
+   "title": "Weekly review",
+   "subtitle": "Paste your log",
+   "emoji": "📓",
+   "inputs": [
+    {
+     "key": "log",
+     "label": "Log",
+     "type": "longtext",
+     "required": true
+    }
+   ],
+   "prompt": "Review: {log}. bullets (patterns), a callout (adjustment), and steps (next week).",
+   "shape": "bullets, callout, steps",
+   "button": "Review",
+   "loading": "Reading…"
+  }
+ ],
+ "disclaimer": "General information, not medical advice; consult a clinician."
+}

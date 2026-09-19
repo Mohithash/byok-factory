@@ -1,0 +1,159 @@
+{
+ "id": "closet_stylist",
+ "name": "Closet Stylist",
+ "tagline": "Outfits from the clothes you already own",
+ "category": "Lifestyle",
+ "colors": [
+  "#AD1457",
+  "#00897B",
+  "#FFB300"
+ ],
+ "icon": "bag",
+ "about": "Closet Stylist builds outfits from your wardrobe photos, plans capsule wardrobes, and tells you what to pack or buy next.",
+ "persona": "You are a practical personal stylist: body-neutral, budget-aware, focused on fit, colour and repeat-wear.",
+ "onboarding": {
+  "title": "Wear what you own, better",
+  "subtitle": "Your style and climate shape the advice.",
+  "bullets": [
+   "Outfits from your closet",
+   "Capsule wardrobe plans",
+   "Shop-smart lists"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "style",
+   "label": "Style words",
+   "type": "chips",
+   "options": [
+    "Minimal",
+    "Classic",
+    "Streetwear",
+    "Boho",
+    "Smart-casual",
+    "Sporty"
+   ],
+   "multi": true
+  },
+  {
+   "key": "climate",
+   "label": "Climate",
+   "type": "chips",
+   "options": [
+    "Cold",
+    "Mild",
+    "Hot",
+    "Four seasons"
+   ]
+  },
+  {
+   "key": "colours",
+   "label": "Colours you love / avoid",
+   "type": "text"
+  }
+ ],
+ "tools": [
+  {
+   "id": "outfit",
+   "title": "Dress me",
+   "subtitle": "Occasion + weather → outfits",
+   "emoji": "👗",
+   "inputs": [
+    {
+     "key": "occasion",
+     "label": "Occasion",
+     "type": "text",
+     "placeholder": "client lunch, then drinks",
+     "required": true
+    },
+    {
+     "key": "weather",
+     "label": "Weather",
+     "type": "text",
+     "placeholder": "18°C, rain later"
+    },
+    {
+     "key": "photo",
+     "label": "Photo of options (optional)",
+     "type": "photo"
+    }
+   ],
+   "prompt": "Build 3 outfits for {occasion} in {weather} from the style profile (and photo if given): cards (outfit, body = pieces + why, meta = vibe), bullets on shoes/bag/layers, and a callout on the one thing that elevates it.",
+   "shape": "cards, bullets, callout",
+   "button": "Style me",
+   "loading": "Styling…"
+  },
+  {
+   "id": "closet",
+   "title": "Audit my closet",
+   "subtitle": "Photo → keep/alter/donate",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of a rail or drawer",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Audit the clothes visible: table (Item | Verdict keep/alter/donate | Why), bullets of 5 new outfit combos from the keepers, and a callout on gaps.",
+   "shape": "table, bullets, callout",
+   "button": "Audit",
+   "loading": "Looking…"
+  },
+  {
+   "id": "capsule",
+   "title": "Capsule wardrobe",
+   "subtitle": "30 pieces, 100 outfits",
+   "emoji": "🧳",
+   "inputs": [
+    {
+     "key": "season",
+     "label": "Season",
+     "type": "chips",
+     "options": [
+      "Spring",
+      "Summer",
+      "Autumn",
+      "Winter"
+     ],
+     "default": "Autumn"
+    },
+    {
+     "key": "budget",
+     "label": "Budget for gaps",
+     "type": "number",
+     "placeholder": "200"
+    }
+   ],
+   "prompt": "A {season} capsule for the profile with {budget} for gaps: table (Category | Piece | Colour | Have/Buy), bullets of 8 outfit formulas, and a callout on fabric care.",
+   "shape": "table, bullets, callout",
+   "button": "Build capsule",
+   "loading": "Curating…"
+  },
+  {
+   "id": "pack",
+   "title": "Pack for a trip",
+   "subtitle": "Nothing unworn",
+   "emoji": "✈️",
+   "inputs": [
+    {
+     "key": "trip",
+     "label": "Trip",
+     "type": "text",
+     "placeholder": "4 days Lisbon, mix of walking and dinners",
+     "required": true
+    }
+   ],
+   "prompt": "Packing list for {trip} with max mixing: table (Piece | Days worn | Outfits), a checklist to pack, and a callout on what to leave out.",
+   "shape": "table, checklist, callout",
+   "button": "Pack",
+   "loading": "Packing…"
+  }
+ ]
+}

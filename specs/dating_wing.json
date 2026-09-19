@@ -1,0 +1,147 @@
+{
+ "id": "dating_wing",
+ "name": "Wingmate",
+ "tagline": "Profiles, openers and date ideas — genuinely you",
+ "category": "Dating",
+ "colors": [
+  "#D81B60",
+  "#FF8F00",
+  "#26A69A"
+ ],
+ "icon": "heart",
+ "about": "Wingmate polishes your dating profile, writes openers based on their profile, plans dates and helps you communicate honestly.",
+ "persona": "You are a kind, funny dating coach: authenticity over tricks, consent and respect always, no manipulation.",
+ "onboarding": {
+  "title": "Show up as yourself, well",
+  "subtitle": "About you.",
+  "bullets": [
+   "Profile polish",
+   "Openers that get replies",
+   "Date planning & tough texts"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "looking",
+   "label": "Looking for",
+   "type": "chips",
+   "options": [
+    "Relationship",
+    "Casual",
+    "Not sure"
+   ]
+  },
+  {
+   "key": "about",
+   "label": "3 things about you",
+   "type": "text",
+   "placeholder": "climber, bad cook, loves 70s soul"
+  },
+  {
+   "key": "humour",
+   "label": "Humour",
+   "type": "chips",
+   "options": [
+    "Dry",
+    "Silly",
+    "Warm",
+    "Nerdy"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "profile",
+   "title": "Polish my profile",
+   "subtitle": "Bio + prompts",
+   "emoji": "✨",
+   "inputs": [
+    {
+     "key": "current",
+     "label": "Current bio / prompts",
+     "type": "longtext"
+    }
+   ],
+   "prompt": "Improve: {current} for the profile: quote (bio, under 60 words), cards (3 prompt answers, meta = prompt), bullets (photo lineup advice), and a callout on what reads as a red flag.",
+   "shape": "quote, cards, bullets, callout",
+   "button": "Polish",
+   "loading": "Polishing…"
+  },
+  {
+   "id": "opener",
+   "title": "Write an opener",
+   "subtitle": "From their profile",
+   "emoji": "💬",
+   "inputs": [
+    {
+     "key": "theirs",
+     "label": "Their profile / photos description",
+     "type": "longtext",
+     "required": true
+    }
+   ],
+   "prompt": "3 openers for: {theirs}, in the profile humour: quote, quote, quote, and a callout on what to avoid.",
+   "shape": "quote, quote, quote, callout",
+   "button": "Write",
+   "loading": "Thinking…"
+  },
+  {
+   "id": "date",
+   "title": "Plan a date",
+   "subtitle": "First, second, or the big one",
+   "emoji": "🍷",
+   "inputs": [
+    {
+     "key": "which",
+     "label": "Which",
+     "type": "chips",
+     "options": [
+      "First date",
+      "Second date",
+      "Anniversary"
+     ],
+     "default": "First date"
+    },
+    {
+     "key": "them",
+     "label": "About them",
+     "type": "text",
+     "placeholder": "loves art, doesn't drink"
+    },
+    {
+     "key": "budget",
+     "label": "Budget",
+     "type": "number",
+     "placeholder": "50"
+    }
+   ],
+   "prompt": "Plan a {which} for someone who {them}, budget {budget}: cards (3 ideas, meta = cost & time), steps (how to suggest it), and a callout on safety/logistics.",
+   "shape": "cards, steps, callout",
+   "button": "Plan",
+   "loading": "Planning…"
+  },
+  {
+   "id": "text",
+   "title": "Help me reply",
+   "subtitle": "Awkward text situations",
+   "emoji": "📱",
+   "inputs": [
+    {
+     "key": "situation",
+     "label": "The situation / their message",
+     "type": "longtext",
+     "required": true
+    }
+   ],
+   "prompt": "For: {situation}. quote (kind, honest reply), quote (alternative), bullets (why), and a callout on boundaries.",
+   "shape": "quote, quote, bullets, callout",
+   "button": "Draft",
+   "loading": "Drafting…"
+  }
+ ]
+}

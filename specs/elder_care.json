@@ -1,0 +1,132 @@
+{
+ "id": "elder_care",
+ "name": "Care Compass",
+ "tagline": "Support for those caring for ageing parents",
+ "category": "Medical",
+ "colors": [
+  "#5E35B1",
+  "#FFB300",
+  "#26A69A"
+ ],
+ "icon": "heart",
+ "about": "Care Compass helps family caregivers organise medications, prepare for appointments, plan safe homes and navigate difficult conversations.",
+ "persona": "You are a geriatric-care coordinator: compassionate, organised, safety-focused, never diagnostic; supports the caregiver too.",
+ "onboarding": {
+  "title": "You don't have to carry it alone",
+  "subtitle": "About who you care for.",
+  "bullets": [
+   "Medication & appointment organisers",
+   "Home safety plans",
+   "Conversation scripts"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "person",
+   "label": "Who you care for",
+   "type": "text",
+   "placeholder": "my dad, 82, mild dementia",
+   "required": true
+  },
+  {
+   "key": "conditions",
+   "label": "Conditions & medications",
+   "type": "text"
+  }
+ ],
+ "tools": [
+  {
+   "id": "meds",
+   "title": "Medication schedule",
+   "subtitle": "Clear and printable",
+   "emoji": "💊",
+   "inputs": [
+    {
+     "key": "meds",
+     "label": "Medications & instructions",
+     "type": "longtext",
+     "required": true
+    }
+   ],
+   "prompt": "Organise: {meds}. table (Time | Medication | Dose | With food? | Note), bullets (interactions to ask the pharmacist about), and a callout to confirm with the prescriber.",
+   "shape": "table, bullets, callout",
+   "button": "Organise",
+   "loading": "Organising…"
+  },
+  {
+   "id": "safety",
+   "title": "Home safety",
+   "subtitle": "Room by room",
+   "emoji": "🏠",
+   "inputs": [
+    {
+     "key": "risks",
+     "label": "Concerns",
+     "type": "chips",
+     "options": [
+      "Falls",
+      "Wandering",
+      "Kitchen",
+      "Bathroom",
+      "Stairs",
+      "Medication errors"
+     ],
+     "multi": true
+    }
+   ],
+   "prompt": "Home safety plan for the profile person, concerns {risks}: checklist by room, cards (top 3 changes, meta = cost), and a callout on the most effective one.",
+   "shape": "checklist, cards, callout",
+   "button": "Plan",
+   "loading": "Planning…"
+  },
+  {
+   "id": "talk",
+   "title": "Difficult conversation",
+   "subtitle": "Driving, moving, help",
+   "emoji": "💬",
+   "inputs": [
+    {
+     "key": "topic",
+     "label": "Topic",
+     "type": "chips",
+     "options": [
+      "Stopping driving",
+      "Accepting help at home",
+      "Moving to care",
+      "Finances",
+      "End-of-life wishes"
+     ],
+     "default": "Accepting help at home"
+    }
+   ],
+   "prompt": "Script for '{topic}' with the profile person: quote (opener), steps (the conversation), bullets (what not to say), and a callout on respecting autonomy.",
+   "shape": "quote, steps, bullets, callout",
+   "button": "Script",
+   "loading": "Thinking…"
+  },
+  {
+   "id": "me",
+   "title": "Caregiver check-in",
+   "subtitle": "You matter too",
+   "emoji": "💛",
+   "inputs": [
+    {
+     "key": "how",
+     "label": "How are you doing?",
+     "type": "longtext",
+     "required": true
+    }
+   ],
+   "prompt": "Check-in: {how}. text (validation), bullets (signs of burnout), steps (respite plan), and a callout on support resources to look up.",
+   "shape": "text, bullets, steps, callout",
+   "button": "Check in",
+   "loading": "Listening…"
+  }
+ ],
+ "disclaimer": "General information, not medical advice; consult a clinician."
+}

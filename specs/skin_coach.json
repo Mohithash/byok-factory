@@ -1,0 +1,153 @@
+{
+ "id": "skin_coach",
+ "name": "Skin Routine",
+ "tagline": "Routines that fit your skin and budget",
+ "category": "Beauty",
+ "colors": [
+  "#F06292",
+  "#4DB6AC",
+  "#FFB300"
+ ],
+ "icon": "sun",
+ "about": "Skin Routine builds AM/PM routines, decodes ingredient lists from photos, checks product compatibility and troubleshoots breakouts.",
+ "persona": "You are a cosmetic chemist and aesthetician: ingredient-literate, budget-honest, patch-test cautious; you refer persistent issues to dermatologists.",
+ "onboarding": {
+  "title": "Fewer products, better skin",
+  "subtitle": "Your skin.",
+  "bullets": [
+   "AM/PM routines",
+   "Ingredient decoding",
+   "Compatibility checks"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "type",
+   "label": "Skin type",
+   "type": "chips",
+   "options": [
+    "Oily",
+    "Dry",
+    "Combination",
+    "Normal",
+    "Sensitive"
+   ]
+  },
+  {
+   "key": "concerns",
+   "label": "Concerns",
+   "type": "chips",
+   "options": [
+    "Acne",
+    "Dark spots",
+    "Fine lines",
+    "Redness",
+    "Dullness",
+    "Texture"
+   ],
+   "multi": true
+  },
+  {
+   "key": "budget",
+   "label": "Budget",
+   "type": "chips",
+   "options": [
+    "Drugstore",
+    "Mid",
+    "Premium"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "routine",
+   "title": "Build my routine",
+   "subtitle": "AM + PM",
+   "emoji": "🧴",
+   "inputs": [
+    {
+     "key": "have",
+     "label": "Products you own",
+     "type": "text"
+    }
+   ],
+   "prompt": "AM/PM routine for the profile using: {have}. table (Step | AM | PM | Why), bullets (what to add first), and a callout on introducing actives slowly and SPF.",
+   "shape": "table, bullets, callout",
+   "button": "Build",
+   "loading": "Building…"
+  },
+  {
+   "id": "decode",
+   "title": "Decode ingredients",
+   "subtitle": "Photo of the label",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Ingredient list",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Decode the ingredients: table (Ingredient | Role | Note for the profile skin), a callout on irritants/fragrance, and a quote verdict.",
+   "shape": "table, callout, quote",
+   "button": "Decode",
+   "loading": "Reading…"
+  },
+  {
+   "id": "compat",
+   "title": "Can I use these together?",
+   "subtitle": "Actives compatibility",
+   "emoji": "🔬",
+   "inputs": [
+    {
+     "key": "a",
+     "label": "Product/ingredient A",
+     "type": "text",
+     "placeholder": "retinol",
+     "required": true
+    },
+    {
+     "key": "b",
+     "label": "B",
+     "type": "text",
+     "placeholder": "vitamin C",
+     "required": true
+    }
+   ],
+   "prompt": "Combine {a} with {b}? callout (verdict), bullets (how to schedule them), and kv (waiting times, order).",
+   "shape": "callout, bullets, kv",
+   "button": "Check",
+   "loading": "Checking…"
+  },
+  {
+   "id": "breakout",
+   "title": "Breakout help",
+   "subtitle": "What's going on",
+   "emoji": "🩹",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo (optional)",
+     "type": "photo"
+    },
+    {
+     "key": "desc",
+     "label": "Describe",
+     "type": "text",
+     "placeholder": "small bumps on forehead after new moisturiser"
+    }
+   ],
+   "prompt": "Assess: {desc}. text (likely cause), steps (next 2 weeks), bullets (what to stop), and a callout on when to see a dermatologist.",
+   "shape": "text, steps, bullets, callout",
+   "button": "Help",
+   "loading": "Assessing…"
+  }
+ ],
+ "disclaimer": "Not medical advice; patch-test new products and see a dermatologist for persistent or severe issues."
+}

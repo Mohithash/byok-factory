@@ -1,0 +1,157 @@
+{
+ "id": "event_host",
+ "name": "Host Mode",
+ "tagline": "Parties and dinners without the panic",
+ "category": "Lifestyle",
+ "colors": [
+  "#C62828",
+  "#FFB300",
+  "#00897B"
+ ],
+ "icon": "gift",
+ "about": "Host Mode plans dinner parties, birthdays and gatherings: menus, timelines, shopping lists, playlists and the awkward-moment scripts.",
+ "persona": "You are a relaxed, well-organised host: menus that can be made ahead, timelines that keep you out of the kitchen, warmth over perfection.",
+ "onboarding": {
+  "title": "Host like you've done it a hundred times",
+  "subtitle": "Your kitchen and style.",
+  "bullets": [
+   "Menus with make-ahead timelines",
+   "Shopping lists",
+   "Games, playlists & toasts"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "cooking",
+   "label": "Cooking confidence",
+   "type": "chips",
+   "options": [
+    "Nervous",
+    "Okay",
+    "Confident"
+   ]
+  },
+  {
+   "key": "style",
+   "label": "Style",
+   "type": "chips",
+   "options": [
+    "Casual",
+    "Elegant",
+    "Themed",
+    "Kids"
+   ],
+   "multi": true
+  }
+ ],
+ "tools": [
+  {
+   "id": "dinner",
+   "title": "Plan a dinner",
+   "subtitle": "Menu + timeline",
+   "emoji": "🍽️",
+   "inputs": [
+    {
+     "key": "guests",
+     "label": "Guests",
+     "type": "number",
+     "placeholder": "6"
+    },
+    {
+     "key": "diet",
+     "label": "Dietary needs",
+     "type": "text",
+     "placeholder": "one vegetarian, one nut allergy"
+    },
+    {
+     "key": "effort",
+     "label": "Effort",
+     "type": "chips",
+     "options": [
+      "Low",
+      "Medium",
+      "Show-off"
+     ],
+     "default": "Medium"
+    }
+   ],
+   "prompt": "Dinner for {guests} ({diet}, effort {effort}): cards (course, body = dish + make-ahead note, meta = prep time), table (Time | Task) from the day before to serving, and a checklist shopping list.",
+   "shape": "cards, table, checklist",
+   "button": "Plan",
+   "loading": "Planning…"
+  },
+  {
+   "id": "party",
+   "title": "Party planner",
+   "subtitle": "Birthday, housewarming, anything",
+   "emoji": "🎉",
+   "inputs": [
+    {
+     "key": "event",
+     "label": "Event",
+     "type": "text",
+     "placeholder": "40th birthday, 25 people, garden",
+     "required": true
+    },
+    {
+     "key": "budget",
+     "label": "Budget",
+     "type": "number",
+     "placeholder": "400"
+    }
+   ],
+   "prompt": "Plan {event} with {budget}: kv (theme, food format, drinks, music, timings), a checklist by week, and a callout on the one thing people forget.",
+   "shape": "kv, checklist, callout",
+   "button": "Plan",
+   "loading": "Planning…"
+  },
+  {
+   "id": "games",
+   "title": "Games & icebreakers",
+   "subtitle": "For this crowd",
+   "emoji": "🎲",
+   "inputs": [
+    {
+     "key": "crowd",
+     "label": "The crowd",
+     "type": "text",
+     "placeholder": "mixed friends who don't know each other, 8 people",
+     "required": true
+    }
+   ],
+   "prompt": "5 games/icebreakers for: {crowd}. cards (game, body = rules, meta = minutes), and a callout on reading the room.",
+   "shape": "cards, callout",
+   "button": "Suggest",
+   "loading": "Thinking…"
+  },
+  {
+   "id": "toast",
+   "title": "Write a toast",
+   "subtitle": "Short, warm, funny",
+   "emoji": "🥂",
+   "inputs": [
+    {
+     "key": "for",
+     "label": "For whom / occasion",
+     "type": "text",
+     "placeholder": "my sister's wedding",
+     "required": true
+    },
+    {
+     "key": "stories",
+     "label": "Stories to include",
+     "type": "text"
+    }
+   ],
+   "prompt": "A 90-second toast for {for} using: {stories}. quote (the toast), bullets on delivery, and a callout on what to cut if nervous.",
+   "shape": "quote, bullets, callout",
+   "button": "Write",
+   "loading": "Writing…"
+  }
+ ]
+}

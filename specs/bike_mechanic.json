@@ -1,0 +1,146 @@
+{
+ "id": "bike_mechanic",
+ "name": "Bike Fix",
+ "tagline": "Maintenance, repairs and fit for any bike",
+ "category": "Sports",
+ "colors": [
+  "#00838F",
+  "#FF7043",
+  "#263238"
+ ],
+ "icon": "wrench",
+ "about": "Bike Fix diagnoses noises and problems, walks through repairs with tools, sets up bike fit, and plans seasonal maintenance.",
+ "persona": "You are a friendly bike-shop mechanic: safety-critical items flagged, exact torque and tools, no snobbery.",
+ "onboarding": {
+  "title": "Keep it rolling",
+  "subtitle": "Your bike.",
+  "bullets": [
+   "Noise & problem diagnosis",
+   "Step-by-step repairs",
+   "Bike fit & maintenance plans"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "bike",
+   "label": "Bike",
+   "type": "chips",
+   "options": [
+    "Road",
+    "Gravel",
+    "MTB",
+    "Commuter",
+    "E-bike",
+    "Kids"
+   ]
+  },
+  {
+   "key": "skill",
+   "label": "Skill",
+   "type": "chips",
+   "options": [
+    "Beginner",
+    "Handy",
+    "Confident"
+   ]
+  },
+  {
+   "key": "tools",
+   "label": "Tools",
+   "type": "text"
+  }
+ ],
+ "tools": [
+  {
+   "id": "diagnose",
+   "title": "What's that noise?",
+   "subtitle": "Describe or photo",
+   "emoji": "🔊",
+   "inputs": [
+    {
+     "key": "symptom",
+     "label": "Symptom",
+     "type": "text",
+     "placeholder": "clicking when pedalling hard",
+     "required": true
+    },
+    {
+     "key": "photo",
+     "label": "Photo (optional)",
+     "type": "photo"
+    }
+   ],
+   "prompt": "Diagnose '{symptom}': bullets (ranked causes), steps (checks in order), a callout on safety-critical parts, and kv (tools & parts).",
+   "shape": "bullets, steps, callout, kv",
+   "button": "Diagnose",
+   "loading": "Listening…"
+  },
+  {
+   "id": "repair",
+   "title": "How do I…",
+   "subtitle": "Any repair",
+   "emoji": "🔧",
+   "inputs": [
+    {
+     "key": "task",
+     "label": "Task",
+     "type": "text",
+     "placeholder": "index my rear derailleur",
+     "required": true
+    }
+   ],
+   "prompt": "Guide for '{task}' on a {bike} at the profile skill: checklist (tools), steps (with torque where relevant), and a callout on when to visit a shop.",
+   "shape": "checklist, steps, callout",
+   "button": "Show me",
+   "loading": "Writing…"
+  },
+  {
+   "id": "fit",
+   "title": "Bike fit basics",
+   "subtitle": "Comfort and power",
+   "emoji": "📏",
+   "inputs": [
+    {
+     "key": "issue",
+     "label": "Issue",
+     "type": "text",
+     "placeholder": "numb hands, sore knees",
+     "required": true
+    },
+    {
+     "key": "height",
+     "label": "Height (cm)",
+     "type": "number",
+     "placeholder": "175"
+    }
+   ],
+   "prompt": "Fit adjustments for {issue} at {height} cm: table (Adjustment | Direction | How much | Why), steps (order), and a callout on when to get a pro fit.",
+   "shape": "table, steps, callout",
+   "button": "Adjust",
+   "loading": "Measuring…"
+  },
+  {
+   "id": "service",
+   "title": "Service schedule",
+   "subtitle": "By distance and season",
+   "emoji": "🗓️",
+   "inputs": [
+    {
+     "key": "km",
+     "label": "Km per week",
+     "type": "number",
+     "placeholder": "60"
+    }
+   ],
+   "prompt": "Maintenance schedule for a {bike} at {km} km/week: table (Interval | Task | DIY?), checklist (pre-ride), and a callout on the most neglected item.",
+   "shape": "table, checklist, callout",
+   "button": "Plan",
+   "loading": "Planning…"
+  }
+ ]
+}

@@ -1,0 +1,137 @@
+{
+ "id": "hair_care",
+ "name": "Hair Plan",
+ "tagline": "Routines for your curl, texture and goals",
+ "category": "Beauty",
+ "colors": [
+  "#6D4C41",
+  "#FF8F00",
+  "#26A69A"
+ ],
+ "icon": "sun",
+ "about": "Hair Plan builds wash-day routines, decodes product labels, plans colour and cuts, and tackles frizz, damage and growth.",
+ "persona": "You are a stylist and trichology-aware educator: texture-specific, honest about damage, budget-friendly.",
+ "onboarding": {
+  "title": "Good hair days, planned",
+  "subtitle": "Your hair.",
+  "bullets": [
+   "Wash-day routines",
+   "Label decoding",
+   "Colour & cut planning"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "type",
+   "label": "Hair",
+   "type": "chips",
+   "options": [
+    "Straight",
+    "Wavy",
+    "Curly",
+    "Coily",
+    "Fine",
+    "Thick"
+   ],
+   "multi": true
+  },
+  {
+   "key": "concerns",
+   "label": "Concerns",
+   "type": "chips",
+   "options": [
+    "Frizz",
+    "Damage",
+    "Growth",
+    "Oily scalp",
+    "Dry ends",
+    "Thinning"
+   ],
+   "multi": true
+  },
+  {
+   "key": "treated",
+   "label": "Colour/chemical treated?",
+   "type": "text"
+  }
+ ],
+ "tools": [
+  {
+   "id": "routine",
+   "title": "Wash-day routine",
+   "subtitle": "Step by step",
+   "emoji": "🚿",
+   "inputs": [
+    {
+     "key": "products",
+     "label": "Products you own",
+     "type": "text"
+    }
+   ],
+   "prompt": "Wash-day routine for the profile using {products}: steps, table (Product type | Frequency | Why), and a callout on the biggest mistake for this hair type.",
+   "shape": "steps, table, callout",
+   "button": "Build",
+   "loading": "Building…"
+  },
+  {
+   "id": "decode",
+   "title": "Decode a label",
+   "subtitle": "Photo",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Product ingredients",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Decode: table (Ingredient | Role | Good/Caution for the profile), and a quote verdict.",
+   "shape": "table, quote",
+   "button": "Decode",
+   "loading": "Reading…"
+  },
+  {
+   "id": "colour",
+   "title": "Plan a colour or cut",
+   "subtitle": "Before the salon",
+   "emoji": "✂️",
+   "inputs": [
+    {
+     "key": "want",
+     "label": "What you want",
+     "type": "text",
+     "placeholder": "going from dark brown to caramel balayage",
+     "required": true
+    }
+   ],
+   "prompt": "Plan '{want}' for the profile hair: kv (sessions, time, cost range, maintenance), bullets (what to tell the stylist), and a callout on damage risk.",
+   "shape": "kv, bullets, callout",
+   "button": "Plan",
+   "loading": "Planning…"
+  },
+  {
+   "id": "fix",
+   "title": "Fix a problem",
+   "subtitle": "Frizz, breakage, dryness",
+   "emoji": "🩹",
+   "inputs": [
+    {
+     "key": "problem",
+     "label": "Problem",
+     "type": "text",
+     "required": true
+    }
+   ],
+   "prompt": "For {problem}: text (likely causes), steps (4-week plan), and bullets (products types to look for).",
+   "shape": "text, steps, bullets",
+   "button": "Help",
+   "loading": "Thinking…"
+  }
+ ]
+}

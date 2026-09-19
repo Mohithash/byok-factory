@@ -1,0 +1,148 @@
+{
+ "id": "focus_sprint",
+ "name": "Focus Sprint",
+ "tagline": "Beat procrastination one sprint at a time",
+ "category": "Productivity",
+ "colors": [
+  "#3949AB",
+  "#FF6F00",
+  "#00897B"
+ ],
+ "icon": "clock",
+ "about": "Focus Sprint breaks scary tasks into 25-minute sprints, writes your first tiny step, and runs a quick review so tomorrow starts easier.",
+ "persona": "You are an ADHD-friendly productivity coach: zero guilt, tiny first steps, external structure.",
+ "onboarding": {
+  "title": "Start in the next 5 minutes",
+  "subtitle": "How do you like to work?",
+  "bullets": [
+   "Tasks → sprint plans",
+   "The smallest first step",
+   "End-of-day reviews"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "style",
+   "label": "Works best for you",
+   "type": "chips",
+   "options": [
+    "Pomodoro",
+    "Time-blocking",
+    "Body doubling",
+    "Deadlines"
+   ],
+   "multi": true
+  },
+  {
+   "key": "energy",
+   "label": "Peak energy",
+   "type": "chips",
+   "options": [
+    "Morning",
+    "Afternoon",
+    "Night"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "sprint",
+   "title": "Plan sprints",
+   "subtitle": "One scary task → sprints",
+   "emoji": "🏃",
+   "inputs": [
+    {
+     "key": "task",
+     "label": "The task",
+     "type": "text",
+     "placeholder": "write the quarterly report",
+     "required": true
+    },
+    {
+     "key": "hours",
+     "label": "Time available",
+     "type": "chips",
+     "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+     ],
+     "default": "2"
+    }
+   ],
+   "prompt": "Break '{task}' into 25-min sprints for {hours} hours: table (Sprint | Goal | Done when), a quote with the very first 2-minute action, and a callout on the likely distraction and its countermeasure.",
+   "shape": "table, quote, callout",
+   "button": "Plan sprints",
+   "loading": "Chunking…"
+  },
+  {
+   "id": "unstick",
+   "title": "I'm stuck",
+   "subtitle": "Get unstuck now",
+   "emoji": "🧱",
+   "inputs": [
+    {
+     "key": "stuck",
+     "label": "What's happening",
+     "type": "text",
+     "placeholder": "I keep opening the doc and closing it",
+     "required": true
+    }
+   ],
+   "prompt": "The user is stuck: {stuck}. Text naming the likely block (fear, unclear, boring, too big), steps for the next 10 minutes, and a quote with a self-talk line.",
+   "shape": "text, steps, quote",
+   "button": "Unstick me",
+   "loading": "Thinking…"
+  },
+  {
+   "id": "day",
+   "title": "Plan my day",
+   "subtitle": "Tasks → a realistic schedule",
+   "emoji": "🗓️",
+   "inputs": [
+    {
+     "key": "tasks",
+     "label": "Today's tasks",
+     "type": "longtext",
+     "placeholder": "report draft (2h), emails, call dentist, gym",
+     "required": true
+    },
+    {
+     "key": "fixed",
+     "label": "Fixed events",
+     "type": "text",
+     "placeholder": "meeting 2–3pm"
+    }
+   ],
+   "prompt": "Schedule: {tasks} around {fixed} respecting peak energy. Table (Time | Block | Kind), a callout on what to drop if it slips, and a checklist for the morning start.",
+   "shape": "table, callout, checklist",
+   "button": "Plan",
+   "loading": "Scheduling…"
+  },
+  {
+   "id": "review",
+   "title": "End-of-day review",
+   "subtitle": "2 minutes, honest",
+   "emoji": "🌙",
+   "inputs": [
+    {
+     "key": "done",
+     "label": "What happened today",
+     "type": "longtext",
+     "placeholder": "did 3 sprints, got derailed by Slack, skipped gym",
+     "required": true
+    }
+   ],
+   "prompt": "Review: {done}. Bullets (wins), a callout (one pattern to watch), kv (tomorrow's top 3 with first steps), and a quote to close the day kindly.",
+   "shape": "bullets, callout, kv, quote",
+   "button": "Review",
+   "loading": "Reflecting…"
+  }
+ ]
+}

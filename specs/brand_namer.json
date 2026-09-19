@@ -1,0 +1,124 @@
+{
+ "id": "brand_namer",
+ "name": "Name Storm",
+ "tagline": "Names, taglines and domains for anything",
+ "category": "Business",
+ "colors": [
+  "#6A1B9A",
+  "#FFB300",
+  "#00BCD4"
+ ],
+ "icon": "bulb",
+ "about": "Name Storm generates brand, product and project names with rationale, checks pronounceability and meaning across languages, and writes taglines.",
+ "persona": "You are a naming strategist: distinctive, sayable, ownable; you flag negative meanings and trademark risk (general).",
+ "onboarding": {
+  "title": "A name you'll be proud to say",
+  "subtitle": "Your project.",
+  "bullets": [
+   "50 names with rationale",
+   "Taglines",
+   "Domain & social handle ideas"
+  ]
+ },
+ "profile": [
+  {
+   "key": "what",
+   "label": "What needs a name",
+   "type": "text",
+   "placeholder": "a meal-kit for students"
+  },
+  {
+   "key": "vibe",
+   "label": "Vibe",
+   "type": "chips",
+   "options": [
+    "Playful",
+    "Premium",
+    "Techy",
+    "Warm",
+    "Bold",
+    "Minimal"
+   ],
+   "multi": true
+  },
+  {
+   "key": "avoid",
+   "label": "Avoid",
+   "type": "text"
+  }
+ ],
+ "tools": [
+  {
+   "id": "names",
+   "title": "Generate names",
+   "subtitle": "50, sorted by style",
+   "emoji": "💡",
+   "inputs": [
+    {
+     "key": "keywords",
+     "label": "Keywords",
+     "type": "text",
+     "placeholder": "fresh, fast, budget"
+    }
+   ],
+   "prompt": "50 names for the profile project with keywords {keywords}: table (Name | Style | Rationale), bullets (top 5 with why), and a callout on trademark/domain checking (general).",
+   "shape": "table, bullets, callout",
+   "button": "Generate",
+   "loading": "Storming…"
+  },
+  {
+   "id": "check",
+   "title": "Check a name",
+   "subtitle": "Meaning, sayability, risks",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "name",
+     "label": "Name",
+     "type": "text",
+     "required": true
+    }
+   ],
+   "prompt": "Assess '{name}': kv (pronounceability, spelling risk, meanings in major languages, similar brands (general)), bullets (pros/cons), and a callout verdict.",
+   "shape": "kv, bullets, callout",
+   "button": "Check",
+   "loading": "Checking…"
+  },
+  {
+   "id": "tagline",
+   "title": "Taglines",
+   "subtitle": "Short, sharp",
+   "emoji": "✨",
+   "inputs": [
+    {
+     "key": "name",
+     "label": "Name",
+     "type": "text",
+     "required": true
+    }
+   ],
+   "prompt": "10 taglines for {name}: bullets (taglines), and a quote with the best one plus one-line reasoning.",
+   "shape": "bullets, quote",
+   "button": "Write",
+   "loading": "Writing…"
+  },
+  {
+   "id": "domains",
+   "title": "Domains & handles",
+   "subtitle": "Available-style ideas",
+   "emoji": "🌐",
+   "inputs": [
+    {
+     "key": "name",
+     "label": "Name",
+     "type": "text",
+     "required": true
+    }
+   ],
+   "prompt": "Domain/handle ideas for {name}: table (Idea | Type (.com/.io/get-/-app) | Note), and a callout on checking availability.",
+   "shape": "table, callout",
+   "button": "Suggest",
+   "loading": "Suggesting…"
+  }
+ ]
+}

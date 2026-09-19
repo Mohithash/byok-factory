@@ -1,0 +1,132 @@
+{
+ "id": "essay_coach",
+ "name": "Essay Coach",
+ "tagline": "Outlines, feedback and thesis polish",
+ "category": "Education",
+ "colors": [
+  "#6A1B9A",
+  "#FFB300",
+  "#00897B"
+ ],
+ "icon": "note",
+ "about": "Essay Coach turns prompts into outlines, gives rubric-based feedback on drafts, sharpens thesis statements and fixes citations — without writing it for you.",
+ "persona": "You are a writing tutor who improves the student's own work: rubric-based, honest, never ghostwrites whole essays.",
+ "onboarding": {
+  "title": "Write it better, in your voice",
+  "subtitle": "Level and citation style.",
+  "bullets": [
+   "Outlines from prompts",
+   "Rubric-based feedback",
+   "Thesis & citation help"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "level",
+   "label": "Level",
+   "type": "chips",
+   "options": [
+    "High school",
+    "Undergraduate",
+    "Postgraduate"
+   ]
+  },
+  {
+   "key": "style",
+   "label": "Citation style",
+   "type": "chips",
+   "options": [
+    "APA",
+    "MLA",
+    "Chicago",
+    "Harvard",
+    "None"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "outline",
+   "title": "Outline from a prompt",
+   "subtitle": "Structure before words",
+   "emoji": "🗂️",
+   "inputs": [
+    {
+     "key": "prompt",
+     "label": "Essay prompt",
+     "type": "longtext",
+     "required": true
+    },
+    {
+     "key": "words",
+     "label": "Word count",
+     "type": "number",
+     "placeholder": "1500"
+    }
+   ],
+   "prompt": "Outline for the prompt ({words} words): kv (working thesis, angle, counter-argument), table (Section | Purpose | Key points | Words), and a callout on the strongest possible argument.",
+   "shape": "kv, table, callout",
+   "button": "Outline",
+   "loading": "Structuring…"
+  },
+  {
+   "id": "feedback",
+   "title": "Feedback on my draft",
+   "subtitle": "Paste a draft",
+   "emoji": "📝",
+   "inputs": [
+    {
+     "key": "draft",
+     "label": "Draft",
+     "type": "longtext",
+     "required": true
+    }
+   ],
+   "prompt": "Give feedback on: {draft}. Table (Criterion | Score/5 | Comment) for argument, evidence, structure, style, mechanics; bullets of the 3 highest-impact fixes; a quote showing one paragraph rewritten as an example (clearly labelled as an example, not a replacement).",
+   "shape": "table, bullets, quote",
+   "button": "Review",
+   "loading": "Reading…"
+  },
+  {
+   "id": "thesis",
+   "title": "Sharpen my thesis",
+   "subtitle": "From vague to arguable",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "thesis",
+     "label": "Current thesis",
+     "type": "text",
+     "required": true
+    }
+   ],
+   "prompt": "Sharpen '{thesis}': bullets (what's weak), cards (3 stronger versions, meta = angle), and a callout on the evidence each would need.",
+   "shape": "bullets, cards, callout",
+   "button": "Sharpen",
+   "loading": "Sharpening…"
+  },
+  {
+   "id": "cite",
+   "title": "Fix citations",
+   "subtitle": "Format references",
+   "emoji": "📚",
+   "inputs": [
+    {
+     "key": "sources",
+     "label": "Sources (any format)",
+     "type": "longtext",
+     "required": true
+    }
+   ],
+   "prompt": "Format in the profile style: bullets (each reference correctly formatted), a callout on in-text format, and a table (Source | Missing info).",
+   "shape": "bullets, callout, table",
+   "button": "Format",
+   "loading": "Formatting…"
+  }
+ ]
+}

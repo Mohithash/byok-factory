@@ -1,0 +1,139 @@
+{
+ "id": "social_caption",
+ "name": "Caption Craft",
+ "tagline": "Captions, hashtags and content calendars",
+ "category": "Social",
+ "colors": [
+  "#E91E63",
+  "#FFC107",
+  "#00BCD4"
+ ],
+ "icon": "camera",
+ "about": "Caption Craft writes on-brand captions from a photo, plans a month of posts, and turns one idea into formats for every platform.",
+ "persona": "You are a social media strategist with taste: hooks that stop the scroll, no cringe, platform-native, honest about what performs.",
+ "onboarding": {
+  "title": "Post with confidence",
+  "subtitle": "Your brand voice.",
+  "bullets": [
+   "Photo → captions",
+   "30-day content calendars",
+   "Repurpose across platforms"
+  ]
+ },
+ "profile": [
+  {
+   "key": "brand",
+   "label": "Brand / who you are",
+   "type": "text",
+   "placeholder": "small bakery in Leeds",
+   "required": true
+  },
+  {
+   "key": "voice",
+   "label": "Voice",
+   "type": "chips",
+   "options": [
+    "Playful",
+    "Warm",
+    "Bold",
+    "Minimal",
+    "Expert"
+   ],
+   "multi": true
+  },
+  {
+   "key": "platforms",
+   "label": "Platforms",
+   "type": "chips",
+   "options": [
+    "Instagram",
+    "TikTok",
+    "LinkedIn",
+    "X",
+    "Facebook",
+    "Pinterest"
+   ],
+   "multi": true
+  }
+ ],
+ "tools": [
+  {
+   "id": "caption",
+   "title": "Caption this",
+   "subtitle": "Photo → 3 captions",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "The photo",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "context",
+     "label": "Context",
+     "type": "text",
+     "placeholder": "new sourdough launch"
+    }
+   ],
+   "prompt": "For the photo ({context}) in the profile voice: cards (3 captions, meta = platform), bullets (hashtag set), and a callout on the best posting time and CTA.",
+   "shape": "cards, bullets, callout",
+   "button": "Write",
+   "loading": "Looking…"
+  },
+  {
+   "id": "calendar",
+   "title": "30-day calendar",
+   "subtitle": "Never stare at a blank feed",
+   "emoji": "📅",
+   "inputs": [
+    {
+     "key": "goals",
+     "label": "Goals this month",
+     "type": "text",
+     "placeholder": "grow followers, push the new menu"
+    }
+   ],
+   "prompt": "A 30-day calendar for the brand, goals: {goals}. table (Day | Platform | Format | Idea | Hook), bullets (recurring series), and a callout on batching.",
+   "shape": "table, bullets, callout",
+   "button": "Plan",
+   "loading": "Planning…"
+  },
+  {
+   "id": "repurpose",
+   "title": "Repurpose",
+   "subtitle": "One idea, every platform",
+   "emoji": "♻️",
+   "inputs": [
+    {
+     "key": "idea",
+     "label": "The idea / post",
+     "type": "longtext",
+     "required": true
+    }
+   ],
+   "prompt": "Repurpose: {idea}. cards (one per profile platform: title = platform, body = the post, meta = format), and a callout on what to change per platform.",
+   "shape": "cards, callout",
+   "button": "Repurpose",
+   "loading": "Adapting…"
+  },
+  {
+   "id": "reply",
+   "title": "Reply to comments",
+   "subtitle": "Even the rude ones",
+   "emoji": "💬",
+   "inputs": [
+    {
+     "key": "comments",
+     "label": "Comments",
+     "type": "longtext",
+     "required": true
+    }
+   ],
+   "prompt": "Replies in the brand voice to: {comments}. table (Comment | Reply | Note), and a callout on when not to engage.",
+   "shape": "table, callout",
+   "button": "Draft",
+   "loading": "Drafting…"
+  }
+ ]
+}

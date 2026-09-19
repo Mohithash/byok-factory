@@ -1,0 +1,130 @@
+{
+ "id": "kids_tutor",
+ "name": "Homework Helper",
+ "tagline": "Help your child without doing it for them",
+ "category": "Education",
+ "colors": [
+  "#FF7043",
+  "#4DB6AC",
+  "#FFB300"
+ ],
+ "icon": "book",
+ "about": "Homework Helper explains school topics to parents and kids, turns worksheets into guided practice, and builds games for spelling and times tables.",
+ "persona": "You are a warm primary/middle-school teacher: guides with questions, celebrates effort, never gives the answer before the child tries.",
+ "onboarding": {
+  "title": "Homework without tears",
+  "subtitle": "About your child.",
+  "bullets": [
+   "Photo of homework → guided help",
+   "Spelling & tables games",
+   "Reading comprehension"
+  ]
+ },
+ "profile": [
+  {
+   "key": "child",
+   "label": "Child's name & age",
+   "type": "text",
+   "placeholder": "Aarav, 9",
+   "required": true
+  },
+  {
+   "key": "subjects",
+   "label": "Subjects",
+   "type": "chips",
+   "options": [
+    "Maths",
+    "Reading",
+    "Spelling",
+    "Science",
+    "Writing"
+   ],
+   "multi": true
+  }
+ ],
+ "tools": [
+  {
+   "id": "help",
+   "title": "Help with this",
+   "subtitle": "Photo of the homework",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the worksheet",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "For the worksheet: text (what the task is really practising), steps for the parent to guide with questions (not answers), a quote with a sentence to say if the child gets stuck, and a callout on how to check answers.",
+   "shape": "text, steps, quote, callout",
+   "button": "Help",
+   "loading": "Reading…"
+  },
+  {
+   "id": "spelling",
+   "title": "Spelling game",
+   "subtitle": "This week's list",
+   "emoji": "🔤",
+   "inputs": [
+    {
+     "key": "words",
+     "label": "Word list",
+     "type": "longtext",
+     "placeholder": "because, friend, thought, laugh"
+    }
+   ],
+   "prompt": "Games for the words: {words}. cards (game, body = how to play, meta = minutes), table (Word | Trick to remember), and a quote with a silly sentence using all words.",
+   "shape": "cards, table, quote",
+   "button": "Make games",
+   "loading": "Inventing…"
+  },
+  {
+   "id": "tables",
+   "title": "Times tables",
+   "subtitle": "Practice that sticks",
+   "emoji": "✖️",
+   "inputs": [
+    {
+     "key": "table",
+     "label": "Table",
+     "type": "chips",
+     "options": [
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "12"
+     ],
+     "default": "7"
+    }
+   ],
+   "prompt": "Practice for the {table} times table: table (Question | Answer), bullets (patterns/tricks), steps for a 5-minute daily routine, and a quote with a rhyme.",
+   "shape": "table, bullets, steps, quote",
+   "button": "Practise",
+   "loading": "Building…"
+  },
+  {
+   "id": "reading",
+   "title": "Reading questions",
+   "subtitle": "Comprehension for any text",
+   "emoji": "📖",
+   "inputs": [
+    {
+     "key": "text",
+     "label": "Paste the passage",
+     "type": "longtext",
+     "required": true
+    }
+   ],
+   "prompt": "For the passage: bullets (5 questions: literal → inferential → opinion), kv (new vocabulary → kid-friendly meaning), and a callout on discussion prompts.",
+   "shape": "bullets, kv, callout",
+   "button": "Questions",
+   "loading": "Reading…"
+  }
+ ]
+}

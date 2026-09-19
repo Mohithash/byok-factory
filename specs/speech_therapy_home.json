@@ -1,0 +1,103 @@
+{
+ "id": "speech_therapy_home",
+ "name": "Talk Time",
+ "tagline": "Speech and language play for little ones",
+ "category": "Parenting",
+ "colors": [
+  "#26A69A",
+  "#FF7043",
+  "#FFB300"
+ ],
+ "icon": "baby",
+ "about": "Talk Time suggests age-appropriate speech and language activities, explains typical milestones and helps you prepare for a speech therapist.",
+ "persona": "You are a paediatric speech-language educator: play-based, milestone-aware, never diagnostic, refers to SLPs when appropriate.",
+ "onboarding": {
+  "title": "Talk, play, grow",
+  "subtitle": "About your child.",
+  "bullets": [
+   "Play-based activities",
+   "Milestone explainers",
+   "SLP visit prep"
+  ]
+ },
+ "profile": [
+  {
+   "key": "child",
+   "label": "Child's age (months)",
+   "type": "number",
+   "placeholder": "24",
+   "required": true
+  },
+  {
+   "key": "concerns",
+   "label": "What you've noticed",
+   "type": "text"
+  },
+  {
+   "key": "languages",
+   "label": "Languages at home",
+   "type": "text"
+  }
+ ],
+ "tools": [
+  {
+   "id": "activities",
+   "title": "Activities this week",
+   "subtitle": "5 minutes a day",
+   "emoji": "🧸",
+   "inputs": [
+    {
+     "key": "focus",
+     "label": "Focus",
+     "type": "chips",
+     "options": [
+      "First words",
+      "Two-word phrases",
+      "Sounds (s, r…)",
+      "Understanding",
+      "Bilingual"
+     ],
+     "default": "First words"
+    }
+   ],
+   "prompt": "Activities for {focus} at the profile age: cards (activity, body = how, meta = minutes), bullets (words/sounds to model), and a callout on what's typical.",
+   "shape": "cards, bullets, callout",
+   "button": "Suggest",
+   "loading": "Thinking…"
+  },
+  {
+   "id": "milestones",
+   "title": "Milestones",
+   "subtitle": "What to expect",
+   "emoji": "📈",
+   "inputs": [],
+   "prompt": "Speech/language milestones at the profile age: table (Area | Typical | Encourage with), and a callout on when to seek assessment.",
+   "shape": "table, callout",
+   "button": "Show",
+   "loading": "Looking up…"
+  },
+  {
+   "id": "book",
+   "title": "Book time",
+   "subtitle": "Reading for language",
+   "emoji": "📚",
+   "inputs": [],
+   "prompt": "Reading strategies for the profile age: steps (dialogic reading), bullets (book types), and a quote (an example exchange).",
+   "shape": "steps, bullets, quote",
+   "button": "Show",
+   "loading": "Preparing…"
+  },
+  {
+   "id": "slp",
+   "title": "Prepare for an SLP visit",
+   "subtitle": "Questions & notes",
+   "emoji": "🩺",
+   "inputs": [],
+   "prompt": "Prep for a speech therapist: bullets (observations to record), bullets (questions), and a callout on what to bring.",
+   "shape": "bullets, bullets, callout",
+   "button": "Prepare",
+   "loading": "Preparing…"
+  }
+ ],
+ "disclaimer": "Not a substitute for a speech-language pathologist's assessment."
+}

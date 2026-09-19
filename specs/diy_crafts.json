@@ -1,0 +1,155 @@
+{
+ "id": "diy_crafts",
+ "name": "Craft Corner",
+ "tagline": "Projects, patterns and fixes for makers",
+ "category": "Hobbies",
+ "colors": [
+  "#8E24AA",
+  "#FF8F00",
+  "#26A69A"
+ ],
+ "icon": "wrench",
+ "about": "Craft Corner plans knitting, sewing, woodworking and paper projects to your skill, converts patterns and troubleshoots mistakes.",
+ "persona": "You are a generous craft teacher across fibre, wood and paper: precise measurements, honest about difficulty.",
+ "onboarding": {
+  "title": "Make something this weekend",
+  "subtitle": "Your crafts.",
+  "bullets": [
+   "Projects for your skill",
+   "Pattern maths",
+   "Fix a mistake"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "crafts",
+   "label": "Crafts",
+   "type": "chips",
+   "options": [
+    "Knitting",
+    "Crochet",
+    "Sewing",
+    "Woodwork",
+    "Paper",
+    "Jewellery",
+    "Candles/soap"
+   ],
+   "multi": true
+  },
+  {
+   "key": "level",
+   "label": "Level",
+   "type": "chips",
+   "options": [
+    "Beginner",
+    "Intermediate",
+    "Advanced"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "project",
+   "title": "Suggest a project",
+   "subtitle": "Time + materials",
+   "emoji": "🧶",
+   "inputs": [
+    {
+     "key": "time",
+     "label": "Time",
+     "type": "chips",
+     "options": [
+      "An evening",
+      "A weekend",
+      "A month"
+     ],
+     "default": "A weekend"
+    },
+    {
+     "key": "materials",
+     "label": "Materials on hand",
+     "type": "text"
+    }
+   ],
+   "prompt": "A project for the profile in {time} with {materials}: kv (project, difficulty, cost, time), checklist (materials & tools), steps (build), and a callout on the tricky step.",
+   "shape": "kv, checklist, steps, callout",
+   "button": "Suggest",
+   "loading": "Thinking…"
+  },
+  {
+   "id": "maths",
+   "title": "Pattern maths",
+   "subtitle": "Resize, gauge, yardage",
+   "emoji": "📐",
+   "inputs": [
+    {
+     "key": "q",
+     "label": "Your question",
+     "type": "longtext",
+     "placeholder": "pattern gauge 20 sts/10cm, mine is 22 — how to adjust for 90cm chest?",
+     "required": true
+    }
+   ],
+   "prompt": "Solve: {q}. steps (the calculation), kv (results), and a callout on swatching/testing.",
+   "shape": "steps, kv, callout",
+   "button": "Calculate",
+   "loading": "Calculating…"
+  },
+  {
+   "id": "fix",
+   "title": "Fix a mistake",
+   "subtitle": "Photo + description",
+   "emoji": "🩹",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo (optional)",
+     "type": "photo"
+    },
+    {
+     "key": "problem",
+     "label": "Problem",
+     "type": "text",
+     "required": true
+    }
+   ],
+   "prompt": "Fix: {problem}. text (what happened), steps (fix), and bullets (prevent next time).",
+   "shape": "text, steps, bullets",
+   "button": "Fix",
+   "loading": "Looking…"
+  },
+  {
+   "id": "gift",
+   "title": "Handmade gift ideas",
+   "subtitle": "For someone",
+   "emoji": "🎁",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Who",
+     "type": "text",
+     "required": true
+    },
+    {
+     "key": "time",
+     "label": "Time",
+     "type": "chips",
+     "options": [
+      "An evening",
+      "A weekend"
+     ],
+     "default": "A weekend"
+    }
+   ],
+   "prompt": "Handmade gifts for {who} in {time} using the profile crafts: cards (gift, body = how, meta = cost/time), and a callout on presentation.",
+   "shape": "cards, callout",
+   "button": "Ideas",
+   "loading": "Thinking…"
+  }
+ ]
+}

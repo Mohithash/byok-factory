@@ -1,0 +1,158 @@
+{
+ "id": "yoga_flow",
+ "name": "Flow Builder",
+ "tagline": "Yoga sequences for how you feel right now",
+ "category": "Health & Fitness",
+ "colors": [
+  "#7E57C2",
+  "#26A69A",
+  "#FFB74D"
+ ],
+ "icon": "sun",
+ "about": "Flow Builder writes yoga and mobility sequences for your time, level and mood, with cues, modifications and a breathing practice to match.",
+ "persona": "You are a thoughtful yoga teacher: anatomically careful, inclusive, with clear cues and options for every body.",
+ "onboarding": {
+  "title": "Roll out the mat",
+  "subtitle": "A little about your practice.",
+  "bullets": [
+   "Sequences for any time slot",
+   "Modifications for injuries",
+   "Breathwork & meditation"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "level",
+   "label": "Level",
+   "type": "chips",
+   "options": [
+    "New",
+    "Some experience",
+    "Regular"
+   ]
+  },
+  {
+   "key": "injuries",
+   "label": "Injuries / limits",
+   "type": "text",
+   "placeholder": "tight hamstrings, wrist pain"
+  }
+ ],
+ "tools": [
+  {
+   "id": "flow",
+   "title": "Build a flow",
+   "subtitle": "Tell me time + mood",
+   "emoji": "🧘",
+   "inputs": [
+    {
+     "key": "minutes",
+     "label": "Minutes",
+     "type": "chips",
+     "options": [
+      "10",
+      "20",
+      "30",
+      "45"
+     ],
+     "default": "20"
+    },
+    {
+     "key": "mood",
+     "label": "I need",
+     "type": "chips",
+     "options": [
+      "Energy",
+      "Calm",
+      "Stretch",
+      "Strength",
+      "Back relief",
+      "Sleep"
+     ],
+     "default": "Calm"
+    }
+   ],
+   "prompt": "A {minutes}-minute sequence for '{mood}' honouring the profile limits: steps (pose · breaths · cue), a callout on modifications for the listed injuries, and a quote with the intention for the practice.",
+   "shape": "steps, callout, quote",
+   "button": "Build flow",
+   "loading": "Sequencing…"
+  },
+  {
+   "id": "pose",
+   "title": "Fix a pose",
+   "subtitle": "Photo or description",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of you in the pose (optional)",
+     "type": "photo"
+    },
+    {
+     "key": "pose",
+     "label": "Pose",
+     "type": "text",
+     "placeholder": "downward dog"
+    }
+   ],
+   "prompt": "Coach {pose} from the photo/description: bullets on alignment fixes, steps to enter safely, a callout on what to avoid with the profile's limits.",
+   "shape": "bullets, steps, callout",
+   "button": "Coach",
+   "loading": "Observing…"
+  },
+  {
+   "id": "breath",
+   "title": "Breathwork",
+   "subtitle": "5 minutes to shift state",
+   "emoji": "🌬️",
+   "inputs": [
+    {
+     "key": "goal",
+     "label": "Goal",
+     "type": "chips",
+     "options": [
+      "Calm down",
+      "Wake up",
+      "Focus",
+      "Sleep"
+     ],
+     "default": "Calm down"
+    }
+   ],
+   "prompt": "A 5-minute breathing practice to {goal}: steps with counts, a callout on contraindications, and text on what to notice.",
+   "shape": "steps, callout, text",
+   "button": "Guide me",
+   "loading": "Breathing…"
+  },
+  {
+   "id": "challenge",
+   "title": "7-day challenge",
+   "subtitle": "A week of short practices",
+   "emoji": "📅",
+   "inputs": [
+    {
+     "key": "focus",
+     "label": "Focus",
+     "type": "chips",
+     "options": [
+      "Flexibility",
+      "Core",
+      "Morning energy",
+      "Stress"
+     ],
+     "default": "Flexibility"
+    }
+   ],
+   "prompt": "A 7-day {focus} challenge: table (Day | Focus | Minutes | Key poses), bullets on progression, and a callout on rest.",
+   "shape": "table, bullets, callout",
+   "button": "Start",
+   "loading": "Planning…"
+  }
+ ],
+ "disclaimer": "Listen to your body; not a substitute for medical advice."
+}

@@ -1,0 +1,137 @@
+{
+ "id": "history_time",
+ "name": "Time Machine",
+ "tagline": "History explained like a great documentary",
+ "category": "Education",
+ "colors": [
+  "#795548",
+  "#FFB300",
+  "#00838F"
+ ],
+ "icon": "clock",
+ "about": "Time Machine explains any period, event or person with context, timelines, primary-source flavour and 'what if' debates.",
+ "persona": "You are an engaging historian: balanced, source-aware, distinguishes fact from interpretation, vivid but accurate.",
+ "onboarding": {
+  "title": "Understand the past, properly",
+  "subtitle": "Your interests.",
+  "bullets": [
+   "Timelines & context",
+   "People & places",
+   "Debate prompts"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "level",
+   "label": "Depth",
+   "type": "chips",
+   "options": [
+    "Curious",
+    "Student",
+    "Deep dive"
+   ]
+  },
+  {
+   "key": "eras",
+   "label": "Interests",
+   "type": "chips",
+   "options": [
+    "Ancient",
+    "Medieval",
+    "Early modern",
+    "Modern",
+    "20th century"
+   ],
+   "multi": true
+  }
+ ],
+ "tools": [
+  {
+   "id": "event",
+   "title": "Explain an event",
+   "subtitle": "Causes, course, consequences",
+   "emoji": "🏛️",
+   "inputs": [
+    {
+     "key": "event",
+     "label": "Event or period",
+     "type": "text",
+     "placeholder": "the fall of Constantinople",
+     "required": true
+    }
+   ],
+   "prompt": "Explain {event} at the profile depth: text (why it matters), table (Date | What happened), bullets (causes), bullets (consequences), and a callout on historiographical debate.",
+   "shape": "text, table, bullets, bullets, callout",
+   "button": "Explain",
+   "loading": "Researching…"
+  },
+  {
+   "id": "person",
+   "title": "A life in brief",
+   "subtitle": "Any historical figure",
+   "emoji": "👤",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Who",
+     "type": "text",
+     "required": true
+    }
+   ],
+   "prompt": "Profile {who}: kv (born/died, role, known for, contemporaries), steps (life in 6 turning points), a quote (an attributed or characteristic saying, flagged if disputed), and a callout on myths vs evidence.",
+   "shape": "kv, steps, quote, callout",
+   "button": "Profile",
+   "loading": "Reading…"
+  },
+  {
+   "id": "compare",
+   "title": "Compare",
+   "subtitle": "Two things side by side",
+   "emoji": "⚖️",
+   "inputs": [
+    {
+     "key": "a",
+     "label": "A",
+     "type": "text",
+     "placeholder": "Roman Republic",
+     "required": true
+    },
+    {
+     "key": "b",
+     "label": "B",
+     "type": "text",
+     "placeholder": "Athenian democracy",
+     "required": true
+    }
+   ],
+   "prompt": "Compare {a} and {b}: table (Aspect | A | B), bullets (surprising similarities), and a callout on the lazy comparison to avoid.",
+   "shape": "table, bullets, callout",
+   "button": "Compare",
+   "loading": "Comparing…"
+  },
+  {
+   "id": "debate",
+   "title": "Debate a 'what if'",
+   "subtitle": "Counterfactual, carefully",
+   "emoji": "🤔",
+   "inputs": [
+    {
+     "key": "q",
+     "label": "What if…",
+     "type": "text",
+     "placeholder": "what if the Library of Alexandria hadn't burned?",
+     "required": true
+    }
+   ],
+   "prompt": "Explore '{q}': text (what we actually know), bullets (plausible consequences with confidence), bullets (why historians are cautious), and a quote with a discussion prompt.",
+   "shape": "text, bullets, bullets, quote",
+   "button": "Explore",
+   "loading": "Speculating…"
+  }
+ ]
+}

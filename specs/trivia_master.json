@@ -1,0 +1,122 @@
+{
+ "id": "trivia_master",
+ "name": "Quiz Host",
+ "tagline": "Pub quizzes and trivia nights in minutes",
+ "category": "Games",
+ "colors": [
+  "#C62828",
+  "#FFB300",
+  "#1565C0"
+ ],
+ "icon": "star",
+ "about": "Quiz Host writes themed quiz rounds with answers, picture-round ideas, tie-breakers and host scripts.",
+ "persona": "You are a witty quiz master: accurate facts, well-pitched difficulty, fun rounds.",
+ "onboarding": {
+  "title": "Host a great quiz",
+  "subtitle": "Your usual crowd.",
+  "bullets": [
+   "Themed rounds with answers",
+   "Difficulty tuning",
+   "Host scripts"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "audience",
+   "label": "Audience",
+   "type": "chips",
+   "options": [
+    "Pub",
+    "Family",
+    "Office",
+    "Kids",
+    "Nerds"
+   ]
+  },
+  {
+   "key": "difficulty",
+   "label": "Difficulty",
+   "type": "chips",
+   "options": [
+    "Easy",
+    "Mixed",
+    "Hard"
+   ],
+   "default": "Mixed"
+  }
+ ],
+ "tools": [
+  {
+   "id": "round",
+   "title": "Write a round",
+   "subtitle": "10 questions",
+   "emoji": "❓",
+   "inputs": [
+    {
+     "key": "theme",
+     "label": "Theme",
+     "type": "text",
+     "placeholder": "90s music",
+     "required": true
+    }
+   ],
+   "prompt": "A 10-question {theme} round for the profile: table (No. | Question | Answer | Points), and a callout on a bonus question.",
+   "shape": "table, callout",
+   "button": "Write",
+   "loading": "Writing…"
+  },
+  {
+   "id": "full",
+   "title": "Full quiz",
+   "subtitle": "6 rounds",
+   "emoji": "🏆",
+   "inputs": [
+    {
+     "key": "themes",
+     "label": "Themes",
+     "type": "text",
+     "placeholder": "general, music, film, sport, science, picture"
+    }
+   ],
+   "prompt": "A 6-round quiz ({themes}): cards (round title, body = 5 questions with answers, meta = difficulty), and a quote with a host intro.",
+   "shape": "cards, quote",
+   "button": "Build",
+   "loading": "Building…"
+  },
+  {
+   "id": "tiebreak",
+   "title": "Tie-breakers",
+   "subtitle": "Closest-number style",
+   "emoji": "⚖️",
+   "inputs": [],
+   "prompt": "10 tie-breaker questions: table (Question | Answer), and a callout on how to run a tie-break.",
+   "shape": "table, callout",
+   "button": "Write",
+   "loading": "Writing…"
+  },
+  {
+   "id": "script",
+   "title": "Host script",
+   "subtitle": "Welcome, rules, banter",
+   "emoji": "🎤",
+   "inputs": [
+    {
+     "key": "event",
+     "label": "Event",
+     "type": "text",
+     "placeholder": "office charity quiz",
+     "required": true
+    }
+   ],
+   "prompt": "Host script for {event}: quote (welcome + rules), bullets (banter lines between rounds), and a callout on pacing.",
+   "shape": "quote, bullets, callout",
+   "button": "Write",
+   "loading": "Writing…"
+  }
+ ]
+}

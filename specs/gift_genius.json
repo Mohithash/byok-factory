@@ -1,0 +1,166 @@
+{
+ "id": "gift_genius",
+ "name": "Gift Genius",
+ "tagline": "The right gift, every time",
+ "category": "Shopping",
+ "colors": [
+  "#AD1457",
+  "#FFB300",
+  "#00897B"
+ ],
+ "icon": "gift",
+ "about": "Gift Genius finds thoughtful gifts for anyone from a few details, writes cards, and plans experiences instead of stuff.",
+ "persona": "You are a thoughtful, culturally aware gift consultant: specific over generic, mindful of budget and relationship.",
+ "onboarding": {
+  "title": "Thoughtful, not last-minute",
+  "subtitle": "A few defaults save time.",
+  "bullets": [
+   "Gift ideas from details",
+   "Card messages",
+   "Experience planning"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "currency",
+   "label": "Currency",
+   "type": "text",
+   "placeholder": "$",
+   "default": "$"
+  },
+  {
+   "key": "people",
+   "label": "People you often buy for",
+   "type": "text",
+   "placeholder": "mum (gardening), Sam (coffee nerd)"
+  }
+ ],
+ "tools": [
+  {
+   "id": "ideas",
+   "title": "Gift ideas",
+   "subtitle": "Person + budget → ideas",
+   "emoji": "🎁",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Who",
+     "type": "text",
+     "placeholder": "my dad, 62, into cycling and history",
+     "required": true
+    },
+    {
+     "key": "budget",
+     "label": "Budget",
+     "type": "number",
+     "placeholder": "60"
+    },
+    {
+     "key": "occasion",
+     "label": "Occasion",
+     "type": "chips",
+     "options": [
+      "Birthday",
+      "Anniversary",
+      "Holiday",
+      "Thank you",
+      "Just because"
+     ],
+     "default": "Birthday"
+    }
+   ],
+   "prompt": "8 gift ideas for {who}, budget {budget}, {occasion}: cards (gift, body = why it fits + where to find, meta = price), a callout on what to avoid, and a quote with a card message.",
+   "shape": "cards, callout, quote",
+   "button": "Find gifts",
+   "loading": "Thinking…"
+  },
+  {
+   "id": "card",
+   "title": "Write the card",
+   "subtitle": "Words that land",
+   "emoji": "💌",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "To",
+     "type": "text",
+     "required": true
+    },
+    {
+     "key": "occasion",
+     "label": "Occasion",
+     "type": "text"
+    },
+    {
+     "key": "tone",
+     "label": "Tone",
+     "type": "chips",
+     "options": [
+      "Heartfelt",
+      "Funny",
+      "Short",
+      "Formal"
+     ],
+     "default": "Heartfelt"
+    }
+   ],
+   "prompt": "3 card messages to {who} for {occasion}, tone {tone}, as quote sections.",
+   "shape": "quote, quote, quote",
+   "button": "Write",
+   "loading": "Writing…"
+  },
+  {
+   "id": "experience",
+   "title": "Plan an experience",
+   "subtitle": "Memories over objects",
+   "emoji": "🎈",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Who",
+     "type": "text",
+     "required": true
+    },
+    {
+     "key": "budget",
+     "label": "Budget",
+     "type": "number",
+     "placeholder": "150"
+    }
+   ],
+   "prompt": "3 experience gifts for {who} within {budget}: cards (experience, body = how to organise, meta = cost), steps to make it a surprise, and a callout on booking timing.",
+   "shape": "cards, steps, callout",
+   "button": "Plan",
+   "loading": "Planning…"
+  },
+  {
+   "id": "group",
+   "title": "Group gift",
+   "subtitle": "Organise everyone",
+   "emoji": "👥",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "For",
+     "type": "text",
+     "required": true
+    },
+    {
+     "key": "group",
+     "label": "Contributors",
+     "type": "text",
+     "placeholder": "6 colleagues"
+    }
+   ],
+   "prompt": "Organise a group gift for {who} from {group}: kv (gift, per-person amount, deadline), a quote with the message to the group, and a checklist for the organiser.",
+   "shape": "kv, quote, checklist",
+   "button": "Organise",
+   "loading": "Organising…"
+  }
+ ]
+}

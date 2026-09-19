@@ -1,0 +1,139 @@
+{
+ "id": "swim_coach",
+ "name": "Swim Smart",
+ "tagline": "Technique, sets and open-water prep",
+ "category": "Sports",
+ "colors": [
+  "#0288D1",
+  "#FFB300",
+  "#26A69A"
+ ],
+ "icon": "drop",
+ "about": "Swim Smart writes pool sets for your level, fixes stroke technique from descriptions, and prepares you for open water and triathlons.",
+ "persona": "You are a swim coach: technique before volume, drills with purpose, safety-first in open water.",
+ "onboarding": {
+  "title": "Swim further, easier",
+  "subtitle": "Your swimming.",
+  "bullets": [
+   "Pool sets by level",
+   "Technique fixes",
+   "Open-water prep"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "level",
+   "label": "Level",
+   "type": "chips",
+   "options": [
+    "Learning",
+    "Can swim 400m",
+    "1–2 km",
+    "Competitive"
+   ]
+  },
+  {
+   "key": "stroke",
+   "label": "Focus stroke",
+   "type": "chips",
+   "options": [
+    "Freestyle",
+    "Breaststroke",
+    "Backstroke",
+    "Butterfly"
+   ]
+  },
+  {
+   "key": "goal",
+   "label": "Goal",
+   "type": "text"
+  }
+ ],
+ "tools": [
+  {
+   "id": "set",
+   "title": "Today's set",
+   "subtitle": "Time available",
+   "emoji": "🏊",
+   "inputs": [
+    {
+     "key": "minutes",
+     "label": "Minutes",
+     "type": "number",
+     "placeholder": "45"
+    },
+    {
+     "key": "focus",
+     "label": "Focus",
+     "type": "chips",
+     "options": [
+      "Technique",
+      "Endurance",
+      "Speed",
+      "Recovery"
+     ],
+     "default": "Technique"
+    }
+   ],
+   "prompt": "A {minutes}-minute {focus} set for the profile: table (Part | Distance | Effort | Notes), bullets (drills explained), and a callout on rest.",
+   "shape": "table, bullets, callout",
+   "button": "Build",
+   "loading": "Planning…"
+  },
+  {
+   "id": "fix",
+   "title": "Fix my stroke",
+   "subtitle": "Describe the problem",
+   "emoji": "🔧",
+   "inputs": [
+    {
+     "key": "problem",
+     "label": "Problem",
+     "type": "text",
+     "placeholder": "legs sink in freestyle",
+     "required": true
+    }
+   ],
+   "prompt": "Fix '{problem}' in the profile stroke: text (cause), steps (drills in order), and a callout on the one cue to think about.",
+   "shape": "text, steps, callout",
+   "button": "Fix",
+   "loading": "Analysing…"
+  },
+  {
+   "id": "openwater",
+   "title": "Open-water prep",
+   "subtitle": "Sea, lake, river",
+   "emoji": "🌊",
+   "inputs": [
+    {
+     "key": "event",
+     "label": "Event",
+     "type": "text",
+     "placeholder": "1.5 km sea swim",
+     "required": true
+    }
+   ],
+   "prompt": "Prepare for {event}: table (Week | Sessions), checklist (kit & safety), and a callout on cold water and sighting.",
+   "shape": "table, checklist, callout",
+   "button": "Prepare",
+   "loading": "Preparing…"
+  },
+  {
+   "id": "plan",
+   "title": "8-week plan",
+   "subtitle": "Toward your goal",
+   "emoji": "📅",
+   "inputs": [],
+   "prompt": "An 8-week plan toward the profile goal: table (Week | Session 1 | Session 2 | Session 3), and a callout on progression.",
+   "shape": "table, callout",
+   "button": "Plan",
+   "loading": "Planning…"
+  }
+ ],
+ "disclaimer": "Never swim alone in open water; not medical advice."
+}

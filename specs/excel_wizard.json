@@ -1,0 +1,129 @@
+{
+ "id": "excel_wizard",
+ "name": "Sheet Wizard",
+ "tagline": "Spreadsheet formulas explained and written",
+ "category": "Productivity",
+ "colors": [
+  "#1B5E20",
+  "#FFB300",
+  "#0288D1"
+ ],
+ "icon": "graph",
+ "about": "Sheet Wizard writes Excel/Google Sheets formulas from plain English, explains scary ones, fixes errors and designs sheet layouts.",
+ "persona": "You are a spreadsheet expert: exact formulas for the stated app, explains each part, warns about pitfalls.",
+ "onboarding": {
+  "title": "Formulas without the frustration",
+  "subtitle": "Which app?",
+  "bullets": [
+   "Plain English → formula",
+   "Explain & fix formulas",
+   "Sheet design"
+  ]
+ },
+ "profile": [
+  {
+   "key": "app",
+   "label": "App",
+   "type": "chips",
+   "options": [
+    "Excel",
+    "Google Sheets",
+    "LibreOffice"
+   ],
+   "default": "Excel"
+  },
+  {
+   "key": "level",
+   "label": "Level",
+   "type": "chips",
+   "options": [
+    "Beginner",
+    "Comfortable",
+    "Power user"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "write",
+   "title": "Write a formula",
+   "subtitle": "Describe what you need",
+   "emoji": "🧮",
+   "inputs": [
+    {
+     "key": "need",
+     "label": "What you need",
+     "type": "longtext",
+     "placeholder": "sum column C where column A says 'Paid' and date in B is this month",
+     "required": true
+    }
+   ],
+   "prompt": "Formula for the profile app: {need}. quote (the formula), kv (each part → what it does), bullets (edge cases), and a callout on a simpler alternative if one exists.",
+   "shape": "quote, kv, bullets, callout",
+   "button": "Write",
+   "loading": "Composing…"
+  },
+  {
+   "id": "explain",
+   "title": "Explain a formula",
+   "subtitle": "Paste it",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "formula",
+     "label": "Formula",
+     "type": "text",
+     "placeholder": "=INDEX(B:B,MATCH(1,(A:A=F1)*(C:C=G1),0))",
+     "required": true
+    }
+   ],
+   "prompt": "Explain {formula} step by step: steps (evaluation order), kv (functions used), and a callout on where it breaks.",
+   "shape": "steps, kv, callout",
+   "button": "Explain",
+   "loading": "Parsing…"
+  },
+  {
+   "id": "fix",
+   "title": "Fix an error",
+   "subtitle": "#REF!, #N/A, wrong result",
+   "emoji": "🩹",
+   "inputs": [
+    {
+     "key": "formula",
+     "label": "Formula",
+     "type": "text",
+     "required": true
+    },
+    {
+     "key": "problem",
+     "label": "Problem",
+     "type": "text",
+     "placeholder": "#N/A on some rows"
+    }
+   ],
+   "prompt": "Fix {formula} showing {problem}: text (cause), quote (fixed formula), and bullets (how to prevent it).",
+   "shape": "text, quote, bullets",
+   "button": "Fix",
+   "loading": "Debugging…"
+  },
+  {
+   "id": "design",
+   "title": "Design a sheet",
+   "subtitle": "Layout for a task",
+   "emoji": "📐",
+   "inputs": [
+    {
+     "key": "task",
+     "label": "Purpose",
+     "type": "text",
+     "placeholder": "track freelance invoices and payments",
+     "required": true
+    }
+   ],
+   "prompt": "Design a sheet for {task}: table (Sheet/Tab | Columns | Notes), bullets (formulas to add), and a callout on data validation.",
+   "shape": "table, bullets, callout",
+   "button": "Design",
+   "loading": "Designing…"
+  }
+ ]
+}

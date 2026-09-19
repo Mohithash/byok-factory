@@ -1,0 +1,135 @@
+{
+ "id": "marathon_nutrition",
+ "name": "Fuel Up",
+ "tagline": "Sports nutrition for training and race day",
+ "category": "Sports",
+ "colors": [
+  "#EF6C00",
+  "#00838F",
+  "#43A047"
+ ],
+ "icon": "flame",
+ "about": "Fuel Up plans daily nutrition for your training load, carb-loads before races, builds in-race fuelling and fixes GI issues.",
+ "persona": "You are a sports dietitian: carbs-per-kg precise, practical foods, gut-training aware.",
+ "onboarding": {
+  "title": "Eat to perform",
+  "subtitle": "Your training.",
+  "bullets": [
+   "Daily fuelling by load",
+   "Race-week carb loading",
+   "In-race fuel plans"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "weight",
+   "label": "Weight (kg)",
+   "type": "number",
+   "placeholder": "70"
+  },
+  {
+   "key": "sport",
+   "label": "Sport",
+   "type": "chips",
+   "options": [
+    "Running",
+    "Cycling",
+    "Triathlon",
+    "Hiking",
+    "Team sport"
+   ]
+  },
+  {
+   "key": "event",
+   "label": "Next event",
+   "type": "text"
+  }
+ ],
+ "tools": [
+  {
+   "id": "daily",
+   "title": "Today's fuel",
+   "subtitle": "By session",
+   "emoji": "🍝",
+   "inputs": [
+    {
+     "key": "session",
+     "label": "Today's training",
+     "type": "text",
+     "placeholder": "90-min ride, moderate",
+     "required": true
+    }
+   ],
+   "prompt": "Fuel plan for {session} for the profile: kv (carbs g, protein g, timing before/after), table (Meal | What | Carbs), and a callout on hydration.",
+   "shape": "kv, table, callout",
+   "button": "Plan",
+   "loading": "Calculating…"
+  },
+  {
+   "id": "carbload",
+   "title": "Carb-load",
+   "subtitle": "Race week",
+   "emoji": "📈",
+   "inputs": [
+    {
+     "key": "race",
+     "label": "Race",
+     "type": "text",
+     "placeholder": "marathon Sunday",
+     "required": true
+    }
+   ],
+   "prompt": "Carb-loading for {race} at the profile weight: table (Day | Carbs g | Sample foods), bullets (what to avoid), and a callout on weight gain being normal.",
+   "shape": "table, bullets, callout",
+   "button": "Plan",
+   "loading": "Planning…"
+  },
+  {
+   "id": "inrace",
+   "title": "In-race fuelling",
+   "subtitle": "Gels, drinks, real food",
+   "emoji": "⛽",
+   "inputs": [
+    {
+     "key": "race",
+     "label": "Race & expected time",
+     "type": "text",
+     "required": true
+    },
+    {
+     "key": "gut",
+     "label": "Gut history",
+     "type": "text"
+    }
+   ],
+   "prompt": "In-race plan for {race}, gut: {gut}: table (Time | Fuel | Carbs | Fluid), steps (gut training in the weeks before), and a callout on symptoms to stop for.",
+   "shape": "table, steps, callout",
+   "button": "Plan",
+   "loading": "Planning…"
+  },
+  {
+   "id": "gi",
+   "title": "Fix GI issues",
+   "subtitle": "Cramps, nausea",
+   "emoji": "🤢",
+   "inputs": [
+    {
+     "key": "issue",
+     "label": "What happens",
+     "type": "text",
+     "required": true
+    }
+   ],
+   "prompt": "For '{issue}': bullets (likely causes), steps (changes to test one at a time), and a callout on when to see a doctor.",
+   "shape": "bullets, steps, callout",
+   "button": "Fix",
+   "loading": "Thinking…"
+  }
+ ],
+ "disclaimer": "General information, not medical advice; consult a clinician."
+}

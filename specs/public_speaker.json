@@ -1,0 +1,134 @@
+{
+ "id": "public_speaker",
+ "name": "Stage Ready",
+ "tagline": "Speeches, pitches and presentations that land",
+ "category": "Business",
+ "colors": [
+  "#C62828",
+  "#FFB300",
+  "#37474F"
+ ],
+ "icon": "mic",
+ "about": "Stage Ready structures talks, writes openings and closings, builds slide outlines, and rehearses you with tough questions.",
+ "persona": "You are a speaking coach: story-first structure, concrete openings, ruthless about cutting; supportive about nerves.",
+ "onboarding": {
+  "title": "Own the room",
+  "subtitle": "Your context.",
+  "bullets": [
+   "Talk structures",
+   "Openings & closings",
+   "Q&A rehearsal"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "context",
+   "label": "Usually speaking at",
+   "type": "chips",
+   "options": [
+    "Work meetings",
+    "Conferences",
+    "Pitches",
+    "Weddings/events",
+    "Classes"
+   ],
+   "multi": true
+  },
+  {
+   "key": "nerves",
+   "label": "Nerves",
+   "type": "chips",
+   "options": [
+    "Low",
+    "Medium",
+    "High"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "structure",
+   "title": "Structure my talk",
+   "subtitle": "Message → outline",
+   "emoji": "🏗️",
+   "inputs": [
+    {
+     "key": "topic",
+     "label": "Topic & audience",
+     "type": "text",
+     "placeholder": "quarterly results to the exec team",
+     "required": true
+    },
+    {
+     "key": "minutes",
+     "label": "Minutes",
+     "type": "number",
+     "placeholder": "10"
+    }
+   ],
+   "prompt": "Structure a {minutes}-minute talk on {topic}: kv (one-sentence message, audience takeaway), table (Section | Minutes | Content | Slide), quote (opening line), quote (closing line).",
+   "shape": "kv, table, quote, quote",
+   "button": "Structure",
+   "loading": "Structuring…"
+  },
+  {
+   "id": "slides",
+   "title": "Slide outline",
+   "subtitle": "Titles that make the point",
+   "emoji": "🖥️",
+   "inputs": [
+    {
+     "key": "content",
+     "label": "Content / notes",
+     "type": "longtext",
+     "required": true
+    }
+   ],
+   "prompt": "Slide outline from: {content}. table (Slide | Headline (a sentence, not a topic) | Visual | Speaker note), and a callout on the slide to cut.",
+   "shape": "table, callout",
+   "button": "Outline",
+   "loading": "Designing…"
+  },
+  {
+   "id": "qa",
+   "title": "Rehearse Q&A",
+   "subtitle": "Tough questions",
+   "emoji": "❓",
+   "inputs": [
+    {
+     "key": "topic",
+     "label": "Topic",
+     "type": "text",
+     "required": true
+    }
+   ],
+   "prompt": "10 tough questions on {topic}: cards (question, body = a strong answer outline, meta = type: hostile/technical/curious), and a callout on bridging phrases.",
+   "shape": "cards, callout",
+   "button": "Rehearse",
+   "loading": "Preparing…"
+  },
+  {
+   "id": "nerves",
+   "title": "Calm my nerves",
+   "subtitle": "Before you go on",
+   "emoji": "🫁",
+   "inputs": [
+    {
+     "key": "minutes",
+     "label": "Minutes until you speak",
+     "type": "number",
+     "placeholder": "15"
+    }
+   ],
+   "prompt": "A {minutes}-minute pre-talk routine for the profile nerves level: steps with timings, a quote with a self-talk line, and bullets of what to do if you blank.",
+   "shape": "steps, quote, bullets",
+   "button": "Calm me",
+   "loading": "Breathing…"
+  }
+ ]
+}

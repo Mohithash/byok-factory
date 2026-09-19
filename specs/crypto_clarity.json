@@ -1,0 +1,135 @@
+{
+ "id": "crypto_clarity",
+ "name": "Crypto Clarity",
+ "tagline": "Understand crypto without the hype",
+ "category": "Finance",
+ "colors": [
+  "#F7931A",
+  "#263238",
+  "#26A69A"
+ ],
+ "icon": "coin",
+ "about": "Crypto Clarity explains coins, protocols and wallets in plain language, decodes whitepapers, walks through security setups and flags scam patterns.",
+ "persona": "You are a sceptical, security-first crypto educator: explains mechanisms, never predicts prices, always names risks.",
+ "onboarding": {
+  "title": "Learn before you leap",
+  "subtitle": "Your level.",
+  "bullets": [
+   "Plain-language explainers",
+   "Security checklists",
+   "Scam pattern spotting"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "level",
+   "label": "Level",
+   "type": "chips",
+   "options": [
+    "Total beginner",
+    "Some",
+    "Experienced"
+   ]
+  },
+  {
+   "key": "interest",
+   "label": "Interest",
+   "type": "chips",
+   "options": [
+    "Bitcoin",
+    "Ethereum/DeFi",
+    "NFTs",
+    "Stablecoins",
+    "Just curious"
+   ],
+   "multi": true
+  }
+ ],
+ "tools": [
+  {
+   "id": "explain",
+   "title": "Explain",
+   "subtitle": "Any concept or coin",
+   "emoji": "💡",
+   "inputs": [
+    {
+     "key": "q",
+     "label": "Question",
+     "type": "text",
+     "placeholder": "what is staking and what are the risks?",
+     "required": true
+    }
+   ],
+   "prompt": "Explain '{q}' for the profile level: text (mechanism), kv (key facts), bullets (risks), and a callout that nothing here is investment advice.",
+   "shape": "text, kv, bullets, callout",
+   "button": "Explain",
+   "loading": "Thinking…"
+  },
+  {
+   "id": "security",
+   "title": "Secure my setup",
+   "subtitle": "Wallets, keys, 2FA",
+   "emoji": "🔐",
+   "inputs": [
+    {
+     "key": "holding",
+     "label": "You hold on",
+     "type": "chips",
+     "options": [
+      "Exchange",
+      "Hot wallet",
+      "Hardware wallet",
+      "Not yet"
+     ],
+     "default": "Exchange"
+    }
+   ],
+   "prompt": "Security checklist for {holding}: checklist (ordered), a callout on seed-phrase rules, and bullets (common attacks).",
+   "shape": "checklist, callout, bullets",
+   "button": "Secure",
+   "loading": "Reviewing…"
+  },
+  {
+   "id": "scam",
+   "title": "Is this a scam?",
+   "subtitle": "Paste the pitch",
+   "emoji": "🚩",
+   "inputs": [
+    {
+     "key": "pitch",
+     "label": "The message / offer",
+     "type": "longtext",
+     "required": true
+    }
+   ],
+   "prompt": "Assess: {pitch}. callout (verdict with confidence), bullets (red flags found), and steps (what to do).",
+   "shape": "callout, bullets, steps",
+   "button": "Assess",
+   "loading": "Checking…"
+  },
+  {
+   "id": "whitepaper",
+   "title": "Decode a project",
+   "subtitle": "Paste a summary or link text",
+   "emoji": "📄",
+   "inputs": [
+    {
+     "key": "text",
+     "label": "Project description",
+     "type": "longtext",
+     "required": true
+    }
+   ],
+   "prompt": "Decode: {text}. kv (what it claims, how it works, token role, who benefits), bullets (questions to ask), and a callout on risks.",
+   "shape": "kv, bullets, callout",
+   "button": "Decode",
+   "loading": "Reading…"
+  }
+ ],
+ "disclaimer": "General information, not financial, tax or legal advice; consult a licensed professional."
+}

@@ -1,0 +1,156 @@
+{
+ "id": "kid_activities",
+ "name": "Rainy Day Box",
+ "tagline": "Kids' activities from what's in the house",
+ "category": "Parenting",
+ "colors": [
+  "#FF7043",
+  "#4DB6AC",
+  "#FFCA28"
+ ],
+ "icon": "star",
+ "about": "Rainy Day Box invents age-appropriate activities from household items, plans birthday parties and screen-free afternoons, and turns chores into games.",
+ "persona": "You are a playful early-years educator: safe, cheap, mess-honest, learning-in-disguise.",
+ "onboarding": {
+  "title": "Bored? Not for long",
+  "subtitle": "Your kids.",
+  "bullets": [
+   "Activities from household stuff",
+   "Party plans",
+   "Chores as games"
+  ]
+ },
+ "profile": [
+  {
+   "key": "kids",
+   "label": "Kids' ages",
+   "type": "text",
+   "placeholder": "4 and 7",
+   "required": true
+  },
+  {
+   "key": "mess",
+   "label": "Mess tolerance",
+   "type": "chips",
+   "options": [
+    "Low",
+    "Medium",
+    "Bring it on"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "now",
+   "title": "Something to do now",
+   "subtitle": "From what you have",
+   "emoji": "🎨",
+   "inputs": [
+    {
+     "key": "have",
+     "label": "Stuff around",
+     "type": "text",
+     "placeholder": "cardboard boxes, tape, dried pasta"
+    },
+    {
+     "key": "minutes",
+     "label": "Minutes to fill",
+     "type": "number",
+     "placeholder": "45"
+    }
+   ],
+   "prompt": "Activities for the profile kids using {have}, {minutes} minutes: cards (activity, body = how, meta = mess & minutes), and a callout on the learning hidden inside.",
+   "shape": "cards, callout",
+   "button": "Ideas",
+   "loading": "Inventing…"
+  },
+  {
+   "id": "party",
+   "title": "Birthday party",
+   "subtitle": "Plan it",
+   "emoji": "🎂",
+   "inputs": [
+    {
+     "key": "age",
+     "label": "Turning",
+     "type": "number",
+     "placeholder": "6"
+    },
+    {
+     "key": "guests",
+     "label": "Kids",
+     "type": "number",
+     "placeholder": "10"
+    },
+    {
+     "key": "where",
+     "label": "Where",
+     "type": "chips",
+     "options": [
+      "Home",
+      "Park",
+      "Venue"
+     ],
+     "default": "Home"
+    },
+    {
+     "key": "budget",
+     "label": "Budget",
+     "type": "number",
+     "placeholder": "150"
+    }
+   ],
+   "prompt": "Party for a {age}-year-old, {guests} kids at {where}, budget {budget}: table (Time | Activity), checklist (supplies), and a callout on the meltdown moment and how to avoid it.",
+   "shape": "table, checklist, callout",
+   "button": "Plan",
+   "loading": "Planning…"
+  },
+  {
+   "id": "chores",
+   "title": "Chores as games",
+   "subtitle": "Get help without nagging",
+   "emoji": "🧹",
+   "inputs": [
+    {
+     "key": "chores",
+     "label": "Chores",
+     "type": "text",
+     "placeholder": "tidy toys, set the table",
+     "required": true
+    }
+   ],
+   "prompt": "Turn {chores} into games for the profile kids: cards (game, body = rules, meta = chore), and a quote (the invitation line to say).",
+   "shape": "cards, quote",
+   "button": "Gamify",
+   "loading": "Inventing…"
+  },
+  {
+   "id": "outing",
+   "title": "Free outing",
+   "subtitle": "Nearby, low cost",
+   "emoji": "🌳",
+   "inputs": [
+    {
+     "key": "where",
+     "label": "Where you live",
+     "type": "text"
+    },
+    {
+     "key": "weather",
+     "label": "Weather",
+     "type": "chips",
+     "options": [
+      "Sunny",
+      "Rainy",
+      "Cold"
+     ],
+     "default": "Sunny"
+    }
+   ],
+   "prompt": "Free/cheap outings in {where} on a {weather} day for the profile kids: cards (outing, body = what to do there, meta = cost), and a checklist (bag).",
+   "shape": "cards, checklist",
+   "button": "Suggest",
+   "loading": "Thinking…"
+  }
+ ]
+}

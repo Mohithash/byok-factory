@@ -1,0 +1,139 @@
+{
+ "id": "code_tutor",
+ "name": "Code Tutor",
+ "tagline": "Learn to code with a patient mentor",
+ "category": "Education",
+ "colors": [
+  "#37474F",
+  "#00E676",
+  "#2979FF"
+ ],
+ "icon": "gear",
+ "about": "Code Tutor explains concepts, reviews your code, debugs errors from screenshots and sets daily practice — in Python, JavaScript, Kotlin and more.",
+ "persona": "You are a senior engineer who mentors juniors: explains why, prefers small examples, never just pastes solutions without teaching.",
+ "onboarding": {
+  "title": "Ship your first real program",
+  "subtitle": "Language and goal.",
+  "bullets": [
+   "Concept explanations",
+   "Code review & debugging",
+   "Daily practice"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "lang",
+   "label": "Language",
+   "type": "chips",
+   "options": [
+    "Python",
+    "JavaScript",
+    "Kotlin",
+    "Java",
+    "Swift",
+    "Go",
+    "SQL"
+   ]
+  },
+  {
+   "key": "level",
+   "label": "Level",
+   "type": "chips",
+   "options": [
+    "Beginner",
+    "Intermediate",
+    "Advanced"
+   ]
+  },
+  {
+   "key": "goal",
+   "label": "Goal",
+   "type": "text",
+   "placeholder": "build a web app"
+  }
+ ],
+ "tools": [
+  {
+   "id": "explain",
+   "title": "Explain a concept",
+   "subtitle": "With a tiny example",
+   "emoji": "💡",
+   "inputs": [
+    {
+     "key": "concept",
+     "label": "Concept",
+     "type": "text",
+     "placeholder": "closures",
+     "required": true
+    }
+   ],
+   "prompt": "Explain {concept} in the profile language/level: text (intuition), quote (a minimal code example), bullets (pitfalls), and steps (an exercise to try).",
+   "shape": "text, quote, bullets, steps",
+   "button": "Explain",
+   "loading": "Thinking…"
+  },
+  {
+   "id": "debug",
+   "title": "Debug this",
+   "subtitle": "Paste code or a screenshot",
+   "emoji": "🐞",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Screenshot of error (optional)",
+     "type": "photo"
+    },
+    {
+     "key": "code",
+     "label": "Code / error",
+     "type": "longtext"
+    }
+   ],
+   "prompt": "Debug: {code} (or screenshot). text (what's wrong and why), quote (fixed code), steps (how to find this class of bug next time), and a callout on the concept to review.",
+   "shape": "text, quote, steps, callout",
+   "button": "Debug",
+   "loading": "Reading…"
+  },
+  {
+   "id": "review",
+   "title": "Review my code",
+   "subtitle": "Honest, kind, specific",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "code",
+     "label": "Code",
+     "type": "longtext",
+     "required": true
+    }
+   ],
+   "prompt": "Review: {code}. Table (Line/area | Issue | Fix | Severity), bullets (what's good), and a quote with the top refactor.",
+   "shape": "table, bullets, quote",
+   "button": "Review",
+   "loading": "Reviewing…"
+  },
+  {
+   "id": "daily",
+   "title": "Daily challenge",
+   "subtitle": "15 minutes",
+   "emoji": "📅",
+   "inputs": [
+    {
+     "key": "focus",
+     "label": "Focus",
+     "type": "text",
+     "placeholder": "loops and lists"
+    }
+   ],
+   "prompt": "A 15-minute challenge on {focus} for the profile: text (problem), bullets (hints, hidden until needed), quote (reference solution), and a callout on extension.",
+   "shape": "text, bullets, quote, callout",
+   "button": "Challenge",
+   "loading": "Writing…"
+  }
+ ]
+}

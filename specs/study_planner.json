@@ -1,0 +1,130 @@
+{
+ "id": "study_planner",
+ "name": "Exam Countdown",
+ "tagline": "A revision timetable that adapts to you",
+ "category": "Education",
+ "colors": [
+  "#5E35B1",
+  "#FFB300",
+  "#00ACC1"
+ ],
+ "icon": "calendar",
+ "about": "Exam Countdown turns your subjects and exam dates into a spaced-repetition revision timetable, then builds active-recall sessions and past-paper strategies.",
+ "persona": "You are an evidence-based study coach: spaced repetition, active recall, interleaving; realistic about energy and procrastination.",
+ "onboarding": {
+  "title": "Revise smarter, not longer",
+  "subtitle": "Your exams and weekly hours shape the plan.",
+  "bullets": [
+   "Timetables that respect your life",
+   "Active-recall sessions",
+   "Exam-day strategy"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "exams",
+   "label": "Subjects & exam dates",
+   "type": "longtext",
+   "placeholder": "Biology 12 Jun, Maths 15 Jun, History 20 Jun"
+  },
+  {
+   "key": "hours",
+   "label": "Study hours/week",
+   "type": "chips",
+   "options": [
+    "5",
+    "10",
+    "15",
+    "20+"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "timetable",
+   "title": "Build timetable",
+   "subtitle": "From today to the exams",
+   "emoji": "📅",
+   "inputs": [
+    {
+     "key": "weak",
+     "label": "Weakest topics",
+     "type": "text",
+     "placeholder": "cell division, integration"
+    },
+    {
+     "key": "busy",
+     "label": "Busy days",
+     "type": "text",
+     "placeholder": "Sat mornings football"
+    }
+   ],
+   "prompt": "Revision timetable from the profile exams, weak topics {weak}, busy: {busy}. Table (Date | Subject | Topic | Method (recall/practice/review)), a callout on spacing logic, and a checklist for the week before each exam.",
+   "shape": "table, callout, checklist",
+   "button": "Build",
+   "loading": "Scheduling…"
+  },
+  {
+   "id": "session",
+   "title": "Study session",
+   "subtitle": "45 minutes, one topic",
+   "emoji": "⏱️",
+   "inputs": [
+    {
+     "key": "topic",
+     "label": "Topic",
+     "type": "text",
+     "placeholder": "photosynthesis",
+     "required": true
+    }
+   ],
+   "prompt": "A 45-minute active-recall session on {topic}: steps (timed blocks), bullets of 8 recall questions with brief answers, and a quote with a one-line mnemonic.",
+   "shape": "steps, bullets, quote",
+   "button": "Start",
+   "loading": "Preparing…"
+  },
+  {
+   "id": "paper",
+   "title": "Past-paper strategy",
+   "subtitle": "How to attack the exam",
+   "emoji": "📝",
+   "inputs": [
+    {
+     "key": "exam",
+     "label": "Exam",
+     "type": "text",
+     "placeholder": "GCSE Maths Paper 2",
+     "required": true
+    }
+   ],
+   "prompt": "Strategy for {exam}: table (Section | Marks | Minutes | Tips), bullets of common mark-losers, and a callout on the last 5 minutes.",
+   "shape": "table, bullets, callout",
+   "button": "Strategy",
+   "loading": "Planning…"
+  },
+  {
+   "id": "slump",
+   "title": "I'm behind",
+   "subtitle": "Rescue plan",
+   "emoji": "🆘",
+   "inputs": [
+    {
+     "key": "situation",
+     "label": "Situation",
+     "type": "text",
+     "placeholder": "exam in 6 days, barely started",
+     "required": true
+    }
+   ],
+   "prompt": "Triage for: {situation}. Callout (what to accept), table (Day | Priority topics | Hours), steps for tonight, and a quote of encouragement.",
+   "shape": "callout, table, steps, quote",
+   "button": "Rescue me",
+   "loading": "Triaging…"
+  }
+ ]
+}

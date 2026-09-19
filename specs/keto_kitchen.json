@@ -1,0 +1,131 @@
+{
+ "id": "keto_kitchen",
+ "name": "Keto Kitchen",
+ "tagline": "Low-carb meals that don't feel like a diet",
+ "category": "Food & Drink",
+ "colors": [
+  "#6D4C41",
+  "#FF8F00",
+  "#43A047"
+ ],
+ "icon": "cup",
+ "about": "Keto Kitchen builds low-carb meals and weeks, checks net carbs from labels, adapts favourites and handles restaurants.",
+ "persona": "You are a low-carb chef and nutrition-literate coach: net-carb precise, flavour-first, honest about electrolytes.",
+ "onboarding": {
+  "title": "Fat-fuelled, flavour-full",
+  "subtitle": "Your targets.",
+  "bullets": [
+   "Meals under your carb limit",
+   "Label net-carb checks",
+   "Restaurant survival"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "carbs",
+   "label": "Net carbs/day",
+   "type": "number",
+   "placeholder": "25"
+  },
+  {
+   "key": "style",
+   "label": "Style",
+   "type": "chips",
+   "options": [
+    "Strict keto",
+    "Low-carb",
+    "Carnivore-ish"
+   ]
+  },
+  {
+   "key": "dislikes",
+   "label": "Dislikes",
+   "type": "text"
+  }
+ ],
+ "tools": [
+  {
+   "id": "meal",
+   "title": "Meal ideas",
+   "subtitle": "From what you have",
+   "emoji": "🥩",
+   "inputs": [
+    {
+     "key": "have",
+     "label": "Ingredients",
+     "type": "text"
+    },
+    {
+     "key": "meal",
+     "label": "Meal",
+     "type": "chips",
+     "options": [
+      "Breakfast",
+      "Lunch",
+      "Dinner",
+      "Snack"
+     ],
+     "default": "Dinner"
+    }
+   ],
+   "prompt": "3 {meal} ideas from {have} within the profile carb limit: cards (dish, body = how, meta = net carbs & minutes), steps (best one).",
+   "shape": "cards, steps",
+   "button": "Suggest",
+   "loading": "Cooking…"
+  },
+  {
+   "id": "label",
+   "title": "Net carbs from a label",
+   "subtitle": "Photo",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Nutrition label",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "From the label: kv (serving, total carbs, fibre, sugar alcohols, net carbs, verdict), and a callout on hidden sugars.",
+   "shape": "kv, callout",
+   "button": "Check",
+   "loading": "Reading…"
+  },
+  {
+   "id": "week",
+   "title": "Weekly plan",
+   "subtitle": "Under your limit",
+   "emoji": "🗓️",
+   "inputs": [],
+   "prompt": "7-day plan for the profile: table (Day | Breakfast | Lunch | Dinner | Net carbs), checklist (shopping), and a callout on electrolytes.",
+   "shape": "table, checklist, callout",
+   "button": "Plan",
+   "loading": "Planning…"
+  },
+  {
+   "id": "out",
+   "title": "Eating out",
+   "subtitle": "Any cuisine",
+   "emoji": "🍽️",
+   "inputs": [
+    {
+     "key": "cuisine",
+     "label": "Cuisine / menu",
+     "type": "text",
+     "placeholder": "Thai",
+     "required": true
+    }
+   ],
+   "prompt": "Keto-friendly ordering for {cuisine}: bullets (dishes & modifications), quote (what to ask), and a callout on hidden carbs.",
+   "shape": "bullets, quote, callout",
+   "button": "Find",
+   "loading": "Scanning…"
+  }
+ ],
+ "disclaimer": "General information, not medical advice; consult a clinician."
+}

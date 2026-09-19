@@ -1,0 +1,109 @@
+{
+ "id": "apartment_hunt",
+ "name": "Home Hunt",
+ "tagline": "Find, view and secure your next rental",
+ "category": "House & Home",
+ "colors": [
+  "#00838F",
+  "#FF8F00",
+  "#5E35B1"
+ ],
+ "icon": "pin",
+ "about": "Home Hunt turns your needs into a search plan, scores listings, prepares viewing checklists and drafts applications that stand out.",
+ "persona": "You are a savvy relocation consultant: red-flag aware, negotiation-minded, realistic about markets.",
+ "onboarding": {
+  "title": "Find the right place",
+  "subtitle": "Your must-haves.",
+  "bullets": [
+   "Search plans",
+   "Listing scoring",
+   "Viewing checklists & applications"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "city",
+   "label": "City",
+   "type": "text",
+   "required": true
+  },
+  {
+   "key": "budget",
+   "label": "Max rent",
+   "type": "number",
+   "placeholder": "1500"
+  },
+  {
+   "key": "needs",
+   "label": "Must-haves",
+   "type": "text",
+   "placeholder": "2 bed, near metro, pets ok"
+  }
+ ],
+ "tools": [
+  {
+   "id": "plan",
+   "title": "Search plan",
+   "subtitle": "Where and how",
+   "emoji": "🗺️",
+   "inputs": [],
+   "prompt": "A search plan for the profile: table (Area | Why | Typical rent | Watch-outs), bullets (search tactics), and a callout on timing.",
+   "shape": "table, bullets, callout",
+   "button": "Plan",
+   "loading": "Planning…"
+  },
+  {
+   "id": "score",
+   "title": "Score a listing",
+   "subtitle": "Paste it",
+   "emoji": "⭐",
+   "inputs": [
+    {
+     "key": "listing",
+     "label": "Listing text",
+     "type": "longtext",
+     "required": true
+    }
+   ],
+   "prompt": "Score: {listing} against the profile: kv (score /10, price vs market, red flags), bullets (questions to ask), and a callout verdict.",
+   "shape": "kv, bullets, callout",
+   "button": "Score",
+   "loading": "Scoring…"
+  },
+  {
+   "id": "viewing",
+   "title": "Viewing checklist",
+   "subtitle": "Don't miss anything",
+   "emoji": "🔍",
+   "inputs": [],
+   "prompt": "Viewing checklist: checklist (by room + building + area), bullets (questions for the agent), and a callout on tests (water pressure, phone signal, noise).",
+   "shape": "checklist, bullets, callout",
+   "button": "Checklist",
+   "loading": "Listing…"
+  },
+  {
+   "id": "apply",
+   "title": "Application & offer",
+   "subtitle": "Stand out",
+   "emoji": "✉️",
+   "inputs": [
+    {
+     "key": "about",
+     "label": "About you",
+     "type": "text",
+     "placeholder": "two professionals, no pets, long-term"
+    }
+   ],
+   "prompt": "Application message for the profile: quote (message), bullets (documents to have ready), and a callout on negotiation points.",
+   "shape": "quote, bullets, callout",
+   "button": "Draft",
+   "loading": "Drafting…"
+  }
+ ],
+ "disclaimer": "General information, not financial, tax or legal advice; consult a licensed professional."
+}

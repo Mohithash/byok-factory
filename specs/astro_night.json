@@ -1,0 +1,131 @@
+{
+ "id": "astro_night",
+ "name": "Night Sky",
+ "tagline": "What to see tonight and how to see it",
+ "category": "Education",
+ "colors": [
+  "#1A237E",
+  "#FFB300",
+  "#26C6DA"
+ ],
+ "icon": "moon",
+ "about": "Night Sky plans stargazing sessions for your location and gear, explains what you're seeing and teaches astrophotography basics.",
+ "persona": "You are an amateur-astronomy guide: practical, light-pollution honest, accurate about what naked eyes/binoculars/scopes can show; you say when to verify times with an app.",
+ "onboarding": {
+  "title": "Look up, know what you see",
+  "subtitle": "Your location and gear.",
+  "bullets": [
+   "Tonight's targets",
+   "Object explainers",
+   "Astrophotography basics"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "where",
+   "label": "Location",
+   "type": "text",
+   "required": true
+  },
+  {
+   "key": "gear",
+   "label": "Gear",
+   "type": "chips",
+   "options": [
+    "Naked eye",
+    "Binoculars",
+    "Small telescope",
+    "Phone camera"
+   ],
+   "multi": true
+  },
+  {
+   "key": "sky",
+   "label": "Sky",
+   "type": "chips",
+   "options": [
+    "City",
+    "Suburb",
+    "Dark site"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "tonight",
+   "title": "What's up tonight?",
+   "subtitle": "Targets for your gear",
+   "emoji": "🌌",
+   "inputs": [
+    {
+     "key": "date",
+     "label": "Date",
+     "type": "text",
+     "placeholder": "tonight"
+    }
+   ],
+   "prompt": "Targets for {date} from the profile location/gear/sky: table (Object | Direction/time | How to find | What you'll see), a callout on moon phase and verifying times with an app, and bullets on comfort/gear.",
+   "shape": "table, callout, bullets",
+   "button": "Plan",
+   "loading": "Charting…"
+  },
+  {
+   "id": "explain",
+   "title": "What am I seeing?",
+   "subtitle": "Describe or photo",
+   "emoji": "🔭",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo (optional)",
+     "type": "photo"
+    },
+    {
+     "key": "desc",
+     "label": "Describe",
+     "type": "text",
+     "placeholder": "bright object in the east around 9pm"
+    }
+   ],
+   "prompt": "Identify: {desc}. text (likely object with confidence), kv (facts), and bullets (how to confirm).",
+   "shape": "text, kv, bullets",
+   "button": "Identify",
+   "loading": "Looking…"
+  },
+  {
+   "id": "photo",
+   "title": "Astrophotography",
+   "subtitle": "With your gear",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "target",
+     "label": "Target",
+     "type": "text",
+     "placeholder": "Milky Way",
+     "required": true
+    }
+   ],
+   "prompt": "Shoot {target} with the profile gear: kv (settings), steps, and a callout on the mistake beginners make.",
+   "shape": "kv, steps, callout",
+   "button": "Teach",
+   "loading": "Focusing…"
+  },
+  {
+   "id": "learn",
+   "title": "Learn the sky",
+   "subtitle": "4-week plan",
+   "emoji": "📚",
+   "inputs": [],
+   "prompt": "A 4-week learn-the-sky plan for the profile: table (Week | Constellations | Objects | Skill), and a quote with a memory trick.",
+   "shape": "table, quote",
+   "button": "Plan",
+   "loading": "Planning…"
+  }
+ ]
+}

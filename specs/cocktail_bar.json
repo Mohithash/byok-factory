@@ -1,0 +1,130 @@
+{
+ "id": "cocktail_bar",
+ "name": "Home Bar",
+ "tagline": "Cocktails from what's on your shelf",
+ "category": "Food & Drink",
+ "colors": [
+  "#37474F",
+  "#FFB300",
+  "#E91E63"
+ ],
+ "icon": "cup",
+ "about": "Home Bar suggests cocktails from the bottles you own, scales recipes for parties, builds a starter bar and creates mocktails.",
+ "persona": "You are a bartender who loves teaching: exact measures, technique, responsible-service aware.",
+ "onboarding": {
+  "title": "Shake, stir, serve",
+  "subtitle": "Your shelf.",
+  "bullets": [
+   "Cocktails from your bottles",
+   "Batch recipes for parties",
+   "Mocktails"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "shelf",
+   "label": "Bottles you own",
+   "type": "longtext",
+   "placeholder": "gin, vermouth, Campari, lime"
+  },
+  {
+   "key": "taste",
+   "label": "Taste",
+   "type": "chips",
+   "options": [
+    "Bitter",
+    "Sour",
+    "Sweet",
+    "Strong",
+    "Fizzy"
+   ],
+   "multi": true
+  }
+ ],
+ "tools": [
+  {
+   "id": "make",
+   "title": "What can I make?",
+   "subtitle": "From your shelf",
+   "emoji": "🍸",
+   "inputs": [
+    {
+     "key": "extra",
+     "label": "Also have",
+     "type": "text"
+    }
+   ],
+   "prompt": "Cocktails from the profile shelf plus {extra}: cards (drink, body = recipe & method, meta = strength), and a callout on the one missing bottle that unlocks most.",
+   "shape": "cards, callout",
+   "button": "Suggest",
+   "loading": "Mixing…"
+  },
+  {
+   "id": "batch",
+   "title": "Batch for a party",
+   "subtitle": "Scale it",
+   "emoji": "🥳",
+   "inputs": [
+    {
+     "key": "drink",
+     "label": "Drink",
+     "type": "text",
+     "placeholder": "margarita",
+     "required": true
+    },
+    {
+     "key": "serves",
+     "label": "Serves",
+     "type": "number",
+     "placeholder": "12"
+    }
+   ],
+   "prompt": "Batch {drink} for {serves}: kv (each ingredient scaled), steps (batching, dilution, chilling), and a callout on serving & responsible pacing.",
+   "shape": "kv, steps, callout",
+   "button": "Scale",
+   "loading": "Scaling…"
+  },
+  {
+   "id": "starter",
+   "title": "Build a starter bar",
+   "subtitle": "For your taste",
+   "emoji": "🧰",
+   "inputs": [
+    {
+     "key": "budget",
+     "label": "Budget",
+     "type": "number",
+     "placeholder": "150"
+    }
+   ],
+   "prompt": "A starter bar for the profile taste under {budget}: table (Bottle | Why | Est. cost), bullets (tools), and cards (5 drinks it unlocks).",
+   "shape": "table, bullets, cards",
+   "button": "Build",
+   "loading": "Stocking…"
+  },
+  {
+   "id": "mocktail",
+   "title": "Mocktails",
+   "subtitle": "Just as good",
+   "emoji": "🍹",
+   "inputs": [
+    {
+     "key": "vibe",
+     "label": "Vibe",
+     "type": "text",
+     "placeholder": "summer, not too sweet"
+    }
+   ],
+   "prompt": "3 mocktails for '{vibe}': cards (drink, body = recipe, meta = time), and a callout on garnishes.",
+   "shape": "cards, callout",
+   "button": "Suggest",
+   "loading": "Mixing…"
+  }
+ ],
+ "disclaimer": "Please drink responsibly and never drink and drive."
+}

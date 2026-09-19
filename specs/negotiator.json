@@ -1,0 +1,134 @@
+{
+ "id": "negotiator",
+ "name": "Haggle",
+ "tagline": "Scripts for every negotiation",
+ "category": "Business",
+ "colors": [
+  "#37474F",
+  "#FFB300",
+  "#00897B"
+ ],
+ "icon": "scale",
+ "about": "Haggle prepares you for salary talks, rent, car deals, freelance rates and refunds with numbers, scripts and counters.",
+ "persona": "You are a calm negotiation coach (Voss/Fisher-style): interests over positions, anchors, silence, walk-away points.",
+ "onboarding": {
+  "title": "Get a better deal, politely",
+  "subtitle": "A little context sharpens the scripts.",
+  "bullets": [
+   "Prep sheets with walk-away points",
+   "Word-for-word scripts",
+   "Counter-offer playbooks"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "style",
+   "label": "Your natural style",
+   "type": "chips",
+   "options": [
+    "Avoid conflict",
+    "Direct",
+    "Analytical",
+    "Charming"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "prep",
+   "title": "Prep sheet",
+   "subtitle": "Any negotiation",
+   "emoji": "📋",
+   "inputs": [
+    {
+     "key": "what",
+     "label": "Negotiation",
+     "type": "text",
+     "placeholder": "rent increase from 1200 to 1350",
+     "required": true
+    },
+    {
+     "key": "facts",
+     "label": "Facts you know",
+     "type": "text",
+     "placeholder": "similar flats list at 1250"
+    }
+   ],
+   "prompt": "Prep for: {what}; facts: {facts}. kv (target, walk-away, their likely interests, your leverage, BATNA), table (Their move | Your counter), and a quote with the opening line.",
+   "shape": "kv, table, quote",
+   "button": "Prepare",
+   "loading": "Preparing…"
+  },
+  {
+   "id": "script",
+   "title": "Give me a script",
+   "subtitle": "What to actually say",
+   "emoji": "🎭",
+   "inputs": [
+    {
+     "key": "situation",
+     "label": "Situation",
+     "type": "text",
+     "placeholder": "asking for a raise after 2 years",
+     "required": true
+    }
+   ],
+   "prompt": "Script for: {situation}. quote (opening), quote (if they push back), quote (closing with a next step), and bullets on tone and silence.",
+   "shape": "quote, quote, quote, bullets",
+   "button": "Write script",
+   "loading": "Writing…"
+  },
+  {
+   "id": "email",
+   "title": "Negotiation email",
+   "subtitle": "Counter in writing",
+   "emoji": "✉️",
+   "inputs": [
+    {
+     "key": "offer",
+     "label": "Their offer / message",
+     "type": "longtext",
+     "required": true
+    },
+    {
+     "key": "want",
+     "label": "What you want",
+     "type": "text"
+    }
+   ],
+   "prompt": "Draft a counter to: {offer}, aiming for {want}. quote (email), callout on one thing to remove if it feels too aggressive.",
+   "shape": "quote, callout",
+   "button": "Draft",
+   "loading": "Drafting…"
+  },
+  {
+   "id": "refund",
+   "title": "Get a refund",
+   "subtitle": "Consumer complaint that works",
+   "emoji": "↩️",
+   "inputs": [
+    {
+     "key": "issue",
+     "label": "What went wrong",
+     "type": "text",
+     "placeholder": "flight cancelled, no refund after 30 days",
+     "required": true
+    },
+    {
+     "key": "company",
+     "label": "Company",
+     "type": "text"
+    }
+   ],
+   "prompt": "Complaint to {company} about {issue}: quote (message citing typical consumer rights in general terms), steps for escalation (chargeback, ombudsman, regulator), and a callout on documentation to keep.",
+   "shape": "quote, steps, callout",
+   "button": "Draft",
+   "loading": "Drafting…"
+  }
+ ]
+}

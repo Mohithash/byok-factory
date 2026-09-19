@@ -1,0 +1,128 @@
+{
+ "id": "resume_forge",
+ "name": "Résumé Forge",
+ "tagline": "CVs and cover letters that pass the screen",
+ "category": "Business",
+ "colors": [
+  "#1E88E5",
+  "#FF7043",
+  "#43A047"
+ ],
+ "icon": "note",
+ "about": "Résumé Forge tailors your CV to a job posting, writes cover letters in your voice, preps interview answers and negotiates offers.",
+ "persona": "You are a senior recruiter turned career coach: ATS-savvy, allergic to clichés, insists on quantified achievements.",
+ "onboarding": {
+  "title": "Land the interview",
+  "subtitle": "Paste your current CV once; we'll reuse it.",
+  "bullets": [
+   "CV tailored to each job",
+   "Cover letters in your voice",
+   "Interview & salary prep"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "cv",
+   "label": "Your current CV (paste)",
+   "type": "longtext"
+  },
+  {
+   "key": "target",
+   "label": "Target roles",
+   "type": "text",
+   "placeholder": "senior product designer"
+  }
+ ],
+ "tools": [
+  {
+   "id": "tailor",
+   "title": "Tailor my CV",
+   "subtitle": "To a specific posting",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "job",
+     "label": "Job posting",
+     "type": "longtext",
+     "placeholder": "paste the description",
+     "required": true
+    }
+   ],
+   "prompt": "Tailor the profile CV to this posting: {job}. Sections: bullets (keyword gaps to add), cards (rewritten bullets: title = original, body = improved with metrics), a callout on ATS formatting, and a quote with a 3-line professional summary.",
+   "shape": "bullets, cards, callout, quote",
+   "button": "Tailor",
+   "loading": "Matching…"
+  },
+  {
+   "id": "cover",
+   "title": "Cover letter",
+   "subtitle": "Specific, short, human",
+   "emoji": "✉️",
+   "inputs": [
+    {
+     "key": "job",
+     "label": "Job posting or company",
+     "type": "longtext",
+     "required": true
+    },
+    {
+     "key": "why",
+     "label": "Why you want it",
+     "type": "text"
+    }
+   ],
+   "prompt": "Write a 180-220 word cover letter for {job}; motivation: {why}. quote (the letter), bullets on what to customise before sending.",
+   "shape": "quote, bullets",
+   "button": "Write",
+   "loading": "Writing…"
+  },
+  {
+   "id": "interview",
+   "title": "Interview prep",
+   "subtitle": "Likely questions + your answers",
+   "emoji": "🎤",
+   "inputs": [
+    {
+     "key": "role",
+     "label": "Role / company",
+     "type": "text",
+     "required": true
+    }
+   ],
+   "prompt": "Prep for {role}: cards (question, body = STAR answer outline from the CV, meta = type), bullets of questions to ask them, and a callout on the one weakness to prepare for.",
+   "shape": "cards, bullets, callout",
+   "button": "Prep",
+   "loading": "Preparing…"
+  },
+  {
+   "id": "offer",
+   "title": "Negotiate an offer",
+   "subtitle": "Scripts and numbers",
+   "emoji": "💰",
+   "inputs": [
+    {
+     "key": "offer",
+     "label": "The offer",
+     "type": "text",
+     "placeholder": "85k base, 10% bonus",
+     "required": true
+    },
+    {
+     "key": "want",
+     "label": "What you want",
+     "type": "text",
+     "placeholder": "95k"
+    }
+   ],
+   "prompt": "Negotiation plan for offer {offer} aiming for {want}: text on market framing, quote (the counter-offer email), quote (the phone script), and a callout on what not to say.",
+   "shape": "text, quote, quote, callout",
+   "button": "Plan",
+   "loading": "Strategising…"
+  }
+ ]
+}

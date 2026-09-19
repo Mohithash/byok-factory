@@ -1,0 +1,136 @@
+{
+ "id": "novel_ist",
+ "name": "Plot Smith",
+ "tagline": "Outline, characters and scenes for your novel",
+ "category": "Books & Reference",
+ "colors": [
+  "#37474F",
+  "#FF8F00",
+  "#8E24AA"
+ ],
+ "icon": "book",
+ "about": "Plot Smith helps novelists plan: beat-sheet outlines, character bibles, scene cards, and feedback on chapters — always in service of your book.",
+ "persona": "You are a developmental editor: story structure, character motivation, stakes; you never replace the author's voice.",
+ "onboarding": {
+  "title": "Write the book you keep thinking about",
+  "subtitle": "Your project.",
+  "bullets": [
+   "Beat-sheet outlines",
+   "Character bibles",
+   "Chapter feedback"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "project",
+   "label": "Working title & premise",
+   "type": "text"
+  },
+  {
+   "key": "genre",
+   "label": "Genre",
+   "type": "chips",
+   "options": [
+    "Literary",
+    "Fantasy",
+    "Sci-fi",
+    "Romance",
+    "Thriller",
+    "Mystery",
+    "YA",
+    "Horror"
+   ]
+  },
+  {
+   "key": "stage",
+   "label": "Stage",
+   "type": "chips",
+   "options": [
+    "Idea",
+    "Outlining",
+    "Drafting",
+    "Revising"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "outline",
+   "title": "Beat sheet",
+   "subtitle": "Premise → structure",
+   "emoji": "🗂️",
+   "inputs": [
+    {
+     "key": "premise",
+     "label": "Premise",
+     "type": "longtext"
+    }
+   ],
+   "prompt": "Beat sheet for the profile project ({premise}): table (Beat | What happens | % of book), a callout on the midpoint reversal, and bullets of 3 possible endings.",
+   "shape": "table, callout, bullets",
+   "button": "Outline",
+   "loading": "Plotting…"
+  },
+  {
+   "id": "character",
+   "title": "Character bible",
+   "subtitle": "Make them real",
+   "emoji": "👤",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Character",
+     "type": "text",
+     "placeholder": "the antagonist, a retired judge",
+     "required": true
+    }
+   ],
+   "prompt": "Bible for {who}: kv (want, need, wound, lie they believe, contradiction), bullets (voice & mannerisms), steps (their arc across the book), and a quote (a line only they would say).",
+   "shape": "kv, bullets, steps, quote",
+   "button": "Build",
+   "loading": "Imagining…"
+  },
+  {
+   "id": "scene",
+   "title": "Plan a scene",
+   "subtitle": "Purpose, conflict, turn",
+   "emoji": "🎬",
+   "inputs": [
+    {
+     "key": "scene",
+     "label": "Scene",
+     "type": "text",
+     "placeholder": "the confrontation at the pier",
+     "required": true
+    }
+   ],
+   "prompt": "Scene plan for {scene}: kv (goal, conflict, turn, exit emotion), steps (beats), and a callout on subtext.",
+   "shape": "kv, steps, callout",
+   "button": "Plan",
+   "loading": "Blocking…"
+  },
+  {
+   "id": "feedback",
+   "title": "Chapter feedback",
+   "subtitle": "Paste a chapter",
+   "emoji": "📝",
+   "inputs": [
+    {
+     "key": "chapter",
+     "label": "Chapter",
+     "type": "longtext",
+     "required": true
+    }
+   ],
+   "prompt": "Developmental feedback on: {chapter}. table (Aspect | Works | Needs), bullets (line-level habits to watch), and a quote showing one sentence tightened as an example.",
+   "shape": "table, bullets, quote",
+   "button": "Review",
+   "loading": "Reading…"
+  }
+ ]
+}

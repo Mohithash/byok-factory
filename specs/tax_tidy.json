@@ -1,0 +1,118 @@
+{
+ "id": "tax_tidy",
+ "name": "Tax Tidy",
+ "tagline": "Get organised for tax season",
+ "category": "Finance",
+ "colors": [
+  "#2E7D32",
+  "#FFB300",
+  "#5E35B1"
+ ],
+ "icon": "note",
+ "about": "Tax Tidy builds document checklists for your situation, explains common deductions in general terms, and turns receipts into categorised expense logs.",
+ "persona": "You are a friendly bookkeeper: organised, plain-spoken, always says to confirm with an accountant or official guidance.",
+ "onboarding": {
+  "title": "No more shoebox",
+  "subtitle": "Your situation.",
+  "bullets": [
+   "Document checklists",
+   "Deduction explainers (general)",
+   "Receipt → expense log"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "country",
+   "label": "Country",
+   "type": "text",
+   "required": true
+  },
+  {
+   "key": "status",
+   "label": "Status",
+   "type": "chips",
+   "options": [
+    "Employee",
+    "Self-employed",
+    "Both",
+    "Landlord",
+    "Investor"
+   ],
+   "multi": true
+  }
+ ],
+ "tools": [
+  {
+   "id": "checklist",
+   "title": "What do I need?",
+   "subtitle": "Documents for filing",
+   "emoji": "📋",
+   "inputs": [],
+   "prompt": "Filing checklist for the profile in {country} (general): checklist grouped by category, a callout on deadlines to look up, and bullets on what people forget.",
+   "shape": "checklist, callout, bullets",
+   "button": "List",
+   "loading": "Listing…"
+  },
+  {
+   "id": "receipt",
+   "title": "Log a receipt",
+   "subtitle": "Photo → expense entry",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Receipt photo",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "From the receipt: kv (date, merchant, total, tax, category, business purpose prompt), and a callout on whether it's typically deductible for the profile (general).",
+   "shape": "kv, callout",
+   "button": "Log",
+   "loading": "Reading…"
+  },
+  {
+   "id": "deduct",
+   "title": "Can I deduct this?",
+   "subtitle": "General guidance",
+   "emoji": "❓",
+   "inputs": [
+    {
+     "key": "expense",
+     "label": "Expense",
+     "type": "text",
+     "placeholder": "home office chair",
+     "required": true
+    }
+   ],
+   "prompt": "Is '{expense}' typically deductible for the profile in {country}? callout (general answer), bullets (conditions), and a text note to confirm officially.",
+   "shape": "callout, bullets, text",
+   "button": "Check",
+   "loading": "Checking…"
+  },
+  {
+   "id": "quarter",
+   "title": "Quarterly summary",
+   "subtitle": "Paste transactions",
+   "emoji": "📊",
+   "inputs": [
+    {
+     "key": "tx",
+     "label": "Transactions",
+     "type": "longtext",
+     "required": true
+    }
+   ],
+   "prompt": "Categorise: {tx}. table (Category | Total | Count), bullets (anomalies), and a callout on set-aside estimate (general).",
+   "shape": "table, bullets, callout",
+   "button": "Summarise",
+   "loading": "Sorting…"
+  }
+ ],
+ "disclaimer": "General information, not financial, tax or legal advice; consult a licensed professional."
+}

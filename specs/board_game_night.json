@@ -1,0 +1,153 @@
+{
+ "id": "board_game_night",
+ "name": "Game Night",
+ "tagline": "Pick, teach and host tabletop games",
+ "category": "Games",
+ "colors": [
+  "#5E35B1",
+  "#FFB300",
+  "#26A69A"
+ ],
+ "icon": "star",
+ "about": "Game Night picks games for your group, explains rules in 2 minutes, settles rule disputes and designs house variants.",
+ "persona": "You are a board-game café host: knows hundreds of games, teaches clearly, matches games to people.",
+ "onboarding": {
+  "title": "Perfect game, every night",
+  "subtitle": "Your shelf and crowd.",
+  "bullets": [
+   "Recommendations for your group",
+   "2-minute rule teaches",
+   "Dispute settling"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "shelf",
+   "label": "Games you own",
+   "type": "longtext"
+  },
+  {
+   "key": "crowd",
+   "label": "Usual crowd",
+   "type": "chips",
+   "options": [
+    "Family with kids",
+    "Couples",
+    "Gamers",
+    "Party",
+    "Two players"
+   ],
+   "multi": true
+  }
+ ],
+ "tools": [
+  {
+   "id": "pick",
+   "title": "What should we play?",
+   "subtitle": "Tonight",
+   "emoji": "🎲",
+   "inputs": [
+    {
+     "key": "players",
+     "label": "Players",
+     "type": "number",
+     "placeholder": "4"
+    },
+    {
+     "key": "minutes",
+     "label": "Time",
+     "type": "number",
+     "placeholder": "60"
+    },
+    {
+     "key": "mood",
+     "label": "Mood",
+     "type": "chips",
+     "options": [
+      "Light",
+      "Strategic",
+      "Co-op",
+      "Party",
+      "Bluffing"
+     ],
+     "default": "Light"
+    }
+   ],
+   "prompt": "Pick for {players} players, {minutes} min, mood {mood}, preferring the profile shelf: cards (game, body = why, meta = time & complexity), and a callout on the teach order.",
+   "shape": "cards, callout",
+   "button": "Pick",
+   "loading": "Browsing…"
+  },
+  {
+   "id": "teach",
+   "title": "Teach it in 2 minutes",
+   "subtitle": "Rules summary",
+   "emoji": "📖",
+   "inputs": [
+    {
+     "key": "game",
+     "label": "Game",
+     "type": "text",
+     "required": true
+    }
+   ],
+   "prompt": "Teach {game}: steps (setup → turn → win), bullets (common rule mistakes), and a quote (the one-sentence pitch).",
+   "shape": "steps, bullets, quote",
+   "button": "Teach",
+   "loading": "Reading…"
+  },
+  {
+   "id": "dispute",
+   "title": "Settle a dispute",
+   "subtitle": "What does the rule say?",
+   "emoji": "⚖️",
+   "inputs": [
+    {
+     "key": "game",
+     "label": "Game",
+     "type": "text",
+     "required": true
+    },
+    {
+     "key": "q",
+     "label": "The question",
+     "type": "text",
+     "placeholder": "can you build on the same turn you trade?"
+    }
+   ],
+   "prompt": "Rule question in {game}: {q}. callout (ruling with confidence level), text (reasoning), and bullets (related edge cases).",
+   "shape": "callout, text, bullets",
+   "button": "Rule",
+   "loading": "Checking…"
+  },
+  {
+   "id": "variant",
+   "title": "House variant",
+   "subtitle": "Make it fresh",
+   "emoji": "🧪",
+   "inputs": [
+    {
+     "key": "game",
+     "label": "Game",
+     "type": "text",
+     "required": true
+    },
+    {
+     "key": "goal",
+     "label": "Goal",
+     "type": "text",
+     "placeholder": "faster, fairer for kids"
+    }
+   ],
+   "prompt": "Variants for {game} to be {goal}: cards (variant, body = rule change, meta = effect), and a callout on balance.",
+   "shape": "cards, callout",
+   "button": "Design",
+   "loading": "Designing…"
+  }
+ ]
+}

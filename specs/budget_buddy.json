@@ -1,0 +1,156 @@
+{
+ "id": "budget_buddy",
+ "name": "Budget Buddy",
+ "tagline": "A monthly budget that fits your real life",
+ "category": "Finance",
+ "colors": [
+  "#1565C0",
+  "#FF8F00",
+  "#2E7D32"
+ ],
+ "icon": "coin",
+ "about": "Budget Buddy builds zero-based or 50/30/20 budgets from your income and bills, finds cuts you won't hate, and plans debt payoff.",
+ "persona": "You are a non-judgemental money coach: concrete numbers, no shame, small wins first.",
+ "onboarding": {
+  "title": "Tell your money where to go",
+  "subtitle": "Income and fixed costs make it real.",
+  "bullets": [
+   "Budgets from your real numbers",
+   "Painless cuts",
+   "Debt snowball/avalanche plans"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "currency",
+   "label": "Currency",
+   "type": "text",
+   "placeholder": "$",
+   "default": "$"
+  },
+  {
+   "key": "income",
+   "label": "Monthly take-home",
+   "type": "number",
+   "placeholder": "3200"
+  },
+  {
+   "key": "goal",
+   "label": "Biggest money goal",
+   "type": "text",
+   "placeholder": "emergency fund, pay off card"
+  }
+ ],
+ "tools": [
+  {
+   "id": "budget",
+   "title": "Build my budget",
+   "subtitle": "From bills to a plan",
+   "emoji": "📊",
+   "inputs": [
+    {
+     "key": "bills",
+     "label": "Fixed bills",
+     "type": "longtext",
+     "placeholder": "rent 1200, car 300, phone 45, subscriptions ~60",
+     "required": true
+    },
+    {
+     "key": "style",
+     "label": "Style",
+     "type": "chips",
+     "options": [
+      "50/30/20",
+      "Zero-based",
+      "Pay-yourself-first"
+     ],
+     "default": "50/30/20"
+    }
+   ],
+   "prompt": "Build a {style} monthly budget from income and bills: {bills}. Table (Category | Amount | % of income | Note), a callout on the one number that matters most, and a checklist of accounts/automations to set up.",
+   "shape": "table, callout, checklist",
+   "button": "Build",
+   "loading": "Crunching…"
+  },
+  {
+   "id": "cuts",
+   "title": "Find cuts",
+   "subtitle": "Save without misery",
+   "emoji": "✂️",
+   "inputs": [
+    {
+     "key": "spending",
+     "label": "Last month's spending",
+     "type": "longtext",
+     "placeholder": "eating out 340, groceries 420, Uber 90…",
+     "required": true
+    }
+   ],
+   "prompt": "Find savings in: {spending}. Cards (cut, meta = monthly saving) ranked by ease, a callout on what NOT to cut, and steps for the first week.",
+   "shape": "cards, callout, steps",
+   "button": "Find cuts",
+   "loading": "Looking…"
+  },
+  {
+   "id": "debt",
+   "title": "Debt payoff plan",
+   "subtitle": "Snowball vs avalanche",
+   "emoji": "🏔️",
+   "inputs": [
+    {
+     "key": "debts",
+     "label": "Debts",
+     "type": "longtext",
+     "placeholder": "Card A 2400 @ 24%, min 60; Car 8000 @ 6%, min 210",
+     "required": true
+    },
+    {
+     "key": "extra",
+     "label": "Extra per month",
+     "type": "number",
+     "placeholder": "150"
+    }
+   ],
+   "prompt": "Payoff plan for: {debts} with {extra} extra/month. Table comparing snowball vs avalanche (Method | Order | Payoff date | Interest paid), steps for month one, and a callout on refinancing/balance transfers (general).",
+   "shape": "table, steps, callout",
+   "button": "Plan",
+   "loading": "Calculating…"
+  },
+  {
+   "id": "bigbuy",
+   "title": "Can I afford it?",
+   "subtitle": "Sanity-check a purchase",
+   "emoji": "🛍️",
+   "inputs": [
+    {
+     "key": "item",
+     "label": "Purchase",
+     "type": "text",
+     "placeholder": "new laptop 1500",
+     "required": true
+    },
+    {
+     "key": "how",
+     "label": "Paying",
+     "type": "chips",
+     "options": [
+      "Cash",
+      "Card",
+      "Financing"
+     ],
+     "default": "Cash"
+    }
+   ],
+   "prompt": "Should the user buy {item} paying by {how}? kv (cost vs monthly surplus, months of saving, true cost with interest), bullets of cheaper routes, and a callout with a clear verdict.",
+   "shape": "kv, bullets, callout",
+   "button": "Check",
+   "loading": "Thinking…"
+  }
+ ],
+ "disclaimer": "General information, not financial, tax or legal advice; consult a licensed professional for your situation."
+}

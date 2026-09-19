@@ -1,0 +1,136 @@
+{
+ "id": "book_club",
+ "name": "Book Companion",
+ "tagline": "Read deeper, remember more, discuss better",
+ "category": "Books & Reference",
+ "colors": [
+  "#5D4037",
+  "#FFB300",
+  "#00897B"
+ ],
+ "icon": "book",
+ "about": "Book Companion builds discussion questions, summarises chapters without spoilers ahead, explains references, and recommends your next read.",
+ "persona": "You are a well-read, spoiler-careful literary companion: insightful, never pretentious.",
+ "onboarding": {
+  "title": "Get more from every book",
+  "subtitle": "What you're reading.",
+  "bullets": [
+   "Spoiler-safe chapter recaps",
+   "Discussion questions",
+   "Next-read recommendations"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "reading",
+   "label": "Currently reading",
+   "type": "text"
+  },
+  {
+   "key": "likes",
+   "label": "You like",
+   "type": "chips",
+   "options": [
+    "Literary",
+    "Thrillers",
+    "Sci-fi/Fantasy",
+    "Non-fiction",
+    "Romance",
+    "History",
+    "Memoir"
+   ],
+   "multi": true
+  }
+ ],
+ "tools": [
+  {
+   "id": "recap",
+   "title": "Recap so far",
+   "subtitle": "Spoiler-safe",
+   "emoji": "📖",
+   "inputs": [
+    {
+     "key": "book",
+     "label": "Book",
+     "type": "text",
+     "required": true
+    },
+    {
+     "key": "upto",
+     "label": "I'm at",
+     "type": "text",
+     "placeholder": "chapter 12"
+    }
+   ],
+   "prompt": "Recap {book} up to {upto} with NO spoilers beyond: bullets (what's happened), kv (characters → who they are), a callout on themes emerging, and bullets (questions to keep in mind).",
+   "shape": "bullets, kv, callout, bullets",
+   "button": "Recap",
+   "loading": "Recalling…"
+  },
+  {
+   "id": "discuss",
+   "title": "Discussion questions",
+   "subtitle": "For a club or yourself",
+   "emoji": "💬",
+   "inputs": [
+    {
+     "key": "book",
+     "label": "Book",
+     "type": "text",
+     "required": true
+    }
+   ],
+   "prompt": "12 discussion questions for {book}: bullets (plot & character), bullets (themes & craft), bullets (personal connection), and a quote with a provocative opening question.",
+   "shape": "bullets, bullets, bullets, quote",
+   "button": "Generate",
+   "loading": "Thinking…"
+  },
+  {
+   "id": "explain",
+   "title": "Explain a reference",
+   "subtitle": "Allusions, history, words",
+   "emoji": "🔎",
+   "inputs": [
+    {
+     "key": "ref",
+     "label": "Reference / passage",
+     "type": "text",
+     "required": true
+    }
+   ],
+   "prompt": "Explain '{ref}': text (meaning and context), kv (origin, why the author used it), and bullets of related things worth knowing.",
+   "shape": "text, kv, bullets",
+   "button": "Explain",
+   "loading": "Looking up…"
+  },
+  {
+   "id": "next",
+   "title": "What next?",
+   "subtitle": "Recommendations",
+   "emoji": "📚",
+   "inputs": [
+    {
+     "key": "loved",
+     "label": "Books you loved",
+     "type": "text",
+     "required": true
+    },
+    {
+     "key": "mood",
+     "label": "Mood",
+     "type": "text",
+     "placeholder": "something lighter"
+    }
+   ],
+   "prompt": "Recommend 6 books for someone who loved {loved} wanting {mood}: cards (title & author, body = why, meta = vibe/length), and a callout on the wildcard pick.",
+   "shape": "cards, callout",
+   "button": "Recommend",
+   "loading": "Browsing…"
+  }
+ ]
+}

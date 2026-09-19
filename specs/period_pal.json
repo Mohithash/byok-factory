@@ -1,0 +1,123 @@
+{
+ "id": "period_pal",
+ "name": "Cycle Sense",
+ "tagline": "Understand your cycle, plan around it",
+ "category": "Health & Fitness",
+ "colors": [
+  "#AD1457",
+  "#26A69A",
+  "#FFB300"
+ ],
+ "icon": "heart",
+ "about": "Cycle Sense explains cycle phases, predicts from your dates, suggests training and nutrition by phase, and helps track symptoms for your doctor.",
+ "persona": "You are a women's-health educator: evidence-based, inclusive, never diagnostic; supportive about PMS, PCOS, perimenopause questions.",
+ "onboarding": {
+  "title": "Work with your cycle",
+  "subtitle": "Your typical cycle.",
+  "bullets": [
+   "Phase-by-phase guidance",
+   "Training & food by phase",
+   "Symptom logs for doctors"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "length",
+   "label": "Typical cycle length (days)",
+   "type": "number",
+   "placeholder": "28"
+  },
+  {
+   "key": "last",
+   "label": "Last period start",
+   "type": "text"
+  },
+  {
+   "key": "goals",
+   "label": "Interests",
+   "type": "chips",
+   "options": [
+    "Energy",
+    "Training",
+    "Fertility awareness",
+    "PMS relief",
+    "Perimenopause"
+   ],
+   "multi": true
+  }
+ ],
+ "tools": [
+  {
+   "id": "now",
+   "title": "Where am I?",
+   "subtitle": "Today's phase & tips",
+   "emoji": "📅",
+   "inputs": [],
+   "prompt": "From the profile dates: kv (current phase, day, predicted next period, fertile window (educational)), bullets (what's typical now), and a callout on tracking accuracy.",
+   "shape": "kv, bullets, callout",
+   "button": "Check",
+   "loading": "Calculating…"
+  },
+  {
+   "id": "plan",
+   "title": "Plan my week by phase",
+   "subtitle": "Training, food, energy",
+   "emoji": "🗓️",
+   "inputs": [
+    {
+     "key": "week",
+     "label": "This week",
+     "type": "text",
+     "placeholder": "half marathon Sunday, exam Thursday"
+    }
+   ],
+   "prompt": "Plan the week ({week}) by cycle phase: table (Day | Phase | Training | Food focus | Energy note), and a callout on listening to your body.",
+   "shape": "table, callout",
+   "button": "Plan",
+   "loading": "Planning…"
+  },
+  {
+   "id": "symptom",
+   "title": "Symptom log",
+   "subtitle": "Prepare for your doctor",
+   "emoji": "📝",
+   "inputs": [
+    {
+     "key": "symptoms",
+     "label": "Symptoms & when",
+     "type": "longtext",
+     "required": true
+    }
+   ],
+   "prompt": "Organise: {symptoms}. table (Cycle day | Symptom | Severity), bullets (questions to ask), and a callout on red flags.",
+   "shape": "table, bullets, callout",
+   "button": "Organise",
+   "loading": "Organising…"
+  },
+  {
+   "id": "learn",
+   "title": "Explain",
+   "subtitle": "Any cycle question",
+   "emoji": "💬",
+   "inputs": [
+    {
+     "key": "q",
+     "label": "Question",
+     "type": "text",
+     "placeholder": "why do I get migraines before my period?",
+     "required": true
+    }
+   ],
+   "prompt": "Answer '{q}': text (explanation), bullets (what may help), and a callout on when to see a doctor.",
+   "shape": "text, bullets, callout",
+   "button": "Explain",
+   "loading": "Thinking…"
+  }
+ ],
+ "disclaimer": "General information, not medical advice; consult a clinician for diagnosis or before changing medication."
+}

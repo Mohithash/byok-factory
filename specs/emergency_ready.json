@@ -1,0 +1,143 @@
+{
+ "id": "emergency_ready",
+ "name": "Ready Kit",
+ "tagline": "Prepare your household for emergencies",
+ "category": "Lifestyle",
+ "colors": [
+  "#C62828",
+  "#FFB300",
+  "#37474F"
+ ],
+ "icon": "shield",
+ "about": "Ready Kit builds go-bags and home kits for your risks, writes family emergency plans and checklists for storms, outages and evacuations.",
+ "persona": "You are an emergency-preparedness educator: calm, practical, region-aware, no doom.",
+ "onboarding": {
+  "title": "Prepared, not scared",
+  "subtitle": "Your household.",
+  "bullets": [
+   "Kits for your risks",
+   "Family plans",
+   "Event checklists"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "where",
+   "label": "Where you live",
+   "type": "text",
+   "required": true
+  },
+  {
+   "key": "risks",
+   "label": "Risks",
+   "type": "chips",
+   "options": [
+    "Storms",
+    "Floods",
+    "Wildfire",
+    "Earthquake",
+    "Power cuts",
+    "Heatwaves",
+    "Winter storms"
+   ],
+   "multi": true
+  },
+  {
+   "key": "household",
+   "label": "Household",
+   "type": "text",
+   "placeholder": "2 adults, 1 child, 1 dog"
+  }
+ ],
+ "tools": [
+  {
+   "id": "kit",
+   "title": "Build my kit",
+   "subtitle": "Home or go-bag",
+   "emoji": "🎒",
+   "inputs": [
+    {
+     "key": "kind",
+     "label": "Kit",
+     "type": "chips",
+     "options": [
+      "Go-bag",
+      "Home 72h",
+      "Car"
+     ],
+     "default": "Go-bag"
+    }
+   ],
+   "prompt": "A {kind} kit for the profile: checklist (by category with quantities), a callout on medications/documents, and bullets (rotation schedule).",
+   "shape": "checklist, callout, bullets",
+   "button": "Build",
+   "loading": "Listing…"
+  },
+  {
+   "id": "plan",
+   "title": "Family plan",
+   "subtitle": "Who does what",
+   "emoji": "📋",
+   "inputs": [],
+   "prompt": "A family emergency plan for the profile: table (Scenario | Action | Meeting point | Contact), quote (the card each person carries), and a callout on practising.",
+   "shape": "table, quote, callout",
+   "button": "Plan",
+   "loading": "Planning…"
+  },
+  {
+   "id": "event",
+   "title": "Something's coming",
+   "subtitle": "Storm, outage, heatwave",
+   "emoji": "⚠️",
+   "inputs": [
+    {
+     "key": "event",
+     "label": "Event",
+     "type": "chips",
+     "options": [
+      "Storm",
+      "Flood",
+      "Power cut",
+      "Heatwave",
+      "Wildfire smoke",
+      "Snow"
+     ],
+     "default": "Storm"
+    },
+    {
+     "key": "hours",
+     "label": "Hours until",
+     "type": "number",
+     "placeholder": "24"
+    }
+   ],
+   "prompt": "{hours} hours before a {event}: steps (in order), checklist (last-minute items), and a callout on when to leave.",
+   "shape": "steps, checklist, callout",
+   "button": "Prepare",
+   "loading": "Preparing…"
+  },
+  {
+   "id": "after",
+   "title": "Afterwards",
+   "subtitle": "Recovery steps",
+   "emoji": "🔄",
+   "inputs": [
+    {
+     "key": "what",
+     "label": "What happened",
+     "type": "text",
+     "required": true
+    }
+   ],
+   "prompt": "After {what}: steps (safety first), checklist (insurance/documentation), and a callout on mental health.",
+   "shape": "steps, checklist, callout",
+   "button": "Guide",
+   "loading": "Guiding…"
+  }
+ ]
+}

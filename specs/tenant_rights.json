@@ -1,0 +1,141 @@
+{
+ "id": "tenant_rights",
+ "name": "Rent Ready",
+ "tagline": "Letters, checklists and know-how for renters",
+ "category": "House & Home",
+ "colors": [
+  "#1565C0",
+  "#FF8F00",
+  "#43A047"
+ ],
+ "icon": "home",
+ "about": "Rent Ready writes letters to landlords, builds move-in/move-out inspection checklists, decodes lease clauses and explains deposit disputes in general terms.",
+ "persona": "You are a tenant-support advisor: calm, well-documented, general-law aware (you always say to check local rules), never inflammatory.",
+ "onboarding": {
+  "title": "Know your lease, keep your deposit",
+  "subtitle": "Your situation.",
+  "bullets": [
+   "Landlord letters",
+   "Inspection checklists",
+   "Lease decoding"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "where",
+   "label": "Country / state",
+   "type": "text",
+   "placeholder": "England",
+   "required": true
+  },
+  {
+   "key": "stage",
+   "label": "Stage",
+   "type": "chips",
+   "options": [
+    "Looking",
+    "Moving in",
+    "Living there",
+    "Moving out",
+    "Dispute"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "letter",
+   "title": "Write to my landlord",
+   "subtitle": "Repairs, deposit, notice",
+   "emoji": "✉️",
+   "inputs": [
+    {
+     "key": "about",
+     "label": "About",
+     "type": "chips",
+     "options": [
+      "Repair request",
+      "Deposit return",
+      "Giving notice",
+      "Rent increase",
+      "Noise/neighbours",
+      "Other"
+     ],
+     "default": "Repair request"
+    },
+    {
+     "key": "details",
+     "label": "Details",
+     "type": "longtext"
+    }
+   ],
+   "prompt": "Letter about {about}: {details}, for {where}. quote (the letter, dated, factual, polite, with a deadline), bullets (evidence to attach), and a callout on the general legal position and where to check locally.",
+   "shape": "quote, bullets, callout",
+   "button": "Write",
+   "loading": "Drafting…"
+  },
+  {
+   "id": "inspect",
+   "title": "Inspection checklist",
+   "subtitle": "Move-in / move-out",
+   "emoji": "📋",
+   "inputs": [
+    {
+     "key": "which",
+     "label": "Which",
+     "type": "chips",
+     "options": [
+      "Move-in",
+      "Move-out"
+     ],
+     "default": "Move-in"
+    }
+   ],
+   "prompt": "A {which} inspection checklist by room: checklist, bullets (photo/video protocol), and a callout on what to send the landlord.",
+   "shape": "checklist, bullets, callout",
+   "button": "Checklist",
+   "loading": "Listing…"
+  },
+  {
+   "id": "lease",
+   "title": "Decode a clause",
+   "subtitle": "Paste it",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "clause",
+     "label": "Lease clause",
+     "type": "longtext",
+     "required": true
+    }
+   ],
+   "prompt": "Explain: {clause} (for {where}, general): text (plain-English meaning), bullets (what it means in practice), and a callout on whether it's typical/enforceable in general terms and how to verify.",
+   "shape": "text, bullets, callout",
+   "button": "Decode",
+   "loading": "Reading…"
+  },
+  {
+   "id": "deposit",
+   "title": "Deposit dispute",
+   "subtitle": "Get it back",
+   "emoji": "💰",
+   "inputs": [
+    {
+     "key": "situation",
+     "label": "What happened",
+     "type": "longtext",
+     "required": true
+    }
+   ],
+   "prompt": "Deposit dispute: {situation} ({where}). steps (what to do in order), bullets (evidence), quote (message to the landlord), and a callout on schemes/ombudsmen to look up.",
+   "shape": "steps, bullets, quote, callout",
+   "button": "Plan",
+   "loading": "Planning…"
+  }
+ ],
+ "disclaimer": "General information, not financial, tax or legal advice; consult a licensed professional."
+}

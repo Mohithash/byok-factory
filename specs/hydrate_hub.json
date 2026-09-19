@@ -1,0 +1,145 @@
+{
+ "id": "hydrate_hub",
+ "name": "Hydrate Hub",
+ "tagline": "Drink right for your body, sport and weather",
+ "category": "Health & Fitness",
+ "colors": [
+  "#0277BD",
+  "#00BFA5",
+  "#FFB300"
+ ],
+ "icon": "drop",
+ "about": "Hydrate Hub calculates daily fluid and electrolyte needs, builds race-day hydration plans, and decodes sports-drink labels.",
+ "persona": "You are a sports-nutrition hydration specialist: numbers-first, practical, safety-aware about over-drinking.",
+ "onboarding": {
+  "title": "Drink smarter, not just more",
+  "subtitle": "Body stats make the numbers accurate.",
+  "bullets": [
+   "Personal daily targets",
+   "Race & heat plans",
+   "Electrolyte recipes"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "weight",
+   "label": "Weight (kg)",
+   "type": "number",
+   "placeholder": "70"
+  },
+  {
+   "key": "activity",
+   "label": "Activity",
+   "type": "chips",
+   "options": [
+    "Desk",
+    "Active",
+    "Athlete"
+   ]
+  },
+  {
+   "key": "climate",
+   "label": "Climate",
+   "type": "chips",
+   "options": [
+    "Cool",
+    "Temperate",
+    "Hot",
+    "Humid"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "daily",
+   "title": "My daily target",
+   "subtitle": "Fluids + when",
+   "emoji": "💧",
+   "inputs": [
+    {
+     "key": "today",
+     "label": "Today",
+     "type": "text",
+     "placeholder": "45-min run at lunch, office AC"
+    }
+   ],
+   "prompt": "Daily hydration target for the profile, today: {today}. kv (total ml, per-hour baseline, extra for exercise, sodium note), a table (Time | Drink | Amount), and a callout on signs of over-drinking.",
+   "shape": "kv, table, callout",
+   "button": "Calculate",
+   "loading": "Measuring…"
+  },
+  {
+   "id": "race",
+   "title": "Race-day plan",
+   "subtitle": "Marathon, cycle, hike, match",
+   "emoji": "🏁",
+   "inputs": [
+    {
+     "key": "event",
+     "label": "Event",
+     "type": "text",
+     "placeholder": "half marathon, 2h target, 24°C",
+     "required": true
+    },
+    {
+     "key": "gut",
+     "label": "Gut tolerance",
+     "type": "text",
+     "placeholder": "gels make me queasy"
+    }
+   ],
+   "prompt": "Hydration + fuel plan for {event}, tolerance: {gut}. Table (Time | Fluid | Carbs | Sodium), steps for the 24h before, and a callout on cramps and hyponatraemia.",
+   "shape": "table, steps, callout",
+   "button": "Plan",
+   "loading": "Planning…"
+  },
+  {
+   "id": "diy",
+   "title": "DIY electrolyte drink",
+   "subtitle": "Cheap and tuned",
+   "emoji": "🧪",
+   "inputs": [
+    {
+     "key": "for",
+     "label": "For",
+     "type": "chips",
+     "options": [
+      "Everyday",
+      "Long workout",
+      "Hot day",
+      "Hangover"
+     ],
+     "default": "Long workout"
+    }
+   ],
+   "prompt": "A DIY electrolyte recipe for {for}: kv (ingredients with grams), steps to mix, and a table comparing it to 3 common commercial drinks (Drink | Sodium | Carbs | Cost/L).",
+   "shape": "kv, steps, table",
+   "button": "Mix",
+   "loading": "Mixing…"
+  },
+  {
+   "id": "label",
+   "title": "Decode a drink label",
+   "subtitle": "Photo → is it worth it",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Label photo",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Read the label: kv (sodium, potassium, carbs, sugar, caffeine per serving), a text verdict on when it's useful, and bullets on cheaper alternatives.",
+   "shape": "kv, text, bullets",
+   "button": "Decode",
+   "loading": "Reading…"
+  }
+ ],
+ "disclaimer": "This is general information, not medical advice; see a clinician for diagnosis or before changing medication."
+}

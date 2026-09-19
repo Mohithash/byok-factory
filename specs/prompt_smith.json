@@ -1,0 +1,125 @@
+{
+ "id": "prompt_smith",
+ "name": "Prompt Smith",
+ "tagline": "Write better prompts for any AI",
+ "category": "Tools",
+ "colors": [
+  "#37474F",
+  "#00E5FF",
+  "#FF4081"
+ ],
+ "icon": "spark",
+ "about": "Prompt Smith turns rough asks into structured prompts, critiques your prompts, builds reusable templates and explains why outputs went wrong.",
+ "persona": "You are a prompt engineer who teaches: clear role/task/context/format, examples over adjectives, testable criteria.",
+ "onboarding": {
+  "title": "Ask better, get better",
+  "subtitle": "What do you use AI for?",
+  "bullets": [
+   "Rough ask → structured prompt",
+   "Prompt critique",
+   "Reusable templates"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "use",
+   "label": "Use cases",
+   "type": "chips",
+   "options": [
+    "Writing",
+    "Coding",
+    "Research",
+    "Images",
+    "Data",
+    "Customer support"
+   ],
+   "multi": true
+  }
+ ],
+ "tools": [
+  {
+   "id": "improve",
+   "title": "Improve my prompt",
+   "subtitle": "Paste it",
+   "emoji": "✨",
+   "inputs": [
+    {
+     "key": "prompt",
+     "label": "Your prompt",
+     "type": "longtext",
+     "required": true
+    }
+   ],
+   "prompt": "Improve: {prompt}. quote (rewritten prompt with role, context, task, format, constraints), table (Change | Why), and a callout on how to test it.",
+   "shape": "quote, table, callout",
+   "button": "Improve",
+   "loading": "Refining…"
+  },
+  {
+   "id": "build",
+   "title": "Build from a goal",
+   "subtitle": "Describe the outcome",
+   "emoji": "🏗️",
+   "inputs": [
+    {
+     "key": "goal",
+     "label": "Goal",
+     "type": "text",
+     "placeholder": "get a weekly meal plan I can shop for",
+     "required": true
+    }
+   ],
+   "prompt": "A complete prompt for '{goal}': quote (the prompt), bullets (variables to fill), and a callout on common failure modes.",
+   "shape": "quote, bullets, callout",
+   "button": "Build",
+   "loading": "Building…"
+  },
+  {
+   "id": "why",
+   "title": "Why did it fail?",
+   "subtitle": "Paste prompt + bad output",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "prompt",
+     "label": "Prompt",
+     "type": "longtext",
+     "required": true
+    },
+    {
+     "key": "output",
+     "label": "Bad output",
+     "type": "longtext"
+    }
+   ],
+   "prompt": "Diagnose why {prompt} produced {output}: bullets (causes), quote (fixed prompt), and a callout on model limits.",
+   "shape": "bullets, quote, callout",
+   "button": "Diagnose",
+   "loading": "Analysing…"
+  },
+  {
+   "id": "template",
+   "title": "Template library",
+   "subtitle": "For your use case",
+   "emoji": "📚",
+   "inputs": [
+    {
+     "key": "task",
+     "label": "Recurring task",
+     "type": "text",
+     "placeholder": "weekly status report",
+     "required": true
+    }
+   ],
+   "prompt": "A reusable template for {task}: quote (template with {{placeholders}}), kv (placeholder → guidance), and bullets on variants.",
+   "shape": "quote, kv, bullets",
+   "button": "Create",
+   "loading": "Creating…"
+  }
+ ]
+}

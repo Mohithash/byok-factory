@@ -1,0 +1,149 @@
+{
+ "id": "wedding_wiz",
+ "name": "Wedding Wiz",
+ "tagline": "Plan the day without losing your mind",
+ "category": "Lifestyle",
+ "colors": [
+  "#8E24AA",
+  "#F9A825",
+  "#26A69A"
+ ],
+ "icon": "ring",
+ "about": "Wedding Wiz builds timelines, budgets, vendor questions, seating plans and speeches, from proposal to last dance.",
+ "persona": "You are a seasoned wedding planner: realistic budgets, calm timelines, diplomatic with families.",
+ "onboarding": {
+  "title": "Your day, your way, on budget",
+  "subtitle": "Basics first.",
+  "bullets": [
+   "Month-by-month timelines",
+   "Budget allocation",
+   "Vendor questions, speeches, seating"
+  ]
+ },
+ "profile": [
+  {
+   "key": "couple",
+   "label": "Names",
+   "type": "text",
+   "placeholder": "Ana & Ben"
+  },
+  {
+   "key": "date",
+   "label": "Date",
+   "type": "text"
+  },
+  {
+   "key": "guests",
+   "label": "Guests",
+   "type": "number",
+   "placeholder": "80"
+  },
+  {
+   "key": "budget",
+   "label": "Total budget",
+   "type": "number",
+   "placeholder": "20000"
+  },
+  {
+   "key": "currency",
+   "label": "Currency",
+   "type": "text",
+   "placeholder": "$",
+   "default": "$"
+  }
+ ],
+ "tools": [
+  {
+   "id": "timeline",
+   "title": "Planning timeline",
+   "subtitle": "From now to the day",
+   "emoji": "📅",
+   "inputs": [],
+   "prompt": "Month-by-month timeline for the profile wedding: table (When | Task | Owner | Done?), a callout on the 3 things to book first, and a checklist for the final week.",
+   "shape": "table, callout, checklist",
+   "button": "Build",
+   "loading": "Planning…"
+  },
+  {
+   "id": "budget",
+   "title": "Allocate the budget",
+   "subtitle": "Where the money goes",
+   "emoji": "💰",
+   "inputs": [
+    {
+     "key": "priority",
+     "label": "Top priority",
+     "type": "chips",
+     "options": [
+      "Food",
+      "Venue",
+      "Photos",
+      "Music",
+      "Dress",
+      "Guests' experience"
+     ],
+     "default": "Food"
+    }
+   ],
+   "prompt": "Allocate the profile budget with priority {priority}: table (Category | % | Amount | Save-tip), a callout on hidden costs, and bullets on where to cut without anyone noticing.",
+   "shape": "table, callout, bullets",
+   "button": "Allocate",
+   "loading": "Calculating…"
+  },
+  {
+   "id": "vendor",
+   "title": "Vendor questions",
+   "subtitle": "Don't get burned",
+   "emoji": "📋",
+   "inputs": [
+    {
+     "key": "vendor",
+     "label": "Vendor",
+     "type": "chips",
+     "options": [
+      "Venue",
+      "Photographer",
+      "Caterer",
+      "DJ/Band",
+      "Florist",
+      "Planner"
+     ],
+     "default": "Photographer"
+    }
+   ],
+   "prompt": "Questions to ask a {vendor}: checklist grouped by topic, a callout on contract red flags, and kv (typical price range for the profile size).",
+   "shape": "checklist, callout, kv",
+   "button": "List",
+   "loading": "Listing…"
+  },
+  {
+   "id": "speech",
+   "title": "Write a speech",
+   "subtitle": "Vows, best man, parent",
+   "emoji": "🎤",
+   "inputs": [
+    {
+     "key": "kind",
+     "label": "Kind",
+     "type": "chips",
+     "options": [
+      "Vows",
+      "Best man/maid",
+      "Parent",
+      "Couple's thank-you"
+     ],
+     "default": "Vows"
+    },
+    {
+     "key": "stories",
+     "label": "Stories & feelings",
+     "type": "longtext"
+    }
+   ],
+   "prompt": "Write a {kind} speech from: {stories}. quote (the speech, 2-3 minutes), bullets on delivery, and a callout on what to cut.",
+   "shape": "quote, bullets, callout",
+   "button": "Write",
+   "loading": "Writing…"
+  }
+ ]
+}

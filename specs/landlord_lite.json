@@ -1,0 +1,134 @@
+{
+ "id": "landlord_lite",
+ "name": "Landlord Desk",
+ "tagline": "Manage a rental without the headaches",
+ "category": "Business",
+ "colors": [
+  "#37474F",
+  "#FFB300",
+  "#00897B"
+ ],
+ "icon": "home",
+ "about": "Landlord Desk drafts tenant communications, builds inspection and maintenance schedules, calculates yield and prepares for handovers.",
+ "persona": "You are a fair, organised property manager: compliant-minded (general), respectful of tenants, numbers-driven.",
+ "onboarding": {
+  "title": "Run it like a pro",
+  "subtitle": "Your property.",
+  "bullets": [
+   "Tenant letters",
+   "Maintenance schedules",
+   "Yield & cost maths"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "country",
+   "label": "Country / region",
+   "type": "text",
+   "required": true
+  },
+  {
+   "key": "property",
+   "label": "Property",
+   "type": "text",
+   "placeholder": "2-bed flat"
+  },
+  {
+   "key": "rent",
+   "label": "Monthly rent",
+   "type": "number",
+   "placeholder": "1200"
+  }
+ ],
+ "tools": [
+  {
+   "id": "letter",
+   "title": "Write to a tenant",
+   "subtitle": "Repairs, rent, notices",
+   "emoji": "✉️",
+   "inputs": [
+    {
+     "key": "about",
+     "label": "About",
+     "type": "chips",
+     "options": [
+      "Rent reminder",
+      "Inspection notice",
+      "Repair update",
+      "Rent review",
+      "End of tenancy",
+      "Welcome"
+     ],
+     "default": "Inspection notice"
+    },
+    {
+     "key": "details",
+     "label": "Details",
+     "type": "longtext"
+    }
+   ],
+   "prompt": "Letter about {about}: {details} for {country}. quote (letter), bullets (notice periods and rules to verify locally), and a callout on tone.",
+   "shape": "quote, bullets, callout",
+   "button": "Write",
+   "loading": "Drafting…"
+  },
+  {
+   "id": "maintain",
+   "title": "Maintenance schedule",
+   "subtitle": "Annual plan",
+   "emoji": "🗓️",
+   "inputs": [],
+   "prompt": "Annual maintenance/compliance schedule for the profile property in {country} (general): table (Month | Task | Who | Est. cost), and a callout on safety certificates to look up.",
+   "shape": "table, callout",
+   "button": "Plan",
+   "loading": "Planning…"
+  },
+  {
+   "id": "yield",
+   "title": "Yield & costs",
+   "subtitle": "Is it working?",
+   "emoji": "📊",
+   "inputs": [
+    {
+     "key": "costs",
+     "label": "Annual costs",
+     "type": "longtext",
+     "placeholder": "mortgage 7200, insurance 300, repairs 800",
+     "required": true
+    }
+   ],
+   "prompt": "Yield for rent {rent}/month with costs {costs}: kv (gross yield, net yield, monthly cash flow), and bullets (levers).",
+   "shape": "kv, bullets",
+   "button": "Calculate",
+   "loading": "Calculating…"
+  },
+  {
+   "id": "handover",
+   "title": "Tenant handover",
+   "subtitle": "Check-in / check-out",
+   "emoji": "🔑",
+   "inputs": [
+    {
+     "key": "which",
+     "label": "Which",
+     "type": "chips",
+     "options": [
+      "Check-in",
+      "Check-out"
+     ],
+     "default": "Check-in"
+    }
+   ],
+   "prompt": "A {which} process: checklist, quote (message to tenant), and a callout on deposit rules to verify.",
+   "shape": "checklist, quote, callout",
+   "button": "Prepare",
+   "loading": "Preparing…"
+  }
+ ],
+ "disclaimer": "General information, not financial, tax or legal advice; consult a licensed professional."
+}

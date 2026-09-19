@@ -1,0 +1,163 @@
+{
+ "id": "meal_prep_pro",
+ "name": "Meal Prep Pro",
+ "tagline": "A week of lunches in one Sunday session",
+ "category": "Food & Drink",
+ "colors": [
+  "#00695C",
+  "#FF8F00",
+  "#5E35B1"
+ ],
+ "icon": "cup",
+ "about": "Meal Prep Pro plans batch-cooking sessions that fit your macros, containers and budget, with a shopping list and a cook order that finishes everything at once.",
+ "persona": "You are a batch-cooking coach: practical, macro-aware, obsessed with reusing ingredients and minimising washing-up.",
+ "onboarding": {
+  "title": "Cook once, eat all week",
+  "subtitle": "Tell us your goals and containers; get a plan you can shop and cook in one go.",
+  "bullets": [
+   "Macro-aware meal plans",
+   "One shopping list, grouped by aisle",
+   "A cook order that finishes together"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "goal",
+   "label": "Goal",
+   "type": "chips",
+   "options": [
+    "Lose fat",
+    "Build muscle",
+    "Maintain",
+    "Eat cheaper"
+   ]
+  },
+  {
+   "key": "diet",
+   "label": "Diet",
+   "type": "chips",
+   "options": [
+    "Anything",
+    "Vegetarian",
+    "Vegan",
+    "Halal",
+    "Gluten-free",
+    "Dairy-free"
+   ]
+  },
+  {
+   "key": "containers",
+   "label": "Containers you own",
+   "type": "text",
+   "placeholder": "6 glass boxes, 4 jars"
+  }
+ ],
+ "tools": [
+  {
+   "id": "plan",
+   "title": "Plan my week",
+   "subtitle": "Lunches + dinners from one session",
+   "emoji": "🗓️",
+   "inputs": [
+    {
+     "key": "meals",
+     "label": "Meals to prep",
+     "type": "chips",
+     "options": [
+      "5 lunches",
+      "5 lunches + 5 dinners",
+      "7 dinners"
+     ],
+     "default": "5 lunches"
+    },
+    {
+     "key": "budget",
+     "label": "Budget",
+     "type": "number",
+     "placeholder": "60"
+    },
+    {
+     "key": "likes",
+     "label": "Must include / avoid",
+     "type": "text",
+     "placeholder": "chicken thighs, no mushrooms"
+    }
+   ],
+   "prompt": "Build a prep plan: {meals}, budget {budget}, preferences: {likes}. Sections: table (Meal | Protein | Carb | Veg | kcal est.), a checklist shopping list grouped by aisle, steps for the cook order so everything finishes together, and a callout on storage life per dish.",
+   "shape": "table, checklist, steps, callout",
+   "button": "Plan it",
+   "loading": "Planning…"
+  },
+  {
+   "id": "macros",
+   "title": "Hit my macros",
+   "subtitle": "Recipes for a protein/carb/fat target",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "protein",
+     "label": "Protein g/day",
+     "type": "number",
+     "placeholder": "150"
+    },
+    {
+     "key": "kcal",
+     "label": "Calories/day",
+     "type": "number",
+     "placeholder": "2000"
+    },
+    {
+     "key": "prefs",
+     "label": "Preferences",
+     "type": "text"
+    }
+   ],
+   "prompt": "Design 3 day-templates hitting ~{protein} g protein and ~{kcal} kcal with preferences {prefs}. Cards per day (meta = kcal · P/C/F), then a kv of the highest-protein cheap foods per 100g.",
+   "shape": "cards, kv",
+   "button": "Design",
+   "loading": "Calculating…"
+  },
+  {
+   "id": "fridge",
+   "title": "Cook from my fridge",
+   "subtitle": "Photo → what to prep",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of your fridge/pantry",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Inventory the visible food as a table (Item | Qty | Category). Then 4 batch-cook ideas as cards using mostly these items, and steps to prep the two that share the most ingredients.",
+   "shape": "table, cards, steps",
+   "button": "Scan",
+   "loading": "Looking…"
+  },
+  {
+   "id": "reheat",
+   "title": "Storage & reheating",
+   "subtitle": "Keep prepped food safe and tasty",
+   "emoji": "🔥",
+   "inputs": [
+    {
+     "key": "dish",
+     "label": "Dish",
+     "type": "text",
+     "placeholder": "chicken curry with rice",
+     "required": true
+    }
+   ],
+   "prompt": "For {dish}: kv (fridge life, freezer life, best container, reheat method & time), a callout on food-safety mistakes, and bullets on keeping texture good.",
+   "shape": "kv, callout, bullets",
+   "button": "Tell me",
+   "loading": "Checking…"
+  }
+ ]
+}

@@ -1,0 +1,130 @@
+{
+ "id": "volunteer_match",
+ "name": "Do Good",
+ "tagline": "Find and plan volunteering that fits your life",
+ "category": "Social",
+ "colors": [
+  "#00897B",
+  "#FF7043",
+  "#5E35B1"
+ ],
+ "icon": "heart",
+ "about": "Do Good matches your skills to volunteering ideas, plans fundraisers and drafts outreach to organisations.",
+ "persona": "You are a community organiser: practical, inclusive, focused on sustainable commitment over grand gestures.",
+ "onboarding": {
+  "title": "Help in ways that last",
+  "subtitle": "Your time and skills.",
+  "bullets": [
+   "Volunteering ideas",
+   "Fundraiser plans",
+   "Outreach messages"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "skills",
+   "label": "Skills",
+   "type": "text",
+   "placeholder": "accounting, driving, good with kids"
+  },
+  {
+   "key": "time",
+   "label": "Time",
+   "type": "chips",
+   "options": [
+    "An hour a month",
+    "Weekly",
+    "A project"
+   ]
+  },
+  {
+   "key": "causes",
+   "label": "Causes",
+   "type": "text"
+  }
+ ],
+ "tools": [
+  {
+   "id": "match",
+   "title": "Match me",
+   "subtitle": "Ideas for your profile",
+   "emoji": "🤝",
+   "inputs": [
+    {
+     "key": "where",
+     "label": "Where you are",
+     "type": "text"
+    }
+   ],
+   "prompt": "Volunteering ideas for the profile in {where}: cards (role type, body = what you'd do & who to approach, meta = commitment), bullets (questions to ask organisations), and a callout on safeguarding checks.",
+   "shape": "cards, bullets, callout",
+   "button": "Match",
+   "loading": "Matching…"
+  },
+  {
+   "id": "fundraiser",
+   "title": "Plan a fundraiser",
+   "subtitle": "From bake sale to 10k",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "cause",
+     "label": "Cause",
+     "type": "text",
+     "required": true
+    },
+    {
+     "key": "target",
+     "label": "Target",
+     "type": "number",
+     "placeholder": "1000"
+    }
+   ],
+   "prompt": "Fundraiser for {cause} targeting {target}: cards (3 formats, meta = effort), table (Week | Task), and a quote (the ask message).",
+   "shape": "cards, table, quote",
+   "button": "Plan",
+   "loading": "Planning…"
+  },
+  {
+   "id": "outreach",
+   "title": "Write to an organisation",
+   "subtitle": "Offer your help",
+   "emoji": "✉️",
+   "inputs": [
+    {
+     "key": "org",
+     "label": "Organisation",
+     "type": "text",
+     "required": true
+    }
+   ],
+   "prompt": "Outreach to {org} offering the profile skills: quote (email), and bullets (what to include).",
+   "shape": "quote, bullets",
+   "button": "Draft",
+   "loading": "Drafting…"
+  },
+  {
+   "id": "impact",
+   "title": "Reflect",
+   "subtitle": "Make it sustainable",
+   "emoji": "🌱",
+   "inputs": [
+    {
+     "key": "done",
+     "label": "What you've been doing",
+     "type": "longtext",
+     "required": true
+    }
+   ],
+   "prompt": "Reflect on: {done}. bullets (impact), a callout on burnout signs, and steps (next quarter).",
+   "shape": "bullets, callout, steps",
+   "button": "Reflect",
+   "loading": "Reflecting…"
+  }
+ ]
+}

@@ -1,0 +1,124 @@
+{
+ "id": "teen_talk",
+ "name": "Teen Talk",
+ "tagline": "Scripts for the hard conversations with your teenager",
+ "category": "Parenting",
+ "colors": [
+  "#5E35B1",
+  "#FF7043",
+  "#26A69A"
+ ],
+ "icon": "chat",
+ "about": "Teen Talk helps parents open conversations about screens, school, friends, mental health and risk — with scripts, boundaries and what not to say.",
+ "persona": "You are a family therapist and parent coach: connection before correction, developmental-stage aware, practical scripts.",
+ "onboarding": {
+  "title": "Talk so they'll listen",
+  "subtitle": "About your teen.",
+  "bullets": [
+   "Conversation scripts",
+   "Boundary agreements",
+   "De-escalation"
+  ]
+ },
+ "profile": [
+  {
+   "key": "teen",
+   "label": "Teen's age",
+   "type": "number",
+   "placeholder": "15"
+  },
+  {
+   "key": "topics",
+   "label": "Topics",
+   "type": "chips",
+   "options": [
+    "Screens",
+    "School",
+    "Friends",
+    "Mood",
+    "Risk",
+    "Independence",
+    "Sleep"
+   ],
+   "multi": true
+  }
+ ],
+ "tools": [
+  {
+   "id": "script",
+   "title": "Start a conversation",
+   "subtitle": "Topic → opener + flow",
+   "emoji": "💬",
+   "inputs": [
+    {
+     "key": "topic",
+     "label": "Topic",
+     "type": "text",
+     "placeholder": "I found vapes in their bag",
+     "required": true
+    }
+   ],
+   "prompt": "Script for '{topic}' with a teen of the profile age: quote (opener), steps (the flow, including listening turns), bullets (what NOT to say), and a callout on when to pause.",
+   "shape": "quote, steps, bullets, callout",
+   "button": "Script",
+   "loading": "Thinking…"
+  },
+  {
+   "id": "agreement",
+   "title": "Family agreement",
+   "subtitle": "Screens, curfews, chores",
+   "emoji": "📝",
+   "inputs": [
+    {
+     "key": "about",
+     "label": "About",
+     "type": "text",
+     "placeholder": "phone use on school nights",
+     "required": true
+    }
+   ],
+   "prompt": "A collaborative agreement about {about}: table (Expectation | Why | What happens if not), steps to negotiate it together, and a quote with the framing sentence to open.",
+   "shape": "table, steps, quote",
+   "button": "Draft",
+   "loading": "Drafting…"
+  },
+  {
+   "id": "deescalate",
+   "title": "It's escalating",
+   "subtitle": "Right now",
+   "emoji": "🔥",
+   "inputs": [
+    {
+     "key": "what",
+     "label": "What's happening",
+     "type": "text",
+     "placeholder": "shouting, door slammed",
+     "required": true
+    }
+   ],
+   "prompt": "De-escalate: {what}. steps (next 10 minutes), quote (one sentence to say), bullets (repair later), and a callout on safety.",
+   "shape": "steps, quote, bullets, callout",
+   "button": "Help",
+   "loading": "Breathing…"
+  },
+  {
+   "id": "worry",
+   "title": "Should I worry?",
+   "subtitle": "Mood, behaviour changes",
+   "emoji": "🧠",
+   "inputs": [
+    {
+     "key": "signs",
+     "label": "What you've noticed",
+     "type": "longtext",
+     "required": true
+    }
+   ],
+   "prompt": "Assess: {signs}. text (normal development vs concern), bullets (supportive actions), and a callout with red flags and how to get professional help.",
+   "shape": "text, bullets, callout",
+   "button": "Assess",
+   "loading": "Considering…"
+  }
+ ],
+ "disclaimer": "General information, not medical advice; consult a clinician for diagnosis or urgent concerns."
+}

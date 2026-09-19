@@ -1,0 +1,151 @@
+{
+ "id": "declutter_coach",
+ "name": "Declutter Coach",
+ "tagline": "A calmer home, one drawer at a time",
+ "category": "House & Home",
+ "colors": [
+  "#00897B",
+  "#FFB74D",
+  "#7E57C2"
+ ],
+ "icon": "home",
+ "about": "Declutter Coach plans room-by-room sessions, decides what to keep from a photo, and designs storage that actually gets used.",
+ "persona": "You are a gentle professional organiser: decisive, non-judgemental, focused on daily flow over Instagram perfection.",
+ "onboarding": {
+  "title": "Less stuff, more space",
+  "subtitle": "How much time and what's hardest to let go?",
+  "bullets": [
+   "15-minute sessions",
+   "Photo keep/toss decisions",
+   "Storage plans"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "home",
+   "label": "Home",
+   "type": "chips",
+   "options": [
+    "Studio",
+    "Flat",
+    "House"
+   ]
+  },
+  {
+   "key": "hard",
+   "label": "Hardest to let go",
+   "type": "chips",
+   "options": [
+    "Clothes",
+    "Papers",
+    "Sentimental",
+    "Kitchen",
+    "Kids' stuff"
+   ],
+   "multi": true
+  }
+ ],
+ "tools": [
+  {
+   "id": "session",
+   "title": "Plan a session",
+   "subtitle": "Room + minutes → plan",
+   "emoji": "⏱️",
+   "inputs": [
+    {
+     "key": "area",
+     "label": "Area",
+     "type": "text",
+     "placeholder": "hall cupboard",
+     "required": true
+    },
+    {
+     "key": "minutes",
+     "label": "Minutes",
+     "type": "chips",
+     "options": [
+      "15",
+      "30",
+      "60"
+     ],
+     "default": "30"
+    }
+   ],
+   "prompt": "A {minutes}-minute session for {area}: steps with timings, a checklist of supplies (boxes: keep/donate/trash/relocate), and a quote with a decision rule for the hard items.",
+   "shape": "steps, checklist, quote",
+   "button": "Plan",
+   "loading": "Planning…"
+  },
+  {
+   "id": "photo",
+   "title": "Sort this photo",
+   "subtitle": "What to keep",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of a shelf, drawer or pile",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Sort the visible items: table (Item | Keep/Donate/Toss/Relocate | Why), then bullets on how to store the keepers, and a callout on the emotional item.",
+   "shape": "table, bullets, callout",
+   "button": "Sort",
+   "loading": "Looking…"
+  },
+  {
+   "id": "storage",
+   "title": "Storage plan",
+   "subtitle": "Make it easy to keep tidy",
+   "emoji": "🗄️",
+   "inputs": [
+    {
+     "key": "space",
+     "label": "Space",
+     "type": "text",
+     "placeholder": "small kitchen, no pantry",
+     "required": true
+    },
+    {
+     "key": "budget",
+     "label": "Budget",
+     "type": "number",
+     "placeholder": "80"
+    }
+   ],
+   "prompt": "Storage plan for {space} under {budget}: cards (solution, body = what goes where, meta = cost), a callout on the 'landing zone' habit, and bullets of measurements to take.",
+   "shape": "cards, callout, bullets",
+   "button": "Plan",
+   "loading": "Designing…"
+  },
+  {
+   "id": "month",
+   "title": "30-day plan",
+   "subtitle": "Whole home",
+   "emoji": "📅",
+   "inputs": [
+    {
+     "key": "pace",
+     "label": "Pace",
+     "type": "chips",
+     "options": [
+      "Gentle",
+      "Steady",
+      "Blitz"
+     ],
+     "default": "Steady"
+    }
+   ],
+   "prompt": "A 30-day {pace} plan for the home: table (Day | Area | Minutes | Goal), a callout on rest days, and a quote with a mantra.",
+   "shape": "table, callout, quote",
+   "button": "Plan",
+   "loading": "Scheduling…"
+  }
+ ]
+}

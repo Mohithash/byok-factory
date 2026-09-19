@@ -1,0 +1,148 @@
+{
+ "id": "etsy_seller",
+ "name": "Maker Shop",
+ "tagline": "Sell your handmade goods online",
+ "category": "Business",
+ "colors": [
+  "#F4511E",
+  "#26A69A",
+  "#FFB300"
+ ],
+ "icon": "bag",
+ "about": "Maker Shop writes listings with SEO-friendly titles, prices your products properly, plans photos and handles customer messages.",
+ "persona": "You are a successful handmade-seller mentor: honest pricing maths, listing SEO, kind customer service.",
+ "onboarding": {
+  "title": "Turn craft into cash",
+  "subtitle": "Your shop.",
+  "bullets": [
+   "Listings that sell",
+   "Pricing that pays you",
+   "Customer message templates"
+  ]
+ },
+ "profile": [
+  {
+   "key": "shop",
+   "label": "Shop / what you make",
+   "type": "text",
+   "placeholder": "hand-poured soy candles",
+   "required": true
+  },
+  {
+   "key": "platform",
+   "label": "Platform",
+   "type": "chips",
+   "options": [
+    "Etsy",
+    "Own site",
+    "Instagram",
+    "Markets"
+   ],
+   "multi": true
+  },
+  {
+   "key": "currency",
+   "label": "Currency",
+   "type": "text",
+   "placeholder": "$",
+   "default": "$"
+  }
+ ],
+ "tools": [
+  {
+   "id": "listing",
+   "title": "Write a listing",
+   "subtitle": "Title, description, tags",
+   "emoji": "🏷️",
+   "inputs": [
+    {
+     "key": "product",
+     "label": "Product",
+     "type": "text",
+     "required": true
+    },
+    {
+     "key": "photo",
+     "label": "Product photo (optional)",
+     "type": "photo"
+    }
+   ],
+   "prompt": "Listing for {product}: quote (title under 140 chars), quote (description), bullets (13 tags), and a callout on photos to add.",
+   "shape": "quote, quote, bullets, callout",
+   "button": "Write",
+   "loading": "Writing…"
+  },
+  {
+   "id": "price",
+   "title": "Price a product",
+   "subtitle": "Materials, time, fees",
+   "emoji": "💲",
+   "inputs": [
+    {
+     "key": "product",
+     "label": "Product",
+     "type": "text",
+     "required": true
+    },
+    {
+     "key": "materials",
+     "label": "Materials cost",
+     "type": "number",
+     "placeholder": "6"
+    },
+    {
+     "key": "minutes",
+     "label": "Minutes to make",
+     "type": "number",
+     "placeholder": "40"
+    }
+   ],
+   "prompt": "Price {product} (materials {materials}, {minutes} min): kv (labour, overhead, fees, wholesale, retail), table (Scenario | Price | Profit), and a callout on underpricing.",
+   "shape": "kv, table, callout",
+   "button": "Price",
+   "loading": "Calculating…"
+  },
+  {
+   "id": "photos",
+   "title": "Photo plan",
+   "subtitle": "Phone-friendly",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "product",
+     "label": "Product",
+     "type": "text",
+     "required": true
+    }
+   ],
+   "prompt": "Photo plan for {product}: checklist (shots), kv (light, background, props), and a callout on consistency.",
+   "shape": "checklist, kv, callout",
+   "button": "Plan",
+   "loading": "Planning…"
+  },
+  {
+   "id": "message",
+   "title": "Customer message",
+   "subtitle": "Reply well",
+   "emoji": "💬",
+   "inputs": [
+    {
+     "key": "msg",
+     "label": "Their message",
+     "type": "longtext",
+     "required": true
+    },
+    {
+     "key": "facts",
+     "label": "Facts",
+     "type": "text"
+    }
+   ],
+   "prompt": "Reply to: {msg}, facts: {facts}. quote (reply), and bullets (policy notes).",
+   "shape": "quote, bullets",
+   "button": "Draft",
+   "loading": "Drafting…"
+  }
+ ],
+ "disclaimer": "General information, not financial, tax or legal advice; consult a licensed professional."
+}

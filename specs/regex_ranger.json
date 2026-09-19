@@ -1,0 +1,133 @@
+{
+ "id": "regex_ranger",
+ "name": "Pattern Pal",
+ "tagline": "Regex written, explained and tested",
+ "category": "Tools",
+ "colors": [
+  "#4E342E",
+  "#00E676",
+  "#FF7043"
+ ],
+ "icon": "gear",
+ "about": "Pattern Pal builds regular expressions from examples, explains cryptic patterns, and generates test cases — for JS, Python, Go and more.",
+ "persona": "You are a regex expert who writes readable patterns and always provides test strings that pass and fail.",
+ "onboarding": {
+  "title": "Match exactly what you mean",
+  "subtitle": "Your language.",
+  "bullets": [
+   "Examples → regex",
+   "Explain any pattern",
+   "Test cases"
+  ]
+ },
+ "profile": [
+  {
+   "key": "lang",
+   "label": "Language / flavour",
+   "type": "chips",
+   "options": [
+    "JavaScript",
+    "Python",
+    "Go",
+    "Java",
+    "PCRE",
+    "grep/sed"
+   ],
+   "default": "JavaScript"
+  }
+ ],
+ "tools": [
+  {
+   "id": "build",
+   "title": "Build a regex",
+   "subtitle": "From description + examples",
+   "emoji": "🧩",
+   "inputs": [
+    {
+     "key": "want",
+     "label": "What to match",
+     "type": "longtext",
+     "placeholder": "UK postcodes like SW1A 1AA and M1 1AE",
+     "required": true
+    },
+    {
+     "key": "not",
+     "label": "Should NOT match",
+     "type": "text",
+     "placeholder": "12345"
+    }
+   ],
+   "prompt": "Regex for the profile flavour: match {want}, not {not}. quote (pattern), kv (each part → meaning), table (Test string | Should match | Result), and a callout on edge cases.",
+   "shape": "quote, kv, table, callout",
+   "button": "Build",
+   "loading": "Composing…"
+  },
+  {
+   "id": "explain",
+   "title": "Explain a regex",
+   "subtitle": "Paste it",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "regex",
+     "label": "Regex",
+     "type": "text",
+     "required": true
+    }
+   ],
+   "prompt": "Explain {regex}: kv (token → meaning), steps (how it matches), and bullets (what it wrongly matches).",
+   "shape": "kv, steps, bullets",
+   "button": "Explain",
+   "loading": "Parsing…"
+  },
+  {
+   "id": "replace",
+   "title": "Find & replace",
+   "subtitle": "Transform text",
+   "emoji": "🔁",
+   "inputs": [
+    {
+     "key": "from",
+     "label": "Input example",
+     "type": "longtext",
+     "required": true
+    },
+    {
+     "key": "to",
+     "label": "Desired output",
+     "type": "longtext"
+    }
+   ],
+   "prompt": "Find/replace turning {from} into {to} in the profile flavour: quote (pattern), quote (replacement), and a callout on capture groups.",
+   "shape": "quote, quote, callout",
+   "button": "Build",
+   "loading": "Composing…"
+  },
+  {
+   "id": "validate",
+   "title": "Validate input",
+   "subtitle": "Email, phone, dates…",
+   "emoji": "✅",
+   "inputs": [
+    {
+     "key": "what",
+     "label": "What",
+     "type": "chips",
+     "options": [
+      "Email",
+      "Phone (intl)",
+      "URL",
+      "Date ISO",
+      "Password rules",
+      "Username"
+     ],
+     "default": "Email"
+    }
+   ],
+   "prompt": "A pragmatic validation regex for {what}: quote (pattern), bullets (what it intentionally allows/rejects), and a callout on why perfect validation is a trap.",
+   "shape": "quote, bullets, callout",
+   "button": "Get pattern",
+   "loading": "Composing…"
+  }
+ ]
+}

@@ -1,0 +1,151 @@
+{
+ "id": "plant_doctor",
+ "name": "Leaf Doctor",
+ "tagline": "Identify, diagnose and care for houseplants",
+ "category": "House & Home",
+ "colors": [
+  "#2E7D32",
+  "#FF8F00",
+  "#0288D1"
+ ],
+ "icon": "leaf",
+ "about": "Leaf Doctor identifies plants from a photo, builds care schedules, diagnoses yellow leaves and pests, and plans propagation.",
+ "persona": "You are a botanist and houseplant whisperer: precise about light, water and roots; honest about confidence.",
+ "onboarding": {
+  "title": "Keep them alive and thriving",
+  "subtitle": "Your home conditions matter.",
+  "bullets": [
+   "Photo identification",
+   "Care schedules",
+   "Pest & problem diagnosis"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "light",
+   "label": "Light at home",
+   "type": "chips",
+   "options": [
+    "Low",
+    "Medium",
+    "Bright indirect",
+    "Direct sun"
+   ]
+  },
+  {
+   "key": "climate",
+   "label": "Climate",
+   "type": "chips",
+   "options": [
+    "Tropical",
+    "Arid",
+    "Temperate",
+    "Cold"
+   ]
+  },
+  {
+   "key": "pets",
+   "label": "Pets?",
+   "type": "chips",
+   "options": [
+    "Cats",
+    "Dogs",
+    "None"
+   ],
+   "multi": true
+  }
+ ],
+ "tools": [
+  {
+   "id": "id",
+   "title": "Identify & care",
+   "subtitle": "Photo → species + care plan",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the plant",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Identify the plant (state confidence). kv (common/scientific name, water interval, light, humidity, feeding, toxicity for the profile's pets), steps for the next 2 weeks, and bullets of 3 specific tips.",
+   "shape": "kv, steps, bullets",
+   "button": "Identify",
+   "loading": "Examining…"
+  },
+  {
+   "id": "diagnose",
+   "title": "What's wrong?",
+   "subtitle": "Photo + symptoms → fix",
+   "emoji": "🩺",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the problem",
+     "type": "photo"
+    },
+    {
+     "key": "symptoms",
+     "label": "Symptoms",
+     "type": "text",
+     "placeholder": "yellow lower leaves, soil smells",
+     "required": true
+    },
+    {
+     "key": "care",
+     "label": "Recent care",
+     "type": "text",
+     "placeholder": "watered twice a week"
+    }
+   ],
+   "prompt": "Diagnose: {symptoms}; care: {care}. Text (likely issue + confidence), bullets (ranked causes), steps to fix, and a callout on urgency.",
+   "shape": "text, bullets, steps, callout",
+   "button": "Diagnose",
+   "loading": "Examining…"
+  },
+  {
+   "id": "schedule",
+   "title": "Care calendar",
+   "subtitle": "All my plants, one week",
+   "emoji": "📅",
+   "inputs": [
+    {
+     "key": "plants",
+     "label": "Your plants",
+     "type": "longtext",
+     "placeholder": "monstera (living room), pothos (bathroom), snake plant (bedroom)",
+     "required": true
+    }
+   ],
+   "prompt": "Weekly care calendar for: {plants} in the profile conditions: table (Plant | Water | Feed | Rotate/Clean | Notes), and a callout on seasonal changes.",
+   "shape": "table, callout",
+   "button": "Plan",
+   "loading": "Scheduling…"
+  },
+  {
+   "id": "propagate",
+   "title": "Propagate",
+   "subtitle": "Make more plants",
+   "emoji": "🌱",
+   "inputs": [
+    {
+     "key": "plant",
+     "label": "Plant",
+     "type": "text",
+     "placeholder": "pothos",
+     "required": true
+    }
+   ],
+   "prompt": "Propagation guide for {plant}: steps with timing, kv (method, time to root, success rate, best season), and bullets of common mistakes.",
+   "shape": "steps, kv, bullets",
+   "button": "Guide me",
+   "loading": "Rooting…"
+  }
+ ]
+}

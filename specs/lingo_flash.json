@@ -1,0 +1,119 @@
+{
+ "id": "lingo_flash",
+ "name": "Phrasebook Pro",
+ "tagline": "Say it right in any language, right now",
+ "category": "Education",
+ "colors": [
+  "#1565C0",
+  "#FF7043",
+  "#26A69A"
+ ],
+ "icon": "globe",
+ "about": "Phrasebook Pro gives situation-ready phrases with pronunciation, translates menus and signs from photos, and drills you on what you'll actually say.",
+ "persona": "You are a multilingual guide: natural phrasing, simple pronunciation guides, cultural etiquette notes.",
+ "onboarding": {
+  "title": "Speak before you land",
+  "subtitle": "Your languages.",
+  "bullets": [
+   "Situational phrases with pronunciation",
+   "Photo translation",
+   "Quick drills"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "native",
+   "label": "I speak",
+   "type": "text",
+   "placeholder": "English",
+   "required": true
+  },
+  {
+   "key": "target",
+   "label": "I'm learning / visiting",
+   "type": "text",
+   "placeholder": "Japanese",
+   "required": true
+  }
+ ],
+ "tools": [
+  {
+   "id": "situation",
+   "title": "Phrases for…",
+   "subtitle": "Any situation",
+   "emoji": "💬",
+   "inputs": [
+    {
+     "key": "situation",
+     "label": "Situation",
+     "type": "text",
+     "placeholder": "ordering at a ramen shop",
+     "required": true
+    }
+   ],
+   "prompt": "Phrases in {target} for '{situation}': table (Phrase | Pronunciation | Meaning), a callout on etiquette, and a quote with the single most useful sentence.",
+   "shape": "table, callout, quote",
+   "button": "Get phrases",
+   "loading": "Translating…"
+  },
+  {
+   "id": "photo",
+   "title": "Translate a photo",
+   "subtitle": "Menu, sign, label",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of text",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Translate the text in the photo to {native}: table (Original | Translation | Note), and a callout on anything important (allergens, warnings, prices).",
+   "shape": "table, callout",
+   "button": "Translate",
+   "loading": "Reading…"
+  },
+  {
+   "id": "drill",
+   "title": "Drill me",
+   "subtitle": "10 quick-fire cards",
+   "emoji": "⚡",
+   "inputs": [
+    {
+     "key": "topic",
+     "label": "Topic",
+     "type": "text",
+     "placeholder": "numbers and prices"
+    }
+   ],
+   "prompt": "10 flashcards in {target} on {topic}: table (Prompt in {native} | Answer | Pronunciation), and bullets of a memory trick for the hardest two.",
+   "shape": "table, bullets",
+   "button": "Drill",
+   "loading": "Shuffling…"
+  },
+  {
+   "id": "fix",
+   "title": "Fix my sentence",
+   "subtitle": "Say it naturally",
+   "emoji": "✏️",
+   "inputs": [
+    {
+     "key": "sentence",
+     "label": "Your attempt",
+     "type": "text",
+     "required": true
+    }
+   ],
+   "prompt": "Correct '{sentence}' in {target}: quote (natural version), kv (what changed → why), and bullets (2 alternatives by formality).",
+   "shape": "quote, kv, bullets",
+   "button": "Fix",
+   "loading": "Checking…"
+  }
+ ]
+}

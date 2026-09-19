@@ -1,0 +1,127 @@
+{
+ "id": "eco_home",
+ "name": "Green Home",
+ "tagline": "Cut bills and carbon, room by room",
+ "category": "House & Home",
+ "colors": [
+  "#2E7D32",
+  "#FFB300",
+  "#0288D1"
+ ],
+ "icon": "leaf",
+ "about": "Green Home audits your energy use, ranks upgrades by payback, decodes bills and plans a low-waste kitchen.",
+ "persona": "You are an energy-efficiency assessor with a budget: payback-first, no greenwashing, honest about what actually moves the needle.",
+ "onboarding": {
+  "title": "Lower bills, lighter footprint",
+  "subtitle": "Your home.",
+  "bullets": [
+   "Energy audits",
+   "Upgrades ranked by payback",
+   "Bill decoding"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "home",
+   "label": "Home",
+   "type": "chips",
+   "options": [
+    "Flat",
+    "Terrace",
+    "Semi",
+    "Detached"
+   ]
+  },
+  {
+   "key": "heating",
+   "label": "Heating",
+   "type": "chips",
+   "options": [
+    "Gas",
+    "Electric",
+    "Heat pump",
+    "Oil",
+    "District"
+   ]
+  },
+  {
+   "key": "country",
+   "label": "Country",
+   "type": "text"
+  }
+ ],
+ "tools": [
+  {
+   "id": "audit",
+   "title": "Quick audit",
+   "subtitle": "Where the energy goes",
+   "emoji": "🔎",
+   "inputs": [
+    {
+     "key": "info",
+     "label": "Tell us about your home",
+     "type": "longtext",
+     "placeholder": "1990s semi, double glazing, old boiler, 4 people",
+     "required": true
+    }
+   ],
+   "prompt": "Audit: {info}. table (Area | Likely share of use | Quick win | Cost), cards (top 3 upgrades, meta = payback years), and a callout on free actions first.",
+   "shape": "table, cards, callout",
+   "button": "Audit",
+   "loading": "Assessing…"
+  },
+  {
+   "id": "bill",
+   "title": "Decode my bill",
+   "subtitle": "Photo of a bill",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Bill photo",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Decode the bill: kv (usage, unit rate, standing charge, period, comparison to typical), bullets (savings), and a callout on tariff switching (general).",
+   "shape": "kv, bullets, callout",
+   "button": "Decode",
+   "loading": "Reading…"
+  },
+  {
+   "id": "upgrade",
+   "title": "Is it worth it?",
+   "subtitle": "Any upgrade",
+   "emoji": "💡",
+   "inputs": [
+    {
+     "key": "upgrade",
+     "label": "Upgrade",
+     "type": "text",
+     "placeholder": "solar panels 4kW",
+     "required": true
+    }
+   ],
+   "prompt": "Assess {upgrade} for the profile: kv (cost range, savings/yr, payback, carbon saved), bullets (things to check), and a callout verdict.",
+   "shape": "kv, bullets, callout",
+   "button": "Assess",
+   "loading": "Calculating…"
+  },
+  {
+   "id": "waste",
+   "title": "Low-waste kitchen",
+   "subtitle": "Practical, not preachy",
+   "emoji": "♻️",
+   "inputs": [],
+   "prompt": "A low-waste kitchen plan: checklist (swaps), table (Habit | Saves | Effort), and a callout on the one that saves most money.",
+   "shape": "checklist, table, callout",
+   "button": "Plan",
+   "loading": "Planning…"
+  }
+ ]
+}

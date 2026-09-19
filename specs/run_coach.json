@@ -1,0 +1,143 @@
+{
+ "id": "run_coach",
+ "name": "Run Plan",
+ "tagline": "Couch to 5K to marathon, adapted to your week",
+ "category": "Health & Fitness",
+ "colors": [
+  "#C62828",
+  "#FFB300",
+  "#00838F"
+ ],
+ "icon": "flame",
+ "about": "Run Plan builds training blocks around your real schedule, adjusts after missed runs, predicts race times and reviews your weeks.",
+ "persona": "You are an experienced running coach: progressive, injury-aware, allergic to junk miles; you explain the purpose of every session.",
+ "onboarding": {
+  "title": "Run your next best race",
+  "subtitle": "Where are you now, where are you going?",
+  "bullets": [
+   "Plans around your calendar",
+   "Missed-run adjustments",
+   "Race predictions"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "level",
+   "label": "Level",
+   "type": "chips",
+   "options": [
+    "Beginner",
+    "5K–10K",
+    "Half",
+    "Marathon"
+   ]
+  },
+  {
+   "key": "recent",
+   "label": "Recent result",
+   "type": "text",
+   "placeholder": "5K in 27:30"
+  },
+  {
+   "key": "days",
+   "label": "Days/week",
+   "type": "chips",
+   "options": [
+    "3",
+    "4",
+    "5",
+    "6"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "block",
+   "title": "Training block",
+   "subtitle": "Next 4 weeks",
+   "emoji": "🏃",
+   "inputs": [
+    {
+     "key": "goal",
+     "label": "Goal race & date",
+     "type": "text",
+     "placeholder": "10K on 12 Oct",
+     "required": true
+    },
+    {
+     "key": "constraints",
+     "label": "Constraints",
+     "type": "text",
+     "placeholder": "long run Sundays only, no Wednesdays"
+    }
+   ],
+   "prompt": "A 4-week block toward {goal} with constraints {constraints}: table (Week | Mon | Tue | Wed | Thu | Fri | Sat | Sun), text explaining the purpose of each session type, and a callout on how to judge effort.",
+   "shape": "table, text, callout",
+   "button": "Build block",
+   "loading": "Planning…"
+  },
+  {
+   "id": "adjust",
+   "title": "I missed runs",
+   "subtitle": "Re-plan the week",
+   "emoji": "🔁",
+   "inputs": [
+    {
+     "key": "missed",
+     "label": "What happened",
+     "type": "text",
+     "placeholder": "sick Tue–Thu, long run planned Sunday",
+     "required": true
+    }
+   ],
+   "prompt": "Adjust the current week given: {missed}. Steps for the remaining days, a callout on what NOT to cram, and bullets on returning after illness.",
+   "shape": "steps, callout, bullets",
+   "button": "Re-plan",
+   "loading": "Adjusting…"
+  },
+  {
+   "id": "predict",
+   "title": "Race predictor",
+   "subtitle": "Paces and a race plan",
+   "emoji": "⏱️",
+   "inputs": [
+    {
+     "key": "race",
+     "label": "Target race",
+     "type": "text",
+     "placeholder": "half marathon",
+     "required": true
+    }
+   ],
+   "prompt": "Predict a {race} time from the recent result and level: kv (predicted time, easy pace, tempo pace, interval pace), a table of even/negative split checkpoints, and bullets for race-week.",
+   "shape": "kv, table, bullets",
+   "button": "Predict",
+   "loading": "Calculating…"
+  },
+  {
+   "id": "review",
+   "title": "Review my week",
+   "subtitle": "Paste your log",
+   "emoji": "📓",
+   "inputs": [
+    {
+     "key": "log",
+     "label": "This week's runs",
+     "type": "longtext",
+     "placeholder": "Mon 5k easy 5:40/km HR 150; Wed 6×400…",
+     "required": true
+    }
+   ],
+   "prompt": "Review: {log}. Bullets of what went well, a callout on the biggest risk (overreaching / too easy / niggles), steps for next week, and a quote with one focus cue.",
+   "shape": "bullets, callout, steps, quote",
+   "button": "Review",
+   "loading": "Reading…"
+  }
+ ],
+ "disclaimer": "Not medical advice; stop and see a clinician for sharp pain, chest symptoms or dizziness."
+}

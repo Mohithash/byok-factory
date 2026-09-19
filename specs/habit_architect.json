@@ -1,0 +1,130 @@
+{
+ "id": "habit_architect",
+ "name": "Habit Architect",
+ "tagline": "Design habits that survive bad weeks",
+ "category": "Productivity",
+ "colors": [
+  "#00897B",
+  "#FF7043",
+  "#5C6BC0"
+ ],
+ "icon": "gear",
+ "about": "Habit Architect designs tiny habits with cues and rewards, stacks them onto routines you already have, and troubleshoots when you fall off.",
+ "persona": "You are a behaviour-design coach (Fogg/Clear style): tiny, anchored, celebrated; never moralising.",
+ "onboarding": {
+  "title": "Make it obvious, easy and satisfying",
+  "subtitle": "Tell us your routine anchors.",
+  "bullets": [
+   "Habit recipes with cues",
+   "Habit stacking on your day",
+   "Relapse recovery"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "morning",
+   "label": "Morning routine",
+   "type": "text",
+   "placeholder": "coffee, shower, commute at 8"
+  },
+  {
+   "key": "evening",
+   "label": "Evening routine",
+   "type": "text",
+   "placeholder": "dinner at 7, TV, bed 11"
+  }
+ ],
+ "tools": [
+  {
+   "id": "design",
+   "title": "Design a habit",
+   "subtitle": "From wish to recipe",
+   "emoji": "🧩",
+   "inputs": [
+    {
+     "key": "habit",
+     "label": "I want to",
+     "type": "text",
+     "placeholder": "read more",
+     "required": true
+    },
+    {
+     "key": "when",
+     "label": "When",
+     "type": "chips",
+     "options": [
+      "Morning",
+      "Midday",
+      "Evening",
+      "Anytime"
+     ],
+     "default": "Evening"
+    }
+   ],
+   "prompt": "Design '{habit}' for {when} using the routine anchors: kv (tiny version, anchor cue, celebration, scale-up plan), a callout on the biggest friction and its fix, and a quote of the habit recipe sentence ('After I…, I will…').",
+   "shape": "kv, callout, quote",
+   "button": "Design",
+   "loading": "Designing…"
+  },
+  {
+   "id": "stack",
+   "title": "Stack my morning",
+   "subtitle": "Fit 3 habits into it",
+   "emoji": "🌅",
+   "inputs": [
+    {
+     "key": "habits",
+     "label": "Habits to fit",
+     "type": "longtext",
+     "placeholder": "stretch, journal, vitamins"
+    }
+   ],
+   "prompt": "Stack {habits} onto the morning routine: table (Anchor | New habit | Tiny version | Minutes), steps for the first 3 days, and a callout on what to drop if late.",
+   "shape": "table, steps, callout",
+   "button": "Stack",
+   "loading": "Arranging…"
+  },
+  {
+   "id": "relapse",
+   "title": "I fell off",
+   "subtitle": "Get back without guilt",
+   "emoji": "🔄",
+   "inputs": [
+    {
+     "key": "what",
+     "label": "What happened",
+     "type": "text",
+     "placeholder": "stopped going to the gym 3 weeks ago",
+     "required": true
+    }
+   ],
+   "prompt": "Recovery for: {what}. Text (reframe), steps for a 'never miss twice' restart at 20% size, and a quote to say to yourself.",
+   "shape": "text, steps, quote",
+   "button": "Restart",
+   "loading": "Reframing…"
+  },
+  {
+   "id": "tracker",
+   "title": "Weekly tracker",
+   "subtitle": "Printable checklist",
+   "emoji": "✅",
+   "inputs": [
+    {
+     "key": "habits",
+     "label": "Habits",
+     "type": "longtext",
+     "placeholder": "water, walk, no phone in bed"
+    }
+   ],
+   "prompt": "A weekly tracker for {habits}: table (Habit | Mon | Tue | Wed | Thu | Fri | Sat | Sun) with empty cells, bullets on scoring, and a callout on the 80% rule.",
+   "shape": "table, bullets, callout",
+   "button": "Make",
+   "loading": "Drawing…"
+  }
+ ]
+}

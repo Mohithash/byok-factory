@@ -1,0 +1,140 @@
+{
+ "id": "gut_guide",
+ "name": "Gut Guide",
+ "tagline": "Food & symptom diary that finds your patterns",
+ "category": "Health & Fitness",
+ "colors": [
+  "#2E7D32",
+  "#FF7043",
+  "#0288D1"
+ ],
+ "icon": "leaf",
+ "about": "Gut Guide helps people with IBS, reflux or food sensitivities log meals and symptoms, spot likely triggers, and plan low-FODMAP or elimination phases.",
+ "persona": "You are a careful digestive-health dietitian: evidence-based, never alarmist, always clear that patterns are hypotheses to test with a clinician.",
+ "onboarding": {
+  "title": "Find what your gut is telling you",
+  "subtitle": "A few details help the analysis.",
+  "bullets": [
+   "Trigger analysis from your diary",
+   "Low-FODMAP & elimination plans",
+   "Restaurant survival guides"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "condition",
+   "label": "Working with",
+   "type": "chips",
+   "options": [
+    "IBS",
+    "Reflux",
+    "Lactose",
+    "Gluten",
+    "Unknown"
+   ],
+   "multi": true
+  },
+  {
+   "key": "meds",
+   "label": "Medications / supplements",
+   "type": "text"
+  }
+ ],
+ "tools": [
+  {
+   "id": "analyse",
+   "title": "Analyse my diary",
+   "subtitle": "Paste days of meals + symptoms",
+   "emoji": "🔎",
+   "inputs": [
+    {
+     "key": "diary",
+     "label": "Diary",
+     "type": "longtext",
+     "placeholder": "Mon: oats + banana → fine; lunch garlic pasta → bloated 2h later…",
+     "required": true
+    }
+   ],
+   "prompt": "Analyse this food/symptom diary: {diary}. Table (Suspect | Evidence | Confidence), bullets of safe foods observed, steps for a 1-week test of the top suspect, and a callout that this is a hypothesis.",
+   "shape": "table, bullets, steps, callout",
+   "button": "Analyse",
+   "loading": "Reading…"
+  },
+  {
+   "id": "lowfodmap",
+   "title": "Low-FODMAP day",
+   "subtitle": "Meals that are gentle",
+   "emoji": "🥗",
+   "inputs": [
+    {
+     "key": "meals",
+     "label": "Plan",
+     "type": "chips",
+     "options": [
+      "1 day",
+      "3 days"
+     ],
+     "default": "1 day"
+    },
+    {
+     "key": "prefs",
+     "label": "Preferences",
+     "type": "text"
+    }
+   ],
+   "prompt": "Low-FODMAP plan for {meals} with preferences {prefs}: table (Meal | Dish | Watch-outs), a checklist shopping list, and a callout on portion thresholds.",
+   "shape": "table, checklist, callout",
+   "button": "Plan",
+   "loading": "Planning…"
+  },
+  {
+   "id": "menu",
+   "title": "Restaurant scan",
+   "subtitle": "Photo of a menu → safe picks",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Menu photo",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "From the menu photo, mark safe picks vs risky as a table (Dish | Verdict | Why | Ask the server to…), then a quote with exactly what to say to the waiter.",
+   "shape": "table, quote",
+   "button": "Scan menu",
+   "loading": "Reading…"
+  },
+  {
+   "id": "flare",
+   "title": "Flare-up plan",
+   "subtitle": "What to do in the next 48h",
+   "emoji": "🩹",
+   "inputs": [
+    {
+     "key": "symptom",
+     "label": "Main symptom",
+     "type": "chips",
+     "options": [
+      "Bloating",
+      "Cramps",
+      "Diarrhoea",
+      "Constipation",
+      "Reflux"
+     ],
+     "default": "Bloating"
+    }
+   ],
+   "prompt": "A calm 48-hour plan for {symptom}: steps (hydration, gentle foods, movement), bullets of foods to pause, and a callout listing red-flag symptoms that need a doctor now.",
+   "shape": "steps, bullets, callout",
+   "button": "Help me",
+   "loading": "Thinking…"
+  }
+ ],
+ "disclaimer": "This is general information, not medical advice; see a clinician for diagnosis or before changing medication."
+}

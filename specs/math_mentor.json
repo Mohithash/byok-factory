@@ -1,0 +1,150 @@
+{
+ "id": "math_mentor",
+ "name": "Math Mentor",
+ "tagline": "Step-by-step help that teaches, not tells",
+ "category": "Education",
+ "colors": [
+  "#1565C0",
+  "#FF7043",
+  "#43A047"
+ ],
+ "icon": "graph",
+ "about": "Math Mentor solves problems step by step from a photo or text, explains the why, generates practice sets and spots your recurring mistakes.",
+ "persona": "You are a patient maths tutor: Socratic when asked, always shows working, checks answers by substitution, flags common misconceptions.",
+ "onboarding": {
+  "title": "Understand it, don't just copy it",
+  "subtitle": "Your level tunes the explanations.",
+  "bullets": [
+   "Photo → worked solution",
+   "Practice sets with answers",
+   "Mistake analysis"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "level",
+   "label": "Level",
+   "type": "chips",
+   "options": [
+    "Primary",
+    "Middle school",
+    "High school",
+    "University"
+   ]
+  },
+  {
+   "key": "topics",
+   "label": "Current topics",
+   "type": "text",
+   "placeholder": "quadratics, trig"
+  }
+ ],
+ "tools": [
+  {
+   "id": "solve",
+   "title": "Solve & explain",
+   "subtitle": "Photo or typed problem",
+   "emoji": "🧮",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the problem",
+     "type": "photo"
+    },
+    {
+     "key": "problem",
+     "label": "Or type it",
+     "type": "text",
+     "placeholder": "solve x² − 5x + 6 = 0"
+    },
+    {
+     "key": "mode",
+     "label": "Mode",
+     "type": "chips",
+     "options": [
+      "Full solution",
+      "Hints only",
+      "Check my answer"
+     ],
+     "default": "Full solution"
+    }
+   ],
+   "prompt": "Problem: {problem} (or photo). Mode: {mode}. Steps (each with the rule used), a callout on the common trap here, kv (final answer, check by substitution), and bullets of 2 similar problems to try.",
+   "shape": "steps, callout, kv, bullets",
+   "button": "Solve",
+   "loading": "Working…"
+  },
+  {
+   "id": "practice",
+   "title": "Practice set",
+   "subtitle": "10 questions, one topic",
+   "emoji": "📝",
+   "inputs": [
+    {
+     "key": "topic",
+     "label": "Topic",
+     "type": "text",
+     "placeholder": "fractions with unlike denominators",
+     "required": true
+    },
+    {
+     "key": "difficulty",
+     "label": "Difficulty",
+     "type": "chips",
+     "options": [
+      "Easy",
+      "Mixed",
+      "Hard"
+     ],
+     "default": "Mixed"
+    }
+   ],
+   "prompt": "A 10-question {difficulty} practice set on {topic} for the profile level: table (No. | Question | Answer), then steps for the hardest one, and a callout on the skill being drilled.",
+   "shape": "table, steps, callout",
+   "button": "Generate",
+   "loading": "Writing…"
+  },
+  {
+   "id": "explain",
+   "title": "Explain a concept",
+   "subtitle": "Like I'm curious, not stupid",
+   "emoji": "💡",
+   "inputs": [
+    {
+     "key": "concept",
+     "label": "Concept",
+     "type": "text",
+     "placeholder": "why does dividing by a fraction flip it?",
+     "required": true
+    }
+   ],
+   "prompt": "Explain '{concept}' at the profile level: text (intuition with a concrete example), steps (the formal reasoning), a quote (one-line memory hook), and bullets (where students go wrong).",
+   "shape": "text, steps, quote, bullets",
+   "button": "Explain",
+   "loading": "Thinking…"
+  },
+  {
+   "id": "mistakes",
+   "title": "Analyse my mistakes",
+   "subtitle": "Paste wrong answers",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "work",
+     "label": "Your work / wrong answers",
+     "type": "longtext",
+     "required": true
+    }
+   ],
+   "prompt": "Analyse: {work}. Table (Error | Type | Correct approach), a callout on the one habit to fix, and bullets of targeted drills.",
+   "shape": "table, callout, bullets",
+   "button": "Analyse",
+   "loading": "Reviewing…"
+  }
+ ]
+}

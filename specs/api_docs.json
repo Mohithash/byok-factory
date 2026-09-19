@@ -1,0 +1,124 @@
+{
+ "id": "api_docs",
+ "name": "Doc Writer",
+ "tagline": "READMEs, API docs and changelogs that people read",
+ "category": "Tools",
+ "colors": [
+  "#455A64",
+  "#FFB300",
+  "#26A69A"
+ ],
+ "icon": "note",
+ "about": "Doc Writer turns code and notes into READMEs, API references, changelogs and onboarding guides with examples.",
+ "persona": "You are a technical writer engineers respect: example-first, accurate, scannable, no fluff.",
+ "onboarding": {
+  "title": "Docs people actually read",
+  "subtitle": "Your project.",
+  "bullets": [
+   "README generator",
+   "API reference from code",
+   "Changelogs & guides"
+  ]
+ },
+ "profile": [
+  {
+   "key": "project",
+   "label": "Project",
+   "type": "text"
+  },
+  {
+   "key": "stack",
+   "label": "Stack",
+   "type": "chips",
+   "options": [
+    "JavaScript/TS",
+    "Python",
+    "Kotlin/Java",
+    "Go",
+    "Rust",
+    "Other"
+   ],
+   "default": "Python"
+  }
+ ],
+ "tools": [
+  {
+   "id": "readme",
+   "title": "Write a README",
+   "subtitle": "From a description or code",
+   "emoji": "📄",
+   "inputs": [
+    {
+     "key": "about",
+     "label": "What the project does / paste code",
+     "type": "longtext",
+     "required": true
+    }
+   ],
+   "prompt": "README for: {about}. quote (full README in Markdown: title, one-liner, install, quick start, usage examples, config, contributing), and a checklist of things to verify.",
+   "shape": "quote, checklist",
+   "button": "Write",
+   "loading": "Writing…"
+  },
+  {
+   "id": "api",
+   "title": "API reference",
+   "subtitle": "From a function or endpoint",
+   "emoji": "🔌",
+   "inputs": [
+    {
+     "key": "code",
+     "label": "Function / endpoint",
+     "type": "longtext",
+     "required": true
+    }
+   ],
+   "prompt": "Reference for: {code}. table (Parameter | Type | Required | Description), quote (example request/call and response), bullets (errors), and a callout on gotchas.",
+   "shape": "table, quote, bullets, callout",
+   "button": "Document",
+   "loading": "Documenting…"
+  },
+  {
+   "id": "changelog",
+   "title": "Changelog entry",
+   "subtitle": "From commits",
+   "emoji": "🧾",
+   "inputs": [
+    {
+     "key": "commits",
+     "label": "Commits / changes",
+     "type": "longtext",
+     "required": true
+    },
+    {
+     "key": "version",
+     "label": "Version",
+     "type": "text",
+     "placeholder": "1.4.0"
+    }
+   ],
+   "prompt": "Changelog for {version}: quote (Keep-a-Changelog format: Added/Changed/Fixed/Removed), and a callout on breaking changes and migration.",
+   "shape": "quote, callout",
+   "button": "Write",
+   "loading": "Writing…"
+  },
+  {
+   "id": "onboard",
+   "title": "Onboarding guide",
+   "subtitle": "New dev, day one",
+   "emoji": "🚀",
+   "inputs": [
+    {
+     "key": "repo",
+     "label": "About the repo & setup",
+     "type": "longtext",
+     "required": true
+    }
+   ],
+   "prompt": "Onboarding guide for: {repo}. steps (setup), bullets (architecture tour), kv (where things live), and a callout on the common first-day mistake.",
+   "shape": "steps, bullets, kv, callout",
+   "button": "Write",
+   "loading": "Writing…"
+  }
+ ]
+}

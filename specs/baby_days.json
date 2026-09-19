@@ -1,0 +1,118 @@
+{
+ "id": "baby_days",
+ "name": "Baby Days",
+ "tagline": "The first year, one calm answer at a time",
+ "category": "Parenting",
+ "colors": [
+  "#F06292",
+  "#4DB6AC",
+  "#FFB74D"
+ ],
+ "icon": "baby",
+ "about": "Baby Days answers new-parent questions with evidence-based, non-judgemental guidance: sleep, feeding, milestones, weaning and what to ask the doctor.",
+ "persona": "You are a reassuring paediatric nurse-educator: evidence-based, culturally sensitive, clear about red flags, never shaming feeding choices.",
+ "onboarding": {
+  "title": "You're doing better than you think",
+  "subtitle": "About your baby.",
+  "bullets": [
+   "Age-specific guidance",
+   "Sleep & feeding plans",
+   "Red-flag checker"
+  ]
+ },
+ "profile": [
+  {
+   "key": "baby",
+   "label": "Baby's name & age",
+   "type": "text",
+   "placeholder": "Zara, 5 months",
+   "required": true
+  },
+  {
+   "key": "feeding",
+   "label": "Feeding",
+   "type": "chips",
+   "options": [
+    "Breast",
+    "Formula",
+    "Mixed",
+    "Weaning"
+   ]
+  },
+  {
+   "key": "concerns",
+   "label": "Current concerns",
+   "type": "text"
+  }
+ ],
+ "tools": [
+  {
+   "id": "ask",
+   "title": "Ask anything",
+   "subtitle": "Sleep, feeding, crying…",
+   "emoji": "💬",
+   "inputs": [
+    {
+     "key": "q",
+     "label": "Question",
+     "type": "text",
+     "placeholder": "how do I start weaning?",
+     "required": true
+    }
+   ],
+   "prompt": "Answer '{q}' for the profile baby: text (evidence-based answer), steps (what to do), bullets (what's normal), and a callout on red flags that need a doctor.",
+   "shape": "text, steps, bullets, callout",
+   "button": "Ask",
+   "loading": "Thinking…"
+  },
+  {
+   "id": "sleep",
+   "title": "Sleep plan",
+   "subtitle": "Gentle, age-appropriate",
+   "emoji": "🌙",
+   "inputs": [
+    {
+     "key": "now",
+     "label": "Current pattern",
+     "type": "text",
+     "placeholder": "wakes every 2h, feeds to sleep"
+    }
+   ],
+   "prompt": "A gentle sleep plan for the baby's age given: {now}. table (Time | Routine), steps for the first 3 nights, and a callout on safe-sleep rules and what not to expect.",
+   "shape": "table, steps, callout",
+   "button": "Plan",
+   "loading": "Planning…"
+  },
+  {
+   "id": "milestones",
+   "title": "Milestones",
+   "subtitle": "What to expect this month",
+   "emoji": "📈",
+   "inputs": [],
+   "prompt": "Milestones for the baby's age: table (Area | Typical | Encourage with), bullets (play ideas), and a callout on when to raise a concern.",
+   "shape": "table, bullets, callout",
+   "button": "Show",
+   "loading": "Looking up…"
+  },
+  {
+   "id": "doctor",
+   "title": "Doctor visit prep",
+   "subtitle": "Questions and symptom log",
+   "emoji": "🩺",
+   "inputs": [
+    {
+     "key": "reason",
+     "label": "Reason",
+     "type": "text",
+     "placeholder": "check-up, rash on cheeks",
+     "required": true
+    }
+   ],
+   "prompt": "Prep for a visit about {reason}: bullets (symptom details to note), bullets (questions to ask), and a callout on what to bring.",
+   "shape": "bullets, bullets, callout",
+   "button": "Prep",
+   "loading": "Preparing…"
+  }
+ ],
+ "disclaimer": "General information, not medical advice; consult a clinician for diagnosis or urgent concerns."
+}

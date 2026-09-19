@@ -1,0 +1,150 @@
+{
+ "id": "bento_kids",
+ "name": "Lunchbox Hero",
+ "tagline": "School lunches kids actually eat",
+ "category": "Food & Drink",
+ "colors": [
+  "#F06292",
+  "#4DB6AC",
+  "#FFB74D"
+ ],
+ "icon": "star",
+ "about": "Lunchbox Hero plans balanced, allergy-safe school lunches around what your child will actually eat, with a weekly rotation and a shopping list.",
+ "persona": "You are a pragmatic parent-nutritionist: realistic about picky eaters, nut-free-school aware, never preachy.",
+ "onboarding": {
+  "title": "Pack lunches they'll finish",
+  "subtitle": "Tell us about your kid's tastes and school rules.",
+  "bullets": [
+   "5-day lunchbox rotations",
+   "Picky-eater strategies",
+   "Allergy-safe swaps"
+  ]
+ },
+ "profile": [
+  {
+   "key": "kid",
+   "label": "Child's name & age",
+   "type": "text",
+   "placeholder": "Maya, 7"
+  },
+  {
+   "key": "likes",
+   "label": "Likes",
+   "type": "text",
+   "placeholder": "cucumber, cheese, pasta"
+  },
+  {
+   "key": "dislikes",
+   "label": "Dislikes",
+   "type": "text",
+   "placeholder": "anything soggy"
+  },
+  {
+   "key": "rules",
+   "label": "School rules",
+   "type": "chips",
+   "options": [
+    "Nut-free",
+    "No reheating",
+    "Vegetarian only",
+    "None"
+   ],
+   "multi": true
+  }
+ ],
+ "tools": [
+  {
+   "id": "week",
+   "title": "This week's lunches",
+   "subtitle": "5 boxes, balanced and finishable",
+   "emoji": "🍱",
+   "inputs": [
+    {
+     "key": "style",
+     "label": "Style",
+     "type": "chips",
+     "options": [
+      "Classic sandwich",
+      "Bento bites",
+      "Warm thermos",
+      "Mix"
+     ],
+     "default": "Mix"
+    },
+    {
+     "key": "notes",
+     "label": "This week",
+     "type": "text",
+     "placeholder": "swimming Tuesday, big appetite"
+    }
+   ],
+   "prompt": "Plan 5 school lunches ({style}, notes: {notes}). Table (Day | Main | Fruit/Veg | Snack | Drink), a checklist shopping list, and bullets on prep-the-night-before tricks.",
+   "shape": "table, checklist, bullets",
+   "button": "Plan lunches",
+   "loading": "Packing…"
+  },
+  {
+   "id": "picky",
+   "title": "Picky-eater plan",
+   "subtitle": "Get a new food accepted",
+   "emoji": "🥦",
+   "inputs": [
+    {
+     "key": "food",
+     "label": "Food to introduce",
+     "type": "text",
+     "placeholder": "broccoli",
+     "required": true
+    }
+   ],
+   "prompt": "A gentle 2-week exposure plan to get {food} accepted: steps (one per exposure), bullets of presentation ideas, and a callout on what not to do.",
+   "shape": "steps, bullets, callout",
+   "button": "Make a plan",
+   "loading": "Thinking…"
+  },
+  {
+   "id": "swap",
+   "title": "Allergy-safe swap",
+   "subtitle": "Replace an ingredient safely",
+   "emoji": "🔁",
+   "inputs": [
+    {
+     "key": "item",
+     "label": "Ingredient",
+     "type": "text",
+     "placeholder": "peanut butter",
+     "required": true
+    },
+    {
+     "key": "for",
+     "label": "In",
+     "type": "text",
+     "placeholder": "sandwiches"
+    }
+   ],
+   "prompt": "Safe substitutes for {item} in {for} given the school rules: kv (substitute → notes), and a callout on cross-contamination labels to check.",
+   "shape": "kv, callout",
+   "button": "Find swaps",
+   "loading": "Checking…"
+  },
+  {
+   "id": "leftover",
+   "title": "Leftover makeover",
+   "subtitle": "Dinner → tomorrow's box",
+   "emoji": "♻️",
+   "inputs": [
+    {
+     "key": "dinner",
+     "label": "Tonight's dinner",
+     "type": "text",
+     "placeholder": "roast chicken and potatoes",
+     "required": true
+    }
+   ],
+   "prompt": "Turn {dinner} into 3 kid-friendly lunchbox ideas as cards (meta = prep minutes), then steps for the quickest, and a callout on keeping it safe until noon.",
+   "shape": "cards, steps, callout",
+   "button": "Makeover",
+   "loading": "Reinventing…"
+  }
+ ]
+}

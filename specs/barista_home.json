@@ -1,0 +1,180 @@
+{
+ "id": "barista_home",
+ "name": "Home Barista",
+ "tagline": "Dial in café-quality coffee at home",
+ "category": "Food & Drink",
+ "colors": [
+  "#4E342E",
+  "#FF8A65",
+  "#8D6E63"
+ ],
+ "icon": "cup",
+ "about": "Home Barista helps you dial in espresso, pour-over, AeroPress and cold brew with exact ratios, then troubleshoots taste problems.",
+ "persona": "You are a patient specialty-coffee trainer who speaks in ratios, grams and seconds and always gives one change at a time.",
+ "onboarding": {
+  "title": "Better coffee tomorrow morning",
+  "subtitle": "Tell us your gear and we'll give you recipes to match.",
+  "bullets": [
+   "Recipes for your exact gear",
+   "Fix sour/bitter shots",
+   "Bean & grind guidance"
+  ]
+ },
+ "profile": [
+  {
+   "key": "gear",
+   "label": "Gear",
+   "type": "chips",
+   "options": [
+    "Espresso machine",
+    "Pour-over",
+    "AeroPress",
+    "French press",
+    "Moka pot",
+    "Cold brew"
+   ],
+   "multi": true
+  },
+  {
+   "key": "grinder",
+   "label": "Grinder",
+   "type": "text",
+   "placeholder": "Baratza Encore"
+  },
+  {
+   "key": "milk",
+   "label": "Milk drinks?",
+   "type": "chips",
+   "options": [
+    "Yes",
+    "No"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "recipe",
+   "title": "Dial-in recipe",
+   "subtitle": "Ratio, time, grind for your method",
+   "emoji": "☕",
+   "inputs": [
+    {
+     "key": "method",
+     "label": "Method",
+     "type": "chips",
+     "options": [
+      "Espresso",
+      "Pour-over",
+      "AeroPress",
+      "French press",
+      "Moka pot",
+      "Cold brew"
+     ],
+     "default": "Pour-over"
+    },
+    {
+     "key": "beans",
+     "label": "Beans",
+     "type": "text",
+     "placeholder": "Ethiopian natural, roasted 10 days ago"
+    }
+   ],
+   "prompt": "A starting recipe for {method} with {beans} on the user's gear: kv (dose, water, ratio, grind description, temp, total time), steps for the brew, and a callout on the first variable to adjust.",
+   "shape": "kv, steps, callout",
+   "button": "Dial in",
+   "loading": "Grinding…"
+  },
+  {
+   "id": "fix",
+   "title": "Fix my cup",
+   "subtitle": "Sour? Bitter? Weak?",
+   "emoji": "🔧",
+   "inputs": [
+    {
+     "key": "taste",
+     "label": "It tastes",
+     "type": "chips",
+     "options": [
+      "Sour",
+      "Bitter",
+      "Weak/watery",
+      "Muddy",
+      "Astringent"
+     ],
+     "default": "Sour"
+    },
+    {
+     "key": "recipe",
+     "label": "What you did",
+     "type": "text",
+     "placeholder": "18g in, 36g out, 25s"
+    }
+   ],
+   "prompt": "The cup tastes {taste} with: {recipe}. Explain the likely cause in text, then steps with ONE change per attempt, and a table (Symptom | Cause | Fix).",
+   "shape": "text, steps, table",
+   "button": "Diagnose",
+   "loading": "Tasting…"
+  },
+  {
+   "id": "beans",
+   "title": "Choose beans",
+   "subtitle": "What to buy for how you brew",
+   "emoji": "🫘",
+   "inputs": [
+    {
+     "key": "like",
+     "label": "You like",
+     "type": "chips",
+     "options": [
+      "Fruity/bright",
+      "Chocolatey",
+      "Nutty",
+      "Floral",
+      "Classic strong"
+     ],
+     "default": "Chocolatey"
+    }
+   ],
+   "prompt": "Recommend bean origins/roast levels for '{like}' on the user's methods: cards (origin/process, meta = roast level), bullets on freshness and storage, and a callout on decoding roast dates.",
+   "shape": "cards, bullets, callout",
+   "button": "Recommend",
+   "loading": "Sniffing…"
+  },
+  {
+   "id": "latte",
+   "title": "Milk & latte art",
+   "subtitle": "Texture and pour basics",
+   "emoji": "🥛",
+   "inputs": [
+    {
+     "key": "milk",
+     "label": "Milk",
+     "type": "chips",
+     "options": [
+      "Whole",
+      "Oat",
+      "Almond",
+      "Skim"
+     ],
+     "default": "Whole"
+    },
+    {
+     "key": "goal",
+     "label": "Goal",
+     "type": "chips",
+     "options": [
+      "Silky texture",
+      "Heart",
+      "Tulip",
+      "Rosetta"
+     ],
+     "default": "Silky texture"
+    }
+   ],
+   "prompt": "Coach {goal} with {milk}: steps for steaming (temps, sounds, timing), bullets on common mistakes, and a quote with the one cue to remember.",
+   "shape": "steps, bullets, quote",
+   "button": "Coach me",
+   "loading": "Steaming…"
+  }
+ ]
+}

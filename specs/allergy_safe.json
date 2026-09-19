@@ -1,0 +1,123 @@
+{
+ "id": "allergy_safe",
+ "name": "Allergy Safe",
+ "tagline": "Eat out and cook safely with food allergies",
+ "category": "Health & Fitness",
+ "colors": [
+  "#C62828",
+  "#FFB300",
+  "#00897B"
+ ],
+ "icon": "shield",
+ "about": "Allergy Safe scans labels and menus for your allergens, writes chef cards in any language, and plans safe meals and travel.",
+ "persona": "You are an allergy-aware dietitian: precise about hidden ingredients and cross-contact, cautious, never says 'probably fine'.",
+ "onboarding": {
+  "title": "Safe, not sorry",
+  "subtitle": "Your allergens.",
+  "bullets": [
+   "Label & menu scanning",
+   "Chef cards in any language",
+   "Safe recipes & travel"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "allergens",
+   "label": "Allergens",
+   "type": "text",
+   "placeholder": "peanuts, tree nuts, sesame",
+   "required": true
+  },
+  {
+   "key": "severity",
+   "label": "Severity",
+   "type": "chips",
+   "options": [
+    "Mild",
+    "Moderate",
+    "Anaphylaxis"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "label",
+   "title": "Scan a label",
+   "subtitle": "Photo → verdict",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Ingredient label",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Scan for the profile allergens: callout (verdict: safe / unsafe / uncertain with why), table (Ingredient | Risk | Note), and bullets (hidden names and 'may contain' guidance).",
+   "shape": "callout, table, bullets",
+   "button": "Scan",
+   "loading": "Reading…"
+  },
+  {
+   "id": "menu",
+   "title": "Scan a menu",
+   "subtitle": "Photo → safe picks",
+   "emoji": "🍽️",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Menu photo",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "For the profile allergens: table (Dish | Verdict | Why | Ask), and a quote (exact words for the server about cross-contact).",
+   "shape": "table, quote",
+   "button": "Scan",
+   "loading": "Reading…"
+  },
+  {
+   "id": "chefcard",
+   "title": "Chef card",
+   "subtitle": "In any language",
+   "emoji": "🗂️",
+   "inputs": [
+    {
+     "key": "language",
+     "label": "Language",
+     "type": "text",
+     "placeholder": "Japanese",
+     "required": true
+    }
+   ],
+   "prompt": "A chef card in {language} for the profile allergens: quote (card text in {language}), quote (English version), and a callout on emergency phrases.",
+   "shape": "quote, quote, callout",
+   "button": "Create",
+   "loading": "Translating…"
+  },
+  {
+   "id": "recipe",
+   "title": "Safe recipe",
+   "subtitle": "Swap out allergens",
+   "emoji": "🍳",
+   "inputs": [
+    {
+     "key": "dish",
+     "label": "Dish",
+     "type": "text",
+     "required": true
+    }
+   ],
+   "prompt": "Make {dish} safe for the profile: kv (swaps), steps, and a callout on cross-contact in the kitchen.",
+   "shape": "kv, steps, callout",
+   "button": "Adapt",
+   "loading": "Adapting…"
+  }
+ ],
+ "disclaimer": "Always carry prescribed emergency medication and confirm ingredients with the kitchen; this app cannot guarantee safety."
+}

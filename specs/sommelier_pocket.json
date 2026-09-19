@@ -1,0 +1,165 @@
+{
+ "id": "sommelier_pocket",
+ "name": "Pocket Sommelier",
+ "tagline": "The right bottle for the plate and the budget",
+ "category": "Food & Drink",
+ "colors": [
+  "#6A1B9A",
+  "#C62828",
+  "#F9A825"
+ ],
+ "icon": "cup",
+ "about": "Pocket Sommelier pairs wine (and beer, sake, cocktails) with what you're eating, decodes labels from a photo, and builds tasting notes you can actually use.",
+ "persona": "You are a friendly sommelier: opinionated, budget-aware, never snobbish; you explain why a pairing works in one sentence.",
+ "onboarding": {
+  "title": "Drink better, spend smarter",
+  "subtitle": "Tell us your taste and budget.",
+  "bullets": [
+   "Pairings for any dish",
+   "Label decoder from a photo",
+   "Tasting notes & cellar tips"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "taste",
+   "label": "You usually like",
+   "type": "chips",
+   "options": [
+    "Dry whites",
+    "Big reds",
+    "Bubbles",
+    "Rosé",
+    "Natural",
+    "Beer",
+    "Cocktails"
+   ],
+   "multi": true
+  },
+  {
+   "key": "budget",
+   "label": "Typical budget",
+   "type": "chips",
+   "options": [
+    "Under 15",
+    "15–30",
+    "30–60",
+    "Sky's the limit"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "pair",
+   "title": "Pair my dinner",
+   "subtitle": "Three bottles for tonight",
+   "emoji": "🍷",
+   "inputs": [
+    {
+     "key": "dish",
+     "label": "What are you eating",
+     "type": "text",
+     "placeholder": "grilled salmon with lemon butter",
+     "required": true
+    },
+    {
+     "key": "where",
+     "label": "Where",
+     "type": "chips",
+     "options": [
+      "Home",
+      "Restaurant list",
+      "Supermarket"
+     ]
+    }
+   ],
+   "prompt": "Pair {dish} ({where}). 3 cards (wine style + example region/producer type, meta = price tier), one non-alcoholic option, a callout on why the pairing works, and bullets on serving temperature.",
+   "shape": "cards, callout, bullets",
+   "button": "Pair it",
+   "loading": "Tasting…"
+  },
+  {
+   "id": "label",
+   "title": "Decode a label",
+   "subtitle": "Photo of a bottle → what it is",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Bottle label",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Read the label: kv (producer, region, grape/style, vintage, ABV, drink-by window, expected price), a text section on taste profile, and bullets of 3 dishes it suits.",
+   "shape": "kv, text, bullets",
+   "button": "Decode",
+   "loading": "Reading…"
+  },
+  {
+   "id": "notes",
+   "title": "Tasting notes",
+   "subtitle": "Sound like you know what you're saying",
+   "emoji": "📝",
+   "inputs": [
+    {
+     "key": "wine",
+     "label": "Wine",
+     "type": "text",
+     "placeholder": "2019 Rioja Reserva",
+     "required": true
+    },
+    {
+     "key": "impressions",
+     "label": "Your impressions",
+     "type": "text",
+     "placeholder": "smelled like cherries and vanilla"
+    }
+   ],
+   "prompt": "Write structured tasting notes for {wine} using the impressions '{impressions}': kv (look, nose, palate, finish, score /100), a quote with one confident sentence to say at the table, and bullets on what to try next if you liked it.",
+   "shape": "kv, quote, bullets",
+   "button": "Write notes",
+   "loading": "Swirling…"
+  },
+  {
+   "id": "party",
+   "title": "Party math",
+   "subtitle": "How much to buy for a crowd",
+   "emoji": "🎉",
+   "inputs": [
+    {
+     "key": "guests",
+     "label": "Guests",
+     "type": "number",
+     "placeholder": "20"
+    },
+    {
+     "key": "hours",
+     "label": "Hours",
+     "type": "number",
+     "placeholder": "4"
+    },
+    {
+     "key": "vibe",
+     "label": "Vibe",
+     "type": "chips",
+     "options": [
+      "Dinner",
+      "Cocktail party",
+      "BBQ",
+      "Wedding"
+     ]
+    }
+   ],
+   "prompt": "Drinks plan for {guests} guests over {hours} hours ({vibe}): table (Category | Bottles | Servings | Est. cost), a checklist of ice/glassware/mixers, and a callout on responsible-service basics.",
+   "shape": "table, checklist, callout",
+   "button": "Calculate",
+   "loading": "Counting…"
+  }
+ ]
+}

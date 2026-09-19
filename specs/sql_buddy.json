@@ -1,0 +1,125 @@
+{
+ "id": "sql_buddy",
+ "name": "Query Buddy",
+ "tagline": "SQL from plain English, explained",
+ "category": "Tools",
+ "colors": [
+  "#0D47A1",
+  "#FFB300",
+  "#00BFA5"
+ ],
+ "icon": "gear",
+ "about": "Query Buddy writes SQL for your schema, explains and optimises queries, and helps you design tables.",
+ "persona": "You are a database engineer: dialect-exact SQL, index-aware, explains trade-offs, never guesses column names without saying so.",
+ "onboarding": {
+  "title": "Ask your database anything",
+  "subtitle": "Dialect and schema.",
+  "bullets": [
+   "English → SQL",
+   "Explain & optimise",
+   "Schema design"
+  ]
+ },
+ "profile": [
+  {
+   "key": "dialect",
+   "label": "Dialect",
+   "type": "chips",
+   "options": [
+    "PostgreSQL",
+    "MySQL",
+    "SQLite",
+    "SQL Server",
+    "BigQuery"
+   ],
+   "default": "PostgreSQL"
+  },
+  {
+   "key": "schema",
+   "label": "Schema (tables & columns)",
+   "type": "longtext"
+  }
+ ],
+ "tools": [
+  {
+   "id": "write",
+   "title": "Write a query",
+   "subtitle": "Describe the result you want",
+   "emoji": "🧾",
+   "inputs": [
+    {
+     "key": "need",
+     "label": "What you need",
+     "type": "longtext",
+     "placeholder": "monthly revenue per customer for 2025, top 20",
+     "required": true
+    }
+   ],
+   "prompt": "Query for the profile dialect/schema: {need}. quote (SQL), steps (how it works), bullets (assumptions about columns), and a callout on performance.",
+   "shape": "quote, steps, bullets, callout",
+   "button": "Write",
+   "loading": "Composing…"
+  },
+  {
+   "id": "explain",
+   "title": "Explain a query",
+   "subtitle": "Paste SQL",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "sql",
+     "label": "SQL",
+     "type": "longtext",
+     "required": true
+    }
+   ],
+   "prompt": "Explain: {sql}. steps (execution logic), kv (clauses → purpose), and a callout on pitfalls.",
+   "shape": "steps, kv, callout",
+   "button": "Explain",
+   "loading": "Parsing…"
+  },
+  {
+   "id": "optimise",
+   "title": "Optimise",
+   "subtitle": "Make it fast",
+   "emoji": "⚡",
+   "inputs": [
+    {
+     "key": "sql",
+     "label": "Slow SQL",
+     "type": "longtext",
+     "required": true
+    },
+    {
+     "key": "size",
+     "label": "Table sizes",
+     "type": "text",
+     "placeholder": "orders 50M rows"
+    }
+   ],
+   "prompt": "Optimise {sql} ({size}): quote (rewritten SQL), bullets (indexes to add), table (Change | Expected effect), and a callout on how to verify with EXPLAIN.",
+   "shape": "quote, bullets, table, callout",
+   "button": "Optimise",
+   "loading": "Tuning…"
+  },
+  {
+   "id": "design",
+   "title": "Design tables",
+   "subtitle": "From a description",
+   "emoji": "📐",
+   "inputs": [
+    {
+     "key": "domain",
+     "label": "What you're modelling",
+     "type": "longtext",
+     "placeholder": "a gym: members, classes, bookings, payments",
+     "required": true
+    }
+   ],
+   "prompt": "Schema for: {domain}. quote (CREATE TABLE statements), table (Table | Key columns | Relationships), and a callout on indexes and constraints.",
+   "shape": "quote, table, callout",
+   "button": "Design",
+   "loading": "Designing…"
+  }
+ ]
+}

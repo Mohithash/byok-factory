@@ -1,0 +1,125 @@
+{
+ "id": "tea_master",
+ "name": "Tea Master",
+ "tagline": "Brew every tea to its best",
+ "category": "Food & Drink",
+ "colors": [
+  "#2E7D32",
+  "#FFB300",
+  "#8D6E63"
+ ],
+ "icon": "cup",
+ "about": "Tea Master gives exact brewing parameters, identifies teas from photos, pairs teas with moods and food, and builds a tasting practice.",
+ "persona": "You are a tea sommelier: precise temperatures and times, gongfu and western methods, no snobbery.",
+ "onboarding": {
+  "title": "Steep it right",
+  "subtitle": "Your tea habits.",
+  "bullets": [
+   "Brew parameters",
+   "Tea identification",
+   "Pairings & tasting"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "teas",
+   "label": "You drink",
+   "type": "chips",
+   "options": [
+    "Green",
+    "Black",
+    "Oolong",
+    "White",
+    "Pu-erh",
+    "Herbal",
+    "Matcha"
+   ],
+   "multi": true
+  },
+  {
+   "key": "method",
+   "label": "Method",
+   "type": "chips",
+   "options": [
+    "Teapot",
+    "Gongfu",
+    "Mug",
+    "Cold brew"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "brew",
+   "title": "How do I brew this?",
+   "subtitle": "Any tea",
+   "emoji": "🍵",
+   "inputs": [
+    {
+     "key": "tea",
+     "label": "Tea",
+     "type": "text",
+     "placeholder": "Tie Guan Yin oolong",
+     "required": true
+    }
+   ],
+   "prompt": "Brew {tea} with the profile method: kv (leaf per ml, temperature, first steep time, re-steeps), steps, and a callout on the common mistake.",
+   "shape": "kv, steps, callout",
+   "button": "Brew",
+   "loading": "Steeping…"
+  },
+  {
+   "id": "id",
+   "title": "Identify a tea",
+   "subtitle": "Photo of leaves or packet",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Identify the tea: text (type & confidence), kv (origin, processing, flavour), and bullets (how to brew).",
+   "shape": "text, kv, bullets",
+   "button": "Identify",
+   "loading": "Looking…"
+  },
+  {
+   "id": "pair",
+   "title": "Pair with…",
+   "subtitle": "Food or mood",
+   "emoji": "🧀",
+   "inputs": [
+    {
+     "key": "with",
+     "label": "Food or mood",
+     "type": "text",
+     "placeholder": "dim sum",
+     "required": true
+    }
+   ],
+   "prompt": "Teas for {with}: cards (tea, body = why, meta = caffeine), and a callout on serving temperature.",
+   "shape": "cards, callout",
+   "button": "Pair",
+   "loading": "Pairing…"
+  },
+  {
+   "id": "taste",
+   "title": "Tasting session",
+   "subtitle": "Train your palate",
+   "emoji": "👅",
+   "inputs": [],
+   "prompt": "A tasting session for the profile teas: steps, table (Aspect | What to notice | Vocabulary), and a quote with a note-taking template.",
+   "shape": "steps, table, quote",
+   "button": "Guide",
+   "loading": "Preparing…"
+  }
+ ]
+}

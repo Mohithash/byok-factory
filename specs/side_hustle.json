@@ -1,0 +1,143 @@
+{
+ "id": "side_hustle",
+ "name": "Side Hustle Lab",
+ "tagline": "Validate and launch a small business in a weekend",
+ "category": "Business",
+ "colors": [
+  "#EF6C00",
+  "#00838F",
+  "#5E35B1"
+ ],
+ "icon": "bulb",
+ "about": "Side Hustle Lab pressure-tests ideas, writes a one-page plan, prices your offer, and drafts the first landing page and launch posts.",
+ "persona": "You are a scrappy startup mentor: customer-first, cash-flow honest, allergic to vanity plans.",
+ "onboarding": {
+  "title": "From idea to first customer",
+  "subtitle": "Your skills and hours decide what's realistic.",
+  "bullets": [
+   "Idea validation",
+   "One-page plans & pricing",
+   "Landing page + launch posts"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "skills",
+   "label": "Skills / assets",
+   "type": "text",
+   "placeholder": "graphic design, a car, weekends"
+  },
+  {
+   "key": "hours",
+   "label": "Hours/week",
+   "type": "chips",
+   "options": [
+    "5",
+    "10",
+    "20",
+    "Full-time"
+   ]
+  },
+  {
+   "key": "cash",
+   "label": "Cash to start",
+   "type": "number",
+   "placeholder": "500"
+  }
+ ],
+ "tools": [
+  {
+   "id": "validate",
+   "title": "Validate an idea",
+   "subtitle": "Will anyone pay?",
+   "emoji": "🔬",
+   "inputs": [
+    {
+     "key": "idea",
+     "label": "The idea",
+     "type": "text",
+     "placeholder": "dog-walking with GPS updates",
+     "required": true
+    }
+   ],
+   "prompt": "Validate '{idea}' for the profile: kv (customer, pain, alternatives, willingness to pay, unfair advantage), table (Risk | Test | Cost | Days), a callout verdict, and steps for a 7-day test.",
+   "shape": "kv, table, callout, steps",
+   "button": "Validate",
+   "loading": "Stress-testing…"
+  },
+  {
+   "id": "plan",
+   "title": "One-page plan",
+   "subtitle": "Model, costs, first 90 days",
+   "emoji": "📄",
+   "inputs": [
+    {
+     "key": "idea",
+     "label": "The idea",
+     "type": "text",
+     "required": true
+    }
+   ],
+   "prompt": "One-page plan for {idea}: kv (offer, price, channel, cost to deliver, break-even), table (Month | Goal | Actions | Cash), and a callout on the biggest assumption.",
+   "shape": "kv, table, callout",
+   "button": "Write plan",
+   "loading": "Planning…"
+  },
+  {
+   "id": "price",
+   "title": "Price it",
+   "subtitle": "Packages and anchors",
+   "emoji": "💲",
+   "inputs": [
+    {
+     "key": "offer",
+     "label": "Offer",
+     "type": "text",
+     "placeholder": "logo + brand kit",
+     "required": true
+    }
+   ],
+   "prompt": "Pricing for {offer}: cards (3 packages: title, body = what's in it, meta = price), text on anchoring logic, and bullets on objections and answers.",
+   "shape": "cards, text, bullets",
+   "button": "Price",
+   "loading": "Pricing…"
+  },
+  {
+   "id": "launch",
+   "title": "Launch kit",
+   "subtitle": "Landing copy + posts",
+   "emoji": "🚀",
+   "inputs": [
+    {
+     "key": "offer",
+     "label": "Offer",
+     "type": "text",
+     "required": true
+    },
+    {
+     "key": "channel",
+     "label": "Channels",
+     "type": "chips",
+     "options": [
+      "Instagram",
+      "LinkedIn",
+      "WhatsApp groups",
+      "Local Facebook",
+      "TikTok"
+     ],
+     "multi": true
+    }
+   ],
+   "prompt": "Launch kit for {offer} on {channel}: quote (landing-page hero + 3 bullets + CTA), cards (one post per channel, meta = channel), and a checklist for launch day.",
+   "shape": "quote, cards, checklist",
+   "button": "Build kit",
+   "loading": "Writing…"
+  }
+ ],
+ "disclaimer": "General information, not financial, tax or legal advice; consult a licensed professional for your situation."
+}

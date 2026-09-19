@@ -1,0 +1,145 @@
+{
+ "id": "adhd_daily",
+ "name": "Focus Friend",
+ "tagline": "ADHD-friendly structure for real days",
+ "category": "Health & Fitness",
+ "colors": [
+  "#FF7043",
+  "#26A69A",
+  "#5E35B1"
+ ],
+ "icon": "brain",
+ "about": "Focus Friend builds low-friction daily plans, breaks tasks down to the first step, sets up body-doubling and dopamine-aware routines, and helps with transitions.",
+ "persona": "You are an ADHD coach: strengths-based, external structure, tiny steps, no shame; you don't diagnose or advise on medication.",
+ "onboarding": {
+  "title": "Structure that forgives",
+  "subtitle": "How your brain works.",
+  "bullets": [
+   "Low-friction day plans",
+   "Task breakdowns",
+   "Transition & reset tools"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "struggles",
+   "label": "Struggles",
+   "type": "chips",
+   "options": [
+    "Starting",
+    "Finishing",
+    "Time blindness",
+    "Transitions",
+    "Overwhelm",
+    "Mornings"
+   ],
+   "multi": true
+  },
+  {
+   "key": "helps",
+   "label": "Helps",
+   "type": "chips",
+   "options": [
+    "Timers",
+    "Music",
+    "Body doubling",
+    "Movement",
+    "Checklists"
+   ],
+   "multi": true
+  }
+ ],
+ "tools": [
+  {
+   "id": "day",
+   "title": "Plan today",
+   "subtitle": "Loose, forgiving",
+   "emoji": "🗓️",
+   "inputs": [
+    {
+     "key": "must",
+     "label": "Must do",
+     "type": "longtext",
+     "required": true
+    },
+    {
+     "key": "energy",
+     "label": "Energy right now",
+     "type": "text",
+     "placeholder": "low"
+    }
+   ],
+   "prompt": "Plan for the profile given must-do: {must}, energy {energy}: table (Block | Task | First step | Timer), a callout on the one thing that matters, and a quote (permission slip).",
+   "shape": "table, callout, quote",
+   "button": "Plan",
+   "loading": "Planning…"
+  },
+  {
+   "id": "breakdown",
+   "title": "Break it down",
+   "subtitle": "Until it's obvious",
+   "emoji": "🔨",
+   "inputs": [
+    {
+     "key": "task",
+     "label": "Task",
+     "type": "text",
+     "placeholder": "renew passport",
+     "required": true
+    }
+   ],
+   "prompt": "Break '{task}' into steps so small the first takes 2 minutes: steps, bullets (what to gather), and a callout on the step people avoid.",
+   "shape": "steps, bullets, callout",
+   "button": "Break down",
+   "loading": "Chunking…"
+  },
+  {
+   "id": "reset",
+   "title": "Reset",
+   "subtitle": "Overwhelmed or frozen",
+   "emoji": "🧊",
+   "inputs": [
+    {
+     "key": "state",
+     "label": "State",
+     "type": "chips",
+     "options": [
+      "Frozen",
+      "Spiralling",
+      "Hyperfocus hangover",
+      "Post-meeting crash"
+     ],
+     "default": "Frozen"
+    }
+   ],
+   "prompt": "A 5-minute reset for {state}: steps, a quote (self-talk), and bullets (then what).",
+   "shape": "steps, quote, bullets",
+   "button": "Reset",
+   "loading": "Here…"
+  },
+  {
+   "id": "morning",
+   "title": "Morning routine",
+   "subtitle": "Launch sequence",
+   "emoji": "🌅",
+   "inputs": [
+    {
+     "key": "leave",
+     "label": "Leave by",
+     "type": "text",
+     "placeholder": "08:15"
+    }
+   ],
+   "prompt": "A morning launch sequence to leave by {leave} for the profile: table (Time | Step | Cue), checklist (night-before), and a callout on decision fatigue.",
+   "shape": "table, checklist, callout",
+   "button": "Build",
+   "loading": "Building…"
+  }
+ ],
+ "disclaimer": "Not a substitute for diagnosis or treatment; talk to a clinician about medication or assessment."
+}

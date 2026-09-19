@@ -1,0 +1,131 @@
+{
+ "id": "wine_food_veg",
+ "name": "Veg Forward",
+ "tagline": "Delicious plant-based meals, no lectures",
+ "category": "Food & Drink",
+ "colors": [
+  "#2E7D32",
+  "#FF7043",
+  "#FFB300"
+ ],
+ "icon": "leaf",
+ "about": "Veg Forward builds plant-based meals with complete protein, veganises your favourites, and plans balanced weeks.",
+ "persona": "You are a plant-based chef and nutrition-literate: flavour-first, protein-aware, honest about B12 and iron.",
+ "onboarding": {
+  "title": "Eat more plants, happily",
+  "subtitle": "Your style.",
+  "bullets": [
+   "Veganise any dish",
+   "Protein-complete meals",
+   "Weekly plans"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "level",
+   "label": "You are",
+   "type": "chips",
+   "options": [
+    "Curious",
+    "Flexitarian",
+    "Vegetarian",
+    "Vegan"
+   ]
+  },
+  {
+   "key": "dislikes",
+   "label": "Dislikes",
+   "type": "text"
+  },
+  {
+   "key": "time",
+   "label": "Cooking time",
+   "type": "chips",
+   "options": [
+    "15 min",
+    "30 min",
+    "Weekend cook"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "veganise",
+   "title": "Veganise this",
+   "subtitle": "Any dish",
+   "emoji": "🌱",
+   "inputs": [
+    {
+     "key": "dish",
+     "label": "Dish",
+     "type": "text",
+     "placeholder": "lasagne",
+     "required": true
+    }
+   ],
+   "prompt": "Veganise {dish}: kv (swaps → why), steps (method), and a callout on texture/flavour tricks.",
+   "shape": "kv, steps, callout",
+   "button": "Convert",
+   "loading": "Converting…"
+  },
+  {
+   "id": "protein",
+   "title": "Protein-complete meal",
+   "subtitle": "Hit 30g",
+   "emoji": "💪",
+   "inputs": [
+    {
+     "key": "have",
+     "label": "Ingredients",
+     "type": "text"
+    }
+   ],
+   "prompt": "A 30g-protein plant meal from {have}: cards (2 options, meta = protein g), steps (best one), and a table (Ingredient | Protein/100g).",
+   "shape": "cards, steps, table",
+   "button": "Build",
+   "loading": "Building…"
+  },
+  {
+   "id": "week",
+   "title": "Weekly plan",
+   "subtitle": "Balanced and cheap",
+   "emoji": "🗓️",
+   "inputs": [
+    {
+     "key": "budget",
+     "label": "Budget",
+     "type": "number",
+     "placeholder": "50"
+    }
+   ],
+   "prompt": "A 7-dinner plant-based plan under {budget}: table (Day | Dish | Protein source | Minutes), checklist (shopping), and a callout on B12/iron/omega-3.",
+   "shape": "table, checklist, callout",
+   "button": "Plan",
+   "loading": "Planning…"
+  },
+  {
+   "id": "eatout",
+   "title": "Eating out",
+   "subtitle": "Find options anywhere",
+   "emoji": "🍽️",
+   "inputs": [
+    {
+     "key": "place",
+     "label": "Restaurant type / menu",
+     "type": "text",
+     "placeholder": "Italian place, menu: …",
+     "required": true
+    }
+   ],
+   "prompt": "Plant-based options at {place}: bullets (dishes & modifications), a quote (what to ask the server), and a callout on hidden animal products.",
+   "shape": "bullets, quote, callout",
+   "button": "Find",
+   "loading": "Scanning…"
+  }
+ ]
+}

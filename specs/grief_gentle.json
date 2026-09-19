@@ -1,0 +1,114 @@
+{
+ "id": "grief_gentle",
+ "name": "Gentle Days",
+ "tagline": "Support through grief, one day at a time",
+ "category": "Health & Fitness",
+ "colors": [
+  "#5C6BC0",
+  "#FFB74D",
+  "#80CBC4"
+ ],
+ "icon": "heart",
+ "about": "Gentle Days offers grief-informed support: what's normal, small daily anchors, words for hard moments, and ways to remember someone.",
+ "persona": "You are a grief-informed counsellor-educator: gentle, non-prescriptive, culturally sensitive; you never rush anyone and always surface crisis resources when needed.",
+ "onboarding": {
+  "title": "There's no right way to grieve",
+  "subtitle": "Only what you want to share.",
+  "bullets": [
+   "Understanding what's normal",
+   "Daily anchors",
+   "Words for hard moments"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "loss",
+   "label": "Who or what you lost (optional)",
+   "type": "text"
+  },
+  {
+   "key": "when",
+   "label": "When (optional)",
+   "type": "text"
+  }
+ ],
+ "tools": [
+  {
+   "id": "normal",
+   "title": "Is this normal?",
+   "subtitle": "What you're feeling",
+   "emoji": "💬",
+   "inputs": [
+    {
+     "key": "feeling",
+     "label": "What's going on",
+     "type": "longtext",
+     "required": true
+    }
+   ],
+   "prompt": "Respond to: {feeling}. text (validation and what grief commonly does), bullets (gentle things that may help), and a callout on when extra support is worth seeking, with crisis guidance if risk is present.",
+   "shape": "text, bullets, callout",
+   "button": "Tell me",
+   "loading": "Listening…"
+  },
+  {
+   "id": "anchor",
+   "title": "Today's anchors",
+   "subtitle": "Three small things",
+   "emoji": "⚓",
+   "inputs": [
+    {
+     "key": "today",
+     "label": "Today",
+     "type": "text"
+    }
+   ],
+   "prompt": "Three small anchors for today ({today}): checklist (3 items), a quote (something kind to hear), and a callout on lowering the bar.",
+   "shape": "checklist, quote, callout",
+   "button": "Anchor me",
+   "loading": "Gently…"
+  },
+  {
+   "id": "words",
+   "title": "Words for a moment",
+   "subtitle": "Cards, replies, eulogies",
+   "emoji": "✍️",
+   "inputs": [
+    {
+     "key": "kind",
+     "label": "Kind",
+     "type": "chips",
+     "options": [
+      "Replying to condolences",
+      "Telling my workplace",
+      "A eulogy",
+      "An anniversary message",
+      "Telling a child"
+     ],
+     "default": "Replying to condolences"
+    }
+   ],
+   "prompt": "Help with '{kind}' for the profile: quote (draft), bullets (adjustments), and a callout on taking your time.",
+   "shape": "quote, bullets, callout",
+   "button": "Write",
+   "loading": "Writing…"
+  },
+  {
+   "id": "remember",
+   "title": "Ways to remember",
+   "subtitle": "Rituals and projects",
+   "emoji": "🕯️",
+   "inputs": [],
+   "prompt": "Ways to remember for the profile: cards (idea, body = how, meta = effort), and a callout on involving others.",
+   "shape": "cards, callout",
+   "button": "Ideas",
+   "loading": "Thinking…"
+  }
+ ],
+ "disclaimer": "This is not therapy. If you are in crisis or thinking of harming yourself, contact emergency services or a crisis line now."
+}

@@ -1,0 +1,139 @@
+{
+ "id": "bread_baker",
+ "name": "Bread Lab",
+ "tagline": "Sourdough and bread, troubleshot",
+ "category": "Food & Drink",
+ "colors": [
+  "#8D6E63",
+  "#FFB300",
+  "#5D4037"
+ ],
+ "icon": "cup",
+ "about": "Bread Lab builds bake schedules around your day, scales recipes by baker's percentages, diagnoses flat loaves from photos and adapts to your flour.",
+ "persona": "You are a patient baker: baker's percentages, hydration-aware, honest about ambient temperature.",
+ "onboarding": {
+  "title": "Bake better bread",
+  "subtitle": "Your setup.",
+  "bullets": [
+   "Bake schedules",
+   "Baker's % scaling",
+   "Crumb & crust diagnosis"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "starter",
+   "label": "Starter",
+   "type": "chips",
+   "options": [
+    "Sourdough",
+    "Yeast",
+    "Both"
+   ]
+  },
+  {
+   "key": "oven",
+   "label": "Oven / dutch oven",
+   "type": "text"
+  },
+  {
+   "key": "temp",
+   "label": "Kitchen temp",
+   "type": "text",
+   "placeholder": "21°C"
+  }
+ ],
+ "tools": [
+  {
+   "id": "schedule",
+   "title": "Bake schedule",
+   "subtitle": "Fit it around your day",
+   "emoji": "⏰",
+   "inputs": [
+    {
+     "key": "day",
+     "label": "Your day",
+     "type": "text",
+     "placeholder": "work 9–6, want bread for Sunday lunch",
+     "required": true
+    }
+   ],
+   "prompt": "Sourdough/yeast schedule for the profile given: {day}. table (Time | Step | Notes), and a callout on temperature adjustments.",
+   "shape": "table, callout",
+   "button": "Plan",
+   "loading": "Planning…"
+  },
+  {
+   "id": "scale",
+   "title": "Scale a recipe",
+   "subtitle": "Baker's percentages",
+   "emoji": "⚖️",
+   "inputs": [
+    {
+     "key": "recipe",
+     "label": "Recipe",
+     "type": "longtext",
+     "placeholder": "500 flour, 375 water, 100 starter, 10 salt",
+     "required": true
+    },
+    {
+     "key": "target",
+     "label": "Target flour (g)",
+     "type": "number",
+     "placeholder": "800"
+    }
+   ],
+   "prompt": "Scale {recipe} to {target} g flour: table (Ingredient | % | Grams), and a callout on hydration effects.",
+   "shape": "table, callout",
+   "button": "Scale",
+   "loading": "Calculating…"
+  },
+  {
+   "id": "diagnose",
+   "title": "What went wrong?",
+   "subtitle": "Photo of crumb/crust",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the loaf/crumb",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "process",
+     "label": "What you did",
+     "type": "text"
+    }
+   ],
+   "prompt": "Diagnose from photo and: {process}. text (likely cause), bullets (fixes ranked), and steps (next bake).",
+   "shape": "text, bullets, steps",
+   "button": "Diagnose",
+   "loading": "Examining…"
+  },
+  {
+   "id": "recipe",
+   "title": "Recipe for…",
+   "subtitle": "Any bread",
+   "emoji": "🥖",
+   "inputs": [
+    {
+     "key": "bread",
+     "label": "Bread",
+     "type": "text",
+     "placeholder": "focaccia",
+     "required": true
+    }
+   ],
+   "prompt": "A {bread} recipe for the profile setup: table (Ingredient | Grams | %), steps, and a callout on the make-or-break step.",
+   "shape": "table, steps, callout",
+   "button": "Recipe",
+   "loading": "Writing…"
+  }
+ ]
+}

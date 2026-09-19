@@ -1,0 +1,139 @@
+{
+ "id": "mind_ease",
+ "name": "Mind Ease",
+ "tagline": "Tools for anxious moments and heavy days",
+ "category": "Health & Fitness",
+ "colors": [
+  "#3949AB",
+  "#26A69A",
+  "#FFB300"
+ ],
+ "icon": "brain",
+ "about": "Mind Ease offers CBT-style thought records, grounding exercises, worry scheduling and self-compassion practices — private, on your phone.",
+ "persona": "You are a CBT-informed wellbeing coach: warm, structured, non-diagnostic; you always surface crisis resources when risk appears.",
+ "onboarding": {
+  "title": "A calmer mind, one tool at a time",
+  "subtitle": "What tends to help you?",
+  "bullets": [
+   "Thought records",
+   "Grounding in 3 minutes",
+   "Worry & sleep tools"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "helps",
+   "label": "What helps you",
+   "type": "chips",
+   "options": [
+    "Structure",
+    "Movement",
+    "Talking",
+    "Writing",
+    "Breathing"
+   ],
+   "multi": true
+  },
+  {
+   "key": "focus",
+   "label": "Working on",
+   "type": "chips",
+   "options": [
+    "Anxiety",
+    "Low mood",
+    "Stress",
+    "Overthinking",
+    "Sleep"
+   ],
+   "multi": true
+  }
+ ],
+ "tools": [
+  {
+   "id": "thought",
+   "title": "Thought record",
+   "subtitle": "Challenge a thought",
+   "emoji": "🧾",
+   "inputs": [
+    {
+     "key": "thought",
+     "label": "The thought / situation",
+     "type": "longtext",
+     "placeholder": "I'll mess up the presentation and everyone will think I'm useless",
+     "required": true
+    }
+   ],
+   "prompt": "CBT thought record for: {thought}. kv (situation, emotion & intensity, automatic thought, distortion type), bullets (evidence for), bullets (evidence against), quote (balanced thought), and a callout on re-rating the emotion.",
+   "shape": "kv, bullets, bullets, quote, callout",
+   "button": "Work through it",
+   "loading": "Listening…"
+  },
+  {
+   "id": "ground",
+   "title": "Ground me now",
+   "subtitle": "3 minutes",
+   "emoji": "🌿",
+   "inputs": [
+    {
+     "key": "state",
+     "label": "Right now I feel",
+     "type": "chips",
+     "options": [
+      "Panicky",
+      "Numb",
+      "Angry",
+      "Overwhelmed",
+      "Can't sleep"
+     ],
+     "default": "Overwhelmed"
+    }
+   ],
+   "prompt": "A 3-minute grounding practice for feeling {state}: steps with timings, a quote with a phrase to repeat, and a callout with crisis resources if things feel unsafe.",
+   "shape": "steps, quote, callout",
+   "button": "Start",
+   "loading": "Here with you…"
+  },
+  {
+   "id": "worry",
+   "title": "Worry time",
+   "subtitle": "Sort worries",
+   "emoji": "🗂️",
+   "inputs": [
+    {
+     "key": "worries",
+     "label": "Everything on your mind",
+     "type": "longtext",
+     "required": true
+    }
+   ],
+   "prompt": "Sort: {worries}. table (Worry | Solvable? | Next tiny action or 'let go'), a callout on scheduling worry time, and a quote for closing the list.",
+   "shape": "table, callout, quote",
+   "button": "Sort",
+   "loading": "Sorting…"
+  },
+  {
+   "id": "compassion",
+   "title": "Self-compassion",
+   "subtitle": "Talk to yourself like a friend",
+   "emoji": "💛",
+   "inputs": [
+    {
+     "key": "situation",
+     "label": "What happened",
+     "type": "text",
+     "required": true
+    }
+   ],
+   "prompt": "For: {situation}. quote (what a kind friend would say), steps (a 5-minute self-compassion break), and bullets (common self-criticism traps).",
+   "shape": "quote, steps, bullets",
+   "button": "Begin",
+   "loading": "Softening…"
+  }
+ ],
+ "disclaimer": "Not therapy or crisis support. If you are in danger or thinking of harming yourself, contact local emergency services or a crisis line now."
+}

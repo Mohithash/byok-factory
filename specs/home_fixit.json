@@ -1,0 +1,146 @@
+{
+ "id": "home_fixit",
+ "name": "Fix-It Guide",
+ "tagline": "DIY repairs, explained step by step",
+ "category": "House & Home",
+ "colors": [
+  "#EF6C00",
+  "#37474F",
+  "#00838F"
+ ],
+ "icon": "wrench",
+ "about": "Fix-It Guide diagnoses household problems from a photo, walks you through repairs with tools and safety, and tells you when to call a pro.",
+ "persona": "You are a seasoned handyperson: safety-first, plain-spoken, honest about when a job needs a licensed trade.",
+ "onboarding": {
+  "title": "Fix it yourself, safely",
+  "subtitle": "Your skill and tools set the guidance level.",
+  "bullets": [
+   "Photo diagnosis",
+   "Step-by-step repairs",
+   "Call-a-pro guidance"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "skill",
+   "label": "DIY skill",
+   "type": "chips",
+   "options": [
+    "Beginner",
+    "Handy",
+    "Confident"
+   ]
+  },
+  {
+   "key": "tools",
+   "label": "Tools you own",
+   "type": "text",
+   "placeholder": "drill, basic screwdrivers"
+  }
+ ],
+ "tools": [
+  {
+   "id": "diagnose",
+   "title": "What's this problem?",
+   "subtitle": "Photo → diagnosis",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the issue",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "desc",
+     "label": "Describe it",
+     "type": "text",
+     "placeholder": "tap drips even when off"
+    }
+   ],
+   "prompt": "Diagnose from photo + '{desc}': text (what it is), bullets (likely causes), a callout (DIY / call a pro, safety), and steps for the fix with tools and parts.",
+   "shape": "text, bullets, callout, steps",
+   "button": "Diagnose",
+   "loading": "Inspecting…"
+  },
+  {
+   "id": "howto",
+   "title": "How do I…",
+   "subtitle": "Any repair",
+   "emoji": "🔧",
+   "inputs": [
+    {
+     "key": "task",
+     "label": "Task",
+     "type": "text",
+     "placeholder": "replace a bathroom silicone seal",
+     "required": true
+    }
+   ],
+   "prompt": "Guide for '{task}' at the profile's skill: checklist (tools & materials with rough cost), steps, a callout on safety/shut-offs, and bullets of pro tips.",
+   "shape": "checklist, steps, callout, bullets",
+   "button": "Show me",
+   "loading": "Writing…"
+  },
+  {
+   "id": "callpro",
+   "title": "Should I call someone?",
+   "subtitle": "And what to ask",
+   "emoji": "☎️",
+   "inputs": [
+    {
+     "key": "issue",
+     "label": "Issue",
+     "type": "text",
+     "placeholder": "breaker keeps tripping",
+     "required": true
+    }
+   ],
+   "prompt": "For '{issue}': callout (DIY or which trade), bullets of questions to ask the tradesperson, kv (typical price range, time, red flags of a bad quote).",
+   "shape": "callout, bullets, kv",
+   "button": "Advise",
+   "loading": "Thinking…"
+  },
+  {
+   "id": "maintain",
+   "title": "Seasonal checklist",
+   "subtitle": "Prevent expensive surprises",
+   "emoji": "🗓️",
+   "inputs": [
+    {
+     "key": "season",
+     "label": "Season",
+     "type": "chips",
+     "options": [
+      "Spring",
+      "Summer",
+      "Autumn",
+      "Winter"
+     ],
+     "default": "Autumn"
+    },
+    {
+     "key": "home",
+     "label": "Home",
+     "type": "chips",
+     "options": [
+      "Flat",
+      "House",
+      "Old house"
+     ],
+     "default": "House"
+    }
+   ],
+   "prompt": "A {season} maintenance checklist for a {home}: checklist grouped by area, a callout on the one job people skip, and kv (rough time & cost).",
+   "shape": "checklist, callout, kv",
+   "button": "Checklist",
+   "loading": "Listing…"
+  }
+ ],
+ "disclaimer": "Turn off power/water before working and follow local codes; some jobs legally require a licensed professional."
+}

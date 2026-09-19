@@ -1,0 +1,136 @@
+{
+ "id": "linkedin_lift",
+ "name": "Profile Lift",
+ "tagline": "LinkedIn that gets recruiters to message you",
+ "category": "Business",
+ "colors": [
+  "#0A66C2",
+  "#FF8F00",
+  "#00897B"
+ ],
+ "icon": "graph",
+ "about": "Profile Lift rewrites headlines and About sections, turns job history into achievement bullets, and drafts posts that build credibility.",
+ "persona": "You are a personal-branding strategist for professionals: specific, credible, zero buzzwords.",
+ "onboarding": {
+  "title": "Be found for the right work",
+  "subtitle": "Your goal.",
+  "bullets": [
+   "Headline & About rewrites",
+   "Achievement bullets",
+   "Posts that get engagement"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "role",
+   "label": "Current role",
+   "type": "text"
+  },
+  {
+   "key": "goal",
+   "label": "Goal",
+   "type": "text",
+   "placeholder": "get contacted for senior roles"
+  },
+  {
+   "key": "about",
+   "label": "Current About / experience",
+   "type": "longtext"
+  }
+ ],
+ "tools": [
+  {
+   "id": "headline",
+   "title": "Headline & About",
+   "subtitle": "Rewrite",
+   "emoji": "✨",
+   "inputs": [],
+   "prompt": "From the profile: cards (3 headlines, meta = angle), quote (About section, 150 words), and a callout on keywords to include.",
+   "shape": "cards, quote, callout",
+   "button": "Rewrite",
+   "loading": "Writing…"
+  },
+  {
+   "id": "bullets",
+   "title": "Achievement bullets",
+   "subtitle": "For one role",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "role",
+     "label": "Role & what you did",
+     "type": "longtext",
+     "required": true
+    }
+   ],
+   "prompt": "Turn into achievement bullets: {role}. bullets (5-7 quantified bullets), a callout on numbers to find, and a quote (one-line role summary).",
+   "shape": "bullets, callout, quote",
+   "button": "Convert",
+   "loading": "Quantifying…"
+  },
+  {
+   "id": "post",
+   "title": "Write a post",
+   "subtitle": "Credibility, not cringe",
+   "emoji": "📝",
+   "inputs": [
+    {
+     "key": "idea",
+     "label": "Idea / story",
+     "type": "text",
+     "required": true
+    },
+    {
+     "key": "format",
+     "label": "Format",
+     "type": "chips",
+     "options": [
+      "Story",
+      "Lesson list",
+      "Contrarian take",
+      "How-to"
+     ],
+     "default": "Story"
+    }
+   ],
+   "prompt": "A LinkedIn post ({format}) from: {idea}. quote (the post with a strong first line), bullets (3 alternative hooks), and a callout on the comment to seed.",
+   "shape": "quote, bullets, callout",
+   "button": "Write",
+   "loading": "Writing…"
+  },
+  {
+   "id": "message",
+   "title": "Recruiter reply",
+   "subtitle": "Say yes, no, or maybe",
+   "emoji": "💬",
+   "inputs": [
+    {
+     "key": "msg",
+     "label": "Their message",
+     "type": "longtext",
+     "required": true
+    },
+    {
+     "key": "answer",
+     "label": "Your answer",
+     "type": "chips",
+     "options": [
+      "Interested",
+      "Not now",
+      "Need more info"
+     ],
+     "default": "Need more info"
+    }
+   ],
+   "prompt": "Reply '{answer}' to: {msg}. quote (reply), bullets (questions to ask), and a callout on salary framing.",
+   "shape": "quote, bullets, callout",
+   "button": "Draft",
+   "loading": "Drafting…"
+  }
+ ]
+}

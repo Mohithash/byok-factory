@@ -1,0 +1,148 @@
+{
+ "id": "sleep_reset",
+ "name": "Sleep Reset",
+ "tagline": "Fall asleep faster, wake up human",
+ "category": "Health & Fitness",
+ "colors": [
+  "#283593",
+  "#FFB300",
+  "#26A69A"
+ ],
+ "icon": "moon",
+ "about": "Sleep Reset builds a personal wind-down routine, fixes jet lag and shift-work schedules, and analyses your sleep diary for what's actually keeping you up.",
+ "persona": "You are a CBT-I-informed sleep coach: kind, specific, evidence-based; you avoid supplements-first advice.",
+ "onboarding": {
+  "title": "Reclaim your nights",
+  "subtitle": "Your schedule shapes the advice.",
+  "bullets": [
+   "Wind-down routines that stick",
+   "Jet-lag & shift plans",
+   "Diary analysis"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "wake",
+   "label": "Usual wake time",
+   "type": "text",
+   "placeholder": "06:45"
+  },
+  {
+   "key": "bed",
+   "label": "Usual bedtime",
+   "type": "text",
+   "placeholder": "23:30"
+  },
+  {
+   "key": "issue",
+   "label": "Main issue",
+   "type": "chips",
+   "options": [
+    "Falling asleep",
+    "Staying asleep",
+    "Waking too early",
+    "Unrefreshing"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "routine",
+   "title": "Wind-down routine",
+   "subtitle": "60 minutes to sleep",
+   "emoji": "🌙",
+   "inputs": [
+    {
+     "key": "evening",
+     "label": "Typical evening",
+     "type": "text",
+     "placeholder": "phone in bed, dinner at 9"
+    }
+   ],
+   "prompt": "Design a 60-minute wind-down given: {evening}. Steps with clock times working back from bedtime, a checklist of bedroom fixes, and a callout on the one habit to change first.",
+   "shape": "steps, checklist, callout",
+   "button": "Build routine",
+   "loading": "Dimming…"
+  },
+  {
+   "id": "jetlag",
+   "title": "Jet-lag plan",
+   "subtitle": "Shift your clock before you fly",
+   "emoji": "✈️",
+   "inputs": [
+    {
+     "key": "from",
+     "label": "From (city)",
+     "type": "text",
+     "placeholder": "London",
+     "required": true
+    },
+    {
+     "key": "to",
+     "label": "To (city)",
+     "type": "text",
+     "placeholder": "Tokyo",
+     "required": true
+    },
+    {
+     "key": "date",
+     "label": "Departure date",
+     "type": "text"
+    }
+   ],
+   "prompt": "Jet-lag plan {from} → {to}, departing {date}: table (Day | Light exposure | Avoid light | Sleep window | Caffeine), a callout about melatonin timing (general info), and bullets for the flight itself.",
+   "shape": "table, callout, bullets",
+   "button": "Plan",
+   "loading": "Calculating…"
+  },
+  {
+   "id": "diary",
+   "title": "Analyse my sleep diary",
+   "subtitle": "Find the pattern",
+   "emoji": "📓",
+   "inputs": [
+    {
+     "key": "diary",
+     "label": "Diary",
+     "type": "longtext",
+     "placeholder": "Mon: bed 23:40, asleep ~00:30, woke 3am, coffee at 4pm…",
+     "required": true
+    }
+   ],
+   "prompt": "Analyse: {diary}. Bullets of patterns, a table (Factor | Effect seen | Fix), steps for next week, and a callout on when to see a doctor (e.g. snoring, apnoea signs).",
+   "shape": "bullets, table, steps, callout",
+   "button": "Analyse",
+   "loading": "Reading…"
+  },
+  {
+   "id": "nap",
+   "title": "Nap & caffeine timing",
+   "subtitle": "Today's optimal schedule",
+   "emoji": "☕",
+   "inputs": [
+    {
+     "key": "slept",
+     "label": "Hours slept last night",
+     "type": "number",
+     "placeholder": "5"
+    },
+    {
+     "key": "plan",
+     "label": "Today",
+     "type": "text",
+     "placeholder": "meeting at 3pm, gym at 6"
+    }
+   ],
+   "prompt": "Given {slept}h sleep and today: {plan} — kv (last caffeine time, nap window & length, light exposure, bedtime tonight) and bullets on getting through the afternoon dip.",
+   "shape": "kv, bullets",
+   "button": "Optimise",
+   "loading": "Scheduling…"
+  }
+ ],
+ "disclaimer": "This is general information, not medical advice; see a clinician for diagnosis or before changing medication."
+}

@@ -1,0 +1,119 @@
+{
+ "id": "career_pivot",
+ "name": "Pivot Path",
+ "tagline": "Change careers with a plan, not a leap",
+ "category": "Business",
+ "colors": [
+  "#00695C",
+  "#FF8F00",
+  "#5E35B1"
+ ],
+ "icon": "graph",
+ "about": "Pivot Path maps your transferable skills to new roles, builds 90-day transition plans, writes your new narrative and finds the gaps to close.",
+ "persona": "You are a career strategist who has seen hundreds of pivots: honest about gaps, creative about bridges, practical about money.",
+ "onboarding": {
+  "title": "Your next chapter, planned",
+  "subtitle": "Where you are and where you're curious.",
+  "bullets": [
+   "Skills mapping",
+   "90-day transition plans",
+   "Story & networking scripts"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "current",
+   "label": "Current role & experience",
+   "type": "longtext"
+  },
+  {
+   "key": "toward",
+   "label": "Curious about",
+   "type": "text",
+   "placeholder": "product management, UX"
+  },
+  {
+   "key": "runway",
+   "label": "Financial runway",
+   "type": "chips",
+   "options": [
+    "None",
+    "3 months",
+    "6+ months"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "map",
+   "title": "Map my options",
+   "subtitle": "Where your skills transfer",
+   "emoji": "🗺️",
+   "inputs": [],
+   "prompt": "From the profile: table (Target role | Transferable skills | Gaps | Fit /5), cards (3 bridge roles, meta = time to reach), and a callout on the most realistic first step.",
+   "shape": "table, cards, callout",
+   "button": "Map",
+   "loading": "Mapping…"
+  },
+  {
+   "id": "plan",
+   "title": "90-day plan",
+   "subtitle": "Toward one role",
+   "emoji": "📅",
+   "inputs": [
+    {
+     "key": "role",
+     "label": "Target role",
+     "type": "text",
+     "required": true
+    }
+   ],
+   "prompt": "A 90-day plan toward {role}: table (Week | Learn | Build | Connect), a checklist of proof-of-work artefacts, and a callout on how to know if it's not working.",
+   "shape": "table, checklist, callout",
+   "button": "Plan",
+   "loading": "Planning…"
+  },
+  {
+   "id": "story",
+   "title": "My pivot story",
+   "subtitle": "For LinkedIn and interviews",
+   "emoji": "🧵",
+   "inputs": [
+    {
+     "key": "role",
+     "label": "Target role",
+     "type": "text",
+     "required": true
+    }
+   ],
+   "prompt": "Write the pivot narrative toward {role}: quote (LinkedIn About, 120 words), quote (30-second interview answer 'why the change'), and bullets on evidence to back each claim.",
+   "shape": "quote, quote, bullets",
+   "button": "Write",
+   "loading": "Writing…"
+  },
+  {
+   "id": "outreach",
+   "title": "Networking messages",
+   "subtitle": "Coffee-chat asks that get replies",
+   "emoji": "☕",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Who",
+     "type": "text",
+     "placeholder": "a PM at a fintech I admire",
+     "required": true
+    }
+   ],
+   "prompt": "Outreach to {who}: quote (LinkedIn message, 60 words), quote (follow-up after a week), bullets (questions to ask on the call), and a callout on the ask to avoid.",
+   "shape": "quote, quote, bullets, callout",
+   "button": "Draft",
+   "loading": "Drafting…"
+  }
+ ]
+}

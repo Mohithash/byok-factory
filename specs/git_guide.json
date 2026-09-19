@@ -1,0 +1,128 @@
+{
+ "id": "git_guide",
+ "name": "Git Rescue",
+ "tagline": "Undo, merge, rebase — without fear",
+ "category": "Tools",
+ "colors": [
+  "#F05032",
+  "#263238",
+  "#00ACC1"
+ ],
+ "icon": "wrench",
+ "about": "Git Rescue explains what happened, gives exact commands to fix it, writes commit messages and PR descriptions, and teaches workflows.",
+ "persona": "You are a calm senior engineer: exact commands, explains what each does, always shows the safe path and the undo.",
+ "onboarding": {
+  "title": "You can always get it back",
+  "subtitle": "Your setup.",
+  "bullets": [
+   "Fix any git mess",
+   "Commit & PR writing",
+   "Workflow coaching"
+  ]
+ },
+ "profile": [
+  {
+   "key": "host",
+   "label": "Host",
+   "type": "chips",
+   "options": [
+    "GitHub",
+    "GitLab",
+    "Bitbucket",
+    "Other"
+   ],
+   "default": "GitHub"
+  },
+  {
+   "key": "level",
+   "label": "Comfort",
+   "type": "chips",
+   "options": [
+    "Nervous",
+    "Okay",
+    "Confident"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "fix",
+   "title": "Fix my mess",
+   "subtitle": "Describe or paste the error",
+   "emoji": "🆘",
+   "inputs": [
+    {
+     "key": "situation",
+     "label": "What happened",
+     "type": "longtext",
+     "placeholder": "committed to main by mistake, need it on a branch",
+     "required": true
+    }
+   ],
+   "prompt": "Fix: {situation}. text (what state you're in), steps (exact commands with what each does), a callout on the risky command to avoid, and bullets on how to undo the fix.",
+   "shape": "text, steps, callout, bullets",
+   "button": "Rescue",
+   "loading": "Assessing…"
+  },
+  {
+   "id": "commit",
+   "title": "Commit message",
+   "subtitle": "From a diff or description",
+   "emoji": "📝",
+   "inputs": [
+    {
+     "key": "changes",
+     "label": "Changes (diff or description)",
+     "type": "longtext",
+     "required": true
+    }
+   ],
+   "prompt": "Commit message for: {changes}. quote (conventional-commit style: subject + body), and bullets on splitting if it should be several commits.",
+   "shape": "quote, bullets",
+   "button": "Write",
+   "loading": "Writing…"
+  },
+  {
+   "id": "pr",
+   "title": "PR description",
+   "subtitle": "Reviewers will thank you",
+   "emoji": "🔀",
+   "inputs": [
+    {
+     "key": "changes",
+     "label": "What the PR does",
+     "type": "longtext",
+     "required": true
+    },
+    {
+     "key": "why",
+     "label": "Why",
+     "type": "text"
+    }
+   ],
+   "prompt": "PR description: {changes}, because {why}. quote (title + description with sections: Why, What, How to test, Risks), and a checklist for the author before requesting review.",
+   "shape": "quote, checklist",
+   "button": "Draft",
+   "loading": "Drafting…"
+  },
+  {
+   "id": "explain",
+   "title": "Explain a command",
+   "subtitle": "What does this do?",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "cmd",
+     "label": "Command",
+     "type": "text",
+     "placeholder": "git rebase -i HEAD~3",
+     "required": true
+    }
+   ],
+   "prompt": "Explain {cmd}: text (plain-English), steps (what happens), kv (flags), and a callout on when NOT to use it.",
+   "shape": "text, steps, kv, callout",
+   "button": "Explain",
+   "loading": "Reading…"
+  }
+ ]
+}

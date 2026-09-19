@@ -1,0 +1,141 @@
+{
+ "id": "customer_reply",
+ "name": "Support Scribe",
+ "tagline": "Customer replies that de-escalate and delight",
+ "category": "Business",
+ "colors": [
+  "#00695C",
+  "#FF7043",
+  "#7E57C2"
+ ],
+ "icon": "chat",
+ "about": "Support Scribe drafts empathetic, on-policy replies to customer messages, handles refunds and complaints, and writes macros.",
+ "persona": "You are a top-tier support lead: empathetic first line, clear next step, never over-promises, on-brand.",
+ "onboarding": {
+  "title": "Every reply, a good one",
+  "subtitle": "Your product and policies.",
+  "bullets": [
+   "Replies to any message",
+   "Complaint de-escalation",
+   "Macro library"
+  ]
+ },
+ "profile": [
+  {
+   "key": "company",
+   "label": "Company / product",
+   "type": "text",
+   "required": true
+  },
+  {
+   "key": "policy",
+   "label": "Key policies (refunds, SLAs)",
+   "type": "longtext"
+  },
+  {
+   "key": "tone",
+   "label": "Tone",
+   "type": "chips",
+   "options": [
+    "Warm",
+    "Professional",
+    "Playful"
+   ],
+   "default": "Warm"
+  }
+ ],
+ "tools": [
+  {
+   "id": "reply",
+   "title": "Reply to a customer",
+   "subtitle": "Paste their message",
+   "emoji": "💬",
+   "inputs": [
+    {
+     "key": "msg",
+     "label": "Customer message",
+     "type": "longtext",
+     "required": true
+    },
+    {
+     "key": "facts",
+     "label": "Facts / what you can offer",
+     "type": "text",
+     "placeholder": "refund possible within 30 days"
+    }
+   ],
+   "prompt": "Reply to: {msg}. Facts: {facts}. quote (reply in the profile tone), bullets (internal notes), and a callout on anything to escalate.",
+   "shape": "quote, bullets, callout",
+   "button": "Draft",
+   "loading": "Drafting…"
+  },
+  {
+   "id": "angry",
+   "title": "De-escalate",
+   "subtitle": "Angry customer",
+   "emoji": "🔥",
+   "inputs": [
+    {
+     "key": "msg",
+     "label": "Their message",
+     "type": "longtext",
+     "required": true
+    }
+   ],
+   "prompt": "De-escalate: {msg}. quote (first reply: acknowledge, own, next step), quote (follow-up after resolution), and bullets on what not to say.",
+   "shape": "quote, quote, bullets",
+   "button": "De-escalate",
+   "loading": "Calming…"
+  },
+  {
+   "id": "macro",
+   "title": "Write macros",
+   "subtitle": "For common cases",
+   "emoji": "📚",
+   "inputs": [
+    {
+     "key": "cases",
+     "label": "Common cases",
+     "type": "text",
+     "placeholder": "where is my order, refund, password reset",
+     "required": true
+    }
+   ],
+   "prompt": "Macros for: {cases}. cards (title = case, body = macro with {{placeholders}}, meta = when to use), and a callout on personalisation.",
+   "shape": "cards, callout",
+   "button": "Create",
+   "loading": "Writing…"
+  },
+  {
+   "id": "review",
+   "title": "Respond to a review",
+   "subtitle": "Public, gracious",
+   "emoji": "⭐",
+   "inputs": [
+    {
+     "key": "review",
+     "label": "Review text",
+     "type": "longtext",
+     "required": true
+    },
+    {
+     "key": "stars",
+     "label": "Stars",
+     "type": "chips",
+     "options": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+     ],
+     "default": "2"
+    }
+   ],
+   "prompt": "Public reply to a {stars}-star review: {review}. quote (reply), bullets (why), and a callout on legal/PII cautions.",
+   "shape": "quote, bullets, callout",
+   "button": "Reply",
+   "loading": "Drafting…"
+  }
+ ]
+}

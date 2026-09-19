@@ -1,0 +1,111 @@
+{
+ "id": "interview_kids",
+ "name": "Story Keeper",
+ "tagline": "Capture your family's stories before they're gone",
+ "category": "Lifestyle",
+ "colors": [
+  "#8D6E63",
+  "#FFB300",
+  "#00897B"
+ ],
+ "icon": "mic",
+ "about": "Story Keeper prepares interview questions for grandparents and relatives, turns rambling recordings into polished stories and builds a family timeline.",
+ "persona": "You are an oral-history interviewer and editor: gentle questions, respectful editing, preserves voice.",
+ "onboarding": {
+  "title": "Their stories, kept",
+  "subtitle": "Who you're recording.",
+  "bullets": [
+   "Interview question sets",
+   "Transcript → story",
+   "Family timeline"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "who",
+   "label": "Who you're recording",
+   "type": "text",
+   "placeholder": "my grandmother, 84, grew up in Kerala"
+  }
+ ],
+ "tools": [
+  {
+   "id": "questions",
+   "title": "Interview questions",
+   "subtitle": "For one session",
+   "emoji": "🎙️",
+   "inputs": [
+    {
+     "key": "theme",
+     "label": "Theme",
+     "type": "chips",
+     "options": [
+      "Childhood",
+      "Love & family",
+      "Work",
+      "Migration",
+      "Hard times",
+      "Advice"
+     ],
+     "default": "Childhood"
+    }
+   ],
+   "prompt": "Questions on {theme} for the profile person: bullets (12 open questions in order), a callout on follow-up prompts, and a quote (a gentle opener).",
+   "shape": "bullets, callout, quote",
+   "button": "Prepare",
+   "loading": "Preparing…"
+  },
+  {
+   "id": "story",
+   "title": "Turn notes into a story",
+   "subtitle": "Paste transcript or notes",
+   "emoji": "📖",
+   "inputs": [
+    {
+     "key": "transcript",
+     "label": "Transcript / notes",
+     "type": "longtext",
+     "required": true
+    }
+   ],
+   "prompt": "Edit into a first-person story preserving voice: quote (the story, 300-500 words), bullets (details to confirm), and a callout on what was cut.",
+   "shape": "quote, bullets, callout",
+   "button": "Write",
+   "loading": "Editing…"
+  },
+  {
+   "id": "timeline",
+   "title": "Family timeline",
+   "subtitle": "From what you know",
+   "emoji": "🗓️",
+   "inputs": [
+    {
+     "key": "facts",
+     "label": "Facts & dates",
+     "type": "longtext",
+     "required": true
+    }
+   ],
+   "prompt": "Timeline from: {facts}. table (Year | Event | Who | Source), and bullets (gaps to ask about).",
+   "shape": "table, bullets",
+   "button": "Build",
+   "loading": "Building…"
+  },
+  {
+   "id": "book",
+   "title": "Plan a memory book",
+   "subtitle": "Chapters and photos",
+   "emoji": "📚",
+   "inputs": [],
+   "prompt": "Plan a memory book for the profile person: table (Chapter | Stories | Photos to find), and a checklist for production.",
+   "shape": "table, checklist",
+   "button": "Plan",
+   "loading": "Planning…"
+  }
+ ]
+}

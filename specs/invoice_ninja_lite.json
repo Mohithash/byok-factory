@@ -1,0 +1,173 @@
+{
+ "id": "invoice_ninja_lite",
+ "name": "Invoice Pen",
+ "tagline": "Invoices, quotes and payment chasers for freelancers",
+ "category": "Business",
+ "colors": [
+  "#37474F",
+  "#FF7043",
+  "#26A69A"
+ ],
+ "icon": "note",
+ "about": "Invoice Pen drafts professional invoices and quotes as clean text you can paste anywhere, calculates tax, and writes firm-but-friendly payment reminders.",
+ "persona": "You are a freelancer's back-office: precise with numbers, polite with clients, firm on payment terms.",
+ "onboarding": {
+  "title": "Get paid on time",
+  "subtitle": "Your business details go on every document.",
+  "bullets": [
+   "Invoices & quotes in seconds",
+   "Tax and totals done right",
+   "Payment reminders that work"
+  ]
+ },
+ "profile": [
+  {
+   "key": "biz",
+   "label": "Business name",
+   "type": "text",
+   "required": true
+  },
+  {
+   "key": "details",
+   "label": "Address / tax ID / bank details",
+   "type": "longtext"
+  },
+  {
+   "key": "currency",
+   "label": "Currency",
+   "type": "text",
+   "placeholder": "$",
+   "default": "$"
+  },
+  {
+   "key": "tax",
+   "label": "Default tax %",
+   "type": "number",
+   "placeholder": "0"
+  }
+ ],
+ "tools": [
+  {
+   "id": "invoice",
+   "title": "Draft an invoice",
+   "subtitle": "Items → formatted invoice",
+   "emoji": "🧾",
+   "inputs": [
+    {
+     "key": "client",
+     "label": "Client",
+     "type": "text",
+     "placeholder": "Acme Ltd, attn. Jo",
+     "required": true
+    },
+    {
+     "key": "items",
+     "label": "Line items",
+     "type": "longtext",
+     "placeholder": "Logo design 2 days @ 400; Revisions 3h @ 60",
+     "required": true
+    },
+    {
+     "key": "terms",
+     "label": "Terms",
+     "type": "chips",
+     "options": [
+      "Due on receipt",
+      "Net 7",
+      "Net 14",
+      "Net 30"
+     ],
+     "default": "Net 14"
+    }
+   ],
+   "prompt": "Draft invoice from {biz} to {client}: items {items}, terms {terms}, default tax. Table (Description | Qty | Rate | Amount), kv (subtotal, tax, total, due date, invoice number suggestion), and a quote with the email body to send it.",
+   "shape": "table, kv, quote",
+   "button": "Draft",
+   "loading": "Drafting…"
+  },
+  {
+   "id": "quote",
+   "title": "Write a quote",
+   "subtitle": "Scope, price, terms",
+   "emoji": "💼",
+   "inputs": [
+    {
+     "key": "client",
+     "label": "Client",
+     "type": "text",
+     "required": true
+    },
+    {
+     "key": "scope",
+     "label": "What they want",
+     "type": "longtext",
+     "placeholder": "5-page website, copy provided, 3 weeks",
+     "required": true
+    },
+    {
+     "key": "rate",
+     "label": "Your rate",
+     "type": "number"
+    }
+   ],
+   "prompt": "Write a quote for {client}: {scope} at rate {rate}. kv (price, timeline, payment schedule, validity), bullets of what's included/excluded, and a callout on assumptions to confirm.",
+   "shape": "kv, bullets, callout",
+   "button": "Quote",
+   "loading": "Pricing…"
+  },
+  {
+   "id": "chase",
+   "title": "Chase a payment",
+   "subtitle": "Overdue? Escalate politely",
+   "emoji": "⏰",
+   "inputs": [
+    {
+     "key": "client",
+     "label": "Client",
+     "type": "text",
+     "required": true
+    },
+    {
+     "key": "amount",
+     "label": "Amount",
+     "type": "number"
+    },
+    {
+     "key": "days",
+     "label": "Days overdue",
+     "type": "number",
+     "placeholder": "10"
+    }
+   ],
+   "prompt": "Three escalating messages to {client} for {amount}, {days} days overdue: quote (friendly), quote (firm), quote (final notice mentioning late fees/next steps), and bullets on when to send each.",
+   "shape": "quote, quote, quote, bullets",
+   "button": "Write",
+   "loading": "Drafting…"
+  },
+  {
+   "id": "tax",
+   "title": "Tax set-aside",
+   "subtitle": "How much to keep back",
+   "emoji": "🏦",
+   "inputs": [
+    {
+     "key": "earned",
+     "label": "Earned this month",
+     "type": "number",
+     "placeholder": "4200"
+    },
+    {
+     "key": "country",
+     "label": "Country",
+     "type": "text",
+     "placeholder": "UK"
+    }
+   ],
+   "prompt": "For {earned} earned in {country} as a freelancer: kv (suggested set-aside %, amount, quarterly estimate), bullets of common deductible expenses, and a callout to confirm with an accountant.",
+   "shape": "kv, bullets, callout",
+   "button": "Estimate",
+   "loading": "Estimating…"
+  }
+ ],
+ "disclaimer": "General information, not financial, tax or legal advice; consult a licensed professional for your situation."
+}

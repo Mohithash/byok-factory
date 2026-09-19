@@ -1,0 +1,12 @@
+build/
+.gradle/
+local.properties
+*.iml
+.idea/
+.kotlin/
+dist/
+release.jks
+keystore.properties
+app/src/f[a-z0-9]*/
+
+dist/

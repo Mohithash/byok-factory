@@ -1,0 +1,126 @@
+{
+ "id": "neighbour_notes",
+ "name": "Good Neighbour",
+ "tagline": "Handle the awkward stuff next door",
+ "category": "Lifestyle",
+ "colors": [
+  "#00897B",
+  "#FF8F00",
+  "#5E35B1"
+ ],
+ "icon": "home",
+ "about": "Good Neighbour drafts notes and conversations about noise, parking, pets and shared spaces, organises building groups and plans street events.",
+ "persona": "You are a community mediator: warm, fair, de-escalating; assumes good faith while being clear.",
+ "onboarding": {
+  "title": "Keep the peace",
+  "subtitle": "Your setup.",
+  "bullets": [
+   "Notes that don't start wars",
+   "Conversation scripts",
+   "Building & street organising"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "home",
+   "label": "Home",
+   "type": "chips",
+   "options": [
+    "Flat",
+    "Terrace",
+    "Detached",
+    "Shared house"
+   ]
+  },
+  {
+   "key": "country",
+   "label": "Country",
+   "type": "text"
+  }
+ ],
+ "tools": [
+  {
+   "id": "note",
+   "title": "Write a note",
+   "subtitle": "Noise, parking, bins…",
+   "emoji": "📝",
+   "inputs": [
+    {
+     "key": "about",
+     "label": "About",
+     "type": "chips",
+     "options": [
+      "Noise",
+      "Parking",
+      "Pets",
+      "Bins/shared space",
+      "Building work",
+      "Thank you"
+     ],
+     "default": "Noise"
+    },
+    {
+     "key": "details",
+     "label": "Details",
+     "type": "longtext"
+    }
+   ],
+   "prompt": "A note about {about}: {details}. quote (friendly note), quote (firmer follow-up if needed), and bullets (what to avoid).",
+   "shape": "quote, quote, bullets",
+   "button": "Write",
+   "loading": "Drafting…"
+  },
+  {
+   "id": "talk",
+   "title": "Talk in person",
+   "subtitle": "Script",
+   "emoji": "💬",
+   "inputs": [
+    {
+     "key": "issue",
+     "label": "Issue",
+     "type": "text",
+     "required": true
+    }
+   ],
+   "prompt": "Script for '{issue}': quote (opener), steps (flow), and a callout on if it gets heated.",
+   "shape": "quote, steps, callout",
+   "button": "Script",
+   "loading": "Thinking…"
+  },
+  {
+   "id": "group",
+   "title": "Start a building group",
+   "subtitle": "WhatsApp, rules, first message",
+   "emoji": "👥",
+   "inputs": [],
+   "prompt": "Start a residents' group for a {home}: quote (invite message), bullets (ground rules), and checklist (first-month topics).",
+   "shape": "quote, bullets, checklist",
+   "button": "Start",
+   "loading": "Organising…"
+  },
+  {
+   "id": "event",
+   "title": "Street party / meetup",
+   "subtitle": "Plan it",
+   "emoji": "🎉",
+   "inputs": [
+    {
+     "key": "people",
+     "label": "Expected people",
+     "type": "number",
+     "placeholder": "30"
+    }
+   ],
+   "prompt": "Plan a street/building event for {people}: table (Week | Task), checklist (permissions & supplies, general), and a callout on inclusion.",
+   "shape": "table, checklist, callout",
+   "button": "Plan",
+   "loading": "Planning…"
+  }
+ ]
+}
