@@ -87,7 +87,7 @@
      "default": "10"
     }
    ],
-   "prompt": "Plan a {minutes}-minute multisensory session on {pattern} for the profile's child. Sections: steps (review, teach with the rule in child words, sand or air writing, word reading, dictation) with minutes for each, a table (Word list | Read | Spell | Nonsense words), a kv with the rule stated exactly as the child should say it, and a callout on the error to expect and how to correct it without saying 'sound it out'.",
+   "prompt": "Plan a {minutes}-minute multisensory session on {pattern} for the profile's child. Sections: steps (review, teach with the rule in child words, sand or air writing, word reading, dictation) with minutes for each, a table of 12 practice words (Word | Real or nonsense | Read it ✓ | Spell it ✓) with at least 4 nonsense words, a kv with the rule stated exactly as the child should say it, and a callout on the error to expect and how to correct it without saying 'sound it out'.",
    "shape": "steps, table, kv, callout",
    "button": "Plan session",
    "loading": "Sorting sounds…"

@@ -136,7 +136,7 @@
      "type": "longtext"
     }
    ],
-   "prompt": "Write a promotion case for {who} against the bar: {bar} from this evidence: {evidence}. Text of the case under 400 words organised by the level's expectations with scope, impact and behaviour examples, a table (Expectation | Evidence | Strength — strong / adequate / thin), bullets of the questions a sceptical committee will ask with answers, and a callout on the thinnest area and whether to wait a cycle.",
+   "prompt": "Write a promotion case for {who} against the bar: {bar} (if no bar was given, use a typical bar for the target level on the profile's ladder) from this evidence: {evidence}. Text of the case under 400 words organised by the level's expectations with scope, impact and behaviour examples, a table (Expectation | Evidence | Strength — strong / adequate / thin), bullets of the questions a sceptical committee will ask with answers, and a callout on the thinnest area and whether to wait a cycle.",
    "shape": "text, table, bullets, callout",
    "button": "Write case",
    "loading": "Building the case…"

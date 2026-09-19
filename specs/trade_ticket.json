@@ -123,7 +123,7 @@
      "default": "10 questions"
     }
    ],
-   "prompt": "Generate a {length} practice set on {area} in the style of trade entrance aptitude tests for the profile's trade. Provide a table (No. | Question | Answer | Method) with every question and worked answer, steps for the fastest method on the hardest question type, bullets of timing strategy, and a callout on what score ranks well and how retakes work.",
+   "prompt": "Generate a practice set of {length} on {area} in the style of trade entrance aptitude tests for the profile's trade. Provide a table (No. | Question | Answer | Method) with every question and worked answer, steps for the fastest method on the hardest question type, bullets of timing strategy, and a callout on what score ranks well and how retakes work.",
    "shape": "table, steps, bullets, callout",
    "button": "Test me",
    "loading": "Setting the test…"
@@ -142,7 +142,7 @@
      "required": true
     }
    ],
-   "prompt": "For {job} in the profile's region and trade: a table (Licence or ticket | Who issues it | Prerequisites | Cost | Renewal) covering the trade licence, safety tickets (working at heights, confined space, OSHA/CSCS/White Card equivalents), first aid and equipment cards; steps to get the missing ones fastest; a kv of what to carry on day one; and a callout to verify with the official regulator.",
+   "prompt": "List what {job} legally requires in the profile's region and trade. Give a table (Licence or ticket | Who issues it | Prerequisites | Cost | Renewal) covering the trade licence, safety tickets (working at heights, confined space, OSHA/CSCS/White Card equivalents), first aid and equipment cards. Then steps to get the missing ones fastest, a kv of what to carry on day one (cards, ID, PPE, tools), and a callout to verify with the official regulator.",
    "shape": "table, steps, kv, callout",
    "button": "Check",
    "loading": "Checking cards…"

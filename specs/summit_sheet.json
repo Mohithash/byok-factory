@@ -9,7 +9,7 @@
   "#FFB300"
  ],
  "icon": "pin",
- "about": "Summit Sheet plans day hikes and mountain days: realistic timings for your pace, kit for the forecast, a go/no-go check, a turnaround plan, and a route card to leave with someone.",
+ "about": "Summit Sheet plans day hikes and mountain days: realistic timings for your pace, kit for the forecast, a go/no-go check, a route card to leave with someone, and a clear head when something goes wrong.",
  "persona": "You are a mountain leader: methodical about timings and escape routes, calm about weather, and firm that turning back is a skill.",
  "onboarding": {
   "title": "Know your timings before you start",
@@ -94,7 +94,7 @@
      "default": "Dry summer"
     }
    ],
-   "prompt": "Time {route} starting at {start} in {conditions} for the profile pace and experience, using Naismith's rule with corrections. Table (Leg | km | Ascent | Estimated time | Arrive by | Notes), kv (total moving time, with breaks, latest safe turnaround time, sunset margin), bullets on where the estimate is least reliable, and a callout on the turnaround rule.",
+   "prompt": "Time {route} starting at {start} in {conditions} for the profile pace and experience, using Naismith's rule with corrections. Table (Leg | km | Ascent | Estimated time | Arrive by | Notes), kv (total moving time, with breaks, latest safe turnaround time, sunset margin), 3 bullets on where the estimate is least reliable, and a callout on the turnaround rule.",
    "shape": "table, kv, bullets, callout",
    "button": "Time it",
    "loading": "Counting contours…"
@@ -119,7 +119,7 @@
      "placeholder": "7"
     }
    ],
-   "prompt": "Kit list for {hours} hours out in: {forecast}, for the profile terrain and experience. Checklist grouped by 'On you', 'In the pack' and 'Emergency', a table (Layer | Purpose | Swap if warmer/colder), bullets on the one item people skip that matters most in this forecast, and a callout on group-shelter and headtorch rules.",
+   "prompt": "Kit list for {hours} hours out in: {forecast}, for the profile terrain and experience. Checklist grouped by 'On you', 'In the pack' and 'Emergency', a table (Layer | Purpose | Swap if warmer/colder), 3 bullets on the items people skip that matter most in this forecast, and a callout on group-shelter and headtorch rules.",
    "shape": "checklist, table, bullets, callout",
    "button": "Build kit list",
    "loading": "Packing…"
@@ -169,34 +169,41 @@
      "placeholder": "Mum 07700 900123, silver Golf at Patterdale"
     }
    ],
-   "prompt": "Write a route card for {route} with {contacts}: kv (party, start point, route, escape routes, expected return, panic time, call this number if not heard), a quote with the exact message to send the contact, and bullets on what the contact should do at panic time (including asking emergency services for mountain rescue).",
+   "prompt": "Write a route card for {route} with {contacts}: kv (party, start point, route, escape routes, expected return, panic time, call this number if not heard), a quote with the exact message to send the contact, and 5 bullets on what the contact should do at panic time (including asking emergency services for mountain rescue).",
    "shape": "kv, quote, bullets",
    "button": "Write card",
    "loading": "Filling the card…"
   },
   {
-   "id": "packcheck",
-   "title": "Check my pack",
-   "subtitle": "Photo → what's missing",
-   "emoji": "📷",
+   "id": "incident",
+   "title": "Incident: what now",
+   "subtitle": "Injury, lost, benighted",
+   "emoji": "🆘",
    "inputs": [
     {
-     "key": "photo",
-     "label": "Photo of your pack contents",
-     "type": "photo",
-     "required": true
+     "key": "what",
+     "label": "What's happened",
+     "type": "chips",
+     "options": [
+      "Injury, can't walk",
+      "Someone is lost / separated",
+      "Benighted / lost the path",
+      "Hypothermia signs",
+      "Lightning / storm on the ridge"
+     ],
+     "default": "Injury, can't walk"
     },
     {
-     "key": "day",
-     "label": "The day",
+     "key": "detail",
+     "label": "Details & location",
      "type": "text",
-     "placeholder": "winter walk, 6 hours, possible snow above 700 m"
+     "placeholder": "ankle, can't weight-bear, on the ridge at ~800 m, 2 of us, phone 40%, 15:30, cloud coming in"
     }
    ],
-   "prompt": "Inventory the photo as a table (Item | Category | Verdict) for: {day}, then a checklist of what is missing for the profile experience and terrain, and a callout on anything in the photo that is a liability (cotton, trainers, no light).",
-   "shape": "table, checklist, callout",
-   "button": "Check pack",
-   "loading": "Looking inside…"
+   "prompt": "Incident: {what}. Details: {detail}. Steps for the first 10 minutes in order (group safety, then the casualty, then the call), kv (who to call and what to ask for, location to give, casualties and injuries, kit and shelter available, weather, phone battery), a checklist for keeping everyone warm and findable while waiting, and a callout on when self-evacuation is reasonable and when it is not.",
+   "shape": "steps, kv, checklist, callout",
+   "button": "What now",
+   "loading": "Staying calm…"
   }
  ],
  "disclaimer": "Mountain conditions change fast. Check official forecasts, carry navigation you can use, and call emergency services in an incident. This is planning help, not a safety guarantee."

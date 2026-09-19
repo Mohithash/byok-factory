@@ -1,0 +1,223 @@
+{
+ "id": "gig_gauge",
+ "name": "Gig Gauge",
+ "tagline": "Know what a shift really pays after fuel, wear and tax",
+ "category": "Finance",
+ "colors": [
+  "#F57C00",
+  "#37474F",
+  "#00ACC1"
+ ],
+ "icon": "car",
+ "about": "Gig Gauge works out what delivery, rideshare and task-app work really pays per hour after fuel, vehicle wear, fees and tax, then plans the hours and zones to hit a weekly target, logs expenses from receipt photos and checks your tax set-aside.",
+ "persona": "You are a sharp gig-economy accountant who has done the driving: brutally honest about true hourly rates, allergic to vanity earnings screenshots, and precise about mileage.",
+ "onboarding": {
+  "title": "Every shift, priced honestly",
+  "subtitle": "Your vehicle and apps shape the true-cost maths.",
+  "bullets": [
+   "True hourly rate after all costs",
+   "Hours and zones to hit your weekly target",
+   "Expense logs and a tax set-aside check"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "vehicle",
+   "label": "Vehicle",
+   "type": "chips",
+   "options": [
+    "Car (petrol/diesel)",
+    "Car (EV)",
+    "Scooter / motorbike",
+    "E-bike",
+    "Bicycle",
+    "On foot"
+   ]
+  },
+  {
+   "key": "apps",
+   "label": "Apps",
+   "type": "chips",
+   "options": [
+    "Food delivery",
+    "Rideshare",
+    "Parcels / courier",
+    "Grocery shopping",
+    "Tasks / handyman",
+    "Other"
+   ],
+   "multi": true
+  },
+  {
+   "key": "currency",
+   "label": "Currency",
+   "type": "text",
+   "placeholder": "USD"
+  }
+ ],
+ "tools": [
+  {
+   "id": "truerate",
+   "title": "True hourly rate",
+   "subtitle": "A week's earnings, all costs out",
+   "emoji": "⏱️",
+   "inputs": [
+    {
+     "key": "week",
+     "label": "This week's numbers",
+     "type": "longtext",
+     "placeholder": "Mon 6h 92 earned 45 miles; Tue 5h 70 earned 38 miles…",
+     "required": true
+    },
+    {
+     "key": "fuel",
+     "label": "Fuel / charging cost per 100 km or miles",
+     "type": "number",
+     "placeholder": "12"
+    },
+    {
+     "key": "costs",
+     "label": "Other weekly costs",
+     "type": "text",
+     "placeholder": "insurance 25, phone data 5, bag rental 2"
+    }
+   ],
+   "prompt": "Week: {week}. Fuel cost {fuel} per 100 distance units, other weekly costs {costs}, vehicle from the profile. Sections: table (Day | Hours | Gross | Distance | Fuel | Wear & tear est. | Net | Net per hour); kv (gross hourly, true hourly, cost per distance unit including depreciation and maintenance, suggested tax set-aside on the net); a callout explaining the wear-and-tear assumption used for this vehicle type and how to override it; bullets of the 3 highest-leverage changes (best days, dead miles, multi-apping).",
+   "shape": "table, kv, callout, bullets",
+   "button": "Show true rate",
+   "loading": "Counting miles…"
+  },
+  {
+   "id": "target",
+   "title": "Hit my weekly target",
+   "subtitle": "Hours and zones to plan",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "goal",
+     "label": "Take-home target this week",
+     "type": "number",
+     "placeholder": "600"
+    },
+    {
+     "key": "truehour",
+     "label": "Your true hourly rate",
+     "type": "number",
+     "placeholder": "14"
+    },
+    {
+     "key": "avail",
+     "label": "Days you can work",
+     "type": "chips",
+     "options": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat",
+      "Sun"
+     ],
+     "multi": true
+    }
+   ],
+   "prompt": "Target {goal} at a true rate of {truehour} per hour on days {avail}. Sections: kv (hours needed, hours per available day, the cap where fatigue makes it unsafe); table (Day | Block | Hours | Why this block) using typical demand peaks for the profile's apps (lunch, dinner, weekend nights, bad weather); a checklist for every shift (charge, fuel level, snacks, offline breaks); a callout on rest, road safety and the point where an extra hour is no longer worth it.",
+   "shape": "kv, table, checklist, callout",
+   "button": "Plan my week",
+   "loading": "Mapping peaks…"
+  },
+  {
+   "id": "receipt",
+   "title": "Log an expense",
+   "subtitle": "Photo of a receipt → the log line",
+   "emoji": "🧾",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Receipt or fuel-pump photo",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "type",
+     "label": "Type",
+     "type": "chips",
+     "options": [
+      "Fuel / charging",
+      "Maintenance",
+      "Insurance",
+      "Equipment",
+      "Phone / data",
+      "Parking / tolls",
+      "Other"
+     ],
+     "default": "Fuel / charging"
+    }
+   ],
+   "prompt": "Read the receipt photo as a {type} expense. Sections: kv (vendor, date, amount, tax portion if shown, category, likely deductible?); a quote with a one-line log entry in the format 'date | category | vendor | amount | note' ready to paste into a spreadsheet; a callout on what records to keep for this expense type and that deductibility depends on local rules.",
+   "shape": "kv, quote, callout",
+   "button": "Log it",
+   "loading": "Reading receipt…"
+  },
+  {
+   "id": "quarter",
+   "title": "Tax set-aside check",
+   "subtitle": "Am I saving enough for the bill?",
+   "emoji": "🏦",
+   "inputs": [
+    {
+     "key": "earned",
+     "label": "Net earnings this quarter so far",
+     "type": "number",
+     "placeholder": "5400"
+    },
+    {
+     "key": "saved",
+     "label": "Set aside so far",
+     "type": "number",
+     "placeholder": "600"
+    },
+    {
+     "key": "country",
+     "label": "Country / state",
+     "type": "text",
+     "placeholder": "Texas, USA"
+    }
+   ],
+   "prompt": "Earnings {earned}, set aside {saved}, location {country}, vehicle and apps from the profile. Sections: kv (an estimate range for income tax plus self-employment or social contributions, gap vs saved, weekly top-up needed to close it); table (Deduction type | Typical for gig work | Records needed) covering mileage vs actual costs, phone, equipment, platform fees; steps for a 20-minute monthly tax routine; a callout that this is a planning estimate only and that rates, thresholds and filing dates must be checked with official sources or a tax professional.",
+   "shape": "kv, table, steps, callout",
+   "button": "Check set-aside",
+   "loading": "Estimating…"
+  },
+  {
+   "id": "slow",
+   "title": "Slow week plan",
+   "subtitle": "Demand dropped, bills didn't",
+   "emoji": "📉",
+   "inputs": [
+    {
+     "key": "what",
+     "label": "What's happening",
+     "type": "text",
+     "placeholder": "rain all week, orders down 40%"
+    },
+    {
+     "key": "need",
+     "label": "Minimum I need this week",
+     "type": "number",
+     "placeholder": "350"
+    }
+   ],
+   "prompt": "Situation: {what}; minimum needed {need}; apps from the profile. Sections: steps to rescue the week (switch apps, change zone or hours, bonuses and quests, adjacent work like parcel drops or grocery shops); table (Option | Expected per hour | Setup effort | Risk); bullets on cost cutting that doesn't hurt earning capacity; a callout on the trap of chasing losses with unsafe hours.",
+   "shape": "steps, table, bullets, callout",
+   "button": "Rescue the week",
+   "loading": "Rerouting…"
+  }
+ ],
+ "disclaimer": "General information, not financial, tax or legal advice; rules, thresholds and entitlements differ by country and change — confirm with official sources or a regulated adviser before acting."
+}

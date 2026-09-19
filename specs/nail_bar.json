@@ -170,7 +170,7 @@
      "placeholder": "40"
     }
    ],
-   "prompt": "Compare gel, acrylic, dip powder, builder gel and press-ons for the profile's hands and nails, priority '{priority}', monthly budget {budget}. Table (System | Wear time | Cost per month | Damage risk | Removal | Best for), text with one clear recommendation and why, bullets of questions to ask a salon, and a callout on the removal habits that wreck nails.",
+   "prompt": "Compare gel, acrylic, dip powder, builder gel and press-ons for the profile's hands and nails, priority '{priority}', monthly budget {budget}. Table (System | Wear time | Cost per month | Damage risk | Best for), text with one clear recommendation and why, 5 bullets of questions to ask a salon including how each system is removed, and a callout on the removal habits that wreck nails.",
    "shape": "table, text, bullets, callout",
    "button": "Compare",
    "loading": "Weighing up…"
@@ -221,7 +221,7 @@
      "default": "Gel polish"
     }
    ],
-   "prompt": "Safe at-home removal of {what}: steps with timings and what it should look like at each stage, a checklist of supplies, bullets on aftercare for the next 48 hours, and a callout on when to stop and go to a salon instead.",
+   "prompt": "Give safe at-home removal of {what} for the profile's nails. Steps with timings and what the nail should look like at each stage, a checklist of supplies, 4 bullets on aftercare for the next 48 hours, and a callout on when to stop and go to a salon instead.",
    "shape": "steps, checklist, bullets, callout",
    "button": "Remove",
    "loading": "Soaking…"

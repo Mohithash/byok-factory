@@ -136,7 +136,7 @@
      "default": "Tighten up"
     }
    ],
-   "prompt": "Fixed {fixed}% vs variable {variable}% on the profile's loan; a 30% payment jump would mean the user would {risk}. Produce a table (Scenario | Rate path | Monthly yr1 | Monthly yr3 | Total 5y) with rates falling 1 point, flat, up 1 point and up 2.5 points, text giving a verdict for this risk tolerance, bullets on hybrid options (part fix, shorter fix, offset), and a callout on the break costs if you change your mind.",
+   "prompt": "Fixed {fixed}% vs variable {variable}% on the profile's loan; if payments jumped 30% the user says they would: {risk}. Produce a table (Scenario | Rate path | Monthly yr1 | Monthly yr3 | Total 5y) with rates falling 1 point, flat, up 1 point and up 2.5 points, text giving a verdict for this risk tolerance, bullets on hybrid options (part fix, shorter fix, offset), and a callout on the break costs if you change your mind.",
    "shape": "table, text, bullets, callout",
    "button": "Stress test",
    "loading": "Shaking the numbers…"

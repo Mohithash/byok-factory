@@ -83,7 +83,7 @@
       "4-4",
       "4-2",
       "Neutral tone",
-      "All 20 pairs"
+      "Mixed pairs"
      ],
      "default": "2-3"
     },
@@ -98,7 +98,7 @@
      "default": "10"
     }
    ],
-   "prompt": "Drill the tone pair {pair} with {n} common words at the profile's level. Sections: text describing each tone's pitch contour in plain English (start, movement, end), a table (Characters | Pinyin | Meaning | Pitch picture e.g. 35+214), steps for a 5-minute practice (clap the contour, hum it, say it, record it), and a callout on the specific way English speakers get this pair wrong.",
+   "prompt": "Drill the tone pair {pair} with {n} common words at the profile's level (if Mixed, spread the words across as many different pairs as possible). Sections: text describing each tone's pitch contour in plain English (start, movement, end), a table (Characters in the profile's script | Pinyin | Meaning | Pitch picture e.g. 35+214), steps for a 5-minute practice (clap the contour, hum it, say it, record it), and a callout on the specific way English speakers get this pair wrong.",
    "shape": "text, table, steps, callout",
    "button": "Drill me",
    "loading": "Tuning up…"
@@ -144,7 +144,7 @@
      "default": "zh / ch / sh vs j / q / x"
     }
    ],
-   "prompt": "Teach the pinyin trap {trap} for a speaker at the profile's level. Sections: text on tongue position with a plain-English comparison to English sounds, a table of 8 minimal pairs (Pinyin A | Pinyin B | Characters | Meanings), steps for a mirror drill, and a quote with one sentence packed with these sounds, with pinyin.",
+   "prompt": "Teach the pinyin trap {trap} for a speaker at the profile's level. Sections: text on tongue position with a plain-English comparison to English sounds, a table of 8 minimal pairs (Pinyin A | Pinyin B | Characters in the profile's script | Meanings), steps for a mirror drill, and a quote with one sentence packed with these sounds, with pinyin.",
    "shape": "text, table, steps, quote",
    "button": "Teach",
    "loading": "Curling tongue…"

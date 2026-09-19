@@ -191,7 +191,7 @@
      "placeholder": "American VP I've met once"
     }
    ],
-   "prompt": "Coach small talk for {setting} with {who}. Sections: bullets of 6 safe openers and 4 follow-up questions for this setting, a table (Topic | Safe in US | Safe in UK | Avoid) for the profile's variant, a quote with a graceful exit line, and a callout on the one small-talk habit from the profile's first language that can land badly in English.",
+   "prompt": "Coach small talk for {setting} with {who}. Sections: bullets of 6 safe openers and 4 follow-up questions for this setting, a table of 6 topics (Topic | Safe in US | Safe in UK | Avoid entirely), a quote with a graceful exit line, and a callout on the one small-talk habit from the profile's first language that can land badly in English.",
    "shape": "bullets, table, quote, callout",
    "button": "Coach me",
    "loading": "Warming up…"

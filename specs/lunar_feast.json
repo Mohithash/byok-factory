@@ -1,0 +1,216 @@
+{
+ "id": "lunar_feast",
+ "name": "Lunar Feast",
+ "tagline": "Reunion dinner, red envelopes and the right words",
+ "category": "Lifestyle",
+ "colors": [
+  "#E53935",
+  "#FDD835",
+  "#5D4037"
+ ],
+ "icon": "coin",
+ "about": "Lunar Feast plans Chinese New Year, Tết and Seollal: the reunion dinner with the meaning behind each dish, a countdown with the taboos, red envelope amounts by relationship, greetings with romanisation, and a zodiac story for the kids.",
+ "persona": "You are a bilingual Lunar New Year host who knows Mandarin, Cantonese, Vietnamese and Korean customs, explains the why behind every tradition, and reminds people that families differ.",
+ "onboarding": {
+  "title": "Bring in the year properly",
+  "subtitle": "Tell us your tradition and your role this year.",
+  "bullets": [
+   "Reunion dinner with dish meanings",
+   "Red envelopes and greetings done right",
+   "Countdown, taboos and kids' story"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "tradition",
+   "label": "Tradition",
+   "type": "chips",
+   "options": [
+    "Chinese (Mandarin)",
+    "Cantonese",
+    "Vietnamese Tết",
+    "Korean Seollal",
+    "Mixed / learning"
+   ]
+  },
+  {
+   "key": "role",
+   "label": "This year you are",
+   "type": "chips",
+   "options": [
+    "Hosting the reunion dinner",
+    "Visiting family",
+    "Celebrating abroad",
+    "Introducing a partner or kids"
+   ]
+  },
+  {
+   "key": "household",
+   "label": "Household",
+   "type": "text",
+   "placeholder": "me, husband, in-laws, toddler"
+  }
+ ],
+ "tools": [
+  {
+   "id": "dinner",
+   "title": "Reunion dinner menu",
+   "subtitle": "Lucky dishes, cook order, shopping",
+   "emoji": "🐟",
+   "inputs": [
+    {
+     "key": "guests",
+     "label": "Guests",
+     "type": "number",
+     "placeholder": "10"
+    },
+    {
+     "key": "skill",
+     "label": "Cooking skill",
+     "type": "chips",
+     "options": [
+      "Beginner",
+      "Comfortable",
+      "Confident"
+     ],
+     "default": "Comfortable"
+    },
+    {
+     "key": "needs",
+     "label": "Dietary needs",
+     "type": "text",
+     "placeholder": "no shellfish, one vegetarian"
+    }
+   ],
+   "prompt": "Plan a reunion dinner for {guests} in the profile tradition at {skill} skill with needs: {needs}. Table (Dish | Symbolic meaning | Make-ahead | Effort) including a whole fish or the tradition's equivalent lucky dishes; steps for the cook order so hot dishes land together; a checklist shopping list grouped by Asian grocer / regular supermarket; and a callout on which dishes to buy rather than cook at this skill level.",
+   "shape": "table, steps, checklist, callout",
+   "button": "Plan dinner",
+   "loading": "Steaming fish…"
+  },
+  {
+   "id": "countdown",
+   "title": "Countdown & taboos",
+   "subtitle": "Clean before, not after",
+   "emoji": "🧧",
+   "inputs": [
+    {
+     "key": "date",
+     "label": "New Year's Day date",
+     "type": "text",
+     "placeholder": "17 Feb",
+     "required": true
+    }
+   ],
+   "prompt": "Build a countdown to Lunar New Year on {date} for the profile tradition and role. Sections: a table (Day | Task | Why) covering cleaning (finished before, never on the day), settling debts, haircuts, decorations (couplets, red, kumquat or the tradition's equivalents), the night before, and days 1–15 through to the Lantern Festival; a checklist of decorations and ingredients to buy early; and bullets of common first-day taboos (sweeping, washing hair, broken things, unlucky words).",
+   "shape": "table, checklist, bullets",
+   "button": "Count down",
+   "loading": "Hanging couplets…"
+  },
+  {
+   "id": "envelopes",
+   "title": "Red envelopes",
+   "subtitle": "Amounts by relationship, lucky numbers",
+   "emoji": "💰",
+   "inputs": [
+    {
+     "key": "recipients",
+     "label": "Recipients & relationship",
+     "type": "longtext",
+     "placeholder": "niece 6, nephew 14, parents, in-laws, doorman…",
+     "required": true
+    },
+    {
+     "key": "currency",
+     "label": "Currency",
+     "type": "chips",
+     "options": [
+      "CNY",
+      "HKD",
+      "SGD",
+      "MYR",
+      "TWD",
+      "VND",
+      "KRW",
+      "USD",
+      "GBP",
+      "AUD",
+      "Other"
+     ],
+     "default": "USD"
+    }
+   ],
+   "prompt": "Plan red envelopes (hongbao / lai see / lì xì / sebaetdon) for {recipients} in {currency} for the profile tradition. Table (Person | Suggested range | Why this level | New notes?) applying lucky-number conventions (avoid 4; prefer 8 or even amounts where customary; odd amounts where Korean custom applies); then bullets on giving etiquette (two hands, who gives to whom, married versus unmarried, when a gift replaces cash); then a callout that norms vary by region and family, so check the local rate with an elder.",
+   "shape": "table, bullets, callout",
+   "button": "Plan envelopes",
+   "loading": "Folding notes…"
+  },
+  {
+   "id": "greetings",
+   "title": "Greetings & phrases",
+   "subtitle": "Say it right, to the right person",
+   "emoji": "🗣️",
+   "inputs": [
+    {
+     "key": "to",
+     "label": "Saying it to",
+     "type": "chips",
+     "options": [
+      "Elders",
+      "Peers & colleagues",
+      "Kids",
+      "Partner's family (first time)"
+     ],
+     "default": "Elders"
+    },
+    {
+     "key": "lang",
+     "label": "Language",
+     "type": "chips",
+     "options": [
+      "Mandarin",
+      "Cantonese",
+      "Vietnamese",
+      "Korean",
+      "Hokkien",
+      "English with the right words"
+     ],
+     "default": "Mandarin"
+    }
+   ],
+   "prompt": "Give greetings in {lang} for {to}. Sections: a table (Phrase | Romanisation | Meaning | When to say it) with 8 phrases including the toast and the reply when receiving a red envelope; a quote with a 3-sentence greeting to say on arriving at the home of {to}; and bullets on bows and hand gestures, seating order, and what not to say.",
+   "shape": "table, quote, bullets",
+   "button": "Teach me",
+   "loading": "Practising tones…"
+  },
+  {
+   "id": "kids",
+   "title": "Zodiac & story time",
+   "subtitle": "The animal, the legend, a craft",
+   "emoji": "🐉",
+   "inputs": [
+    {
+     "key": "year",
+     "label": "Year",
+     "type": "text",
+     "placeholder": "2026",
+     "required": true
+    },
+    {
+     "key": "ages",
+     "label": "Kids' ages",
+     "type": "text",
+     "placeholder": "4 and 7"
+    }
+   ],
+   "prompt": "Prepare Lunar New Year {year} for kids aged {ages}. Sections: text explaining the year's animal and element and what it's said to mean (as fun, not fortune); steps for a 20-minute craft (lantern, paper firecracker or dumpling folding) with materials; bullets telling the Nian legend in 6 lines they can retell; and a table (Age | Job they can own at the celebration) so each child has a role.",
+   "shape": "text, steps, bullets, table",
+   "button": "Tell the story",
+   "loading": "Waking the dragon…"
+  }
+ ]
+}

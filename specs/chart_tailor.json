@@ -77,7 +77,7 @@
      "required": true
     }
    ],
-   "prompt": "Recommend the chart for {data} to show '{message}'. Cards for the top 3 chart types (meta = best for · build effort), then a kv 'Recommended build' (chart type, x-axis, y-axis, series, sort order, what to hide), bullets of chart types to avoid here and why, and a callout on the one design choice that most decides whether the message lands.",
+   "prompt": "Recommend the chart for {data} to show '{message}'. Cards for the top 3 chart types (meta = best for · build effort), then a kv 'Recommended build' (chart type, x-axis, y-axis, series, sort order, what to hide), bullets of 3 chart types to avoid here and why, and a callout on the one design choice that most decides whether the message lands.",
    "shape": "cards, kv, bullets, callout",
    "button": "Pick chart",
    "loading": "Sketching…"
@@ -131,7 +131,7 @@
      "placeholder": "5"
     }
    ],
-   "prompt": "Build a {kind} palette of {count} colours starting from the profile's brand colours. Table 'Palette' (Role | Hex | Use for | Contrast on white), kv (colour-blind safety verdict, grey for context series, highlight colour, text colour), a quote with the hex list ready to paste into the profile's tool, and bullets on when to break the palette.",
+   "prompt": "Build a {kind} palette of {count} colours starting from the profile's brand colours. Table 'Palette' (Role | Hex | Use for | Contrast on white), kv (colour-blind safety verdict, grey for context series, highlight colour, text colour), a quote with the hex list ready to paste into the profile's tool, and bullets of 3 situations where to break the palette and how.",
    "shape": "table, kv, quote, bullets",
    "button": "Build palette",
    "loading": "Mixing colours…"

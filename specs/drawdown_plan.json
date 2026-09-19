@@ -76,7 +76,7 @@
      "default": "A little"
     }
    ],
-   "prompt": "Profile pot and guaranteed income, spending {spend}/year for {horizon} years, flexibility: {flex}. kv (needed from portfolio per year, implied withdrawal rate, verdict, suggested starting rate). Table (Rule | How it works | Starting income | Best when) for fixed percentage, inflation-adjusted, guardrails, and floor-and-upside. Bullets on what pushes a safe rate up or down, and a callout on sequence-of-returns risk.",
+   "prompt": "Profile pot and guaranteed income; spending needed {spend}/year (if not given, assume guaranteed income plus 4% of the pot), horizon {horizon} years (default 30), flexibility: {flex}. Sections: kv (needed from portfolio per year, implied withdrawal rate, verdict, suggested starting rate), table (Rule | How it works | Starting income | Best when) for fixed percentage, inflation-adjusted, guardrails, and floor-and-upside. Then bullets on what pushes a safe rate up or down, and a callout on sequence-of-returns risk.",
    "shape": "kv, table, bullets, callout",
    "button": "Set my rate",
    "loading": "Calibrating…"
@@ -104,7 +104,7 @@
      "placeholder": "24000"
     }
    ],
-   "prompt": "Design a {style} strategy for the profile pot withdrawing {spend}/year. Table (Bucket | Purpose | Years covered | Amount | Asset types), steps to set it up, kv of refill rules (when → from which bucket), and a callout on the classic mistake of never refilling the cash bucket.",
+   "prompt": "Design a {style} strategy for the profile pot, withdrawing {spend}/year (if not given, assume 4% of the pot). Table (Bucket | Purpose | Years covered | Amount | Asset types), steps to set it up, kv of refill rules (when → from which bucket), and a callout on the classic mistake of never refilling the cash bucket.",
    "shape": "table, steps, kv, callout",
    "button": "Build buckets",
    "loading": "Filling buckets…"
@@ -129,7 +129,7 @@
      "required": true
     }
    ],
-   "prompt": "Build a year-one income schedule for the profile paying {monthly}/month, with other income timing: {dates}. Table (Month | From guaranteed | From portfolio | From cash | Notes), steps for setting up automatic transfers, a checklist of accounts and paperwork, and a callout on keeping 12–24 months of withdrawals in cash.",
+   "prompt": "Build a year-one income schedule for the profile paying {monthly}/month (if not given, assume guaranteed income plus 4% of the pot, divided by 12), with other income timing: {dates}. Table (Month | From guaranteed | From portfolio | From cash | Notes) with 12 rows, steps for setting up automatic transfers, a checklist of accounts and paperwork, and a callout on keeping 12–24 months of withdrawals in cash.",
    "shape": "table, steps, checklist, callout",
    "button": "Schedule it",
    "loading": "Cutting paychecks…"
@@ -147,7 +147,7 @@
      "placeholder": "3"
     }
    ],
-   "prompt": "The user retires in {years} years with the profile pot. Explain sequence-of-returns risk in text with a two-retiree numeric example, then a table (Defence | What it does | Cost | Set up by when) for cash buffer, bond tent, flexible spending, delaying, part-time income; steps to implement over the next {years} years; and a callout on what not to do in a crash.",
+   "prompt": "The user retires in {years} years (default 3) with the profile pot. Explain sequence-of-returns risk in text with a two-retiree numeric example, then a table (Defence | What it does | Cost | Set up by when) for cash buffer, bond tent, flexible spending, delaying, part-time income. Then steps to implement over the years remaining, and a callout on what not to do in a crash.",
    "shape": "text, table, steps, callout",
    "button": "Protect me",
    "loading": "Building defences…"
@@ -182,7 +182,7 @@
      "default": "Flat"
     }
    ],
-   "prompt": "Annual review: pot now {value}, withdrew {withdrew}, market {market}. kv (current withdrawal rate, change vs the starting rate, guardrail status: raise / hold / cut), bullets of adjustments for the coming year, a checklist of housekeeping (rebalance, refill buckets, review fees, beneficiaries), and a callout with the one number to watch.",
+   "prompt": "Annual review: pot now {value} (if not given, use the profile pot), withdrew {withdrew} in the last 12 months (if not given, assume 4% of the pot), market was {market}. Sections: kv (current withdrawal rate, change vs the starting rate, guardrail status: raise / hold / cut), bullets of adjustments for the coming year, a checklist of housekeeping (rebalance, refill buckets, review fees, beneficiaries), and a callout with the one number to watch.",
    "shape": "kv, bullets, checklist, callout",
    "button": "Review",
    "loading": "Checking vitals…"

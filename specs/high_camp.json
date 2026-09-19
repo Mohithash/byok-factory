@@ -1,0 +1,196 @@
+{
+ "id": "high_camp",
+ "name": "High Camp",
+ "tagline": "Acclimatise, pack and turn around on time",
+ "category": "Sports",
+ "colors": [
+  "#1565C0",
+  "#78909C",
+  "#EC407A"
+ ],
+ "icon": "star",
+ "about": "High Camp plans alpine and expedition climbs: acclimatisation schedules built from the altitude profile, gear lists by route grade and season, weather-window and turnaround decisions, rope and glacier skills refreshers, and a plain guide to altitude illness.",
+ "persona": "You are a mountain guide: methodical, safety-first, and clear that the summit is optional and coming home is not.",
+ "onboarding": {
+  "title": "Climb high, come home",
+  "subtitle": "Your experience and objectives calibrate the plans.",
+  "bullets": [
+   "Acclimatisation schedules from the altitude profile",
+   "Gear lists by grade and season",
+   "Turnaround and weather-window decisions"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "level",
+   "label": "Experience",
+   "type": "chips",
+   "options": [
+    "Hillwalker moving to alpine",
+    "Alpine PD–AD",
+    "Alpine D and up",
+    "Expedition 6000 m+",
+    "Winter / Scottish"
+   ]
+  },
+  {
+   "key": "highest",
+   "label": "Highest you've been",
+   "type": "text",
+   "placeholder": "4,810 m Mont Blanc"
+  },
+  {
+   "key": "objective",
+   "label": "Next objective",
+   "type": "text",
+   "placeholder": "Mera Peak in October"
+  }
+ ],
+ "tools": [
+  {
+   "id": "acclim",
+   "title": "Acclimatisation plan",
+   "subtitle": "Sleep low, climb high, on paper",
+   "emoji": "⛰️",
+   "inputs": [
+    {
+     "key": "alt",
+     "label": "Altitude profile",
+     "type": "text",
+     "placeholder": "fly to Lukla 2,860 m, trek to Khare 5,045 m, summit 6,476 m",
+     "required": true
+    },
+    {
+     "key": "days",
+     "label": "Days available",
+     "type": "number",
+     "placeholder": "16"
+    },
+    {
+     "key": "history",
+     "label": "Altitude history",
+     "type": "text",
+     "placeholder": "mild headache at 4,500 m last time, fine after a rest day"
+    }
+   ],
+   "prompt": "Build an acclimatisation schedule for {alt} in {days} days given history: {history}. A table (Day | Sleep altitude | High point | Gain in sleeping altitude | Purpose), steps for what to do on rest days, bullets on the rules applied (300–500 m per day above 3,000 m, a rest day every 1,000 m), and a callout on the symptoms that mean descend now.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Build schedule",
+   "loading": "Climbing the graph…"
+  },
+  {
+   "id": "gear",
+   "title": "Gear for the route",
+   "subtitle": "By grade, season, style",
+   "emoji": "🎒",
+   "inputs": [
+    {
+     "key": "route",
+     "label": "Route",
+     "type": "text",
+     "placeholder": "Matterhorn Hörnli ridge, August",
+     "required": true
+    },
+    {
+     "key": "style",
+     "label": "Style",
+     "type": "chips",
+     "options": [
+      "Guided",
+      "Independent",
+      "Expedition with porters",
+      "Fast and light"
+     ],
+     "default": "Independent"
+    }
+   ],
+   "prompt": "Gear list for {route}, {style}, for the profile. Sections: a checklist grouped Technical / Clothing / Footwear / Sleep & bivvy / Nav & safety / Food & water, a table of the decisions that depend on conditions (Item | Take if… | Leave if…), kv (target pack weight, approximate water and food per day), and a callout on the items whose failure would end the trip.",
+   "shape": "checklist, table, kv, callout",
+   "button": "Build list",
+   "loading": "Racking up…"
+  },
+  {
+   "id": "window",
+   "title": "Summit push window",
+   "subtitle": "Multi-day forecast → which day, which camps",
+   "emoji": "⏰",
+   "inputs": [
+    {
+     "key": "forecast",
+     "label": "Forecasts (paste 2–3 sources, several days)",
+     "type": "longtext",
+     "placeholder": "Source A: Tue wind 60 km/h at 6,000 m, Wed 30 km/h, Thu 20 km/h then snow from Fri. Source B: …",
+     "required": true
+    },
+    {
+     "key": "camps",
+     "label": "Camps & supplies",
+     "type": "text",
+     "placeholder": "BC 4,900 m, high camp 5,800 m, summit 6,476 m; 4 days food above BC, 2 gas canisters"
+    },
+    {
+     "key": "team",
+     "label": "Team & state",
+     "type": "text",
+     "placeholder": "3 of us, one slept badly, all acclimatised to 5,400 m"
+    }
+   ],
+   "prompt": "Choose the summit push from forecasts: {forecast}, camps and supplies: {camps}, team: {team}. Sections: kv (push day, where to sleep each night, summit start time, latest summit time, hard turnaround time, plan B if the window closes), a table (Day | Sleep at | Move | Weather risk | Turn back if…), bullets of what to reassess at each camp and checkpoint, and a callout on summit fever and how the team commits to the turnaround now.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Choose the push",
+   "loading": "Reading the isobars…"
+  },
+  {
+   "id": "skills",
+   "title": "Skills refresher",
+   "subtitle": "Rope, anchors, crevasse, self-arrest",
+   "emoji": "🪢",
+   "inputs": [
+    {
+     "key": "skill",
+     "label": "Skill",
+     "type": "chips",
+     "options": [
+      "Glacier travel & roping up",
+      "Crevasse rescue (Z-pulley)",
+      "Self-arrest",
+      "Snow anchors",
+      "Moving together on rock",
+      "Abseil & retrieval",
+      "Crampon technique"
+     ],
+     "default": "Crevasse rescue (Z-pulley)"
+    }
+   ],
+   "prompt": "Refresh {skill} for the profile level. Sections: steps in order naming the gear used at each, bullets of the common mistakes and checks, a table (Situation | Variation | Why), and a callout stating this is a refresher to practise on safe ground with a qualified instructor.",
+   "shape": "steps, bullets, table, callout",
+   "button": "Refresh",
+   "loading": "Coiling the rope…"
+  },
+  {
+   "id": "ams",
+   "title": "Altitude illness guide",
+   "subtitle": "AMS, HAPE, HACE in plain words",
+   "emoji": "🩺",
+   "inputs": [
+    {
+     "key": "symptoms",
+     "label": "What's happening",
+     "type": "text",
+     "placeholder": "4,900 m, headache since evening, nausea, took a while to answer questions",
+     "required": true
+    }
+   ],
+   "prompt": "Assess: {symptoms}. kv (likely picture: AMS / HAPE / HACE / other, severity, the one action now), steps for the next hours (stop ascent, descend, oxygen, evacuation, when to use medication a doctor prescribed), a table (Sign | AMS | HAPE | HACE), and a callout that descent is the treatment and to call for rescue early.",
+   "shape": "kv, steps, table, callout",
+   "button": "Assess",
+   "loading": "Checking the score…"
+  }
+ ],
+ "disclaimer": "Mountaineering is dangerous. This is general information, not medical or guiding advice; train with qualified instructors, carry rescue insurance, and descend if in doubt."
+}

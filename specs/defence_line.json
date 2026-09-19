@@ -94,7 +94,7 @@
      "default": "I don't owe this"
     }
    ],
-   "prompt": "Their claim: {claim}. Position: {stance}. Draft the reply as a quote (heading, reference, a request for documents if relevant, your position stated without unnecessary admissions, and what you propose next), then bullets of phrases to avoid, and a callout on responding before the deadline and keeping proof of sending.",
+   "prompt": "Their claim: {claim}. Position: {stance}. Draft the reply as a quote (heading, reference, a request for documents if relevant, your position stated without unnecessary admissions, and what you propose next), then bullets of 5 phrases to avoid (and what to say instead), and a callout on responding before the deadline and keeping proof of sending.",
    "shape": "quote, bullets, callout",
    "button": "Draft reply",
    "loading": "Choosing words…"
@@ -109,14 +109,14 @@
      "key": "particulars",
      "label": "Paste the claim / particulars",
      "type": "longtext",
-     "placeholder": "…",
+     "placeholder": "The Defendant agreed to pay 600 for a booking on 4 June and failed to pay…",
      "required": true
     },
     {
      "key": "side",
      "label": "Your side of the story",
      "type": "longtext",
-     "placeholder": "…",
+     "placeholder": "I cancelled on 1 June within their 48-hour policy; I have the confirmation email…",
      "required": true
     }
    ],
@@ -169,8 +169,8 @@
      "required": true
     }
    ],
-   "prompt": "Losses: {losses}. Bullets of potential counterclaim heads with rough values, a checklist of evidence for each, and text on whether a counterclaim usually costs a fee and how it interacts with the main claim in the profile region.",
-   "shape": "bullets, checklist, text",
+   "prompt": "Losses: {losses}. Produce a table (Head of counterclaim | Rough value | Strength weak/fair/strong | Evidence needed) with every plausible head, a checklist of the evidence to gather for the two strongest heads, text on whether a counterclaim usually carries a fee and how it interacts with the main claim in the profile region (set-off, net result, timing), and a callout on not inflating a counterclaim just to bargain.",
+   "shape": "table, checklist, text, callout",
    "button": "Check",
    "loading": "Turning the tables…"
   }

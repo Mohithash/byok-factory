@@ -5,7 +5,7 @@
 **Short description (≤80):** Track the markers that predict how well you age
 
 ## Full description
-Healthspan Lab turns longevity science into weekly habits: at-home tests for chair-rise, walking pace and waist ratio, a scored weekly audit across six pillars, and plans for zone 2, connection and sleep.
+Healthspan Lab turns longevity science into weekly habits: at-home tests for push-up capacity, walking pace and waist-to-height ratio, a scored weekly audit across six pillars, and plans for zone 2, connection and sleep.
 
 WHAT'S INSIDE
 • Baseline tests — Three at-home markers, scored

@@ -192,7 +192,7 @@
      "placeholder": "Pickle's eye looks a bit crusty"
     }
    ],
-   "prompt": "Run a weekly health check for the profile pigs with weights {weights} and notes: {noticed}. Sections: a table (Pig | Weight | Change vs typical | Verdict), a checklist for a hands-on check (eyes, nose, teeth, feet and bumblefoot, nails, skin and mites, bottom, lumps), a callout on urgent signs (50 g+ loss in a week, not eating, hooting breath, no poop), and bullets on syringe-feeding recovery food until the vet if needed.",
+   "prompt": "Run a weekly health check for the profile pigs with this week's weights: {weights} (if none given, explain what to weigh with and how often) and notes: {noticed}. Sections: a table (Pig | Weight | Change vs typical | Verdict), a checklist for a hands-on check (eyes, nose, teeth, feet and bumblefoot, nails, skin and mites, bottom, lumps), a callout on urgent signs (50 g+ loss in a week, not eating, hooting breath, no poop), and bullets on syringe-feeding recovery food until the vet if needed.",
    "shape": "table, checklist, callout, bullets",
    "button": "Check",
    "loading": "Finding the scales…"

@@ -82,7 +82,7 @@
      "required": true
     }
    ],
-   "prompt": "Interpret a {protocol} result: {result}. Produce kv (estimated FTP, W/kg using the profile weight, confidence, next test date), a table of 7 power zones (Zone | Name | Watts | Purpose | Typical duration), bullets on whether the pacing looked right, and a callout on when the number is probably wrong (fatigue, heat, bad pacing).",
+   "prompt": "Interpret a {protocol} result: {result}. Produce kv (estimated FTP, W/kg using the profile weight, confidence, next test date), a table of 7 power zones (Zone | Name | Watts | Purpose | Typical duration), 3 bullets on whether the pacing looked right, and a callout on when the number is probably wrong (fatigue, heat, bad pacing).",
    "shape": "kv, table, bullets, callout",
    "button": "Set my zones",
    "loading": "Crunching watts…"
@@ -120,7 +120,7 @@
      "placeholder": "legs heavy from Sunday"
     }
    ],
-   "prompt": "Write a {minutes}-minute {focus} session for the profile FTP, adjusted for: {feel}. Sections: steps for the workout with each block as duration · watts · cadence · cue (warm-up and cool-down included), kv (estimated TSS, IF, kJ, main-set work time), a callout on how to bail if the target slips, and a quote with the one cue to remember mid-interval.",
+   "prompt": "Write a {minutes}-minute {focus} session for the profile FTP, adjusted for: {feel}. Sections: steps for the workout with each block as duration · watts · cadence · cue (warm-up and cool-down included, totalling exactly {minutes} minutes), kv (estimated TSS, IF, kJ, main-set work time), a callout on how to bail if the target slips, and a quote with the one cue to remember mid-interval.",
    "shape": "steps, kv, callout, quote",
    "button": "Build workout",
    "loading": "Setting intervals…"
@@ -155,7 +155,7 @@
      "placeholder": "Tue/Thu evenings 60 min, long ride Sat"
     }
    ],
-   "prompt": "Plan a {weeks} block toward {event} using only these days: {days} and the profile hours. Table (Week | Day | Session | Duration | Key targets in watts | Weekly TSS), text explaining what each week is for and when the recovery week lands, and a callout on the two signs you should downgrade a session.",
+   "prompt": "Plan a {weeks} block toward {event} using only these days: {days} and the profile hours. Table (Week | Day | Session | Duration | Key targets in watts | Weekly TSS) with one row per session, text explaining what each week is for and when the recovery week lands, and a callout on the two signs you should downgrade a session.",
    "shape": "table, text, callout",
    "button": "Plan block",
    "loading": "Periodising…"
@@ -180,7 +180,7 @@
      "placeholder": "sub 60 min"
     }
    ],
-   "prompt": "Build a power pacing plan for {course} aiming for {target} on the profile FTP. Sections: table (Segment | Distance/time | Target watts | Cadence/position | Cue), kv (average target, cap on climbs, cap in headwind, first 5 minutes), bullets on where people overcook it, and a callout on hydration and gearing checks before the start.",
+   "prompt": "Build a power pacing plan for {course} aiming for {target} on the profile FTP. Sections: table (Segment | Distance/time | Target watts | Cadence/position | Cue), kv (average target, cap on climbs, cap in headwind, first 5 minutes), 3 bullets on where people overcook it, and a callout on hydration and gearing checks before the start.",
    "shape": "table, kv, bullets, callout",
    "button": "Pace it",
    "loading": "Distributing watts…"
@@ -199,7 +199,7 @@
      "required": true
     }
    ],
-   "prompt": "Analyse: {ride}. Bullets on what the numbers say (intensity, durability, decoupling if given), a table (Metric | Value | What it means | Good/Watch), a callout on the biggest lesson for next time, and steps for the next 48 hours of recovery and training.",
+   "prompt": "Analyse: {ride}. 4 bullets on what the numbers say (intensity, durability, decoupling if given), a table (Metric | Value | What it means | Good/Watch), a callout on the biggest lesson for next time, and steps for the next 48 hours of recovery and training.",
    "shape": "bullets, table, callout, steps",
    "button": "Debrief",
    "loading": "Reading the file…"

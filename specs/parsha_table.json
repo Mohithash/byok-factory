@@ -112,7 +112,7 @@
      "multi": true
     }
    ],
-   "prompt": "On {verse}, present the readings of {voices}, showing Hebrew key words with transliteration only if the profile can read Hebrew. Sections: a table (Commentator | Question they ask | Their answer | Source), text on how the readings differ and why, and a quote with the verse itself in translation.",
+   "prompt": "On {verse}, present the readings of {voices} (if none were chosen, use Rashi, Ramban and Ibn Ezra). Show key Hebrew words in transliteration, adding Hebrew script only if the profile can read Hebrew. Sections: a table (Commentator | Question they ask | Their answer | Source), text on how the readings differ and why, and a quote with the verse itself in translation.",
    "shape": "table, text, quote",
    "button": "Show readings",
    "loading": "Gathering voices…"

@@ -201,7 +201,7 @@
      "placeholder": "rug, lamps, curtains, art"
     }
    ],
-   "prompt": "Build a shopping list for a {room} with a budget of {spend}, covering: {need}, in the profile's styles. Sections: a table (Item | Spec: size, colour, material | Price band | Priority 1–3) totalling within budget; cards for 3 splurge-vs-save swaps (meta = saving); a checklist ordered by what to buy first; and a callout on measurements to take before ordering anything.",
+   "prompt": "Build a shopping list for a {room} with a budget of {spend} (user's local currency), covering: {need}, in the profile's styles. Sections: a table (Item | Spec: size, colour, material | Price band | Priority 1–3) totalling within budget; cards for 3 splurge-vs-save swaps (meta = saving); a checklist ordered by what to buy first; and a callout on measurements to take before ordering anything.",
    "shape": "table, cards, checklist, callout",
    "button": "Make the list",
    "loading": "Window shopping…"

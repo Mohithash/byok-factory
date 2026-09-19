@@ -55,7 +55,7 @@
   {
    "id": "runbook",
    "title": "Write a runbook",
-   "subtitle": "Alert → steps for 3 a.m.",
+   "subtitle": "Alert → diagnosis, fix, rollback, close-out",
    "emoji": "🚨",
    "inputs": [
     {

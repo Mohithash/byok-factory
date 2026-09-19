@@ -1,0 +1,223 @@
+{
+ "id": "send_beta",
+ "name": "Send Beta",
+ "tagline": "Project tactics and training that match your grade",
+ "category": "Sports",
+ "colors": [
+  "#E65100",
+  "#455A64",
+  "#8BC34A"
+ ],
+ "icon": "gear",
+ "about": "Send Beta is a coach for boulderers and sport climbers: it reads your project from a photo, writes training blocks matched to your grade, guides finger and elbow niggles, analyses your grade pyramid and preps trips.",
+ "persona": "You are a climbing coach who has seen too many finger injuries: technique and tactics before fingerboarding, honest about what a grade needs, and clear that ropes, knots and gear are learned in person, never from an app.",
+ "onboarding": {
+  "title": "What are you projecting?",
+  "subtitle": "Grade, discipline and years climbing shape every plan.",
+  "bullets": [
+   "Beta and tactics for your project",
+   "Training matched to your grade",
+   "Finger and elbow care"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "discipline",
+   "label": "Discipline",
+   "type": "chips",
+   "options": [
+    "Bouldering",
+    "Sport",
+    "Trad",
+    "Gym only"
+   ],
+   "multi": true
+  },
+  {
+   "key": "grade",
+   "label": "Current grades (flash / redpoint)",
+   "type": "text",
+   "placeholder": "V4 flash, 6b+ redpoint"
+  },
+  {
+   "key": "years",
+   "label": "Years climbing",
+   "type": "chips",
+   "options": [
+    "Under 1",
+    "1–3",
+    "3–7",
+    "7+"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "project",
+   "title": "Read my project",
+   "subtitle": "Photo → sequence and tactics",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the route or boulder",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "target",
+     "label": "Grade & where you fall",
+     "type": "text",
+     "placeholder": "V5, keep falling going for the top sloper"
+    }
+   ],
+   "prompt": "Read the route photo for a project described as: {target}, for the profile grade. Sections: steps for a plausible sequence hold by hold (hand, foot, body position), a table (Crux section | Why it's hard | Technique | Rest point), bullets of tactics (warm-up sequence, attempts per session, rest between goes, skipping holds, chalk), and a callout that the beta is a hypothesis to test and on pad, spotter and fall-zone safety.",
+   "shape": "steps, table, bullets, callout",
+   "button": "Read beta",
+   "loading": "Chalking up…"
+  },
+  {
+   "id": "train",
+   "title": "Training block",
+   "subtitle": "Weeks, days, sets, intensity",
+   "emoji": "📈",
+   "inputs": [
+    {
+     "key": "weeks",
+     "label": "Weeks",
+     "type": "chips",
+     "options": [
+      "4",
+      "6",
+      "8"
+     ],
+     "default": "6"
+    },
+    {
+     "key": "weak",
+     "label": "Weakness",
+     "type": "chips",
+     "options": [
+      "Finger strength",
+      "Power / dynos",
+      "Endurance",
+      "Technique / footwork",
+      "Core & body tension",
+      "Head game"
+     ],
+     "default": "Finger strength"
+    },
+    {
+     "key": "days",
+     "label": "Climbing days per week",
+     "type": "chips",
+     "options": [
+      "2",
+      "3",
+      "4",
+      "5"
+     ],
+     "default": "3"
+    }
+   ],
+   "prompt": "Write a {weeks}-week training block for weakness '{weak}' at {days} days a week for the profile grade and years climbing. Sections: a callout first on whether hangboarding is appropriate at the profile experience and how to load safely, a table (Week | Day | Session | Sets × reps or time | Intensity), bullets on how to tell it's working, and steps for the warm-up used before every session.",
+   "shape": "callout, table, bullets, steps",
+   "button": "Build block",
+   "loading": "Loading the board…"
+  },
+  {
+   "id": "niggle",
+   "title": "Finger or elbow niggle",
+   "subtitle": "What it might be, what to do",
+   "emoji": "🩹",
+   "inputs": [
+    {
+     "key": "where",
+     "label": "Where",
+     "type": "chips",
+     "options": [
+      "Finger pulley",
+      "Finger joint",
+      "Elbow (inside)",
+      "Elbow (outside)",
+      "Shoulder",
+      "Wrist"
+     ],
+     "default": "Finger pulley"
+    },
+    {
+     "key": "what",
+     "label": "What happened",
+     "type": "text",
+     "placeholder": "pop on a crimp, swelling at the base of the ring finger",
+     "required": true
+    }
+   ],
+   "prompt": "The climber reports {where} trouble: {what}. Sections: text on the likely category of issue in plain words (not a diagnosis), a table (Sign | Suggests | What to do), steps for the first 72 hours, bullets on what to avoid and how to return to climbing gradually, and a callout on signs (a pop with bowstringing, can't bend the finger, numbness, night pain) that need a clinician or hand specialist now.",
+   "shape": "text, table, steps, bullets, callout",
+   "button": "Assess",
+   "loading": "Taping up…"
+  },
+  {
+   "id": "pyramid",
+   "title": "Grade pyramid",
+   "subtitle": "Send log → what's missing",
+   "emoji": "🔺",
+   "inputs": [
+    {
+     "key": "log",
+     "label": "Recent sends",
+     "type": "longtext",
+     "placeholder": "V3 ×10, V4 ×6, V5 ×2, V6 ×0; 6b ×5, 6b+ ×2 redpoint",
+     "required": true
+    },
+    {
+     "key": "goal",
+     "label": "Goal",
+     "type": "text",
+     "placeholder": "V6 by December"
+    }
+   ],
+   "prompt": "Analyse this send log toward the goal '{goal}': {log}. Sections: kv (pyramid shape, the gap holding the goal back, realistic timeline), a table (Grade | Sends | Needed for a healthy pyramid | Priority), bullets of style biases to fix (slab vs overhang, crimps vs slopers, static vs dynamic), and steps for the next 4 sessions.",
+   "shape": "kv, table, bullets, steps",
+   "button": "Analyse",
+   "loading": "Stacking sends…"
+  },
+  {
+   "id": "trip",
+   "title": "Trip prep",
+   "subtitle": "Gear, days, skin, safety",
+   "emoji": "🎒",
+   "inputs": [
+    {
+     "key": "where",
+     "label": "Destination & dates",
+     "type": "text",
+     "placeholder": "Fontainebleau, 5 days in October",
+     "required": true
+    },
+    {
+     "key": "with",
+     "label": "Group",
+     "type": "chips",
+     "options": [
+      "Solo",
+      "Partner",
+      "Group"
+     ],
+     "default": "Partner"
+    }
+   ],
+   "prompt": "Prepare a climbing trip to {where} travelling as '{with}' for the profile discipline. Sections: a checklist of gear grouped by category with pad or rope counts, a table (Day | Plan | Rest strategy | Skin care), bullets on local etiquette and conditions, and a callout on safety essentials (guidebook or app, partner checks, emergency numbers, telling someone your plan).",
+   "shape": "checklist, table, bullets, callout",
+   "button": "Plan trip",
+   "loading": "Packing pads…"
+  }
+ ],
+ "disclaimer": "Not medical advice and not a substitute for in-person instruction. Learn belaying, knots, gear placement and falling from a qualified instructor; check every knot and anchor; see a clinician for finger pops, numbness or swelling."
+}

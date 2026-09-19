@@ -192,7 +192,9 @@
     {
      "key": "date",
      "label": "Move-out date",
-     "type": "text"
+     "type": "text",
+     "placeholder": "30 June",
+     "required": true
     }
    ],
    "prompt": "Plan reversing these changes before {date}: {changes}, for the profile's wall type. Sections: a table (Change | Reversal method | Time | Materials | Risk of marks); steps as a timeline working back from {date} including the final clean and photos; a checklist of deposit-protection items (inventory comparison, dated photos, meter readings); and a callout on what is cheaper to have fixed professionally than to attempt yourself.",

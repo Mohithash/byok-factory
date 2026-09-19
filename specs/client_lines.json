@@ -1,0 +1,204 @@
+{
+ "id": "client_lines",
+ "name": "Client Lines",
+ "tagline": "The right message for every client moment",
+ "category": "Communication",
+ "colors": [
+  "#0277BD",
+  "#F4511E",
+  "#7CB342"
+ ],
+ "icon": "note",
+ "about": "Client Lines writes the messages freelancers dread: the weekly update, the 'we're going to be late' note, the reply to vague or conflicting feedback, the nudge when a client goes silent, and the welcome pack that sets expectations from day one.",
+ "persona": "You are a calm, plain-spoken account manager for solo professionals: honest about problems, generous with context, never grovelling, always ending with a clear next step.",
+ "onboarding": {
+  "title": "Say it right the first time",
+  "subtitle": "Tell us your work and your voice so every message sounds like you.",
+  "bullets": [
+   "Weekly updates in 60 seconds",
+   "Delay notices that keep trust",
+   "Follow-ups that get replies"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "work",
+   "label": "What you do",
+   "type": "text",
+   "placeholder": "freelance web developer"
+  },
+  {
+   "key": "voice",
+   "label": "Your voice",
+   "type": "chips",
+   "options": [
+    "Warm",
+    "Direct",
+    "Formal",
+    "Playful"
+   ],
+   "default": "Warm"
+  },
+  {
+   "key": "hours",
+   "label": "Your working hours & zone",
+   "type": "text",
+   "placeholder": "Mon–Thu 9–5 GMT"
+  }
+ ],
+ "tools": [
+  {
+   "id": "welcome",
+   "title": "Welcome pack",
+   "subtitle": "How I work, for new clients",
+   "emoji": "👋",
+   "inputs": [
+    {
+     "key": "client",
+     "label": "New client & project",
+     "type": "text",
+     "placeholder": "bakery chain, new website",
+     "required": true
+    },
+    {
+     "key": "channel",
+     "label": "How you'll communicate",
+     "type": "chips",
+     "options": [
+      "Email",
+      "Slack/Teams",
+      "WhatsApp",
+      "Project tool"
+     ],
+     "default": "Email"
+    },
+    {
+     "key": "rounds",
+     "label": "Revision rounds included",
+     "type": "number",
+     "placeholder": "2"
+    }
+   ],
+   "prompt": "Write a welcome pack for {client} communicating via {channel} with {rounds} revision rounds included. Sections: a kv (working hours from the profile, response time, single point of contact, feedback format, revision rounds, how to flag urgent), a table (Phase | What I need from you | What you'll get | When) with 4–6 phases for the project, a quote with the covering message in the profile voice, and a callout on the three expectations that prevent most mid-project friction.",
+   "shape": "kv, table, quote, callout",
+   "button": "Write pack",
+   "loading": "Warming up…"
+  },
+  {
+   "id": "update",
+   "title": "Weekly client update",
+   "subtitle": "Progress, next, needs",
+   "emoji": "📬",
+   "inputs": [
+    {
+     "key": "progress",
+     "label": "This week",
+     "type": "longtext",
+     "placeholder": "finished checkout, waiting on their product photos, found a bug in the old CMS",
+     "required": true
+    },
+    {
+     "key": "next",
+     "label": "Next week",
+     "type": "text",
+     "placeholder": "payment integration, mobile QA"
+    }
+   ],
+   "prompt": "Write this week's update from: {progress}. Next week: {next}. Produce a quote with the message (done, in progress, next, what I need from you, any risk) under 180 words in the profile voice, a checklist of items the client owes you with suggested due dates, and a callout on any risk in the notes that deserves a direct sentence rather than a soft hint.",
+   "shape": "quote, checklist, callout",
+   "button": "Write update",
+   "loading": "Summing up the week…"
+  },
+  {
+   "id": "late",
+   "title": "We're going to be late",
+   "subtitle": "Deliver the delay with a plan",
+   "emoji": "🐢",
+   "inputs": [
+    {
+     "key": "why",
+     "label": "What happened and how late",
+     "type": "longtext",
+     "placeholder": "their API access came 8 days late; delivery slips 1 week",
+     "required": true
+    },
+    {
+     "key": "fault",
+     "label": "Whose cause",
+     "type": "chips",
+     "options": [
+      "Client's",
+      "Mine",
+      "Third party",
+      "Mixed"
+     ],
+     "default": "Client's"
+    }
+   ],
+   "prompt": "Delay: {why}. Cause: {fault}. Give a text section on how to frame it for that cause (no over-apologising if it's the client's), a quote with the delay notice including the new date, what you're doing to reduce the slip and one option for the client, bullets of 3 concessions you can offer that cost you little, and a callout on the contract or change-order note to add if the cause is the client's.",
+   "shape": "text, quote, bullets, callout",
+   "button": "Write notice",
+   "loading": "Choosing the words…"
+  },
+  {
+   "id": "feedback",
+   "title": "Decode their feedback",
+   "subtitle": "Vague or conflicting notes → questions",
+   "emoji": "🗒️",
+   "inputs": [
+    {
+     "key": "feedback",
+     "label": "Paste the feedback",
+     "type": "longtext",
+     "placeholder": "'make it pop', 'less corporate', CEO wants blue, marketing wants green",
+     "required": true
+    }
+   ],
+   "prompt": "Feedback received: {feedback}. Produce a table (Comment | What they might mean | Concrete options | Question to ask), a text section spotting conflicts between stakeholders and who should arbitrate, a quote with a reply that lists your interpretation, at most 4 crisp questions and a proposed decision deadline, and a callout on how to count this against the revision rounds.",
+   "shape": "table, text, quote, callout",
+   "button": "Decode",
+   "loading": "Translating 'pop'…"
+  },
+  {
+   "id": "silent",
+   "title": "Client went quiet",
+   "subtitle": "Nudges that get a reply",
+   "emoji": "🔔",
+   "inputs": [
+    {
+     "key": "waiting",
+     "label": "What you're waiting for",
+     "type": "text",
+     "placeholder": "approval on the homepage design",
+     "required": true
+    },
+    {
+     "key": "days",
+     "label": "Days since last reply",
+     "type": "number",
+     "placeholder": "6"
+    },
+    {
+     "key": "stage",
+     "label": "Stage",
+     "type": "chips",
+     "options": [
+      "Before contract",
+      "Mid-project",
+      "Awaiting final sign-off"
+     ],
+     "default": "Mid-project"
+    }
+   ],
+   "prompt": "Waiting {days} days on: {waiting}, stage: {stage}. Produce a table (Nudge | Day to send | Channel | Tone) for a 3-message sequence, a quote for each of the 3 messages in the profile voice with the third setting a gentle deadline and stating what happens next, and a callout on how to protect the schedule and payment while paused.",
+   "shape": "table, quote, callout",
+   "button": "Nudge",
+   "loading": "Knocking gently…"
+  }
+ ]
+}

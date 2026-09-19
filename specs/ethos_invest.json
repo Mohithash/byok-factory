@@ -1,0 +1,181 @@
+{
+ "id": "ethos_invest",
+ "name": "Ethos Invest",
+ "tagline": "Invest in line with your values, without the jargon",
+ "category": "Finance",
+ "colors": [
+  "#004D40",
+  "#C0CA33",
+  "#5E35B1"
+ ],
+ "icon": "scale",
+ "about": "Ethos Invest helps beginners invest by their values: a values screen you can actually apply, greenwash checks on fund marketing, a test of whether a fund's holdings pass your screen, a plan for switching your bank and pension, and plain-English answers to the hard questions.",
+ "persona": "You are an ethical-investing educator: neutral on which values are right, rigorous about fees and tracking difference, sceptical of marketing labels, and never recommending specific securities.",
+ "onboarding": {
+  "title": "Money that matches your values",
+  "subtitle": "Your priorities set the screen; we'll keep the finance plain.",
+  "bullets": [
+   "A values screen you can apply",
+   "Greenwash and holdings checks",
+   "Bank and pension switch plan"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "care",
+   "label": "Care most about",
+   "type": "chips",
+   "options": [
+    "Climate",
+    "Animal welfare",
+    "Weapons & tobacco",
+    "Human rights & labour",
+    "Faith-based screening",
+    "Community & local impact"
+   ],
+   "multi": true
+  },
+  {
+   "key": "stage",
+   "label": "Investing stage",
+   "type": "chips",
+   "options": [
+    "Not started",
+    "Have a pension only",
+    "Some funds",
+    "Experienced"
+   ]
+  },
+  {
+   "key": "region",
+   "label": "Region",
+   "type": "chips",
+   "options": [
+    "UK",
+    "EU",
+    "US",
+    "Australia",
+    "Other"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "screen",
+   "title": "Build my values screen",
+   "subtitle": "Exclusions, inclusions, dealbreakers",
+   "emoji": "🧭",
+   "inputs": [
+    {
+     "key": "values",
+     "label": "In your own words",
+     "type": "longtext",
+     "placeholder": "no fossil fuels or weapons, OK with banks if they lend to renewables, prefer companies paying a living wage",
+     "required": true
+    }
+   ],
+   "prompt": "Turn '{values}' plus the profile's priorities into an investable screen: table (Theme | Exclude | Tolerate with limits | Actively seek), kv (screening approach that fits: negative, best-in-class, impact or engagement), bullets on the trade-offs (diversification, fees, tracking difference), and a callout on values that are hard to screen for in practice and why.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Build screen",
+   "loading": "Weighing values…"
+  },
+  {
+   "id": "greenwash",
+   "title": "Greenwash check",
+   "subtitle": "Photo or paste → what it really commits to",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo or screenshot of the fund page, label or advert",
+     "type": "photo"
+    },
+    {
+     "key": "text",
+     "label": "Or paste the wording",
+     "type": "longtext",
+     "placeholder": "'Sustainable Global Equity… integrates ESG factors…'"
+    }
+   ],
+   "prompt": "Check the fund marketing from the photo and/or: {text} against the profile's priorities. Table (Claim made | What it actually commits to | Greenwash risk low/med/high | Question to ask), kv (labelling approach: exclusion, best-in-class, impact, engagement or 'ESG integration' only; exclusions actually listed; overall greenwash score out of 10), bullets on the weasel words spotted, and a callout on why 'ESG integration' alone rarely changes what a fund holds.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Check it",
+   "loading": "Reading small print…"
+  },
+  {
+   "id": "holdings",
+   "title": "Does it pass my screen?",
+   "subtitle": "Top holdings → what clashes with your values",
+   "emoji": "🧾",
+   "inputs": [
+    {
+     "key": "holdings",
+     "label": "Top holdings or companies",
+     "type": "longtext",
+     "placeholder": "Apple 5%, Microsoft 4%, Shell 2%, Nestlé 1.5%…",
+     "required": true
+    },
+    {
+     "key": "fund",
+     "label": "Fund or account name",
+     "type": "text",
+     "placeholder": "workplace pension default fund"
+    }
+   ],
+   "prompt": "Test the holdings of '{fund}': {holdings} against the profile's priorities. Table (Holding | Weight | Passes? yes / grey / no | Concern | Where to verify), kv (weight that fails, weight in a grey area, biggest single conflict, verdict: keep / tolerate / look elsewhere), bullets on the options (accept, engage via the provider, choose a screened alternative), and a callout that holdings lists are snapshots and sector labels hide subsidiaries.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Test holdings",
+   "loading": "Checking names…"
+  },
+  {
+   "id": "switch",
+   "title": "Move my bank & pension",
+   "subtitle": "Where your money already sits",
+   "emoji": "🏦",
+   "inputs": [
+    {
+     "key": "current",
+     "label": "Current bank and pension",
+     "type": "text",
+     "placeholder": "high-street bank current account, workplace pension in the default fund",
+     "required": true
+    }
+   ],
+   "prompt": "For: {current} in the profile region — steps to check where the pension default is invested and how to switch to an ethical option within the same scheme, a checklist for switching banks with minimal disruption, a table (Money pot | How to check its ethics | Effort | Impact), and a callout on not losing employer contributions, guarantees or protection when moving.",
+   "shape": "steps, checklist, table, callout",
+   "button": "Plan switch",
+   "loading": "Following the money…"
+  },
+  {
+   "id": "ask",
+   "title": "Hard questions",
+   "subtitle": "Does it even work? Do I lose returns?",
+   "emoji": "❓",
+   "inputs": [
+    {
+     "key": "question",
+     "label": "Question",
+     "type": "chips",
+     "options": [
+      "Does ethical investing actually change anything?",
+      "Will I earn less?",
+      "Is divestment or engagement better?",
+      "Are ESG ratings reliable?",
+      "What about my cash savings?"
+     ],
+     "default": "Will I earn less?"
+    }
+   ],
+   "prompt": "Answer '{question}' for a beginner in the profile region: text with the balanced evidence in plain English, bullets of the strongest points on each side, kv (what the evidence says, what's uncertain, what you can control), and a quote with a one-sentence takeaway.",
+   "shape": "text, bullets, kv, quote",
+   "button": "Answer",
+   "loading": "Thinking it through…"
+  }
+ ],
+ "disclaimer": "Educational only, not financial advice; investments can fall in value, and you should consider a regulated adviser before acting."
+}

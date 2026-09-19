@@ -145,7 +145,7 @@
    "subtitle": "10 practice sentences from your profile",
    "emoji": "🏋️",
    "inputs": [],
-   "prompt": "Using the profile's weak spots and level, build 10 fill-in or fix-it drill sentences as steps (each step: the sentence with the tricky spot marked, and what to decide), a table (No. | Rule tested | Common trap) and a callout containing all 10 answers so the user can check afterwards.",
+   "prompt": "Using the profile's weak spots and level (if no weak spots are set, use the 5 most common errors for that level), build 10 fill-in or fix-it drill sentences as steps (each step: the sentence with the tricky spot marked, and what to decide), a table (No. | Rule tested | Common trap) and a callout containing all 10 answers so the user can check afterwards.",
    "shape": "steps, table, callout",
    "button": "Drill me",
    "loading": "Sharpening pencils…"

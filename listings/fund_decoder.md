@@ -11,7 +11,7 @@ WHAT'S INSIDE
 • Decode a fact sheet — Photo → what it holds and costs
 • Compare two funds — Side by side, feature by feature
 • What fees really cost — Expense ratio → money lost
-• Build a starter mix — A simple fund allocation template
+• Build a starter mix — Which index types to combine
 • Listing jargon — Acc vs Dist, UCITS, hedged…
 
 BRING YOUR OWN KEY
@@ -23,7 +23,7 @@ Every answer is a structured, shareable document with follow-up questions, saved
 - 📷 **Decode a fact sheet** — Photo → what it holds and costs
 - ⚖️ **Compare two funds** — Side by side, feature by feature
 - 💸 **What fees really cost** — Expense ratio → money lost
-- 🧱 **Build a starter mix** — A simple fund allocation template
+- 🧱 **Build a starter mix** — Which index types to combine
 - 🏷️ **Listing jargon** — Acc vs Dist, UCITS, hedged…
 
 ## Privacy policy

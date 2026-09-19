@@ -1,0 +1,211 @@
+{
+ "id": "global_team",
+ "name": "Global Team",
+ "tagline": "Lead across cultures without losing anyone",
+ "category": "Business",
+ "colors": [
+  "#0277BD",
+  "#FF6F00",
+  "#2E7D32"
+ ],
+ "icon": "globe",
+ "about": "Global Team helps leaders of multicultural, distributed teams run meetings everyone can speak in, plan around every location's holidays, adapt feedback across cultures, read indirect answers and repair misunderstandings before they harden.",
+ "persona": "You are a seasoned leader of distributed global teams and a cross-cultural communication coach: practical, careful never to stereotype individuals, and focused on explicit norms over guesswork.",
+ "onboarding": {
+  "title": "One team, many cultures",
+  "subtitle": "Tell us where your people are and how you work; every plan uses it.",
+  "bullets": [
+   "Meetings every culture can speak in",
+   "Feedback and holidays across locations",
+   "Decode and repair misunderstandings"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "locations",
+   "label": "Where your team is",
+   "type": "text",
+   "placeholder": "London ×3, Bangalore ×4, São Paulo ×2, me in Berlin"
+  },
+  {
+   "key": "mode",
+   "label": "How you work",
+   "type": "chips",
+   "options": [
+    "Fully remote",
+    "Hybrid, several offices",
+    "HQ + remote satellites"
+   ]
+  },
+  {
+   "key": "norms",
+   "label": "Current norms",
+   "type": "text",
+   "placeholder": "weekly sync on video, Slack, English as working language"
+  }
+ ],
+ "tools": [
+  {
+   "id": "meeting",
+   "title": "Run a mixed-culture meeting",
+   "subtitle": "So the quiet half of the room speaks",
+   "emoji": "🗣️",
+   "inputs": [
+    {
+     "key": "purpose",
+     "label": "Meeting and its purpose",
+     "type": "text",
+     "placeholder": "monthly planning; pick next quarter's priorities",
+     "required": true
+    },
+    {
+     "key": "people",
+     "label": "Participants",
+     "type": "number",
+     "placeholder": "9"
+    },
+    {
+     "key": "mix",
+     "label": "The mix",
+     "type": "chips",
+     "options": [
+      "Mostly one culture plus a few others",
+      "Evenly mixed",
+      "Mostly non-native English speakers"
+     ],
+     "default": "Evenly mixed"
+    }
+   ],
+   "prompt": "Design a meeting for {people} people, mix: {mix}, purpose: {purpose}, across the profile's locations. Sections: steps as an agenda that engineers airtime (pre-read sent 24 hours ahead, a silent written round before discussion, invitation by name in a stated order, the most senior person speaking last); a table (Participation barrier — hierarchy / language / face / turn-taking norm | What you'll see | Fix in the moment); a quote with the opening 45 seconds that states the norms out loud; and a callout on facilitator mistakes such as cold-calling someone in front of their boss or treating silence as agreement.",
+   "shape": "steps, table, quote, callout",
+   "button": "Design meeting",
+   "loading": "Sharing the floor…"
+  },
+  {
+   "id": "holidays",
+   "title": "Holiday clash check",
+   "subtitle": "Observances in every location vs your deadlines",
+   "emoji": "📅",
+   "inputs": [
+    {
+     "key": "months",
+     "label": "Look ahead",
+     "type": "chips",
+     "options": [
+      "1 month",
+      "3 months",
+      "6 months"
+     ],
+     "default": "3 months"
+    },
+    {
+     "key": "deadlines",
+     "label": "Deadlines and key meetings",
+     "type": "text",
+     "placeholder": "release 12 Oct; planning offsite 3–4 Nov; board pack due 20 Dec"
+    }
+   ],
+   "prompt": "For the profile's locations, list the public holidays and major religious or cultural observances in the next {months}, and check them against these deadlines (if none are given, flag the busiest weeks instead): {deadlines}. Sections: a table (Observance | Location(s) | Dates (approx.) | Effect — office closed / many away / avoid scheduling); bullets naming each deadline or meeting at risk and the specific adjustment; a callout stating that dates for lunar and regional observances vary by year and region and must be confirmed with local team members; and a quote with a short message asking each location to confirm its dates.",
+   "shape": "table, bullets, callout, quote",
+   "button": "Check clashes",
+   "loading": "Checking calendars…"
+  },
+  {
+   "id": "feedback",
+   "title": "Feedback across cultures",
+   "subtitle": "Same message, adapted delivery",
+   "emoji": "🎚️",
+   "inputs": [
+    {
+     "key": "message",
+     "label": "The feedback you need to give",
+     "type": "longtext",
+     "placeholder": "their status reports are late and too vague",
+     "required": true
+    },
+    {
+     "key": "to",
+     "label": "To whom, where they're based",
+     "type": "text",
+     "placeholder": "engineer based in Tokyo, 2 years in the company"
+    },
+    {
+     "key": "your_style",
+     "label": "Your natural style",
+     "type": "chips",
+     "options": [
+      "Very direct",
+      "Diplomatic",
+      "Somewhere between"
+     ],
+     "default": "Very direct"
+    }
+   ],
+   "prompt": "Adapt this feedback for {to}, given the giver's style is '{your_style}': {message}. Sections: text on what is generally known about directness, hierarchy and face in that context, stated as tendencies not rules, with a warning against assuming the individual fits them; a quote with the adapted delivery (what to say, what to ask, how to check understanding); a table (Signal you might get | What it may mean | What to do); and a callout on the two mistakes each style makes with the other.",
+   "shape": "text, quote, table, callout",
+   "button": "Adapt it",
+   "loading": "Translating tone…"
+  },
+  {
+   "id": "decode",
+   "title": "Is that a yes or a no?",
+   "subtitle": "Read an indirect answer without guessing",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "words",
+     "label": "What they said or wrote",
+     "type": "longtext",
+     "placeholder": "'That might be a little difficult, but we will try our best.'",
+     "required": true
+    },
+    {
+     "key": "who",
+     "label": "Who and their context",
+     "type": "text",
+     "placeholder": "vendor lead in Seoul, in a group email with their boss cc'd"
+    }
+   ],
+   "prompt": "Decode this message from {who}: {words}. Sections: text with the likely literal meaning and two alternative readings, weighted; a table (Reading | Likelihood | Evidence in the text); a quote with a reply that checks the meaning without causing loss of face; and a callout on why to verify in a private channel rather than in the group.",
+   "shape": "text, table, quote, callout",
+   "button": "Decode",
+   "loading": "Reading closely…"
+  },
+  {
+   "id": "repair",
+   "title": "Repair a misunderstanding",
+   "subtitle": "Something landed badly across the divide",
+   "emoji": "🩹",
+   "inputs": [
+    {
+     "key": "what",
+     "label": "What happened",
+     "type": "longtext",
+     "placeholder": "I joked about deadlines in the all-hands; the Bangalore team went silent and one person asked to speak to HR",
+     "required": true
+    },
+    {
+     "key": "side",
+     "label": "Who was hurt",
+     "type": "chips",
+     "options": [
+      "Someone on my team",
+      "Me",
+      "Two team members with each other"
+     ],
+     "default": "Someone on my team"
+    }
+   ],
+   "prompt": "Repair this cross-cultural misunderstanding: {what}. Hurt party: {side}. Sections: text naming what probably happened on both sides without assigning blame; steps for the repair in order (private first, then public if needed, then a norm change); a quote with the apology or acknowledgement wording; a checklist of team norms to make explicit afterwards; and a callout on when this needs HR rather than a leader's repair.",
+   "shape": "text, steps, quote, checklist, callout",
+   "button": "Plan the repair",
+   "loading": "Rebuilding…"
+  }
+ ],
+ "disclaimer": "Cultural notes describe general tendencies, not rules about individuals; when in doubt, ask the person."
+}

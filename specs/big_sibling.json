@@ -108,7 +108,7 @@
      "placeholder": "my mum (40 min away), neighbour for emergencies"
     }
    ],
-   "prompt": "Plan the toddler's care for a '{birth}' with helpers: {carers}. Steps for the go-bag and handover, a table (Scenario: 3am / daytime / long stay | Who | What the toddler is told | Comfort items), a quote with age-appropriate words for 'Mummy is going to have the baby', and a checklist for the carer's fridge door.",
+   "prompt": "Plan the toddler's care for a '{birth}' with helpers: {carers}. Steps for the go-bag and handover, a table with a row each for a 3am start, a daytime start and a long hospital stay (Scenario | Who has the toddler | What the toddler is told | Comfort items), a quote with age-appropriate words for 'Mummy is going to have the baby', and a checklist for the carer's fridge door.",
    "shape": "steps, table, quote, checklist",
    "button": "Plan it",
    "loading": "Packing the go-bag…"

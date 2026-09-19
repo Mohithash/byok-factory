@@ -98,7 +98,7 @@
      "default": "3 years"
     }
    ],
-   "prompt": "Compare the vendors described in: {notes} over {horizon} for the profile company. Table (Criterion | Vendor 1 | Vendor 2 | Vendor 3 | Winner), kv (recommended vendor, runner-up, deal-breakers found), bullets of what to verify before deciding, and a callout on the main risk in the recommendation.",
+   "prompt": "Compare the vendors described in: {notes} over {horizon} for the profile company. Table (Criterion | one column per vendor, named as in the notes | Winner) covering price, must-haves, security, support and exit terms, kv (recommended vendor, runner-up, deal-breakers found), bullets of what to verify before deciding, and a callout on the main risk in the recommendation.",
    "shape": "table, kv, bullets, callout",
    "button": "Compare",
    "loading": "Lining them up…"

@@ -11,7 +11,7 @@ WHAT'S INSIDE
 • Map my chapters — Eras → a shape
 • Excavate a memory — Prompts for one era or photo
 • Memory → scene — Summary into a lived moment
-• Read my pages — Honest editorial notes
+• Editorial notes — Honest notes on your pages
 • Writing about real people — Fairness and risk check
 
 BRING YOUR OWN KEY
@@ -23,7 +23,7 @@ Every answer is a structured, shareable document with follow-up questions, saved
 - 🗺️ **Map my chapters** — Eras → a shape
 - ⛏️ **Excavate a memory** — Prompts for one era or photo
 - 🎬 **Memory → scene** — Summary into a lived moment
-- 📝 **Read my pages** — Honest editorial notes
+- 📝 **Editorial notes** — Honest notes on your pages
 - ⚖️ **Writing about real people** — Fairness and risk check
 
 ## Privacy policy

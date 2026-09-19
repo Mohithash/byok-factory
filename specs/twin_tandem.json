@@ -87,7 +87,7 @@
      "default": "Both"
     }
    ],
-   "prompt": "Synchronise these babies — goal '{goal}' — from: {current}. A table (Time | Baby A | Baby B | Adult 1 | Adult 2 / helper) for a 24h day at the profile's age, steps for the first 3 days of gently nudging the laggard (wake-to-feed rule), bullets on when to stop forcing sync (illness, different weights), and a callout on prematurity-adjusted feeding volumes and never skipping a feed for the schedule's sake.",
+   "prompt": "Synchronise these babies — goal '{goal}' — from: {current}. A table (Time | Baby A | Baby B (+ C if triplets) | Adult 1 | Adult 2 / helper) for a 24h day at the profile's age, steps for the first 3 days of gently nudging the laggard (wake-to-feed rule), bullets on when to stop forcing sync (illness, different weights), and a callout on prematurity-adjusted feeding volumes and never skipping a feed for the schedule's sake.",
    "shape": "table, steps, bullets, callout",
    "button": "Sync them",
    "loading": "Lining up…"

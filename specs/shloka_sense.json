@@ -183,7 +183,7 @@
    "subtitle": "A short morning reflection",
    "emoji": "🌅",
    "inputs": [],
-   "prompt": "Choose one verse from the profile's preferred texts suited to a morning reflection. Sections: quote (verse in transliteration and translation), text with a 4-sentence reflection, kv (one Sanskrit term to carry today → meaning), and a callout with a single practice for the day under 5 minutes.",
+   "prompt": "Choose one verse from the profile's preferred texts (default to the Bhagavad Gita if none are set) suited to a morning reflection, avoiding the most over-quoted verses. Sections: quote (verse in transliteration and translation), text with a 4-sentence reflection, kv (one Sanskrit term to carry today → meaning), and a callout with a single practice for the day under 5 minutes.",
    "shape": "quote, text, kv, callout",
    "button": "Today's verse",
    "loading": "Choosing a verse…"

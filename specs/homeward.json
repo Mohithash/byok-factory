@@ -159,7 +159,7 @@
      "required": true
     }
    ],
-   "prompt": "Concerns: {who}. For each person a card (meta = biggest risk · timeframe) with what will be hard and what will help, steps for school re-enrolment or transfer where relevant, a quote with a family conversation opener about the move, and a callout on support to line up before arrival.",
+   "prompt": "Concerns: {who}. Cards, one per person (meta = biggest risk · timeframe), each with what will be hard and what will help, steps for school re-enrolment or transfer where relevant, a quote with a family conversation opener about the move, and a callout on support to line up before arrival.",
    "shape": "cards, steps, quote, callout",
    "button": "Plan",
    "loading": "Gathering…"

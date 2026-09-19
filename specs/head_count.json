@@ -159,7 +159,7 @@
      "type": "text"
     }
    ],
-   "prompt": "Situation: {situation}. Details: {details}. Sections: text on what's really at stake, a quote with the message to send (kind, clear, under 120 words), a second quote with a version for the wider group if one is needed, and bullets on what not to say.",
+   "prompt": "Situation: {situation}. Details, if any: {details}. Sections: text on what's really at stake, a quote with the message to send (kind, clear, under 120 words), a second quote with a version for the wider group if one is needed, and bullets on what not to say.",
    "shape": "text, quote, bullets",
    "button": "Write it",
    "loading": "Choosing words…"

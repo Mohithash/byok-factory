@@ -1,0 +1,224 @@
+{
+ "id": "rv_camper",
+ "name": "Chocks Away",
+ "tagline": "Motorhome trips that go smoothly, pitch to pitch",
+ "category": "Auto & Vehicles",
+ "colors": [
+  "#F57C00",
+  "#00695C",
+  "#FFE082"
+ ],
+ "icon": "pin",
+ "about": "Chocks Away plans motorhome and caravan trips around hookups, water and dump stops, runs pitch setup and departure checks, troubleshoots 12 V, water and gas systems, keeps you inside your payload and budgets each trip.",
+ "persona": "You are a full-time motorhomer and leisure-vehicle technician: friendly, systems-savvy, weight-conscious and calm at 7 pm when the pump stops.",
+ "onboarding": {
+  "title": "Every pitch, sorted",
+  "subtitle": "Tell us about your rig; plans and checks are built around its size and systems.",
+  "bullets": [
+   "Trips planned around services",
+   "Arrive and leave checklists",
+   "Systems troubleshooting"
+  ]
+ },
+ "profile": [
+  {
+   "key": "rig",
+   "label": "Vehicle",
+   "type": "text",
+   "placeholder": "2016 Fiat Ducato coachbuilt, 7.4 m"
+  },
+  {
+   "key": "kind",
+   "label": "Type",
+   "type": "chips",
+   "options": [
+    "Motorhome",
+    "Campervan",
+    "Caravan",
+    "Fifth wheel",
+    "Truck camper"
+   ]
+  },
+  {
+   "key": "payload",
+   "label": "Payload remaining (kg)",
+   "type": "number",
+   "placeholder": "450"
+  },
+  {
+   "key": "power",
+   "label": "Off-grid power",
+   "type": "chips",
+   "options": [
+    "Leisure battery only",
+    "Solar",
+    "Generator",
+    "Lithium + inverter"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "trip",
+   "title": "Trip plan",
+   "subtitle": "Stops, hookups, water and dumps",
+   "emoji": "🗺️",
+   "inputs": [
+    {
+     "key": "route",
+     "label": "Route",
+     "type": "text",
+     "placeholder": "Lyon to the Amalfi coast, 10 days",
+     "required": true
+    },
+    {
+     "key": "style",
+     "label": "Overnights",
+     "type": "chips",
+     "options": [
+      "Campsites with hookup",
+      "Mix of aires and sites",
+      "Wild where legal",
+      "Cheapest"
+     ],
+     "default": "Mix of aires and sites"
+    },
+    {
+     "key": "must",
+     "label": "Must include / avoid",
+     "type": "text",
+     "placeholder": "no toll roads, dog-friendly"
+    }
+   ],
+   "prompt": "Plan {route} staying at {style}, notes: {must}, for the profile rig. A table (Day | Drive km | Overnight type | Hookup | Fresh water | Grey/black dump | LPG) so services never run out, bullets of route constraints for this vehicle size (height, weight, tunnels, ferries, mountain passes), and a callout on the country rules for overnight parking along the route.",
+   "shape": "table, bullets, callout",
+   "button": "Plan trip",
+   "loading": "Filling the tank…"
+  },
+  {
+   "id": "pitch",
+   "title": "Pitch & pack checks",
+   "subtitle": "Arrive, set up, leave nothing behind",
+   "emoji": "✅",
+   "inputs": [
+    {
+     "key": "mode",
+     "label": "I'm",
+     "type": "chips",
+     "options": [
+      "Arriving on pitch",
+      "Leaving the pitch"
+     ],
+     "default": "Arriving on pitch"
+    },
+    {
+     "key": "site",
+     "label": "Pitch",
+     "type": "chips",
+     "options": [
+      "Hardstanding with hookup",
+      "Grass, no hookup",
+      "Aire",
+      "Street or wild"
+     ],
+     "default": "Hardstanding with hookup"
+    }
+   ],
+   "prompt": "Write the checklist for {mode} on a {site} with the profile rig. Put the checklist in the right order (level, chocks, hookup and polarity, gas, water, awning, steps, or the reverse when leaving), then a kv of the numbers to confirm (hookup amps, tyre pressures, fridge mode, tank levels). End with a callout on the five items most often driven off with still attached.",
+   "shape": "checklist, kv, callout",
+   "button": "Run checks",
+   "loading": "Chocking wheels…"
+  },
+  {
+   "id": "fix",
+   "title": "Systems trouble",
+   "subtitle": "Pump, 12 V, fridge, heater",
+   "emoji": "🔧",
+   "inputs": [
+    {
+     "key": "system",
+     "label": "System",
+     "type": "chips",
+     "options": [
+      "Water pump",
+      "12 V electrics",
+      "Mains hookup",
+      "Fridge",
+      "Heater/boiler",
+      "Toilet cassette",
+      "Gas"
+     ],
+     "default": "Water pump"
+    },
+    {
+     "key": "symptom",
+     "label": "What it's doing",
+     "type": "longtext",
+     "placeholder": "pump runs constantly but no water at the taps",
+     "required": true
+    }
+   ],
+   "prompt": "Troubleshoot the {system}: {symptom} on the profile rig. A table (Cause | Likelihood | Check | Fix) ordered by likelihood, steps for the safe no-tools checks first, bullets of the spares worth carrying for this system, and a callout on when to shut off gas or power and call a technician.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Fix it",
+   "loading": "Tapping fuses…"
+  },
+  {
+   "id": "weight",
+   "title": "Payload & packing",
+   "subtitle": "Stay legal and balanced",
+   "emoji": "⚖️",
+   "inputs": [
+    {
+     "key": "gear",
+     "label": "What you're loading",
+     "type": "longtext",
+     "placeholder": "2 adults, dog, 2 e-bikes on rack, full water 100 L, BBQ, 6 nights' food",
+     "required": true
+    }
+   ],
+   "prompt": "Estimate the load: {gear} against the profile payload. A table (Item | Est. kg | Where to stow | Axle) so the total and the rear-axle load are visible, a kv of totals (estimated load, margin left, rack or tow-ball note), bullets of what to cut or move if over, and a callout on where to find a weighbridge and the penalties for overloading.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Check weight",
+   "loading": "Adding it up…"
+  },
+  {
+   "id": "budget",
+   "title": "Trip budget",
+   "subtitle": "Fuel, sites, tolls, gas",
+   "emoji": "💶",
+   "inputs": [
+    {
+     "key": "days",
+     "label": "Days",
+     "type": "number",
+     "placeholder": "10"
+    },
+    {
+     "key": "km",
+     "label": "Total km",
+     "type": "number",
+     "placeholder": "2400"
+    },
+    {
+     "key": "region",
+     "label": "Region",
+     "type": "chips",
+     "options": [
+      "UK",
+      "Western Europe",
+      "Scandinavia",
+      "North America",
+      "Australia/NZ"
+     ],
+     "default": "Western Europe"
+    }
+   ],
+   "prompt": "Budget {days} days and {km} km in {region} for the profile rig. Give a table (Category | Daily | Trip total | How to cut) covering fuel at a stated realistic consumption, sites and aires, tolls and vignettes, LPG, ferries, food and a 10% contingency, in the local currency. Then a kv of the headline totals (total, per day, per km) and bullets of the three biggest savings.",
+   "shape": "table, kv, bullets",
+   "button": "Budget it",
+   "loading": "Counting coins…"
+  }
+ ],
+ "disclaimer": "Gas, electrical and weight guidance is general; have LPG and mains systems checked by a qualified technician and confirm axle weights on a weighbridge."
+}

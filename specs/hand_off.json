@@ -1,0 +1,185 @@
+{
+ "id": "hand_off",
+ "name": "Hand Off",
+ "tagline": "Delegate the work — keep the outcome",
+ "category": "Business",
+ "colors": [
+  "#E65100",
+  "#3949AB",
+  "#8D6E63"
+ ],
+ "icon": "hat",
+ "about": "Hand Off helps overloaded leads write delegation briefs that come back right the first time, set the right level of autonomy, hand over whole areas for good and recover gracefully when delegated work goes sideways.",
+ "persona": "You are a pragmatic operations leader who learnt delegation the hard way: you optimise for clarity of outcome, explicit authority levels and the fewest check-ins that still catch problems early.",
+ "onboarding": {
+  "title": "Get it off your plate — properly",
+  "subtitle": "Tell Hand Off about your team so briefs match the people who'll receive them.",
+  "bullets": [
+   "Briefs that come back right",
+   "Autonomy levels and check-in rhythms",
+   "Whole-area handovers that stick"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "reports",
+   "label": "People you can delegate to",
+   "type": "number",
+   "placeholder": "4"
+  },
+  {
+   "key": "team",
+   "label": "Who they are (roles, seniority)",
+   "type": "text",
+   "placeholder": "2 senior analysts, 1 junior, 1 contractor"
+  },
+  {
+   "key": "style",
+   "label": "Your delegating habit",
+   "type": "chips",
+   "options": [
+    "I hoard everything",
+    "I dump and vanish",
+    "I micromanage",
+    "Decent, want to improve"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "brief",
+   "title": "Write a delegation brief",
+   "subtitle": "Outcome, constraints, authority, check-ins",
+   "emoji": "📝",
+   "inputs": [
+    {
+     "key": "task",
+     "label": "The task",
+     "type": "text",
+     "placeholder": "own the vendor renewal for our analytics tool",
+     "required": true
+    },
+    {
+     "key": "to",
+     "label": "To whom",
+     "type": "text",
+     "placeholder": "Priya, junior analyst, first time doing this"
+    },
+    {
+     "key": "deadline",
+     "label": "Deadline & constraints",
+     "type": "text",
+     "placeholder": "by the 30th, budget flat, legal must review"
+    }
+   ],
+   "prompt": "Write a delegation brief for '{task}' handed to {to} with deadline and constraints: {deadline}. Sections: kv (Outcome — what done looks like, Why it matters, Constraints, Authority — what they decide alone, Escalate when, Check-in dates); a quote with a 120-word message to send them; a checklist of what the delegator must hand over (context, access, contacts, prior decisions); and a callout listing the questions to ask them before they start so nothing is assumed.",
+   "shape": "kv, quote, checklist, callout",
+   "button": "Write brief",
+   "loading": "Drafting…"
+  },
+  {
+   "id": "autonomy",
+   "title": "Set the autonomy level",
+   "subtitle": "How much rope for this person and task",
+   "emoji": "🎚️",
+   "inputs": [
+    {
+     "key": "person",
+     "label": "Person and their track record",
+     "type": "text",
+     "placeholder": "Marco, senior, strong but new to client work",
+     "required": true
+    },
+    {
+     "key": "task",
+     "label": "Task and its risk",
+     "type": "text",
+     "placeholder": "presenting the quarterly review to our biggest client"
+    }
+   ],
+   "prompt": "Recommend an autonomy level for {person} on: {task}. Sections: a table (Level | Name — Do as told / Recommend then act / Act then inform / Act alone / Own it | Fit for this case | Risk) covering all five with the recommended row marked; text explaining the recommendation in three sentences; steps for a check-in rhythm proportionate to the risk; and a quote with how to state the level to them explicitly.",
+   "shape": "table, text, steps, quote",
+   "button": "Recommend level",
+   "loading": "Measuring the rope…"
+  },
+  {
+   "id": "area",
+   "title": "Hand over a whole area",
+   "subtitle": "Transfer ownership for good",
+   "emoji": "🏗️",
+   "inputs": [
+    {
+     "key": "area",
+     "label": "What you're handing over",
+     "type": "text",
+     "placeholder": "the weekly metrics review and our vendor relationships",
+     "required": true
+    },
+    {
+     "key": "to",
+     "label": "To whom",
+     "type": "text",
+     "placeholder": "Priya, senior analyst"
+    },
+    {
+     "key": "weeks",
+     "label": "Transition weeks",
+     "type": "number",
+     "placeholder": "4"
+    }
+   ],
+   "prompt": "Plan a {weeks}-week handover of '{area}' to {to} so the user never has to take it back. Sections: a table (Week | They do | I do | Who else needs telling) moving from shadowing to owning; a checklist of knowledge to transfer (decisions I make and why, contacts, recurring dates, the traps); a quote with the message announcing the new owner to stakeholders; and a callout on the signs the handover is quietly reverting.",
+   "shape": "table, checklist, quote, callout",
+   "button": "Plan handover",
+   "loading": "Passing the baton…"
+  },
+  {
+   "id": "wrong",
+   "title": "It came back wrong",
+   "subtitle": "Recover without taking it back",
+   "emoji": "🔧",
+   "inputs": [
+    {
+     "key": "what",
+     "label": "What came back and what's wrong",
+     "type": "longtext",
+     "placeholder": "the deck is 40 slides, wrong numbers on 3, and it's due tomorrow",
+     "required": true
+    },
+    {
+     "key": "cause",
+     "label": "Your honest guess at the cause",
+     "type": "chips",
+     "options": [
+      "My brief was unclear",
+      "They lacked skill",
+      "They lacked time",
+      "They didn't ask",
+      "Not sure"
+     ],
+     "default": "Not sure"
+    }
+   ],
+   "prompt": "Delegated work came back wrong: {what}. Suspected cause: {cause}. Sections: text with a blunt diagnosis of which part is on the delegator; steps for the next 24 hours that fix the deliverable without the user silently redoing it; a quote with the feedback conversation opener (behaviour, impact, ask); and bullets on what to change in the next brief.",
+   "shape": "text, steps, quote, bullets",
+   "button": "Help me recover",
+   "loading": "Salvaging…"
+  },
+  {
+   "id": "weekly",
+   "title": "Weekly delegation check",
+   "subtitle": "Am I still hoarding?",
+   "emoji": "📆",
+   "inputs": [],
+   "prompt": "Run a weekly delegation self-check for the profile (team, size, stated habit). Sections: a checklist of 8 yes/no questions about the past week (e.g. did anything land on me that someone else could have owned); a table (Warning sign | What it usually means | This week's fix) tailored to the profile's stated habit; and a quote with one commitment sentence for next week.",
+   "shape": "checklist, table, quote",
+   "button": "Check me",
+   "loading": "Holding the mirror…"
+  }
+ ]
+}

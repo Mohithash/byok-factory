@@ -1,0 +1,186 @@
+{
+ "id": "warehouse_wise",
+ "name": "Warehouse Wise",
+ "tagline": "Make the warehouse club actually pay off",
+ "category": "Shopping",
+ "colors": [
+  "#C62828",
+  "#1E88E5",
+  "#FDD835"
+ ],
+ "icon": "cart",
+ "about": "Warehouse Wise works out whether a warehouse-club membership pays for your household, which items to buy in bulk and which to leave, how to split a haul with friends, and where to store it all so nothing expires.",
+ "persona": "You are a household logistics nerd who tracks unit prices and use-by dates, loves a bulk bargain that gets used up, and hates one that goes in the bin.",
+ "onboarding": {
+  "title": "Bulk that gets used, not binned",
+  "subtitle": "Your household size and storage decide what bulk makes sense.",
+  "bullets": [
+   "Membership pay-off math",
+   "Bulk vs supermarket, per item",
+   "Split hauls and storage plans"
+  ]
+ },
+ "profile": [
+  {
+   "key": "people",
+   "label": "People in the household",
+   "type": "number",
+   "placeholder": "4"
+  },
+  {
+   "key": "club",
+   "label": "Club",
+   "type": "chips",
+   "options": [
+    "Costco",
+    "Sam's Club",
+    "BJ's",
+    "Makro",
+    "Metro",
+    "Other / none yet"
+   ]
+  },
+  {
+   "key": "storage",
+   "label": "Storage you have",
+   "type": "chips",
+   "options": [
+    "Small kitchen only",
+    "Pantry",
+    "Garage / basement",
+    "Chest freezer"
+   ],
+   "multi": true
+  },
+  {
+   "key": "spend",
+   "label": "Monthly grocery spend",
+   "type": "number",
+   "placeholder": "600"
+  }
+ ],
+ "tools": [
+  {
+   "id": "worth",
+   "title": "Membership worth it?",
+   "subtitle": "Fee vs realistic savings",
+   "emoji": "🪪",
+   "inputs": [
+    {
+     "key": "fee",
+     "label": "Annual fee",
+     "type": "number",
+     "placeholder": "60"
+    },
+    {
+     "key": "tier",
+     "label": "Tier",
+     "type": "chips",
+     "options": [
+      "Basic",
+      "Premium / cashback tier"
+     ],
+     "default": "Basic"
+    },
+    {
+     "key": "habits",
+     "label": "How you'd shop",
+     "type": "text",
+     "placeholder": "twice a month, drive 20 minutes, buy petrol there too"
+    }
+   ],
+   "prompt": "Decide whether a {tier} membership at {fee} per year pays for this household, using the monthly spend from the profile and these habits: {habits}. Sections: a kv (Estimated annual saving, Break-even monthly spend, Petrol / pharmacy / tyre extras, Verdict), a table (Category | Typical club saving % | Applies to you?), bullets on how memberships fail to pay (impulse buys, waste, extra trips), and a callout on the cashback-tier break-even.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Do the maths",
+   "loading": "Counting pallets…"
+  },
+  {
+   "id": "list",
+   "title": "Bulk shopping list",
+   "subtitle": "What to buy there and what to skip",
+   "emoji": "📝",
+   "inputs": [
+    {
+     "key": "needs",
+     "label": "What you usually buy",
+     "type": "text",
+     "placeholder": "rice, chicken, nappies, washing pods, snacks, coffee",
+     "required": true
+    }
+   ],
+   "prompt": "Turn {needs} into a club shopping list for the household size and storage in the profile. Sections: a table (Item | Bulk at club / Supermarket / Depends | Pack lasts your household | Expires before use?), a checklist grouped by aisle, bullets of the club categories that are famously good value and the ones that are not, and a callout on the buy-big-then-waste trap.",
+   "shape": "table, checklist, bullets, callout",
+   "button": "Build list",
+   "loading": "Sizing the packs…"
+  },
+  {
+   "id": "compare",
+   "title": "Club vs supermarket",
+   "subtitle": "Paste prices → per-unit winner",
+   "emoji": "⚖️",
+   "inputs": [
+    {
+     "key": "prices",
+     "label": "Prices you've seen",
+     "type": "longtext",
+     "placeholder": "olive oil 3L 24.99 at club; 750ml 6.50 at supermarket…",
+     "required": true
+    }
+   ],
+   "prompt": "Compare per-unit prices in: {prices}. Sections: a table (Item | Club per unit | Supermarket per unit | Cheaper by % | Winner), a kv (Total saving on this basket, Items where the club loses), bullets on when a supermarket promo beats the club, and a callout on hidden costs (fuel, membership, waste) to include before calling it a win.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Compare",
+   "loading": "Dividing by units…"
+  },
+  {
+   "id": "split",
+   "title": "Split a haul",
+   "subtitle": "Share bulk with friends or neighbours",
+   "emoji": "🤝",
+   "inputs": [
+    {
+     "key": "haul",
+     "label": "What you're splitting and with whom",
+     "type": "longtext",
+     "placeholder": "48 toilet rolls, 5kg rice, 24 yoghurts — with Priya and Tom",
+     "required": true
+    },
+    {
+     "key": "total",
+     "label": "Total paid",
+     "type": "number",
+     "placeholder": "142"
+    }
+   ],
+   "prompt": "Split this haul fairly: {haul}, total {total}. Sections: a table (Item | Cost | Who takes what | Each pays), a kv (Each person owes, Rounding rule, Leftover items), steps for the handover including packaging perishables, and a quote with a friendly message to send with the amounts.",
+   "shape": "table, kv, steps, quote",
+   "button": "Split it",
+   "loading": "Dividing fairly…"
+  },
+  {
+   "id": "store",
+   "title": "Store the haul",
+   "subtitle": "Where it goes, how long it lasts",
+   "emoji": "🧊",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the haul",
+     "type": "photo",
+     "placeholder": "optional"
+    },
+    {
+     "key": "bought",
+     "label": "What you bought",
+     "type": "text",
+     "placeholder": "list it here if no photo"
+    }
+   ],
+   "prompt": "Plan storage for this haul: {bought} (use the photo if attached) with the storage the profile lists. Sections: a table (Item | Where to store | Decant / portion? | Lasts until), a checklist of freezing and decanting jobs to do today, bullets of first-in-first-out habits, and a callout on items that spoil faster than people expect once opened.",
+   "shape": "table, checklist, bullets, callout",
+   "button": "Plan storage",
+   "loading": "Finding shelf space…"
+  }
+ ],
+ "disclaimer": "Storage-life figures are typical estimates; follow the packaging's use-by dates and food-safety guidance."
+}

@@ -1,0 +1,174 @@
+{
+ "id": "seed_vault",
+ "name": "Seed Vault",
+ "tagline": "Save, store and swap seeds from what you grow",
+ "category": "Lifestyle",
+ "colors": [
+  "#827717",
+  "#D84315",
+  "#37474F"
+ ],
+ "icon": "shield",
+ "about": "Seed Vault teaches seed saving crop by crop, tests and tracks viability, catalogues your seed box from a photo with sow-by dates, and writes swap listings and labels so nothing goes stale in a drawer.",
+ "persona": "You are a seed librarian: botanically exact about pollination and isolation, thrifty, and keen on local varieties and swaps over buying new packets.",
+ "onboarding": {
+  "title": "Your seeds, year after year",
+  "subtitle": "Your climate and what you grow shape the calendar.",
+  "bullets": [
+   "Save seed from your best plants",
+   "Viability tests and sow-by dates",
+   "Labels and swap listings"
+  ]
+ },
+ "profile": [
+  {
+   "key": "climate",
+   "label": "Climate",
+   "type": "chips",
+   "options": [
+    "Cool temperate",
+    "Warm temperate",
+    "Mediterranean",
+    "Tropical",
+    "Continental"
+   ]
+  },
+  {
+   "key": "grow",
+   "label": "What you grow",
+   "type": "text",
+   "placeholder": "tomatoes, beans, lettuce, calendula"
+  },
+  {
+   "key": "storage",
+   "label": "Storage",
+   "type": "chips",
+   "options": [
+    "Drawer",
+    "Jar in cupboard",
+    "Fridge",
+    "Freezer"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "save",
+   "title": "Save seed from…",
+   "subtitle": "Harvest, clean, dry, store — per crop",
+   "emoji": "🌾",
+   "inputs": [
+    {
+     "key": "crop",
+     "label": "Crop",
+     "type": "text",
+     "placeholder": "tomato, runner bean, coriander",
+     "required": true
+    },
+    {
+     "key": "stage",
+     "label": "Stage",
+     "type": "chips",
+     "options": [
+      "Still growing",
+      "Ready to harvest",
+      "Harvested, need to process"
+     ],
+     "default": "Ready to harvest"
+    }
+   ],
+   "prompt": "Seed-saving guide for {crop} at stage '{stage}' in the profile climate: kv (pollination type, isolation distance, plants to select from, years viable), steps from selection through drying to storage with day counts, a callout on F1 hybrids and cross-pollination risks, and bullets on the traits to select for.",
+   "shape": "kv, steps, callout, bullets",
+   "button": "Guide me",
+   "loading": "Selecting plants…"
+  },
+  {
+   "id": "box",
+   "title": "Scan my seed box",
+   "subtitle": "Photo of packets → sow-by table",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of your seed packets or jars",
+     "type": "photo",
+     "placeholder": "Spread them out, labels up",
+     "required": true
+    }
+   ],
+   "prompt": "Catalogue every packet visible as a table (Seed | Packed or harvest year | Likely viability % | Sow-by | Sow month here | Action). Then a checklist of what to sow this season before it fades, bullets of what to swap away or compost, and a callout on any packets that look damp or mouldy.",
+   "shape": "table, checklist, bullets, callout",
+   "button": "Catalogue",
+   "loading": "Reading packets…"
+  },
+  {
+   "id": "test",
+   "title": "Viability test",
+   "subtitle": "Paper-towel germination test",
+   "emoji": "🧪",
+   "inputs": [
+    {
+     "key": "seed",
+     "label": "Seed and age",
+     "type": "text",
+     "placeholder": "2021 parsnip, 2023 courgette",
+     "required": true
+    },
+    {
+     "key": "count",
+     "label": "Seeds to test",
+     "type": "number",
+     "placeholder": "10"
+    }
+   ],
+   "prompt": "Set up a germination test for {seed} using {count} seeds: steps (materials, temperature, days to check), a table (Day | What to look for), kv (expected germination for this age, verdict thresholds), and a callout on what to do when it fails (sow thick, swap, buy).",
+   "shape": "steps, table, kv, callout",
+   "button": "Set up test",
+   "loading": "Damping towels…"
+  },
+  {
+   "id": "swap",
+   "title": "Swap listing & labels",
+   "subtitle": "Write it up for a seed swap",
+   "emoji": "🏷️",
+   "inputs": [
+    {
+     "key": "variety",
+     "label": "Variety",
+     "type": "text",
+     "placeholder": "Gardener's Delight tomato, saved 2025",
+     "required": true
+    },
+    {
+     "key": "notes",
+     "label": "Notes",
+     "type": "text",
+     "placeholder": "heavy cropper, split in wet weeks"
+    }
+   ],
+   "prompt": "Write a seed-swap listing for {variety} with notes '{notes}': quote (the listing text, 60–90 words), kv (label fields: variety, year, source, germination %, sow window, spacing), bullets on packaging small lots, and a callout on what to say about hybrids or unknown parentage and on protected (PBR or patented) varieties that shouldn't be swapped.",
+   "shape": "quote, kv, bullets, callout",
+   "button": "Write listing",
+   "loading": "Labelling…"
+  },
+  {
+   "id": "plan",
+   "title": "Plan from my box",
+   "subtitle": "Next season from what you already have",
+   "emoji": "🗓️",
+   "inputs": [
+    {
+     "key": "season",
+     "label": "Season and space",
+     "type": "text",
+     "placeholder": "spring 2027, one raised bed and 6 pots",
+     "required": true
+    }
+   ],
+   "prompt": "Using the profile's crops and climate plus '{season}', plan next season from saved seed only: table (Month | Sow | Where | Notes), cards for 3 crops worth saving seed from again (meta = ease · isolation need), and a callout on gaps that need a swap or purchase.",
+   "shape": "table, cards, callout",
+   "button": "Plan season",
+   "loading": "Sorting packets…"
+  }
+ ]
+}

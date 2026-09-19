@@ -1,0 +1,209 @@
+{
+ "id": "she_roams",
+ "name": "She Roams",
+ "tagline": "Solo female travel with confidence, not fear",
+ "category": "Travel & Local",
+ "colors": [
+  "#00695C",
+  "#F06292",
+  "#FFA000"
+ ],
+ "icon": "shield",
+ "about": "She Roams is a planning companion for women travelling alone: destination briefings that are honest rather than alarmist, a first-night arrival plan, scripts for unwanted attention, safe ways to meet people, and a check-in system for the people back home.",
+ "persona": "You are an experienced solo female traveller and safety trainer: candid, non-judgemental, empowering; you give specific tactics, never blanket 'don't go' advice.",
+ "onboarding": {
+  "title": "Go anyway, go prepared",
+  "subtitle": "Your comfort level shapes every plan.",
+  "bullets": [
+   "Honest destination briefings",
+   "First-night and check-in plans",
+   "Scripts for the awkward moments"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "experience",
+   "label": "Solo experience",
+   "type": "chips",
+   "options": [
+    "First solo trip",
+    "A few trips",
+    "Seasoned"
+   ]
+  },
+  {
+   "key": "comfort",
+   "label": "Comfortable with",
+   "type": "chips",
+   "options": [
+    "Hostels",
+    "Nightlife",
+    "Remote areas",
+    "Motorbike taxis",
+    "None of these"
+   ],
+   "multi": true
+  },
+  {
+   "key": "contact",
+   "label": "Emergency contact (first name)",
+   "type": "text",
+   "placeholder": "Mum"
+  }
+ ],
+ "tools": [
+  {
+   "id": "brief",
+   "title": "Destination briefing",
+   "subtitle": "What it's really like for women alone",
+   "emoji": "📍",
+   "inputs": [
+    {
+     "key": "dest",
+     "label": "Destination",
+     "type": "text",
+     "placeholder": "Marrakech",
+     "required": true
+    },
+    {
+     "key": "days",
+     "label": "Days",
+     "type": "number",
+     "placeholder": "5"
+    },
+    {
+     "key": "style",
+     "label": "Style",
+     "type": "chips",
+     "options": [
+      "Budget",
+      "Mid-range",
+      "Comfort"
+     ],
+     "default": "Mid-range"
+    }
+   ],
+   "prompt": "A solo-female briefing for {dest}, {days} days, {style} style, pitched at the profile's experience level. Kv (overall comfort rating with a one-line reason, dress norms, transport at night, areas to base in, areas to avoid after dark, local emergency number), bullets on 6 tactics that make the biggest difference here, a table (Situation | What's normal here | What's a red flag), and a callout on the one habit to keep every single day.",
+   "shape": "kv, bullets, table, callout",
+   "button": "Brief me",
+   "loading": "Gathering intel…"
+  },
+  {
+   "id": "arrival",
+   "title": "First-night plan",
+   "subtitle": "From landing to locked door",
+   "emoji": "🌆",
+   "inputs": [
+    {
+     "key": "city",
+     "label": "City",
+     "type": "text",
+     "placeholder": "Bogotá",
+     "required": true
+    },
+    {
+     "key": "arrive",
+     "label": "Arrival time & where",
+     "type": "text",
+     "placeholder": "23:40 at the airport"
+    },
+    {
+     "key": "stay",
+     "label": "Where you're staying",
+     "type": "text",
+     "placeholder": "hostel in Chapinero"
+    }
+   ],
+   "prompt": "Plan the first night in {city}: arriving {arrive}, staying at {stay}. Steps with times from landing to locked door (official taxi or ride app, cash, SIM, what to tell the driver), a kv (safest transport option and cost, check-in cut-off, what to do if the stay is closed, nearest 24-hour shop), a quote with the check-in message to send the profile's emergency contact, and a callout on the mistakes that happen at midnight arrivals.",
+   "shape": "steps, kv, quote, callout",
+   "button": "Plan arrival",
+   "loading": "Landing…"
+  },
+  {
+   "id": "attention",
+   "title": "Unwanted attention",
+   "subtitle": "Words that work, exits that work",
+   "emoji": "🛑",
+   "inputs": [
+    {
+     "key": "situation",
+     "label": "What happened / what you fear",
+     "type": "text",
+     "placeholder": "man following me from the market",
+     "required": true
+    },
+    {
+     "key": "where",
+     "label": "Where",
+     "type": "text",
+     "placeholder": "Naples"
+    }
+   ],
+   "prompt": "Situation in {where}: {situation}. Steps for the next 5 minutes, a quote with 3 firm phrases (one in the local language with pronunciation), bullets on exits (shops, hotels, families, transport staff), and a callout on when to call the police and the number to use.",
+   "shape": "steps, quote, bullets, callout",
+   "button": "Help me",
+   "loading": "Standing tall…"
+  },
+  {
+   "id": "meet",
+   "title": "Meet people safely",
+   "subtitle": "Company without the risk",
+   "emoji": "🤝",
+   "inputs": [
+    {
+     "key": "dest",
+     "label": "Destination",
+     "type": "text",
+     "placeholder": "Chiang Mai",
+     "required": true
+    },
+    {
+     "key": "interests",
+     "label": "Interests",
+     "type": "text",
+     "placeholder": "cooking classes, hiking, live music"
+    }
+   ],
+   "prompt": "Ways to meet people in {dest} around {interests} for the profile. Cards for 6 options (day tours, classes, hostel events, women-only groups, apps, volunteering; meta = cost · group size · vibe), a checklist of safety rules for meeting someone new (public place, own transport home, share your plan, first-date-style rules), and a quote with an opening line for a group chat or event.",
+   "shape": "cards, checklist, quote",
+   "button": "Find my people",
+   "loading": "Saying hello…"
+  },
+  {
+   "id": "checkin",
+   "title": "Check-in system",
+   "subtitle": "Keep home informed, not worried",
+   "emoji": "📲",
+   "inputs": [
+    {
+     "key": "plan",
+     "label": "Rough itinerary",
+     "type": "longtext",
+     "placeholder": "Mon Bangkok, Tue–Thu Koh Tao (diving), Fri overnight bus…",
+     "required": true
+    },
+    {
+     "key": "freq",
+     "label": "Check in",
+     "type": "chips",
+     "options": [
+      "Daily",
+      "Every other day",
+      "At each move"
+     ],
+     "default": "Daily"
+    }
+   ],
+   "prompt": "Build a check-in plan from: {plan}, checking in {freq} with the profile's emergency contact. Table (Date | Where | Check-in time | If no word by | What the contact should do), a quote with the message to send the contact explaining the system, a checklist of things to share before leaving (passport copy, insurance, embassy number, live location), and a callout on keeping it from becoming anxiety for either side.",
+   "shape": "table, quote, checklist, callout",
+   "button": "Set it up",
+   "loading": "Sharing location…"
+  }
+ ],
+ "disclaimer": "Safety advice is general and no plan removes all risk; trust your instincts and contact local emergency services if you feel threatened."
+}

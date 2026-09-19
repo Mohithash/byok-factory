@@ -1,0 +1,192 @@
+{
+ "id": "kin_trip",
+ "name": "Kin Trip",
+ "tagline": "Multigenerational trips that keep everyone happy",
+ "category": "Travel & Local",
+ "colors": [
+  "#6D4C41",
+  "#FF8A65",
+  "#9CCC65"
+ ],
+ "icon": "heart",
+ "about": "Kin Trip plans holidays for grandparents, parents and kids together: itineraries paced for every age, stays that work for mobility and naps, fair cost-splitting, group messages that get replies, and ways to defuse family friction.",
+ "persona": "You are a diplomatic family-holiday planner: attentive to mobility and energy, tactful about money, and convinced the trip succeeds when nobody is stuck doing everything.",
+ "onboarding": {
+  "title": "Who's coming along?",
+  "subtitle": "Ages and needs shape the pace and the plan.",
+  "bullets": [
+   "Plans paced for ages 2 to 82",
+   "Stays that fit mobility and naps",
+   "Fair money and fewer squabbles"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "group",
+   "label": "Who's coming",
+   "type": "text",
+   "placeholder": "grandparents in their 70s, us, kids 5 and 9"
+  },
+  {
+   "key": "mobility",
+   "label": "Mobility needs",
+   "type": "chips",
+   "options": [
+    "None",
+    "Slower walker",
+    "Uses a cane or walker",
+    "Wheelchair"
+   ],
+   "multi": true
+  },
+  {
+   "key": "split",
+   "label": "Money style",
+   "type": "chips",
+   "options": [
+    "Everyone pays their own",
+    "Grandparents treating",
+    "Split evenly",
+    "Not agreed yet"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "plan",
+   "title": "Plan for every age",
+   "subtitle": "One trip, split when needed",
+   "emoji": "🧭",
+   "inputs": [
+    {
+     "key": "dest",
+     "label": "Destination",
+     "type": "text",
+     "placeholder": "Tuscany",
+     "required": true
+    },
+    {
+     "key": "days",
+     "label": "Days",
+     "type": "number",
+     "placeholder": "7"
+    },
+    {
+     "key": "wishes",
+     "label": "Each generation's must-do",
+     "type": "text",
+     "placeholder": "grandpa: vineyard; kids: pool; us: one date night"
+    }
+   ],
+   "prompt": "Plan {days} days in {dest} for the profile's group with wishes: {wishes}. Table (Day | Together | Split option | Rest slot | Dinner), cards for 5 activities that work for every age (meta = walking level · duration · cost), bullets on where the group should deliberately split up, and a callout on the day to keep flexible.",
+   "shape": "table, cards, bullets, callout",
+   "button": "Plan it",
+   "loading": "Herding the family…"
+  },
+  {
+   "id": "stay",
+   "title": "Is this stay right?",
+   "subtitle": "Stairs, bedrooms, quiet corners",
+   "emoji": "🏠",
+   "inputs": [
+    {
+     "key": "listing",
+     "label": "Paste the listing",
+     "type": "longtext",
+     "placeholder": "Villa, 4 bedrooms, pool, 20 steps to the entrance…",
+     "required": true
+    }
+   ],
+   "prompt": "Assess this stay for the profile's group: {listing}. Table (Need | Met? | Concern | Question to ask), a checklist of 8 things to confirm before booking (ground-floor bedroom, step-free access, pool fencing, cots, walk-in shower, separate lounges, wifi, parking), a quote with a message to the host, and a callout on deal-breakers for the mobility needs listed.",
+   "shape": "table, checklist, quote, callout",
+   "button": "Assess",
+   "loading": "Counting stairs…"
+  },
+  {
+   "id": "money",
+   "title": "Split the costs fairly",
+   "subtitle": "Who pays for what, agreed up front",
+   "emoji": "💶",
+   "inputs": [
+    {
+     "key": "total",
+     "label": "Estimated total cost",
+     "type": "number",
+     "placeholder": "6000"
+    },
+    {
+     "key": "shares",
+     "label": "Who's in",
+     "type": "text",
+     "placeholder": "2 grandparents, 2 adults, 2 kids"
+    },
+    {
+     "key": "notes",
+     "label": "Sensitivities",
+     "type": "text",
+     "placeholder": "grandparents insist on paying for the villa"
+    }
+   ],
+   "prompt": "Propose a fair cost plan for a trip costing {total} with {shares}, notes: {notes}, respecting the profile's money style. Table (Cost line | Who pays | Amount | Why it's fair), a kv summarising each household's share, a quote with a tactful message proposing the split, and a callout on the money conversations to have before booking, not after.",
+   "shape": "table, kv, quote, callout",
+   "button": "Propose split",
+   "loading": "Doing the maths…"
+  },
+  {
+   "id": "message",
+   "title": "Rally the group chat",
+   "subtitle": "Messages that get answers",
+   "emoji": "💬",
+   "inputs": [
+    {
+     "key": "goal",
+     "label": "You need to",
+     "type": "chips",
+     "options": [
+      "Agree on dates",
+      "Confirm the booking",
+      "Collect passport details",
+      "Set expectations on pace",
+      "Chase a decision"
+     ],
+     "default": "Agree on dates"
+    },
+    {
+     "key": "context",
+     "label": "Context",
+     "type": "text",
+     "placeholder": "aunt keeps changing her mind"
+    }
+   ],
+   "prompt": "Write for the family group chat, goal: {goal}, context: {context}. Quote with a short, warm message that asks one clear question with a deadline, plus a follow-up line for if nobody answers; bullets on how to make deciding easy (two options, a poll, a default); and a callout on the one thing not to say.",
+   "shape": "quote, bullets, callout",
+   "button": "Write it",
+   "loading": "Typing…"
+  },
+  {
+   "id": "friction",
+   "title": "Keep the peace",
+   "subtitle": "When the family dynamic flares",
+   "emoji": "🕊️",
+   "inputs": [
+    {
+     "key": "issue",
+     "label": "What's brewing",
+     "type": "text",
+     "placeholder": "grandma criticises how we parent; teen wants to stay in",
+     "required": true
+    }
+   ],
+   "prompt": "Handle this on the trip: {issue}. Steps for defusing it today, bullets on structural fixes (separate mornings, assigned roles, a kid-free evening), a quote with a kind sentence for each person involved, and a callout on what to let go until you're home.",
+   "shape": "steps, bullets, quote, callout",
+   "button": "Advise",
+   "loading": "Mediating…"
+  }
+ ],
+ "disclaimer": "General planning advice, not financial or medical advice; confirm accessibility directly with venues and ask a doctor about travelling with health conditions."
+}

@@ -11,7 +11,7 @@ WHAT'S INSIDE
 • Morning routine — Backward from leave time
 • Bedtime routine — Wind-down that ends on time
 • After-school reset — Snack, decompress, then the rest
-• Routine chart — Printable, kid-owned
+• Caregiver handover — Sitter, grandparents, other house
 • We're always late — Diagnose the bottleneck
 
 BRING YOUR OWN KEY
@@ -23,7 +23,7 @@ Every answer is a structured, shareable document with follow-up questions, saved
 - 🌅 **Morning routine** — Backward from leave time
 - 🌙 **Bedtime routine** — Wind-down that ends on time
 - 🎒 **After-school reset** — Snack, decompress, then the rest
-- 📋 **Routine chart** — Printable, kid-owned
+- 🗒️ **Caregiver handover** — Sitter, grandparents, other house
 - ⏰ **We're always late** — Diagnose the bottleneck
 
 ## Privacy policy

@@ -1,0 +1,227 @@
+{
+ "id": "fairway_fix",
+ "name": "Fairway Fix",
+ "tagline": "Fix the ball flight, play the smart shot, score lower",
+ "category": "Sports",
+ "colors": [
+  "#2E7D32",
+  "#FDD835",
+  "#795548"
+ ],
+ "icon": "pin",
+ "about": "Fairway Fix diagnoses swing faults from your ball flight, builds a club-distance chart, plans strategy hole by hole, fixes chipping and putting, and turns range time into practice that actually lowers your handicap.",
+ "persona": "You are a teaching pro: ball-flight first, one swing thought at a time, more interested in course management and the short game than in a pretty swing.",
+ "onboarding": {
+  "title": "Let's lower that number",
+  "subtitle": "Your handicap and usual miss shape every fix.",
+  "bullets": [
+   "Swing fixes from your ball flight",
+   "Hole-by-hole strategy",
+   "Short game and putting plans"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "handicap",
+   "label": "Handicap / typical score",
+   "type": "text",
+   "placeholder": "18, shoot mid-90s"
+  },
+  {
+   "key": "miss",
+   "label": "Usual miss",
+   "type": "chips",
+   "options": [
+    "Slice",
+    "Hook",
+    "Fat",
+    "Thin",
+    "Push",
+    "Pull",
+    "Inconsistent"
+   ]
+  },
+  {
+   "key": "hand",
+   "label": "Plays",
+   "type": "chips",
+   "options": [
+    "Right-handed",
+    "Left-handed"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "flight",
+   "title": "Fix my ball flight",
+   "subtitle": "Club + flight → cause and drill",
+   "emoji": "⛳",
+   "inputs": [
+    {
+     "key": "club",
+     "label": "Club",
+     "type": "chips",
+     "options": [
+      "Driver",
+      "Fairway wood / hybrid",
+      "Long iron",
+      "Mid iron",
+      "Short iron / wedge"
+     ],
+     "default": "Driver"
+    },
+    {
+     "key": "flight",
+     "label": "Ball flight",
+     "type": "chips",
+     "options": [
+      "Slice",
+      "Hook",
+      "Push",
+      "Pull",
+      "Fat",
+      "Thin / topped",
+      "Sky",
+      "Low and weak"
+     ],
+     "default": "Slice"
+    },
+    {
+     "key": "photo",
+     "label": "Photo at address or top of swing (optional)",
+     "type": "photo"
+    }
+   ],
+   "prompt": "Diagnose a {flight} with the {club} from the photo (if attached) for the profile handedness and usual miss. Sections: text on the likely face-and-path cause in 2 sentences, a table (Possible cause | How to check | Fix | Drill), steps for one range drill with ball counts, and a quote with a single swing thought for the next round.",
+   "shape": "text, table, steps, quote",
+   "button": "Diagnose",
+   "loading": "Reading the divot…"
+  },
+  {
+   "id": "yardage",
+   "title": "Club distance chart",
+   "subtitle": "Carries, gaps, partial wedges",
+   "emoji": "📏",
+   "inputs": [
+    {
+     "key": "shots",
+     "label": "Your carry distances or recent shots",
+     "type": "longtext",
+     "placeholder": "driver 220, 7i 145, PW 110, SW 80…",
+     "required": true
+    }
+   ],
+   "prompt": "Build a yardage chart from: {shots}, filling gaps sensibly for the profile handicap. Sections: a table (Club | Carry | Total | Gap to next | Note), bullets flagging gaps or overlaps in the set, kv (three-quarter and knock-down yardages for the wedges), and a callout on measuring properly (launch monitor or marked range, 10-shot average, ignore the best one).",
+   "shape": "table, bullets, kv, callout",
+   "button": "Build chart",
+   "loading": "Pacing it off…"
+  },
+  {
+   "id": "hole",
+   "title": "Play this hole",
+   "subtitle": "Shot-by-shot strategy",
+   "emoji": "🧭",
+   "inputs": [
+    {
+     "key": "hole",
+     "label": "Hole description",
+     "type": "text",
+     "placeholder": "par 4, 380 yds, water left of fairway at 240, bunkers right of green",
+     "required": true
+    },
+    {
+     "key": "wind",
+     "label": "Wind",
+     "type": "chips",
+     "options": [
+      "Calm",
+      "Into",
+      "Downwind",
+      "Left-to-right",
+      "Right-to-left"
+     ],
+     "default": "Calm"
+    }
+   ],
+   "prompt": "Plan this hole: {hole}, with wind '{wind}', for the profile handicap and usual miss. Sections: steps shot by shot (club, target, miss side to favour), a table (Option | Risk | Reward | Choose if…), bullets on where a bogey is fine and where to stay away from, and a quote with the pre-shot commitment sentence.",
+   "shape": "steps, table, bullets, quote",
+   "button": "Plan hole",
+   "loading": "Reading the wind…"
+  },
+  {
+   "id": "short",
+   "title": "Short game & putting",
+   "subtitle": "Chips, pitches, bunkers, putts",
+   "emoji": "🕳️",
+   "inputs": [
+    {
+     "key": "skill",
+     "label": "Skill",
+     "type": "chips",
+     "options": [
+      "Chipping",
+      "Pitching",
+      "Bunker",
+      "Lag putting",
+      "Short putts",
+      "Green reading"
+     ],
+     "default": "Chipping"
+    },
+    {
+     "key": "problem",
+     "label": "What goes wrong",
+     "type": "text",
+     "placeholder": "blade it across the green or duff it into the bunker"
+    }
+   ],
+   "prompt": "Coach '{skill}' with the problem: {problem}, for the profile handicap. Sections: kv (setup: ball position, weight, shaft lean, club choice), steps for a 20-minute practice game with scoring, a table (Fault | Cause | Fix), and a callout on the tour-pro technique the profile should NOT copy.",
+   "shape": "kv, steps, table, callout",
+   "button": "Coach me",
+   "loading": "Opening the face…"
+  },
+  {
+   "id": "range",
+   "title": "Range session",
+   "subtitle": "Practice that transfers to the course",
+   "emoji": "🪣",
+   "inputs": [
+    {
+     "key": "minutes",
+     "label": "Minutes",
+     "type": "chips",
+     "options": [
+      "30",
+      "45",
+      "60",
+      "90"
+     ],
+     "default": "45"
+    },
+    {
+     "key": "where",
+     "label": "Where",
+     "type": "chips",
+     "options": [
+      "Range only",
+      "Range + short-game area",
+      "Putting green only",
+      "Simulator"
+     ],
+     "default": "Range + short-game area"
+    }
+   ],
+   "prompt": "Design a {minutes}-minute practice session at '{where}' for the profile handicap and usual miss. Sections: a table (Block | Minutes | Drill | Balls | Success measure), steps for a warm-up, bullets on making it random (change club and target every shot) rather than blocked, and a callout on what to record afterwards.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Plan session",
+   "loading": "Buying a bucket…"
+  }
+ ],
+ "disclaimer": "Warm up before swinging and stop for back, wrist or elbow pain; not medical advice."
+}

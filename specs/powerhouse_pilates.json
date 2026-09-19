@@ -1,0 +1,202 @@
+{
+ "id": "powerhouse_pilates",
+ "name": "Powerhouse",
+ "tagline": "Mat Pilates built for your body and your minutes",
+ "category": "Health & Fitness",
+ "colors": [
+  "#6D9773",
+  "#D98C8C",
+  "#F0C987"
+ ],
+ "icon": "spark",
+ "about": "Powerhouse builds mat Pilates sessions for your level and kit, translates reformer classes to home, fixes form on the classical exercises and adapts safely for pregnancy, postnatal and back-care needs.",
+ "persona": "You are a classically trained Pilates instructor: precise about breath and alignment, quality over reps, with a modification for every exercise and a clear line on when to refer to a physio.",
+ "onboarding": {
+  "title": "Find your powerhouse",
+  "subtitle": "Your experience, kit and any conditions shape every session.",
+  "bullets": [
+   "Mat sessions from 10 to 45 minutes",
+   "Reformer → home translations",
+   "Form fixes and safe modifications"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "level",
+   "label": "Experience",
+   "type": "chips",
+   "options": [
+    "Never tried",
+    "Beginner",
+    "Intermediate",
+    "Advanced"
+   ]
+  },
+  {
+   "key": "kit",
+   "label": "Kit at home",
+   "type": "chips",
+   "options": [
+    "Mat only",
+    "Ball",
+    "Band",
+    "Magic circle",
+    "Foam roller",
+    "Reformer"
+   ],
+   "multi": true
+  },
+  {
+   "key": "body",
+   "label": "Conditions / limits",
+   "type": "text",
+   "placeholder": "diastasis recti, tight hip flexors"
+  }
+ ],
+ "tools": [
+  {
+   "id": "session",
+   "title": "Mat session",
+   "subtitle": "Exercises, breaths and cues",
+   "emoji": "🧘",
+   "inputs": [
+    {
+     "key": "minutes",
+     "label": "Minutes",
+     "type": "chips",
+     "options": [
+      "10",
+      "20",
+      "30",
+      "45"
+     ],
+     "default": "20"
+    },
+    {
+     "key": "focus",
+     "label": "Focus",
+     "type": "chips",
+     "options": [
+      "Core & spine",
+      "Glutes & hips",
+      "Posture & back care",
+      "Full body flow",
+      "Flexibility"
+     ],
+     "default": "Core & spine"
+    }
+   ],
+   "prompt": "Design a {minutes}-minute mat Pilates session on '{focus}' for the profile level, kit and limits. Sections: steps (exercise · reps or breaths · breath cue), a table (Exercise | Muscles | Modification | Progression), a callout on the exercises to skip or modify given the profile limits, and a quote with the principle for the day (e.g. 'imprint before you lift').",
+   "shape": "steps, table, callout, quote",
+   "button": "Build session",
+   "loading": "Finding neutral…"
+  },
+  {
+   "id": "translate",
+   "title": "Reformer → mat",
+   "subtitle": "Recreate class at home",
+   "emoji": "🔁",
+   "inputs": [
+    {
+     "key": "class",
+     "label": "Exercises from class",
+     "type": "longtext",
+     "placeholder": "footwork, hundred, short spine, elephant, knee stretches…",
+     "required": true
+    }
+   ],
+   "prompt": "Translate these reformer exercises to home using the profile kit: {class}. Sections: a table (Reformer exercise | Home version | Kit needed | What changes), steps for the 3 hardest to replicate, and bullets on what a reformer gives that a mat cannot and how to compensate.",
+   "shape": "table, steps, bullets",
+   "button": "Translate",
+   "loading": "Unhooking springs…"
+  },
+  {
+   "id": "form",
+   "title": "Fix an exercise",
+   "subtitle": "Photo or description → cues",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo mid-exercise (optional)",
+     "type": "photo"
+    },
+    {
+     "key": "exercise",
+     "label": "Exercise",
+     "type": "chips",
+     "options": [
+      "The Hundred",
+      "Roll Up",
+      "Single Leg Circle",
+      "Rolling Like a Ball",
+      "Teaser",
+      "Swan",
+      "Side Kick series",
+      "Leg Pull / Plank"
+     ],
+     "default": "The Hundred"
+    },
+    {
+     "key": "issue",
+     "label": "What's happening",
+     "type": "text",
+     "placeholder": "neck aches, lower back arches"
+    }
+   ],
+   "prompt": "Coach {exercise} from the photo (if attached) and this description (if given): {issue}, for the profile level and limits. Sections: bullets of the likely causes ranked, steps for a regression that fixes the fault and then a rebuild to the full exercise, kv (breath pattern, pelvis position, ribs, gaze), and a callout on when neck or back pain means stop.",
+   "shape": "bullets, steps, kv, callout",
+   "button": "Coach me",
+   "loading": "Checking alignment…"
+  },
+  {
+   "id": "adapt",
+   "title": "Pregnancy, postnatal, back",
+   "subtitle": "Safe adaptations for your stage",
+   "emoji": "🤱",
+   "inputs": [
+    {
+     "key": "stage",
+     "label": "Situation",
+     "type": "chips",
+     "options": [
+      "Pregnant 1st trimester",
+      "Pregnant 2nd/3rd trimester",
+      "Postnatal 0–12 weeks",
+      "Postnatal 3–12 months",
+      "Lower-back pain history",
+      "Osteoporosis"
+     ],
+     "default": "Postnatal 3–12 months"
+    },
+    {
+     "key": "cleared",
+     "label": "What your clinician said",
+     "type": "text",
+     "placeholder": "cleared at 6-week check, avoid crunches"
+    }
+   ],
+   "prompt": "Adapt Pilates for '{stage}' given the clinician note: {cleared}. Sections: a callout first on the non-negotiable avoids for this stage, a checklist of safe foundational exercises to start with, a table (Classical exercise | Safe now? | Swap), steps for a 12-minute gentle routine, and bullets on signs (coning, leaking, pain) that mean regress and consult.",
+   "shape": "callout, checklist, table, steps, bullets",
+   "button": "Adapt",
+   "loading": "Gently…"
+  },
+  {
+   "id": "month",
+   "title": "4-week progression",
+   "subtitle": "Three sessions a week, from the profile",
+   "emoji": "📅",
+   "inputs": [],
+   "prompt": "Write a 4-week home Pilates progression for the profile level, kit and limits at 3 sessions a week. Sections: a table (Week | Session A | Session B | Session C | Minutes), bullets on what should feel different by week 4, steps for a self-test to run in week 1 and again in week 4 (roll-up quality, plank hold, single-leg stand), and a callout on rest and normal soreness versus pain.",
+   "shape": "table, bullets, steps, callout",
+   "button": "Plan month",
+   "loading": "Sequencing…"
+  }
+ ],
+ "disclaimer": "Not medical advice. Get clearance from your doctor or physio before exercising if you are pregnant, postnatal or have a back, pelvic-floor or bone condition, and stop for any pain."
+}

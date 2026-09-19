@@ -1,0 +1,194 @@
+{
+ "id": "overlap_hours",
+ "name": "Overlap Hours",
+ "tagline": "Meeting times that are fair to every time zone",
+ "category": "Productivity",
+ "colors": [
+  "#00695C",
+  "#FF7043",
+  "#3949AB"
+ ],
+ "icon": "clock",
+ "about": "Overlap Hours finds the shared working windows for a team spread across time zones, rotates recurring meetings so the pain moves around, and writes invites that show the time in everyone's zone.",
+ "persona": "You are a scheduling coordinator for distributed teams: you compute times carefully, show your working, and treat 7am and 9pm slots as costs to share, not to dump on the same people.",
+ "onboarding": {
+  "title": "Find the hours you share",
+  "subtitle": "Tell us where you and your teammates sit; we'll do the clock maths.",
+  "bullets": [
+   "Overlap windows in one table",
+   "Fair rotations for recurring calls",
+   "Invites with every zone listed"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "home",
+   "label": "Your city / time zone",
+   "type": "text",
+   "placeholder": "Lisbon (WET)"
+  },
+  {
+   "key": "hours",
+   "label": "Your working hours",
+   "type": "text",
+   "placeholder": "09:00–17:30"
+  },
+  {
+   "key": "teammates",
+   "label": "Teammates & cities",
+   "type": "longtext",
+   "placeholder": "Ana — São Paulo; Wei — Singapore; Tom — Denver"
+  }
+ ],
+ "tools": [
+  {
+   "id": "overlap",
+   "title": "Find our overlap",
+   "subtitle": "Shared windows for a set of people",
+   "emoji": "🕒",
+   "inputs": [
+    {
+     "key": "people",
+     "label": "Who needs to meet",
+     "type": "longtext",
+     "placeholder": "me, Ana (São Paulo), Wei (Singapore)",
+     "required": true
+    },
+    {
+     "key": "window",
+     "label": "Acceptable hours",
+     "type": "chips",
+     "options": [
+      "Strict 9–5",
+      "8–6",
+      "7am–9pm if needed"
+     ],
+     "default": "8–6"
+    },
+    {
+     "key": "minutes",
+     "label": "Meeting length (min)",
+     "type": "number",
+     "placeholder": "45"
+    }
+   ],
+   "prompt": "Compute the shared windows for {people} (use the profile teammates' cities where a name has none), allowing each person hours of '{window}' in their local time, for a {minutes}-minute meeting. Produce a table (Slot in UTC | Each person's local time | Who is stretched) sorted best first with at most 6 rows, a text section naming the single best slot and the runner-up with reasoning, a callout on any daylight-saving change in the next 8 weeks that shifts the answer (state the date you assume as today), and bullets of async alternatives if no slot fits everyone.",
+   "shape": "table, text, callout, bullets",
+   "button": "Find slots",
+   "loading": "Spinning the globe…"
+  },
+  {
+   "id": "rotate",
+   "title": "Rotate the pain",
+   "subtitle": "Fair schedule for a recurring meeting",
+   "emoji": "🔁",
+   "inputs": [
+    {
+     "key": "meeting",
+     "label": "Recurring meeting",
+     "type": "text",
+     "placeholder": "weekly team sync, 30 min",
+     "required": true
+    },
+    {
+     "key": "cadence",
+     "label": "Cadence",
+     "type": "chips",
+     "options": [
+      "Weekly",
+      "Fortnightly",
+      "Monthly"
+     ],
+     "default": "Weekly"
+    },
+    {
+     "key": "weeks",
+     "label": "Occurrences to plan",
+     "type": "number",
+     "placeholder": "8"
+    }
+   ],
+   "prompt": "Design a rotation for '{meeting}' held {cadence} across the profile's teammates for the next {weeks} occurrences, so early and late slots are shared evenly. Output a table (Occurrence | Date guess | UTC time | Who takes the early/late hit), a kv of the fairness tally (off-hours slots per person), steps for announcing and running the rotation, and a callout on giving people permission to skip and read notes instead.",
+   "shape": "table, kv, steps, callout",
+   "button": "Build rotation",
+   "loading": "Sharing the load…"
+  },
+  {
+   "id": "invite",
+   "title": "Write the invite",
+   "subtitle": "One time, every zone, an async path",
+   "emoji": "✉️",
+   "inputs": [
+    {
+     "key": "when",
+     "label": "Proposed time",
+     "type": "text",
+     "placeholder": "Tue 14:00 UTC",
+     "required": true
+    },
+    {
+     "key": "what",
+     "label": "Meeting purpose",
+     "type": "text",
+     "placeholder": "kick off the pricing project"
+    },
+    {
+     "key": "attendees",
+     "label": "Attendees",
+     "type": "text",
+     "placeholder": "Ana, Wei, Tom, me"
+    }
+   ],
+   "prompt": "Write a calendar invite for '{what}' at {when} for {attendees}. Sections: a table (Person | City | Local time | Day) covering every attendee using the profile cities where known, a quote with the invite body (purpose, 3-item agenda, pre-read, what to do if you can't attend), bullets of 3 things to attach or link before sending, and a callout flagging anyone landing outside 8am–7pm local.",
+   "shape": "table, quote, bullets, callout",
+   "button": "Write invite",
+   "loading": "Converting clocks…"
+  },
+  {
+   "id": "travel",
+   "title": "I'm changing zones",
+   "subtitle": "Shift my hours while travelling",
+   "emoji": "✈️",
+   "inputs": [
+    {
+     "key": "to",
+     "label": "Where you'll be",
+     "type": "text",
+     "placeholder": "Bali, 3 weeks from 4 Oct",
+     "required": true
+    },
+    {
+     "key": "priority",
+     "label": "Priority",
+     "type": "chips",
+     "options": [
+      "Keep team overlap",
+      "Keep my sleep",
+      "Balance"
+     ],
+     "default": "Balance"
+    }
+   ],
+   "prompt": "The user is moving from the profile home zone to {to} with priority '{priority}'. Produce a kv (time difference, new local working window, overlap hours with the profile teammates, overlap lost vs. today), a table (Recurring commitment | Old local time | New local time | Keep / Move / Async), steps for shifting sleep and start time over the first 4 days, and a quote with a message to the team explaining the new availability.",
+   "shape": "kv, table, steps, quote",
+   "button": "Shift me",
+   "loading": "Resetting clocks…"
+  },
+  {
+   "id": "dst",
+   "title": "Daylight-saving watch",
+   "subtitle": "Who moves when, in the next 3 months",
+   "emoji": "🌗",
+   "inputs": [],
+   "prompt": "For the profile home zone and every profile teammate, list daylight-saving transitions in the next 3 months (state the date you assume as today) as a table (Place | Date | Direction | Effect on overlap with me), a bullets section of recurring meetings likely to break and what to reschedule, and a callout with a two-line heads-up message to post in the team channel a week before each change.",
+   "shape": "table, bullets, callout",
+   "button": "Check",
+   "loading": "Checking clocks…"
+  }
+ ]
+}

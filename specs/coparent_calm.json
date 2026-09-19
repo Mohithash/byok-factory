@@ -77,7 +77,7 @@
      "default": "A change in behaviour"
     }
    ],
-   "prompt": "Rewrite this message so it is brief, informative, friendly and firm, goal: {goal}: {draft}. Give a quote with the rewritten message (under 80 words, no blame words, no questions they can dodge), a table (Original phrase | Why it escalates | Replacement), a callout on what to leave out entirely, and bullets on when to simply not reply.",
+   "prompt": "Rewrite this message so it is brief, informative, friendly and firm. Goal: {goal}. Draft: {draft}. Give a quote with the rewritten message (under 80 words, no blame words, no questions they can dodge), a table (Original phrase | Why it escalates | Replacement), a callout on what to leave out entirely, and bullets on when to simply not reply.",
    "shape": "quote, table, callout, bullets",
    "button": "Rewrite",
    "loading": "Cooling it down…"

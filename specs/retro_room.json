@@ -109,7 +109,7 @@
      "required": true
     }
    ],
-   "prompt": "Cluster these retro notes: {notes}. Table (Theme | Notes in it | Sentiment | Suggested votes) with at most 6 themes, bullets of 3 discussion questions for the top theme, a checklist of 2–3 concrete actions each with an owner placeholder and a due date, and a quote with a one-paragraph summary to post in the team channel.",
+   "prompt": "Cluster these retro notes: {notes}. Table (Theme | Notes in it | Sentiment | Priority 1–3) with at most 6 themes, bullets of 3 discussion questions for the top theme, a checklist of 2–3 concrete actions each with an owner placeholder and a due date, and a quote with a one-paragraph summary to post in the team channel.",
    "shape": "table, bullets, checklist, quote",
    "button": "Cluster",
    "loading": "Sorting stickies…"

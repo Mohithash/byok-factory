@@ -1,6 +1,6 @@
 {
  "id": "school_ready",
- "name": "School Ready",
+ "name": "First Bell",
  "tagline": "Confident on day one of school, no flashcards",
  "category": "Parenting",
  "colors": [
@@ -9,11 +9,11 @@
   "#43A047"
  ],
  "icon": "hat",
- "about": "School Ready prepares 3–5-year-olds for nursery, preschool or their first year of school: the skills that actually matter (self-care, listening, turn-taking, early letters and numbers), a countdown plan, separation-anxiety scripts and a first-week routine for the whole family.",
+ "about": "First Bell prepares 4–5-year-olds for their first year of school (Reception, Pre-K or Kindergarten): the skills that actually matter (self-care, listening, turn-taking, early letters and numbers), a countdown plan, separation-anxiety scripts and a first-week routine for the whole family.",
  "persona": "You are an early-years teacher who has welcomed hundreds of new starters: calm, practical, and clear that independence and confidence beat academics at this age.",
  "onboarding": {
   "title": "Ready for the big day",
-  "subtitle": "Tell us the start date and what they can do already.",
+  "subtitle": "Tell us the school start date and what they can do already.",
   "bullets": [
    "Skills that actually matter",
    "Countdown plan to the first day",
@@ -82,7 +82,7 @@
      "placeholder": "zips, sitting for a story, name recognition"
     }
    ],
-   "prompt": "Build a {weeks}-week countdown plan for the profile child focusing on: {gaps}. Sections: a table (Week | Focus skill | Daily 5-minute game | Weekend outing or visit), steps for the final week (uniform tries, route walk, earlier bedtimes), a checklist of things to buy or label, and a callout on visiting the setting and meeting the teacher.",
+   "prompt": "Build a {weeks}-week (count from the profile start date if blank) countdown plan for the profile child focusing on: {gaps} (or the profile worry if blank). Sections: a table (Week | Focus skill | Daily 5-minute game | Weekend outing or visit), steps for the final week (uniform tries, route walk, earlier bedtimes), a checklist of things to buy or label, and a callout on visiting the setting and meeting the teacher.",
    "shape": "table, steps, checklist, callout",
    "button": "Plan",
    "loading": "Counting down…"
@@ -140,7 +140,7 @@
      "placeholder": "10"
     }
    ],
-   "prompt": "Teach '{skill}' to the profile child in {days} days. Sections: steps broken into the smallest teachable parts with a rhyme or cue for each, a table (Day | Practice moment | Parent does | Child does), bullets on common blockers for the profile temperament, and a quote with the praise line that names the effort.",
+   "prompt": "Teach '{skill}' to the profile child in {days} days (10 if blank). Sections: steps broken into the smallest teachable parts with a rhyme or cue for each, a table (Day | Practice moment | Parent does | Child does), bullets on common blockers for the profile temperament, and a quote with the praise line that names the effort.",
    "shape": "steps, table, bullets, quote",
    "button": "Teach",
    "loading": "Practising…"
@@ -165,7 +165,7 @@
      "placeholder": "after-school club Tuesdays, baby sibling"
     }
    ],
-   "prompt": "Design a first-week routine for the profile family given: {hours} and {notes}. Sections: a table (Time | Weekday routine | Who does what), a checklist for the night-before bag and the morning, bullets on after-school restraint collapse (snacks, quiet, no questions yet), and a callout on the profile's biggest worry with a fallback plan.",
+   "prompt": "Design a first-week routine for the profile family given: {hours} and {notes} (if any). Sections: a table (Time | Weekday routine | Who does what), a checklist for the night-before bag and the morning, bullets on after-school restraint collapse (snacks, quiet, no questions yet), and a callout on the profile's biggest worry with a fallback plan.",
    "shape": "table, checklist, bullets, callout",
    "button": "Plan week",
    "loading": "Packing bags…"

@@ -5,13 +5,13 @@
 **Short description (≤80):** Your number, your date, and the levers that move it
 
 ## Full description
-FIRE Path calculates your financial-independence number and date, models lean, coast and barista variants, stress-tests your withdrawal rate and shows exactly which lever shortens the wait.
+FIRE Path calculates your financial-independence number and date, models lean, coast and barista variants, stress-tests a 40–60 year retirement and shows exactly which lever shortens the wait.
 
 WHAT'S INSIDE
 • My FI number — How much, and when
 • Pull a lever — What one change does to the date
 • Lean, coast or barista? — Four paths to the same freedom
-• Stress test my plan — Bad first years, inflation, long life
+• Stress test my plan — 50 years, bad starts, pension gap
 • One more year? — Hesitating at the finish line
 
 BRING YOUR OWN KEY
@@ -23,7 +23,7 @@ Every answer is a structured, shareable document with follow-up questions, saved
 - 🎯 **My FI number** — How much, and when
 - 🎚️ **Pull a lever** — What one change does to the date
 - 🛤️ **Lean, coast or barista?** — Four paths to the same freedom
-- 🌩️ **Stress test my plan** — Bad first years, inflation, long life
+- 🌩️ **Stress test my plan** — 50 years, bad starts, pension gap
 - 🚪 **One more year?** — Hesitating at the finish line
 
 ## Privacy policy

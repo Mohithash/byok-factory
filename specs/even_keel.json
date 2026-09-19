@@ -1,0 +1,191 @@
+{
+ "id": "even_keel",
+ "name": "Even Keel",
+ "tagline": "Pay yourself a steady salary from lumpy freelance income",
+ "category": "Finance",
+ "colors": [
+  "#00695C",
+  "#FFA000",
+  "#5C6BC0"
+ ],
+ "icon": "graph",
+ "about": "Even Keel turns feast-and-famine freelance income into a steady monthly salary: a buffer target, tax and holiday pots, pre-funded time off, a lean-month cash plan and a monthly review that fits on one screen.",
+ "persona": "You are a freelancer's financial operations partner: unflappable, pot-based, and honest that the buffer is the product.",
+ "onboarding": {
+  "title": "Smooth the lumps",
+  "subtitle": "Your income pattern and fixed costs shape the salary you can pay yourself.",
+  "bullets": [
+   "A monthly salary you can rely on",
+   "Tax, holiday and buffer pots",
+   "Lean-month cash plans before the panic"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "work",
+   "label": "What you do",
+   "type": "text",
+   "placeholder": "freelance illustrator"
+  },
+  {
+   "key": "costs",
+   "label": "Personal monthly costs",
+   "type": "number",
+   "placeholder": "2100"
+  },
+  {
+   "key": "currency",
+   "label": "Currency",
+   "type": "text",
+   "placeholder": "EUR"
+  }
+ ],
+ "tools": [
+  {
+   "id": "salary",
+   "title": "Pay myself a salary",
+   "subtitle": "From the last 6–12 months",
+   "emoji": "💶",
+   "inputs": [
+    {
+     "key": "months",
+     "label": "Income by month, last 6–12 months",
+     "type": "longtext",
+     "placeholder": "Jan 1200, Feb 4800, Mar 900, Apr 3100…",
+     "required": true
+    },
+    {
+     "key": "buffer",
+     "label": "Business buffer now",
+     "type": "number",
+     "placeholder": "3500"
+    }
+   ],
+   "prompt": "Monthly income history: {months}; buffer {buffer}; personal costs from the profile. Sections: kv (average monthly income, worst 3-month average, recommended monthly salary, buffer target in months of costs, months to reach it); table (Month | Income | Salary paid | To tax pot | To buffer | Buffer balance) replaying the history with the recommended salary to show whether it would have held; a callout with the rule for when to raise the salary and when to cut it; bullets on keeping business and personal accounts separate.",
+   "shape": "kv, table, callout, bullets",
+   "button": "Set my salary",
+   "loading": "Smoothing…"
+  },
+  {
+   "id": "pots",
+   "title": "Set up my pots",
+   "subtitle": "Tax, holiday, sick, pension",
+   "emoji": "🫙",
+   "inputs": [
+    {
+     "key": "rate",
+     "label": "Rough tax + contributions rate %",
+     "type": "number",
+     "placeholder": "28"
+    },
+    {
+     "key": "holiday",
+     "label": "Paid weeks off per year",
+     "type": "chips",
+     "options": [
+      "2",
+      "4",
+      "6",
+      "8"
+     ],
+     "default": "4"
+    },
+    {
+     "key": "pension",
+     "label": "Pension saving",
+     "type": "chips",
+     "options": [
+      "None yet",
+      "5% of income",
+      "10% of income",
+      "15%+"
+     ],
+     "default": "5% of income"
+    }
+   ],
+   "prompt": "Design pots with an estimated tax rate of {rate}%, {holiday} weeks of holiday per year, pension {pension}. Sections: table (Pot | % of every payment | Purpose | Minimum balance | When you touch it); steps for the day an invoice is paid (the split order); kv (worked example of a 2000 payment split across the pots); a callout that the tax percentage is a planning estimate to confirm with an accountant or official calculator, and on separate-account habits.",
+   "shape": "table, steps, kv, callout",
+   "button": "Build the pots",
+   "loading": "Labelling jars…"
+  },
+  {
+   "id": "timeoff",
+   "title": "Take time off",
+   "subtitle": "Pre-fund a holiday or a break",
+   "emoji": "🏝️",
+   "inputs": [
+    {
+     "key": "weeks",
+     "label": "Weeks off",
+     "type": "number",
+     "placeholder": "3"
+    },
+    {
+     "key": "when",
+     "label": "When",
+     "type": "text",
+     "placeholder": "August"
+    },
+    {
+     "key": "pot",
+     "label": "Holiday pot now",
+     "type": "number",
+     "placeholder": "600"
+    }
+   ],
+   "prompt": "Plan {weeks} weeks off in {when} with {pot} already in the holiday pot, using the profile's costs and work. Sections: kv (cost of the break in lost income plus living costs, amount to add per month between now and then, client-notice date, minimum work to line up for the return); table (Month | Extra to save | Pot balance); a quote with a client notice message that protects the booking; a callout on sick-pay gaps for freelancers and income-protection insurance as something to price, in general terms.",
+   "shape": "kv, table, quote, callout",
+   "button": "Fund the break",
+   "loading": "Packing…"
+  },
+  {
+   "id": "lean",
+   "title": "Lean-month mode",
+   "subtitle": "The pipeline dried up",
+   "emoji": "🌵",
+   "inputs": [
+    {
+     "key": "cash",
+     "label": "Cash across all pots",
+     "type": "number",
+     "placeholder": "2800"
+    },
+    {
+     "key": "pipeline",
+     "label": "What's in the pipeline",
+     "type": "text",
+     "placeholder": "one 1500 invoice due in 3 weeks, a maybe-project in May"
+    }
+   ],
+   "prompt": "Cash {cash}, pipeline: {pipeline}, monthly costs from the profile. Sections: kv (weeks of runway, the date to trigger emergency mode, minimum income needed this month); table (Pot | Draw from it? | Order | Repay rule) deciding which pots to raid and in what order; steps for cutting costs in order of least pain; a callout on what not to do (undercut long-term rates, borrow at high cost, raid the tax pot without a repayment date).",
+   "shape": "kv, table, steps, callout",
+   "button": "Make a plan",
+   "loading": "Rationing…"
+  },
+  {
+   "id": "review",
+   "title": "Monthly review",
+   "subtitle": "Numbers, late invoices, one decision",
+   "emoji": "📊",
+   "inputs": [
+    {
+     "key": "numbers",
+     "label": "This month's numbers",
+     "type": "longtext",
+     "placeholder": "invoiced 3400, paid 2100, spent 2300, late invoices: 1800 from Acme",
+     "required": true
+    }
+   ],
+   "prompt": "Review: {numbers} against the profile's costs. Sections: kv (paid vs invoiced, salary covered?, buffer change, late total); bullets of 3 wins and 3 risks; table (Late invoice | Days late | Next action | Date); a callout with the single decision for next month.",
+   "shape": "kv, bullets, table, callout",
+   "button": "Review",
+   "loading": "Reading the month…"
+  }
+ ],
+ "disclaimer": "General information, not financial, tax or legal advice; rules, thresholds and entitlements differ by country and change — confirm with official sources or a regulated adviser before acting."
+}

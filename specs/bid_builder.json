@@ -116,7 +116,7 @@
      "placeholder": "took over 12 sites from an incumbent in 6 weeks with zero service gaps"
     }
    ],
-   "prompt": "Answer this RFP question in under {words} words: {question}, using evidence: {evidence} and the profile's strengths. Sections: a quote with the full answer (open with a direct claim, mirror the question's keywords, subheadings that match the scoring criteria), kv (Words used | Scoring criteria addressed | Evidence cited), bullets of the 3 phrases evaluators reward, and a callout on claims that need proof attached.",
+   "prompt": "Answer this RFP question in under {words} words (assume 500 if blank): {question}, using evidence: {evidence} and the profile's strengths. Sections: a quote with the full answer (open with a direct claim, mirror the question's keywords, subheadings that match the scoring criteria), kv (Words used | Scoring criteria addressed | Evidence cited), bullets of the 3 phrases evaluators reward, and a callout on claims that need proof attached.",
    "shape": "quote, kv, bullets, callout",
    "button": "Draft answer",
    "loading": "Writing for score…"

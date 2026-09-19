@@ -197,10 +197,11 @@
      "required": true
     }
    ],
-   "prompt": "Turn this into specific recognition for {who}: {what}. Quote with the exact words to say in person (behaviour, impact, why it matters to you) followed by a public version for team chat, and bullets on how to make praise feel earned rather than routine for this person.",
+   "prompt": "Turn this into specific recognition for {who}: {what}. Quote with the exact words to say in person (behaviour, impact, why it matters to you) followed by a public version for team chat under 60 words, and bullets of 3 ways to make praise feel earned rather than routine for this person.",
    "shape": "quote, bullets",
    "button": "Write praise",
    "loading": "Finding the words…"
   }
- ]
+ ],
+ "disclaimer": "General management guidance, not legal or HR advice. Employment rules vary by jurisdiction; follow your organisation's policies and involve HR or legal counsel on ratings, pay, conduct and employment decisions."
 }

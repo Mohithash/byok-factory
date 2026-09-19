@@ -4,9 +4,9 @@
  "tagline": "Truth tables, K-maps, binary and the circuits behind CPUs",
  "category": "Education",
  "colors": [
-  "#37474F",
-  "#76FF03",
-  "#FF4081"
+  "#558B2F",
+  "#FF4081",
+  "#3949AB"
  ],
  "icon": "gear",
  "about": "Logic Forge builds truth tables, simplifies Boolean expressions with K-maps, converts and explains number representations, designs combinational and sequential circuits from a spec, and drills computer-architecture concepts.",
@@ -152,8 +152,8 @@
      "required": true
     }
    ],
-   "prompt": "10 questions on {chapter} for the profile course mixing calculation and concept: table (No. | Question | Answer | One-line why), and a callout on the concept students most often confuse in this chapter.",
-   "shape": "table, callout",
+   "prompt": "10 questions on {chapter} for the profile course: 4 concept, 4 short calculation and 2 exam-hard, presented as a table (No. | Type | Question | Answer | One-line why). Then steps with the full working for the hardest calculation question, and a callout on the concept students most often confuse in this chapter and the check that catches it.",
+   "shape": "table, steps, callout",
    "button": "Quiz",
    "loading": "Writing…"
   }

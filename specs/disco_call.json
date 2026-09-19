@@ -84,7 +84,7 @@
      "placeholder": "30"
     }
    ],
-   "prompt": "Prep a {minutes}-minute discovery call with {who}; known so far: {known}. Sections: steps for the call agenda with minute markers, a table of 10 questions (Question | What it uncovers | Element of the profile's framework), bullets of 3 likely pushbacks with a one-line handle each, and a quote with the exact opening line.",
+   "prompt": "Prep a discovery call of {minutes} minutes (assume 30 if blank) with {who}; known so far: {known}. Sections: steps for the call agenda with minute markers, a table of 10 questions (Question | What it uncovers | Element of the profile's framework), bullets of 3 likely pushbacks with a one-line handle each, and a quote with the exact opening line.",
    "shape": "steps, table, bullets, quote",
    "button": "Prep call",
    "loading": "Sharpening…"
@@ -121,20 +121,20 @@
   },
   {
    "id": "debrief",
-   "title": "Debrief my notes",
-   "subtitle": "Notes → score + next steps",
+   "title": "Debrief the call",
+   "subtitle": "Notes or transcript → score + gaps",
    "emoji": "📝",
    "inputs": [
     {
      "key": "notes",
-     "label": "Call notes",
+     "label": "Call notes or transcript",
      "type": "longtext",
-     "placeholder": "They mentioned budget freeze until Q3, champion is the ops manager, decision by VP…",
+     "placeholder": "They mentioned budget freeze until Q3, champion is the ops manager, decision by VP… (or paste the transcript)",
      "required": true
     }
    ],
-   "prompt": "Score this discovery call against the profile's framework from these notes: {notes}. Sections: a table (Element | What we learned | Confidence 1–5 | Gap), kv (Deal stage | Champion | Economic buyer | Compelling event | Risk level), a checklist of next steps with owners, and a callout on the single biggest unknown to resolve before proposing.",
-   "shape": "table, kv, checklist, callout",
+   "prompt": "Score this discovery call against the profile's framework from: {notes}. Sections: a table (Element | What we learned | Confidence 1–5 | Gap), kv (Deal stage | Champion | Economic buyer | Compelling event | Next step secured: yes/no | Risk level), a table (Buyer said | What it likely means | Question you should have asked) of up to 5 hints you didn't follow up, a checklist of next steps with owners, and a callout on the single biggest unknown to resolve before proposing.",
+   "shape": "table, kv, table, checklist, callout",
    "button": "Score it",
    "loading": "Reviewing tape…"
   },
@@ -169,23 +169,29 @@
    "loading": "Summarising…"
   },
   {
-   "id": "missed",
-   "title": "What did I miss?",
-   "subtitle": "Transcript → blind spots",
-   "emoji": "🔍",
+   "id": "fix",
+   "title": "Fix my questions",
+   "subtitle": "Leading, closed or vague → open and sharp",
+   "emoji": "🔧",
    "inputs": [
     {
-     "key": "transcript",
-     "label": "Call transcript or detailed notes",
+     "key": "questions",
+     "label": "Questions you plan to ask",
      "type": "longtext",
-     "placeholder": "paste the transcript",
+     "placeholder": "Are you happy with your current scheduling tool? Would you say overtime is a problem?",
      "required": true
+    },
+    {
+     "key": "goal",
+     "label": "What you need to learn",
+     "type": "text",
+     "placeholder": "whether overtime cost is big enough to fund a change"
     }
    ],
-   "prompt": "Analyse this discovery call transcript: {transcript}. Sections: bullets of moments where the buyer hinted at something you didn't follow up, a table (Buyer said | What it likely means | Question to ask next time), kv (Talk ratio estimate | Questions asked | Pitch moments | Next step secured: yes/no), and steps to fix the top habit on the next call.",
-   "shape": "bullets, table, kv, steps",
-   "button": "Find gaps",
-   "loading": "Listening again…"
+   "prompt": "Rewrite these discovery questions: {questions}; what the call must uncover: {goal}. Sections: a table (Your question | Problem: leading/closed/double-barrelled/pitchy/vague | Better version | What the better version uncovers), bullets of 3 questions you are missing for the goal, a quote with the tightest 5-question sequence in order, and a callout on the one habit (e.g. answering your own question) to break on the next call.",
+   "shape": "table, bullets, quote, callout",
+   "button": "Fix questions",
+   "loading": "Sharpening…"
   }
  ]
 }

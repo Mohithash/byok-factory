@@ -96,7 +96,7 @@
      "placeholder": "creators are paid on 40+ platforms"
     }
    ],
-   "prompt": "Outline a {length} pitch deck for the profile company aimed at {audience}, built around this insight: {hook}. Produce a table (# | Slide | Headline, one sentence of 12 words max | Body points | Visual), then text with the 3-sentence narrative arc that connects the slides, and a callout naming the single slide most likely to lose this audience and how to fix it.",
+   "prompt": "Outline a {length} pitch deck for the profile company aimed at {audience}, built around this insight: {hook}. Produce a table (# | Slide | Headline (12 words max) | Body points | Visual), then text with the 3-sentence narrative arc that connects the slides, and a callout naming the single slide most likely to lose this audience and how to fix it.",
    "shape": "table, text, callout",
    "button": "Outline deck",
    "loading": "Storyboarding…"
@@ -183,7 +183,7 @@
      "default": "Everything"
     }
    ],
-   "prompt": "Prepare the toughest investor questions on {focus} for the profile company at its stage. Table (Question | What they are really testing | Strong answer outline), then a callout on the one question founders at this stage most often fumble, and bullets of data points to have memorised before the meeting.",
+   "prompt": "Prepare the 8 toughest investor questions on {focus} for the profile company at its stage. Table (Question | What they are really testing | Strong answer outline), then a callout on the one question founders at this stage most often fumble, and bullets of data points to have memorised before the meeting.",
    "shape": "table, callout, bullets",
    "button": "Drill me",
    "loading": "Sharpening knives…"
@@ -211,5 +211,6 @@
    "button": "Write it",
    "loading": "Condensing…"
   }
- ]
+ ],
+ "disclaimer": "General information only, not financial, tax or legal advice; consult a qualified adviser before acting."
 }

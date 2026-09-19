@@ -130,7 +130,7 @@
      "placeholder": "bell bangs my forearm on cleans"
     }
    ],
-   "prompt": "Coach the {move} from the photo and this description: {issue}. Sections: bullets of the 3 most likely faults ranked by likelihood, steps for one corrective drill with reps, a table (Fault | What it looks like | Fix), and a callout on the safety cue that matters most for the {move}.",
+   "prompt": "Coach the {move} from the photo (if one was given) and this description: {issue}. Sections: bullets of the 3 most likely faults ranked by likelihood, steps for one corrective drill with reps, a table (Fault | What it looks like | Fix), and a callout on the safety cue that matters most for the {move}.",
    "shape": "bullets, steps, table, callout",
    "button": "Coach me",
    "loading": "Watching the arc…"
@@ -142,8 +142,8 @@
    "emoji": "🔗",
    "inputs": [
     {
-     "key": "bells",
-     "label": "Bells",
+     "key": "count",
+     "label": "Bells in hand",
      "type": "chips",
      "options": [
       "Single",
@@ -171,7 +171,7 @@
      "placeholder": "5"
     }
    ],
-   "prompt": "Design a {bells}-bell {style} complex for {rounds} rounds at the profile level and goal. Sections: kv (bell weight to use, work time, rest, total time), steps listing each movement in order with reps and the transition cue, a callout on grip fatigue and when to break the set, and bullets for a lighter and a heavier variant.",
+   "prompt": "Design a {count}-bell {style} complex for {rounds} rounds at the profile level and goal. Sections: kv (bell weight to use, work time, rest, total time), steps listing each movement in order with reps and the transition cue, a callout on grip fatigue and when to break the set, and bullets for a lighter and a heavier variant.",
    "shape": "kv, steps, callout, bullets",
    "button": "Design",
    "loading": "Chaining moves…"

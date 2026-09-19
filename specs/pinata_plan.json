@@ -1,0 +1,233 @@
+{
+ "id": "pinata_plan",
+ "name": "Piñata Plan",
+ "tagline": "Kids' birthday parties, planned down to the party bag",
+ "category": "Parenting",
+ "colors": [
+  "#FF3D7F",
+  "#FFC107",
+  "#00BCD4"
+ ],
+ "icon": "hat",
+ "about": "Piñata Plan runs your child's birthday party: a run sheet that keeps the energy right, games by age and space, allergy-safe food, invites, and a rescue plan when it rains.",
+ "persona": "You are a veteran children's entertainer and parent: calm, funny, realistic about attention spans, and strict about allergies and supervision.",
+ "onboarding": {
+  "title": "Plan a party they'll talk about all term",
+  "subtitle": "Tell us about the birthday child and the usual set-up.",
+  "bullets": [
+   "Run sheets that keep the energy right",
+   "Games by age, space and mood",
+   "Allergy-safe food and party bags"
+  ]
+ },
+ "profile": [
+  {
+   "key": "kid",
+   "label": "Child's name & age",
+   "type": "text",
+   "placeholder": "Arjun, turning 6"
+  },
+  {
+   "key": "venue",
+   "label": "Usual venue",
+   "type": "chips",
+   "options": [
+    "Home",
+    "Garden / park",
+    "Hired hall",
+    "Soft play / activity centre"
+   ]
+  },
+  {
+   "key": "guests",
+   "label": "Usual guest count (kids)",
+   "type": "number",
+   "placeholder": "12"
+  },
+  {
+   "key": "allergies",
+   "label": "Allergies in the group",
+   "type": "text",
+   "placeholder": "nut-free, one coeliac"
+  }
+ ],
+ "tools": [
+  {
+   "id": "plan",
+   "title": "Plan the party",
+   "subtitle": "Run sheet, prep list and budget",
+   "emoji": "🎉",
+   "inputs": [
+    {
+     "key": "theme",
+     "label": "Theme",
+     "type": "chips",
+     "options": [
+      "Dinosaurs",
+      "Princess & knights",
+      "Space",
+      "Superheroes",
+      "Unicorns",
+      "Football",
+      "Science lab",
+      "Let the kid pick"
+     ],
+     "default": "Let the kid pick"
+    },
+    {
+     "key": "budget",
+     "label": "Budget",
+     "type": "number",
+     "placeholder": "150"
+    },
+    {
+     "key": "hours",
+     "label": "Party length (hours)",
+     "type": "number",
+     "placeholder": "2"
+    }
+   ],
+   "prompt": "Plan a {theme} birthday party for the profile child at the usual venue, budget {budget}, lasting {hours} hours. Sections: a table run sheet (Time | Activity | Who leads | Kit needed) that follows the energy curve arrival → active game → food → cake → calm activity → party bags; a checklist of shopping and prep grouped 'week before / day before / morning of'; a kv budget split (venue, food, cake, decorations, party bags, entertainment) that totals {budget}; and a callout on the two moments most likely to go wrong at this age and how to prevent them.",
+   "shape": "table, checklist, kv, callout",
+   "button": "Plan the party",
+   "loading": "Inflating balloons…"
+  },
+  {
+   "id": "games",
+   "title": "Games by age",
+   "subtitle": "Fill the minutes without chaos",
+   "emoji": "🎈",
+   "inputs": [
+    {
+     "key": "space",
+     "label": "Space",
+     "type": "chips",
+     "options": [
+      "Small living room",
+      "Big room / hall",
+      "Garden",
+      "Park"
+     ],
+     "default": "Big room / hall"
+    },
+    {
+     "key": "minutes",
+     "label": "Minutes to fill",
+     "type": "number",
+     "placeholder": "45"
+    },
+    {
+     "key": "energy",
+     "label": "Energy level",
+     "type": "chips",
+     "options": [
+      "Wild",
+      "Mixed",
+      "Calm"
+     ],
+     "default": "Mixed"
+    }
+   ],
+   "prompt": "Suggest games for the profile child's age and guest count in a {space}, filling {minutes} minutes at {energy} energy. Give 6 games as cards (meta = minutes · players · kit), ordered so energy builds then settles; then steps for running the best one, including what to do with a child who doesn't win; then a bullets section of 3 zero-kit backup games for when attention drops.",
+   "shape": "cards, steps, bullets",
+   "button": "Pick games",
+   "loading": "Choosing games…"
+  },
+  {
+   "id": "food",
+   "title": "Party food & cake",
+   "subtitle": "Quantities, allergies, make-ahead",
+   "emoji": "🍕",
+   "inputs": [
+    {
+     "key": "style",
+     "label": "Food style",
+     "type": "chips",
+     "options": [
+      "Classic party plates",
+      "Pizza & sides",
+      "Picnic boxes",
+      "Grazing table"
+     ],
+     "default": "Classic party plates"
+    },
+    {
+     "key": "cake",
+     "label": "Cake plan",
+     "type": "chips",
+     "options": [
+      "Baking it",
+      "Buying it",
+      "Cupcakes"
+     ],
+     "default": "Buying it"
+    }
+   ],
+   "prompt": "Build a '{style}' party menu for the profile guest count with cake plan '{cake}', respecting the profile allergies in every item. Sections: a table (Item | Quantity for the group | Allergy notes | Make-ahead?); a checklist of what to prep the night before versus the morning; a callout on portion sizes for this age (children eat less than adults expect) and cross-contamination rules if any allergy is listed; and bullets with 3 drink options plus a parents' corner idea.",
+   "shape": "table, checklist, callout, bullets",
+   "button": "Plan food",
+   "loading": "Cutting crusts…"
+  },
+  {
+   "id": "invite",
+   "title": "Invites & thank-yous",
+   "subtitle": "Wording for every message",
+   "emoji": "💌",
+   "inputs": [
+    {
+     "key": "details",
+     "label": "Date, time, place",
+     "type": "text",
+     "placeholder": "Sat 14 Mar, 2–4pm, our house",
+     "required": true
+    },
+    {
+     "key": "rsvp",
+     "label": "Ask parents about",
+     "type": "chips",
+     "options": [
+      "Allergies",
+      "Drop-off or stay",
+      "Both"
+     ],
+     "default": "Both"
+    },
+    {
+     "key": "tone",
+     "label": "Tone",
+     "type": "chips",
+     "options": [
+      "Playful",
+      "Simple",
+      "Rhyming"
+     ],
+     "default": "Playful"
+    }
+   ],
+   "prompt": "Write invitation and thank-you wording for the profile child's party at {details}, in a {tone} tone, asking parents about '{rsvp}'. Output a quote with the invitation (under 80 words, with an RSVP line), a second quote with a WhatsApp-length reminder for 3 days before, a third quote with a thank-you note template that mentions the gift, and bullets on when to send each one.",
+   "shape": "quote, bullets",
+   "button": "Write invites",
+   "loading": "Licking envelopes…"
+  },
+  {
+   "id": "rescue",
+   "title": "Rescue me",
+   "subtitle": "Rain, no-shows, a broken bouncy castle",
+   "emoji": "🚨",
+   "inputs": [
+    {
+     "key": "problem",
+     "label": "What's gone wrong",
+     "type": "text",
+     "placeholder": "rain forecast for the park party tomorrow",
+     "required": true
+    }
+   ],
+   "prompt": "Emergency: {problem}. For the profile party, give steps to fix it in the next few hours (most important first, naming who to message), a bullets section on what to tell the parents and the birthday child, and a callout on the one thing to protect no matter what (usually cake + one group activity + a photo).",
+   "shape": "steps, bullets, callout",
+   "button": "Rescue",
+   "loading": "Grabbing tape…"
+  }
+ ],
+ "disclaimer": "Confirm allergies directly with each parent and keep an adult supervising every activity; this is planning help, not safety advice."
+}

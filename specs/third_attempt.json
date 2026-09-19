@@ -59,14 +59,14 @@
    "inputs": [
     {
      "key": "weeks",
-     "label": "Length",
+     "label": "Length (weeks)",
      "type": "chips",
      "options": [
-      "4 weeks",
-      "6 weeks",
-      "8 weeks"
+      "4",
+      "6",
+      "8"
      ],
-     "default": "6 weeks"
+     "default": "6"
     },
     {
      "key": "style",
@@ -91,7 +91,7 @@
      "default": "4"
     }
    ],
-   "prompt": "Write a {weeks} powerlifting block with {style} loading, {days} training days per week, from the profile maxes and experience. Sections: a table (Week | Day | Main lift | Sets x reps | % or RPE | Load kg), bullets on accessory selection and why, a callout on the deload and taper logic, and kv (projected squat, bench and deadlift at block end).",
+   "prompt": "Write a {weeks}-week powerlifting block with {style} loading, {days} training days per week, from the profile maxes and experience. Sections: a table (Week | Day | Main lift | Sets x reps | % or RPE | Load kg), bullets on accessory selection and why, a callout on the deload and taper logic, and kv (projected squat, bench and deadlift at block end).",
    "shape": "table, bullets, callout, kv",
    "button": "Write block",
    "loading": "Loading the bar…"

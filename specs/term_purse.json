@@ -1,0 +1,213 @@
+{
+ "id": "term_purse",
+ "name": "Term Purse",
+ "tagline": "Make the loan drop last until the next one",
+ "category": "Finance",
+ "colors": [
+  "#3949AB",
+  "#FFB300",
+  "#26A69A"
+ ],
+ "icon": "hat",
+ "about": "Term Purse turns each student loan or grant instalment into a weekly allowance that survives the whole term, plans around rent day and exam weeks, and finds the part-time hours that pay without wrecking your grades.",
+ "persona": "You are a straight-talking student money mentor: you know rent eats the loan first, you never lecture about coffee, and you plan in weeks not months.",
+ "onboarding": {
+  "title": "Stretch the drop",
+  "subtitle": "Tell us when money lands and what rent costs; we do the weekly maths.",
+  "bullets": [
+   "Weekly allowance from each instalment",
+   "Rent-day and exam-week planning",
+   "Part-time hours that fit your timetable"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "year",
+   "label": "Year of study",
+   "type": "chips",
+   "options": [
+    "First",
+    "Second",
+    "Third+",
+    "Postgrad"
+   ]
+  },
+  {
+   "key": "rent",
+   "label": "Monthly rent incl. bills",
+   "type": "number",
+   "placeholder": "550"
+  },
+  {
+   "key": "currency",
+   "label": "Currency",
+   "type": "text",
+   "placeholder": "GBP"
+  }
+ ],
+ "tools": [
+  {
+   "id": "stretch",
+   "title": "Stretch this instalment",
+   "subtitle": "Lump sum → weekly allowance",
+   "emoji": "📆",
+   "inputs": [
+    {
+     "key": "amount",
+     "label": "Instalment received",
+     "type": "number",
+     "placeholder": "2900"
+    },
+    {
+     "key": "weeks",
+     "label": "Weeks until the next one",
+     "type": "number",
+     "placeholder": "15"
+    },
+    {
+     "key": "fixed",
+     "label": "Fixed costs this term",
+     "type": "text",
+     "placeholder": "phone 15/mo, gym 20/mo, society fees 30"
+    }
+   ],
+   "prompt": "Instalment {amount} must last {weeks} weeks with the profile's monthly rent and these fixed costs: {fixed}. Sections: kv (total fixed for the period, safe-to-spend total, weekly allowance, a 'panic line' balance you must not go under before the next drop); table (Week | Opening balance | Rent/fixed due | Allowance | Closing balance) with one row per week; a callout on the two weeks most likely to blow the plan (arrival/freshers week, exam week, birthdays) and how much to hold back for them; bullets of 3 ways to cut the weekly figure if the allowance is under what you can live on.",
+   "shape": "kv, table, callout, bullets",
+   "button": "Do the maths",
+   "loading": "Stretching…"
+  },
+  {
+   "id": "hours",
+   "title": "Part-time hours math",
+   "subtitle": "How many shifts you actually need",
+   "emoji": "🕒",
+   "inputs": [
+    {
+     "key": "gap",
+     "label": "Monthly shortfall to cover",
+     "type": "number",
+     "placeholder": "180"
+    },
+    {
+     "key": "wage",
+     "label": "Hourly wage after tax",
+     "type": "number",
+     "placeholder": "10.5"
+    },
+    {
+     "key": "load",
+     "label": "Course load",
+     "type": "chips",
+     "options": [
+      "Light",
+      "Normal",
+      "Heavy (labs/placement)"
+     ],
+     "default": "Normal"
+    }
+   ],
+   "prompt": "Shortfall {gap} per month at {wage} per hour with a {load} course load. Sections: kv (hours per month needed, hours per week, shifts per week at 4-hour shifts, a maximum safe weekly cap for this course load); cards for 4 student-friendly job types (meta = typical hourly · flexibility · exam-season friendliness); a callout on the weekly hours where grades typically start to slide and how to raise exam weeks with a manager; a quote with a message asking for reduced hours during exams.",
+   "shape": "kv, cards, callout, quote",
+   "button": "Count the hours",
+   "loading": "Counting shifts…"
+  },
+  {
+   "id": "kit",
+   "title": "Course kit on a budget",
+   "subtitle": "Textbooks, software, equipment",
+   "emoji": "📚",
+   "inputs": [
+    {
+     "key": "list",
+     "label": "Reading list / kit list",
+     "type": "longtext",
+     "placeholder": "Organic Chemistry 9th ed, lab coat, graphics calculator, Adobe CC…",
+     "required": true
+    },
+    {
+     "key": "budget",
+     "label": "Kit budget",
+     "type": "number",
+     "placeholder": "120"
+    }
+   ],
+   "prompt": "Kit list: {list}. Budget: {budget}. Sections: table (Item | Buy new | Used / older edition | Borrow / library / free alternative | Recommended route | Est. cost); a checklist of where to look, in order (library reserve, department loan, student-union sales, older editions, student software licences); a callout on the items you genuinely should not skimp on; kv (total at the recommended route vs budget, saving vs buying everything new).",
+   "shape": "table, checklist, callout, kv",
+   "button": "Cut the kit cost",
+   "loading": "Hunting bargains…"
+  },
+  {
+   "id": "emergency",
+   "title": "Money ran out",
+   "subtitle": "Get to the next drop safely",
+   "emoji": "🆘",
+   "inputs": [
+    {
+     "key": "left",
+     "label": "Money left",
+     "type": "number",
+     "placeholder": "40"
+    },
+    {
+     "key": "days",
+     "label": "Days until next instalment",
+     "type": "number",
+     "placeholder": "19"
+    },
+    {
+     "key": "owed",
+     "label": "Bills due before then",
+     "type": "text",
+     "placeholder": "rent 550 on the 1st"
+    }
+   ],
+   "prompt": "Only {left} left with {days} days to go and bills due: {owed}. Sections: steps in priority order for the next 48 hours (talk to accommodation office or landlord about a later rent date, university hardship fund, arranged-overdraft rules, food bank or community pantry, selling or pausing subscriptions); a checklist of what to gather for a hardship-fund application; a quote with an email to the university hardship or student-money team explaining the situation in under 120 words; a callout listing what NOT to do (payday loans, stacking buy-now-pay-later, ignoring rent) and reminding that student support services are confidential.",
+   "shape": "steps, checklist, quote, callout",
+   "button": "Get me through",
+   "loading": "Finding options…"
+  },
+  {
+   "id": "summer",
+   "title": "Summer gap plan",
+   "subtitle": "No loan over the break",
+   "emoji": "☀️",
+   "inputs": [
+    {
+     "key": "weeks",
+     "label": "Weeks of break",
+     "type": "number",
+     "placeholder": "14"
+    },
+    {
+     "key": "plan",
+     "label": "This summer",
+     "type": "chips",
+     "options": [
+      "Working full-time",
+      "Paid internship",
+      "Unpaid internship",
+      "Living at home",
+      "Staying in uni town"
+     ],
+     "default": "Working full-time"
+    },
+    {
+     "key": "costs",
+     "label": "Monthly costs over summer",
+     "type": "number",
+     "placeholder": "400"
+    }
+   ],
+   "prompt": "Summer: {weeks} weeks, plan: {plan}, monthly costs {costs}. Sections: kv (total summer cost, income needed, target savings to carry into next term, weekly allowance); table (Month | Income | Rent/costs | Save toward term | Notes); bullets on summer-only costs students forget (rent on an empty room, storage, travel home, local-tax rules for students); a callout on whether a summer sublet or a shorter contract makes sense for the profile.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Plan summer",
+   "loading": "Planning summer…"
+  }
+ ],
+ "disclaimer": "General information, not financial, tax or legal advice; rules, thresholds and entitlements differ by country and change — confirm with official sources or a regulated adviser before acting."
+}

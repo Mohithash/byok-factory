@@ -1,0 +1,182 @@
+{
+ "id": "anywhere_jobs",
+ "name": "Anywhere Jobs",
+ "tagline": "Land a real remote job, not a fake one",
+ "category": "Business",
+ "colors": [
+  "#1565C0",
+  "#00BFA5",
+  "#FF6F00"
+ ],
+ "icon": "globe",
+ "about": "Anywhere Jobs helps you find and win genuinely remote roles: it screens listings for scams and 'remote-ish' traps, rewrites your application around async skills, preps you for camera interviews and take-home tasks, and decodes location-based pay.",
+ "persona": "You are a remote-work career coach who has seen every fake listing and every 'remote, must live within 30 miles' trick: practical, encouraging, honest about pay.",
+ "onboarding": {
+  "title": "Work from anywhere, for real",
+  "subtitle": "Tell us your field, where you live and how you like to work.",
+  "bullets": [
+   "Scam and trap detector for listings",
+   "Applications that prove async skills",
+   "Camera and take-home interview prep"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "field",
+   "label": "Field & level",
+   "type": "text",
+   "placeholder": "senior backend engineer"
+  },
+  {
+   "key": "location",
+   "label": "Where you live",
+   "type": "text",
+   "placeholder": "Porto, Portugal"
+  },
+  {
+   "key": "setup",
+   "label": "Preferred setup",
+   "type": "chips",
+   "options": [
+    "Fully remote",
+    "Remote-first",
+    "Hybrid OK",
+    "Contract/freelance"
+   ],
+   "default": "Fully remote"
+  }
+ ],
+ "tools": [
+  {
+   "id": "screen",
+   "title": "Is this listing legit?",
+   "subtitle": "Paste a job post, get a verdict",
+   "emoji": "🔎",
+   "inputs": [
+    {
+     "key": "listing",
+     "label": "Paste the listing",
+     "type": "longtext",
+     "placeholder": "Remote Data Entry, $45/hr, message us on Telegram…",
+     "required": true
+    },
+    {
+     "key": "source",
+     "label": "Where you found it",
+     "type": "text",
+     "placeholder": "LinkedIn, posted 2 days ago"
+    }
+   ],
+   "prompt": "Assess this listing from {source}: {listing}. Give a text verdict (Legit / Caution / Likely scam / Not really remote) with a confidence level, a table (Red or green flag | Evidence in the listing | Why it matters) with at least 5 rows, a checklist of at least 5 verification actions to complete before applying or sharing any personal data, and a callout on the data and money you must never hand over in a hiring process.",
+   "shape": "text, table, checklist, callout",
+   "button": "Screen it",
+   "loading": "Checking for traps…"
+  },
+  {
+   "id": "apply",
+   "title": "Remote-proof my application",
+   "subtitle": "Show you can work async",
+   "emoji": "✍️",
+   "inputs": [
+    {
+     "key": "role",
+     "label": "Paste the job description",
+     "type": "longtext",
+     "placeholder": "Senior Backend Engineer, fully remote, EMEA hours…",
+     "required": true
+    },
+    {
+     "key": "experience",
+     "label": "Your relevant experience",
+     "type": "longtext",
+     "placeholder": "3 years remote at a 40-person startup, wrote our onboarding docs",
+     "required": true
+    }
+   ],
+   "prompt": "Match this experience: {experience} to the role: {role}. Produce a table (Requirement in the JD | Your evidence | Strength) covering every requirement, bullets of 5 resume lines that prove async communication, self-management and written clarity with numbers, a quote with a 150-word cover note that mentions time-zone fit and working hours, and a callout on anything in the JD that contradicts the profile's preferred setup.",
+   "shape": "table, bullets, quote, callout",
+   "button": "Tailor it",
+   "loading": "Rewriting…"
+  },
+  {
+   "id": "interview",
+   "title": "Camera interview prep",
+   "subtitle": "Video calls and async interviews",
+   "emoji": "🎥",
+   "inputs": [
+    {
+     "key": "format",
+     "label": "Format",
+     "type": "chips",
+     "options": [
+      "Live video",
+      "Recorded one-way video",
+      "Written async interview",
+      "Panel call"
+     ],
+     "default": "Live video"
+    },
+    {
+     "key": "company",
+     "label": "Company & role",
+     "type": "text",
+     "placeholder": "Series B fintech, product manager"
+    }
+   ],
+   "prompt": "Prepare the user for a '{format}' interview at {company}. Sections: a checklist of setup (lighting, audio, background, connection backup, link tested), a table (Likely question | What they're really testing | Your 30-second answer plan) with 6 remote-specific questions such as handling silence, time zones and disagreement in writing, a quote with a strong 'how do you work remotely' answer drafted from the profile, and a callout on the one mistake that sinks remote candidates.",
+   "shape": "checklist, table, quote, callout",
+   "button": "Prep me",
+   "loading": "Fixing the webcam…"
+  },
+  {
+   "id": "takehome",
+   "title": "Plan the take-home",
+   "subtitle": "Scope, time-box, deliver",
+   "emoji": "📦",
+   "inputs": [
+    {
+     "key": "task",
+     "label": "The task as given",
+     "type": "longtext",
+     "placeholder": "build a small API with tests, 4 hours suggested",
+     "required": true
+    },
+    {
+     "key": "hours",
+     "label": "Hours you can spend",
+     "type": "number",
+     "placeholder": "5"
+    }
+   ],
+   "prompt": "Plan the take-home: {task} within {hours} hours. Produce a kv (what they are grading, minimum viable deliverable, stretch items, submission format), a table (Hour block | Work | Output) that fits {hours} hours with a buffer, a checklist for the README or cover note (assumptions, trade-offs, what you'd do with more time), and a callout on when a take-home is unreasonably large and how to push back politely.",
+   "shape": "kv, table, checklist, callout",
+   "button": "Plan",
+   "loading": "Time-boxing…"
+  },
+  {
+   "id": "pay",
+   "title": "Decode location pay",
+   "subtitle": "Geo bands, currency, contractor vs employee",
+   "emoji": "💱",
+   "inputs": [
+    {
+     "key": "offer",
+     "label": "The offer or range",
+     "type": "text",
+     "placeholder": "$95k–$120k, adjusted for Portugal, contractor via EOR",
+     "required": true
+    }
+   ],
+   "prompt": "Explain this remote offer: {offer} for someone in the profile location. Sections: a kv (base, likely geo-adjustment logic, contractor vs employee implications, benefits typically missing, currency and payment method), a table (Question to ask HR | Why) with 6 rows, bullets on negotiation angles specific to remote roles (equipment stipend, co-working budget, time-zone premium), and a callout that tax and employment status vary by country and need local advice.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Decode",
+   "loading": "Reading fine print…"
+  }
+ ],
+ "disclaimer": "General information only; employment, tax and contractor rules vary by country. Never share ID documents or bank details before verifying an employer."
+}

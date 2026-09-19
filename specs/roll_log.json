@@ -1,0 +1,212 @@
+{
+ "id": "roll_log",
+ "name": "Roll Log",
+ "tagline": "Turn every BJJ roll into what to drill next",
+ "category": "Sports",
+ "colors": [
+  "#1A237E",
+  "#C99A2E",
+  "#B71C1C"
+ ],
+ "icon": "shield",
+ "about": "Roll Log turns your Brazilian jiu-jitsu training notes into a game: it debriefs rolls, builds position-specific game plans and drilling blocks, preps you for competition and maps what your next belt actually expects.",
+ "persona": "You are a patient black-belt BJJ coach: position before submission, concept-driven, honest about what each belt should and shouldn't be drilling; you never encourage rolling through injury.",
+ "onboarding": {
+  "title": "Where's your game at?",
+  "subtitle": "Belt, style and how often you train shape every plan.",
+  "bullets": [
+   "Roll notes → what to drill next",
+   "Position-by-position game plans",
+   "Competition and belt prep"
+  ]
+ },
+ "profile": [
+  {
+   "key": "belt",
+   "label": "Belt",
+   "type": "chips",
+   "options": [
+    "White",
+    "Blue",
+    "Purple",
+    "Brown",
+    "Black"
+   ]
+  },
+  {
+   "key": "style",
+   "label": "Gi or no-gi",
+   "type": "chips",
+   "options": [
+    "Gi",
+    "No-gi",
+    "Both"
+   ]
+  },
+  {
+   "key": "days",
+   "label": "Sessions per week",
+   "type": "chips",
+   "options": [
+    "1–2",
+    "3–4",
+    "5+"
+   ]
+  },
+  {
+   "key": "game",
+   "label": "Your A-game / weak spots",
+   "type": "text",
+   "placeholder": "half guard bottom is ok, keep getting knee-cut passed"
+  }
+ ],
+ "tools": [
+  {
+   "id": "debrief",
+   "title": "Debrief a roll",
+   "subtitle": "What happened → what to fix",
+   "emoji": "🥋",
+   "inputs": [
+    {
+     "key": "notes",
+     "label": "What happened",
+     "type": "longtext",
+     "placeholder": "swept from closed guard 3x, stuck under side control, tapped to a triangle",
+     "required": true
+    },
+    {
+     "key": "partner",
+     "label": "Partner",
+     "type": "chips",
+     "options": [
+      "Lower belt",
+      "Same belt",
+      "Higher belt",
+      "Much bigger"
+     ],
+     "default": "Same belt"
+    }
+   ],
+   "prompt": "Debrief this roll against a {partner} partner for the profile belt and style: {notes}. Sections: a table (Moment | What went wrong | Likely cause | Fix), bullets of the 2 things that went right, steps for one drill to run next class with reps and rounds, and a quote with a single focus cue for the next roll.",
+   "shape": "table, bullets, steps, quote",
+   "button": "Debrief",
+   "loading": "Rewatching the roll…"
+  },
+  {
+   "id": "position",
+   "title": "Position game plan",
+   "subtitle": "Three linked techniques from one spot",
+   "emoji": "🧩",
+   "inputs": [
+    {
+     "key": "position",
+     "label": "Position",
+     "type": "chips",
+     "options": [
+      "Closed guard",
+      "Half guard",
+      "Open guard",
+      "Side control",
+      "Mount",
+      "Back",
+      "Turtle",
+      "Standing"
+     ],
+     "default": "Half guard"
+    },
+    {
+     "key": "role",
+     "label": "I'm on",
+     "type": "chips",
+     "options": [
+      "Top",
+      "Bottom"
+     ],
+     "default": "Bottom"
+    }
+   ],
+   "prompt": "Build a {role} game plan from {position} for the profile belt and style. Sections: cards for 3 linked techniques (meta = belt level · gi/no-gi), a table of the opponent's most common reactions (They do | You do | Why it works), steps for a 10-minute positional-sparring plan, and a callout on the mistake that loses this position most often.",
+   "shape": "cards, table, steps, callout",
+   "button": "Build plan",
+   "loading": "Chaining moves…"
+  },
+  {
+   "id": "comp",
+   "title": "Competition prep",
+   "subtitle": "Weeks out → match morning",
+   "emoji": "🏆",
+   "inputs": [
+    {
+     "key": "event",
+     "label": "Event & date",
+     "type": "text",
+     "placeholder": "local open in 3 weeks, gi",
+     "required": true
+    },
+    {
+     "key": "weight",
+     "label": "Current weight → division",
+     "type": "text",
+     "placeholder": "80 kg → 76 kg"
+    },
+    {
+     "key": "ruleset",
+     "label": "Ruleset",
+     "type": "chips",
+     "options": [
+      "IBJJF",
+      "ADCC / sub-only",
+      "Not sure"
+     ],
+     "default": "IBJJF"
+    }
+   ],
+   "prompt": "Prepare for {event} under {ruleset} rules with weight situation {weight}. Sections: a table (Week | Training focus | Rounds per session | Weight target), a checklist for the day before and match morning (weigh-in, food, warm-up, mouthguard), bullets on scoring or match-winning tactics specific to {ruleset}, and a callout on safe weight management and when a cut is not worth it.",
+   "shape": "table, checklist, bullets, callout",
+   "button": "Get ready",
+   "loading": "Bowing in…"
+  },
+  {
+   "id": "belt",
+   "title": "Next-belt map",
+   "subtitle": "What the next stripe or belt expects",
+   "emoji": "🎗️",
+   "inputs": [],
+   "prompt": "Using the profile belt, style, sessions per week and weak spots, describe what the next belt typically requires. Sections: a checklist of techniques and concepts expected at the next belt grouped by position, kv (typical time at this belt, stripe cadence, common promotion signals), steps for a 4-week focus block that addresses the profile weak spots, and a callout on not comparing your timeline to teammates.",
+   "shape": "checklist, kv, steps, callout",
+   "button": "Map my path",
+   "loading": "Checking stripes…"
+  },
+  {
+   "id": "tweak",
+   "title": "Sore or tweaked?",
+   "subtitle": "Train, modify or rest",
+   "emoji": "🩹",
+   "inputs": [
+    {
+     "key": "issue",
+     "label": "What's sore or tweaked",
+     "type": "text",
+     "placeholder": "neck cranked in a guillotine, stiff turning left",
+     "required": true
+    },
+    {
+     "key": "when",
+     "label": "Next class",
+     "type": "chips",
+     "options": [
+      "Tonight",
+      "Tomorrow",
+      "In a few days"
+     ],
+     "default": "Tomorrow"
+    }
+   ],
+   "prompt": "The user reports: {issue}, with the next class {when}. Sections: text on whether training {when} is sensible and how to modify (drill only, flow roll, skip), bullets of positions and submissions to avoid on the mat, steps for a self-care routine for the next 48 hours, and a callout listing signs (numbness, tingling, swelling, a joint that won't straighten) that mean see a clinician before rolling again.",
+   "shape": "text, bullets, steps, callout",
+   "button": "Advise me",
+   "loading": "Icing…"
+  }
+ ],
+ "disclaimer": "Not medical advice. Tap early, train with supervision, and see a clinician for joint pain, numbness or any injury before returning to the mat."
+}

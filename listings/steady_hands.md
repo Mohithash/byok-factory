@@ -5,13 +5,13 @@
 **Short description (≤80):** Stop your emotions from trading your portfolio
 
 ## Full description
-Steady Hands is a behavioural coach for investors: a panic check when markets fall, a bias audit before any big decision, a written investment policy in your own words, and a filter for market noise.
+Steady Hands is a behavioural coach for investors: a panic check when markets fall, a bias audit before any big decision, a written investment policy in your own words, and a filter for hot tips and forum hype.
 
 WHAT'S INSIDE
 • Markets are down — Talk me through it
 • Bias check — Audit a decision before you make it
 • Write my policy — Rules for future you
-• Noise filter — Headlines, tips, forum posts
+• Tip filter — Hot tips, forum posts, group chats
 • Check-in habits — A 4-week behaviour plan
 
 BRING YOUR OWN KEY
@@ -23,7 +23,7 @@ Every answer is a structured, shareable document with follow-up questions, saved
 - 📉 **Markets are down** — Talk me through it
 - 🪞 **Bias check** — Audit a decision before you make it
 - 📜 **Write my policy** — Rules for future you
-- 🔇 **Noise filter** — Headlines, tips, forum posts
+- 🔇 **Tip filter** — Hot tips, forum posts, group chats
 - 📵 **Check-in habits** — A 4-week behaviour plan
 
 ## Privacy policy

@@ -1,0 +1,217 @@
+{
+ "id": "ev_charge",
+ "name": "Charge Curve",
+ "tagline": "Own an EV without range or bill anxiety",
+ "category": "Auto & Vehicles",
+ "colors": [
+  "#00C853",
+  "#0091EA",
+  "#263238"
+ ],
+ "icon": "bolt",
+ "about": "Charge Curve plans road-trip charging stops around your car's real range, works out what home charging costs on your tariff, estimates winter range, teaches battery-health habits and decodes charger errors from a photo.",
+ "persona": "You are a practical EV owner-engineer: numbers-based, brand-neutral, calm about range, and clear that high-voltage work belongs to qualified technicians.",
+ "onboarding": {
+  "title": "Charge smarter, drive further",
+  "subtitle": "Your car, range and tariff make every number personal.",
+  "bullets": [
+   "Charging stops for any trip",
+   "Home charging cost per month",
+   "Battery habits that last"
+  ]
+ },
+ "profile": [
+  {
+   "key": "car",
+   "label": "EV (make, model, battery kWh)",
+   "type": "text",
+   "placeholder": "Hyundai Kona 64 kWh"
+  },
+  {
+   "key": "range",
+   "label": "Real-world summer range (km)",
+   "type": "number",
+   "placeholder": "380"
+  },
+  {
+   "key": "home",
+   "label": "Home charging",
+   "type": "chips",
+   "options": [
+    "7 kW wallbox",
+    "3-pin socket",
+    "11 kW three-phase",
+    "None"
+   ]
+  },
+  {
+   "key": "tariff",
+   "label": "Electricity tariff",
+   "type": "text",
+   "placeholder": "off-peak 7p 00:00–05:00, 28p peak"
+  }
+ ],
+ "tools": [
+  {
+   "id": "trip",
+   "title": "Plan charging stops",
+   "subtitle": "Route → stops, minutes, cost",
+   "emoji": "🗺️",
+   "inputs": [
+    {
+     "key": "trip",
+     "label": "From → to",
+     "type": "text",
+     "placeholder": "Manchester to Edinburgh",
+     "required": true
+    },
+    {
+     "key": "soc",
+     "label": "Starting charge %",
+     "type": "number",
+     "placeholder": "90"
+    },
+    {
+     "key": "weather",
+     "label": "Weather",
+     "type": "chips",
+     "options": [
+      "Warm",
+      "Mild",
+      "Cold",
+      "Cold & motorway speeds"
+     ],
+     "default": "Mild"
+    }
+   ],
+   "prompt": "Plan charging for the trip {trip} starting at {soc}% in {weather} weather for the profile car and range. A table (Leg | km | Arrive at % | Charge to % | Minutes | Charger type | Est. cost), a callout on the buffer to keep, a reminder to confirm each stop on a live charging map before leaving, and what to do if a charger is dead or busy, and bullets on pre-conditioning and speed choices that save a stop.",
+   "shape": "table, callout, bullets",
+   "button": "Plan stops",
+   "loading": "Mapping chargers…"
+  },
+  {
+   "id": "cost",
+   "title": "Home charging cost",
+   "subtitle": "Tariff → cost per month",
+   "emoji": "💷",
+   "inputs": [
+    {
+     "key": "kmweek",
+     "label": "Km per week",
+     "type": "number",
+     "placeholder": "250"
+    },
+    {
+     "key": "style",
+     "label": "Charging habit",
+     "type": "chips",
+     "options": [
+      "Overnight off-peak",
+      "Whenever it's parked",
+      "Public only"
+     ],
+     "default": "Overnight off-peak"
+    }
+   ],
+   "prompt": "Using the profile tariff and home charger, work out {kmweek} km per week charged {style}. Give a kv (kWh per week, cost per week, cost per month, cost per 100 km, petrol-equivalent cost for a 6 L/100 km car at a stated assumed fuel price), then a table (Scenario | Monthly cost | Notes) comparing off-peak only, peak only and a realistic mix. Finish with steps to set a charging schedule so the car finishes charging just before departure.",
+   "shape": "kv, table, steps",
+   "button": "Calculate",
+   "loading": "Metering…"
+  },
+  {
+   "id": "winter",
+   "title": "Winter range",
+   "subtitle": "How far today, really",
+   "emoji": "🌨️",
+   "inputs": [
+    {
+     "key": "temp",
+     "label": "Outside temperature (°C)",
+     "type": "number",
+     "placeholder": "-2"
+    },
+    {
+     "key": "driving",
+     "label": "Driving",
+     "type": "chips",
+     "options": [
+      "Urban",
+      "Mixed",
+      "Motorway"
+     ],
+     "default": "Mixed"
+    },
+    {
+     "key": "heat",
+     "label": "Cabin heating",
+     "type": "chips",
+     "options": [
+      "Heat pump",
+      "Resistive heater",
+      "Not sure"
+     ],
+     "default": "Not sure"
+    }
+   ],
+   "prompt": "Estimate today's range at {temp}°C with {driving} driving and cabin heating: {heat}, from the profile summer range. A kv (expected range, loss %, safe planning range), bullets of the five settings that recover the most km (pre-heat while plugged in, seat heaters over cabin heat, eco mode, tyre pressure, cruising speed), and a callout on charging speed in the cold.",
+   "shape": "kv, bullets, callout",
+   "button": "Estimate",
+   "loading": "Chilling…"
+  },
+  {
+   "id": "battery",
+   "title": "Battery health habits",
+   "subtitle": "Keep the pack young",
+   "emoji": "🔋",
+   "inputs": [
+    {
+     "key": "pattern",
+     "label": "Typical use",
+     "type": "chips",
+     "options": [
+      "Short daily trips",
+      "Long commutes",
+      "Occasional use",
+      "High mileage"
+     ],
+     "default": "Short daily trips"
+    },
+    {
+     "key": "years",
+     "label": "Plan to keep the car (years)",
+     "type": "number",
+     "placeholder": "6"
+    }
+   ],
+   "prompt": "For {pattern} use, keeping the car {years} years, give a table (Habit | Do | Avoid | Why) covering charge limits, DC fast-charge frequency, storage state of charge, heat and depth of discharge. Then a kv of recommended daily and trip charge limits for the profile car, and a callout on what degradation is normal per year versus what justifies a warranty conversation.",
+   "shape": "table, kv, callout",
+   "button": "Advise",
+   "loading": "Balancing cells…"
+  },
+  {
+   "id": "error",
+   "title": "Decode a charger error",
+   "subtitle": "Photo of the screen or dash",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the charger screen or dashboard message",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "context",
+     "label": "What you were doing",
+     "type": "text",
+     "placeholder": "plugged in at a rapid charger, cable locked but 0 kW"
+    }
+   ],
+   "prompt": "Read the message in the photo with context: {context}. Text explaining what it means in plain language, steps to try in order (unlock from the app, re-plug, restart the session, different bay, call the number on the unit), a callout on when to stop trying and never force the cable or open panels, and a quote with what to say to the charging network's helpline including the details they will ask for.",
+   "shape": "text, steps, callout, quote",
+   "button": "Decode",
+   "loading": "Reading…"
+  }
+ ],
+ "disclaimer": "Charging and range figures are estimates; never open high-voltage components or force a locked cable — contact the manufacturer or a qualified EV technician."
+}

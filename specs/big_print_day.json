@@ -120,7 +120,7 @@
      "default": "2"
     }
    ],
-   "prompt": "Rewrite {recipe} for {serves} so it can be followed with low vision: a kv of ingredients as one short line each, with amounts written as words and numbers (e.g. '2 (two) onions'), steps with one action per step and no more than 12 words each, then bullets of safety cues that don't depend on seeing (sounds, smells, timer minutes), and a callout on hob and oven safety.",
+   "prompt": "Rewrite this recipe to serve {serves} so it can be followed with low vision: {recipe}. Give a kv of ingredients as one short line each, with amounts written as words and numbers (e.g. '2 (two) onions'), steps with one action per step and no more than 12 words each, then bullets of safety cues that don't depend on seeing (sounds, smells, timer minutes), and a callout on hob and oven safety.",
    "shape": "kv, steps, bullets, callout",
    "button": "Rewrite",
    "loading": "Enlarging…"

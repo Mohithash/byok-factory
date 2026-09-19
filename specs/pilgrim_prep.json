@@ -90,6 +90,12 @@
    "emoji": "🎒",
    "inputs": [
     {
+     "key": "journey",
+     "label": "Pilgrimage (if not in profile)",
+     "type": "text",
+     "placeholder": "Hajj, Camino Portugués, Amarnath"
+    },
+    {
      "key": "days",
      "label": "Days away",
      "type": "number",
@@ -108,7 +114,7 @@
      "default": "Hot"
     }
    ],
-   "prompt": "Packing list for the profile's pilgrimage, {days} days, {season} season, with the profile's health notes considered. Sections: a checklist grouped by category (documents, ritual items, clothing, footwear, medical, tech, comfort), a table (Item | Why | Skip if…), bullets on what to buy locally instead, and a callout on items that are prohibited or frowned upon at the site.",
+   "prompt": "Packing list for the pilgrimage {journey} (use the profile's pilgrimage if blank), {days} days, {season} season, with the profile's health notes considered. Sections: a checklist grouped by category (documents, ritual items, clothing, footwear, medical, tech, comfort), a table (Item | Why | Skip if…), bullets on what to buy locally instead, and a callout on items that are prohibited or frowned upon at the site.",
    "shape": "checklist, table, bullets, callout",
    "button": "Build list",
    "loading": "Packing light…"
@@ -119,6 +125,12 @@
    "subtitle": "Weeks of walking, heat and stairs",
    "emoji": "🚶",
    "inputs": [
+    {
+     "key": "journey",
+     "label": "Pilgrimage (if not in profile)",
+     "type": "text",
+     "placeholder": "Kailash kora, Camino Francés, Hajj"
+    },
     {
      "key": "weeks",
      "label": "Weeks until departure",
@@ -132,7 +144,7 @@
      "placeholder": "20 km walking days, lots of standing, high altitude"
     }
    ],
-   "prompt": "A {weeks}-week physical preparation plan for the profile's fitness level and health notes, for demands: {demands}. Sections: a table (Week | Walking or stairs sessions | Duration | Pack weight | Recovery), steps for footwear break-in and blister prevention, bullets on heat, altitude and hydration adaptation, and a callout listing symptoms that mean see a doctor before or during the journey.",
+   "prompt": "A {weeks}-week physical preparation plan for the pilgrimage {journey} (use the profile's pilgrimage if blank), for the profile's fitness level and health notes, for demands: {demands}. Sections: a table (Week | Walking or stairs sessions | Duration | Pack weight | Recovery), steps for footwear break-in and blister prevention, bullets on heat, altitude and hydration adaptation, and a callout listing symptoms that mean see a doctor before or during the journey.",
    "shape": "table, steps, bullets, callout",
    "button": "Plan training",
    "loading": "Lacing up…"
@@ -143,6 +155,12 @@
    "subtitle": "Costs, timing, what to book first",
    "emoji": "💰",
    "inputs": [
+    {
+     "key": "journey",
+     "label": "Pilgrimage (if not in profile)",
+     "type": "text",
+     "placeholder": "Umrah in Ramadan, Lourdes, Kumbh Mela"
+    },
     {
      "key": "style",
      "label": "Style",
@@ -162,7 +180,7 @@
      "placeholder": "2"
     }
    ],
-   "prompt": "A {style} budget for the profile's pilgrimage for {people} travellers. Sections: a table (Item | Estimated cost per person | Notes) covering transport, permits or visas, lodging, food, offerings or donations, guides, gear and contingency; steps for booking order with lead times; kv (best season for crowds vs cost, visa or permit lead time, insurance); and a callout on common scams or overcharging at that site.",
+   "prompt": "A {style} budget in the user's local currency for the pilgrimage {journey} (use the profile's pilgrimage if blank) for {people} travellers. Sections: a table (Item | Estimated cost per person | Notes) covering transport, permits or visas, lodging, food, offerings or donations, guides, gear and contingency; steps for booking order with lead times; kv (best season for crowds vs cost, visa or permit lead time, insurance); and a callout on common scams or overcharging at that site.",
    "shape": "table, steps, kv, callout",
    "button": "Estimate",
    "loading": "Adding it up…"
@@ -174,6 +192,12 @@
    "emoji": "🧭",
    "inputs": [
     {
+     "key": "journey",
+     "label": "Pilgrimage (if not in profile)",
+     "type": "text",
+     "placeholder": "Hajj, Kumbh Mela, Shikoku"
+    },
+    {
      "key": "concern",
      "label": "Your concern",
      "type": "text",
@@ -181,7 +205,7 @@
      "required": true
     }
    ],
-   "prompt": "Safety plan for the profile's pilgrimage addressing: {concern}. Sections: steps for prevention and for what to do if it happens, a checklist of daily habits (meeting points, water, ID copies, phone plan), kv (typical emergency numbers or help desks for the site, medical stations, peak-crowd times to avoid), and a callout on warning signs that require immediate help.",
+   "prompt": "Safety plan for the pilgrimage {journey} (use the profile's pilgrimage if blank) addressing: {concern}. Sections: steps for prevention and for what to do if it happens, a checklist of daily habits (meeting points, water, ID copies, phone plan), kv (typical emergency numbers or help desks for the site, medical stations, peak-crowd times to avoid), and a callout on warning signs that require immediate help.",
    "shape": "steps, checklist, kv, callout",
    "button": "Plan safety",
    "loading": "Mapping exits…"

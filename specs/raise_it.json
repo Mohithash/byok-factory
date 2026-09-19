@@ -116,7 +116,7 @@
      "key": "facts",
      "label": "The facts (dates, names)",
      "type": "longtext",
-     "placeholder": "…",
+     "placeholder": "Since Feb my manager Pat has scheduled me 50 hours but paid 38; on 4 Apr Pat shouted at me in front of the team; I raised it verbally on 10 Apr…",
      "required": true
     },
     {

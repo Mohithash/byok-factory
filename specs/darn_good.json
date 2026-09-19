@@ -1,0 +1,174 @@
+{
+ "id": "darn_good",
+ "name": "Darn Good",
+ "tagline": "Mend clothes, shoes and bags so they last years",
+ "category": "Lifestyle",
+ "colors": [
+  "#AD1457",
+  "#00897B",
+  "#FFC107"
+ ],
+ "icon": "hat",
+ "about": "Darn Good turns a hole, tear or broken zip into a repair plan from a photo, teaches darning, patching and sashiko stitch by stitch, sorts out shoes and bags, and builds a mending kit for what you actually own.",
+ "persona": "You are a patient textile mender: precise about needle, thread and fabric, fond of visible mending, and clear about when a fix will hold and when it won't.",
+ "onboarding": {
+  "title": "Wear it longer",
+  "subtitle": "Your skill level sets how much we explain.",
+  "bullets": [
+   "Photo → repair plan",
+   "Stitches taught step by step",
+   "Shoes, bags and zips too"
+  ]
+ },
+ "profile": [
+  {
+   "key": "skill",
+   "label": "Skill",
+   "type": "chips",
+   "options": [
+    "Never sewn",
+    "Can sew a button",
+    "Comfortable hand sewing",
+    "Own a sewing machine"
+   ]
+  },
+  {
+   "key": "style",
+   "label": "Mending style",
+   "type": "chips",
+   "options": [
+    "Invisible as possible",
+    "Visible and decorative",
+    "Whatever's fastest"
+   ]
+  },
+  {
+   "key": "kit",
+   "label": "Kit you have",
+   "type": "text",
+   "placeholder": "needles, black and white thread, no darning mushroom"
+  }
+ ],
+ "tools": [
+  {
+   "id": "plan",
+   "title": "Fix this",
+   "subtitle": "Photo of the damage → plan",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the damage",
+     "type": "photo",
+     "placeholder": "Include a coin for scale",
+     "required": true
+    },
+    {
+     "key": "garment",
+     "label": "Garment and fabric",
+     "type": "text",
+     "placeholder": "merino jumper, elbow hole about 2cm"
+    }
+   ],
+   "prompt": "Plan a repair for '{garment}' from the photo: kv (damage type, fabric, best technique, thread and needle, time needed, will it hold?), steps for the repair with stitch lengths and tension notes for the profile skill and style, a checklist of materials to gather from the profile kit plus anything missing, and a callout on stabilising the damage before it grows.",
+   "shape": "kv, steps, checklist, callout",
+   "button": "Plan repair",
+   "loading": "Threading needle…"
+  },
+  {
+   "id": "stitch",
+   "title": "Learn a stitch",
+   "subtitle": "Darning, sashiko, whipstitch, blanket stitch",
+   "emoji": "🧵",
+   "inputs": [
+    {
+     "key": "technique",
+     "label": "Technique",
+     "type": "chips",
+     "options": [
+      "Swiss darning / duplicate stitch",
+      "Woven darn",
+      "Sashiko patch",
+      "Blanket stitch",
+      "Ladder / invisible stitch",
+      "Backstitch",
+      "Machine zigzag repair"
+     ],
+     "default": "Woven darn"
+    }
+   ],
+   "prompt": "Teach {technique} for the profile skill level: steps with exact needle and thread choice, spacing in mm and what a correct row looks like, bullets on common mistakes, a table of 3 practice exercises (Exercise | Fabric scrap | Minutes | What you'll learn), and a callout on the fabrics and damage types this technique will NOT hold on.",
+   "shape": "steps, bullets, table, callout",
+   "button": "Teach me",
+   "loading": "Practising rows…"
+  },
+  {
+   "id": "hardware",
+   "title": "Zips, buttons, hems, elastic",
+   "subtitle": "The fiddly bits",
+   "emoji": "🪡",
+   "inputs": [
+    {
+     "key": "problem",
+     "label": "Problem",
+     "type": "text",
+     "placeholder": "zip slider came off one side, jeans hem down, waistband elastic dead",
+     "required": true
+    }
+   ],
+   "prompt": "For: {problem} — text on whether it's a 5-minute fix or a replacement job, steps for the repair with any tools named (pliers, seam ripper, bodkin), kv (parts needed, cost, time), and a callout on when to take it to a tailor or cobbler instead.",
+   "shape": "text, steps, kv, callout",
+   "button": "Fix it",
+   "loading": "Finding the pliers…"
+  },
+  {
+   "id": "shoes",
+   "title": "Shoes & bags",
+   "subtitle": "Resole, re-glue, condition, restitch",
+   "emoji": "👞",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the shoe or bag",
+     "type": "photo"
+    },
+    {
+     "key": "issue",
+     "label": "Issue",
+     "type": "text",
+     "placeholder": "sole peeling at toe, leather bag strap cracked",
+     "required": true
+    }
+   ],
+   "prompt": "For '{issue}' using the photo if given: kv (fixable at home?, products needed, cost, expected added life), steps for the home fix including cure times, bullets on ongoing care (conditioning, waterproofing, rotation), and a callout on what a cobbler can do that you can't (resoling, welt repair) with rough prices.",
+   "shape": "kv, steps, bullets, callout",
+   "button": "Advise",
+   "loading": "Inspecting sole…"
+  },
+  {
+   "id": "kit",
+   "title": "Build my mending kit",
+   "subtitle": "Just the tools your wardrobe needs",
+   "emoji": "🧰",
+   "inputs": [
+    {
+     "key": "wardrobe",
+     "label": "What you mostly wear",
+     "type": "text",
+     "placeholder": "jeans, knitwear, cotton tees, one wool coat",
+     "required": true
+    },
+    {
+     "key": "budget",
+     "label": "Budget",
+     "type": "number",
+     "placeholder": "30"
+    }
+   ],
+   "prompt": "Build a mending kit for '{wardrobe}' with budget {budget}, starting from the profile kit: a checklist of items with approximate prices ordered by importance, a table (Item | Used for | Buy or improvise), bullets on organising and storing it so it gets used, and a callout on the two tools worth spending more on.",
+   "shape": "checklist, table, bullets, callout",
+   "button": "Build kit",
+   "loading": "Sorting buttons…"
+  }
+ ]
+}

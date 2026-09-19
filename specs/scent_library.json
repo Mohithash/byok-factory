@@ -110,7 +110,7 @@
      "required": true
     }
    ],
-   "prompt": "Identify the fragrance in the photo as best you can. kv (name, house, concentration, family, launch era, typical price, longevity, best season), text describing how it smells over the first hours, bullets of 3 similar scents at different prices, and a callout on spotting fakes and checking batch codes.",
+   "prompt": "Identify the fragrance in the photo as best you can. kv (name, house, concentration, family, launch era, typical price, longevity, best season, confidence in the identification), text describing how it smells over the first hours, bullets of 3 similar scents at different prices, and a callout on spotting fakes and checking batch codes.",
    "shape": "kv, text, bullets, callout",
    "button": "Decode",
    "loading": "Reading the label…"

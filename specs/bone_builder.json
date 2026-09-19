@@ -92,7 +92,7 @@
      "default": "8 weeks"
     }
    ],
-   "prompt": "A {weeks} bone-loading programme for a '{level}' person with '{kit}' equipment, matched to the profile's bone status (heel drops and hops only if status allows; otherwise stamping and step-ups). Sections: a table (Week | Impact work | Resistance work | Balance work), steps for correct form on the two spine-safe key lifts, bullets of moves to avoid with low density (loaded spinal flexion, twisting under load), and a callout on getting clearance if status is osteoporosis or untested with a previous fracture.",
+   "prompt": "Build a {weeks} bone-loading programme for a '{level}' person with '{kit}' equipment, matched to the profile's bone status (heel drops and hops only if status allows; otherwise stamping and step-ups). Sections: a table (Week | Impact work | Resistance work | Balance work), steps for correct form on the two spine-safe key lifts, bullets of moves to avoid with low density (loaded spinal flexion, twisting under load), and a callout on getting clearance if status is osteoporosis or untested with a previous fracture.",
    "shape": "table, steps, bullets, callout",
    "button": "Build plan",
    "loading": "Loading bones…"
@@ -122,7 +122,7 @@
      "placeholder": "sardines, kale"
     }
    ],
-   "prompt": "A one-day meal plan reaching roughly 1000–1200 mg calcium with adequate protein for a '{diet}' diet, avoiding {dislikes}. Sections: a table (Meal | Foods | Calcium mg | Protein g), kv on vitamin D (sunlight, food sources, why many adults are advised a winter supplement as general information), bullets of cheap calcium-dense staples, and a callout on caffeine, alcohol, salt and bone loss.",
+   "prompt": "Plan one day of meals reaching roughly 1000–1200 mg calcium with adequate protein for a '{diet}' diet, avoiding {dislikes}. Sections: a table (Meal | Foods | Calcium mg | Protein g), kv on vitamin D (sunlight, food sources, why many adults are advised a winter supplement as general information), bullets of cheap calcium-dense staples, and a callout on caffeine, alcohol, salt and bone loss.",
    "shape": "table, kv, bullets, callout",
    "button": "Plan my day",
    "loading": "Counting calcium…"

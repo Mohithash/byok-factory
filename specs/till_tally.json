@@ -66,17 +66,18 @@
    "inputs": [
     {
      "key": "photo",
-     "label": "Photo of the Z / end-of-day report",
+     "label": "Photo of the Z / end-of-day report (optional)",
      "type": "photo"
     },
     {
      "key": "figures",
-     "label": "Or type the figures",
+     "label": "Figures (type them, or write 'see photo')",
      "type": "longtext",
-     "placeholder": "gross 2,140; card 1,480; cash 610; refunds 45; voids 6; no-sales 11; declared cash 585"
+     "placeholder": "gross 2,140; card 1,480; cash 610; refunds 45; voids 6; no-sales 11; declared cash 585",
+     "required": true
     }
    ],
-   "prompt": "Analyse the end-of-day report from the photo and/or these figures: {figures}. kv (gross, net of refunds, card vs cash split %, expected cash, declared cash, variance), a table (Signal | Value | Normal range | Flag?) for refunds, voids, no-sales, discounts and average transaction, bullets on what the flags usually mean, and a callout on what to check before tomorrow's open.",
+   "prompt": "Analyse the end-of-day report from these figures: {figures}, reading them from the photo if one is attached and the figures say so. Produce a kv (gross, net of refunds, card vs cash split %, expected cash, declared cash, variance), a table (Signal | Value | Normal range | Flag?) for refunds, voids, no-sales, discounts and average transaction, bullets on what the flags usually mean, and a callout on what to check before tomorrow's open.",
    "shape": "kv, table, bullets, callout",
    "button": "Analyse",
    "loading": "Cashing up…"
@@ -125,7 +126,7 @@
      "default": "Busy Saturday"
     }
    ],
-   "prompt": "Set the cash float for a {day} at the profile shop: kv (float per till and denomination breakdown), a table (Time | Action | Who) for safe drops and change runs across the day, a checklist for opening and closing each till, and a callout on the maximum cash to hold in a drawer.",
+   "prompt": "Set the cash float for a {day} at the profile shop, using the profile standard float and till count. Produce a kv (float per till and denomination breakdown), a table (Time | Action | Who) for safe drops and change runs across the day, a checklist for opening and closing each till, and a callout on the maximum cash to hold in a drawer.",
    "shape": "kv, table, checklist, callout",
    "button": "Set float",
    "loading": "Counting coins…"
@@ -138,9 +139,9 @@
    "inputs": [
     {
      "key": "hourly",
-     "label": "Sales by hour",
+     "label": "Sales by hour (add current staff if known)",
      "type": "longtext",
-     "placeholder": "7am 60, 8am 210, 9am 180, 12pm 340, 1pm 390, 5pm 300, 9pm 90…",
+     "placeholder": "7am 60 (1 staff), 8am 210 (2), 9am 180 (2), 12pm 340 (3), 1pm 390 (3), 5pm 300 (2), 9pm 90 (1)…",
      "required": true
     },
     {
@@ -150,7 +151,7 @@
      "placeholder": "14"
     }
    ],
-   "prompt": "Match staffing to these hourly sales: {hourly}, at staff cost {staffcost} per hour. Table (Hour | Sales | Staff suggested | Wage % of sales), bullets of the shifts to move, kv (labour % of sales before and after if current staffing is given), and a callout on minimum safe staffing and breaks.",
+   "prompt": "Match staffing to these hourly sales: {hourly}, at staff cost {staffcost} per hour. Table (Hour | Sales | Staff suggested | Wage % of sales), bullets of the shifts to move, kv (labour % of sales with the suggested staffing, and the before figure where current staff counts are given), and a callout on minimum safe staffing and breaks.",
    "shape": "table, bullets, kv, callout",
    "button": "Plan shifts",
    "loading": "Shuffling rotas…"

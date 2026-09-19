@@ -5,13 +5,13 @@
 **Short description (≤80):** Turn any picture book into a conversation
 
 ## Full description
-Book Nook makes read-alouds richer for 2–6-year-olds: question prompts for the exact picture book in your hands, vocabulary to stretch, retell games, book picks for your child's obsessions and a bedtime routine that ends with a story.
+Book Nook makes read-alouds richer for 2–6-year-olds: question prompts for the exact picture book in your hands, vocabulary to stretch, retell games, book picks for your child's obsessions and rhyme-and-sound games that get ears ready for phonics.
 
 WHAT'S INSIDE
 • Prompts for this book — Questions matched to the pages
 • Retell game — After the book: play it back
 • Book picks — Next reads for what they love
-• Story routine — A bedtime that ends in a book
+• Rhyme time — Rhyme, syllable and first-sound games
 • Word stretch — Grow vocabulary from everyday moments
 
 BRING YOUR OWN KEY
@@ -23,7 +23,7 @@ Every answer is a structured, shareable document with follow-up questions, saved
 - 💬 **Prompts for this book** — Questions matched to the pages
 - 🎭 **Retell game** — After the book: play it back
 - 📚 **Book picks** — Next reads for what they love
-- 🌙 **Story routine** — A bedtime that ends in a book
+- 🎵 **Rhyme time** — Rhyme, syllable and first-sound games
 - 🌱 **Word stretch** — Grow vocabulary from everyday moments
 
 ## Privacy policy

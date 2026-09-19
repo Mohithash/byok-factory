@@ -178,8 +178,15 @@
     {
      "key": "count",
      "label": "Number of colours",
-     "type": "number",
-     "placeholder": "6"
+     "type": "chips",
+     "options": [
+      "3",
+      "5",
+      "6",
+      "8",
+      "10"
+     ],
+     "default": "6"
     }
    ],
    "prompt": "Build a {count}-colour limited palette for {theme}, preferring paints the user already owns and naming exact pigment codes for any gaps: table (Colour | Pigment code | Role | Mixes well with), bullets of the key mixes (greens, greys, darks), and a callout on what NOT to buy yet.",

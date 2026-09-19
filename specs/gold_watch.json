@@ -1,0 +1,213 @@
+{
+ "id": "gold_watch",
+ "name": "Gold Watch",
+ "tagline": "Retirement send-offs worthy of the years",
+ "category": "Events",
+ "colors": [
+  "#37474F",
+  "#D4A017",
+  "#00838F"
+ ],
+ "icon": "clock",
+ "about": "Gold Watch helps a colleague, manager or family member organise a retirement send-off: the event plan, the tribute speech, a career timeline and slideshow brief, the collection and card, and a memory jar that captures real stories.",
+ "persona": "You are a thoughtful events organiser who has run dozens of retirement send-offs: you honour the years without embarrassing the person, keep speeches short and collections discreet.",
+ "onboarding": {
+  "title": "Send them off properly",
+  "subtitle": "Tell us who's retiring and how you know them.",
+  "bullets": [
+   "Event plan and budget",
+   "Tribute speech and career timeline",
+   "Collection, card and memory jar"
+  ]
+ },
+ "profile": [
+  {
+   "key": "retiree",
+   "label": "Who's retiring",
+   "type": "text",
+   "placeholder": "Linda, head of nursing"
+  },
+  {
+   "key": "years",
+   "label": "Years of service",
+   "type": "number",
+   "placeholder": "32"
+  },
+  {
+   "key": "relation",
+   "label": "You are their",
+   "type": "chips",
+   "options": [
+    "Manager",
+    "Colleague / friend",
+    "Direct report",
+    "Partner / family",
+    "HR / office manager"
+   ]
+  },
+  {
+   "key": "personality",
+   "label": "Their personality",
+   "type": "text",
+   "placeholder": "dry humour, hates being centre of attention, loves gardening"
+  }
+ ],
+ "tools": [
+  {
+   "id": "plan",
+   "title": "Plan the send-off",
+   "subtitle": "Run sheet, checklist, budget",
+   "emoji": "🎓",
+   "inputs": [
+    {
+     "key": "where",
+     "label": "Where",
+     "type": "chips",
+     "options": [
+      "Office, during the day",
+      "Pub / restaurant after work",
+      "Home / garden party",
+      "Off-site venue",
+      "Virtual + in person"
+     ],
+     "default": "Pub / restaurant after work"
+    },
+    {
+     "key": "guests",
+     "label": "Guests",
+     "type": "number",
+     "placeholder": "35"
+    },
+    {
+     "key": "budget",
+     "label": "Budget",
+     "type": "number",
+     "placeholder": "600"
+    }
+   ],
+   "prompt": "Plan a retirement send-off for the profile retiree at '{where}' with {guests} guests and {budget} budget, matched to their personality. Table run sheet (Time | Moment | Who | Notes) with speeches early while people are attentive; a checklist across '6 weeks out / 2 weeks / week of / on the day'; a kv budget split (venue and food, drinks, gift, printing and decor, contingency); and a callout on inviting former colleagues and on handling a retiree who says 'don't make a fuss'.",
+   "shape": "table, checklist, kv, callout",
+   "button": "Plan it",
+   "loading": "Booking the room…"
+  },
+  {
+   "id": "speech",
+   "title": "Tribute speech",
+   "subtitle": "How they arrived, what they built",
+   "emoji": "🎙️",
+   "inputs": [
+    {
+     "key": "stories",
+     "label": "Stories, milestones, traits",
+     "type": "longtext",
+     "placeholder": "started as a porter in 1994; the night she stayed 14 hours; the famous flip-chart; 'I'll just check' catchphrase…",
+     "required": true
+    },
+    {
+     "key": "tone",
+     "label": "Tone",
+     "type": "chips",
+     "options": [
+      "Warm & sincere",
+      "Funny with heart",
+      "Formal (senior leadership)"
+     ],
+     "default": "Funny with heart"
+    },
+    {
+     "key": "length",
+     "label": "Length",
+     "type": "chips",
+     "options": [
+      "2 minutes",
+      "4 minutes",
+      "6 minutes"
+     ],
+     "default": "4 minutes"
+    }
+   ],
+   "prompt": "Write a {length} {tone} retirement speech from the profile relation using: {stories}. A quote with the full speech (arc: how they arrived, what they built, who they made better, what's next, the toast); bullets on delivery and where to pause for laughs; and a callout on lines to cut if the retiree hates attention.",
+   "shape": "quote, bullets, callout",
+   "button": "Write speech",
+   "loading": "Warming up…"
+  },
+  {
+   "id": "timeline",
+   "title": "Career timeline & slideshow",
+   "subtitle": "Slides, photos, who to ask",
+   "emoji": "📽️",
+   "inputs": [
+    {
+     "key": "highlights",
+     "label": "Highlights by year (rough)",
+     "type": "longtext",
+     "placeholder": "1994 joined; 2001 promoted; 2010 led the merger; 2020 the pandemic year…",
+     "required": true
+    }
+   ],
+   "prompt": "Build a career timeline and slideshow brief from {highlights}. Sections: a table (Year | Milestone | Slide title | Photo or prop to find | Who to ask); then steps to collect photos and clips from colleagues within two weeks; then bullets of 6 'then vs now' slide ideas (tech, uniforms, the office, prices); then a quote with the request message to send around.",
+   "shape": "table, steps, bullets, quote",
+   "button": "Build timeline",
+   "loading": "Scanning photos…"
+  },
+  {
+   "id": "kitty",
+   "title": "Collection & card",
+   "subtitle": "Discreet kitty, easy card messages",
+   "emoji": "💌",
+   "inputs": [
+    {
+     "key": "headcount",
+     "label": "People to ask",
+     "type": "number",
+     "placeholder": "60"
+    },
+    {
+     "key": "method",
+     "label": "Collect via",
+     "type": "chips",
+     "options": [
+      "Envelope on a desk",
+      "Online kitty link",
+      "Both"
+     ],
+     "default": "Online kitty link"
+    },
+    {
+     "key": "gift",
+     "label": "Gift idea (if known)",
+     "type": "text",
+     "placeholder": "greenhouse voucher + engraved trowel"
+    }
+   ],
+   "prompt": "Organise a collection from {headcount} people via '{method}' toward: {gift}. Sections: a quote with the collection email (no pressure, a suggested range, deadline, who to contact); a second quote with 4 card message options of different lengths for colleagues who don't know what to write; a checklist for closing the kitty, buying, wrapping and presenting; and a callout on discretion (amounts private, include remote and part-time staff, allow anonymity).",
+   "shape": "quote, checklist, callout",
+   "button": "Organise",
+   "loading": "Passing the hat…"
+  },
+  {
+   "id": "memories",
+   "title": "Memory jar & guest book",
+   "subtitle": "Prompts that pull real stories",
+   "emoji": "🫙",
+   "inputs": [
+    {
+     "key": "format",
+     "label": "Format",
+     "type": "chips",
+     "options": [
+      "Memory jar cards",
+      "Guest book",
+      "Video messages",
+      "Wall of sticky notes"
+     ],
+     "default": "Memory jar cards"
+    }
+   ],
+   "prompt": "Set up a '{format}' for the profile retiree. Sections: bullets of 10 prompts that pull specific memories rather than 'good luck' (first impression, a time they saved the day, advice they gave, a phrase only they say); steps for running it at the event so everyone contributes; a quote with the printed instruction card; and a callout on how to present it at the end.",
+   "shape": "bullets, steps, quote, callout",
+   "button": "Set it up",
+   "loading": "Gathering stories…"
+  }
+ ]
+}

@@ -5,7 +5,7 @@
 **Short description (≤80):** Sounds, blending and decodable stories, step by step
 
 ## Full description
-Phonics Path gives parents a systematic phonics routine: today's sound with words and actions, blending games, decodable mini-stories that use only the sounds your child knows, and tricky-word practice matched to the scheme their school uses.
+Phonics Path gives parents of beginning readers (4–6) a systematic phonics routine: today's sound with words and actions, blending games, decodable mini-stories that use only the sounds your child knows, and tricky-word practice matched to the scheme their school uses.
 
 WHAT'S INSIDE
 • Today's sound — A 10-minute lesson for one grapheme

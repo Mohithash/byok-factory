@@ -1,0 +1,210 @@
+{
+ "id": "exec_brief",
+ "name": "Exec Brief",
+ "tagline": "Say it in five lines — leaders will read it",
+ "category": "Business",
+ "colors": [
+  "#263238",
+  "#C62828",
+  "#FFC107"
+ ],
+ "icon": "note",
+ "about": "Exec Brief turns long updates into bottom-line-first briefs, drafts bad news for the people above you, escalates blockers without sounding like a complaint and answers terse executive questions without a wall of text.",
+ "persona": "You are a chief of staff who has written for CEOs for a decade: bottom line first, numbers over adjectives, one ask per message, never burying risk.",
+ "onboarding": {
+  "title": "Write for people with 90 seconds",
+  "subtitle": "Who do you write to? Their style shapes every brief.",
+  "bullets": [
+   "BLUF summaries from any update",
+   "Bad news delivered upward, well",
+   "Escalations and one-line answers"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "audience",
+   "label": "Who you write to",
+   "type": "text",
+   "placeholder": "CEO and CFO, both terse, CFO wants numbers"
+  },
+  {
+   "key": "channel",
+   "label": "Usual channel",
+   "type": "chips",
+   "options": [
+    "Email",
+    "Slack/Teams",
+    "Written memo",
+    "Verbal at a meeting"
+   ]
+  },
+  {
+   "key": "level",
+   "label": "Your level",
+   "type": "chips",
+   "options": [
+    "Team lead",
+    "Manager",
+    "Director / VP",
+    "Founder"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "bluf",
+   "title": "BLUF it",
+   "subtitle": "Long update → five-line brief",
+   "emoji": "✂️",
+   "inputs": [
+    {
+     "key": "update",
+     "label": "Paste your draft or notes",
+     "type": "longtext",
+     "placeholder": "…",
+     "required": true
+    },
+    {
+     "key": "ask",
+     "label": "This is",
+     "type": "chips",
+     "options": [
+      "FYI only",
+      "Needs a decision",
+      "Needs resources",
+      "Heads-up on a risk"
+     ],
+     "default": "FYI only"
+    }
+   ],
+   "prompt": "Rewrite this for the profile's audience and channel as a bottom-line-first brief: {update}. Purpose: {ask}. Sections: a quote with the final brief (max 5 lines: bottom line, evidence, ask or decision by when, risk, next step); kv (What I cut → why); bullets of numbers or specifics the original was missing; and a callout with the subject line or first Slack line.",
+   "shape": "quote, kv, bullets, callout",
+   "button": "Compress",
+   "loading": "Cutting to the bone…"
+  },
+  {
+   "id": "badnews",
+   "title": "Deliver bad news up",
+   "subtitle": "Miss, slip or mistake — say it right",
+   "emoji": "📉",
+   "inputs": [
+    {
+     "key": "news",
+     "label": "What went wrong",
+     "type": "longtext",
+     "placeholder": "we'll miss the Q3 revenue target by ~12%",
+     "required": true
+    },
+    {
+     "key": "known",
+     "label": "Responsibility",
+     "type": "chips",
+     "options": [
+      "Mostly mine / my team",
+      "Shared",
+      "External",
+      "Unclear yet"
+     ],
+     "default": "Shared"
+    },
+    {
+     "key": "timing",
+     "label": "Timing",
+     "type": "chips",
+     "options": [
+      "They don't know yet",
+      "They suspect",
+      "They already know and are asking"
+     ],
+     "default": "They don't know yet"
+    }
+   ],
+   "prompt": "Draft bad news for the profile's audience: {news}. Responsibility: {known}. Timing: {timing}. Sections: a quote with the message under 150 words (lead with the fact and the number, own what is owned, what is already done, options with a recommendation, when the next update comes); a table (Question they'll ask | Your answer) with 4 rows; a callout on what makes bad-news messages fail (blame, burying, hedging); and bullets on whether to send it or say it first given the profile's channel.",
+   "shape": "quote, table, callout, bullets",
+   "button": "Draft it",
+   "loading": "Steadying the hand…"
+  },
+  {
+   "id": "escalate",
+   "title": "Escalate properly",
+   "subtitle": "Blocked? Raise it without whining",
+   "emoji": "🚨",
+   "inputs": [
+    {
+     "key": "blocker",
+     "label": "What's blocked and what you've tried",
+     "type": "longtext",
+     "placeholder": "legal has sat on the contract 3 weeks; I've chased twice",
+     "required": true
+    },
+    {
+     "key": "cost",
+     "label": "Cost of the delay",
+     "type": "text",
+     "placeholder": "£40k/month, customer threatening to churn"
+    }
+   ],
+   "prompt": "Draft an escalation to the profile's audience about: {blocker}. Cost of delay: {cost}. Sections: a callout judging whether this is escalation-worthy yet and the one more step to try first if not; a quote with the escalation message under 120 words (fact, what has been tried, the cost in numbers, the specific ask with a date, what happens without action); a table (Reader's objection | Your line) with 3 rows; and bullets on keeping the blocked party as an ally after escalating.",
+   "shape": "callout, quote, table, bullets",
+   "button": "Draft escalation",
+   "loading": "Raising it…"
+  },
+  {
+   "id": "answer",
+   "title": "Answer an exec's question",
+   "subtitle": "Terse reply, no wall of text",
+   "emoji": "💬",
+   "inputs": [
+    {
+     "key": "question",
+     "label": "Their question (verbatim)",
+     "type": "text",
+     "placeholder": "why is churn up?",
+     "required": true
+    },
+    {
+     "key": "facts",
+     "label": "What you actually know",
+     "type": "longtext",
+     "placeholder": "churn 4.1% vs 3.2%, mostly SMB, pricing change in May, 2 big logos lost to competitor X",
+     "required": true
+    }
+   ],
+   "prompt": "An executive asked: '{question}'. Known facts: {facts}. Sections: a quote with the reply (answer first in one sentence, then at most 3 supporting lines, then the next step); text explaining what was left out and why; a table (If they follow up with… | Reply) with 3 rows; and a callout on any gap in the facts to flag honestly rather than paper over.",
+   "shape": "quote, text, table, callout",
+   "button": "Write the reply",
+   "loading": "Answering first…"
+  },
+  {
+   "id": "heat",
+   "title": "Reply to an angry exec",
+   "subtitle": "A heated message from above — answer it well",
+   "emoji": "🔥",
+   "inputs": [
+    {
+     "key": "message",
+     "label": "Their message (paste it)",
+     "type": "longtext",
+     "placeholder": "'Why am I hearing about this from the customer?? Call me.'",
+     "required": true
+    },
+    {
+     "key": "context",
+     "label": "What actually happened",
+     "type": "longtext",
+     "placeholder": "40-minute outage; customer emailed the CEO before our status page updated",
+     "required": true
+    }
+   ],
+   "prompt": "An executive sent this heated message: {message}. What actually happened: {context}. Sections: text with a two-sentence read of what they are really angry about (the outcome, being surprised, or looking bad to someone else); a quote with the reply under 100 words (acknowledge without grovelling, the fact, what is already done and by when, one line on preventing a repeat, an offer to talk); a table (Their line | What it signals | Do not reply with) with 3 rows; and a callout on whether to reply in writing or call first, given the profile's channel and the tone of their message.",
+   "shape": "text, quote, table, callout",
+   "button": "Draft reply",
+   "loading": "Cooling it down…"
+  }
+ ]
+}

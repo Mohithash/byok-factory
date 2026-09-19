@@ -1,0 +1,184 @@
+{
+ "id": "off_season",
+ "name": "Off Season",
+ "tagline": "Seasonal pay, year-round bills, one calm plan",
+ "category": "Finance",
+ "colors": [
+  "#0277BD",
+  "#FFB74D",
+  "#8D6E63"
+ ],
+ "icon": "sun",
+ "about": "Off Season helps seasonal and term-time workers — tourism, ski and beach, agriculture, festivals, school staff — bank the busy months, spend the quiet ones without dread, decode seasonal contracts, and line up off-season income early.",
+ "persona": "You are a seasonal-work money planner: you think in seasons not months, keep the peak-season cash boring, and know the off-season is where plans fail.",
+ "onboarding": {
+  "title": "Bank the peak, breathe the lull",
+  "subtitle": "Your season shape makes the plan.",
+  "bullets": [
+   "Peak-month saving targets",
+   "An off-season allowance you can live on",
+   "Bridge income lined up early"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "work",
+   "label": "Seasonal work",
+   "type": "text",
+   "placeholder": "ski instructor Dec–Apr"
+  },
+  {
+   "key": "peak",
+   "label": "Peak months",
+   "type": "text",
+   "placeholder": "Dec, Jan, Feb, Mar, Apr"
+  },
+  {
+   "key": "costs",
+   "label": "Monthly costs, year-round",
+   "type": "number",
+   "placeholder": "1500"
+  }
+ ],
+ "tools": [
+  {
+   "id": "cycle",
+   "title": "My year, month by month",
+   "subtitle": "Peak saving → off-season allowance",
+   "emoji": "🔄",
+   "inputs": [
+    {
+     "key": "peakpay",
+     "label": "Typical monthly take-home in peak",
+     "type": "number",
+     "placeholder": "3200"
+    },
+    {
+     "key": "offpay",
+     "label": "Typical monthly income off-season",
+     "type": "number",
+     "placeholder": "400"
+    },
+    {
+     "key": "saved",
+     "label": "Savings now",
+     "type": "number",
+     "placeholder": "1200"
+    }
+   ],
+   "prompt": "Peak pay {peakpay}, off-season income {offpay}, savings {saved}, peak months and costs from the profile. Sections: table (Month | Income | Costs | Save / draw | Balance) for the next 12 months starting this month; kv (required saving per peak month, off-season monthly allowance, lowest balance and its month, buffer beyond the plan); a callout on the month the plan is most fragile and one fix; bullets on annual costs to prepay during peak (insurance, licence renewals, equipment).",
+   "shape": "table, kv, callout, bullets",
+   "button": "Map my year",
+   "loading": "Turning seasons…"
+  },
+  {
+   "id": "bridge",
+   "title": "Off-season income ideas",
+   "subtitle": "Matched to your skills",
+   "emoji": "🌉",
+   "inputs": [
+    {
+     "key": "skills",
+     "label": "Skills and gear you have",
+     "type": "text",
+     "placeholder": "first-aid cert, a van, good with kids, speak French"
+    },
+    {
+     "key": "want",
+     "label": "Off-season you want",
+     "type": "chips",
+     "options": [
+      "Mostly rest",
+      "Part-time income",
+      "Full earning",
+      "Travel + some work"
+     ],
+     "default": "Part-time income"
+    }
+   ],
+   "prompt": "Skills: {skills}, wanting: {want}, seasonal work from the profile. Sections: cards for 6 bridge-income options (meta = typical monthly · setup time · fits with rest?) ranging from opposite-season versions of the same job to remote and local work; table (Option | Lead time to arrange | Where to look | Start applying by); a callout on contract terms to check (return dates, exclusivity) so bridge work doesn't jeopardise the main season; steps for lining it up before peak ends.",
+   "shape": "cards, table, callout, steps",
+   "button": "Find bridges",
+   "loading": "Scouting…"
+  },
+  {
+   "id": "contract",
+   "title": "Read my seasonal contract",
+   "subtitle": "Pay, hours, housing deductions",
+   "emoji": "📄",
+   "inputs": [
+    {
+     "key": "terms",
+     "label": "Paste the pay and terms",
+     "type": "longtext",
+     "placeholder": "hourly 14.50, staff housing deducted 90/week, tips pooled, end-of-season bonus 500 if completed…",
+     "required": true
+    }
+   ],
+   "prompt": "Terms: {terms}. Sections: kv (real weekly take-home after housing or meal deductions, effective hourly, bonus conditions, notice rules if stated); table (Clause | What it means | Watch-out | Question to ask); a callout on deductions that commonly exceed legal limits or push effective pay below minimum wage, noting that employment rules differ by country and this is not legal advice; a quote with 3 questions to email the employer before signing.",
+   "shape": "kv, table, callout, quote",
+   "button": "Decode terms",
+   "loading": "Reading fine print…"
+  },
+  {
+   "id": "taxes",
+   "title": "Uneven income and tax",
+   "subtitle": "Refunds, thresholds, records",
+   "emoji": "🧾",
+   "inputs": [
+    {
+     "key": "country",
+     "label": "Country / region",
+     "type": "text",
+     "placeholder": "Australia"
+    },
+    {
+     "key": "status",
+     "label": "You're paid as",
+     "type": "chips",
+     "options": [
+      "Employee",
+      "Self-employed / contractor",
+      "Both",
+      "Not sure"
+     ],
+     "default": "Employee"
+    }
+   ],
+   "prompt": "For {country}, paid as {status}, with the profile's seasonal pattern, explain the tax shape of uneven income. Sections: text on why seasonal workers are often over- or under-withheld and what that means for refunds or bills; checklist of records to keep through the season (payslips, deductions, travel, equipment, housing); table (Moment | What to do | Why) for start of season, end of season and the year-end return; a callout that this is general information and thresholds, refunds and deadlines must be checked with the official tax body or an adviser.",
+   "shape": "text, checklist, table, callout",
+   "button": "Explain",
+   "loading": "Sorting papers…"
+  },
+  {
+   "id": "gear",
+   "title": "Kit and travel budget",
+   "subtitle": "Getting to the season, equipped",
+   "emoji": "🎒",
+   "inputs": [
+    {
+     "key": "season",
+     "label": "Next season",
+     "type": "text",
+     "placeholder": "summer camp counsellor, Maine, 10 weeks"
+    },
+    {
+     "key": "budget",
+     "label": "Budget for kit and travel",
+     "type": "number",
+     "placeholder": "700"
+    }
+   ],
+   "prompt": "Next season: {season}, budget {budget}. Sections: table (Item | Need / Nice | New / used / borrow | Est. cost) for travel, kit, deposits and the first week before pay; kv (total vs budget, first-payday cash gap, amount to arrive with); a checklist for the week before departure (insurance, bank notice, paperwork, phone plan); a callout on deposits and 'arrive with' rules employers may require.",
+   "shape": "table, kv, checklist, callout",
+   "button": "Budget the kit",
+   "loading": "Packing…"
+  }
+ ],
+ "disclaimer": "General information, not financial, tax or legal advice; rules, thresholds and entitlements differ by country and change — confirm with official sources or a regulated adviser before acting."
+}

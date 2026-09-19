@@ -113,7 +113,7 @@
      "placeholder": "alone in a car park at night"
     }
    ],
-   "prompt": "Rewrite the telling sentence '{telling}' in context: {context}, in the profile POV and voice. Cards with 3 shown versions (meta = technique: body / action / setting-as-mirror), each at most 2 sentences; bullets on when telling is the better choice; a callout on the cliché versions to avoid.",
+   "prompt": "Rewrite the telling sentence '{telling}' in context: {context} (if no context is given, invent a plausible one and name it), in the profile POV and voice. Cards with 3 shown versions (meta = technique: body / action / setting-as-mirror), each at most 2 sentences; bullets on when telling is the better choice; a callout on the cliché versions to avoid.",
    "shape": "cards, bullets, callout",
    "button": "Show me",
    "loading": "Entering the scene…"

@@ -84,7 +84,7 @@
      "default": "Full solution"
     }
    ],
-   "prompt": "Problem: {problem} (or the photo). Mode: {mode}. Start with a text section describing the diagram to draw (axes, every force or vector, labels). Then kv (known quantities, unknowns, principle used). Then steps: each step states the equation in symbols, then substitutes with units, ending in a kv (final answer with units, significant figures, magnitude sanity check). In 'Hint ladder' mode give 4 escalating hints as steps and no final answer. Finish with a callout on the trap most students fall into on this problem type.",
+   "prompt": "Problem: {problem} (or the photo); mode: {mode}. Begin with a text section describing the diagram to draw (axes, every force or vector, labels), then kv (known quantities with units, unknowns, governing principle). In 'Full solution' mode give steps where each step states the equation in symbols then substitutes with units, ending in a kv (final answer with units and significant figures, magnitude sanity check); in 'Hint ladder' mode give 4 escalating hints as steps and no final answer; in 'Check my answer' mode give steps that compare the user's working line by line, flagging the first wrong line and the correct value. Finish with a callout on the trap most students fall into on this problem type.",
    "shape": "text, kv, steps, callout",
    "button": "Solve",
    "loading": "Drawing the diagram…"
@@ -109,7 +109,7 @@
      "placeholder": "accelerating at 2 m/s² up the slope"
     }
    ],
-   "prompt": "For {object} in situation: {situation}. Table (Force | Acts on | Direction | Newton-pair partner | Magnitude expression). Then steps to choose axes, resolve each force and write ΣF = ma per axis. Bullets of forces students wrongly add (e.g. 'centrifugal', 'force of motion'), and a callout on why the chosen axes make the algebra easiest.",
+   "prompt": "For {object}; motion or situation (if given): {situation}. Table (Force | Acts on | Direction | Newton-pair partner | Magnitude expression). Then steps to choose axes, resolve each force and write ΣF = ma per axis. Bullets of forces students wrongly add (e.g. 'centrifugal', 'force of motion'), and a callout on why the chosen axes make the algebra easiest.",
    "shape": "table, steps, bullets, callout",
    "button": "Draw forces",
    "loading": "Resolving…"

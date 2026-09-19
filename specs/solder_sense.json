@@ -71,7 +71,7 @@
      "placeholder": "LM358 / bands: brown black red gold"
     }
    ],
-   "prompt": "Identify the component in the photo, hint: {marking}. kv (part type, value or part number, tolerance, package, polarity), a table (Pin | Name | Function) if it has a pinout, bullets on what it is typically used for, and a callout on handling: ESD, polarity, heat or voltage rating.",
+   "prompt": "Identify the component in the photo; marking or hint (if given): {marking}. kv (part type, value or part number, tolerance, package, polarity), a table (Pin | Name | Function) if it has a pinout, bullets on what it is typically used for, and a callout on handling: ESD, polarity, heat or voltage rating.",
    "shape": "kv, table, bullets, callout",
    "button": "Identify",
    "loading": "Reading bands…"

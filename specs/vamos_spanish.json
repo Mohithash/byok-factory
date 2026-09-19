@@ -94,7 +94,7 @@
      "placeholder": "vegetarian, want to sit outside"
     }
    ],
-   "prompt": "Write a realistic {situation} dialogue for the profile's destination with specifics: {detail}. Sections: steps (each = one exchange: what you say in local Spanish, pronunciation with stressed syllables in CAPITALS, English meaning, then the 2 most likely replies you'll hear), a table of the key words (Spanish | Local variant | English), and a callout on one cultural courtesy for this situation in that country.",
+   "prompt": "Write a realistic {situation} dialogue for the profile's destination with specifics: {detail}. Sections: steps with 6–8 exchanges (each = one exchange: what you say in local Spanish, pronunciation with stressed syllables in CAPITALS, English meaning, then the 2 most likely replies you'll hear), a table of the key words (Spanish | Local variant | English), and a callout on one cultural courtesy for this situation in that country.",
    "shape": "steps, table, callout",
    "button": "Write script",
    "loading": "Rehearsing…"
@@ -156,7 +156,7 @@
      "required": true
     }
    ],
-   "prompt": "Translate '{phrase}' as locals actually say it: a table (Country | Phrase | Pronunciation | Notes) covering Mexico, Spain, Argentina and Colombia, bullets of words to avoid because they are rude or mean something else in one of those countries, and a callout naming the safe neutral version that works everywhere.",
+   "prompt": "Translate '{phrase}' as locals actually say it. Sections: a table (Country | Phrase | Pronunciation | Notes) covering Mexico, Spain, Argentina and Colombia, plus the profile's destination if it is not one of those; bullets of 3–5 words to avoid because they are rude or mean something else in one of those countries; and a callout naming the safe neutral version that works everywhere.",
    "shape": "table, bullets, callout",
    "button": "Compare",
    "loading": "Travelling…"
@@ -174,7 +174,7 @@
      "placeholder": "bus to Oaxaca, market, cooking class"
     }
    ],
-   "prompt": "Pick the 10 most useful words and 3 phrases for tomorrow: {plan}, for the profile's destination and level. Sections: a table (Spanish | Pronunciation | English | Use it when), a checklist of 5 mini-missions to attempt during the day (e.g. 'ask the price of one thing'), and a quote with one sentence to say if you get stuck.",
+   "prompt": "Tomorrow's plan: {plan} (if not given, assume a typical day for the profile's trip style). Pick the 10 most useful words and 3 phrases for that day, for the profile's destination and level. Sections: a table (Spanish | Pronunciation | English | Use it when), a checklist of 5 mini-missions to attempt during the day (e.g. 'ask the price of one thing'), and a quote with one sentence to say if you get stuck.",
    "shape": "table, checklist, quote",
    "button": "Prep me",
    "loading": "Packing words…"

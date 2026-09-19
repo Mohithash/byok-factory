@@ -81,7 +81,7 @@
      "placeholder": "400"
     }
    ],
-   "prompt": "Using the photo if provided and: {scene} at ISO {iso} — kv (recommended aperture + shutter, EV, where to place the shadows, sunny-16 base and the correction applied), a table (Aperture | Shutter | Use when) with 4 equivalent exposures, and a callout on the exposure risk in this scene (backlight, snow, high contrast).",
+   "prompt": "Using the photo if provided and: {scene}. Film ISO: {iso} (assume 400 if not given). Sections: kv (recommended aperture + shutter, EV, where to place the shadows, sunny-16 base and the correction applied), a table (Aperture | Shutter | Use when) with 4 equivalent exposures, and a callout on the exposure risk in this scene (backlight, snow, high contrast).",
    "shape": "kv, table, callout",
    "button": "Meter it",
    "loading": "Reading the light…"

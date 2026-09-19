@@ -1,0 +1,190 @@
+{
+ "id": "flaw_finder",
+ "name": "Flaw Finder",
+ "tagline": "LSAT logical reasoning, argument by argument",
+ "category": "Education",
+ "colors": [
+  "#37474F",
+  "#C62828",
+  "#FFB300"
+ ],
+ "icon": "scale",
+ "about": "Flaw Finder drills LSAT Logical Reasoning by question type, maps any stimulus into premises, conclusion and gap, teaches the flaw catalogue the test reuses, translates conditional statements and their contrapositives, and paces a 35-minute section.",
+ "persona": "You are an LSAT tutor who reads arguments like a logician: you name the conclusion first, the gap second, and the trap in every wrong answer, and you never rely on gut feel.",
+ "onboarding": {
+  "title": "Find the gap before the answer choices do",
+  "subtitle": "Your scores, date and weakest question type focus the drills.",
+  "bullets": [
+   "Logical Reasoning drills by question type",
+   "Argument maps and the flaw catalogue",
+   "Conditional logic and section pacing"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "scores",
+   "label": "Current → target score",
+   "type": "text",
+   "placeholder": "155 → 168"
+  },
+  {
+   "key": "date",
+   "label": "Test date",
+   "type": "text",
+   "placeholder": "June"
+  },
+  {
+   "key": "weak",
+   "label": "Weakest question type",
+   "type": "chips",
+   "options": [
+    "Assumption",
+    "Flaw",
+    "Strengthen / Weaken",
+    "Inference",
+    "Parallel reasoning",
+    "Not sure yet"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "drill",
+   "title": "Logical Reasoning drill",
+   "subtitle": "Exam-format questions on one type",
+   "emoji": "⚖️",
+   "inputs": [
+    {
+     "key": "qtype",
+     "label": "Question type",
+     "type": "chips",
+     "options": [
+      "Necessary assumption",
+      "Sufficient assumption",
+      "Flaw",
+      "Strengthen",
+      "Weaken",
+      "Inference / must be true",
+      "Parallel reasoning",
+      "Principle",
+      "Resolve the paradox",
+      "Method of reasoning"
+     ],
+     "default": "Flaw"
+    },
+    {
+     "key": "n",
+     "label": "Questions",
+     "type": "chips",
+     "options": [
+      "4",
+      "8"
+     ],
+     "default": "4"
+    }
+   ],
+   "prompt": "Write {n} LSAT-format {qtype} questions pitched at the profile's target score: cards (stimulus of 60–120 words, the question stem, five options lettered A–E, meta = type · difficulty 1–5), a table (No. | Answer | Conclusion of the stimulus | Gap the answer addresses | Most-tempting wrong option and its trap type), and a callout on how to read the stem before the stimulus for this question type.",
+   "shape": "cards, table, callout",
+   "button": "Drill me",
+   "loading": "Building arguments…"
+  },
+  {
+   "id": "map",
+   "title": "Map an argument",
+   "subtitle": "Paste a stimulus → conclusion, premises, gap",
+   "emoji": "🗺️",
+   "inputs": [
+    {
+     "key": "stimulus",
+     "label": "The stimulus",
+     "type": "longtext",
+     "placeholder": "paste the argument from a question…",
+     "required": true
+    }
+   ],
+   "prompt": "Map this argument: {stimulus}. Give kv (main conclusion, number of premises, unstated assumption, argument type), a table (Sentence | Role: premise, sub-conclusion, main conclusion, background or counter-premise | Signal word), bullets of the 3 strongest ways to attack the argument, and a quote restating it as a single 'because…, therefore…' sentence.",
+   "shape": "kv, table, bullets, quote",
+   "button": "Map it",
+   "loading": "Finding the gap…"
+  },
+  {
+   "id": "flaws",
+   "title": "Flaw catalogue",
+   "subtitle": "How the test phrases each flaw",
+   "emoji": "🕳️",
+   "inputs": [
+    {
+     "key": "flaw",
+     "label": "Flaw",
+     "type": "chips",
+     "options": [
+      "Correlation vs causation",
+      "Necessary vs sufficient",
+      "Unrepresentative sample",
+      "Part to whole / whole to part",
+      "Equivocation",
+      "Circular reasoning",
+      "Ad hominem",
+      "Appeal to authority or popularity",
+      "False dilemma",
+      "Absence of evidence",
+      "All of them"
+     ],
+     "default": "All of them"
+    }
+   ],
+   "prompt": "Teach '{flaw}' as the LSAT tests it: a table (Flaw | How answer choices phrase it | Trigger words in the stimulus | 20-word example) with all 10 flaws if 'All of them' was chosen, otherwise the chosen flaw in depth with 3 phrasing variants; cards of 4 mini-stimuli to diagnose (meta = the flaw); and a quote with a one-line test that tells the chosen flaw apart from its nearest look-alike.",
+   "shape": "table, cards, quote",
+   "button": "Teach me",
+   "loading": "Cataloguing flaws…"
+  },
+  {
+   "id": "logic",
+   "title": "Conditional logic",
+   "subtitle": "Diagram it, flip it, chain it",
+   "emoji": "🔁",
+   "inputs": [
+    {
+     "key": "statements",
+     "label": "Statements to diagram",
+     "type": "longtext",
+     "placeholder": "No one who skips practice tests improves. Only members may vote. Unless it rains, the match is on.",
+     "required": true
+    }
+   ],
+   "prompt": "Diagram each statement in: {statements}. A table (Statement | Diagram as A → B | Contrapositive | Trigger phrase: only if, unless, no…without, all, none), steps for chaining the diagrams and spotting what can and cannot be inferred, cards of 4 fresh statements to translate (meta = answer), and a callout on the most common mistranslation among these trigger phrases.",
+   "shape": "table, steps, cards, callout",
+   "button": "Diagram",
+   "loading": "Drawing arrows…"
+  },
+  {
+   "id": "section",
+   "title": "35-minute section plan",
+   "subtitle": "Checkpoints, two passes, skip rules",
+   "emoji": "⏱️",
+   "inputs": [
+    {
+     "key": "pace",
+     "label": "Your pacing problem",
+     "type": "chips",
+     "options": [
+      "Run out of time",
+      "Rush the early easy ones",
+      "Sink minutes into one question",
+      "Fine, just want a plan"
+     ],
+     "default": "Run out of time"
+    }
+   ],
+   "prompt": "Build a pacing plan for a 35-minute Logical Reasoning section for someone whose problem is '{pace}': a table (Question range | Target minutes | Cumulative checkpoint | Skip rule), steps for a two-pass method with flagging, a checklist for test day (admission ticket and ID, testing-platform check, remote-proctor room rules, permitted scratch paper), and a callout on guessing given there is no wrong-answer penalty.",
+   "shape": "table, steps, checklist, callout",
+   "button": "Plan my pacing",
+   "loading": "Starting the timer…"
+  }
+ ]
+}

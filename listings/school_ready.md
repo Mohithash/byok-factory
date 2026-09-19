@@ -1,11 +1,11 @@
-# School Ready
+# First Bell
 
 **Category:** Parenting  
 **Package:** `com.mohithash.byok.schoolready`  
 **Short description (≤80):** Confident on day one of school, no flashcards
 
 ## Full description
-School Ready prepares 3–5-year-olds for nursery, preschool or their first year of school: the skills that actually matter (self-care, listening, turn-taking, early letters and numbers), a countdown plan, separation-anxiety scripts and a first-week routine for the whole family.
+First Bell prepares 4–5-year-olds for their first year of school (Reception, Pre-K or Kindergarten): the skills that actually matter (self-care, listening, turn-taking, early letters and numbers), a countdown plan, separation-anxiety scripts and a first-week routine for the whole family.
 
 WHAT'S INSIDE
 • Readiness check — What matters, what doesn't

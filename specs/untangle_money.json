@@ -1,0 +1,202 @@
+{
+ "id": "untangle_money",
+ "name": "Untangle",
+ "tagline": "Separate your money after a breakup, fairly and fast",
+ "category": "Finance",
+ "colors": [
+  "#455A64",
+  "#EF6C00",
+  "#7E57C2"
+ ],
+ "icon": "scale",
+ "about": "Untangle helps couples who are splitting up divide shared money calmly: who keeps what, closing joint accounts and subscriptions, settling the deposit and the furniture, rebuilding a solo budget, and the messages that get you paid back.",
+ "persona": "You are a practical, neutral separation money guide: you keep score only where it matters, protect both people from rash moves, and know when a lawyer or mediator is worth the fee.",
+ "onboarding": {
+  "title": "Split the money, keep your head",
+  "subtitle": "A few facts about the situation keep the advice relevant.",
+  "bullets": [
+   "A fair division of shared things",
+   "Joint accounts and bills, closed cleanly",
+   "Scripts for the awkward messages"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "status",
+   "label": "Legal status",
+   "type": "chips",
+   "options": [
+    "Unmarried, living together",
+    "Married / civil partnership",
+    "Engaged",
+    "Not sure"
+   ]
+  },
+  {
+   "key": "home",
+   "label": "Home",
+   "type": "chips",
+   "options": [
+    "Renting together",
+    "One of us owns it",
+    "Own together",
+    "Neither / other"
+   ]
+  },
+  {
+   "key": "country",
+   "label": "Country / region",
+   "type": "text",
+   "placeholder": "UK"
+  }
+ ],
+ "tools": [
+  {
+   "id": "inventory",
+   "title": "Divide what's shared",
+   "subtitle": "Furniture, deposit, pets, debt",
+   "emoji": "📦",
+   "inputs": [
+    {
+     "key": "items",
+     "label": "Shared things & money",
+     "type": "longtext",
+     "placeholder": "sofa 900 (I paid), deposit 1500 (split), joint credit card 1200 owed, the dog…",
+     "required": true
+    },
+    {
+     "key": "style",
+     "label": "You want to be",
+     "type": "chips",
+     "options": [
+      "Strictly fair",
+      "Generous to move on",
+      "Firm, they've been unfair"
+     ],
+     "default": "Strictly fair"
+    }
+   ],
+   "prompt": "Shared items and money: {items}; approach: {style}. Sections: table (Item | Who paid / whose name | Suggested outcome | Reasoning); kv (net balancing payment and who pays whom); a callout on items that are legally different from 'stuff' (joint debt, tenancy deposits, pets, anything in one name only) and which need advice given the profile's status and region; a quote with a short neutral message proposing the split.",
+   "shape": "table, kv, callout, quote",
+   "button": "Propose a split",
+   "loading": "Untangling…"
+  },
+  {
+   "id": "accounts",
+   "title": "Close the joint stuff",
+   "subtitle": "Accounts, bills, subscriptions",
+   "emoji": "✂️",
+   "inputs": [
+    {
+     "key": "joint",
+     "label": "Everything joint",
+     "type": "longtext",
+     "placeholder": "joint current account, Netflix on my card, energy in both names, phone family plan…",
+     "required": true
+    }
+   ],
+   "prompt": "Joint items: {joint}. Sections: checklist in the safest order (freeze new borrowing first, then bills, then subscriptions, then close accounts), one line per item with who does it; table (Item | Risk if left open | Action | Deadline); a callout on protecting your credit file from a joint account or shared address and on never emptying a joint account unilaterally; steps for the day you close the main joint account.",
+   "shape": "checklist, table, callout, steps",
+   "button": "Make the list",
+   "loading": "Cutting cords…"
+  },
+  {
+   "id": "housing",
+   "title": "Who stays, who goes",
+   "subtitle": "Rent, deposit and moving costs",
+   "emoji": "🏠",
+   "inputs": [
+    {
+     "key": "rent",
+     "label": "Monthly rent / mortgage",
+     "type": "number",
+     "placeholder": "1400"
+    },
+    {
+     "key": "deposit",
+     "label": "Deposit held",
+     "type": "number",
+     "placeholder": "1600"
+    },
+    {
+     "key": "plan",
+     "label": "Likely outcome",
+     "type": "chips",
+     "options": [
+      "I stay",
+      "They stay",
+      "Both leave",
+      "Undecided"
+     ],
+     "default": "Undecided"
+    }
+   ],
+   "prompt": "Home cost {rent}, deposit {deposit}, likely outcome {plan}, home situation from the profile. Sections: table (Option | Monthly cost to you | Deposit handling | Notice / moving cost | Watch-outs) comparing you staying, them staying and both leaving; kv (cash you need to leave, or to stay alone, including first month and deposit); a callout on tenancy or ownership rules that vary by region (notice, release from a joint tenancy, landlord consent, who is liable) and that this is not legal advice; a quote with a message to the landlord or agent asking what is possible.",
+   "shape": "table, kv, callout, quote",
+   "button": "Compare options",
+   "loading": "Measuring rooms…"
+  },
+  {
+   "id": "solo",
+   "title": "My solo budget",
+   "subtitle": "Life on one income again",
+   "emoji": "🧍",
+   "inputs": [
+    {
+     "key": "income",
+     "label": "Your monthly take-home",
+     "type": "number",
+     "placeholder": "2300"
+    },
+    {
+     "key": "costs",
+     "label": "Your new costs",
+     "type": "longtext",
+     "placeholder": "rent 950, transport 90, phone 20, groceries 250…",
+     "required": true
+    }
+   ],
+   "prompt": "Rebuild a single budget: income {income}, costs {costs}. Sections: table (Category | Amount | Share of income | Adjust?); kv (left over per month, emergency-fund target for a solo household, weeks to reach it); bullets of 5 costs that quietly doubled after the split and how to soften each; a callout on the first 3 months being the expensive ones and what to tell yourself about it.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Rebuild",
+   "loading": "Resetting…"
+  },
+  {
+   "id": "message",
+   "title": "Write the money message",
+   "subtitle": "Ask for what you're owed, calmly",
+   "emoji": "✉️",
+   "inputs": [
+    {
+     "key": "situation",
+     "label": "What you need to say",
+     "type": "longtext",
+     "placeholder": "they owe me 400 for the last month's bills and haven't replied in 2 weeks",
+     "required": true
+    },
+    {
+     "key": "tone",
+     "label": "Tone",
+     "type": "chips",
+     "options": [
+      "Warm",
+      "Neutral",
+      "Firm",
+      "Final notice"
+     ],
+     "default": "Neutral"
+    }
+   ],
+   "prompt": "Draft a message about: {situation}, tone {tone}. Sections: quote with the message (under 120 words, one clear ask, a date, no raking over history); bullets on what to do if there is no reply (keep a written record, mediation or small-claims as general options, when to let it go); a callout on keeping evidence (screenshots, bank records) and avoiding anything that reads as a threat.",
+   "shape": "quote, bullets, callout",
+   "button": "Write it",
+   "loading": "Choosing words…"
+  }
+ ],
+ "disclaimer": "General information, not legal or financial advice; separation and tenancy rules differ by country and by whether you are married — speak to a solicitor, mediator or free advice service before signing or paying anything."
+}

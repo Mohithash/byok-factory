@@ -1,6 +1,6 @@
 {
  "id": "proof_point",
- "name": "Proof Point",
+ "name": "Proof Stack",
  "tagline": "Turn happy customers into case studies and proof",
  "category": "Business",
  "colors": [
@@ -9,7 +9,7 @@
   "#FF8F00"
  ],
  "icon": "shield",
- "about": "Proof Point writes case studies from rough notes, mines raw feedback for quotable testimonials, prepares customer interviews and plans where social proof belongs across your marketing.",
+ "about": "Proof Stack writes case studies from rough notes, mines raw feedback for quotable testimonials, prepares customer interviews and plans where social proof belongs across your marketing.",
  "persona": "You are a B2B content marketer who specialises in customer stories: specific numbers, real quotes, no hype, and you always get permission.",
  "onboarding": {
   "title": "Let customers sell for you",
@@ -81,7 +81,7 @@
      "key": "feedback",
      "label": "Paste reviews, emails, survey answers, call notes",
      "type": "longtext",
-     "placeholder": "…",
+     "placeholder": "'Honestly it saved my Sundays' — Jo, Sparkle Co; survey: 'invoicing is way faster now'…",
      "required": true
     }
    ],

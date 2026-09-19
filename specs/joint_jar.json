@@ -1,0 +1,203 @@
+{
+ "id": "joint_jar",
+ "name": "Joint Jar",
+ "tagline": "Merge money with your partner without merging fights",
+ "category": "Finance",
+ "colors": [
+  "#AD1457",
+  "#00897B",
+  "#FFB74D"
+ ],
+ "icon": "ring",
+ "about": "Joint Jar helps couples decide what's yours, mine and ours, split shared bills fairly when incomes differ, run a monthly money date, work through spending disagreements, and save for the goals you share.",
+ "persona": "You are a calm couples money coach: fairness over equality, no scorekeeping, and you always give both partners a script.",
+ "onboarding": {
+  "title": "Two people, one plan",
+  "subtitle": "A little about how you live and earn; nothing is shared with anyone.",
+  "bullets": [
+   "Yours / mine / ours, designed for you",
+   "Fair splits when incomes differ",
+   "Money dates with an agenda"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "partner",
+   "label": "Partner's name",
+   "type": "text",
+   "placeholder": "Sam"
+  },
+  {
+   "key": "stage",
+   "label": "Stage",
+   "type": "chips",
+   "options": [
+    "Just moved in",
+    "Living together a while",
+    "Engaged",
+    "Married",
+    "Kids at home"
+   ]
+  },
+  {
+   "key": "split",
+   "label": "Currently",
+   "type": "chips",
+   "options": [
+    "Everything separate",
+    "50/50 shared bills",
+    "Proportional split",
+    "One joint pot",
+    "Not decided"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "system",
+   "title": "Design our system",
+   "subtitle": "Yours, mine, ours",
+   "emoji": "🏺",
+   "inputs": [
+    {
+     "key": "income1",
+     "label": "Your monthly take-home",
+     "type": "number",
+     "placeholder": "2600"
+    },
+    {
+     "key": "income2",
+     "label": "Partner's monthly take-home",
+     "type": "number",
+     "placeholder": "1900"
+    },
+    {
+     "key": "shared",
+     "label": "Shared bills per month",
+     "type": "number",
+     "placeholder": "1850"
+    }
+   ],
+   "prompt": "Design a money system for the profile couple: you take home {income1}, your partner {income2}, shared bills are {shared}. Sections: cards for 3 systems (proportional split, one joint pot with equal personal allowances, 50/50 with a top-up from the higher earner), meta = fairness · simplicity · independence; table (Item | Who pays | From which account) for a typical month covering rent, groceries, subscriptions, debt, fun money; kv for the recommended system (each person's contribution, each person's personal money, joint buffer target); a callout on when to revisit the system (income change, baby, one partner studying or unemployed).",
+   "shape": "cards, table, kv, callout",
+   "button": "Design it",
+   "loading": "Balancing…"
+  },
+  {
+   "id": "fairsplit",
+   "title": "Fair split for a cost",
+   "subtitle": "When incomes differ",
+   "emoji": "⚖️",
+   "inputs": [
+    {
+     "key": "bill",
+     "label": "The cost",
+     "type": "text",
+     "placeholder": "holiday to Portugal 1400",
+     "required": true
+    },
+    {
+     "key": "method",
+     "label": "Split by",
+     "type": "chips",
+     "options": [
+      "Proportional to income",
+      "Equal",
+      "Whoever wanted it more",
+      "Suggest one"
+     ],
+     "default": "Suggest one"
+    }
+   ],
+   "prompt": "Split {bill} using '{method}' for the profile couple. Sections: table (Method | Your share | Partner's share | Feels fair when…) comparing proportional, equal and a suggested hybrid; text recommending one for this specific cost and why; a quote with how to propose it to your partner in two sentences.",
+   "shape": "table, text, quote",
+   "button": "Split it",
+   "loading": "Weighing…"
+  },
+  {
+   "id": "date",
+   "title": "Monthly money date",
+   "subtitle": "A 30-minute agenda",
+   "emoji": "🗓️",
+   "inputs": [
+    {
+     "key": "month",
+     "label": "What happened this month",
+     "type": "text",
+     "placeholder": "overspent on eating out, car needs tyres"
+    },
+    {
+     "key": "mood",
+     "label": "Mood going in",
+     "type": "chips",
+     "options": [
+      "Fine",
+      "Tense",
+      "Avoiding it"
+     ],
+     "default": "Fine"
+    }
+   ],
+   "prompt": "Run a 30-minute money date; this month: {month}; mood: {mood}. Sections: steps with minutes for each agenda item (wins first, the numbers, upcoming costs, one decision, book the next date); kv (3 numbers to look at together); bullets of ground rules (no blame words, phones down, one topic parked if heated); a quote with an opening line that lowers the temperature.",
+   "shape": "steps, kv, bullets, quote",
+   "button": "Set the agenda",
+   "loading": "Lighting candles…"
+  },
+  {
+   "id": "clash",
+   "title": "We disagree about money",
+   "subtitle": "Spender vs saver, and the rest",
+   "emoji": "🌧️",
+   "inputs": [
+    {
+     "key": "issue",
+     "label": "What the disagreement is",
+     "type": "longtext",
+     "placeholder": "I think 300/month on takeaways is fine, they think it's reckless",
+     "required": true
+    }
+   ],
+   "prompt": "Help the profile couple with: {issue}. Sections: text naming the pattern underneath (values, fear, childhood money scripts) without taking sides; table (Your view | Partner's view | What each is protecting); steps for a 20-minute conversation that ends in a one-month experiment; a quote with a sentence each partner could say to open; a callout on signs the issue is financial control rather than disagreement, and where to seek confidential support.",
+   "shape": "text, table, steps, quote, callout",
+   "button": "Help us talk",
+   "loading": "Listening…"
+  },
+  {
+   "id": "goal",
+   "title": "Save for a shared goal",
+   "subtitle": "Deposit, wedding, trip, baby",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "goal",
+     "label": "The goal",
+     "type": "text",
+     "placeholder": "house deposit 30,000",
+     "required": true
+    },
+    {
+     "key": "by",
+     "label": "Target date",
+     "type": "text",
+     "placeholder": "in 3 years"
+    },
+    {
+     "key": "saved",
+     "label": "Already saved",
+     "type": "number",
+     "placeholder": "6000"
+    }
+   ],
+   "prompt": "Shared goal {goal} by {by}, already saved {saved}. Sections: kv (amount still needed, monthly total, a fair monthly split for each partner based on the profile's current arrangement, expected date at that pace); table (Milestone | Amount | Month) with 5 checkpoints; bullets of 4 ways to shorten it; a callout on keeping goal money separate from the emergency buffer and being clear whose name the account is in.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Plan the goal",
+   "loading": "Saving up…"
+  }
+ ],
+ "disclaimer": "General information, not financial, tax or legal advice; rules, thresholds and entitlements differ by country and change — confirm with official sources or a regulated adviser before acting."
+}

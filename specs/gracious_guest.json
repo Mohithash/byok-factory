@@ -182,7 +182,7 @@
      "placeholder": "boss's family, elderly aunt, new neighbours"
     }
    ],
-   "prompt": "Gift ideas for {occasion}, budget {budget}, for {recipient}. Sections: cards of 4 gifts (meta = price · why it fits), bullets of gifts or colours that would be unlucky or inappropriate in this tradition, kv (wrapping, how to present it, whether it will be opened in front of you), and a quote with one sentence to say when handing it over.",
+   "prompt": "Gift ideas for {occasion}, budget {budget} in the user's local currency, for {recipient}. Sections: cards of 4 gifts (meta = price · why it fits), bullets of gifts or colours that would be unlucky or inappropriate in this tradition, kv (wrapping, how to present it, whether it will be opened in front of you), and a quote with one sentence to say when handing it over.",
    "shape": "cards, bullets, kv, quote",
    "button": "Suggest gifts",
    "loading": "Wrapping…"

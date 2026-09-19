@@ -1,0 +1,199 @@
+{
+ "id": "eco_cart",
+ "name": "Eco Cart",
+ "tagline": "Shop with a lighter footprint, no greenwash",
+ "category": "Shopping",
+ "colors": [
+  "#33691E",
+  "#C0A16B",
+  "#FF8F00"
+ ],
+ "icon": "leaf",
+ "about": "Eco Cart audits sustainability claims on any product from a photo, decodes certifications, tells you when buying second-hand beats buying green, finds lower-impact alternatives ranked by what actually matters, and builds buy-it-for-life shortlists.",
+ "persona": "You are an evidence-led sustainable-consumption researcher: you rank impact by data (use-phase energy, durability, materials), call out greenwashing plainly, and never shame anyone for what they already own.",
+ "onboarding": {
+  "title": "Buy less, buy better",
+  "subtitle": "Tell us what you care about most so the rankings match your values.",
+  "bullets": [
+   "Greenwash audit from a photo",
+   "Certifications decoded",
+   "Buy-it-for-life shortlists"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "cares",
+   "label": "You care most about",
+   "type": "chips",
+   "options": [
+    "Carbon",
+    "Plastic & packaging",
+    "Animal welfare",
+    "Worker conditions",
+    "Toxics & health",
+    "Longevity"
+   ],
+   "multi": true
+  },
+  {
+   "key": "region",
+   "label": "Region",
+   "type": "chips",
+   "options": [
+    "US",
+    "UK",
+    "EU",
+    "Canada",
+    "Australia",
+    "India",
+    "Other"
+   ]
+  },
+  {
+   "key": "budget",
+   "label": "Budget reality",
+   "type": "chips",
+   "options": [
+    "Tight",
+    "Moderate",
+    "Can pay more for better"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "greenwash",
+   "title": "Greenwash check",
+   "subtitle": "Photo of the packaging → claims audit",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the product or packaging",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "product",
+     "label": "Product",
+     "type": "text",
+     "placeholder": "bamboo toilet paper"
+    }
+   ],
+   "prompt": "Audit the sustainability claims on {product} in the photo. Sections: a table (Claim | Verifiable? | What it really means | Rating: Solid / Vague / Misleading), a kv (Overall greenwash score /10, Biggest real impact of this product type, What the label leaves out), bullets of questions to ask the brand, and a callout with buy / buy with caveats / skip.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Audit",
+   "loading": "Reading the claims…"
+  },
+  {
+   "id": "certs",
+   "title": "Decode a certification",
+   "subtitle": "FSC, B Corp, GOTS, Fairtrade, Energy Star…",
+   "emoji": "🔖",
+   "inputs": [
+    {
+     "key": "cert",
+     "label": "Certification or label",
+     "type": "text",
+     "placeholder": "OEKO-TEX Standard 100",
+     "required": true
+    },
+    {
+     "key": "product",
+     "label": "On what product",
+     "type": "text",
+     "placeholder": "cotton bedsheets"
+    }
+   ],
+   "prompt": "Explain {cert} as seen on {product}. Sections: a kv (Who runs it, What it actually verifies, What it does not cover, How strict / audited, Cost to the brand), a table (Similar labels | Stricter or weaker | Notes), bullets on how to check the certificate number is real, and a callout on whether this label should change the buying decision.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Decode",
+   "loading": "Checking standard…"
+  },
+  {
+   "id": "swap",
+   "title": "Lower-impact alternative",
+   "subtitle": "Ranked by what matters to you",
+   "emoji": "🔄",
+   "inputs": [
+    {
+     "key": "product",
+     "label": "What you're about to buy",
+     "type": "text",
+     "placeholder": "a new non-stick frying pan",
+     "required": true
+    },
+    {
+     "key": "why",
+     "label": "Why you need it",
+     "type": "text",
+     "placeholder": "old one is flaking"
+    }
+   ],
+   "prompt": "Suggest lower-impact alternatives to {product} given: {why}, ranked by the profile's stated priorities and budget. Sections: cards for 4 alternatives (meta = impact win · price band · lifespan), a table (Option | Carbon | Waste | Health | Longevity) scored 1–5, a text section on whether the greenest option is to not buy at all or fix the current one, and a callout on the trade-off people usually miss.",
+   "shape": "cards, table, text, callout",
+   "button": "Find better",
+   "loading": "Ranking options…"
+  },
+  {
+   "id": "bifl",
+   "title": "Buy it for life",
+   "subtitle": "What lasts decades and what to look for",
+   "emoji": "🛠️",
+   "inputs": [
+    {
+     "key": "category",
+     "label": "Category",
+     "type": "text",
+     "placeholder": "kitchen knife / winter coat / office chair",
+     "required": true
+    },
+    {
+     "key": "budget",
+     "label": "Budget",
+     "type": "number"
+    }
+   ],
+   "prompt": "Build a buy-it-for-life guide for {category} at budget {budget}. Sections: a kv (Materials that last, Construction details to look for, Deal-breakers, Realistic lifespan, Price band for lifetime quality), a table (Tier | What you get | Expected years | Cost per year), bullets of care habits that double its life, and a callout on where the premium is real versus branding.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Guide me",
+   "loading": "Finding the keepers…"
+  },
+  {
+   "id": "used",
+   "title": "New or second-hand?",
+   "subtitle": "When used is the greener buy",
+   "emoji": "♻️",
+   "inputs": [
+    {
+     "key": "item",
+     "label": "Item",
+     "type": "text",
+     "required": true
+    },
+    {
+     "key": "worry",
+     "label": "Your worry",
+     "type": "chips",
+     "options": [
+      "Hygiene",
+      "Safety",
+      "Reliability",
+      "Just not sure it's worth it"
+     ],
+     "default": "Reliability"
+    }
+   ],
+   "prompt": "Decide whether {item} should be bought second-hand given the worry: {worry}. Sections: a kv (Impact saved by buying used, Safety / hygiene verdict, Reliability verdict, Recommendation), bullets of what to check on a used one, a table (Where to look | Typical price vs new | Notes), and a callout on items that must always be bought new.",
+   "shape": "kv, bullets, table, callout",
+   "button": "Decide",
+   "loading": "Weighing footprints…"
+  }
+ ],
+ "disclaimer": "Impact and lifespan figures are general estimates, not lab data. Safety-critical items such as car seats, helmets, mattresses for infants and mains electricals should be bought new or verified against current safety standards."
+}

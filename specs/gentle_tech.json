@@ -159,8 +159,8 @@
   },
   {
    "id": "setup",
-   "title": "Set up a new device",
-   "subtitle": "Big text, easy eyes, safe",
+   "title": "New device, first day",
+   "subtitle": "Contacts, photos, safety, done",
    "emoji": "⚙️",
    "inputs": [
     {
@@ -177,22 +177,21 @@
      "default": "New phone"
     },
     {
-     "key": "needs",
-     "label": "Make it easier to",
+     "key": "from",
+     "label": "Coming from",
      "type": "chips",
      "options": [
-      "See (bigger text)",
-      "Hear (louder, captions)",
-      "Tap (steadier touch)",
-      "Remember (fewer passwords)"
+      "Same kind of device, just newer",
+      "Switching iPhone ↔ Android",
+      "My first one ever"
      ],
-     "multi": true
+     "default": "Same kind of device, just newer"
     }
    ],
-   "prompt": "A set-up plan for a {device} tuned for: {needs}. A checklist of settings to switch on in the order to do them (each with the menu path for the profile's device), a table (Setting | What it does | Where to find it), and a callout on the 3 things to never share (PIN, one-time codes, remote-access apps).",
-   "shape": "checklist, table, callout",
+   "prompt": "A first-day plan for a {device}, coming from: {from}, for the profile's comfort level. A checklist in the order to do things (charge, Wi-Fi, sign in or create the account, move contacts and photos across, set a PIN, add the 3 or 4 apps that matter, turn on bigger text), each with the menu path for the profile's device; a table (Thing to set up | Why it matters | Where to find it | Ask a helper?); a kv (Write down and keep safe: account email | Recovery phone | Where the PIN is written); and a callout on the 3 things to never share (PIN, one-time codes, remote-access apps).",
+   "shape": "checklist, table, kv, callout",
    "button": "Plan set-up",
-   "loading": "Preparing…"
+   "loading": "Unboxing…"
   }
  ],
  "disclaimer": "Never share PINs, passwords or one-time codes with anyone who contacts you; if money has been taken, call your bank on the number printed on your card."

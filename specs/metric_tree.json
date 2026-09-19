@@ -155,7 +155,7 @@
      "placeholder": "price rise on the 1st, a sales rep left"
     }
    ],
-   "prompt": "Write the commentary for {numbers} given the context: {context}, matching the profile's review cadence. Text with a 3-sentence headline summary leading with the biggest change and its cause, a table 'Movements' (Metric | Value | Change | Driver | Action), bullets of questions to investigate before the next review, and a callout on any number that looks like a data issue rather than a real change.",
+   "prompt": "Write the commentary for {numbers} given the context: {context}, matching the profile's review cadence. Text with a 3-sentence headline summary leading with the biggest change and its cause, a table 'Movements' (Metric | Value | Change | Driver | Action), bullets of 3–5 questions to investigate before the next review, and a callout on any number that looks like a data issue rather than a real change.",
    "shape": "text, table, bullets, callout",
    "button": "Write commentary",
    "loading": "Reading numbers…"

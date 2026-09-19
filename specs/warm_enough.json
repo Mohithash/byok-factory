@@ -1,0 +1,177 @@
+{
+ "id": "warm_enough",
+ "name": "Warm Enough",
+ "tagline": "Heat the home you have for less, without the damp",
+ "category": "House & Home",
+ "colors": [
+  "#BF360C",
+  "#FFA000",
+  "#455A64"
+ ],
+ "icon": "flame",
+ "about": "Warm Enough builds a heating schedule for your routine, finds draughts from a photo, balances and bleeds radiators, compares the real cost of heaters and keeps damp and mould away when you heat less.",
+ "persona": "You are a heating engineer turned energy adviser: numbers on degrees and kilowatt-hours, no gadget-selling, and firm about carbon monoxide and mould safety.",
+ "onboarding": {
+  "title": "Warm rooms, smaller bills",
+  "subtitle": "Your heating type and home shape every number.",
+  "bullets": [
+   "A schedule that fits your day",
+   "Find and fix draughts",
+   "Heater cost per hour, compared"
+  ]
+ },
+ "profile": [
+  {
+   "key": "heating",
+   "label": "Heating",
+   "type": "chips",
+   "options": [
+    "Gas boiler + radiators",
+    "Heat pump",
+    "Electric storage heaters",
+    "Electric panel / plug-in heaters",
+    "Wood or pellet stove",
+    "District heating"
+   ]
+  },
+  {
+   "key": "home",
+   "label": "Home",
+   "type": "chips",
+   "options": [
+    "Flat",
+    "Terraced / semi",
+    "Detached",
+    "Old or draughty"
+   ]
+  },
+  {
+   "key": "tariff",
+   "label": "Your energy prices",
+   "type": "text",
+   "placeholder": "gas 7p/kWh, electricity 28p/kWh"
+  }
+ ],
+ "tools": [
+  {
+   "id": "schedule",
+   "title": "Heating schedule",
+   "subtitle": "Thermostat times for your real week",
+   "emoji": "🕗",
+   "inputs": [
+    {
+     "key": "routine",
+     "label": "Weekly routine",
+     "type": "text",
+     "placeholder": "out 8–6 weekdays, home all weekend, baby naps 1–3",
+     "required": true
+    },
+    {
+     "key": "temp",
+     "label": "Comfortable temperature (°C)",
+     "type": "number",
+     "placeholder": "19"
+    }
+   ],
+   "prompt": "Design a heating schedule for the profile heating around: {routine}, targeting {temp}°C when home. Table (Period | Weekdays | Weekends | Setpoint | Why), kv (estimated % saving versus constant heating, setback temperature, warm-up lead time for the profile heating type), bullets on room-by-room tweaks (TRVs, closing doors), and a callout on the minimum safe temperature for pipes, damp and vulnerable people.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Build schedule",
+   "loading": "Setting the dial…"
+  },
+  {
+   "id": "draught",
+   "title": "Draught detective",
+   "subtitle": "Photo of a window, door or floor → fixes",
+   "emoji": "🌬️",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the suspect window, door or gap",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "where",
+     "label": "Where and what you feel",
+     "type": "text",
+     "placeholder": "bedroom sash window, cold air at the bottom"
+    }
+   ],
+   "prompt": "From the photo and '{where}': table (Gap found | Likely cause | Fix | Cost | DIY minutes), steps for the cheapest effective fix in order, a checklist for a whole-home draught hunt (candle or incense test, letterbox, loft hatch, floorboards, chimney), and a callout on ventilation you must NOT block (trickle vents, extractor fans, gas-appliance vents).",
+   "shape": "table, steps, checklist, callout",
+   "button": "Find fixes",
+   "loading": "Feeling for gaps…"
+  },
+  {
+   "id": "radiators",
+   "title": "Radiators & controls",
+   "subtitle": "Bleed, balance, TRVs, boiler flow",
+   "emoji": "🔧",
+   "inputs": [
+    {
+     "key": "issue",
+     "label": "Issue",
+     "type": "chips",
+     "options": [
+      "Cold at the top",
+      "Cold at the bottom",
+      "One room never warms",
+      "Boiler flow temperature",
+      "TRV settings",
+      "Upstairs too hot, downstairs cold"
+     ],
+     "default": "One room never warms"
+    }
+   ],
+   "prompt": "Fix '{issue}' for the profile heating: text on the cause, steps with tool names (bleed key, lockshield spanner) and safety notes, a table (Room type | TRV setting | Target °C), kv (suggested boiler flow temperature and expected saving if it's a combi or condensing boiler), and a callout on what needs a Gas Safe or licensed engineer.",
+   "shape": "text, steps, table, kv, callout",
+   "button": "Fix it",
+   "loading": "Bleeding radiators…"
+  },
+  {
+   "id": "heater",
+   "title": "Heater cost per hour",
+   "subtitle": "Which heater, and heat the person or the room?",
+   "emoji": "🔥",
+   "inputs": [
+    {
+     "key": "options",
+     "label": "Options you're weighing",
+     "type": "text",
+     "placeholder": "2kW fan heater, oil radiator, heated throw, just the gas central heating",
+     "required": true
+    },
+    {
+     "key": "hours",
+     "label": "Hours per day needed",
+     "type": "number",
+     "placeholder": "4"
+    }
+   ],
+   "prompt": "Compare: {options} for {hours} hours a day at the profile tariff: table (Option | kW | Cost per hour | Cost per month | Best for), kv (cheapest for one person at a desk, cheapest for a whole room, safest overnight), bullets on 'heat the person' tricks that work, and a callout on heater safety (unattended use, extension leads, drying clothes on them).",
+   "shape": "table, kv, bullets, callout",
+   "button": "Compare",
+   "loading": "Warming up…"
+  },
+  {
+   "id": "damp",
+   "title": "Damp & mould when heating less",
+   "subtitle": "Condensation, ventilation, humidity",
+   "emoji": "💧",
+   "inputs": [
+    {
+     "key": "signs",
+     "label": "What you're seeing",
+     "type": "text",
+     "placeholder": "black spots on bedroom ceiling corners, wet windows every morning",
+     "required": true
+    }
+   ],
+   "prompt": "For: {signs} — text on the cause (condensation versus penetrating versus rising damp), steps for a daily routine of heating, ventilation and humidity control with a target humidity %, a table (Room | Moisture source | Fix | Cost), a checklist for safe mould cleaning, and a callout on health risks and when to involve a landlord or surveyor.",
+   "shape": "text, steps, table, checklist, callout",
+   "button": "Sort it",
+   "loading": "Opening a window…"
+  }
+ ],
+ "disclaimer": "General guidance only; gas, flue and electrical work needs a qualified engineer, fit carbon-monoxide alarms, and never block ventilation for fuel-burning appliances."
+}

@@ -103,7 +103,7 @@
      "default": "Mixed"
     }
    ],
-   "prompt": "Split {route} into {days} stages for the profile bike and pace on {surface}. Table (Day | Start → End | km | Climbing | Riding hours | Sleep option | Last shop/water), text on how the stages were balanced and the daylight assumptions, bullets of what to check before booking anything, and a callout on the hardest day and its escape route.",
+   "prompt": "Split {route} into {days} stages for the profile bike and pace on {surface}. Table (Day | Start → End | km | Climbing | Riding hours | Sleep option | Last shop/water) with one row per day, text on how the stages were balanced and the daylight assumptions, 4 bullets of what to check before booking anything, and a callout on the hardest day and its escape route.",
    "shape": "table, text, bullets, callout",
    "button": "Plan stages",
    "loading": "Splitting the route…"
@@ -197,7 +197,7 @@
      "required": true
     }
    ],
-   "prompt": "Debrief: {notes}. Bullets of what worked, a table (Problem | Likely cause | Fix for next trip | Cost), a checklist of gear tweaks, and a quote with a one-line rule to remember for the next trip.",
+   "prompt": "Debrief: {notes}. 3 bullets of what worked, a table (Problem | Likely cause | Fix for next trip | Cost) with one row per problem mentioned, a checklist of gear tweaks, and a quote with a one-line rule to remember for the next trip.",
    "shape": "bullets, table, checklist, quote",
    "button": "Debrief",
    "loading": "Unpacking lessons…"

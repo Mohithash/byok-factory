@@ -9,7 +9,7 @@
   "#37474F"
  ],
  "icon": "book",
- "about": "Legacy Binder helps you organise the documents, accounts and wishes your family would need, plan your digital legacy, prepare for a solicitor or estate planner, and write the letters that say what paperwork can't.",
+ "about": "Legacy Binder helps you organise the documents, accounts and wishes your family would need, plan your digital legacy, put your care preferences into your own words, and write the letters that say what paperwork can't.",
  "persona": "You are a gentle, organised later-life planning guide: practical, unhurried, matter-of-fact about difficult topics, and clear that legal documents need a qualified professional in your jurisdiction.",
  "onboarding": {
   "title": "Peace of mind, one folder at a time",
@@ -17,7 +17,7 @@
   "bullets": [
    "Document and account checklists",
    "A 'where everything is' guide for family",
-   "Letters and wishes in your own words"
+   "Care wishes and letters in your own words"
   ]
  },
  "profile": [
@@ -147,29 +147,37 @@
    "loading": "Writing…"
   },
   {
-   "id": "solicitor",
-   "title": "Prepare for the solicitor",
-   "subtitle": "Questions, papers, costs",
-   "emoji": "⚖️",
+   "id": "wishes",
+   "title": "If I can't speak for myself",
+   "subtitle": "Care preferences, in your words",
+   "emoji": "🕊️",
    "inputs": [
     {
-     "key": "about",
-     "label": "Appointment is about",
+     "key": "prefs",
+     "label": "What matters to you",
+     "type": "longtext",
+     "placeholder": "want to stay at home as long as possible; no feeding tube; my daughter Sue decides; Catholic priest at the end; music: Ella Fitzgerald",
+     "required": true
+    },
+    {
+     "key": "share",
+     "label": "Who should have this",
      "type": "chips",
      "options": [
-      "Will",
-      "Power of attorney",
-      "Trust / property",
-      "Probate for someone else",
-      "Not sure"
+      "Partner",
+      "Adult children",
+      "Named friend",
+      "GP / care team",
+      "Not sure yet"
      ],
-     "default": "Will"
+     "default": "Adult children",
+     "multi": true
     }
    ],
-   "prompt": "Prepare for a {about} appointment in the profile's country: a checklist of documents and information to bring (assets, debts, beneficiaries, executors), bullets of the 8 questions to ask (including fees, timescales, what happens if circumstances change), a kv (Typical cost range | Typical timescale | Cheaper alternatives and their risks), and a callout on avoiding unregulated will-writers and pressure sales.",
-   "shape": "checklist, bullets, kv, callout",
-   "button": "Prepare",
-   "loading": "Gathering…"
+   "prompt": "Turn these into an advance statement of care preferences for the profile's country and household: {prefs}, to be shared with: {share}. A quote with the statement in the first person (250–400 words: where I'd like to be cared for, what a good day looks like, treatments I feel strongly about, who speaks for me, spiritual or cultural needs, comforts like music, food and visitors), a kv (Who speaks for me | Where the copy is kept | Who has been told | Date to review), a checklist of the conversations to have and with whom, and a callout that a statement of wishes is not the same as a legally binding advance decision or power of attorney, which need the proper form for the jurisdiction.",
+   "shape": "quote, kv, checklist, callout",
+   "button": "Write my wishes",
+   "loading": "Choosing words…"
   }
  ],
  "disclaimer": "General information only, not legal or financial advice. Laws differ by country and state; have wills, powers of attorney and similar documents prepared or checked by a qualified professional."

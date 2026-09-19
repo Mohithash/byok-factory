@@ -5,13 +5,13 @@
 **Short description (≤80):** Balance, strength and confidence after 60
 
 ## Full description
-Steady & Strong builds gentle, progressive routines for balance, leg strength and everyday tasks — chair workouts, walking plans, getting up from the floor — so you stay independent and fall-proof.
+Steady & Strong is balance-first training for later life: simple self-tests to see where you stand, chair workouts, a balance programme that progresses from wall to no hands, and walking plans that build up without a wobble.
 
 WHAT'S INSIDE
 • Chair workout — 10–20 minutes, no floor
 • Balance training — Progress from wall to no hands
 • Walking plan — Steps, pace, routes
-• Up from the floor — Practise it safely
+• Test where I stand — Three 2-minute self-tests
 • Stiff or sore today — Adjust, don't skip
 
 BRING YOUR OWN KEY
@@ -23,7 +23,7 @@ Every answer is a structured, shareable document with follow-up questions, saved
 - 🪑 **Chair workout** — 10–20 minutes, no floor
 - ⚖️ **Balance training** — Progress from wall to no hands
 - 🚶 **Walking plan** — Steps, pace, routes
-- 🧎 **Up from the floor** — Practise it safely
+- 📏 **Test where I stand** — Three 2-minute self-tests
 - 🩹 **Stiff or sore today** — Adjust, don't skip
 
 ## Privacy policy

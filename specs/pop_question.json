@@ -1,0 +1,249 @@
+{
+ "id": "pop_question",
+ "name": "Pop the Question",
+ "tagline": "Plan a proposal they'll retell for decades",
+ "category": "Lifestyle",
+ "colors": [
+  "#AD1457",
+  "#FFD54F",
+  "#4A148C"
+ ],
+ "icon": "ring",
+ "about": "Pop the Question plans a marriage proposal end to end: ideas matched to your partner's personality, a run sheet with backups, the words you'll say, how to talk to their family, and a ring brief that doesn't overspend.",
+ "persona": "You are a discreet proposal planner and friend: you match the moment to the person, plan for rain and nerves, and never push spending beyond what's sensible.",
+ "onboarding": {
+  "title": "Make the moment theirs",
+  "subtitle": "Tell us about your partner and roughly when you're thinking.",
+  "bullets": [
+   "Ideas that fit their personality",
+   "A run sheet with a Plan B",
+   "The words, the family, the ring"
+  ]
+ },
+ "profile": [
+  {
+   "key": "partner",
+   "label": "Partner's name",
+   "type": "text",
+   "placeholder": "Jess"
+  },
+  {
+   "key": "personality",
+   "label": "They are",
+   "type": "chips",
+   "options": [
+    "Private, hates fuss",
+    "Loves a big moment",
+    "Sentimental",
+    "Adventurous",
+    "Funny & casual"
+   ]
+  },
+  {
+   "key": "story",
+   "label": "Your story in one line",
+   "type": "text",
+   "placeholder": "met at a climbing gym in 2021, first trip to Lisbon"
+  },
+  {
+   "key": "timing",
+   "label": "When you're thinking",
+   "type": "text",
+   "placeholder": "around her birthday in June"
+  }
+ ],
+ "tools": [
+  {
+   "id": "ideas",
+   "title": "Proposal ideas",
+   "subtitle": "Five ways, ranked by fit",
+   "emoji": "💍",
+   "inputs": [
+    {
+     "key": "setting",
+     "label": "Setting",
+     "type": "chips",
+     "options": [
+      "At home",
+      "Somewhere meaningful",
+      "Travel",
+      "With friends & family around",
+      "Outdoors / nature",
+      "Public spectacle (they'd love it)"
+     ],
+     "default": "Somewhere meaningful"
+    },
+    {
+     "key": "budget",
+     "label": "Budget (excluding ring)",
+     "type": "chips",
+     "options": [
+      "Under 100",
+      "100–500",
+      "500–2000",
+      "2000+"
+     ],
+     "default": "100–500"
+    },
+    {
+     "key": "privacy",
+     "label": "Privacy",
+     "type": "chips",
+     "options": [
+      "Just us",
+      "Us + hidden photographer",
+      "Small group",
+      "Big group"
+     ],
+     "default": "Just us"
+    }
+   ],
+   "prompt": "Suggest 5 proposal ideas for the profile partner and story: setting {setting}, budget {budget}, privacy '{privacy}'. Cards (meta = cost · effort · weather-dependent yes/no), each naming the exact moment the question gets asked; then bullets ranking them by fit with the partner's personality with one line on why; then a callout on ideas to avoid for this personality (no jumbotron for the private type).",
+   "shape": "cards, bullets, callout",
+   "button": "Inspire me",
+   "loading": "Plotting…"
+  },
+  {
+   "id": "runsheet",
+   "title": "The run sheet",
+   "subtitle": "Timings, accomplices, Plan B",
+   "emoji": "🗓️",
+   "inputs": [
+    {
+     "key": "plan",
+     "label": "The plan",
+     "type": "longtext",
+     "placeholder": "sunset at Primrose Hill, picnic, her sister hiding with a camera",
+     "required": true
+    },
+    {
+     "key": "date",
+     "label": "Date",
+     "type": "text",
+     "placeholder": "Sat 14 June",
+     "required": true
+    }
+   ],
+   "prompt": "Turn this plan into an operation: {plan} on {date}. Sections: a table (Time | Action | Who | Backup) from the morning to after the yes; a checklist for the week before (ring insured and sized, accomplices briefed, photographer, bookings, phone charged, nails if they'd want photos); a callout on Plan B for rain, a late train or a bad-mood day; and a quote with the exact message to send accomplices.",
+   "shape": "table, checklist, callout, quote",
+   "button": "Build run sheet",
+   "loading": "Syncing watches…"
+  },
+  {
+   "id": "words",
+   "title": "What I'll say",
+   "subtitle": "Your voice, no clichés",
+   "emoji": "🎤",
+   "inputs": [
+    {
+     "key": "notes",
+     "label": "What you love, moments, promises",
+     "type": "longtext",
+     "placeholder": "the way she laughs at her own jokes; the night we got lost in Porto; I want to…",
+     "required": true
+    },
+    {
+     "key": "length",
+     "label": "Length",
+     "type": "chips",
+     "options": [
+      "3 sentences",
+      "30 seconds",
+      "1 minute"
+     ],
+     "default": "30 seconds"
+    }
+   ],
+   "prompt": "Write a {length} proposal speech from: {notes}, in the user's plain voice (no clichés, no 'from the moment I saw you'). A quote with the full speech ending in the question; a second quote with a 2-line version for when nerves erase the script; and bullets on delivery (kneel or not, when the ring comes out, breathe, wait for the answer).",
+   "shape": "quote, bullets",
+   "button": "Write it",
+   "loading": "Finding the words…"
+  },
+  {
+   "id": "family",
+   "title": "Ask the family",
+   "subtitle": "Blessing, heads-up or both",
+   "emoji": "👨‍👩‍👧",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Who to ask or tell",
+     "type": "chips",
+     "options": [
+      "Their parents",
+      "Their whole family",
+      "Their best friend",
+      "My own family first"
+     ],
+     "default": "Their parents"
+    },
+    {
+     "key": "culture",
+     "label": "Family style",
+     "type": "chips",
+     "options": [
+      "Traditional, expects to be asked",
+      "Relaxed, would love a heads-up",
+      "Complicated / estranged",
+      "Cross-cultural"
+     ],
+     "default": "Relaxed, would love a heads-up"
+    },
+    {
+     "key": "concerns",
+     "label": "Anything tricky",
+     "type": "text",
+     "placeholder": "her dad is old-fashioned; we've only met twice"
+    }
+   ],
+   "prompt": "Help with asking or telling {who}, where the family is '{culture}' and: {concerns}. Steps for how and when to do it (in person, call, what to lead with); a quote with a script for the conversation including answers to 'why now' and 'what if they say no'; bullets on cross-cultural or divorced-parent nuance where relevant; and a callout on keeping the secret after the conversation.",
+   "shape": "steps, quote, bullets, callout",
+   "button": "Prepare me",
+   "loading": "Steadying nerves…"
+  },
+  {
+   "id": "ring",
+   "title": "Ring brief",
+   "subtitle": "Style, size, sensible spend",
+   "emoji": "💎",
+   "inputs": [
+    {
+     "key": "style",
+     "label": "Their style",
+     "type": "chips",
+     "options": [
+      "Minimal",
+      "Vintage",
+      "Statement",
+      "Nature-inspired",
+      "No idea"
+     ],
+     "default": "No idea"
+    },
+    {
+     "key": "budget",
+     "label": "Budget",
+     "type": "chips",
+     "options": [
+      "Under 500",
+      "500–1500",
+      "1500–4000",
+      "4000+"
+     ],
+     "default": "500–1500"
+    },
+    {
+     "key": "clues",
+     "label": "Clues",
+     "type": "text",
+     "placeholder": "wears silver not gold, thin bands, allergic to nickel"
+    }
+   ],
+   "prompt": "Brief the ring for {style} style at {budget} using clues: {clues}. Sections: kv (metal, setting, stone options including lab-grown and non-diamond, band width, estimated price range); a table (Priority | Spend here | Save here); steps for finding the ring size without asking (borrow a ring, trace it, ask a friend, resizing allowance); and a callout on returns, insurance and ignoring the 'months of salary' rule invented for marketing.",
+   "shape": "kv, table, steps, callout",
+   "button": "Brief the ring",
+   "loading": "Polishing…"
+  }
+ ],
+ "disclaimer": "Ring and budget notes are general guidance, not financial advice; get sizing and stone certification from a jeweller."
+}

@@ -1,0 +1,193 @@
+{
+ "id": "sprout_shelf",
+ "name": "Sprout Shelf",
+ "tagline": "Microgreens, sprouts and herbs from one windowsill",
+ "category": "House & Home",
+ "colors": [
+  "#7CB342",
+  "#FDD835",
+  "#00838F"
+ ],
+ "icon": "sun",
+ "about": "Sprout Shelf turns a windowsill or shelf into a harvest: microgreen and sprout schedules, a herb bench that keeps producing, scrap regrowing, and fixes for mould, legginess and bolting.",
+ "persona": "You are an indoor-growing tutor who thinks in trays, days and light hours: precise, cheap-first, and honest about what will not thrive on a north-facing sill.",
+ "onboarding": {
+  "title": "Harvest from the windowsill",
+  "subtitle": "Light and space decide what will grow well for you.",
+  "bullets": [
+   "Tray rotations for constant harvests",
+   "Herbs that keep producing",
+   "Fix mould, legginess and bolting"
+  ]
+ },
+ "profile": [
+  {
+   "key": "light",
+   "label": "Light",
+   "type": "chips",
+   "options": [
+    "South-facing sill",
+    "East / west sill",
+    "North-facing sill",
+    "Grow light"
+   ]
+  },
+  {
+   "key": "space",
+   "label": "Space",
+   "type": "chips",
+   "options": [
+    "One sill",
+    "Shelf unit",
+    "Small balcony"
+   ]
+  },
+  {
+   "key": "eat",
+   "label": "What you cook with most",
+   "type": "text",
+   "placeholder": "coriander, basil, salad leaves"
+  }
+ ],
+ "tools": [
+  {
+   "id": "rotation",
+   "title": "Tray rotation",
+   "subtitle": "Sow so something is always ready",
+   "emoji": "📅",
+   "inputs": [
+    {
+     "key": "crop",
+     "label": "Grow",
+     "type": "chips",
+     "options": [
+      "Pea shoots",
+      "Sunflower",
+      "Radish",
+      "Broccoli",
+      "Mixed salad micros",
+      "Mung bean sprouts",
+      "Alfalfa"
+     ],
+     "default": "Pea shoots"
+    },
+    {
+     "key": "trays",
+     "label": "Trays or jars you have",
+     "type": "number",
+     "placeholder": "3"
+    },
+    {
+     "key": "goal",
+     "label": "Harvest every",
+     "type": "chips",
+     "options": [
+      "3 days",
+      "Week",
+      "Two weeks"
+     ],
+     "default": "Week"
+    }
+   ],
+   "prompt": "Plan a rotation of {crop} across {trays} trays or jars so there's a harvest every {goal} under the profile light. Table (Tray | Sow day | Blackout days | Light days | Harvest day | Expected yield g), steps for sowing one tray with seed density in grams, a checklist of cheap kit (trays, seed, spray bottle, blackout lid) with rough prices, and a callout on rinsing and food safety for raw sprouts.",
+   "shape": "table, steps, checklist, callout",
+   "button": "Plan trays",
+   "loading": "Counting seeds…"
+  },
+  {
+   "id": "herbs",
+   "title": "Herb bench",
+   "subtitle": "Keep herbs producing instead of dying",
+   "emoji": "🌿",
+   "inputs": [
+    {
+     "key": "herbs",
+     "label": "Herbs you have or want",
+     "type": "text",
+     "placeholder": "basil, mint, supermarket coriander pot",
+     "required": true
+    }
+   ],
+   "prompt": "For {herbs} in the profile light and space: table (Herb | Pot size | Water rhythm | Harvest cut | Weeks of life), steps to split a supermarket herb pot into 3 plants, bullets on pinching and feeding, and a callout on which of these will sulk on the profile's sill.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Set up bench",
+   "loading": "Pinching tips…"
+  },
+  {
+   "id": "scraps",
+   "title": "Regrow from scraps",
+   "subtitle": "Spring onions, lettuce, ginger and more",
+   "emoji": "♻️",
+   "inputs": [
+    {
+     "key": "scrap",
+     "label": "Scrap",
+     "type": "text",
+     "placeholder": "spring onion roots, lettuce stump, ginger knob",
+     "required": true
+    }
+   ],
+   "prompt": "Regrowing plan for '{scrap}': kv (realistic yield, days to first harvest, water or soil, light needed, how many rounds), steps with day markers, and a callout on when regrowing is a novelty rather than food.",
+   "shape": "kv, steps, callout",
+   "button": "Regrow",
+   "loading": "Rooting…"
+  },
+  {
+   "id": "sick",
+   "title": "What's wrong with my tray?",
+   "subtitle": "Photo → mould, damping-off, leggy, bolting",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the tray or plant",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "care",
+     "label": "How you've cared for it",
+     "type": "text",
+     "placeholder": "misting twice a day, under kitchen window"
+    }
+   ],
+   "prompt": "Diagnose from the photo and care notes '{care}': text naming the problem and confidence, a table (Symptom seen | Likely cause | Fix), steps for the next 48 hours, and a callout on when to bin the tray and restart (mould versus harmless root hairs).",
+   "shape": "text, table, steps, callout",
+   "button": "Diagnose",
+   "loading": "Looking closely…"
+  },
+  {
+   "id": "light",
+   "title": "Light & setup check",
+   "subtitle": "Will it grow here?",
+   "emoji": "💡",
+   "inputs": [
+    {
+     "key": "spot",
+     "label": "Describe the spot",
+     "type": "text",
+     "placeholder": "kitchen sill, sun 10am–1pm, radiator below",
+     "required": true
+    },
+    {
+     "key": "want",
+     "label": "Want to grow",
+     "type": "chips",
+     "options": [
+      "Microgreens",
+      "Herbs",
+      "Salad leaves",
+      "Chillies / tomatoes",
+      "Sprouts (no light)"
+     ],
+     "default": "Herbs"
+    }
+   ],
+   "prompt": "Assess '{spot}' for growing {want}: kv (estimated light hours, verdict, temperature risks, humidity), bullets on free fixes (reflectors, moving, rotating), cards for 3 grow-light options if needed (meta = cost · watts · coverage), and a callout on heat from radiators and cold from glass.",
+   "shape": "kv, bullets, cards, callout",
+   "button": "Assess spot",
+   "loading": "Measuring light…"
+  }
+ ],
+ "disclaimer": "Raw sprouts carry a small food-safety risk; rinse well and cook them if you are pregnant, elderly or immunocompromised."
+}

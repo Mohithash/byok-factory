@@ -1,0 +1,196 @@
+{
+ "id": "remote_lead",
+ "name": "Remote Lead",
+ "tagline": "Manage people you never see in the office",
+ "category": "Business",
+ "colors": [
+  "#4527A0",
+  "#43A047",
+  "#FB8C00"
+ ],
+ "icon": "bolt",
+ "about": "Remote Lead is a toolkit for managers of distributed teams: make work visible without surveillance, run hybrid meetings that don't sideline remote people, catch quiet disengagement from written signals, and write the team working agreement that sets core hours, response times and camera rules.",
+ "persona": "You are a coach for remote managers: high trust, high clarity, allergic to surveillance; you build systems that make good work visible instead of hours online.",
+ "onboarding": {
+  "title": "Lead well from a distance",
+  "subtitle": "A little about your team shapes every template.",
+  "bullets": [
+   "Visibility without surveillance",
+   "Hybrid meetings that include everyone",
+   "A working agreement everyone signs"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "size",
+   "label": "Team size",
+   "type": "number",
+   "placeholder": "7"
+  },
+  {
+   "key": "spread",
+   "label": "Time zones covered",
+   "type": "text",
+   "placeholder": "UK, Poland, US East"
+  },
+  {
+   "key": "mode",
+   "label": "Mode",
+   "type": "chips",
+   "options": [
+    "Fully remote",
+    "Hybrid",
+    "Remote with quarterly offsites"
+   ],
+   "default": "Fully remote"
+  }
+ ],
+ "tools": [
+  {
+   "id": "visible",
+   "title": "Make work visible",
+   "subtitle": "See progress without watching people",
+   "emoji": "👁️",
+   "inputs": [
+    {
+     "key": "worry",
+     "label": "What you can't see",
+     "type": "longtext",
+     "placeholder": "who's overloaded, whether the roadmap is on track, who's blocked",
+     "required": true
+    },
+    {
+     "key": "overhead",
+     "label": "Overhead you'll accept",
+     "type": "chips",
+     "options": [
+      "5 min/week",
+      "15 min/week",
+      "30 min/week"
+     ],
+     "default": "15 min/week"
+    }
+   ],
+   "prompt": "The manager can't see: {worry}, and will accept '{overhead}' of reporting overhead per person. Produce a table (Signal you want | Lightweight source | Cadence | Minutes per person) with at least 5 rows using written check-ins, demos, boards and existing artefacts rather than tracking tools, a quote with a weekly written check-in template of 3–5 questions people can answer in under 10 minutes, steps to roll it out over 3 weeks for the profile team, and a callout on why monitoring software costs more trust than it buys.",
+   "shape": "table, quote, steps, callout",
+   "button": "Design it",
+   "loading": "Lights on…"
+  },
+  {
+   "id": "hybrid",
+   "title": "Hybrid meeting rules",
+   "subtitle": "Stop sidelining the remote half",
+   "emoji": "🖥️",
+   "inputs": [
+    {
+     "key": "mix",
+     "label": "Team mix",
+     "type": "chips",
+     "options": [
+      "Mostly office, some remote",
+      "Half and half",
+      "Mostly remote, some office"
+     ],
+     "default": "Half and half"
+    },
+    {
+     "key": "symptoms",
+     "label": "What's going wrong",
+     "type": "longtext",
+     "placeholder": "remote people can't hear, decisions get made in the office after the call",
+     "required": true
+    }
+   ],
+   "prompt": "Team mix: '{mix}'. Symptoms: {symptoms}. Produce a table (Practice | Rule | Who enforces it | Fixes which symptom) with at least 6 rules such as one-remote-all-remote, shared notes, hand-raise order and decisions recorded in writing, a quote with the meeting protocol to post in the team channel, a checklist for the host to run 5 minutes before any hybrid meeting, and a callout on proximity bias in visibility and promotions and how to counter it for the profile team.",
+   "shape": "table, quote, checklist, callout",
+   "button": "Set the rules",
+   "loading": "Levelling the room…"
+  },
+  {
+   "id": "signals",
+   "title": "Quiet signals",
+   "subtitle": "Spot someone struggling from text",
+   "emoji": "📡",
+   "inputs": [
+    {
+     "key": "observations",
+     "label": "What you've noticed",
+     "type": "longtext",
+     "placeholder": "Sam's PRs dropped from 6 to 1 a week, camera off, one-word replies since the reorg",
+     "required": true
+    },
+    {
+     "key": "person",
+     "label": "Person & role",
+     "type": "text",
+     "placeholder": "Sam, mid-level engineer"
+    }
+   ],
+   "prompt": "Observations about {person}: {observations}. Produce a table (Signal | Benign explanation | Concerning explanation | How to check gently), a text section with your read of the most likely situation and how confident you are, a quote with a low-pressure 1:1 opener that names the pattern without accusing, and a callout on what a manager should never do here (monitoring tools, public call-outs) and when to involve HR or wellbeing support.",
+   "shape": "table, text, quote, callout",
+   "button": "Read signals",
+   "loading": "Listening…"
+  },
+  {
+   "id": "charter",
+   "title": "Team working agreement",
+   "subtitle": "Core hours, response times, camera rules",
+   "emoji": "🤝",
+   "inputs": [
+    {
+     "key": "friction",
+     "label": "What keeps going wrong",
+     "type": "longtext",
+     "placeholder": "people expect instant Slack replies, 7am calls for the Polish folks, cameras-off arguments",
+     "required": true
+    },
+    {
+     "key": "urgency",
+     "label": "Most of your work is",
+     "type": "chips",
+     "options": [
+      "Deep, planned work",
+      "Mixed",
+      "Fast-moving, customer-facing"
+     ],
+     "default": "Mixed"
+    }
+   ],
+   "prompt": "Draft a working agreement for the profile team, whose work is mostly '{urgency}', to fix: {friction}. Produce a kv (core overlap hours shown in every profile time zone, expected reply time per channel, camera policy, meeting-free blocks, how to flag urgent, where decisions are recorded), a table (Norm | The rule | Example | Allowed exception) with at least 8 rows, a quote with the agreement post ready to pin in the team channel under 250 words, and steps for ratifying it with the team and revisiting it in 6 weeks.",
+   "shape": "kv, table, quote, steps",
+   "button": "Draft agreement",
+   "loading": "Setting the norms…"
+  },
+  {
+   "id": "onboard",
+   "title": "Remote first week",
+   "subtitle": "A new hire's week, hour by hour",
+   "emoji": "🚀",
+   "inputs": [
+    {
+     "key": "hire",
+     "label": "New hire & role",
+     "type": "text",
+     "placeholder": "Lena, frontend dev, starts Monday in Berlin",
+     "required": true
+    },
+    {
+     "key": "buddy",
+     "label": "Buddy / key people",
+     "type": "text",
+     "placeholder": "Marco (buddy), me, Priya (product)"
+    }
+   ],
+   "prompt": "Plan the first week for {hire} with buddy and key people: {buddy}. Sections: a table (Day | Morning | Afternoon | Who they meet | Goal) for 5 days respecting the profile time zones, a checklist for the manager before day one (accounts, hardware, first ticket, intro post), a quote with the welcome message to post to the team, and a callout on the isolation risk in weeks 2–4 and the single ritual that reduces it.",
+   "shape": "table, checklist, quote, callout",
+   "button": "Plan the week",
+   "loading": "Setting the desk…"
+  }
+ ],
+ "disclaimer": "Management guidance, not HR, legal or mental-health advice; follow your company's policies and involve HR for formal matters or wellbeing concerns."
+}

@@ -77,7 +77,7 @@
      "placeholder": "finish under 6h, not blow up on climb 2"
     }
    ],
-   "prompt": "Recon this course: {course} for goal: {goal} and the profile level. Table (Segment | km | Gain/Loss | Run / hike / mix | Effort | Time estimate), kv (finish estimate, hiking share, poles yes/no, biggest risk), bullets on where to eat and refill, and a callout on the segment that decides the race.",
+   "prompt": "Recon this course: {course} for goal: {goal} and the profile level. Table (Segment | km | Gain/Loss | Run / hike / mix | Effort | Time estimate) with one row per segment, kv (finish estimate, hiking share, poles yes/no, biggest risk), bullets with one line per aid station or refill point on what to eat and take, and a callout on the segment that decides the race.",
    "shape": "table, kv, bullets, callout",
    "button": "Recon course",
    "loading": "Reading contours…"
@@ -113,7 +113,7 @@
      "placeholder": "one 150 m hill nearby, stairs at work, treadmill at 15%"
     }
    ],
-   "prompt": "A week hitting {target} m vert on {days} days with: {access}. Table (Day | Session | Distance | Vert | Purpose), steps for the key hill session with reps and recoveries, bullets on getting vert when hills are small (treadmill, stairs, repeats), and a callout on the rate of vert increase that stays safe.",
+   "prompt": "A week hitting {target} m vert on {days} days with: {access}, compared against the profile weekly vert. Table (Day | Session | Distance | Vert | Purpose) with all 7 days, steps for the key hill session with reps and recoveries, 4 bullets on getting vert when hills are small (treadmill, stairs, repeats), and a callout on the rate of vert increase that stays safe.",
    "shape": "table, steps, bullets, callout",
    "button": "Build week",
    "loading": "Stacking vert…"
@@ -144,7 +144,7 @@
      "placeholder": "I brake constantly and my quads are shot by 30 km"
     }
    ],
-   "prompt": "Coach {skill} for: {issue}. Steps for 4 drills (where, reps, cue), bullets on body position and eye line, a table (Mistake | What it costs | Fix), and a quote with the one cue to say on the next descent.",
+   "prompt": "Coach {skill} for: {issue}. Steps for 4 drills (where, reps, cue), 4 bullets on body position and eye line, a table (Mistake | What it costs | Fix), and a quote with the one cue to say on the next descent.",
    "shape": "steps, bullets, table, quote",
    "button": "Coach me",
    "loading": "Finding the line…"
@@ -168,7 +168,7 @@
      "placeholder": "waterproof jacket 10k mm, whistle, foil blanket, 1 L capacity, headtorch"
     }
    ],
-   "prompt": "Check the photo against: {rules}. Table (Required item | Seen | Meets spec? | Note), a checklist of what is missing or doubtful, kv (vest capacity needed, estimated weight, spare-battery note), and a callout on why organisers check taped seams and blankets.",
+   "prompt": "Check the photo against: {rules}. Table (Required item | Seen | Meets spec? | Note) with one row per required item, a checklist of what is missing or doubtful, kv (vest capacity needed, estimated weight, spare-battery note), and a callout on why organisers check taped seams and blankets.",
    "shape": "table, checklist, kv, callout",
    "button": "Check kit",
    "loading": "Ticking boxes…"
@@ -186,7 +186,7 @@
      "placeholder": "5h drive Friday, camping, start 06:00, 12°C then 24°C"
     }
    ],
-   "prompt": "Race-week plan for the profile race with: {logistics}. Table (Day | Run | Other | Food/sleep note), a checklist for the night before including drop bags and poles, steps for the first 5 km start strategy, and a callout on heat and quad management for the second half.",
+   "prompt": "Race-week plan for the profile race with: {logistics}. Table (Day | Run | Other | Food/sleep note) with all 7 days, a checklist for the night before including drop bags and poles, steps for the first 5 km start strategy, and a callout on heat and quad management for the second half.",
    "shape": "table, checklist, steps, callout",
    "button": "Plan race week",
    "loading": "Tapering…"

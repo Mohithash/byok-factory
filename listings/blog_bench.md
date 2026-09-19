@@ -5,13 +5,13 @@
 **Short description (≤80):** Posts people finish: hooks, outlines, edits, clusters
 
 ## Full description
-Blog Bench takes a blog post from idea to publish-ready: headline options, a search-aware outline, a line edit that keeps your voice, and a topic-cluster plan so posts build on each other.
+Blog Bench takes a blog post from idea to publish-ready: headline options, an outline where every section earns its place, a line edit that keeps your voice, a refresh plan for posts that have gone stale, and a final pre-publish pass.
 
 WHAT'S INSIDE
 • Headlines & hook — Titles that earn the click honestly
 • Outline a post — Sections with a reason to exist
 • Line edit my draft — Tighter, same voice
-• Topic cluster plan — 12 posts that link together
+• Refresh an old post — Stale post → worth reading again
 • Pre-publish check — Nothing embarrassing goes live
 
 BRING YOUR OWN KEY
@@ -23,7 +23,7 @@ Every answer is a structured, shareable document with follow-up questions, saved
 - 🎣 **Headlines & hook** — Titles that earn the click honestly
 - 🧱 **Outline a post** — Sections with a reason to exist
 - ✂️ **Line edit my draft** — Tighter, same voice
-- 🕸️ **Topic cluster plan** — 12 posts that link together
+- 🔄 **Refresh an old post** — Stale post → worth reading again
 - 🚀 **Pre-publish check** — Nothing embarrassing goes live
 
 ## Privacy policy

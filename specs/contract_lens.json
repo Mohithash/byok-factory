@@ -76,7 +76,7 @@
      "default": "Service / subscription"
     }
    ],
-   "prompt": "Review the {type} contract from the photo and/or text: {text}. Produce a table (Clause | Plain-English meaning | Who it favours | Risk low/med/high), a text summary of the 5 things that matter most, a callout listing anything missing that you'd expect in this type of contract, and bullets of questions to ask before signing.",
+   "prompt": "Review the {type} contract from the photo and/or text: {text}. Produce a table (Clause | Plain-English meaning | Who it favours | Risk low/med/high), a text summary of the 5 things that matter most, a callout listing anything missing that you'd expect in this type of contract, and bullets of 5 questions to ask before signing.",
    "shape": "table, text, callout, bullets",
    "button": "Explain",
    "loading": "Reading every line…"
@@ -132,28 +132,28 @@
   },
   {
    "id": "exit",
-   "title": "What if I want out?",
-   "subtitle": "Termination, notice, penalties",
+   "title": "Ways out, both sides",
+   "subtitle": "Every route to termination — theirs and yours",
    "emoji": "🚪",
    "inputs": [
     {
      "key": "terms",
-     "label": "Paste the termination / duration clauses",
+     "label": "Paste the termination / duration / renewal clauses",
      "type": "longtext",
-     "placeholder": "Initial term 24 months; either party may terminate on 90 days' notice after the initial term…",
+     "placeholder": "Initial term 24 months; either party may terminate on 90 days' notice after the initial term; Provider may suspend for non-payment…",
      "required": true
     },
     {
      "key": "when",
-     "label": "When you'd want to leave",
+     "label": "When you might want to leave",
      "type": "text",
      "placeholder": "in 6 months"
     }
    ],
-   "prompt": "Terms: {terms}. Leaving: {when}. Give a kv (earliest exit date, notice required, early-termination cost, any cooling-off), steps for exiting cleanly with dates, and a callout on any exit-for-breach route or unfair-terms protection that may exist in the profile region.",
-   "shape": "kv, steps, callout",
-   "button": "Map the exit",
-   "loading": "Finding the door…"
+   "prompt": "Terms: {terms}. You might want to leave: {when}. Produce a table (Route | Who can use it | Trigger or notice | Cost or penalty | Risk low/med/high) covering termination for convenience, termination for breach, non-renewal, suspension and any force-majeure clause — for BOTH parties. Then a kv for the user's own exit (earliest clean exit date given {when}, notice to give, what they'd owe), bullets of 3 things the other side could do to end or change the contract on you, and a callout on any unfair-terms or exit-for-breach protection that may apply in the profile region.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Map the exits",
+   "loading": "Finding the doors…"
   },
   {
    "id": "glossary",

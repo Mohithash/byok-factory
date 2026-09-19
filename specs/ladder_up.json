@@ -111,7 +111,7 @@
      "placeholder": "800"
     }
    ],
-   "prompt": "Target {target}, saved {saved}, saving {monthly} per month. Give a kv (months to target, target date, shortfall if buying within the profile's horizon), a table (Lever | Monthly gain | Effort | Notes) of 6 ways to close the gap faster, steps for setting up the savings structure (accounts, automation, first-buyer schemes to check for the region in general terms), and a callout on not tying the deposit up in anything volatile.",
+   "prompt": "Target {target}, saved {saved}, saving {monthly} per month. Give a kv (months to target, target date, shortfall if buying in 12 months, shortfall if buying in 24 months), a table (Lever | Monthly gain | Effort | Notes) of 6 ways to close the gap faster, steps for setting up the savings structure (accounts, automation, first-buyer schemes to check for the region in general terms), and a callout on not tying the deposit up in anything volatile.",
    "shape": "kv, table, steps, callout",
    "button": "Plan my deposit",
    "loading": "Stacking coins…"

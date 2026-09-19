@@ -1,0 +1,206 @@
+{
+ "id": "scope_guard",
+ "name": "Scope Guard",
+ "tagline": "Stop scope creep before it eats your margin",
+ "category": "Business",
+ "colors": [
+  "#B71C1C",
+  "#37474F",
+  "#FFC107"
+ ],
+ "icon": "shield",
+ "about": "Scope Guard helps freelancers and agencies spot scope creep the moment it appears, price change orders, set up retainers, and put kill fees, revision limits and payment milestones into plain-English terms.",
+ "persona": "You are a seasoned freelance-contracts advisor: firm on boundaries, friendly in tone, always giving the client a yes-with-a-price rather than a flat no; you are not a lawyer and say so.",
+ "onboarding": {
+  "title": "Protect the work you agreed to",
+  "subtitle": "Tell us what you do and how you bill, and we'll defend your scope.",
+  "bullets": [
+   "Instant creep verdicts with a price",
+   "Change orders clients accept",
+   "Clauses that protect your time"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "service",
+   "label": "What you do",
+   "type": "text",
+   "placeholder": "brand identity design"
+  },
+  {
+   "key": "billing",
+   "label": "You usually bill",
+   "type": "chips",
+   "options": [
+    "Fixed price",
+    "Day rate",
+    "Hourly",
+    "Retainer",
+    "Value-based"
+   ],
+   "default": "Fixed price"
+  },
+  {
+   "key": "rate",
+   "label": "Rate / typical project fee",
+   "type": "text",
+   "placeholder": "€600/day"
+  }
+ ],
+ "tools": [
+  {
+   "id": "creep",
+   "title": "Is this scope creep?",
+   "subtitle": "Compare the ask with the deal",
+   "emoji": "🕵️",
+   "inputs": [
+    {
+     "key": "scope",
+     "label": "What was agreed",
+     "type": "longtext",
+     "placeholder": "logo, 3 concepts, 2 revision rounds, brand sheet",
+     "required": true
+    },
+    {
+     "key": "ask",
+     "label": "What they're asking now",
+     "type": "longtext",
+     "placeholder": "can you also do the website header and 4 social templates?",
+     "required": true
+    }
+   ],
+   "prompt": "Agreed scope: {scope}. New request: {ask}. Give a text verdict (In scope / Grey area / Out of scope) with one sentence of reasoning, a table (Requested item | In scope? | Est. hours | Price at the profile rate), a quote with a warm message that says yes-with-a-price or offers a swap, and a callout on what to add to the next contract so this stops recurring.",
+   "shape": "text, table, quote, callout",
+   "button": "Check it",
+   "loading": "Measuring the creep…"
+  },
+  {
+   "id": "change",
+   "title": "Write a change order",
+   "subtitle": "Price and paper the extra work",
+   "emoji": "🧾",
+   "inputs": [
+    {
+     "key": "extra",
+     "label": "Extra work requested",
+     "type": "longtext",
+     "placeholder": "4 social templates + header adaptation",
+     "required": true
+    },
+    {
+     "key": "hours",
+     "label": "Your hour estimate",
+     "type": "number",
+     "placeholder": "6"
+    },
+    {
+     "key": "impact",
+     "label": "Effect on deadline",
+     "type": "text",
+     "placeholder": "pushes delivery by 3 working days"
+    }
+   ],
+   "prompt": "Draft a change order for: {extra}, estimated {hours} hours at the profile rate, schedule impact: {impact}. Output a kv (change order number placeholder, description, price, new delivery date, payment timing, offer expiry), a quote with the full change-order text the client approves by reply, bullets of 3 negotiation fallbacks if they balk, and a callout: work starts only after written approval.",
+   "shape": "kv, quote, bullets, callout",
+   "button": "Draft order",
+   "loading": "Papering it…"
+  },
+  {
+   "id": "retainer",
+   "title": "Design a retainer",
+   "subtitle": "Recurring work, clear rules",
+   "emoji": "📆",
+   "inputs": [
+    {
+     "key": "client",
+     "label": "Client & work",
+     "type": "text",
+     "placeholder": "SaaS startup, ongoing design support",
+     "required": true
+    },
+    {
+     "key": "hours",
+     "label": "Hours per month",
+     "type": "number",
+     "placeholder": "20"
+    },
+    {
+     "key": "rollover",
+     "label": "Unused hours",
+     "type": "chips",
+     "options": [
+      "Expire",
+      "Roll over 1 month",
+      "Roll over 3 months"
+     ],
+     "default": "Expire"
+    }
+   ],
+   "prompt": "Design a monthly retainer for {client} at {hours} hours/month with unused hours set to '{rollover}', priced from the profile rate with a modest retainer discount. Sections: a kv of terms (monthly fee, included hours, overage rate, response time, priority level, notice period, payment date), a table of 3 tiers (Tier | Hours | Fee | Best for), a quote with the retainer offer email, and a callout on the two clauses that most often cause disputes.",
+   "shape": "kv, table, quote, callout",
+   "button": "Design",
+   "loading": "Locking it in…"
+  },
+  {
+   "id": "clauses",
+   "title": "Protective clauses",
+   "subtitle": "Kill fee, revisions, late payment",
+   "emoji": "🛡️",
+   "inputs": [
+    {
+     "key": "clause",
+     "label": "Clause",
+     "type": "chips",
+     "options": [
+      "Kill fee",
+      "Revision limits",
+      "Late payment",
+      "Payment milestones",
+      "Client delays",
+      "Approval by silence"
+     ],
+     "default": "Kill fee"
+    },
+    {
+     "key": "style",
+     "label": "Style",
+     "type": "chips",
+     "options": [
+      "Plain English",
+      "Formal"
+     ],
+     "default": "Plain English"
+    }
+   ],
+   "prompt": "Explain and draft a '{clause}' clause in {style} for the profile's service. Give a text explanation of why freelancers need it and the numbers typically used, a quote with the ready-to-paste clause, bullets of 3 client objections and how to answer each, and a callout reminding that a lawyer should review terms for large contracts.",
+   "shape": "text, quote, bullets, callout",
+   "button": "Draft clause",
+   "loading": "Sharpening the pen…"
+  },
+  {
+   "id": "brief",
+   "title": "Red-flag a brief",
+   "subtitle": "Screen an inquiry before you quote",
+   "emoji": "🚩",
+   "inputs": [
+    {
+     "key": "brief",
+     "label": "Paste the inquiry or brief",
+     "type": "longtext",
+     "placeholder": "we need a quick logo, budget is flexible, exposure is great…",
+     "required": true
+    }
+   ],
+   "prompt": "Screen this inquiry: {brief}. Produce a table (Signal | Quote from the brief | Risk level | What it usually means), a kv scoring the lead (budget clarity, scope clarity, decision-maker access, timeline realism, overall go/no-go), a quote with 5 clarifying questions to send before quoting, and a callout on the deposit and terms to insist on if you proceed.",
+   "shape": "table, kv, quote, callout",
+   "button": "Screen",
+   "loading": "Sniffing trouble…"
+  }
+ ],
+ "disclaimer": "General guidance, not legal advice; have a qualified lawyer review contracts and clauses for your jurisdiction."
+}

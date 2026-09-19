@@ -1,0 +1,213 @@
+{
+ "id": "stroller_miles",
+ "name": "Stroller Miles",
+ "tagline": "Travel with babies and toddlers, nap by nap",
+ "category": "Travel & Local",
+ "colors": [
+  "#8E24AA",
+  "#FFB74D",
+  "#4DB6AC"
+ ],
+ "icon": "baby",
+ "about": "Stroller Miles plans trips around little ones: itineraries with nap windows, hour-by-hour flight survival plans, what to check before booking a stay, gear and snack packing lists and a playbook for meltdowns far from home.",
+ "persona": "You are a well-travelled parent and calm, nurse-minded planner: realistic, allergic to over-scheduling, and clear that a rested kid makes a happy trip.",
+ "onboarding": {
+  "title": "Little legs, big trips",
+  "subtitle": "Tell us who's coming and how they sleep.",
+  "bullets": [
+   "Itineraries with nap slots built in",
+   "Flight plans hour by hour",
+   "Gear, snacks and meltdown playbooks"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "kids",
+   "label": "Kids' ages",
+   "type": "text",
+   "placeholder": "baby 9 months, toddler 3"
+  },
+  {
+   "key": "naps",
+   "label": "Naps",
+   "type": "chips",
+   "options": [
+    "Two naps",
+    "One nap",
+    "Dropping naps",
+    "No naps"
+   ]
+  },
+  {
+   "key": "gear",
+   "label": "Travel gear you own",
+   "type": "chips",
+   "options": [
+    "Stroller",
+    "Carrier",
+    "Car seat",
+    "Travel cot"
+   ],
+   "multi": true
+  }
+ ],
+ "tools": [
+  {
+   "id": "plan",
+   "title": "Kid-paced itinerary",
+   "subtitle": "Days that fit around sleep",
+   "emoji": "🧸",
+   "inputs": [
+    {
+     "key": "dest",
+     "label": "Destination",
+     "type": "text",
+     "placeholder": "Lisbon",
+     "required": true
+    },
+    {
+     "key": "days",
+     "label": "Days",
+     "type": "number",
+     "placeholder": "5"
+    },
+    {
+     "key": "wishes",
+     "label": "Grown-up wishes",
+     "type": "text",
+     "placeholder": "one good dinner, a viewpoint"
+    }
+   ],
+   "prompt": "Plan {days} days in {dest} for the profile's kids, including {wishes} for the adults. Table (Day | Morning | Nap window | Afternoon | Dinner plan), cards for 5 kid-friendly stops (meta = stroller-friendly? · minutes from centre · cost), bullets on where the adults' wishes fit (nap-time swaps, early dinners, a babysitting option), and a callout on the one day to keep empty.",
+   "shape": "table, cards, bullets, callout",
+   "button": "Plan it",
+   "loading": "Rolling out…"
+  },
+  {
+   "id": "flight",
+   "title": "Flight survival",
+   "subtitle": "Hour-by-hour with kids",
+   "emoji": "✈️",
+   "inputs": [
+    {
+     "key": "hours",
+     "label": "Flight hours",
+     "type": "number",
+     "placeholder": "6"
+    },
+    {
+     "key": "time",
+     "label": "Departure",
+     "type": "chips",
+     "options": [
+      "Morning",
+      "Afternoon",
+      "Evening",
+      "Red-eye"
+     ],
+     "default": "Morning"
+    },
+    {
+     "key": "seat",
+     "label": "Seating",
+     "type": "chips",
+     "options": [
+      "Lap infant",
+      "Own seat",
+      "Bassinet requested"
+     ],
+     "default": "Own seat"
+    }
+   ],
+   "prompt": "An hour-by-hour plan for a {hours}-hour {time} flight with the profile's kids ({seat}). Table (Hour | Activity | Snack | Screen? | Grown-up tip), a checklist for the carry-on grouped by Feeding, Changing, Sleep, Play and Emergencies, steps for boarding and for ears on take-off and landing, and a callout on what to ask the airline for in advance (bassinet, pre-boarding, stroller at the gate).",
+   "shape": "table, checklist, steps, callout",
+   "button": "Plan the flight",
+   "loading": "Boarding…"
+  },
+  {
+   "id": "stay",
+   "title": "Check a stay",
+   "subtitle": "Is this place kid-ready?",
+   "emoji": "🏡",
+   "inputs": [
+    {
+     "key": "listing",
+     "label": "Paste the listing / hotel description",
+     "type": "longtext",
+     "placeholder": "2-bed apartment, 3rd floor, balcony, Old Town…",
+     "required": true
+    }
+   ],
+   "prompt": "Assess this stay for the profile's kids: {listing}. Table (Feature | Present? | Risk or benefit | Fix), a checklist of 8 questions to send the host (cot, stairs, blackout blinds, balcony locks, high chair, washing machine, noise, parking), a quote with a friendly message asking the top 3, and a callout on the deal-breakers.",
+   "shape": "table, checklist, quote, callout",
+   "button": "Assess",
+   "loading": "Baby-proofing…"
+  },
+  {
+   "id": "pack",
+   "title": "Gear & snack list",
+   "subtitle": "Everything, nothing extra",
+   "emoji": "🎒",
+   "inputs": [
+    {
+     "key": "days",
+     "label": "Days",
+     "type": "number",
+     "placeholder": "7"
+    },
+    {
+     "key": "climate",
+     "label": "Climate",
+     "type": "chips",
+     "options": [
+      "Hot",
+      "Mild",
+      "Cold",
+      "Mixed"
+     ],
+     "default": "Mild"
+    },
+    {
+     "key": "transport",
+     "label": "Getting there",
+     "type": "chips",
+     "options": [
+      "Flying",
+      "Driving",
+      "Train"
+     ],
+     "default": "Flying"
+    }
+   ],
+   "prompt": "A {days}-day packing list for the profile's kids, {climate} climate, travelling by {transport}. Checklist grouped by Sleep, Feeding, Clothes (with counts), Health kit, Entertainment and Documents, a table (Bulky item | Bring · Rent · Buy there | Why), bullets on snacks that survive a bag, and a callout on medication, sunscreen and prescriptions to sort before you go.",
+   "shape": "checklist, table, bullets, callout",
+   "button": "Build list",
+   "loading": "Counting nappies…"
+  },
+  {
+   "id": "meltdown",
+   "title": "Meltdown playbook",
+   "subtitle": "Right now, in public, far from home",
+   "emoji": "🌪️",
+   "inputs": [
+    {
+     "key": "situation",
+     "label": "What's happening",
+     "type": "text",
+     "placeholder": "toddler screaming in a museum, baby overtired",
+     "required": true
+    }
+   ],
+   "prompt": "Situation: {situation}. Steps for the next 10 minutes for the profile's kids, bullets on what probably caused it (hunger, sleep, overstimulation, novelty), a quote with one calm phrase for the child and one for onlookers, and a callout on when the day plan should simply change.",
+   "shape": "steps, bullets, quote, callout",
+   "button": "Help now",
+   "loading": "Breathing…"
+  }
+ ],
+ "disclaimer": "General parenting and travel tips, not medical advice; ask a paediatrician about medication, illness or travel vaccines."
+}

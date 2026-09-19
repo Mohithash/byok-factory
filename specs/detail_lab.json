@@ -1,0 +1,242 @@
+{
+ "id": "detail_lab",
+ "name": "Gloss Lab",
+ "tagline": "Showroom shine from your own driveway",
+ "category": "Auto & Vehicles",
+ "colors": [
+  "#7B1FA2",
+  "#00BCD4",
+  "#212121"
+ ],
+ "icon": "spark",
+ "about": "Gloss Lab reads your paint from a photo, writes a safe wash and decontamination routine for your kit and time, plans paint correction and coatings, rescues interiors and prices detailing jobs if you do it for others.",
+ "persona": "You are a professional detailer: precise about products and technique, anti-swirl, and honest that most cars need a good wash rather than a machine polish.",
+ "onboarding": {
+  "title": "Detail like a pro",
+  "subtitle": "Your car, kit and water setup change the routine.",
+  "bullets": [
+   "Paint assessment from a photo",
+   "Safe wash for your kit",
+   "Correction, coatings and interiors"
+  ]
+ },
+ "profile": [
+  {
+   "key": "car",
+   "label": "Car & colour",
+   "type": "text",
+   "placeholder": "black Audi A4 2018"
+  },
+  {
+   "key": "kit",
+   "label": "Kit",
+   "type": "chips",
+   "options": [
+    "Bucket & mitt only",
+    "Pressure washer + foam",
+    "Dual-action polisher",
+    "Full pro kit"
+   ]
+  },
+  {
+   "key": "water",
+   "label": "Water & space",
+   "type": "chips",
+   "options": [
+    "Driveway with hose",
+    "Waterless at flats",
+    "Rinseless in garage",
+    "Pro bay"
+   ]
+  },
+  {
+   "key": "goal",
+   "label": "Goal",
+   "type": "chips",
+   "options": [
+    "Keep it clean",
+    "Fix swirls",
+    "Concours",
+    "Side business"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "paint",
+   "title": "Read my paint",
+   "subtitle": "Photo → what it needs",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Close-up of the paint in sunlight or under a torch",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "history",
+     "label": "History",
+     "type": "text",
+     "placeholder": "3 years of automatic car washes, never polished"
+    }
+   ],
+   "prompt": "Assess the paint in the photo with history: {history} for the profile car. A kv (contamination, swirl level, oxidation, water spotting, coating present, overall grade), a table (Defect | Seen where | Fix level: wash, decon, polish or pro), steps for the minimum routine that would transform it, and a callout on what needs a paint-depth gauge before polishing.",
+   "shape": "kv, table, steps, callout",
+   "button": "Assess",
+   "loading": "Under the torch…"
+  },
+  {
+   "id": "wash",
+   "title": "Wash routine",
+   "subtitle": "Safe wash for your kit and time",
+   "emoji": "🧽",
+   "inputs": [
+    {
+     "key": "minutes",
+     "label": "Time",
+     "type": "chips",
+     "options": [
+      "20",
+      "45",
+      "90",
+      "Half day"
+     ],
+     "default": "45"
+    },
+    {
+     "key": "state",
+     "label": "How dirty",
+     "type": "chips",
+     "options": [
+      "Dusty",
+      "Normal",
+      "Filthy or winter salt",
+      "Bird bombs & tar"
+     ],
+     "default": "Normal"
+    },
+    {
+     "key": "products",
+     "label": "Products you own",
+     "type": "text",
+     "placeholder": "citrus pre-wash, pH-neutral shampoo, iron remover"
+    }
+   ],
+   "prompt": "Write a {minutes}-minute safe wash for a {state} car with the profile kit and water setup, using: {products}. Steps in order (pre-rinse, snow foam, two-bucket contact wash, wheels, decon, dry, protect) with dilution ratios and dwell times, a table (Step | Product | Tool | Minutes), a checklist of steps to skip when short on time, and a callout on the mistakes that put swirls into paint.",
+   "shape": "steps, table, checklist, callout",
+   "button": "Write routine",
+   "loading": "Filling buckets…"
+  },
+  {
+   "id": "correct",
+   "title": "Correction & coating plan",
+   "subtitle": "Swirls → gloss → protection",
+   "emoji": "✨",
+   "inputs": [
+    {
+     "key": "level",
+     "label": "Target",
+     "type": "chips",
+     "options": [
+      "One-step enhancement",
+      "Two-step correction",
+      "Just protect it"
+     ],
+     "default": "One-step enhancement"
+    },
+    {
+     "key": "protect",
+     "label": "Protection",
+     "type": "chips",
+     "options": [
+      "Wax",
+      "Sealant",
+      "Ceramic coating",
+      "Not sure"
+     ],
+     "default": "Not sure"
+    },
+    {
+     "key": "budget",
+     "label": "Budget for products",
+     "type": "number",
+     "placeholder": "150"
+    }
+   ],
+   "prompt": "Plan a {level} with {protect} protection on {budget} for the profile car and kit. A table (Stage | Pad | Compound or polish | Speed | Passes | Minutes per panel), a kv of the test-spot method and how to inspect with a light, cards for 3 protection choices (meta = durability · cost · difficulty), and a callout on what to do if a polisher is not in the profile kit.",
+   "shape": "table, kv, cards, callout",
+   "button": "Plan",
+   "loading": "Taping edges…"
+  },
+  {
+   "id": "interior",
+   "title": "Interior rescue",
+   "subtitle": "Stains, smells, leather, screens",
+   "emoji": "🪑",
+   "inputs": [
+    {
+     "key": "problem",
+     "label": "The problem",
+     "type": "longtext",
+     "placeholder": "coffee on light grey fabric seats, dog smell, hazy touchscreen",
+     "required": true
+    },
+    {
+     "key": "materials",
+     "label": "Materials",
+     "type": "chips",
+     "options": [
+      "Cloth",
+      "Leather",
+      "Alcantara",
+      "Vinyl or plastic",
+      "Mixed"
+     ],
+     "default": "Mixed"
+    }
+   ],
+   "prompt": "Rescue: {problem} on {materials}. A table (Issue | Product type | Method | Do not use), steps for the worst stain first with dwell and blot technique, bullets on removing odours at the source rather than masking them, and a callout on screens, leather and airbag covers to avoid damaging.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Rescue",
+   "loading": "Lifting the stain…"
+  },
+  {
+   "id": "quote",
+   "title": "Quote a detailing job",
+   "subtitle": "Price it for a customer",
+   "emoji": "💼",
+   "inputs": [
+    {
+     "key": "job",
+     "label": "Job",
+     "type": "text",
+     "placeholder": "full exterior decon + one-step polish + ceramic on an SUV",
+     "required": true
+    },
+    {
+     "key": "rate",
+     "label": "Your hourly rate",
+     "type": "number",
+     "placeholder": "35"
+    },
+    {
+     "key": "market",
+     "label": "Market",
+     "type": "chips",
+     "options": [
+      "Budget",
+      "Mid",
+      "Premium"
+     ],
+     "default": "Mid"
+    }
+   ],
+   "prompt": "Price {job} at {rate} per hour in a {market} market. A table (Task | Hours | Products used | Cost), a kv (labour, products, overhead, margin, quoted price, deposit), a quote with a customer-ready message describing the job, what it does not include and the aftercare, and a callout on the inspection notes and photos to record before starting.",
+   "shape": "table, kv, quote, callout",
+   "button": "Price it",
+   "loading": "Costing the job…"
+  }
+ ],
+ "disclaimer": "Read every product label; wear gloves and eye protection with acids, iron removers and solvents, and test on a hidden spot first."
+}

@@ -1,0 +1,195 @@
+{
+ "id": "meeple_studio",
+ "name": "Meeple Studio",
+ "tagline": "Design, balance and pitch your own board game",
+ "category": "Games",
+ "colors": [
+  "#EF6C00",
+  "#3949AB",
+  "#43A047"
+ ],
+ "icon": "gear",
+ "about": "Meeple Studio is a board-game designer's workshop: it turns a theme into a core loop, checks the maths behind your economy, writes rulebook sections, digests playtest feedback and specs components for print-and-play or a publisher pitch.",
+ "persona": "You are a published board-game designer and developer: mechanics-first, allergic to fiddliness, honest about what won't work, and fluent in balance maths and rulebook clarity.",
+ "onboarding": {
+  "title": "From napkin to table",
+  "subtitle": "Tell us about the game you're building.",
+  "bullets": [
+   "Core loops from a theme",
+   "Balance maths you can trust",
+   "Rulebooks and pitch sheets"
+  ]
+ },
+ "profile": [
+  {
+   "key": "game",
+   "label": "Working title & one-liner",
+   "type": "text",
+   "placeholder": "Tidewrack: salvage crews race the tide"
+  },
+  {
+   "key": "weight",
+   "label": "Target weight",
+   "type": "chips",
+   "options": [
+    "Party",
+    "Family",
+    "Gateway",
+    "Mid-weight",
+    "Heavy"
+   ]
+  },
+  {
+   "key": "players",
+   "label": "Player count",
+   "type": "chips",
+   "options": [
+    "1",
+    "2",
+    "2–4",
+    "3–6",
+    "Large group"
+   ]
+  },
+  {
+   "key": "minutes",
+   "label": "Target play time",
+   "type": "number",
+   "placeholder": "45"
+  }
+ ],
+ "tools": [
+  {
+   "id": "loop",
+   "title": "Design the core loop",
+   "subtitle": "Theme → mechanics",
+   "emoji": "🔄",
+   "inputs": [
+    {
+     "key": "idea",
+     "label": "Your idea so far",
+     "type": "longtext",
+     "placeholder": "players are lighthouse keepers competing for ships…",
+     "required": true
+    },
+    {
+     "key": "feel",
+     "label": "Feel",
+     "type": "chips",
+     "options": [
+      "Tense",
+      "Cosy",
+      "Cutthroat",
+      "Puzzly",
+      "Chaotic"
+     ],
+     "default": "Tense"
+    }
+   ],
+   "prompt": "Develop the profile game from: {idea} with a {feel} feel, for the profile weight, player count and play time. Output text describing the core loop in one paragraph, steps for a full turn, a table of mechanics (Mechanic | Why it serves the theme | Known games that use it | Risk), cards for 3 end-game trigger options (meta = expected length · tension curve), and a callout on the biggest design risk.",
+   "shape": "text, steps, table, cards, callout",
+   "button": "Design loop",
+   "loading": "Sketching turns…"
+  },
+  {
+   "id": "balance",
+   "title": "Balance check",
+   "subtitle": "Costs, curves, dominant strategies",
+   "emoji": "⚖️",
+   "inputs": [
+    {
+     "key": "numbers",
+     "label": "Paste cards, costs or stats",
+     "type": "longtext",
+     "placeholder": "Trawler: cost 3, gives 2 fish/turn; Net: cost 1…",
+     "required": true
+    },
+    {
+     "key": "worry",
+     "label": "What worries you",
+     "type": "text",
+     "placeholder": "the rush strategy always wins"
+    }
+   ],
+   "prompt": "Analyse the balance of: {numbers}. Concern: {worry}. Provide a table (Element | Cost | Value per turn | Payback turns | Verdict), text on the dominant strategy and why it dominates, bullets of concrete number changes (before → after), and a callout on what to test first and how many plays to trust the result.",
+   "shape": "table, text, bullets, callout",
+   "button": "Check balance",
+   "loading": "Crunching numbers…"
+  },
+  {
+   "id": "rules",
+   "title": "Write a rulebook section",
+   "subtitle": "Clear, ordered, example-driven",
+   "emoji": "📘",
+   "inputs": [
+    {
+     "key": "section",
+     "label": "Section",
+     "type": "chips",
+     "options": [
+      "Overview & goal",
+      "Setup",
+      "Turn structure",
+      "Scoring",
+      "Edge cases FAQ"
+     ],
+     "default": "Turn structure"
+    },
+    {
+     "key": "details",
+     "label": "How it works, in your words",
+     "type": "longtext",
+     "placeholder": "on your turn: move, then take 1 action…",
+     "required": true
+    }
+   ],
+   "prompt": "Write the '{section}' section of the rulebook for the profile game from: {details}. Give text in standard rulebook voice, steps in the exact order players perform things, a quote with a worked example beginning 'Example:', and a callout of terms that must be defined elsewhere in the book.",
+   "shape": "text, steps, quote, callout",
+   "button": "Write section",
+   "loading": "Laying out pages…"
+  },
+  {
+   "id": "playtest",
+   "title": "Digest playtest feedback",
+   "subtitle": "Notes → actionable changes",
+   "emoji": "🧪",
+   "inputs": [
+    {
+     "key": "feedback",
+     "label": "Playtest notes",
+     "type": "longtext",
+     "placeholder": "4 players, 70 min (too long), Sam never used the market, ending felt abrupt…",
+     "required": true
+    }
+   ],
+   "prompt": "Digest: {feedback} for the profile game. Output a table (Observation | Root cause | Change | Priority), bullets of what to keep because it worked, a kv of metrics to log at the next test (length, turns, score spread, lead changes), and a checklist for running the next playtest session.",
+   "shape": "table, bullets, kv, checklist",
+   "button": "Digest",
+   "loading": "Reading notes…"
+  },
+  {
+   "id": "components",
+   "title": "Components & pitch",
+   "subtitle": "Spec, cost, sell sheet",
+   "emoji": "📦",
+   "inputs": [
+    {
+     "key": "route",
+     "label": "Route",
+     "type": "chips",
+     "options": [
+      "Print-and-play",
+      "Small print run",
+      "Publisher pitch",
+      "Crowdfunding"
+     ],
+     "default": "Publisher pitch"
+    }
+   ],
+   "prompt": "For the profile game via {route}: a table of components (Component | Count | Size or material | Est. unit cost), a kv of the sell sheet (hook, player count, time, age, weight, comparable titles), a quote with a 60-second pitch, and a callout on the component that most inflates cost and how to cut it.",
+   "shape": "table, kv, quote, callout",
+   "button": "Spec it",
+   "loading": "Counting meeples…"
+  }
+ ]
+}

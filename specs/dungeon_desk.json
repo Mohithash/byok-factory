@@ -1,0 +1,214 @@
+{
+ "id": "dungeon_desk",
+ "name": "Dungeon Desk",
+ "tagline": "Session prep, NPCs and encounters in minutes",
+ "category": "Games",
+ "colors": [
+  "#4E342E",
+  "#D84315",
+  "#FBC02D"
+ ],
+ "icon": "hat",
+ "about": "Dungeon Desk is the game master's prep desk: it preps tonight's session, balances encounters for your party, invents NPCs with voices and secrets, and improvises when players wander off the map.",
+ "persona": "You are a veteran tabletop game master: vivid but concise, generous with hooks and secrets, always balancing challenge to the party and respecting the table's tone.",
+ "onboarding": {
+  "title": "Run tables like a pro",
+  "subtitle": "Tell us your system and party so every encounter and NPC fits.",
+  "bullets": [
+   "Encounters balanced to your party",
+   "NPCs with voice, secret and hook",
+   "Improv rescue when plans derail"
+  ]
+ },
+ "profile": [
+  {
+   "key": "system",
+   "label": "System",
+   "type": "chips",
+   "options": [
+    "D&D 5e",
+    "Pathfinder 2e",
+    "OSR / old-school",
+    "Other d20",
+    "Narrative (PbtA, FATE)"
+   ]
+  },
+  {
+   "key": "size",
+   "label": "Party size",
+   "type": "number",
+   "placeholder": "4"
+  },
+  {
+   "key": "level",
+   "label": "Party level",
+   "type": "number",
+   "placeholder": "3"
+  },
+  {
+   "key": "tone",
+   "label": "Campaign tone",
+   "type": "chips",
+   "options": [
+    "Heroic",
+    "Grim",
+    "Comedic",
+    "Horror",
+    "Political intrigue"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "prep",
+   "title": "Prep tonight's session",
+   "subtitle": "Outline, scenes, contingencies",
+   "emoji": "🗺️",
+   "inputs": [
+    {
+     "key": "state",
+     "label": "Where the campaign stands",
+     "type": "longtext",
+     "placeholder": "Party just reached Greyhollow chasing the cult; the rogue owes the thieves' guild…",
+     "required": true
+    },
+    {
+     "key": "goal",
+     "label": "What tonight should achieve",
+     "type": "text",
+     "placeholder": "reveal the cult leader's identity"
+    },
+    {
+     "key": "length",
+     "label": "Session length",
+     "type": "chips",
+     "options": [
+      "2 hours",
+      "3 hours",
+      "4+ hours"
+     ],
+     "default": "3 hours"
+    }
+   ],
+   "prompt": "Campaign state: {state}. Tonight's goal: {goal}. Length: {length}. Produce a text opening-scene read-aloud, steps for 4–6 scenes (each with purpose, likely player action and an 'if they skip it' fallback), a table of NPCs needed (Name | Role | Wants | One-line voice), a checklist of things to prepare before play (maps, stat blocks, handouts), and a callout on the one twist to hold back until the right moment.",
+   "shape": "text, steps, table, checklist, callout",
+   "button": "Prep session",
+   "loading": "Rolling initiative…"
+  },
+  {
+   "id": "npc",
+   "title": "NPC on the spot",
+   "subtitle": "Name, voice, secret, hook",
+   "emoji": "🎭",
+   "inputs": [
+    {
+     "key": "role",
+     "label": "Who are they",
+     "type": "text",
+     "placeholder": "a suspicious innkeeper in a port town",
+     "required": true
+    },
+    {
+     "key": "importance",
+     "label": "Importance",
+     "type": "chips",
+     "options": [
+      "Throwaway",
+      "Recurring",
+      "Major"
+     ],
+     "default": "Recurring"
+    }
+   ],
+   "prompt": "Create a {importance} NPC: {role}, matching the campaign tone. Output kv (name, ancestry, age, appearance in 8 words, mannerism, voice cue for the GM, what they want, what they fear, the secret they hide), a quote of three lines of dialogue in their voice, and bullets of 3 plot hooks they could hand the party.",
+   "shape": "kv, quote, bullets",
+   "button": "Create NPC",
+   "loading": "Rolling a stranger…"
+  },
+  {
+   "id": "encounter",
+   "title": "Build an encounter",
+   "subtitle": "Balanced for the party",
+   "emoji": "⚔️",
+   "inputs": [
+    {
+     "key": "difficulty",
+     "label": "Difficulty",
+     "type": "chips",
+     "options": [
+      "Easy",
+      "Medium",
+      "Hard",
+      "Deadly"
+     ],
+     "default": "Medium"
+    },
+    {
+     "key": "setting",
+     "label": "Setting",
+     "type": "text",
+     "placeholder": "collapsed mine shaft, low light, unstable ceiling"
+    },
+    {
+     "key": "enemies",
+     "label": "Enemy type (optional)",
+     "type": "text",
+     "placeholder": "goblins and a bugbear"
+    }
+   ],
+   "prompt": "Design a {difficulty} encounter for the profile party in: {setting}, using {enemies} if given. Sections: a table of combatants (Creature | Count | Role in the fight | Key ability | System notes), text describing the battlefield with 3 interactive features, steps for enemy tactics round by round, a kv of the encounter budget maths for the profile system (XP or level budget, thresholds, adjusted total), and a callout on how to scale it up or down mid-fight.",
+   "shape": "table, text, steps, kv, callout",
+   "button": "Build it",
+   "loading": "Balancing the odds…"
+  },
+  {
+   "id": "derail",
+   "title": "They went off the rails",
+   "subtitle": "Improvise the next hour",
+   "emoji": "🧭",
+   "inputs": [
+    {
+     "key": "happened",
+     "label": "What the players just did",
+     "type": "longtext",
+     "placeholder": "they ignored the quest, robbed the mayor and set sail for the pirate isles",
+     "required": true
+    }
+   ],
+   "prompt": "The players did this: {happened}. Do not punish them; make it fun. Give text with the immediate consequence and a hook, cards for 3 directions the next hour could take (meta = prep needed: none / light / heavy), a table of complications to drop in (Complication | Trigger | Payoff), and a callout on how to reconnect this to the main plot later.",
+   "shape": "text, cards, table, callout",
+   "button": "Improvise",
+   "loading": "Rolling with it…"
+  },
+  {
+   "id": "loot",
+   "title": "Loot & treasure",
+   "subtitle": "Rewards that fit the level",
+   "emoji": "💰",
+   "inputs": [
+    {
+     "key": "source",
+     "label": "Where the loot comes from",
+     "type": "text",
+     "placeholder": "dragon's hoard / cult leader's vault",
+     "required": true
+    },
+    {
+     "key": "style",
+     "label": "Style",
+     "type": "chips",
+     "options": [
+      "By the book",
+      "Mostly story items",
+      "Cursed and weird"
+     ],
+     "default": "By the book"
+    }
+   ],
+   "prompt": "Generate a treasure haul from {source} for the profile party, style {style}. Output a table (Item | Type | Value or rarity | Who it suits | Story note), cards for 2 unique signature items (meta = rarity · attunement), a kv of coin totals split per player, and a callout on any item that could unbalance the campaign.",
+   "shape": "table, cards, kv, callout",
+   "button": "Roll loot",
+   "loading": "Opening the chest…"
+  }
+ ]
+}

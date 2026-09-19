@@ -70,7 +70,7 @@
      "type": "photo"
     }
    ],
-   "prompt": "Troubleshoot: {problem} for the profile's baby age (assess the photo if provided). Sections: text on the most likely causes ranked, steps for a deep-latch reset (positioning, baby-led attachment, breaking suction safely), a table (Sign | Suggests | Fix), and a callout listing signs that need an in-person lactation consultant or clinician (tongue-tie assessment, cracked or bleeding nipples, thrush, mastitis).",
+   "prompt": "Troubleshoot: {problem} for the profile's baby age (assess the photo if provided). Sections: text on the most likely causes ranked, steps for a deep-latch reset (positioning, baby-led attachment, breaking suction safely), a table (Sign | Suggests | Fix) with 5–6 rows, and a callout listing signs that need an in-person lactation consultant or clinician (tongue-tie assessment, cracked or bleeding nipples, thrush, mastitis).",
    "shape": "text, steps, table, callout",
    "button": "Troubleshoot",
    "loading": "Looking…"
@@ -100,7 +100,7 @@
      "placeholder": "born 3.4kg, 3.3kg at day 5"
     }
    ],
-   "prompt": "Assess intake with {wet} wet nappies, {feeds} feeds per 24h and weight: {weight}, for the profile's baby age. Sections: a callout with the verdict (Reassuring / Watch closely / Get weighed and seen today) using standard nappy and weight-gain benchmarks for this age, kv of the expected numbers at this age, bullets of ways to boost supply if needed (frequency, breast compression, switch nursing, pumping after feeds), and a checklist of hunger versus satiety cues.",
+   "prompt": "Assess intake with {wet} wet nappies, {feeds} feeds per 24h and weight: {weight}, for the profile's baby age. Sections: a callout with the verdict (Reassuring / Watch closely / Get weighed and seen today) using standard nappy and weight-gain benchmarks for this age, kv of the expected numbers at this age, bullets of 4–6 ways to boost supply if needed (frequency, breast compression, switch nursing, pumping after feeds), and a checklist of hunger versus satiety cues.",
    "shape": "callout, kv, bullets, checklist",
    "button": "Assess",
    "loading": "Counting…"
@@ -131,7 +131,7 @@
      "default": "Maintain supply"
     }
    ],
-   "prompt": "Design a pumping plan for {hours} with goal {goal} for the profile's baby age and pump. Sections: table (Time | Where | Minutes | Expected ml range | Notes), steps for the first week of transition, a kv on milk storage (room, fridge, freezer, thawed, combining sessions), and a checklist of pumping-at-work rights and kit.",
+   "prompt": "Design a pumping plan for {hours} with goal {goal} for the profile's baby age and pump. Sections: table (Time | Where | Minutes | Expected ml range | Notes), steps for the first week of transition, a kv on milk storage (room, fridge, freezer, thawed, combining sessions), and a checklist of 6–8 pumping-at-work rights and kit items.",
    "shape": "table, steps, kv, checklist",
    "button": "Build schedule",
    "loading": "Scheduling…"
@@ -150,7 +150,7 @@
      "required": true
     }
    ],
-   "prompt": "Give general information on {med} while breastfeeding for the profile's baby age. Sections: a callout with the general compatibility category (Usually compatible / Use with care / Usually avoided / Ask a pharmacist) and the reasoning in one line, kv (how much passes into milk in general terms, timing relative to feeds, what to watch for in baby), bullets of usually-preferred alternatives, and a closing callout telling the user to confirm with a pharmacist or the LactMed / BfN resources, because this is not a prescription.",
+   "prompt": "Give general information on {med} while breastfeeding for the profile's baby age. Sections: a callout with the general compatibility category (Usually compatible / Use with care / Usually avoided / Ask a pharmacist) and the reasoning in one line, kv (how much passes into milk in general terms, timing relative to feeds, what to watch for in baby), bullets of 2–4 usually-preferred alternatives, and a closing callout telling the user to confirm with a pharmacist or the LactMed / BfN resources, because this is not a prescription.",
    "shape": "callout, kv, bullets",
    "button": "Check",
    "loading": "Checking…"
@@ -169,7 +169,7 @@
      "required": true
     }
    ],
-   "prompt": "Assess: {symptoms}. Sections: a callout distinguishing blocked duct, engorgement, mastitis and abscess signs in general terms with a level (Self-care / See a GP within 24h / Urgent), steps for current best-practice self-care (keep feeding normally, gentle lymphatic massage, cold, anti-inflammatories, avoid deep massage and over-pumping), bullets of what not to do, and a checklist of signs to seek care today (fever, flu-like feeling, spreading redness, no improvement in 24h).",
+   "prompt": "Assess: {symptoms}. Sections: a callout distinguishing blocked duct, engorgement, mastitis and abscess signs in general terms with a level (Self-care / See a GP within 24h / Urgent), steps for current best-practice self-care (keep feeding normally, gentle lymphatic massage, cold, anti-inflammatories, avoid deep massage and over-pumping), bullets of 3–5 things not to do, and a checklist of signs to seek care today (fever, flu-like feeling, spreading redness, no improvement in 24h).",
    "shape": "callout, steps, bullets, checklist",
    "button": "Assess",
    "loading": "Checking…"

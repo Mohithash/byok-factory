@@ -191,7 +191,7 @@
      "default": "Recruit co-hosts"
     }
    ],
-   "prompt": "Goal: {goal}. Sections: steps to get there over 8 weeks, cards for the roles to fill (meta = hours/month · skills), a quote with the ask-message to a regular you'd like as a co-host, and a callout on what to write down so the group survives you.",
+   "prompt": "Goal: {goal}. Sections: steps to get there over 8 weeks, cards for the 2–3 roles to fill (meta = hours/month · skills), a quote with the ask-message to a regular you'd like as a co-host, and a callout on what to write down so the group survives you.",
    "shape": "steps, cards, quote, callout",
    "button": "Plan it",
    "loading": "Growing roots…"

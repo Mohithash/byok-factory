@@ -1,0 +1,216 @@
+{
+ "id": "border_bargain",
+ "name": "Border Bargain",
+ "tagline": "Shop abroad and at the airport without overpaying",
+ "category": "Shopping",
+ "colors": [
+  "#0277BD",
+  "#FF6F61",
+  "#FFD54F"
+ ],
+ "icon": "globe",
+ "about": "Border Bargain tells you whether duty-free is actually cheaper, walks you through tax-free refund paperwork, checks customs allowances before you land, and warns you before buying electronics abroad that won't work or aren't covered at home.",
+ "persona": "You are a well-travelled shopping consultant who knows airport pricing, VAT-refund bureaucracy and customs allowances, and gives conservative advice because getting it wrong costs money at the border.",
+ "onboarding": {
+  "title": "Bargains that survive the border",
+  "subtitle": "Your home country sets the allowances and warranty rules.",
+  "bullets": [
+   "Duty-free: real saving or not",
+   "Tax-refund walkthroughs",
+   "Customs and warranty checks"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "home",
+   "label": "Home country",
+   "type": "chips",
+   "options": [
+    "US",
+    "UK",
+    "EU",
+    "Canada",
+    "Australia",
+    "India",
+    "UAE",
+    "Singapore",
+    "Other"
+   ]
+  },
+  {
+   "key": "card",
+   "label": "Card you use abroad",
+   "type": "text",
+   "placeholder": "Revolut / Chase Sapphire / bank debit"
+  },
+  {
+   "key": "trip",
+   "label": "Usual trips",
+   "type": "chips",
+   "options": [
+    "Short hops",
+    "Long haul",
+    "Cruise",
+    "Business travel"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "dutyfree",
+   "title": "Duty-free worth it?",
+   "subtitle": "Airport price vs home price",
+   "emoji": "🛫",
+   "inputs": [
+    {
+     "key": "item",
+     "label": "Item",
+     "type": "text",
+     "placeholder": "Chanel No.5 100ml / 1L Hendrick's / AirPods Pro",
+     "required": true
+    },
+    {
+     "key": "airport",
+     "label": "Airport or duty-free price, with currency",
+     "type": "text",
+     "placeholder": "89 EUR",
+     "required": true
+    },
+    {
+     "key": "home",
+     "label": "Best price at home",
+     "type": "number",
+     "placeholder": "105"
+    }
+   ],
+   "prompt": "Compare {item}: duty-free price {airport} versus best home price {home}, for the profile's home country and card. Sections: a kv (Home-currency cost incl. typical card fee, Saving or loss, Allowance check for this item, Verdict), a table (Where to buy | Price | Warranty / returns | Risk), bullets of duty-free categories that are usually a good deal and those that are not, and a callout on what happens if you exceed the allowance.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Compare",
+   "loading": "Pricing the gate…"
+  },
+  {
+   "id": "refund",
+   "title": "Tax-free refund walkthrough",
+   "subtitle": "Get the VAT / GST back",
+   "emoji": "🧾",
+   "inputs": [
+    {
+     "key": "country",
+     "label": "Country you're shopping in",
+     "type": "text",
+     "placeholder": "Japan",
+     "required": true
+    },
+    {
+     "key": "amount",
+     "label": "Purchase amount",
+     "type": "number",
+     "placeholder": "450"
+    },
+    {
+     "key": "store",
+     "label": "Store or scheme",
+     "type": "text",
+     "placeholder": "Global Blue / store tax-free counter"
+    }
+   ],
+   "prompt": "Walk through claiming the tax refund on {amount} spent in {country} via {store} for a resident of the profile's home country. Sections: steps from the shop counter to the airport desk (minimum spend, forms, passport, customs stamp, sealed goods, refund method), a kv (Refund rate, Fees taken by the operator, Realistic net refund, Deadline), a checklist of what to keep in hand luggage, and a callout on the mistakes that get refunds rejected.",
+   "shape": "steps, kv, checklist, callout",
+   "button": "Walk me through",
+   "loading": "Stamping forms…"
+  },
+  {
+   "id": "customs",
+   "title": "Customs allowance check",
+   "subtitle": "Will this get through?",
+   "emoji": "🛃",
+   "inputs": [
+    {
+     "key": "items",
+     "label": "What you're bringing back",
+     "type": "longtext",
+     "placeholder": "2L whisky, 200 cigarettes, laptop bought abroad 1200, gifts 300…",
+     "required": true
+    },
+    {
+     "key": "origin",
+     "label": "Coming from",
+     "type": "text",
+     "placeholder": "Dubai"
+    }
+   ],
+   "prompt": "Check these items against the profile's home-country customs allowances when arriving from {origin}: {items}. Sections: a table (Item | Allowance | Over? | Likely duty / tax | Declare?), a kv (Total estimated duty, Which lane to use, Documents to carry), bullets of items that are restricted or banned regardless of value, and a callout that allowances change and to confirm on the official customs site.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Check",
+   "loading": "Reading the rules…"
+  },
+  {
+   "id": "tech",
+   "title": "Buying tech abroad",
+   "subtitle": "Warranty, plugs, bands and region locks",
+   "emoji": "🔌",
+   "inputs": [
+    {
+     "key": "item",
+     "label": "Device",
+     "type": "text",
+     "placeholder": "Sony a6700 / iPhone 16 / Dyson Airwrap",
+     "required": true
+    },
+    {
+     "key": "where",
+     "label": "Buying in",
+     "type": "text",
+     "placeholder": "Hong Kong"
+    }
+   ],
+   "prompt": "Assess buying {item} in {where} for use in the profile's home country. Sections: a kv (Warranty valid at home?, Plug / voltage, Cellular bands or region lock, Keyboard / language / software region, Import duty on arrival), a table (Risk | Likelihood | Fix or cost), bullets of what to check in the box before leaving the shop, and a callout with buy / skip.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Assess",
+   "loading": "Reading fine print…"
+  },
+  {
+   "id": "convert",
+   "title": "True cost in my money",
+   "subtitle": "Currency, card fees and DCC",
+   "emoji": "💱",
+   "inputs": [
+    {
+     "key": "price",
+     "label": "Price shown",
+     "type": "number",
+     "placeholder": "1299"
+    },
+    {
+     "key": "currency",
+     "label": "Currency",
+     "type": "text",
+     "placeholder": "JPY",
+     "required": true
+    },
+    {
+     "key": "paid",
+     "label": "Paying by",
+     "type": "chips",
+     "options": [
+      "Card in local currency",
+      "Card in home currency (DCC)",
+      "Cash exchanged at airport",
+      "Cash from local ATM"
+     ],
+     "default": "Card in local currency"
+    }
+   ],
+   "prompt": "Convert {price} {currency} paid by {paid} into the home currency of the profile, using the profile's card. Sections: a kv (Mid-market estimate, Typical fee for this payment route, True cost, Cheapest route instead and its cost), a table (Payment route | Typical fee % | True cost | Verdict), bullets on refusing dynamic currency conversion, and a callout that rates move and to check the live rate.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Convert",
+   "loading": "Fetching rates…"
+  }
+ ],
+ "disclaimer": "Customs allowances, refund rules and card fees change and vary by country; confirm with official customs and your card issuer before relying on them. Not financial or legal advice."
+}

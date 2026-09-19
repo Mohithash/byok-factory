@@ -9,7 +9,7 @@
   "#FBC02D"
  ],
  "icon": "scale",
- "about": "Zero Balance compares avalanche, snowball and hybrid payoff orders with real dates and interest totals, checks whether consolidation is worth it, writes letters to creditors and shows what minimum payments really cost.",
+ "about": "Zero Balance goes deeper than a budget app on debt: avalanche, snowball and hybrid payoff orders with real dates and interest totals, a consolidation reality check, creditor letters, monthly progress check-ins and what minimum payments really cost.",
  "persona": "You are a no-shame debt coach: precise with interest maths, practical about motivation, never judgemental, and you flag when free debt-advice services or a regulated adviser are the right next step.",
  "onboarding": {
   "title": "Every debt has an end date",
@@ -94,7 +94,7 @@
      "placeholder": "300"
     }
    ],
-   "prompt": "Compare consolidating the profile debts into one loan at {rate}% over {term} months with {fee} in fees, versus the current avalanche plan. Table (Option | Monthly payment | Total interest + fees | Debt-free date | Risk), bullets on when consolidation backfires, a checklist of what to verify in the offer, and a callout on balance-transfer promo traps.",
+   "prompt": "Compare consolidating the profile debts into one loan at {rate}% APR (default 12) over {term} months (default 48) with {fee} in fees (default 0), versus the current avalanche plan. Table (Option | Monthly payment | Total interest + fees | Debt-free date | Risk), bullets on when consolidation backfires, a checklist of what to verify in the offer, and a callout on balance-transfer promo traps.",
    "shape": "table, bullets, checklist, callout",
    "button": "Compare",
    "loading": "Crunching…"
@@ -131,34 +131,46 @@
      "placeholder": "the card issuer"
     }
    ],
-   "prompt": "Write a '{type}' letter to {creditor} given: {situation}. Sections: quote with the full letter (formal, factual, with a specific amount and dates), bullets on what to attach, steps for what happens next and when to follow up, and a callout naming the kinds of free debt-advice services available in the profile country in general terms.",
+   "prompt": "Write a '{type}' letter given: {situation}. Creditor: {creditor} (if not given, address it to the account provider with a placeholder for the name). Sections: quote with the full letter (formal, factual, with a specific amount and dates), bullets on what to attach, steps for what happens next and when to follow up, and a callout naming the kinds of free debt-advice services available in the profile country in general terms.",
    "shape": "quote, bullets, steps, callout",
    "button": "Draft letter",
    "loading": "Writing…"
   },
   {
-   "id": "windfall",
-   "title": "Windfall: debt or buffer?",
-   "subtitle": "Split a lump sum wisely",
-   "emoji": "🎁",
+   "id": "checkin",
+   "title": "Monthly check-in",
+   "subtitle": "New balances → updated end date",
+   "emoji": "📆",
    "inputs": [
     {
-     "key": "amount",
-     "label": "Amount",
-     "type": "number",
-     "placeholder": "2500"
+     "key": "balances",
+     "label": "Balances now (name, balance)",
+     "type": "longtext",
+     "placeholder": "Visa 3,650; car loan 9,300",
+     "required": true
     },
     {
-     "key": "source",
-     "label": "Where from",
-     "type": "text",
-     "placeholder": "tax refund"
+     "key": "months",
+     "label": "Months since you started",
+     "type": "number",
+     "placeholder": "1"
+    },
+    {
+     "key": "feel",
+     "label": "How it feels",
+     "type": "chips",
+     "options": [
+      "On fire",
+      "Steady",
+      "Slipping"
+     ],
+     "default": "Steady"
     }
    ],
-   "prompt": "The user has {amount} from {source}. Decide how to split it across the profile debts, a starter emergency fund and anything else: table (Use | Amount | Why | Effect on debt-free date), text on the maths versus the psychology, and a callout on the risk of sending everything to debt with no buffer.",
-   "shape": "table, text, callout",
-   "button": "Split it",
-   "loading": "Dividing…"
+   "prompt": "Monthly progress check {months} months in (default 1). Balances now: {balances}. Feeling: {feel}. Compare against the profile debts and extra payment: table (Debt | Starting balance | Now | Paid down | Est. months left), kv (total paid down, interest saved so far vs minimums only, updated debt-free date, ahead or behind the original plan by N months). Then text with an honest, encouraging read on pace that matches how it feels, and a callout with the single focus for next month.",
+   "shape": "table, kv, text, callout",
+   "button": "Check in",
+   "loading": "Tallying progress…"
   },
   {
    "id": "minimum",
@@ -174,7 +186,7 @@
      "required": true
     }
    ],
-   "prompt": "For {debt}: kv (years to pay off at minimums only, total interest at minimums, months if 50 more per month, months if 100 more per month), table (Extra per month | Payoff months | Interest saved) for 0, 25, 50, 100, 200, text explaining how minimum payments are designed to keep you paying, and a callout on the first move to make this week.",
+   "prompt": "For {debt}, show the cost of paying only the minimum. Sections: kv (years to pay off at minimums only, total interest at minimums, months if 50 more per month, months if 100 more per month), table (Extra per month | Payoff months | Interest saved) for 0, 25, 50, 100, 200, text explaining how minimum payments are designed to keep you paying, and a callout on the first move to make this week.",
    "shape": "kv, table, text, callout",
    "button": "Show me",
    "loading": "Doing the maths…"

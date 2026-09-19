@@ -1,0 +1,202 @@
+{
+ "id": "dupe_hunter",
+ "name": "Dupe Hunter",
+ "tagline": "The cheaper version that's just as good",
+ "category": "Shopping",
+ "colors": [
+  "#AD1457",
+  "#00ACC1",
+  "#FFB74D"
+ ],
+ "icon": "spark",
+ "about": "Dupe Hunter finds cheaper equivalents to the thing you want — the same factory, the same formula, the store brand that matches — and tells you honestly what you give up, so you only pay the premium when it buys something real.",
+ "persona": "You are a value-obsessed product analyst who knows which brands share factories and formulas, reads ingredient and material lists, and admits when the original is worth it.",
+ "onboarding": {
+  "title": "Pay for the product, not the logo",
+  "subtitle": "Tell us what you shop for most and how you feel about brands.",
+  "bullets": [
+   "Dupes for any product",
+   "Store brand vs name brand, judged",
+   "What the premium really buys"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "cats",
+   "label": "You shop most for",
+   "type": "chips",
+   "options": [
+    "Beauty & skincare",
+    "Groceries",
+    "Tech accessories",
+    "Fashion",
+    "Home & kitchen",
+    "Kids",
+    "Fitness"
+   ],
+   "multi": true
+  },
+  {
+   "key": "stance",
+   "label": "Brand stance",
+   "type": "chips",
+   "options": [
+    "Happy with dupes",
+    "Dupes for basics only",
+    "Prefer originals if close in price"
+   ]
+  },
+  {
+   "key": "region",
+   "label": "Region",
+   "type": "chips",
+   "options": [
+    "US",
+    "UK",
+    "EU",
+    "Canada",
+    "Australia",
+    "India",
+    "Other"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "find",
+   "title": "Find a dupe",
+   "subtitle": "Product → cheaper equivalents",
+   "emoji": "🔎",
+   "inputs": [
+    {
+     "key": "product",
+     "label": "Product you want",
+     "type": "text",
+     "placeholder": "Charlotte Tilbury Flawless Filter / Le Creuset 5.5qt / Oura ring",
+     "required": true
+    },
+    {
+     "key": "price",
+     "label": "Its price",
+     "type": "number",
+     "placeholder": "44"
+    },
+    {
+     "key": "why",
+     "label": "What you love about it",
+     "type": "text",
+     "placeholder": "the glow, not the brand"
+    }
+   ],
+   "prompt": "Find dupes for {product} at {price}, valued for: {why}, available in the profile's region. Sections: cards for 4 dupes (meta = price · match %), a table (Dupe | What matches | What's different | Where to buy), a text section on whether the original is worth it given the profile's brand stance, and a callout on counterfeits versus legitimate dupes.",
+   "shape": "cards, table, text, callout",
+   "button": "Find dupes",
+   "loading": "Hunting lookalikes…"
+  },
+  {
+   "id": "storebrand",
+   "title": "Store brand vs name brand",
+   "subtitle": "Where own-label matches and where it doesn't",
+   "emoji": "🏪",
+   "inputs": [
+    {
+     "key": "item",
+     "label": "Item or category",
+     "type": "text",
+     "placeholder": "paracetamol / dishwasher tablets / greek yoghurt",
+     "required": true
+    },
+    {
+     "key": "store",
+     "label": "Store",
+     "type": "text",
+     "placeholder": "Aldi"
+    }
+   ],
+   "prompt": "Judge store-brand {item} at {store} against the leading name brand. Sections: a kv (Likely same manufacturer?, Formulation / spec differences, Typical price gap %, Verdict), a table (Aspect | Store brand | Name brand | Winner), bullets of the categories in this store where own-label is famously good or bad, and a callout on regulated products where the active ingredient is identical by law.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Judge",
+   "loading": "Reading labels…"
+  },
+  {
+   "id": "premium",
+   "title": "Is the premium worth it?",
+   "subtitle": "Two prices, one honest answer",
+   "emoji": "💎",
+   "inputs": [
+    {
+     "key": "cheap",
+     "label": "Cheaper option and its price",
+     "type": "text",
+     "placeholder": "Anker 20W charger, 15",
+     "required": true
+    },
+    {
+     "key": "pricey",
+     "label": "Pricier option and its price",
+     "type": "text",
+     "placeholder": "Apple 20W charger, 25",
+     "required": true
+    }
+   ],
+   "prompt": "Compare {cheap} against {pricey}. Sections: a table (Factor | Cheaper | Pricier | Matters?) covering materials, performance, safety certification, warranty, resale and longevity, a kv (Premium in currency and %, What it buys you, Cost per year of use for each, Verdict), bullets of the scenarios where each wins, and a callout on safety-critical categories where cheap is a false economy.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Compare",
+   "loading": "Weighing premium…"
+  },
+  {
+   "id": "shelf",
+   "title": "Scan the shelf",
+   "subtitle": "Photo of an aisle → best value and hidden twins",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the shelf with prices visible",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "need",
+     "label": "What you're picking",
+     "type": "text",
+     "placeholder": "a fabric softener that's fine for sensitive skin"
+    }
+   ],
+   "prompt": "Read every product and price visible on the shelf photo, for someone picking: {need}. Sections: a table (Product | Price | Unit price | Likely same maker as | Value: Best / Fair / Overpriced), a kv (Best value on this shelf, Hidden twin pair — the name brand and its own-label match, The one to skip), bullets on what on the packaging confirms two products are the same formula or spec, and a callout if the cheapest one is a false economy for this need.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Scan shelf",
+   "loading": "Reading price tags…"
+  },
+  {
+   "id": "basket",
+   "title": "Dupe my basket",
+   "subtitle": "Swap a whole list and see the saving",
+   "emoji": "🧺",
+   "inputs": [
+    {
+     "key": "list",
+     "label": "Your list with brands",
+     "type": "longtext",
+     "placeholder": "Olaplex No.3, Nespresso pods, Oral-B heads, Nike Dri-FIT tees, Yeti tumbler…",
+     "required": true
+    },
+    {
+     "key": "budget",
+     "label": "Budget target",
+     "type": "number"
+    }
+   ],
+   "prompt": "Swap this list for dupes toward a budget target of {budget}: {list}. Sections: a table (Original | Dupe | Original price | Dupe price | Saving | Keep original?), a kv (Total before, Total after, Saving %, Items to keep as originals and why), bullets of where to buy the dupes in the profile's region, and a callout on stacking store-brand buys with loyalty schemes.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Swap it",
+   "loading": "Rebuilding basket…"
+  }
+ ],
+ "disclaimer": "Prices vary by store and date. For medicines and safety-critical items, check the active ingredient and certification and ask a pharmacist or specialist if unsure."
+}

@@ -162,7 +162,7 @@
      "required": true
     }
    ],
-   "prompt": "Deliver the message '{message}' in the profile voice at five dials: cards for Sorry-but-firm, Neutral, Warm, Upbeat and Playful (body = the full 40–80 word message, meta = when to use it), a table (Tone | Opening line | Risk), and a callout on which tone fits both the message and the brand.",
+   "prompt": "Deliver the message '{message}' in the profile voice at five tone dials. Cards for Sorry-but-firm, Neutral, Warm, Upbeat and Playful (body = the full 40–80 word message, meta = when to use it), then a table (Tone | Opening line | Risk), and a callout on which tone fits both the message and the brand.",
    "shape": "cards, table, callout",
    "button": "Turn the dial",
    "loading": "Adjusting tone…"

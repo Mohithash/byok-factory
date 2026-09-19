@@ -5,11 +5,11 @@
 **Short description (≤80):** Long-distance hikes planned from permit to finish
 
 ## Full description
-Thru Line plans multi-week and thru-hikes: sections and zero days, resupply and bounce-box strategy, a pack shakedown from a photo, and a reset plan when the schedule slips.
+Thru Line plans multi-week and thru-hikes: sections and zero days, resupply and bounce-box strategy, a realistic budget, town-day plans and a reset plan when the schedule slips.
 
 WHAT'S INSIDE
 • Section the trail — Days, zeros and town stops
-• Pack shakedown — Photo → what to send home
+• Budget the hike — What it really costs, month by month
 • Resupply strategy — Boxes, towns and bounce boxes
 • I'm behind schedule — Reset the plan without a blow-up
 • Town-day checklist — Get in, get done, get out
@@ -21,7 +21,7 @@ Every answer is a structured, shareable document with follow-up questions, saved
 
 ## Tools
 - 🗺️ **Section the trail** — Days, zeros and town stops
-- 📷 **Pack shakedown** — Photo → what to send home
+- 💵 **Budget the hike** — What it really costs, month by month
 - 📦 **Resupply strategy** — Boxes, towns and bounce boxes
 - 🔁 **I'm behind schedule** — Reset the plan without a blow-up
 - 🏘️ **Town-day checklist** — Get in, get done, get out

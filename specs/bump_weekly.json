@@ -30,7 +30,7 @@
    "key": "due",
    "label": "Due date",
    "type": "text",
-   "placeholder": "14 March"
+   "placeholder": "14 March 2027"
   },
   {
    "key": "pregnancy",
@@ -54,18 +54,10 @@
   {
    "id": "week",
    "title": "This week",
-   "subtitle": "Body, baby, to-dos",
+   "subtitle": "Body, baby, to-dos — one tap",
    "emoji": "🗓️",
-   "inputs": [
-    {
-     "key": "today",
-     "label": "Today's date",
-     "type": "text",
-     "placeholder": "19 September",
-     "required": true
-    }
-   ],
-   "prompt": "Work out the current week from the profile's due date and today's date {today}. Sections: kv (week, trimester, baby size comparison, key development this week), text on what the user's body is doing this week and the common symptoms, a checklist of to-dos this week (appointments, tests, decisions, paperwork), and a callout on symptoms that should be reported to a midwife at this stage.",
+   "inputs": [],
+   "prompt": "Work out the current pregnancy week from the profile's due date and today's date (given in the system context); if the profile has no due date, say so in a callout and ask for it. Sections: kv (week, trimester, baby size comparison, key development this week), text on what the user's body is doing this week and the 3 most common symptoms, a checklist of 5–8 to-dos for this week (appointments, tests, decisions, paperwork), and a callout on symptoms that should be reported to a midwife at this stage.",
    "shape": "kv, text, checklist, callout",
    "button": "Show my week",
    "loading": "Counting weeks…"
@@ -89,7 +81,7 @@
      "type": "photo"
     }
    ],
-   "prompt": "Assess {thing} in pregnancy (use the photo of the label or menu if provided) for the profile's stage and history. Sections: a callout with the verdict (Generally fine / Fine with limits / Avoid / Ask your clinician) and a one-line reason, bullets on safer alternatives or how to make it safer, and a kv of the specific limits (amount, frequency, trimester notes). Say clearly when to check with a pharmacist or midwife.",
+   "prompt": "Assess {thing} in pregnancy (use the photo of the label or menu if provided) for the profile's stage and history. Sections: a callout with the verdict (Generally fine / Fine with limits / Avoid / Ask your clinician) and a one-line reason, bullets of 3–5 safer alternatives or ways to make it safer, and a kv of the specific limits (amount, frequency, trimester notes). Say clearly when to check with a pharmacist or midwife.",
    "shape": "callout, bullets, kv",
    "button": "Check it",
    "loading": "Checking…"
@@ -119,7 +111,7 @@
      "default": "Mild"
     }
    ],
-   "prompt": "The user reports: {symptom} (severity: {urgency}) at the profile's stage. Sections: a callout with a triage level (Self-care & monitor / Call the midwife today / Go in now), text explaining the likely benign causes at this stage, bullets on self-care that helps, and a checklist of red flags that would change the level. Never diagnose; be clear that reduced movements, bleeding, severe headache, vision changes or sudden swelling always mean call.",
+   "prompt": "The user reports: {symptom} (severity: {urgency}) at the profile's stage. Sections: a callout with a triage level (Self-care & monitor / Call the midwife today / Go in now), text explaining the likely benign causes at this stage, bullets of 3–5 self-care measures that help, and a checklist of 5–8 red flags that would change the level. Never diagnose; be clear that reduced movements, bleeding, severe headache, vision changes or sudden swelling always mean call.",
    "shape": "callout, text, bullets, checklist",
    "button": "Check symptom",
    "loading": "Reviewing…"

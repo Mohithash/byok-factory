@@ -1,0 +1,201 @@
+{
+ "id": "room_let",
+ "name": "Room Let",
+ "tagline": "Rent out a room in your home, calmly and fairly",
+ "category": "House & Home",
+ "colors": [
+  "#00838F",
+  "#F06292",
+  "#FFB300"
+ ],
+ "icon": "moon",
+ "about": "Room Let helps homeowners and tenants let a room to a lodger or flatmate: pricing it right, writing the ad, screening applicants, setting house rules and an agreement, and handling problems without falling out.",
+ "persona": "You are a practical live-in landlord coach: fair to both sides, allergic to vague arrangements, and clear that a written agreement protects the friendship.",
+ "onboarding": {
+  "title": "A good lodger starts with a clear deal",
+  "subtitle": "Tell us about your home so pricing and rules fit.",
+  "bullets": [
+   "Room pricing from local evidence",
+   "Ads and screening that find good people",
+   "House rules and agreement points"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "status",
+   "label": "You are the",
+   "type": "chips",
+   "options": [
+    "Owner",
+    "Tenant with permission",
+    "Tenant, need to check"
+   ]
+  },
+  {
+   "key": "home",
+   "label": "Your home",
+   "type": "text",
+   "placeholder": "2-bed flat, shared bathroom, city centre"
+  },
+  {
+   "key": "region",
+   "label": "Country / region",
+   "type": "text"
+  }
+ ],
+ "tools": [
+  {
+   "id": "price",
+   "title": "Price the room",
+   "subtitle": "Rent, deposit, bills",
+   "emoji": "💰",
+   "inputs": [
+    {
+     "key": "room",
+     "label": "The room",
+     "type": "text",
+     "placeholder": "double, 12 m², built-in wardrobe, no ensuite",
+     "required": true
+    },
+    {
+     "key": "local",
+     "label": "Local room ads you've seen",
+     "type": "longtext",
+     "placeholder": "similar doubles 650–780 incl. bills"
+    },
+    {
+     "key": "bills",
+     "label": "Bills",
+     "type": "chips",
+     "options": [
+      "Included",
+      "Split",
+      "Undecided"
+     ],
+     "default": "Undecided"
+    }
+   ],
+   "prompt": "Price this room: {room}. Local evidence: {local}. Bills: {bills}. Produce a kv (suggested rent, range, deposit, what bills add per month, bills-included price), a table (Feature | Adds or subtracts | Amount), bullets on tax-free allowances and declaration rules to check for the region in general terms, and a callout on pricing for the right person rather than the top price.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Price it",
+   "loading": "Measuring up…"
+  },
+  {
+   "id": "ad",
+   "title": "Write the ad",
+   "subtitle": "A listing that attracts the right person",
+   "emoji": "📝",
+   "inputs": [
+    {
+     "key": "about",
+     "label": "About the home and you",
+     "type": "longtext",
+     "placeholder": "quiet, work from home, one cat, near the tram, no couples",
+     "required": true
+    },
+    {
+     "key": "ideal",
+     "label": "Ideal lodger",
+     "type": "chips",
+     "options": [
+      "Professional Mon–Fri",
+      "Student",
+      "Anyone tidy",
+      "Weekday-only lodger"
+     ],
+     "default": "Anyone tidy"
+    }
+   ],
+   "prompt": "Write a room ad aimed at a '{ideal}' lodger for the profile's home: {about}. Produce a quote with a headline and a 120-word listing, bullets of 8 facts the listing must state (rent, bills, deposit, notice, rules), a kv (photo checklist: 5 shots → what each shows), and a callout on discrimination rules and wording to avoid in general terms.",
+   "shape": "quote, bullets, kv, callout",
+   "button": "Write ad",
+   "loading": "Making it appealing…"
+  },
+  {
+   "id": "screen",
+   "title": "Screen applicants",
+   "subtitle": "Who to shortlist and what to verify",
+   "emoji": "🔎",
+   "inputs": [
+    {
+     "key": "applicants",
+     "label": "Messages or details",
+     "type": "longtext",
+     "placeholder": "A: nurse, shifts, has references; B: student, parents guarantee; C: vague, wants to move tomorrow",
+     "required": true
+    }
+   ],
+   "prompt": "Screen these applicants for the profile's home: {applicants}. Produce a table (Applicant | Fit | Risk signs | Verify), a checklist of 10 questions for the viewing or call, a quote with a polite decline message and a shortlist message, and a callout on references, ID and right-to-rent style checks that may apply in the region.",
+   "shape": "table, checklist, quote, callout",
+   "button": "Screen",
+   "loading": "Reading them…"
+  },
+  {
+   "id": "rules",
+   "title": "House rules & agreement",
+   "subtitle": "Clauses and friendly wording",
+   "emoji": "📄",
+   "inputs": [
+    {
+     "key": "notice",
+     "label": "Notice period you want",
+     "type": "chips",
+     "options": [
+      "2 weeks",
+      "1 month",
+      "2 months"
+     ],
+     "default": "1 month"
+    },
+    {
+     "key": "dealbreakers",
+     "label": "Your must-haves",
+     "type": "text",
+     "placeholder": "no overnight guests midweek, no smoking, kitchen clean by 10pm"
+    }
+   ],
+   "prompt": "Notice {notice}; must-haves: {dealbreakers}. Produce a checklist of clauses for a lodger agreement (rent, deposit, notice, bills, rooms shared, guests, cleaning, keys, ending it), a kv (each house rule → a friendly one-line wording), bullets on what the profile's status means for permissions and insurance in general terms, and a callout on keeping the agreement in writing and signed by both.",
+   "shape": "checklist, kv, bullets, callout",
+   "button": "Draft rules",
+   "loading": "Setting terms…"
+  },
+  {
+   "id": "problem",
+   "title": "Handle a problem",
+   "subtitle": "Late rent, mess, guests, moving out",
+   "emoji": "🧯",
+   "inputs": [
+    {
+     "key": "issue",
+     "label": "Issue",
+     "type": "chips",
+     "options": [
+      "Late rent",
+      "Mess",
+      "Guests staying over",
+      "Noise",
+      "Want them to leave",
+      "They want to leave early"
+     ],
+     "default": "Late rent"
+    },
+    {
+     "key": "detail",
+     "label": "What's happening",
+     "type": "text",
+     "placeholder": "rent 9 days late, said Friday twice"
+    }
+   ],
+   "prompt": "Issue: {issue}. Details: {detail}. Produce a quote with a calm message to the lodger, steps for escalation over the next 2–4 weeks, bullets on what a live-in landlord can and cannot do in general terms, and a callout on when to seek local advice or use the deposit.",
+   "shape": "quote, steps, bullets, callout",
+   "button": "Help me",
+   "loading": "Keeping the peace…"
+  }
+ ],
+ "disclaimer": "General information, not legal advice; property law, tenancy rules and taxes vary by country and region — check with a qualified local professional before relying on it."
+}

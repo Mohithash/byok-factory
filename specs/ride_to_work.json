@@ -1,0 +1,188 @@
+{
+ "id": "ride_to_work",
+ "name": "Ride to Work",
+ "tagline": "Start cycling to work and keep doing it",
+ "category": "Health & Fitness",
+ "colors": [
+  "#0D47A1",
+  "#FFD600",
+  "#00C853"
+ ],
+ "icon": "pin",
+ "about": "Ride to Work gets you commuting by bike: a build-up plan for your distance and fitness, what to wear for today's weather, the right bike and lock setup, route-choosing rules, and the real savings versus driving or transit.",
+ "persona": "You are a friendly bike-commute mentor: safety-first without scaremongering, practical about sweat, rain and dark mornings, and encouraging to beginners.",
+ "onboarding": {
+  "title": "Swap the traffic for a ride",
+  "subtitle": "Distance and terrain shape your plan.",
+  "bullets": [
+   "A build-up plan you can stick to",
+   "Dress-right calls for any weather",
+   "Lock, light and route smarts"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "km",
+   "label": "One-way distance (km)",
+   "type": "number",
+   "placeholder": "8"
+  },
+  {
+   "key": "terrain",
+   "label": "Terrain",
+   "type": "chips",
+   "options": [
+    "Flat",
+    "Rolling",
+    "Hilly"
+   ]
+  },
+  {
+   "key": "bike",
+   "label": "Bike",
+   "type": "chips",
+   "options": [
+    "Don't have one yet",
+    "Old bike in the shed",
+    "Road / hybrid",
+    "E-bike",
+    "Folding"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "start",
+   "title": "First four weeks",
+   "subtitle": "Build up days per week without burning out",
+   "emoji": "🚴",
+   "inputs": [
+    {
+     "key": "fitness",
+     "label": "Fitness",
+     "type": "chips",
+     "options": [
+      "Rarely exercise",
+      "Some",
+      "Fit"
+     ],
+     "default": "Some"
+    },
+    {
+     "key": "constraints",
+     "label": "Constraints",
+     "type": "text",
+     "placeholder": "shower at work, kids drop-off Tuesdays, start 8:30",
+     "required": true
+    }
+   ],
+   "prompt": "A 4-week bike-commute build-up for the profile distance and terrain, fitness '{fitness}', with constraints: {constraints}. Table (Week | Days riding | Which days | Fallback plan), steps for the night-before routine, a checklist for the very first ride (weekend test ride, time it, find the shower), and a callout on the most common week-2 dropout reasons and how to beat them.",
+   "shape": "table, steps, checklist, callout",
+   "button": "Plan it",
+   "loading": "Pumping tyres…"
+  },
+  {
+   "id": "wear",
+   "title": "What do I wear today?",
+   "subtitle": "Weather → layers, gloves, visibility",
+   "emoji": "🌦️",
+   "inputs": [
+    {
+     "key": "weather",
+     "label": "Today's weather",
+     "type": "text",
+     "placeholder": "6°C, light rain, dark by 5pm",
+     "required": true
+    },
+    {
+     "key": "style",
+     "label": "Arrive",
+     "type": "chips",
+     "options": [
+      "In work clothes",
+      "Change at work"
+     ],
+     "default": "In work clothes"
+    }
+   ],
+   "prompt": "For '{weather}', arriving {style}, over the profile distance: kv (top, bottom, hands, feet, head, eyes), a checklist to pack (dry socks, lights, lock), bullets on sweat and rain management, and a callout on visibility rules for the dark.",
+   "shape": "kv, checklist, bullets, callout",
+   "button": "Dress me",
+   "loading": "Checking sky…"
+  },
+  {
+   "id": "bike",
+   "title": "Choose my commuter",
+   "subtitle": "Bike, e-bike, folding or fix what you have",
+   "emoji": "🛒",
+   "inputs": [
+    {
+     "key": "budget",
+     "label": "Budget",
+     "type": "number",
+     "placeholder": "600"
+    },
+    {
+     "key": "needs",
+     "label": "Needs",
+     "type": "text",
+     "placeholder": "carry laptop, hills, no secure parking at work"
+    }
+   ],
+   "prompt": "Recommend a commuter setup for the profile with budget {budget} and needs: {needs}. Cards for 3 options (meta = price · weight · maintenance), a table (Option | Hills | Carrying | Theft risk | Sweat), a checklist of must-have extras (lights, mudguards, rack, lock) with rough costs, and a callout on second-hand red flags.",
+   "shape": "cards, table, checklist, callout",
+   "button": "Recommend",
+   "loading": "Kicking tyres…"
+  },
+  {
+   "id": "safe",
+   "title": "Route & security rules",
+   "subtitle": "Pick a route, lock it, don't lose it",
+   "emoji": "🔒",
+   "inputs": [
+    {
+     "key": "route",
+     "label": "Route options",
+     "type": "text",
+     "placeholder": "main road 20 min or canal path 30 min, parking on street",
+     "required": true
+    }
+   ],
+   "prompt": "Given: {route} — bullets comparing the options by risk, time and stress, steps for a smart locking routine (what to lock to, two-lock method, wheels and saddle), a checklist for bike registration and insurance, and a callout on the highest-risk junction types and how to position.",
+   "shape": "bullets, steps, checklist, callout",
+   "button": "Advise",
+   "loading": "Scouting route…"
+  },
+  {
+   "id": "money",
+   "title": "What I'll save",
+   "subtitle": "Bike vs car vs transit, honestly",
+   "emoji": "💸",
+   "inputs": [
+    {
+     "key": "current",
+     "label": "Current commute cost",
+     "type": "text",
+     "placeholder": "fuel 45/week + parking 60/month, or monthly pass 120",
+     "required": true
+    },
+    {
+     "key": "days",
+     "label": "Bike days per week",
+     "type": "number",
+     "placeholder": "3"
+    }
+   ],
+   "prompt": "Compare cycling {days} days a week with the current: {current}. Table (Option | Weekly cost | Yearly cost | Minutes door-to-door | CO2 est.), kv (yearly saving, payback on the bike, calories per week est.), bullets on hidden costs (tyres, chain, rain gear), and a callout on cycle-to-work or tax schemes to ask HR about.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Calculate",
+   "loading": "Counting coins…"
+  }
+ ],
+ "disclaimer": "General guidance only; obey local road rules, wear a helmet where required and have the bike fitted and checked by a mechanic before regular riding."
+}

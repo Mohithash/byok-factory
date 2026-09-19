@@ -156,52 +156,53 @@
      "placeholder": "hungry and grumpy, melts down over nothing"
     }
    ],
-   "prompt": "Plan the after-school window for the profile's kids: home at {home}, activities: {activities}, they usually arrive {mood}. Sections: a table (Time | Block | What it looks like | Screens?) from arrival to dinner, bullets explaining restraint collapse and why the first 30 minutes are for snack and decompression, a checklist for a 'landing zone' by the door (bags, shoes, notes from school), and a callout on when homework should NOT start.",
+   "prompt": "Plan the after-school window for the profile's kids: home at {home}, activities: {activities}, they usually arrive {mood}. Sections: a table (Time | Block | What it looks like | Screens?) from arrival to dinner, bullets on why the first 30 minutes are for snack, movement and decompression (not homework, not questions), a checklist for a 'landing zone' by the door (bags, shoes, notes from school), and a callout on when homework should NOT start.",
    "shape": "table, bullets, checklist, callout",
    "button": "Plan afternoon",
    "loading": "Landing…"
   },
   {
-   "id": "chart",
-   "title": "Routine chart",
-   "subtitle": "Printable, kid-owned",
-   "emoji": "📋",
+   "id": "handover",
+   "title": "Caregiver handover",
+   "subtitle": "Sitter, grandparents, other house",
+   "emoji": "🗒️",
    "inputs": [
     {
-     "key": "which",
-     "label": "Routine",
+     "key": "who",
+     "label": "For",
      "type": "chips",
      "options": [
-      "Morning",
-      "Bedtime",
-      "After school",
-      "Weekend"
+      "Babysitter",
+      "Grandparents",
+      "Other parent's house",
+      "New au pair or nanny"
      ],
-     "default": "Morning"
+     "default": "Babysitter"
     },
     {
-     "key": "child",
-     "label": "Child",
-     "type": "text",
-     "placeholder": "Mia, 10",
+     "key": "span",
+     "label": "Covering",
+     "type": "chips",
+     "options": [
+      "One evening",
+      "Overnight",
+      "A weekend",
+      "A school week"
+     ],
+     "default": "One evening"
+    },
+    {
+     "key": "must",
+     "label": "Must-knows",
+     "type": "longtext",
+     "placeholder": "Leo: no nuts, inhaler in bag; Mia: reading log signed nightly; no screens after 7",
      "required": true
-    },
-    {
-     "key": "reader",
-     "label": "Reads yet?",
-     "type": "chips",
-     "options": [
-      "Pre-reader (pictures)",
-      "Early reader",
-      "Fluent"
-     ],
-     "default": "Fluent"
     }
    ],
-   "prompt": "Create a {which} routine chart for {child}, who is a {reader}. Sections: a checklist of 6–10 items in the child's own voice (with an emoji per item if pre-reader), a kv of how to introduce it (where to hang it, who ticks, when to retire it), bullets on rewards that don't backfire, and a callout on what to do the first time it's ignored.",
-   "shape": "checklist, kv, bullets, callout",
-   "button": "Make chart",
-   "loading": "Laminating…"
+   "prompt": "Write a one-page handover sheet for {who} looking after the profile's kids for {span}. Must-knows: {must}. Sections: a table (Time | What happens | Which kid | Notes) covering every routine block in that span, a kv of essentials (allergies and meds, lights-out per child, screens rule, emergency contacts and GP left as blanks to fill), a checklist of what to pack or lay out (chargers, comfort toy, PE kit, signed forms), a quote with three lines the caregiver can say in the parent's voice when a child pushes back, and a callout on the one rule that must not slip.",
+   "shape": "table, kv, checklist, quote, callout",
+   "button": "Write handover",
+   "loading": "Briefing…"
   },
   {
    "id": "late",

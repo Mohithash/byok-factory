@@ -1,0 +1,212 @@
+{
+ "id": "rights_desk",
+ "name": "Rights Desk",
+ "tagline": "Know who owns the work before you deliver it",
+ "category": "Business",
+ "colors": [
+  "#1B5E20",
+  "#AD1457",
+  "#FDD835"
+ ],
+ "icon": "scale",
+ "about": "Rights Desk helps designers, writers, developers and photographers understand and price usage rights, respond when a client wants source files or full ownership, check whether they can show work in a portfolio, and act when work is used without payment.",
+ "persona": "You are an IP-savvy creative business advisor: you explain licensing in plain English, price rights by usage, and always add that specifics depend on the contract and the country; you are not a lawyer.",
+ "onboarding": {
+  "title": "Your work, your terms",
+  "subtitle": "Tell us what you make and where you're based.",
+  "bullets": [
+   "Licences priced by usage",
+   "Answers for 'we want the source files'",
+   "Portfolio and credit rules explained"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "craft",
+   "label": "You make",
+   "type": "chips",
+   "options": [
+    "Design",
+    "Writing",
+    "Photography",
+    "Illustration",
+    "Code",
+    "Video"
+   ],
+   "multi": true
+  },
+  {
+   "key": "country",
+   "label": "Country",
+   "type": "text",
+   "placeholder": "Canada"
+  },
+  {
+   "key": "default",
+   "label": "Your default terms",
+   "type": "chips",
+   "options": [
+    "Licence, I keep copyright",
+    "Assign on full payment",
+    "Depends"
+   ],
+   "default": "Depends"
+  }
+ ],
+ "tools": [
+  {
+   "id": "license",
+   "title": "Price a licence",
+   "subtitle": "Usage, territory, duration → fee",
+   "emoji": "💰",
+   "inputs": [
+    {
+     "key": "work",
+     "label": "The work",
+     "type": "text",
+     "placeholder": "hero illustration for a website",
+     "required": true
+    },
+    {
+     "key": "use",
+     "label": "Usage",
+     "type": "chips",
+     "options": [
+      "Web only",
+      "Print",
+      "Advertising",
+      "Merchandise",
+      "All media"
+     ],
+     "default": "Web only"
+    },
+    {
+     "key": "term",
+     "label": "Duration",
+     "type": "chips",
+     "options": [
+      "1 year",
+      "3 years",
+      "Perpetual",
+      "Exclusive perpetual"
+     ],
+     "default": "1 year"
+    }
+   ],
+   "prompt": "Price the licence for {work} with usage '{use}' for '{term}'. Produce a table (Option | Territory & term | Exclusivity | Fee vs base | Client may) with the requested option plus two alternatives, a text section explaining how the fee scales and what base fee to start from, a quote with the licence summary paragraph to put on the invoice, and a callout on rights the client will assume they have unless you say otherwise.",
+   "shape": "table, text, quote, callout",
+   "button": "Price it",
+   "loading": "Counting rights…"
+  },
+  {
+   "id": "sourcefiles",
+   "title": "They want the source files",
+   "subtitle": "Respond to ownership and file requests",
+   "emoji": "📁",
+   "inputs": [
+    {
+     "key": "request",
+     "label": "What the client asked",
+     "type": "longtext",
+     "placeholder": "please send the Figma and fonts, we're taking it in-house",
+     "required": true
+    },
+    {
+     "key": "paid",
+     "label": "Payment status",
+     "type": "text",
+     "placeholder": "50% paid, project half done"
+    }
+   ],
+   "prompt": "Client request: {request}. Payment status: {paid}. Give a kv (what they're really asking for: files, copyright or both; what you're obliged to hand over under typical terms; third-party items you can't transfer such as fonts or stock), a table (Option | What they get | Price adjustment | Risk to you) with 3 options from files-only to full assignment, a quote with a friendly reply offering those options, and a callout on never releasing files before payment clears.",
+   "shape": "kv, table, quote, callout",
+   "button": "Draft reply",
+   "loading": "Guarding the files…"
+  },
+  {
+   "id": "portfolio",
+   "title": "Can I show this?",
+   "subtitle": "Portfolio, credits and NDAs",
+   "emoji": "🖼️",
+   "inputs": [
+    {
+     "key": "project",
+     "label": "The project",
+     "type": "text",
+     "placeholder": "app redesign for a bank, under NDA until launch",
+     "required": true
+    },
+    {
+     "key": "where",
+     "label": "Where you'd show it",
+     "type": "chips",
+     "options": [
+      "Portfolio site",
+      "Social media",
+      "Award entry",
+      "Pitch to another client"
+     ],
+     "default": "Portfolio site"
+    }
+   ],
+   "prompt": "Project: {project}. Intended use: {where}. Produce a text verdict (Yes / Yes with conditions / Ask first / No) with reasoning, bullets of conditions such as launch timing, confidential data, credits and client approval, a quote with a permission request message that makes it easy for the client to say yes, and a callout on what to write into future contracts so you never have to ask.",
+   "shape": "text, bullets, quote, callout",
+   "button": "Check",
+   "loading": "Reading the NDA…"
+  },
+  {
+   "id": "unpaid",
+   "title": "Used without paying",
+   "subtitle": "Escalate unpaid or unlicensed use",
+   "emoji": "⚠️",
+   "inputs": [
+    {
+     "key": "what",
+     "label": "What happened",
+     "type": "longtext",
+     "placeholder": "they used my rejected concept on their packaging",
+     "required": true
+    },
+    {
+     "key": "evidence",
+     "label": "Evidence you have",
+     "type": "text",
+     "placeholder": "screenshots, dated emails, original files"
+    }
+   ],
+   "prompt": "Situation: {what}. Evidence: {evidence}. Give steps from gentle to firm (document, friendly notice, invoice for the use, formal letter, takedown or legal referral) with timing, a quote with the friendly-but-clear first notice, a checklist of evidence to preserve now and how to timestamp it, and a callout on what not to do (public shaming, deleting files, emotional messages) and when to consult a lawyer.",
+   "shape": "steps, quote, checklist, callout",
+   "button": "Plan it",
+   "loading": "Building the case…"
+  },
+  {
+   "id": "terms",
+   "title": "My rights terms",
+   "subtitle": "A rights section for your contract",
+   "emoji": "📜",
+   "inputs": [
+    {
+     "key": "model",
+     "label": "Model",
+     "type": "chips",
+     "options": [
+      "Licence and keep copyright",
+      "Assign on full payment",
+      "Assign with portfolio rights kept"
+     ],
+     "default": "Assign with portfolio rights kept"
+    }
+   ],
+   "prompt": "Draft a plain-English rights section for the profile's craft using the '{model}' model. Provide a quote with the clause covering ownership, transfer trigger, licence scope, portfolio and credit rights, third-party materials and moral rights where relevant to the profile country, bullets explaining each sentence in one line, a table (Client question | Your one-line answer) with 5 rows, and a callout that a local lawyer should check it before use in large contracts.",
+   "shape": "quote, bullets, table, callout",
+   "button": "Draft terms",
+   "loading": "Setting terms…"
+  }
+ ],
+ "disclaimer": "General information, not legal advice; copyright and contract rules differ by country. Consult a lawyer for disputes or high-value agreements."
+}

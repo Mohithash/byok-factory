@@ -122,7 +122,7 @@
      "placeholder": "lowercase a, d, g"
     }
    ],
-   "prompt": "Critique the practice sheet (working on: {aim}) for the profile script: table (Letter or stroke | What's good | Fault | Fix), bullets on consistency of slant, spacing and pressure, steps for the next 15 minutes, and a quote with the single cue to write at the top of the next sheet.",
+   "prompt": "Critique the practice sheet in the photo (working on: {aim}) for the profile script, quoting the specific letters or strokes you can see: table (Letter or stroke | What's good | Fault | Fix), bullets on consistency of slant, spacing and pressure, steps for the next 15 minutes, and a quote with the single cue to write at the top of the next sheet.",
    "shape": "table, bullets, steps, quote",
    "button": "Critique",
    "loading": "Checking the slant…"

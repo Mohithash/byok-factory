@@ -115,7 +115,7 @@
      "placeholder": "Saturday"
     }
    ],
-   "prompt": "Write a '{style}' potty-training plan for the profile starting {start}. A table (Day | Clothing | Prompts & timing | Rewards | Expect), steps for the first morning hour by hour, a checklist of supplies (a potty per floor, wipes, cleaning kit, 10+ pairs of pants, drinks), a quote with the exact prompting phrase to use, and a callout on the signs to pause the attempt.",
+   "prompt": "Write a '{style}' potty-training plan for the profile starting {start}. A table (Day | Clothing | Prompts & timing | Rewards | Expect), steps for the first morning hour by hour, a checklist of supplies (a potty per floor, wipes, cleaning kit, 10+ pairs of pants, drinks), a quote with the exact prompting phrase to use followed by a 4-sentence handover note for the profile's childcare setting (their words for wee and poo, routine, how to handle accidents; skip the note if home all week), and a callout on the signs to pause the attempt.",
    "shape": "table, steps, checklist, quote, callout",
    "button": "Write plan",
    "loading": "Packing the bag…"
@@ -177,8 +177,8 @@
   },
   {
    "id": "night",
-   "title": "Dry nights & nursery note",
-   "subtitle": "Night plan + carer handover",
+   "title": "Dry nights",
+   "subtitle": "When and how to ditch night nappies",
    "emoji": "🌙",
    "inputs": [
     {
@@ -194,23 +194,17 @@
      "default": "Dry nappy some mornings"
     },
     {
-     "key": "note",
-     "label": "Also write a note for",
-     "type": "chips",
-     "options": [
-      "Nursery",
-      "Childminder",
-      "Grandparents",
-      "No note needed"
-     ],
-     "default": "Nursery"
+     "key": "wet",
+     "label": "Wet mornings per week",
+     "type": "number",
+     "placeholder": "4"
     }
    ],
-   "prompt": "Night plan for status '{status}': a kv (readiness signs, bed protection, fluid timing, lifting — yes or no and why, ages where night wetness is still normal), steps for the first week of night pants, and a callout on when bedwetting past age 5–7 should be discussed with a doctor. Then, unless '{note}' is 'No note needed', a quote with a 6-sentence handover note for {note} covering the child's words for wee and poo, routine, prompts and how to handle accidents.",
-   "shape": "kv, steps, callout, quote",
-   "button": "Plan & write",
+   "prompt": "Night status '{status}' with {wet} wet mornings a week for the profile. A text verdict on whether to try night pants now, wait, or go back to nappies (with the reasoning), a kv (bed protection, last drink and last wee timing, lifting — yes or no and why, night light and potty by the bed, ages where night wetness is still normal), steps for the first 7 nights of night pants including the calm response to a wet bed, and a callout on when bedwetting past age 5–7 should be discussed with a doctor.",
+   "shape": "text, kv, steps, callout",
+   "button": "Plan nights",
    "loading": "Drying up…"
   }
  ],
- "disclaimer": "General parenting information, not medical advice. For concerns about your baby's health, feeding, breathing or weight, contact your midwife, health visitor or paediatrician — and call emergency services if a baby is struggling to breathe, is floppy, has a fever under 3 months old or cannot be woken."
+ "disclaimer": "General parenting information, not medical advice. If your child has pain when weeing, blood in wee or poo, a fever, hard or infrequent poos for more than a week, or is still wet most nights after age 7, see your GP, health visitor or paediatrician."
 }

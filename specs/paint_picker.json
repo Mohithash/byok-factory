@@ -173,7 +173,7 @@
      "default": "Similar colour"
     }
    ],
-   "prompt": "Calculate paint for a room of {dims}, painting {surface}, over a surface that is {condition}. Sections: kv (paintable area m², coats needed, litres per surface, tins to buy, primer needed?, estimated cost band for the profile's paint tier); a table (Surface | Area | Coats | Litres | Product type); steps for the order of surfaces; and a callout on coverage assumptions and buying 10% extra for touch-ups.",
+   "prompt": "Calculate paint for a room of {dims}, painting {surface}, over a surface that is {condition}. Sections: kv (paintable area m², coats needed, litres per surface with US gallons equivalent, tins to buy, primer needed?, estimated cost band for the profile's paint tier); a table (Surface | Area | Coats | Litres | Product type); steps for the order of surfaces; and a callout on coverage assumptions and buying 10% extra for touch-ups.",
    "shape": "kv, table, steps, callout",
    "button": "Calculate",
    "loading": "Measuring walls…"

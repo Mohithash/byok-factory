@@ -87,7 +87,7 @@
      "default": "Public"
     }
    ],
-   "prompt": "A meltdown at {where}: {scene}. First a quote with the exact 3-line script to say (validate, name the feeling, hold the limit), then steps for the next 60 seconds (body position, voice, what to ignore), bullets on what to avoid in this setting, and a callout that this is a nervous-system storm, not manipulation.",
+   "prompt": "Setting: {where}. What's happening: {scene}. First a quote with the exact 3-line script to say (validate, name the feeling, hold the limit), then steps for the next 60 seconds (body position, voice, what to ignore), bullets on what to avoid in this setting, and a callout that this is a nervous-system storm, not manipulation.",
    "shape": "quote, steps, bullets, callout",
    "button": "Give me words",
    "loading": "Breathing…"

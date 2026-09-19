@@ -99,7 +99,7 @@
      "placeholder": "tinted moisturiser, brown pencil, mascara, cream blush…"
     }
    ],
-   "prompt": "Design a {occasion} makeup look in {minutes} minutes using mostly: {kit}, for the profile's skin type, eye shape and experience. Steps in application order naming the product and placement for each, kv (finish, key colours, longevity tricks), bullets of what to buy if one thing is missing, and a callout on the step most people rush.",
+   "prompt": "Design a {occasion} makeup look in {minutes} minutes using mostly these products: {kit} (assume a basic drugstore kit if none listed), for the profile's skin type, eye shape and experience. Steps in application order naming the product and placement for each, kv (finish, key colours, longevity tricks), bullets of what to buy if one thing is missing, and a callout on the step most people rush.",
    "shape": "steps, kv, bullets, callout",
    "button": "Build look",
    "loading": "Blending…"
@@ -142,7 +142,7 @@
      "required": true
     }
    ],
-   "prompt": "Catalogue every product visible in the photo as a table (Product | Type | Typical shelf life | Verdict: keep / test / toss), a checklist for cleaning brushes and sponges this week, bullets on the gaps in the kit for the profile, and a callout on eye-area products that must never be shared or kept past date.",
+   "prompt": "Catalogue every product visible in the photo as a table (Product | Type | Typical shelf life | Verdict: keep / test / toss). Then a checklist for cleaning brushes and sponges this week, 3 bullets on the gaps in the kit for the profile's skin type and experience, and a callout on eye-area products that must never be shared or kept past date.",
    "shape": "table, checklist, bullets, callout",
    "button": "Audit",
    "loading": "Emptying the bag…"
@@ -180,15 +180,35 @@
    "loading": "Patching up…"
   },
   {
-   "id": "five",
-   "title": "My 5-minute face",
-   "subtitle": "Built from your profile alone",
-   "emoji": "⏱️",
-   "inputs": [],
-   "prompt": "Design a daily 5-minute face for the profile's skin type, eye shape and experience. Steps with a time budget per step totalling 5 minutes, kv (the 5 products that make it work, in order), and bullets of 3 add-ons that turn it into an evening look.",
-   "shape": "steps, kv, bullets",
-   "button": "Show me",
-   "loading": "Setting a timer…"
+   "id": "eyes",
+   "title": "Eyes for my eye shape",
+   "subtitle": "Liner and shadow placement that opens your eyes",
+   "emoji": "👁️",
+   "inputs": [
+    {
+     "key": "focus",
+     "label": "Eye look",
+     "type": "chips",
+     "options": [
+      "Everyday definition",
+      "Winged liner",
+      "Smoky",
+      "Colour pop",
+      "Lashes & brows only"
+     ],
+     "default": "Everyday definition"
+    },
+    {
+     "key": "shadows",
+     "label": "Shadow and liner colours you own",
+     "type": "text",
+     "placeholder": "warm brown quad, black pencil, taupe"
+    }
+   ],
+   "prompt": "Map a '{focus}' eye look for the profile's eye shape using {shadows}. Steps in order with placement described by lid landmarks (lash line, crease, outer V, inner corner, brow bone), a table (Zone | Shade | Brush or tool | Why for this eye shape), 3 bullets on liner shapes that open this eye shape versus close it, and a callout on the single most common mistake for this eye shape.",
+   "shape": "steps, table, bullets, callout",
+   "button": "Map my eyes",
+   "loading": "Lining up…"
   }
  ],
  "disclaimer": "Beauty guidance only; patch-test new products and see a doctor for rashes, swelling or eye irritation."

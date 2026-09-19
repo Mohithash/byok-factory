@@ -77,7 +77,7 @@
      "default": "Surprise me"
     }
    ],
-   "prompt": "Teach a 5-minute lesson on '{topic}' pitched at the profile level and country. Sections: text (the core idea in 3 short paragraphs with one concrete numeric example), kv 'Key terms' (4 terms, each a one-line definition), bullets 'Common mistakes' (3), and a callout with the single takeaway to remember.",
+   "prompt": "Teach a 5-minute lesson on '{topic}' pitched at the profile level, country and learning goal. Sections: text (the core idea in 3 short paragraphs with one concrete numeric example), kv 'Key terms' (4 terms, each a one-line definition), bullets 'Common mistakes' (3), and a callout with the single takeaway to remember.",
    "shape": "text, kv, bullets, callout",
    "button": "Teach me",
    "loading": "Sharpening chalk…"
@@ -107,7 +107,7 @@
      "default": "Practical"
     }
    ],
-   "prompt": "Explain '{term}' at '{depth}' depth: text (definition plus why a long-term investor should care), a worked numeric example as kv (inputs → result), bullets of 3 related terms with one-liners, and a callout on the most common misunderstanding of this term.",
+   "prompt": "Explain '{term}' at '{depth}' depth for the profile level. Sections: text (definition plus why a long-term investor should care), a worked numeric example as kv (inputs → result), bullets of 3 related terms with one-liners, and a callout on the most common misunderstanding of this term.",
    "shape": "text, kv, bullets, callout",
    "button": "Explain",
    "loading": "Decoding…"
@@ -159,7 +159,7 @@
      "placeholder": "5"
     }
    ],
-   "prompt": "Write a {n}-question multiple-choice quiz on '{topic}' at the profile level. Present the questions as steps (each step is one question with options A–D), then a table (Q | Answer | Why) with the answers, and a callout on which lesson to revisit if you missed more than one.",
+   "prompt": "Write a multiple-choice quiz on '{topic}' at the profile level. Number of questions: {n} (default 5). Present the questions as steps (each step is one question with options A–D), then a table (Q | Answer | Why) with the answers, and a callout on which lesson to revisit if you missed more than one.",
    "shape": "steps, table, callout",
    "button": "Quiz me",
    "loading": "Setting questions…"

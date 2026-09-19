@@ -1,0 +1,197 @@
+{
+ "id": "escape_architect",
+ "name": "Escape Architect",
+ "tagline": "Design escape rooms and puzzle hunts at home",
+ "category": "Games",
+ "colors": [
+  "#00695C",
+  "#F57C00",
+  "#5D4037"
+ ],
+ "icon": "bulb",
+ "about": "Escape Architect designs escape rooms and puzzle hunts you can run in a living room, classroom or office: a story, a chain of puzzles with codes that actually work, a hint ladder and a props list.",
+ "persona": "You are an escape-room designer: you build puzzle chains that flow logically, verify every code and cipher, keep players safe, and never make a puzzle that depends on a leap only the designer would make.",
+ "onboarding": {
+  "title": "Lock them in (figuratively)",
+  "subtitle": "Tell us your space and players; the puzzles will fit.",
+  "bullets": [
+   "Puzzle chains with verified codes",
+   "Hint ladders that keep the flow",
+   "Props from what you already own"
+  ]
+ },
+ "profile": [
+  {
+   "key": "space",
+   "label": "Space",
+   "type": "chips",
+   "options": [
+    "Living room",
+    "Classroom",
+    "Office",
+    "Garden",
+    "Whole house"
+   ]
+  },
+  {
+   "key": "players",
+   "label": "Players",
+   "type": "chips",
+   "options": [
+    "Kids 6–10",
+    "Tweens",
+    "Teens",
+    "Adults",
+    "Mixed ages"
+   ]
+  },
+  {
+   "key": "budget",
+   "label": "Props budget",
+   "type": "number",
+   "placeholder": "20"
+  }
+ ],
+ "tools": [
+  {
+   "id": "room",
+   "title": "Design a room",
+   "subtitle": "Story + puzzle chain",
+   "emoji": "🗝️",
+   "inputs": [
+    {
+     "key": "theme",
+     "label": "Theme",
+     "type": "text",
+     "placeholder": "haunted lighthouse / spy heist / lost pharaoh",
+     "required": true
+    },
+    {
+     "key": "minutes",
+     "label": "Time limit",
+     "type": "number",
+     "placeholder": "45"
+    },
+    {
+     "key": "puzzles",
+     "label": "Number of puzzles",
+     "type": "number",
+     "placeholder": "7"
+    }
+   ],
+   "prompt": "Design a {minutes}-minute escape game on the theme {theme} with {puzzles} puzzles for the profile players and space. Sections: text (story premise and win condition), a table of the puzzle chain (# | Puzzle | Type | Solution or code | Unlocks | Est. minutes), steps for the game-master setup order, a checklist of props with an estimated total within the profile budget, and a callout on safety (nothing that actually locks people in, no real fire, no sharp or choking hazards for the age group).",
+   "shape": "text, table, steps, checklist, callout",
+   "button": "Design room",
+   "loading": "Hiding the key…"
+  },
+  {
+   "id": "puzzle",
+   "title": "Make one puzzle",
+   "subtitle": "Cipher, lock, physical or logic",
+   "emoji": "🔐",
+   "inputs": [
+    {
+     "key": "type",
+     "label": "Puzzle type",
+     "type": "chips",
+     "options": [
+      "Cipher",
+      "Combination lock",
+      "Physical / hidden object",
+      "Logic",
+      "Riddle",
+      "Sound or light"
+     ],
+     "default": "Cipher"
+    },
+    {
+     "key": "output",
+     "label": "Must resolve to",
+     "type": "text",
+     "placeholder": "the code 4 8 1 3",
+     "required": true
+    },
+    {
+     "key": "flavour",
+     "label": "Theme flavour",
+     "type": "text",
+     "placeholder": "pirate treasure"
+    }
+   ],
+   "prompt": "Create a {type} puzzle that resolves to {output}, themed {flavour}, for the profile players. Give text with the exact puzzle as players see it, steps for the intended solve path, a kv (solution, materials, setup time, difficulty 1–5), and a callout that verifies the cipher or maths step by step and confirms the solution is unique.",
+   "shape": "text, steps, kv, callout",
+   "button": "Make puzzle",
+   "loading": "Encrypting…"
+  },
+  {
+   "id": "hints",
+   "title": "Hint ladder",
+   "subtitle": "Three nudges per puzzle",
+   "emoji": "🪜",
+   "inputs": [
+    {
+     "key": "chain",
+     "label": "Your puzzle list",
+     "type": "longtext",
+     "placeholder": "1 UV torch reveals code; 2 book cipher; 3 padlock 4 digits from painting…",
+     "required": true
+    }
+   ],
+   "prompt": "Write a hint ladder for every puzzle in: {chain}, one row each. Output a table (Puzzle | Hint 1 nudge | Hint 2 direction | Hint 3 near-answer), then bullets on when the game master should offer a hint unprompted (time-based triggers per puzzle), and a quote with a short in-character message for delivering hints without breaking immersion.",
+   "shape": "table, bullets, quote",
+   "button": "Write hints",
+   "loading": "Nudging gently…"
+  },
+  {
+   "id": "playtest",
+   "title": "Fix from playtest",
+   "subtitle": "Where did they get stuck?",
+   "emoji": "🧪",
+   "inputs": [
+    {
+     "key": "feedback",
+     "label": "What happened",
+     "type": "longtext",
+     "placeholder": "team of 4 solved in 30 min but stuck 12 min on the mirror cipher; skipped the map puzzle entirely",
+     "required": true
+    }
+   ],
+   "prompt": "Analyse this playtest: {feedback}. Output a table (Problem | Likely cause | Fix | Effort), steps to rebalance the chain so no puzzle exceeds 8 minutes, a callout on whether the finale still lands, and bullets of quick changes to make before the next run.",
+   "shape": "table, steps, callout, bullets",
+   "button": "Fix it",
+   "loading": "Reviewing the tape…"
+  },
+  {
+   "id": "hunt",
+   "title": "Outdoor puzzle hunt",
+   "subtitle": "Clues that lead somewhere",
+   "emoji": "🧭",
+   "inputs": [
+    {
+     "key": "area",
+     "label": "Area",
+     "type": "text",
+     "placeholder": "our street and the park",
+     "required": true
+    },
+    {
+     "key": "stops",
+     "label": "Stops",
+     "type": "number",
+     "placeholder": "6"
+    },
+    {
+     "key": "prize",
+     "label": "Prize location",
+     "type": "text",
+     "placeholder": "under the bird bath"
+    }
+   ],
+   "prompt": "Design a puzzle hunt around {area} with {stops} stops ending at {prize} for the profile players. Give a table (Stop | Clue text | Answer / next location | Setup needed), bullets of adult-supervision and road-safety points, and a callout on weatherproofing and timing.",
+   "shape": "table, bullets, callout",
+   "button": "Plan hunt",
+   "loading": "Drawing the map…"
+  }
+ ],
+ "disclaimer": "Never actually lock anyone in; keep exits clear, avoid real fire and sharp or choking hazards, and supervise children throughout."
+}

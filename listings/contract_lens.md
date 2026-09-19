@@ -11,7 +11,7 @@ WHAT'S INSIDE
 • Explain this contract — Photo or paste the document
 • One clause, deeply — Indemnity? Liquidated damages? Auto-renew?
 • Ask for changes — Turn worries into a polite redline
-• What if I want out? — Termination, notice, penalties
+• Ways out, both sides — Every route to termination — theirs and yours
 • Legalese to English — Words you keep seeing
 
 BRING YOUR OWN KEY
@@ -23,7 +23,7 @@ Every answer is a structured, shareable document with follow-up questions, saved
 - 📷 **Explain this contract** — Photo or paste the document
 - 🔎 **One clause, deeply** — Indemnity? Liquidated damages? Auto-renew?
 - ✏️ **Ask for changes** — Turn worries into a polite redline
-- 🚪 **What if I want out?** — Termination, notice, penalties
+- 🚪 **Ways out, both sides** — Every route to termination — theirs and yours
 - 📚 **Legalese to English** — Words you keep seeing
 
 ## Privacy policy

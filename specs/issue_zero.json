@@ -9,14 +9,14 @@
   "#FDD835"
  ],
  "icon": "spark",
- "about": "Issue Zero is a newsletter writer's desk: it drafts issues from raw notes, tests subject lines, writes welcome sequences, plans list growth and reads your stats.",
+ "about": "Issue Zero is an independent newsletter writer's desk: it drafts issues from raw notes, plans an editorial calendar you can keep, turns reader replies into a mailbag section, plans list growth and reads your issue stats.",
  "persona": "You are a newsletter editor who has grown several lists: subject lines that keep promises, issues with one job each, growth without buying attention.",
  "onboarding": {
   "title": "Send something worth opening",
   "subtitle": "Your platform and list size shape every suggestion.",
   "bullets": [
    "Raw notes → a finished issue",
-   "Subject lines people open",
+   "An editorial calendar you can keep",
    "Growth plans sized to your list"
   ]
  },
@@ -86,65 +86,64 @@
      "default": "Mixed"
     }
    ],
-   "prompt": "Draft a {format} issue of the profile newsletter from: {notes}. Produce a kv (subject line, preview text, estimated read time), text with the issue body using the profile platform's conventions in short headed sections, and bullets of 3 alternate subject lines with the angle of each.",
+   "prompt": "Draft a {format} issue of the profile newsletter from: {notes}, giving the issue one job. Produce a kv (subject line, preview text, the issue's one job, estimated read time), text with the issue body in the profile platform's conventions with short headed sections, a one-line intro that skips the throat-clearing and a P.S. that asks for a reply, and bullets of 3 alternate subject lines each with its angle (curiosity / benefit / number / personal).",
    "shape": "kv, text, bullets",
    "button": "Draft issue",
    "loading": "Typesetting…"
   },
   {
-   "id": "subject",
-   "title": "Subject line lab",
-   "subtitle": "Openable, not spammy",
-   "emoji": "✉️",
+   "id": "calendar",
+   "title": "Editorial calendar",
+   "subtitle": "The next 8 issues, planned",
+   "emoji": "🗓️",
    "inputs": [
     {
-     "key": "about",
-     "label": "This issue is about",
-     "type": "text",
+     "key": "ideas",
+     "label": "Ideas, half-drafts and reader requests",
+     "type": "longtext",
+     "placeholder": "difficulty curves; interview with Mara; the tutorial nobody finished…",
      "required": true
     },
     {
-     "key": "style",
-     "label": "Style",
-     "type": "chips",
-     "options": [
-      "Curiosity",
-      "Benefit",
-      "Specific number",
-      "Personal",
-      "Plain"
-     ],
-     "default": "Specific number"
+     "key": "start",
+     "label": "Starting from",
+     "type": "text",
+     "placeholder": "first Thursday of November"
     }
    ],
-   "prompt": "Write subject lines for an issue about '{about}' in a {style} style. Produce a table (Subject | Preview text | Why it opens | Spam risk) with 10 rows, a callout on words and formatting that trip spam filters, and a quote with the recommended subject + preview pair.",
-   "shape": "table, callout, quote",
-   "button": "Test subjects",
-   "loading": "A/B thinking…"
+   "prompt": "Plan the next 8 issues of the profile newsletter at its cadence starting {start}, from: {ideas}. Produce a table (Issue # | Send date | Working title | Format (essay / links / Q&A / interview) | One job | Material still needed) with exactly 8 rows alternating heavy and light issues, bullets of 3 seasonal or news hooks worth timing an issue to, a callout on which ideas are two issues in disguise or not an issue at all, and a checklist of what to prepare this week for issue #1.",
+   "shape": "table, bullets, callout, checklist",
+   "button": "Plan issues",
+   "loading": "Filling the slate…"
   },
   {
-   "id": "welcome",
-   "title": "Welcome sequence",
-   "subtitle": "First 3 emails for new subscribers",
-   "emoji": "👋",
+   "id": "mailbag",
+   "title": "Reader mailbag",
+   "subtitle": "Replies → a Q&A section",
+   "emoji": "📬",
    "inputs": [
     {
-     "key": "promise",
-     "label": "What subscribers get",
-     "type": "text",
-     "placeholder": "one practical design lesson every Thursday",
+     "key": "replies",
+     "label": "Reader replies (paste them)",
+     "type": "longtext",
+     "placeholder": "From Priya: how do you decide when a level is too hard?…",
      "required": true
     },
     {
-     "key": "best",
-     "label": "Your 3 best past issues (titles/links)",
-     "type": "text"
+     "key": "length",
+     "label": "Section length",
+     "type": "chips",
+     "options": [
+      "Short (3 replies)",
+      "Full (5–6 replies)"
+     ],
+     "default": "Short (3 replies)"
     }
    ],
-   "prompt": "Write a 3-email welcome sequence for the profile newsletter, promise: {promise}, best issues: {best}. Produce cards (one per email, meta = send day · goal) each with a subject and a 120-word body, steps for setting up the automation on the profile platform, and a checklist of what to ask new readers to do (reply, whitelist, share).",
-   "shape": "cards, steps, checklist",
-   "button": "Write sequence",
-   "loading": "Rolling out welcome…"
+   "prompt": "Build a {length} mailbag section for the profile newsletter from these reader replies: {replies}. Produce cards (one per reply used, meta = reader first name or 'anonymous' · topic) each with the reader's question trimmed to two lines and a 60–100 word answer in the newsletter's voice, bullets on which replies deserve a whole future issue and which to answer privately, a quote with the closing line that invites next issue's replies, and a callout on getting permission before quoting a reader by name.",
+   "shape": "cards, bullets, quote, callout",
+   "button": "Build mailbag",
+   "loading": "Opening letters…"
   },
   {
    "id": "grow",

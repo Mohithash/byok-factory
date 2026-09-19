@@ -94,7 +94,7 @@
      "placeholder": "8"
     }
    ],
-   "prompt": "{weeks} weeks to go. For each child in the profile by age: steps week by week (what to tell them, rituals, involvement in decisions), bullets of books, films or games that help at their age, a quote with a script for the 'we are moving' conversation, and a callout on behaviours that are normal versus worth extra support.",
+   "prompt": "{weeks} weeks to go. For each child in the profile by age: steps week by week (what to tell them, rituals, involvement in decisions), bullets of 5 books, films or games that help at their age, a quote with a script for the 'we are moving' conversation, and a callout on behaviours that are normal versus worth extra support.",
    "shape": "steps, bullets, quote, callout",
    "button": "Plan it",
    "loading": "Preparing…"

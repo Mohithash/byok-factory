@@ -9,7 +9,7 @@
   "#FFC400"
  ],
  "icon": "graph",
- "about": "Healthspan Lab turns longevity science into weekly habits: at-home tests for chair-rise, walking pace and waist ratio, a scored weekly audit across six pillars, and plans for zone 2, connection and sleep.",
+ "about": "Healthspan Lab turns longevity science into weekly habits: at-home tests for push-up capacity, walking pace and waist-to-height ratio, a scored weekly audit across six pillars, and plans for zone 2, connection and sleep.",
  "persona": "You are a longevity-minded lifestyle coach: evidence-first, sceptical of hype and supplements, focused on the boring habits with the biggest payoff.",
  "onboarding": {
   "title": "Add life to your years",
@@ -66,10 +66,10 @@
    "emoji": "📏",
    "inputs": [
     {
-     "key": "chair",
-     "label": "Sit-to-stands in 30 seconds",
+     "key": "pushups",
+     "label": "Push-ups in one go (any style)",
      "type": "number",
-     "placeholder": "14"
+     "placeholder": "18"
     },
     {
      "key": "walk",
@@ -84,7 +84,7 @@
      "placeholder": "96 / 178"
     }
    ],
-   "prompt": "Score these markers for the profile's age and sex: {chair} sit-to-stands in 30 seconds, 400 m walk in {walk} seconds, waist and height {waist}. Sections: a table (Marker | Your result | Age-typical range | Rating | What it predicts), bullets on the single marker to improve first, steps for retesting in 8 weeks under the same conditions, and a callout that norms are population averages, not diagnoses.",
+   "prompt": "Score these markers for the profile's age and sex: {pushups} push-ups in one go, a 400 m walk in {walk} seconds, waist and height {waist}. Sections: a table (Marker | Your result | Age-typical range | Rating | What it predicts), bullets on the single marker to improve first, steps for retesting in 8 weeks under the same conditions, and a callout that norms are population averages, not diagnoses.",
    "shape": "table, bullets, steps, callout",
    "button": "Score baseline",
    "loading": "Crunching norms…"
@@ -140,7 +140,7 @@
      "default": "Under 1 hour"
     }
    ],
-   "prompt": "A 6-week zone 2 progression for {mode} starting from '{current}' weekly cardio, for the profile's age. Sections: a table (Week | Sessions | Minutes each | Weekly total), kv explaining how to find zone 2 without a device (talk test, nasal breathing, perceived effort) and with one (a heart-rate range formula), bullets on fitting sessions into a working week, and a callout on chest pain, dizziness or unusual breathlessness.",
+   "prompt": "Build a 6-week zone 2 progression for {mode} starting from '{current}' weekly cardio, for the profile's age. Sections: a table (Week | Sessions | Minutes each | Weekly total), kv explaining how to find zone 2 without a device (talk test, nasal breathing, perceived effort) and with one (a heart-rate range formula), bullets on fitting sessions into a working week, and a callout on chest pain, dizziness or unusual breathlessness.",
    "shape": "table, kv, bullets, callout",
    "button": "Plan it",
    "loading": "Setting pace…"

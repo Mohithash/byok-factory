@@ -1,0 +1,207 @@
+{
+ "id": "big_buy_brief",
+ "name": "Big Buy Brief",
+ "tagline": "Decide big purchases with a clear head",
+ "category": "Shopping",
+ "colors": [
+  "#283593",
+  "#FFA000",
+  "#00897B"
+ ],
+ "icon": "scale",
+ "about": "Big Buy Brief helps you make major purchases — mattresses, e-bikes, sofas, cameras, strollers — with a weighted decision matrix, a category-specific inspection checklist, honest extended-warranty math and a cooling-off check before you commit.",
+ "persona": "You are a calm purchasing analyst: you separate needs from wants, build simple scoring matrices, and talk in total cost of ownership rather than sticker price.",
+ "onboarding": {
+  "title": "Big purchase, no regret",
+  "subtitle": "Tell us how you decide and what a big purchase means to you.",
+  "bullets": [
+   "Weighted decision matrix",
+   "What to inspect before paying",
+   "Warranty and buy-now-or-wait math"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "threshold",
+   "label": "A 'big purchase' for you starts at",
+   "type": "number",
+   "placeholder": "300"
+  },
+  {
+   "key": "style",
+   "label": "Your buying style",
+   "type": "chips",
+   "options": [
+    "Research everything",
+    "Decide fast",
+    "Anxious about regret",
+    "Budget-first"
+   ]
+  },
+  {
+   "key": "saving",
+   "label": "Currently saving for",
+   "type": "text"
+  }
+ ],
+ "tools": [
+  {
+   "id": "matrix",
+   "title": "Decision matrix",
+   "subtitle": "Score your options against what matters",
+   "emoji": "🧮",
+   "inputs": [
+    {
+     "key": "options",
+     "label": "Options you're choosing between",
+     "type": "longtext",
+     "placeholder": "Emma Original vs Simba Hybrid vs IKEA Valevåg",
+     "required": true
+    },
+    {
+     "key": "criteria",
+     "label": "What matters to you",
+     "type": "text",
+     "placeholder": "comfort for back pain, price, trial period, delivery",
+     "required": true
+    },
+    {
+     "key": "budget",
+     "label": "Budget",
+     "type": "number",
+     "placeholder": "900"
+    }
+   ],
+   "prompt": "Build a weighted decision matrix for these options: {options}, criteria: {criteria}, budget {budget}. Sections: a kv assigning a weight to each criterion (weights sum to 100) with one line of reasoning each, a table (Criterion | Weight | one column per option scored 1–5 | Weighted total), a text verdict naming the winner and the runner-up, and a callout on the single fact that would flip the result.",
+   "shape": "kv, table, text, callout",
+   "button": "Score it",
+   "loading": "Weighing options…"
+  },
+  {
+   "id": "inspect",
+   "title": "Before I pay",
+   "subtitle": "Category checklist for the showroom or unboxing",
+   "emoji": "🔎",
+   "inputs": [
+    {
+     "key": "item",
+     "label": "What you're buying",
+     "type": "text",
+     "placeholder": "a second-hand e-bike / a new sofa",
+     "required": true
+    },
+    {
+     "key": "where",
+     "label": "Buying",
+     "type": "chips",
+     "options": [
+      "In store",
+      "Online",
+      "Second-hand from a person"
+     ],
+     "default": "Online"
+    }
+   ],
+   "prompt": "Prepare a pre-purchase check for {item} bought {where}. Sections: a checklist of 8–12 things to test, measure or ask that are specific to this category, a table (Question | Good answer | Walk away if…), bullets of the hidden costs people forget (delivery, assembly, accessories, disposal of the old one), and a callout on the return or trial-period terms to confirm in writing.",
+   "shape": "checklist, table, bullets, callout",
+   "button": "Prepare",
+   "loading": "Writing checklist…"
+  },
+  {
+   "id": "warranty",
+   "title": "Extended warranty worth it?",
+   "subtitle": "The maths, not the sales pitch",
+   "emoji": "🛡️",
+   "inputs": [
+    {
+     "key": "item",
+     "label": "Item and its price",
+     "type": "text",
+     "placeholder": "65in OLED TV, 1400",
+     "required": true
+    },
+    {
+     "key": "cost",
+     "label": "Warranty cost",
+     "type": "number",
+     "placeholder": "199"
+    },
+    {
+     "key": "years",
+     "label": "Warranty years",
+     "type": "number",
+     "placeholder": "3"
+    }
+   ],
+   "prompt": "Decide whether a {years}-year extended warranty at {cost} is worth it on {item}. Sections: a kv (Typical failure rate in that window, Typical repair cost, Expected value of the warranty, Break-even failure rate, Verdict), a table (Protection | Already covered by? | Gap the warranty fills) covering manufacturer warranty, statutory rights and credit-card protection, bullets on exclusions to read for, and a callout on the alternative of self-insuring the money.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Do the maths",
+   "loading": "Reading fine print…"
+  },
+  {
+   "id": "finance",
+   "title": "Pay cash or finance?",
+   "subtitle": "0% offers, store cards and BNPL, costed honestly",
+   "emoji": "💳",
+   "inputs": [
+    {
+     "key": "item",
+     "label": "Item and price",
+     "type": "text",
+     "placeholder": "Sony A7 IV, 2100",
+     "required": true
+    },
+    {
+     "key": "offers",
+     "label": "Finance offers on the table",
+     "type": "text",
+     "placeholder": "0% for 24 months via Klarna; store card 24.9% APR with 10% off today"
+    },
+    {
+     "key": "cash",
+     "label": "Cash position",
+     "type": "chips",
+     "options": [
+      "Can pay in full comfortably",
+      "Could pay but it drains savings",
+      "Would have to finance"
+     ],
+     "default": "Could pay but it drains savings"
+    }
+   ],
+   "prompt": "Cost every way to pay for {item} given these offers: {offers} and cash position: {cash}. Sections: a table (Route | Monthly | Months | Total paid | Cost of credit | Main risk) covering cash, each offer named, and a plain credit card paid off in 3 months, a kv (Cheapest route, Value of keeping the cash invested or as buffer, Credit-file impact, Verdict), bullets of traps to read for (deferred interest, missed-payment penalties, BNPL stacking, discount only with the store card), and a callout on when needing finance is a sign to buy a cheaper option.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Cost the options",
+   "loading": "Reading the APR…"
+  },
+  {
+   "id": "cooloff",
+   "title": "Regret check",
+   "subtitle": "Want or need, in five questions",
+   "emoji": "🧊",
+   "inputs": [
+    {
+     "key": "item",
+     "label": "What you want to buy",
+     "type": "text",
+     "required": true
+    },
+    {
+     "key": "price",
+     "label": "Price",
+     "type": "number"
+    }
+   ],
+   "prompt": "Run a regret check on buying {item} for {price} against the profile's threshold, buying style and savings goal. Sections: steps with five sharp questions the user answers honestly (use, frequency, cheaper substitute, what the money would do instead, how it feels in 30 days), a kv (Need / Want / Upgrade, Cost per expected use, Suggested cooling-off period), bullets of cheaper ways to get 80% of the benefit, and a callout that is honest rather than preachy.",
+   "shape": "steps, kv, bullets, callout",
+   "button": "Check me",
+   "loading": "Cooling off…"
+  }
+ ],
+ "disclaimer": "Warranty, consumer-rights and card-protection terms vary by country and retailer; this is general information, not financial or legal advice."
+}

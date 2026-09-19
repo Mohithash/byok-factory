@@ -85,7 +85,7 @@
      "default": "Article"
     }
    ],
-   "prompt": "Turn this transcript into an outline for a {purpose} at the profile depth: {transcript}. Sections: bullets holding the nested outline with numbered headings and sub-points; kv (thesis in one sentence, intended audience, tone detected, estimated final length); table (Point | Supporting detail found in transcript | Evidence still missing); a callout listing the tangents dropped so nothing is lost.",
+   "prompt": "Turn this transcript into an outline for a {purpose} at the profile depth: {transcript}. Sections: bullets holding the outline, numbered headings as items and sub-points as items prefixed with '–'; kv (thesis in one sentence, intended audience, tone detected, estimated final length); table (Point | Supporting detail found in transcript | Evidence still missing); a callout listing the tangents dropped so nothing is lost.",
    "shape": "bullets, kv, table, callout",
    "button": "Outline it",
    "loading": "Finding the thread…"
@@ -161,7 +161,7 @@
      "required": true
     }
    ],
-   "prompt": "Review {outline} for the profile's usual output. Bullets of missing points, counter-arguments and examples a reader would expect; table (Section | Question to answer | Why it matters); steps for the next 30 minutes of work in order.",
+   "prompt": "Review {outline} for the profile's usual output. Bullets of 5 to 8 missing points, counter-arguments and examples a reader would expect; table (Section | Question to answer | Why it matters); steps for the next 30 minutes of work in order.",
    "shape": "bullets, table, steps",
    "button": "Find gaps",
    "loading": "Poking holes…"

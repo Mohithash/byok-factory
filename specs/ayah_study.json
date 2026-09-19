@@ -164,7 +164,7 @@
      "placeholder": "6"
     }
    ],
-   "prompt": "Find {count} ayat about '{theme}'. Sections: cards, one per ayah (title = surah:ayah, meta = surah name · Makki/Madani), each with a translation and one line of tafsir context; bullets connecting them into a single thread; and a quote with the one ayah most suited to write down and reflect on today.",
+   "prompt": "Find {count} ayat (default 6 if blank) about '{theme}'. Sections: cards, one per ayah (title = surah:ayah, meta = surah name · Makki/Madani), each with a translation and one line of tafsir context; bullets connecting them into a single thread; and a quote with the one ayah most suited to write down and reflect on today.",
    "shape": "cards, bullets, quote",
    "button": "Find ayat",
    "loading": "Searching the pages…"

@@ -9,7 +9,7 @@
   "#FDD835"
  ],
  "icon": "hat",
- "about": "Thru Line plans multi-week and thru-hikes: sections and zero days, resupply and bounce-box strategy, a pack shakedown from a photo, and a reset plan when the schedule slips.",
+ "about": "Thru Line plans multi-week and thru-hikes: sections and zero days, resupply and bounce-box strategy, a realistic budget, town-day plans and a reset plan when the schedule slips.",
  "persona": "You are a triple-crown thru-hiker turned planner: ultralight but not dogmatic, realistic about town days and morale, and always thinking three resupplies ahead.",
  "onboarding": {
   "title": "Walk far, plan light",
@@ -17,7 +17,7 @@
   "bullets": [
    "Sections, zero days and permits",
    "Resupply and bounce-box strategy",
-   "Pack shakedowns from a photo"
+   "Budget, town days and schedule resets"
   ]
  },
  "profile": [
@@ -75,34 +75,45 @@
      "placeholder": "start 20 April, must be in the Sierra by 10 June"
     }
    ],
-   "prompt": "Section {span} for {dates} at the profile daily distance and style. Table (Section | km | Days | Town/resupply | Zero or nero | Notes), kv (total days, zeros, average km including zeros, buffer days), bullets on permits and seasonal gates, and a callout on the section most people underestimate.",
+   "prompt": "Section {span} for {dates} at the profile daily distance and style. Table (Section | km | Days | Town/resupply | Zero or nero | Notes), kv (total days, zeros, average km including zeros, buffer days), 4 bullets on permits and seasonal gates, and a callout on the section most people underestimate.",
    "shape": "table, kv, bullets, callout",
    "button": "Section it",
    "loading": "Pacing the miles…"
   },
   {
-   "id": "shakedown",
-   "title": "Pack shakedown",
-   "subtitle": "Photo → what to send home",
-   "emoji": "📷",
+   "id": "budget",
+   "title": "Budget the hike",
+   "subtitle": "What it really costs, month by month",
+   "emoji": "💵",
    "inputs": [
     {
-     "key": "photo",
-     "label": "Photo of your gear laid out",
-     "type": "photo",
-     "required": true
+     "key": "months",
+     "label": "Months on trail",
+     "type": "number",
+     "placeholder": "5"
     },
     {
-     "key": "conditions",
-     "label": "Trail conditions",
+     "key": "comfort",
+     "label": "Town style",
+     "type": "chips",
+     "options": [
+      "Frugal",
+      "Middle",
+      "Treat yourself"
+     ],
+     "default": "Middle"
+    },
+    {
+     "key": "fixed",
+     "label": "Known fixed costs",
      "type": "text",
-     "placeholder": "desert start, nights 2°C, later snow"
+     "placeholder": "flights 900, permits 60, still need a quilt and 4 pairs of shoes"
     }
    ],
-   "prompt": "Shakedown the gear in the photo for: {conditions}, respecting the profile style. Table (Item | Verdict: keep / send home / swap | Why | Grams saved est.), kv (estimated base weight, target base weight, biggest win), a checklist of anything missing, and a callout on the one comfort item worth keeping.",
-   "shape": "table, kv, checklist, callout",
-   "button": "Shake it down",
-   "loading": "Weighing gear…"
+   "prompt": "Budget the profile trail for {months} months with {comfort} town habits and fixed costs: {fixed}. Table (Category | Per month | Total | How to trim) covering trail food, town food, lodging, resupply postage, gear replacement (shoes roughly every 800 km), transport, insurance and buffer; kv (grand total, per-day burn rate, emergency reserve, biggest line); 4 bullets on where thru-hikers overspend; and a callout on the money mistakes that end hikes early.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Budget it",
+   "loading": "Totting it up…"
   },
   {
    "id": "resupply",
@@ -124,7 +135,7 @@
      "placeholder": "vegan, prescription meds every 3 weeks, new shoes at 800 km"
     }
    ],
-   "prompt": "Resupply plan for {stretch} with needs: {needs} and the profile preference. Table (Stop | km | Method: buy / box / bounce | Days of food | What to add here), steps for mailing a box that arrives on time, bullets on carrying limits (bear cans, weight), and a callout on the towns that reliably run out of things.",
+   "prompt": "Resupply plan for {stretch} with needs: {needs} and the profile preference. Table (Stop | km | Method: buy / box / bounce | Days of food | What to add here), steps for mailing a box that arrives on time, 3 bullets on carrying limits (bear cans, weight), and a callout on the towns that reliably run out of things.",
    "shape": "table, steps, bullets, callout",
    "button": "Plan resupply",
    "loading": "Packing boxes…"

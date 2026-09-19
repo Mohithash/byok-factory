@@ -95,7 +95,7 @@
      "placeholder": "red wine, spicy food, stress"
     }
    ],
-   "prompt": "Build a hot-flush plan for flushes worst at {when} with triggers {triggers}, for the profile. Sections: a checklist of environment and clothing fixes (layers, fabrics, bedding, fans, cooling kit), steps for a paced-breathing technique to use at the start of a flush, a table (Option | Type: lifestyle / non-hormonal / hormonal | Evidence | Discuss with) covering CBT, SSRIs/SNRIs, gabapentin, fezolinetant and HRT in general terms, and a callout on supplements with weak evidence.",
+   "prompt": "Build a hot-flush plan for flushes worst at {when} with triggers {triggers}, for the profile. Sections: a checklist of 6–8 environment and clothing fixes (layers, fabrics, bedding, fans, cooling kit), steps for a paced-breathing technique to use at the start of a flush, a table (Option | Type: lifestyle / non-hormonal / hormonal | Evidence | Discuss with) covering CBT, SSRIs/SNRIs, gabapentin, fezolinetant and HRT in general terms, and a callout on supplements with weak evidence.",
    "shape": "checklist, steps, table, callout",
    "button": "Build plan",
    "loading": "Cooling down…"
@@ -157,14 +157,14 @@
      "default": "Foggy"
     }
    ],
-   "prompt": "Plan a {feeling} day with: {day}. Sections: steps with clock-anchored blocks (single-tasking, breaks, protein, daylight, movement), bullets of memory scaffolds that work (externalise everything, one-list rule), a quote with a sentence to explain a lapse at work without over-apologising, and a callout on when persistent low mood or anxiety deserves its own conversation with a GP.",
+   "prompt": "Plan a {feeling} day with: {day}. Sections: steps with clock-anchored blocks (single-tasking, breaks, protein, daylight, movement), bullets of 4–6 memory scaffolds that work (externalise everything, one-list rule), a quote with a sentence to explain a lapse at work without over-apologising, and a callout on when persistent low mood or anxiety deserves its own conversation with a GP.",
    "shape": "steps, bullets, quote, callout",
    "button": "Plan my day",
    "loading": "Clearing fog…"
   },
   {
    "id": "vaginal",
-   "title": "Below the belt",
+   "title": "Vaginal & bladder health",
    "subtitle": "Dryness, urgency, painful sex, UTIs",
    "emoji": "🌸",
    "inputs": [
@@ -182,7 +182,7 @@
      "default": "Dryness / irritation"
     }
    ],
-   "prompt": "Give plain, unembarrassed guidance on {issue} in menopause (genitourinary syndrome of menopause) for the profile. Sections: text on why it happens and why it rarely improves without treatment, a table (Option | How it works | Prescription? | Notes) covering moisturisers, lubricants, local vaginal oestrogen, DHEA / ospemifene, pelvic floor physio and libido approaches, steps to raise it with a GP in one sentence, and a callout on symptoms that need examination (bleeding, unusual discharge, blood in urine).",
+   "prompt": "Give plain, unembarrassed guidance on {issue} in menopause (genitourinary syndrome of menopause) for the profile. Sections: text on why it happens and why it rarely improves without treatment, a 6-row table (Option | How it works | Prescription? | Notes) covering moisturisers, lubricants, local vaginal oestrogen, DHEA / ospemifene, pelvic floor physio and libido approaches, steps for raising it with a GP (the one-line opener, what to ask for, what an examination involves), and a callout on symptoms that need examination (bleeding, unusual discharge, blood in urine).",
    "shape": "text, table, steps, callout",
    "button": "Tell me",
    "loading": "Answering…"

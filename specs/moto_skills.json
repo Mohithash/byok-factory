@@ -1,0 +1,229 @@
+{
+ "id": "moto_skills",
+ "name": "Lean Angle",
+ "tagline": "Ride smoother, corner with confidence",
+ "category": "Auto & Vehicles",
+ "colors": [
+  "#1B5E20",
+  "#FFD600",
+  "#37474F"
+ ],
+ "icon": "shield",
+ "about": "Lean Angle coaches new and returning motorcyclists with car-park drills, cornering and braking analysis, a gear kit for your budget, honest near-miss debriefs and briefings for leading group rides.",
+ "persona": "You are a certified motorcycle instructor: calm, precise and drill-based; you never encourage riding beyond skill, licence or legal limits.",
+ "onboarding": {
+  "title": "Skills you can feel on the next ride",
+  "subtitle": "Where you are as a rider shapes every drill.",
+  "bullets": [
+   "Car-park drill sessions",
+   "Corner-by-corner coaching",
+   "Gear that fits the budget"
+  ]
+ },
+ "profile": [
+  {
+   "key": "stage",
+   "label": "Stage",
+   "type": "chips",
+   "options": [
+    "Pre-licence",
+    "First year",
+    "Returning after a break",
+    "Experienced"
+   ]
+  },
+  {
+   "key": "bike",
+   "label": "Bike",
+   "type": "text",
+   "placeholder": "Kawasaki Z650"
+  },
+  {
+   "key": "goal",
+   "label": "Focus",
+   "type": "chips",
+   "options": [
+    "Slow control",
+    "Cornering",
+    "Braking",
+    "Commuting traffic",
+    "Pillion",
+    "Group rides"
+   ],
+   "multi": true
+  }
+ ],
+ "tools": [
+  {
+   "id": "drill",
+   "title": "Car-park session",
+   "subtitle": "A full session of drills",
+   "emoji": "🅿️",
+   "inputs": [
+    {
+     "key": "minutes",
+     "label": "Minutes",
+     "type": "chips",
+     "options": [
+      "30",
+      "45",
+      "60"
+     ],
+     "default": "45"
+    },
+    {
+     "key": "skill",
+     "label": "Work on",
+     "type": "chips",
+     "options": [
+      "Slow control & U-turns",
+      "Emergency braking",
+      "Swerving",
+      "Clutch & throttle smoothness",
+      "Cornering lines"
+     ],
+     "default": "Slow control & U-turns"
+    },
+    {
+     "key": "space",
+     "label": "Space available",
+     "type": "text",
+     "placeholder": "empty supermarket car park, 6 cones"
+    }
+   ],
+   "prompt": "Design a {minutes}-minute car-park session on {skill} using: {space}. Steps for each drill with cone layout, speeds and reps, a table (Drill | Minutes | Success looks like | Common mistake), and a callout on the safety setup (gear, surface, run-off, spotter) before the first pass.",
+   "shape": "steps, table, callout",
+   "button": "Build session",
+   "loading": "Laying cones…"
+  },
+  {
+   "id": "corner",
+   "title": "Corner coaching",
+   "subtitle": "Describe the bend, fix the line",
+   "emoji": "🔄",
+   "inputs": [
+    {
+     "key": "corner",
+     "label": "The corner and what happened",
+     "type": "longtext",
+     "placeholder": "downhill right-hander, I ran wide and grabbed the front brake mid-corner",
+     "required": true
+    }
+   ],
+   "prompt": "Analyse: {corner}. Text on what went wrong and why, steps for the correct sequence for that bend (vision, position, speed, gear, lean, throttle), bullets of cues to say out loud on the approach, and a callout on what to do if you run wide again.",
+   "shape": "text, steps, bullets, callout",
+   "button": "Coach me",
+   "loading": "Looking through…"
+  },
+  {
+   "id": "gear",
+   "title": "Gear kit",
+   "subtitle": "Head to toe for your budget",
+   "emoji": "🧥",
+   "inputs": [
+    {
+     "key": "budget",
+     "label": "Budget",
+     "type": "number",
+     "placeholder": "800"
+    },
+    {
+     "key": "climate",
+     "label": "Riding climate",
+     "type": "chips",
+     "options": [
+      "Hot",
+      "Mild",
+      "Cold/wet",
+      "All seasons"
+     ],
+     "default": "All seasons"
+    },
+    {
+     "key": "have",
+     "label": "Already own",
+     "type": "chips",
+     "options": [
+      "Helmet",
+      "Jacket",
+      "Gloves",
+      "Boots",
+      "Trousers"
+     ],
+     "multi": true
+    }
+   ],
+   "prompt": "Kit out the rider with {budget} for {climate} riding, skipping items already owned: {have}. A table (Item | Priority | Budget share | What to look for | Certification to check) ordered by protection value, cards for 3 spending splits (meta = total · protection level), and a callout on helmet fit and replacing a helmet after any drop.",
+   "shape": "table, cards, callout",
+   "button": "Kit me out",
+   "loading": "Zipping up…"
+  },
+  {
+   "id": "debrief",
+   "title": "Near-miss debrief",
+   "subtitle": "Turn a scare into a lesson",
+   "emoji": "🧠",
+   "inputs": [
+    {
+     "key": "event",
+     "label": "What happened",
+     "type": "longtext",
+     "placeholder": "car pulled out from a side road, I braked hard and locked the rear",
+     "required": true
+    },
+    {
+     "key": "feel",
+     "label": "How you feel now",
+     "type": "chips",
+     "options": [
+      "Shaken",
+      "Angry",
+      "Fine",
+      "Don't want to ride"
+     ],
+     "default": "Shaken"
+    }
+   ],
+   "prompt": "Debrief: {event}. The rider feels {feel}. Text separating what was in their control from what was not, bullets of hazard cues to spot earlier next time, steps for a confidence-rebuilding ride this week, and a quote with one sentence to repeat before the next ride.",
+   "shape": "text, bullets, steps, quote",
+   "button": "Debrief",
+   "loading": "Replaying…"
+  },
+  {
+   "id": "group",
+   "title": "Group ride briefing",
+   "subtitle": "Lead a ride without drama",
+   "emoji": "👥",
+   "inputs": [
+    {
+     "key": "riders",
+     "label": "Riders",
+     "type": "number",
+     "placeholder": "6"
+    },
+    {
+     "key": "route",
+     "label": "Route",
+     "type": "text",
+     "placeholder": "120 km coastal loop, two fuel stops"
+    },
+    {
+     "key": "mix",
+     "label": "Experience mix",
+     "type": "chips",
+     "options": [
+      "All new",
+      "Mixed",
+      "All experienced"
+     ],
+     "default": "Mixed"
+    }
+   ],
+   "prompt": "Write the pre-ride briefing for {riders} riders ({mix}) on: {route}. A quote with the briefing script (formation, staggered spacing, corner-marker or drop-off system, hand signals, what to do if separated, fuel and stop plan), a checklist for the lead and tail riders, and a callout on pace rules that protect the least experienced rider.",
+   "shape": "quote, checklist, callout",
+   "button": "Write briefing",
+   "loading": "Rallying…"
+  }
+ ],
+ "disclaimer": "Riding coaching is general guidance; practise new skills in a safe, legal, closed area in full protective gear and consider training with a certified instructor."
+}

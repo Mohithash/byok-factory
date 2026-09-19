@@ -1,0 +1,233 @@
+{
+ "id": "strike_lab",
+ "name": "Strike Lab",
+ "tagline": "Bag rounds, combos and sparring prep that make sense",
+ "category": "Sports",
+ "colors": [
+  "#B71C1C",
+  "#212121",
+  "#FFC107"
+ ],
+ "icon": "bolt",
+ "about": "Strike Lab builds heavy-bag and shadowboxing rounds, fixes your combos, stance and footwork, and preps you for sparring or a first amateur bout, whether you box, kickbox or train Muay Thai.",
+ "persona": "You are a corner coach who has trained beginners and amateurs: defence first, obsessed with the basics, counting rounds in minutes and rest in seconds; you never push sparring before the fundamentals are there.",
+ "onboarding": {
+  "title": "Gloves on",
+  "subtitle": "Your discipline, stance and gear shape every round.",
+  "bullets": [
+   "Bag and shadow rounds for your minutes",
+   "Combo, stance and footwork fixes",
+   "Sparring and fight-night prep"
+  ]
+ },
+ "profile": [
+  {
+   "key": "discipline",
+   "label": "Discipline",
+   "type": "chips",
+   "options": [
+    "Boxing",
+    "Kickboxing",
+    "Muay Thai",
+    "Fitness only"
+   ]
+  },
+  {
+   "key": "stance",
+   "label": "Stance",
+   "type": "chips",
+   "options": [
+    "Orthodox",
+    "Southpaw",
+    "Switch"
+   ]
+  },
+  {
+   "key": "gear",
+   "label": "Gear at home",
+   "type": "chips",
+   "options": [
+    "Heavy bag",
+    "Double-end bag",
+    "Pads with a partner",
+    "Nothing (shadow only)"
+   ],
+   "multi": true
+  },
+  {
+   "key": "level",
+   "label": "Level",
+   "type": "chips",
+   "options": [
+    "First month",
+    "Regular class-goer",
+    "Sparring",
+    "Amateur competitor"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "rounds",
+   "title": "Build my rounds",
+   "subtitle": "3-minute rounds for your gear",
+   "emoji": "🥊",
+   "inputs": [
+    {
+     "key": "rounds",
+     "label": "Rounds",
+     "type": "chips",
+     "options": [
+      "4",
+      "6",
+      "8",
+      "10",
+      "12"
+     ],
+     "default": "6"
+    },
+    {
+     "key": "focus",
+     "label": "Focus",
+     "type": "chips",
+     "options": [
+      "Fundamentals",
+      "Combinations",
+      "Defence",
+      "Power",
+      "Conditioning"
+     ],
+     "default": "Fundamentals"
+    },
+    {
+     "key": "note",
+     "label": "Anything to work around",
+     "type": "text",
+     "placeholder": "sore left shoulder, only 25 minutes"
+    }
+   ],
+   "prompt": "Write {rounds} × 3-minute rounds with 1-minute rests, focus '{focus}', for the profile discipline, stance and gear, working around: {note}. Sections: steps for a warm-up (rope, shadow, mobility, with minutes), a table (Round | Drill | Combos or task | Intensity | Cue), bullets on breathing and bringing hands back, and a callout on the one fault to police for the whole session.",
+   "shape": "steps, table, bullets, callout",
+   "button": "Build rounds",
+   "loading": "Wrapping hands…"
+  },
+  {
+   "id": "combo",
+   "title": "Combo builder",
+   "subtitle": "Four combinations with a purpose",
+   "emoji": "🔗",
+   "inputs": [
+    {
+     "key": "opening",
+     "label": "Start from",
+     "type": "text",
+     "placeholder": "jab–cross",
+     "required": true
+    },
+    {
+     "key": "goal",
+     "label": "Purpose",
+     "type": "chips",
+     "options": [
+      "Set up the body shot",
+      "Exit at an angle",
+      "Counter a jab",
+      "Close distance",
+      "Finish with a kick"
+     ],
+     "default": "Exit at an angle"
+    }
+   ],
+   "prompt": "Build 4 combinations that start from '{opening}' with the purpose '{goal}', legal and sensible for the profile discipline and stance. Sections: cards per combo (meta = number of strikes · range), a table (Strike | Target | Weight shift | Common fault), steps for drilling one combo from slow shadow to bag at speed, and a quote with a rhythm count to say out loud.",
+   "shape": "cards, table, steps, quote",
+   "button": "Build combos",
+   "loading": "Chaining shots…"
+  },
+  {
+   "id": "form",
+   "title": "Check my stance",
+   "subtitle": "Photo or description → fixes",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo in your stance or mid-punch (optional)",
+     "type": "photo"
+    },
+    {
+     "key": "issue",
+     "label": "What feels off",
+     "type": "text",
+     "placeholder": "my cross has no power and I drop my right hand",
+     "required": true
+    }
+   ],
+   "prompt": "Assess the stance or strike from the photo (if attached) and this description: {issue}, for the profile stance and discipline. Sections: bullets of the 3 most likely faults ranked, a table (Fault | What it looks like | Fix | Drill), steps for one mirror drill with reps, and a callout on the defensive habit that must not slip while fixing it.",
+   "shape": "bullets, table, steps, callout",
+   "button": "Assess",
+   "loading": "Watching the hands…"
+  },
+  {
+   "id": "spar",
+   "title": "Sparring prep",
+   "subtitle": "Gear, game plan, warm-up, safety",
+   "emoji": "🛡️",
+   "inputs": [
+    {
+     "key": "type",
+     "label": "Session",
+     "type": "chips",
+     "options": [
+      "First light spar",
+      "Technical sparring",
+      "Hard sparring",
+      "Amateur bout"
+     ],
+     "default": "First light spar"
+    },
+    {
+     "key": "opponent",
+     "label": "Opponent style (if known)",
+     "type": "text",
+     "placeholder": "taller, long jab, backs up"
+    }
+   ],
+   "prompt": "Prepare for {type} against: {opponent}, for the profile level and stance. Sections: a checklist of gear and readiness checks (mouthguard, headgear, hand health, sleep), bullets with a 3-point game plan matched to the opponent style, a table (If they… | You…), steps for the 20-minute warm-up before the bell, and a callout on when to stop a spar (dazed, headache, vision change) and concussion basics.",
+   "shape": "checklist, bullets, table, steps, callout",
+   "button": "Prep me",
+   "loading": "Ringside…"
+  },
+  {
+   "id": "footwork",
+   "title": "Footwork drill",
+   "subtitle": "Tape on the floor, minutes on the clock",
+   "emoji": "👣",
+   "inputs": [
+    {
+     "key": "skill",
+     "label": "Skill",
+     "type": "chips",
+     "options": [
+      "Pivot",
+      "Lateral step",
+      "In-and-out",
+      "Cutting the ring",
+      "Switching stance"
+     ],
+     "default": "Pivot"
+    },
+    {
+     "key": "minutes",
+     "label": "Minutes",
+     "type": "number",
+     "placeholder": "10"
+    }
+   ],
+   "prompt": "A {minutes}-minute footwork session on '{skill}' for the profile stance, done with tape on the floor or around a bag. Sections: steps (each with seconds or reps), kv (foot position, weight split, head position, hand position), bullets on common mistakes, and a quote with a one-line cue.",
+   "shape": "steps, kv, bullets, quote",
+   "button": "Drill it",
+   "loading": "Moving feet…"
+  }
+ ],
+ "disclaimer": "Not medical advice. Head contact carries concussion risk: spar only with headgear, a mouthguard and a coach present, and stop immediately for dizziness, headache or vision changes."
+}

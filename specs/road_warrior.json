@@ -1,0 +1,212 @@
+{
+ "id": "road_warrior",
+ "name": "Road Warrior",
+ "tagline": "Business trips that run like clockwork",
+ "category": "Travel & Local",
+ "colors": [
+  "#37474F",
+  "#FF7043",
+  "#00ACC1"
+ ],
+ "icon": "plane",
+ "about": "Road Warrior handles the frequent business traveller's trip: one-bag packing for meetings, day plans with real travel buffers and jet-lag timing, expense reports from receipt photos, client-dinner picks with cultural etiquette, and making the flight hours count.",
+ "persona": "You are a road-hardened executive assistant: brisk, precise, calendar-obsessed, with an eye for expense policy and for the small touches that impress clients.",
+ "onboarding": {
+  "title": "Where next?",
+  "subtitle": "Tell us how you travel for work.",
+  "bullets": [
+   "One-bag packing for any dress code",
+   "Agendas with real buffers",
+   "Expenses from receipt photos"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "dress",
+   "label": "Usual dress code",
+   "type": "chips",
+   "options": [
+    "Suit",
+    "Business casual",
+    "Smart tech",
+    "Site / PPE"
+   ]
+  },
+  {
+   "key": "company",
+   "label": "Company & role",
+   "type": "text",
+   "placeholder": "sales director, SaaS"
+  },
+  {
+   "key": "loyalty",
+   "label": "Loyalty focus",
+   "type": "chips",
+   "options": [
+    "Airline",
+    "Hotel",
+    "Both",
+    "None"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "pack",
+   "title": "One-bag packing",
+   "subtitle": "Carry-on only, meeting-ready",
+   "emoji": "🧳",
+   "inputs": [
+    {
+     "key": "nights",
+     "label": "Nights",
+     "type": "number",
+     "placeholder": "3"
+    },
+    {
+     "key": "climate",
+     "label": "Destination & climate",
+     "type": "text",
+     "placeholder": "Chicago, January"
+    },
+    {
+     "key": "meetings",
+     "label": "Meetings / events",
+     "type": "number",
+     "placeholder": "4"
+    }
+   ],
+   "prompt": "A carry-on packing list for {nights} nights in {climate} with {meetings} meetings, for the profile's dress code. Checklist grouped by Wear on the plane, Clothes (with counts and a mix-and-match note), Tech, Documents and Toiletries, a table (Outfit | Day | Event | Backup if it spills), and a callout on liquids, chargers and the one thing people leave in the hotel safe.",
+   "shape": "checklist, table, callout",
+   "button": "Pack it",
+   "loading": "Rolling shirts…"
+  },
+  {
+   "id": "agenda",
+   "title": "Trip agenda",
+   "subtitle": "Meetings, transfers, jet lag, buffers",
+   "emoji": "🗓️",
+   "inputs": [
+    {
+     "key": "meetings",
+     "label": "Paste meetings & flights",
+     "type": "longtext",
+     "placeholder": "Fri 07:10 LHR–JFK; Mon 09:00 client HQ Midtown; 14:00 lunch…",
+     "required": true
+    },
+    {
+     "key": "hotel",
+     "label": "Hotel",
+     "type": "text",
+     "placeholder": "Marriott Downtown"
+    }
+   ],
+   "prompt": "Build a trip agenda from: {meetings}, staying at {hotel}. Table (Time | Item | Location | Travel from previous | Buffer | Prep needed), a kv (time-zone shift, first-night bedtime, caffeine cut-off, best workout slot), bullets on the two transfers most likely to run late, and a callout on what to reconfirm 24 hours before.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Build agenda",
+   "loading": "Adding buffers…"
+  },
+  {
+   "id": "expense",
+   "title": "Expense a receipt",
+   "subtitle": "Photo → line item",
+   "emoji": "🧾",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Receipt photo",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "purpose",
+     "label": "Business purpose",
+     "type": "text",
+     "placeholder": "client dinner with Acme, 3 attendees"
+    }
+   ],
+   "prompt": "Read the receipt in the photo, business purpose: {purpose}. Kv (merchant, date, total, currency, tax/VAT, tip, payment method), a table (Line item | Amount | Expense category | Policy flag), a quote with a one-line description to paste into the expense tool, and a callout on anything that commonly gets rejected (alcohol, missing attendee names, over per-diem).",
+   "shape": "kv, table, quote, callout",
+   "button": "Extract",
+   "loading": "Reading the receipt…"
+  },
+  {
+   "id": "dinner",
+   "title": "Client dinner",
+   "subtitle": "Where, what and how to behave",
+   "emoji": "🍽️",
+   "inputs": [
+    {
+     "key": "city",
+     "label": "City",
+     "type": "text",
+     "placeholder": "Tokyo",
+     "required": true
+    },
+    {
+     "key": "client",
+     "label": "Client & occasion",
+     "type": "text",
+     "placeholder": "Japanese procurement team, closing dinner"
+    },
+    {
+     "key": "budget",
+     "label": "Budget per head",
+     "type": "chips",
+     "options": [
+      "Modest",
+      "Standard",
+      "Impress"
+     ],
+     "default": "Standard"
+    }
+   ],
+   "prompt": "Plan a client dinner in {city} for {client}, budget {budget}. Cards for 4 venue types with example neighbourhoods (meta = price per head · noise level · book how far ahead), a kv (who orders, who pays and how, seating, gifts, toasting, dietary etiquette), a quote with an invitation message, and a callout on the etiquette mistake that would land badly with this client's culture.",
+   "shape": "cards, kv, quote, callout",
+   "button": "Plan dinner",
+   "loading": "Booking a table…"
+  },
+  {
+   "id": "transit",
+   "title": "Make the flight count",
+   "subtitle": "Offline work plan for the hours in the air",
+   "emoji": "✈️",
+   "inputs": [
+    {
+     "key": "hours",
+     "label": "Flight hours",
+     "type": "number",
+     "placeholder": "8"
+    },
+    {
+     "key": "tasks",
+     "label": "What's on your plate",
+     "type": "longtext",
+     "placeholder": "deck for Tuesday, 40 unread emails, quarterly review notes",
+     "required": true
+    },
+    {
+     "key": "wifi",
+     "label": "Wifi",
+     "type": "chips",
+     "options": [
+      "None",
+      "Patchy",
+      "Good"
+     ],
+     "default": "Patchy"
+    }
+   ],
+   "prompt": "Plan {hours} hours in the air with {wifi} wifi and these tasks: {tasks}. Table (Hour | Task | Needs wifi? | Output), a checklist of what to download or prep before boarding, bullets on when to sleep vs work, one set for a morning landing and one for an evening landing, and a callout on confidentiality on a plane (screen privacy, calls, documents).",
+   "shape": "table, checklist, bullets, callout",
+   "button": "Plan the flight",
+   "loading": "Fastening seatbelt…"
+  }
+ ],
+ "disclaimer": "Expense and tax notes are general; follow your company's policy and your finance team's guidance."
+}

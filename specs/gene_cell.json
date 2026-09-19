@@ -110,7 +110,7 @@
      "placeholder": "H&E stain, ×400"
     }
    ],
-   "prompt": "Identify what is in the photo, hint: {hint}. kv (tissue / organism / cell type, estimated magnification, stain if visible), a table (Labelled feature | What it is | Function), bullets of features that distinguish it from look-alikes, and a callout on confidence and what would confirm the identification.",
+   "prompt": "Identify what is in the photo; hint (if given): {hint}. kv (tissue / organism / cell type, estimated magnification, stain if visible), a table (Labelled feature | What it is | Function), bullets of features that distinguish it from look-alikes, and a callout on confidence and what would confirm the identification.",
    "shape": "kv, table, bullets, callout",
    "button": "Identify",
    "loading": "Focusing…"

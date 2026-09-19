@@ -115,7 +115,7 @@
      "placeholder": "full kitchen fit including electrics and plastering"
     }
    ],
-   "prompt": "Compare these contractor quotes: {quotes}, against the requested scope: {scope}. Sections: a table (Item | Quote A | Quote B | Quote C | Notes) with a normalised like-for-like total per quote; bullets of exclusions, vague lines and missing items per quote; a checklist of clarifying questions to send each contractor; and a callout on red flags (large deposits, no written scope, cash-only).",
+   "prompt": "Compare these contractor quotes: {quotes}, against the requested scope: {scope}. Sections: a table (Item | Quote A | Quote B | Quote C | Notes; drop the Quote C column if only two were pasted) with a normalised like-for-like total per quote; bullets of exclusions, vague lines and missing items per quote; a checklist of clarifying questions to send each contractor; and a callout on red flags (large deposits, no written scope, cash-only).",
    "shape": "table, bullets, checklist, callout",
    "button": "Compare",
    "loading": "Reading fine print…"

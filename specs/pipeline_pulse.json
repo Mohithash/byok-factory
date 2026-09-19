@@ -141,7 +141,7 @@
      "placeholder": "120000"
     }
    ],
-   "prompt": "Prepare a forecast call: committing {commit}, closed so far {closed}, against the profile's quota. Sections: kv (Closed | Commit | Best case | Forecast total | Attainment % | Risk-adjusted forecast), a table (Deal | Value | Why it's in commit | What could slip it | Plan B), bullets of the questions your manager will ask with crisp answers, and a quote with a 30-second opening statement for the call.",
+   "prompt": "Prepare a forecast call: committing {commit}, closed so far this quarter: {closed} (0 if blank), against the profile's quota. Sections: kv (Closed | Commit | Best case | Forecast total | Attainment % | Risk-adjusted forecast), a table (Deal | Value | Why it's in commit | What could slip it | Plan B), bullets of the questions your manager will ask with crisp answers, and a quote with a 30-second opening statement for the call.",
    "shape": "kv, table, bullets, quote",
    "button": "Prep call",
    "loading": "Crunching numbers…"
@@ -165,7 +165,7 @@
      "placeholder": "25"
     }
    ],
-   "prompt": "Plan the selling week with {hours} hours and priorities: {focus}, for the profile's quota. Sections: a table (Day | Block | Activity | Deal or target | Outcome), kv (Hours on closing | Hours prospecting | Hours on admin | Meetings to book), a checklist for the Friday review, and a callout on the activity to cut first if the week goes sideways.",
+   "prompt": "Plan the selling week with {hours} selling hours (assume 25 if blank) and priorities: {focus}, for the profile's quota. Sections: a table (Day | Block | Activity | Deal or target | Outcome), kv (Hours on closing | Hours prospecting | Hours on admin | Meetings to book), a checklist for the Friday review, and a callout on the activity to cut first if the week goes sideways.",
    "shape": "table, kv, checklist, callout",
    "button": "Plan week",
    "loading": "Blocking time…"

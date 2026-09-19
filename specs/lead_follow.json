@@ -1,0 +1,203 @@
+{
+ "id": "lead_follow",
+ "name": "Lead & Follow",
+ "tagline": "Social dance moves, counts and confidence",
+ "category": "Lifestyle",
+ "colors": [
+  "#AD1457",
+  "#00897B",
+  "#FFB300"
+ ],
+ "icon": "music",
+ "about": "Lead & Follow helps social dancers learn salsa, bachata, swing, tango and ballroom: move breakdowns in counts, floor-craft for busy socials, partner communication and choreography for a wedding first dance.",
+ "persona": "You are a warm social-dance teacher: count-driven, technically correct without being heavy, equally fluent in leading and following, and clear that connection and consent matter more than flashy moves.",
+ "onboarding": {
+  "title": "Ready for the floor?",
+  "subtitle": "Your style, role and level shape every breakdown.",
+  "bullets": [
+   "Moves broken into counts",
+   "Social-floor confidence",
+   "Wedding first-dance choreography"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "style",
+   "label": "Main style",
+   "type": "chips",
+   "options": [
+    "Salsa",
+    "Bachata",
+    "Kizomba",
+    "Swing / Lindy",
+    "Argentine tango",
+    "Ballroom / Latin",
+    "West Coast Swing"
+   ]
+  },
+  {
+   "key": "role",
+   "label": "Role",
+   "type": "chips",
+   "options": [
+    "Lead",
+    "Follow",
+    "Both"
+   ]
+  },
+  {
+   "key": "level",
+   "label": "Level",
+   "type": "chips",
+   "options": [
+    "Just started",
+    "Improver",
+    "Intermediate",
+    "Advanced"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "move",
+   "title": "Break down a move",
+   "subtitle": "Counts, feet, frame, connection",
+   "emoji": "💃",
+   "inputs": [
+    {
+     "key": "move",
+     "label": "Move",
+     "type": "text",
+     "placeholder": "cross-body lead with inside turn",
+     "required": true
+    },
+    {
+     "key": "stuck",
+     "label": "Where it falls apart",
+     "type": "text",
+     "placeholder": "my partner ends up too far away"
+    }
+   ],
+   "prompt": "Break down '{move}' in the profile style for the profile role, addressing this sticking point if given: {stuck}. Sections: a table (Count | Lead's feet & frame | Follow's feet & frame | Connection cue), bullets of the 3 most common errors and their fixes, steps for solo practice without a partner, and a quote with the timing spoken in words (e.g. 'quick-quick-slow').",
+   "shape": "table, bullets, steps, quote",
+   "button": "Break it down",
+   "loading": "Counting in…"
+  },
+  {
+   "id": "social",
+   "title": "Survive a social",
+   "subtitle": "Asking, blanking, crowds",
+   "emoji": "🪩",
+   "inputs": [
+    {
+     "key": "worry",
+     "label": "Biggest worry",
+     "type": "chips",
+     "options": [
+      "Asking people to dance",
+      "Forgetting moves mid-song",
+      "Crowded floor",
+      "Dancing with better dancers",
+      "Keeping time with live music"
+     ],
+     "default": "Forgetting moves mid-song"
+    }
+   ],
+   "prompt": "Coach the profile dancer through '{worry}' at a social. Sections: text reframing the worry in 3 sentences, a checklist for the evening (arrival, warm-up dances, breaks, exit), bullets of 5 fallback basics to cycle through when the mind goes blank, a quote with a polite way to ask for a dance and a polite way to decline one, and a callout on floor etiquette and consent.",
+   "shape": "text, checklist, bullets, quote, callout",
+   "button": "Coach me",
+   "loading": "Lacing shoes…"
+  },
+  {
+   "id": "wedding",
+   "title": "First-dance choreography",
+   "subtitle": "Song → moves, counts, 6-week plan",
+   "emoji": "💍",
+   "inputs": [
+    {
+     "key": "song",
+     "label": "Song & length",
+     "type": "text",
+     "placeholder": "Perfect – Ed Sheeran, 4:23",
+     "required": true
+    },
+    {
+     "key": "skill",
+     "label": "Couple's experience",
+     "type": "chips",
+     "options": [
+      "None",
+      "A few lessons",
+      "One dances well",
+      "Both dance"
+     ],
+     "default": "None"
+    },
+    {
+     "key": "vibe",
+     "label": "Vibe",
+     "type": "chips",
+     "options": [
+      "Simple and sweet",
+      "A little showy",
+      "Big finish"
+     ],
+     "default": "Simple and sweet"
+    }
+   ],
+   "prompt": "Choreograph a first dance to {song} for a couple with experience '{skill}' and vibe '{vibe}'. Sections: a table (Song section | Time | Move | Counts | Notes), steps for a 6-week practice schedule with minutes per session, bullets of 3 rescue moves if they lose their place, and a callout on dress, shoes and floor considerations.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Choreograph",
+   "loading": "Cueing the song…"
+  },
+  {
+   "id": "music",
+   "title": "Hear the music",
+   "subtitle": "Find the 1, hit the breaks",
+   "emoji": "🎶",
+   "inputs": [
+    {
+     "key": "goal",
+     "label": "Learn to",
+     "type": "chips",
+     "options": [
+      "Find the 1",
+      "Dance on 2",
+      "Hit breaks and accents",
+      "Play with slow and fast"
+     ],
+     "default": "Find the 1"
+    }
+   ],
+   "prompt": "Teach '{goal}' for the profile style. Sections: text explaining the structure of a typical song in that style (bars, phrases, which instruments mark the beat), steps for a listening drill using 3 named songs, bullets of body cues to mark the beat, and a callout on what to do when you lose the count mid-dance.",
+   "shape": "text, steps, bullets, callout",
+   "button": "Train my ear",
+   "loading": "Pressing play…"
+  },
+  {
+   "id": "partner",
+   "title": "Say it kindly",
+   "subtitle": "Feedback for a dance partner",
+   "emoji": "🗣️",
+   "inputs": [
+    {
+     "key": "issue",
+     "label": "What's happening",
+     "type": "text",
+     "placeholder": "he grips my hand too hard on turns",
+     "required": true
+    }
+   ],
+   "prompt": "The user needs to raise this with a dance partner: {issue}. Sections: text on whether this is a technique issue or a comfort and safety one, a quote with a kind, specific 2-sentence way to say it on the floor, bullets of technique fixes both roles can try, and a callout on when to simply stop the dance.",
+   "shape": "text, quote, bullets, callout",
+   "button": "Write it",
+   "loading": "Choosing words…"
+  }
+ ],
+ "disclaimer": "Warm up, wear suitable shoes and stop for pain; not medical advice."
+}

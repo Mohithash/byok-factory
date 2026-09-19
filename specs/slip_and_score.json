@@ -87,7 +87,7 @@
      "default": "After glaze firing"
     }
    ],
-   "prompt": "Look at the piece (stage: {stage}) and diagnose: table (Defect seen | Cause | Stage it started | Prevent next time), text on whether this piece can be saved and how, and a callout on the one habit change that prevents most of this.",
+   "prompt": "Examine the piece in the photo (stage: {stage}) and diagnose what you can actually see: table (Defect seen | Cause | Stage it started | Prevent next time), text on whether this piece can be saved and how, and a callout on the one habit change that prevents most of this.",
    "shape": "table, text, callout",
    "button": "Diagnose",
    "loading": "Turning it over…"
@@ -208,8 +208,8 @@
      "required": true
     }
    ],
-   "prompt": "Answer '{question}' for the profile setup: text with the practical answer, steps if there is a procedure, and a callout on dust (silica), kiln and material safety relevant to it.",
-   "shape": "text, steps, callout",
+   "prompt": "Answer '{question}' for the profile clay, kiln and cone: kv (short answer, why, time it takes, cost or kit needed), steps for the procedure with the moment it usually goes wrong marked, a table (Hazard | Risk | Control) covering silica dust, kiln heat, fumes and glaze materials as relevant, and a callout on the one thing never to skip.",
+   "shape": "kv, steps, table, callout",
    "button": "Answer",
    "loading": "Checking the studio…"
   }

@@ -1,0 +1,233 @@
+{
+ "id": "room_runner",
+ "name": "Room Runner",
+ "tagline": "Workshops that end with decisions, not sticky notes",
+ "category": "Business",
+ "colors": [
+  "#00838F",
+  "#FF8F00",
+  "#7B1FA2"
+ ],
+ "icon": "clock",
+ "about": "Room Runner designs workshops and working sessions — kickoffs, problem-solving, prioritisation, decisions — with timed agendas, verbatim facilitator scripts, the right decision method, purposeful openers and moves for dominant voices, silence and derailers.",
+ "persona": "You are a professional facilitator: you design backwards from the outcome, stay neutral, manage energy and airtime, and would rather have one clear decision than twenty ideas nobody owns.",
+ "onboarding": {
+  "title": "Design the session backwards",
+  "subtitle": "Tell us how your sessions usually run so every plan fits your room.",
+  "bullets": [
+   "Timed agendas built from the outcome",
+   "Decision methods that actually decide",
+   "Moves for dominant voices and silence"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "mode",
+   "label": "Usual mode",
+   "type": "chips",
+   "options": [
+    "In person",
+    "Video call",
+    "Hybrid"
+   ]
+  },
+  {
+   "key": "experience",
+   "label": "Facilitation experience",
+   "type": "chips",
+   "options": [
+    "First few times",
+    "Comfortable",
+    "Experienced"
+   ]
+  },
+  {
+   "key": "tools",
+   "label": "Tools you use",
+   "type": "text",
+   "placeholder": "Miro, Zoom, sticky notes, whiteboard"
+  }
+ ],
+ "tools": [
+  {
+   "id": "design",
+   "title": "Design a workshop",
+   "subtitle": "Outcome → timed agenda",
+   "emoji": "🧩",
+   "inputs": [
+    {
+     "key": "outcome",
+     "label": "What must be true when it ends",
+     "type": "longtext",
+     "placeholder": "we've picked the top 3 initiatives for Q3 and each has an owner",
+     "required": true
+    },
+    {
+     "key": "minutes",
+     "label": "Length (minutes)",
+     "type": "number",
+     "placeholder": "90"
+    },
+    {
+     "key": "people",
+     "label": "Participants",
+     "type": "number",
+     "placeholder": "8"
+    }
+   ],
+   "prompt": "Design a {minutes}-minute workshop for {people} people with the outcome: {outcome}, in the profile's usual mode with their tools. Sections: steps as a timed agenda (each block: minutes, activity, purpose, format — solo / pairs / plenary, and the tangible output of the block); a checklist of pre-work and materials; a table (Risk to the outcome | Prevention | Recovery move); and a quote with the opening 60 seconds framing the outcome and the rules.",
+   "shape": "steps, checklist, table, quote",
+   "button": "Design it",
+   "loading": "Working backwards…"
+  },
+  {
+   "id": "decide",
+   "title": "Pick a decision method",
+   "subtitle": "Vote, consent, advice, or one owner?",
+   "emoji": "🗳️",
+   "inputs": [
+    {
+     "key": "decision",
+     "label": "The decision",
+     "type": "text",
+     "placeholder": "which of 6 features to cut from the release",
+     "required": true
+    },
+    {
+     "key": "who",
+     "label": "Who must own it afterwards",
+     "type": "chips",
+     "options": [
+      "One accountable person",
+      "The whole group",
+      "A sponsor not in the room"
+     ],
+     "default": "One accountable person"
+    },
+    {
+     "key": "tension",
+     "label": "Tension in the room",
+     "type": "chips",
+     "options": [
+      "Low",
+      "Some disagreement",
+      "High — factions"
+     ],
+     "default": "Some disagreement"
+    }
+   ],
+   "prompt": "Choose a decision method for: {decision}. Ownership: {who}. Tension: {tension}. Sections: a table (Method — dot vote / consent round / advice process / fist-to-five / single decider after input | Fit here | Time | Risk) with the recommended row marked; steps to run the recommended method including exact wording; a callout on what to say before starting so the group knows how the decision will be made; and bullets on recording and communicating the decision so it sticks.",
+   "shape": "table, steps, callout, bullets",
+   "button": "Choose method",
+   "loading": "Weighing methods…"
+  },
+  {
+   "id": "live",
+   "title": "Someone is derailing",
+   "subtitle": "Dominant voice, silence, tangents, the boss",
+   "emoji": "🛟",
+   "inputs": [
+    {
+     "key": "problem",
+     "label": "What's happening",
+     "type": "chips",
+     "options": [
+      "One person dominates",
+      "Nobody speaks",
+      "The boss answers everything",
+      "Constant tangents",
+      "Two people arguing",
+      "Energy has died"
+     ],
+     "default": "One person dominates"
+    },
+    {
+     "key": "detail",
+     "label": "Details",
+     "type": "text",
+     "placeholder": "it's the most senior engineer; others defer"
+    }
+   ],
+   "prompt": "Live facilitation problem: {problem}. Details: {detail}. Sections: a table (Move | Words to say | When it works | Risk) with 5 moves from gentle to firm, suited to the profile's mode; a quote with the single best line to use right now; bullets of structural fixes for next time (formats that change airtime); and a callout on what not to do, such as singling someone out.",
+   "shape": "table, quote, bullets, callout",
+   "button": "Give me a move",
+   "loading": "Reading the room…"
+  },
+  {
+   "id": "script",
+   "title": "Facilitator script",
+   "subtitle": "Every instruction, word for word",
+   "emoji": "📜",
+   "inputs": [
+    {
+     "key": "agenda",
+     "label": "Your agenda",
+     "type": "longtext",
+     "placeholder": "10 min intro, 20 min silent brainstorm, 30 min cluster, 20 min vote, 10 min owners",
+     "required": true
+    },
+    {
+     "key": "style",
+     "label": "Style",
+     "type": "chips",
+     "options": [
+      "Warm",
+      "Brisk",
+      "Playful"
+     ],
+     "default": "Warm"
+    }
+   ],
+   "prompt": "Write a {style} facilitator script for this agenda: {agenda}. Sections: steps with the verbatim instruction for each block (what to do, how long, what the output looks like, what to do if finished early); a quote with the transition lines between blocks; a checklist of timekeeping cues and when to call time; and a callout on the two moments a facilitator most often loses the room.",
+   "shape": "steps, quote, checklist, callout",
+   "button": "Write script",
+   "loading": "Scripting…"
+  },
+  {
+   "id": "opener",
+   "title": "Opener & energy plan",
+   "subtitle": "Warm-ups with a purpose, no cringe",
+   "emoji": "⚡",
+   "inputs": [
+    {
+     "key": "goal",
+     "label": "The opener should build",
+     "type": "chips",
+     "options": [
+      "Trust / safety",
+      "Creative energy",
+      "Focus on the topic",
+      "Alignment on why we're here"
+     ],
+     "default": "Focus on the topic"
+    },
+    {
+     "key": "people",
+     "label": "Participants",
+     "type": "number",
+     "placeholder": "8"
+    },
+    {
+     "key": "familiar",
+     "label": "Group knows each other",
+     "type": "chips",
+     "options": [
+      "Strangers",
+      "Colleagues",
+      "Close team"
+     ],
+     "default": "Colleagues"
+    }
+   ],
+   "prompt": "Recommend openers for {people} people who are {familiar}, to build {goal}, in the profile's mode. Sections: cards with 3 openers (meta = minutes · materials), each with exact instructions; a table (Time into session | Energy risk | 3-minute fix) for the mid-session dips; and a callout on openers that backfire with senior or sceptical groups.",
+   "shape": "cards, table, callout",
+   "button": "Suggest openers",
+   "loading": "Warming up…"
+  }
+ ]
+}

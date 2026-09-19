@@ -149,7 +149,7 @@
      "default": "Utensils"
     }
    ],
-   "prompt": "Reorganise the {kind} drawer or cupboard in the photo. Sections: a table (Item seen | Keep / relocate / bin | Where it goes); steps for the new layout with divider or riser suggestions and measurements to take; bullets on what is missing that would make it work; and a callout on the one-in-one-out rule for this category.",
+   "prompt": "Reorganise the {kind} drawer or cupboard in the photo. Sections: a table (Item seen | Keep / relocate / bin | Where it goes); steps for the new layout with divider or riser suggestions and measurements to take; bullets on what is missing that would make it work; and a callout on the one-in-one-out rule for this category (for under the sink: keep chemicals in original containers, up high or behind a child lock).",
    "shape": "table, steps, bullets, callout",
    "button": "Reorganise",
    "loading": "Emptying the drawer…"

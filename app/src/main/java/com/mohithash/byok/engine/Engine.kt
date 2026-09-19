@@ -18,7 +18,10 @@ class Engine(private val client: AiClient, private val spec: AppSpec) {
 
     fun render(tool: Tool, inputs: Map<String, String>, profile: Map<String, String>): String {
         var p = tool.prompt.replace("{profile}", profileSummary(profile))
+        // Inputs the prompt template forgot to reference are appended, so nothing the user typed is lost.
+        val orphan = tool.inputs.filter { f -> f.type != "photo" && !tool.prompt.contains("{${f.key}}") && inputs[f.key].orEmpty().isNotBlank() }
         tool.inputs.forEach { f -> p = p.replace("{${f.key}}", inputs[f.key].orEmpty().ifBlank { "(not given)" }) }
+        if (orphan.isNotEmpty()) p += "\n\n" + orphan.joinToString("\n") { f -> "${f.label}: ${inputs[f.key]}" }
         return p + if (tool.shape.isNotBlank()) "\n\nPreferred sections: ${tool.shape}" else ""
     }
 

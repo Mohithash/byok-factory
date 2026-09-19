@@ -109,7 +109,7 @@
      "placeholder": "y = kx, k should equal g/2"
     }
    ],
-   "prompt": "Fit {data} to {model}: kv (slope ± uncertainty, intercept ± uncertainty, R², what the slope physically means), steps for the least-squares calculation or the max/min gradient method as appropriate to the profile level, a table (x | y | Fitted y | Residual), text comparing the result with the expected value, and a callout on outliers and whether the intercept should be forced through zero.",
+   "prompt": "Fit {data}; expected relationship (if given, otherwise assume linear): {model}. kv (slope ± uncertainty, intercept ± uncertainty, R², what the slope physically means), steps for the least-squares calculation or the max/min gradient method as appropriate to the profile level, a table (x | y | Fitted y | Residual), text comparing the result with the expected value, and a callout on outliers and whether the intercept should be forced through zero.",
    "shape": "kv, steps, table, text, callout",
    "button": "Fit it",
    "loading": "Drawing best fit…"

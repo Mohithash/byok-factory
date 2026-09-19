@@ -148,8 +148,8 @@
      "required": true
     }
    ],
-   "prompt": "So far: {marks}. Remaining: {remaining}. Compute a kv (Current weighted average, Weight remaining, Mark needed on remaining for the profile's target, Mark needed for the band below, Best achievable), a table (Remaining assessment | Weight | Needed for target | Needed for band below), and a callout on realism: how the needed mark compares to marks so far and where the effort pays most.",
-   "shape": "kv, table, callout",
+   "prompt": "So far: {marks}. Remaining: {remaining}. Work the arithmetic out explicitly in text first (each mark × weight, the sum, the weight still to play for) so every number can be checked, then a kv (Current weighted average, Weight remaining, Mark needed on remaining for the profile's target, Mark needed for the band below, Best achievable), a table (Remaining assessment | Weight | Needed for target | Needed for band below), and a callout on realism: how the needed mark compares to marks so far and where the effort pays most.",
+   "shape": "text, kv, table, callout",
    "button": "Calculate",
    "loading": "Doing the maths…"
   },
@@ -169,7 +169,7 @@
     {
      "key": "days",
      "label": "Days requested",
-     "type": "text",
+     "type": "number",
      "placeholder": "5"
     },
     {

@@ -1,0 +1,202 @@
+{
+ "id": "slide_surgeon",
+ "name": "Slide Surgeon",
+ "tagline": "Business decks that make one point per slide",
+ "category": "Business",
+ "colors": [
+  "#4527A0",
+  "#00ACC1",
+  "#FF7043"
+ ],
+ "icon": "graph",
+ "about": "Slide Surgeon builds the storyline before the slides, rewrites titles into takeaways, critiques a chart slide from a photo, cuts a long deck down to the executive version and writes the speaker notes.",
+ "persona": "You are a former strategy-consulting presentation coach: pyramid principle, action titles, one message per slide, evidence under every claim; kind but ruthless with clutter.",
+ "onboarding": {
+  "title": "Storyline first, slides second",
+  "subtitle": "Tell us who your decks are for and what you build them in.",
+  "bullets": [
+   "SCQA storylines and slide skeletons",
+   "Action titles that carry the argument",
+   "Chart critiques and executive cuts"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "audience",
+   "label": "Usual audience",
+   "type": "chips",
+   "options": [
+    "Executives",
+    "Clients",
+    "My own team",
+    "Cross-functional partners"
+   ]
+  },
+  {
+   "key": "tool",
+   "label": "Slide tool",
+   "type": "chips",
+   "options": [
+    "PowerPoint",
+    "Google Slides",
+    "Keynote",
+    "Other"
+   ]
+  },
+  {
+   "key": "company",
+   "label": "Company and role",
+   "type": "text",
+   "placeholder": "product manager at a fintech"
+  }
+ ],
+ "tools": [
+  {
+   "id": "storyline",
+   "title": "Build the storyline",
+   "subtitle": "SCQA → pyramid → slide skeleton",
+   "emoji": "🧱",
+   "inputs": [
+    {
+     "key": "message",
+     "label": "What the audience must believe or decide",
+     "type": "longtext",
+     "placeholder": "we should sunset the legacy API in Q2",
+     "required": true
+    },
+    {
+     "key": "for_whom",
+     "label": "This deck's audience",
+     "type": "text",
+     "placeholder": "CTO and platform leads"
+    },
+    {
+     "key": "slides",
+     "label": "Target slide count",
+     "type": "number",
+     "placeholder": "10"
+    }
+   ],
+   "prompt": "Build a storyline for a {slides}-slide deck for {for_whom} with the core message: {message}. Sections: kv (Situation, Complication, Question, Answer — one sentence each); a table (Slide # | Action title — a full-sentence takeaway | Evidence on the slide | Visual type) with one row per slide; bullets naming the 3 objections the storyline must pre-empt and which slide handles each; and a callout with the governing thought in 15 words or fewer.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Build storyline",
+   "loading": "Pyramiding…"
+  },
+  {
+   "id": "titles",
+   "title": "Rewrite my titles",
+   "subtitle": "Topic labels → action titles",
+   "emoji": "✍️",
+   "inputs": [
+    {
+     "key": "titles",
+     "label": "Paste your slide titles, one per line",
+     "type": "longtext",
+     "placeholder": "Market overview\nOur performance\nNext steps",
+     "required": true
+    }
+   ],
+   "prompt": "Rewrite these slide titles as action titles, i.e. full-sentence takeaways a reader could skim as the whole argument: {titles}. Sections: a table (Old title | Action title | What the slide must now prove); text reading the new titles in sequence as one paragraph to test whether the argument flows; and a callout naming any slide that has no takeaway and should be cut or merged.",
+   "shape": "table, text, callout",
+   "button": "Rewrite titles",
+   "loading": "Sharpening…"
+  },
+  {
+   "id": "chart",
+   "title": "Fix this chart",
+   "subtitle": "Photo of a data slide → what to change",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo or screenshot of the chart slide",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "claim",
+     "label": "The slide is meant to show",
+     "type": "chips",
+     "options": [
+      "A trend over time",
+      "A comparison",
+      "A share of a whole",
+      "A relationship",
+      "Not sure"
+     ],
+     "default": "A comparison"
+    }
+   ],
+   "prompt": "Critique the chart slide in the photo, which is meant to show: {claim}, for the profile's usual audience. Sections: kv (What the chart actually shows, What the title claims, Match — yes / partly / no, Seconds to understand it); a table (Problem | Severity — high / medium / low | Fix) covering chart type, baseline and axes, labels and units, colour and emphasis, clutter and annotation; steps to rebuild it in 10 minutes in the profile's slide tool; and a quote with the action title the data honestly supports.",
+   "shape": "kv, table, steps, quote",
+   "button": "Critique",
+   "loading": "Squinting at it…"
+  },
+  {
+   "id": "cut",
+   "title": "Cut to the exec version",
+   "subtitle": "40 slides → 5 for leadership",
+   "emoji": "✂️",
+   "inputs": [
+    {
+     "key": "outline",
+     "label": "Paste your current slide list or outline",
+     "type": "longtext",
+     "placeholder": "…",
+     "required": true
+    },
+    {
+     "key": "target",
+     "label": "Target slide count",
+     "type": "number",
+     "placeholder": "5"
+    },
+    {
+     "key": "decision",
+     "label": "What leadership must decide",
+     "type": "text",
+     "placeholder": "approve £400k budget"
+    }
+   ],
+   "prompt": "Cut this deck to {target} slides for executives who must decide: {decision}. Current outline: {outline}. Sections: a table (Slide | Keep / Merge / Appendix / Cut | Why) for every existing slide; a second table (New # | Action title | Content) for the {target}-slide version; bullets on what goes in the appendix and how to reference it live; and a callout scripting the first 30 seconds of the presentation.",
+   "shape": "table, bullets, callout",
+   "button": "Cut it",
+   "loading": "Trimming…"
+  },
+  {
+   "id": "notes",
+   "title": "Speaker notes",
+   "subtitle": "What to say on each slide",
+   "emoji": "🗣️",
+   "inputs": [
+    {
+     "key": "slide",
+     "label": "Slide title and content",
+     "type": "longtext",
+     "placeholder": "Title: 'Churn rose 30% after the price change'; chart of monthly churn; bullets on segments",
+     "required": true
+    },
+    {
+     "key": "length",
+     "label": "Talk time per slide",
+     "type": "chips",
+     "options": [
+      "30 seconds",
+      "1 minute",
+      "2 minutes"
+     ],
+     "default": "1 minute"
+    }
+   ],
+   "prompt": "Write speaker notes for {length} on this slide: {slide}. Sections: a quote with the spoken script (first sentence states the takeaway, then walk the evidence, then a bridge to the next slide); bullets with two questions the slide will provoke and one-line answers; and a callout on what not to read aloud from the slide.",
+   "shape": "quote, bullets, callout",
+   "button": "Write notes",
+   "loading": "Scripting…"
+  }
+ ]
+}

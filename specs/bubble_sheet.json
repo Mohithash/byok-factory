@@ -87,7 +87,7 @@
      "default": "5"
     }
    ],
-   "prompt": "Write {n} exam-format questions for {section}, focused on {topic} if given, pitched at the profile's target score: cards (question with 4 lettered options, meta = skill · difficulty), then a table (No. | Answer | Fastest route | Trap option and why it tempts), and a callout with the one time-saving habit for this section.",
+   "prompt": "Write {n} exam-format questions for {section}, focused on {topic} if given, pitched at the profile's target score: cards (question with its lettered options — four, or five for ACT Math — meta = skill · difficulty), then a table (No. | Answer | Fastest route | Trap option and why it tempts), and a callout with the one time-saving habit for this section.",
    "shape": "cards, table, callout",
    "button": "Drill me",
    "loading": "Sharpening pencils…"

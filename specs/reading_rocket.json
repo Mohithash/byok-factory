@@ -89,7 +89,7 @@
      "default": "Story"
     }
    ],
-   "prompt": "Write a {words} {genre} about {topic} pitched at the profile child's reading level and interests. Sections: the passage as a quote (short paragraphs, mostly decodable, 3–4 stretch words), a kv of the stretch words (Word → meaning in one line), steps for a 4-day repeated-reading routine (echo, choral, timed, perform) with a words-per-minute goal based on the profile, and a table of 4 comprehension questions (Question | Type: literal, inference, vocabulary | Answer).",
+   "prompt": "Write a {words} {genre} about {topic} (pick from the profile interests if blank) pitched at the profile child's reading level and interests. Sections: the passage as a quote (short paragraphs, mostly decodable, 3–4 stretch words), a kv of the stretch words (Word → meaning in one line), steps for a 4-day repeated-reading routine (echo, choral, timed, perform) with a words-per-minute goal based on the profile, and a table of 4 comprehension questions (Question | Type: literal, inference, vocabulary | Answer).",
    "shape": "quote, kv, steps, table",
    "button": "Write passage",
    "loading": "Launching…"
@@ -151,7 +151,7 @@
      "placeholder": "Harry Potter — too long"
     }
    ],
-   "prompt": "Recommend 8 real, in-print {format} titles for the profile child's age, level and interests, avoiding what went wrong with: {hated}. Cards (Title by Author, meta = reading level · pages · hook in five words), a table (Title | Why it will land | First-chapter test: the bit to read aloud to them), and a callout on letting kids quit books without guilt.",
+   "prompt": "Recommend 8 real, in-print {format} titles for the profile child's age, level and interests, avoiding what went wrong with: {hated} (if any). Cards (Title by Author, meta = reading level · pages · hook in five words), a table (Title | Why it will land | First-chapter test: the bit to read aloud to them), and a callout on letting kids quit books without guilt.",
    "shape": "cards, table, callout",
    "button": "Match books",
    "loading": "Scanning shelves…"

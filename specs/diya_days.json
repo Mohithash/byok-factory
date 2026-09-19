@@ -1,0 +1,242 @@
+{
+ "id": "diya_days",
+ "name": "Diya Days",
+ "tagline": "Five days of Diwali, lit, fed and sorted",
+ "category": "Lifestyle",
+ "colors": [
+  "#B71C1C",
+  "#FF8F00",
+  "#6A1B9A"
+ ],
+ "icon": "flame",
+ "about": "Diya Days plans Diwali at home from Dhanteras to Bhai Dooj: a day-by-day plan for your tradition, rangoli and lighting you can actually finish, the sweets and snacks spread, a taash party night, and hampers with greetings.",
+ "persona": "You are a warm, practical Diwali host who knows North, South, Gujarati, Bengali, Jain and Sikh variations, respects elders' versions, and keeps oil lamps and kids apart.",
+ "onboarding": {
+  "title": "Light it up without the last-minute panic",
+  "subtitle": "Tell us your tradition and who's celebrating with you.",
+  "bullets": [
+   "Day-by-day plan for your tradition",
+   "Rangoli, lights and decor you can finish",
+   "Sweets, taash night and hampers"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "tradition",
+   "label": "Tradition",
+   "type": "chips",
+   "options": [
+    "North Indian",
+    "Gujarati",
+    "Marathi",
+    "South Indian",
+    "Bengali (Kali Puja)",
+    "Jain",
+    "Sikh (Bandi Chhor Divas)",
+    "Mixed / just the vibe"
+   ]
+  },
+  {
+   "key": "home",
+   "label": "Home",
+   "type": "chips",
+   "options": [
+    "Flat / apartment",
+    "House with garden",
+    "Shared house",
+    "Abroad, small space"
+   ]
+  },
+  {
+   "key": "household",
+   "label": "Who's celebrating",
+   "type": "text",
+   "placeholder": "us two + parents visiting, kids 5 and 9"
+  }
+ ],
+ "tools": [
+  {
+   "id": "five",
+   "title": "5-day plan",
+   "subtitle": "Dhanteras to Bhai Dooj",
+   "emoji": "🪔",
+   "inputs": [
+    {
+     "key": "date",
+     "label": "Lakshmi Puja date",
+     "type": "text",
+     "placeholder": "20 Oct",
+     "required": true
+    },
+    {
+     "key": "effort",
+     "label": "Effort this year",
+     "type": "chips",
+     "options": [
+      "Go all in",
+      "Balanced",
+      "Keep it simple"
+     ],
+     "default": "Balanced"
+    }
+   ],
+   "prompt": "Build a five-day plan around Diwali on {date} for the profile tradition and household at '{effort}' effort. Sections: a table (Day | Name & meaning | Morning | Evening | Food) from Dhanteras to Bhai Dooj or the equivalent days for the tradition; a checklist of one-time shopping (diyas, oil and wicks, puja items, sweets boxes, new clothes, gifts) grouped 'buy early' and 'buy fresh'; and a callout on what to drop first if the week gets busy.",
+   "shape": "table, checklist, callout",
+   "button": "Plan the week",
+   "loading": "Lighting lamps…"
+  },
+  {
+   "id": "decor",
+   "title": "Rangoli & lights",
+   "subtitle": "A design you can finish tonight",
+   "emoji": "🎨",
+   "inputs": [
+    {
+     "key": "spot",
+     "label": "Where",
+     "type": "chips",
+     "options": [
+      "Entrance / doorstep",
+      "Balcony",
+      "Living room",
+      "Puja corner",
+      "Windows (abroad)"
+     ],
+     "default": "Entrance / doorstep"
+    },
+    {
+     "key": "skill",
+     "label": "Rangoli skill",
+     "type": "chips",
+     "options": [
+      "First time",
+      "Can copy a design",
+      "Confident"
+     ],
+     "default": "Can copy a design"
+    },
+    {
+     "key": "photo",
+     "label": "Photo of the space (optional)",
+     "type": "photo"
+    }
+   ],
+   "prompt": "Design decor for the {spot} at '{skill}' rangoli level, using the photo if given to judge size, surface and light. Sections: steps for a rangoli the user can actually finish (grid method, colour order, powder/flower/stencil options for the skill level); cards for 3 lighting layouts (meta = diyas needed · cost tier · setup minutes); a checklist of materials; and a callout on fire safety with oil diyas near fabric, kids and pets, plus renter-safe ways to fix string lights.",
+   "shape": "steps, cards, checklist, callout",
+   "button": "Design it",
+   "loading": "Sprinkling colour…"
+  },
+  {
+   "id": "sweets",
+   "title": "Sweets & snacks",
+   "subtitle": "Mithai and savouries, make or buy",
+   "emoji": "🍬",
+   "inputs": [
+    {
+     "key": "guests",
+     "label": "People to feed",
+     "type": "number",
+     "placeholder": "12"
+    },
+    {
+     "key": "make",
+     "label": "Make vs buy",
+     "type": "chips",
+     "options": [
+      "Mostly home-made",
+      "Half and half",
+      "Mostly bought, plated well"
+     ],
+     "default": "Half and half"
+    },
+    {
+     "key": "needs",
+     "label": "Dietary needs",
+     "type": "text",
+     "placeholder": "one diabetic uncle, one vegan cousin"
+    }
+   ],
+   "prompt": "Plan mithai and savouries for {guests} people, '{make}', with needs: {needs}, matching the profile tradition. Table (Item | Make or buy | Quantity | Make-ahead days | Notes for the dietary needs); steps for the two most forgiving home-made items (with sugar-syrup string test and timings); a checklist shopping list; and bullets on plating a thali or box so it looks abundant without waste.",
+   "shape": "table, steps, checklist, bullets",
+   "button": "Plan the spread",
+   "loading": "Stirring ghee…"
+  },
+  {
+   "id": "taash",
+   "title": "Taash party night",
+   "subtitle": "Cards, food breaks, friendly stakes",
+   "emoji": "🃏",
+   "inputs": [
+    {
+     "key": "guests",
+     "label": "Guests",
+     "type": "number",
+     "placeholder": "10"
+    },
+    {
+     "key": "stakes",
+     "label": "Stakes",
+     "type": "chips",
+     "options": [
+      "No money, points only",
+      "Small change",
+      "Prizes instead"
+     ],
+     "default": "No money, points only"
+    },
+    {
+     "key": "mix",
+     "label": "Crowd",
+     "type": "chips",
+     "options": [
+      "Card sharks",
+      "Mixed, some newbies",
+      "Families with kids"
+     ],
+     "default": "Mixed, some newbies"
+    }
+   ],
+   "prompt": "Host a Diwali card-party night for {guests} guests at '{stakes}' stakes with a '{mix}' crowd. Cards for 4 games (teen patti, rummy, bluff and one non-card option; meta = players · minutes · learning curve); steps for a 3-hour run sheet (arrival, first game, food break, tournament, prizes); bullets on house rules that keep it friendly (buy-in caps, rotating dealers, kids' table); and a quote with the WhatsApp invite.",
+   "shape": "cards, steps, bullets, quote",
+   "button": "Plan the night",
+   "loading": "Shuffling…"
+  },
+  {
+   "id": "hampers",
+   "title": "Hampers & greetings",
+   "subtitle": "Gifts for neighbours, team and in-laws",
+   "emoji": "🎁",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Recipients",
+     "type": "text",
+     "placeholder": "neighbours, my team at work, mother-in-law",
+     "required": true
+    },
+    {
+     "key": "budget",
+     "label": "Budget each",
+     "type": "chips",
+     "options": [
+      "Under 10",
+      "10–25",
+      "25–60",
+      "60+"
+     ],
+     "default": "10–25"
+    }
+   ],
+   "prompt": "Suggest Diwali hampers for: {who}, at {budget} each. Cards per recipient (meta = cost · home-made % · prep time) with 3–4 items each and at least one item that isn't sweets; a quote with card messages in English plus one line in Hindi (or the profile tradition's language) with transliteration; and a checklist for assembly and delivery timing before Lakshmi Puja evening.",
+   "shape": "cards, quote, checklist",
+   "button": "Build hampers",
+   "loading": "Tying ribbons…"
+  }
+ ],
+ "disclaimer": "Follow local fireworks laws and never leave lit diyas unattended; customs vary by family and region, so honour your elders' version."
+}

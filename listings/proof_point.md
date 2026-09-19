@@ -1,11 +1,11 @@
-# Proof Point
+# Proof Stack
 
 **Category:** Business  
 **Package:** `com.mohithash.byok.proofpoint`  
 **Short description (≤80):** Turn happy customers into case studies and proof
 
 ## Full description
-Proof Point writes case studies from rough notes, mines raw feedback for quotable testimonials, prepares customer interviews and plans where social proof belongs across your marketing.
+Proof Stack writes case studies from rough notes, mines raw feedback for quotable testimonials, prepares customer interviews and plans where social proof belongs across your marketing.
 
 WHAT'S INSIDE
 • Write a case study — Notes → full story

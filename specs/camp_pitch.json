@@ -1,0 +1,187 @@
+{
+ "id": "camp_pitch",
+ "name": "Camp Pitch",
+ "tagline": "Family car camping without the 3am regrets",
+ "category": "Travel & Local",
+ "colors": [
+  "#33691E",
+  "#F4511E",
+  "#8D6E63"
+ ],
+ "icon": "home",
+ "about": "Camp Pitch plans family and group car-camping trips: packing lists matched to the forecast, where to pitch from a photo of the site, a setup order that beats the dark, rainy-day rescues and fire and wildlife briefings.",
+ "persona": "You are a seasoned campsite host and scout leader: practical, weather-obsessed, calm about kids and rain, and firm about fire and wildlife safety.",
+ "onboarding": {
+  "title": "Pitch it right the first time",
+  "subtitle": "Tell us who's coming and what you sleep in; every list adapts.",
+  "bullets": [
+   "Packing lists matched to the forecast",
+   "Pitch and setup order from a site photo",
+   "Rainy-day and wildlife plans"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "shelter",
+   "label": "Shelter",
+   "type": "chips",
+   "options": [
+    "Tent",
+    "Rooftop tent",
+    "Trailer / caravan",
+    "Hammock"
+   ]
+  },
+  {
+   "key": "group",
+   "label": "Usually camping with",
+   "type": "chips",
+   "options": [
+    "Solo",
+    "Couple",
+    "Kids under 6",
+    "Kids 6–12",
+    "Teens",
+    "Big group",
+    "Dog"
+   ],
+   "multi": true
+  },
+  {
+   "key": "gear",
+   "label": "Gear you already own",
+   "type": "text",
+   "placeholder": "4-person tent, 2 sleeping pads, gas stove"
+  }
+ ],
+ "tools": [
+  {
+   "id": "pack",
+   "title": "Pack for the trip",
+   "subtitle": "Forecast-matched checklist",
+   "emoji": "🎒",
+   "inputs": [
+    {
+     "key": "nights",
+     "label": "Nights",
+     "type": "number",
+     "placeholder": "2"
+    },
+    {
+     "key": "forecast",
+     "label": "Forecast",
+     "type": "text",
+     "placeholder": "12–22°C, showers Saturday, breezy",
+     "required": true
+    },
+    {
+     "key": "site",
+     "label": "Site facilities",
+     "type": "text",
+     "placeholder": "toilets, no showers, fire pits allowed"
+    }
+   ],
+   "prompt": "Build a packing list for {nights} nights with forecast '{forecast}' at a site with: {site}, using the profile's gear and group. Sections: a checklist grouped Shelter / Sleep / Kitchen / Clothing / Kids & dog / Safety, a table of extras the forecast demands (Item | Why | Skip if…), and a callout on the three things people forget most.",
+   "shape": "checklist, table, callout",
+   "button": "Build list",
+   "loading": "Rolling the bags…"
+  },
+  {
+   "id": "pitch",
+   "title": "Where to pitch",
+   "subtitle": "Photo of the site → best spot",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of your pitch or the site",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "wind",
+     "label": "Wind / weather expected",
+     "type": "text",
+     "placeholder": "wind from the west, rain overnight"
+    }
+   ],
+   "prompt": "From the photo and the expected weather '{wind}', choose where and how to pitch the profile's shelter. Sections: text on the best spot and why (slope, drainage, wind, shade, distance from paths and the fire pit), bullets of hazards visible (dead branches overhead, hollows, ant nests, flood lines), and steps for orientation and guy-line setup.",
+   "shape": "text, bullets, steps",
+   "button": "Pick my spot",
+   "loading": "Reading the ground…"
+  },
+  {
+   "id": "setup",
+   "title": "Setup order",
+   "subtitle": "Arrive at 5, done before dark",
+   "emoji": "⏱️",
+   "inputs": [
+    {
+     "key": "arrive",
+     "label": "Arrival time & sunset",
+     "type": "text",
+     "placeholder": "arrive 17:00, sunset 20:30"
+    },
+    {
+     "key": "helpers",
+     "label": "Hands available",
+     "type": "chips",
+     "options": [
+      "Just me",
+      "Two adults",
+      "Adults + kids"
+     ],
+     "default": "Two adults"
+    }
+   ],
+   "prompt": "Plan the camp setup given '{arrive}' with {helpers}. Sections: steps in order with minutes and who does what (shelter first, then sleep, then kitchen, then light), a checklist of jobs kids can own, and a callout on what must be done before dark no matter what.",
+   "shape": "steps, checklist, callout",
+   "button": "Plan setup",
+   "loading": "Pegging out…"
+  },
+  {
+   "id": "rain",
+   "title": "Rainy day rescue",
+   "subtitle": "Keep everyone sane under canvas",
+   "emoji": "🌧️",
+   "inputs": [
+    {
+     "key": "situation",
+     "label": "The situation",
+     "type": "text",
+     "placeholder": "day 2, rain all day, bored 5 and 8 year olds, tarp up",
+     "required": true
+    }
+   ],
+   "prompt": "Rescue this day: {situation}. Cards of 6 activities for the group and gear (meta = minutes · needs), steps for keeping the tent dry and gear from soaking, bullets on morale, and a callout on when to call the trip and go home.",
+   "shape": "cards, steps, bullets, callout",
+   "button": "Rescue the day",
+   "loading": "Finding the tarp…"
+  },
+  {
+   "id": "wild",
+   "title": "Fire & wildlife rules",
+   "subtitle": "Campfire, food storage, encounters",
+   "emoji": "🔥",
+   "inputs": [
+    {
+     "key": "place",
+     "label": "Where you are",
+     "type": "text",
+     "placeholder": "national forest, bear country, fire ban level 2",
+     "required": true
+    }
+   ],
+   "prompt": "For a camp at: {place}. A checklist of fire safety (ring, clearance, water bucket, cold-to-the-touch test), a table of food and scented-item storage (Item | Where it goes | Why), steps for a wildlife encounter matched to the local species, and a callout on leave-no-trace pack-down.",
+   "shape": "checklist, table, steps, callout",
+   "button": "Brief me",
+   "loading": "Checking the rules…"
+  }
+ ],
+ "disclaimer": "Safety guidance is general; follow local fire bans, park rules and ranger instructions."
+}

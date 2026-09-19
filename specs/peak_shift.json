@@ -1,0 +1,168 @@
+{
+ "id": "peak_shift",
+ "name": "Peak Shift",
+ "tagline": "Run things when power is cheap, and cut the standby",
+ "category": "House & Home",
+ "colors": [
+  "#F9A825",
+  "#1A237E",
+  "#00BFA5"
+ ],
+ "icon": "bolt",
+ "about": "Peak Shift works out what each appliance really costs to run, builds a daily plan to shift washing, dishwashing, charging and heating into off-peak or solar hours, checks whether a time-of-use tariff would pay, and hunts down phantom standby loads.",
+ "persona": "You are a pragmatic home-energy analyst: every claim comes with a kWh number, you respect that people won't rewire their lives, and you never sell gadgets.",
+ "onboarding": {
+  "title": "Same life, cheaper hours",
+  "subtitle": "Your tariff and appliances make the numbers real.",
+  "bullets": [
+   "Cost per cycle for every appliance",
+   "A daily shift plan",
+   "Standby hunt with payback"
+  ]
+ },
+ "profile": [
+  {
+   "key": "tariff",
+   "label": "Tariff type",
+   "type": "chips",
+   "options": [
+    "Flat rate",
+    "Off-peak / night rate",
+    "Time-of-use (several bands)",
+    "Solar at home",
+    "Solar + battery"
+   ]
+  },
+  {
+   "key": "rates",
+   "label": "Your rates",
+   "type": "text",
+   "placeholder": "peak 32p, off-peak 9p 00:00–07:00"
+  },
+  {
+   "key": "home",
+   "label": "Household",
+   "type": "chips",
+   "options": [
+    "1–2 people",
+    "Family",
+    "Shared house"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "cost",
+   "title": "What does it cost to run?",
+   "subtitle": "Wattage or rating plate → cost per use",
+   "emoji": "🔌",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the rating plate or energy label",
+     "type": "photo"
+    },
+    {
+     "key": "appliance",
+     "label": "Appliance and use",
+     "type": "text",
+     "placeholder": "tumble dryer, 5 loads a week; or 2000W kettle",
+     "required": true
+    }
+   ],
+   "prompt": "Using the photo if given and '{appliance}' with the profile rates: kv (power draw kW, energy per use kWh, cost per use at peak, cost per use off-peak, cost per year at current use), a table (Alternative | kWh per use | Saving per year) such as heat-pump dryer, airing rack or eco mode, and a callout on the assumptions made about wattage and cycle length.",
+   "shape": "kv, table, callout",
+   "button": "Calculate",
+   "loading": "Reading watts…"
+  },
+  {
+   "id": "plan",
+   "title": "Shift my day",
+   "subtitle": "When to run everything for the cheapest day",
+   "emoji": "🕛",
+   "inputs": [
+    {
+     "key": "loads",
+     "label": "What runs in a typical day",
+     "type": "longtext",
+     "placeholder": "dishwasher nightly, washing 4x/week, EV charge 20kWh Tue/Thu, immersion heater, gaming PC evenings",
+     "required": true
+    }
+   ],
+   "prompt": "Build a load-shifting plan for the profile tariff for: {loads}. Table (Appliance | Run at | Delay-start setting | Weekly kWh | Weekly cost now | After shift), kv (weekly saving, yearly saving, what can't move), steps to set delay timers and smart plugs once, and a callout on fire safety for running appliances overnight (dryers, dishwashers, chargers).",
+   "shape": "table, kv, steps, callout",
+   "button": "Shift it",
+   "loading": "Moving loads…"
+  },
+  {
+   "id": "tariff",
+   "title": "Would a different tariff pay?",
+   "subtitle": "Time-of-use, EV or solar-export tariffs",
+   "emoji": "📊",
+   "inputs": [
+    {
+     "key": "usage",
+     "label": "Usage and habits",
+     "type": "text",
+     "placeholder": "3,400 kWh/yr, EV, home in evenings, could shift washing",
+     "required": true
+    },
+    {
+     "key": "offer",
+     "label": "Tariff you're considering",
+     "type": "text",
+     "placeholder": "peak 35p 4–7pm, off-peak 12p overnight, same standing charge"
+    }
+   ],
+   "prompt": "Compare the profile's current tariff with '{offer}' for: {usage}. Table (Scenario | Annual cost current | Annual cost new | Difference) for 'no change in habits', 'shift the easy loads' and 'shift everything possible', kv (break-even share of usage off-peak, biggest lever), bullets on the questions to ask before switching (exit fees, smart-meter requirement, price-cap rules), and a callout stating the estimate assumptions.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Compare",
+   "loading": "Crunching bands…"
+  },
+  {
+   "id": "standby",
+   "title": "Standby hunt",
+   "subtitle": "Find the phantom loads worth killing",
+   "emoji": "👻",
+   "inputs": [
+    {
+     "key": "devices",
+     "label": "Devices left plugged in",
+     "type": "longtext",
+     "placeholder": "TV + soundbar, 2 consoles, router, printer, phone chargers, coffee machine on clock",
+     "required": true
+    }
+   ],
+   "prompt": "Estimate standby for: {devices}. Table (Device | Standby W est. | Cost per year | Kill it? yes / no / smart plug), kv (total standby cost per year, saving if the yes-items are switched off, payback on a smart plug strip), a checklist of what to switch off tonight, and a callout on what must stay on (router if needed, fridge, boiler controls, security).",
+   "shape": "table, kv, checklist, callout",
+   "button": "Hunt",
+   "loading": "Chasing ghosts…"
+  },
+  {
+   "id": "solar",
+   "title": "Use my own solar",
+   "subtitle": "Self-consumption with or without a battery",
+   "emoji": "☀️",
+   "inputs": [
+    {
+     "key": "system",
+     "label": "System and export rate",
+     "type": "text",
+     "placeholder": "4kW panels, export 15p, no battery",
+     "required": true
+    },
+    {
+     "key": "day",
+     "label": "Tomorrow's forecast",
+     "type": "text",
+     "placeholder": "sunny until 3pm, cloudy after"
+    }
+   ],
+   "prompt": "For '{system}' with forecast '{day}': steps for tomorrow's running order timed to the sun (washing, dishwasher, immersion, EV, cooking), a table (Hour | Expected generation kW est. | Run this), kv (self-consumption % achievable, value of export versus using it yourself), and a callout on whether a battery or diverter would pay for this setup with a rough payback range.",
+   "shape": "steps, table, kv, callout",
+   "button": "Plan tomorrow",
+   "loading": "Watching the sky…"
+  }
+ ],
+ "disclaimer": "Estimates only; check figures with your supplier and meter, and never modify wiring or overload sockets — use a qualified electrician."
+}

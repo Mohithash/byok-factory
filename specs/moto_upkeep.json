@@ -1,0 +1,215 @@
+{
+ "id": "moto_upkeep",
+ "name": "Throttle Log",
+ "tagline": "Keep your motorcycle ready for every ride",
+ "category": "Auto & Vehicles",
+ "colors": [
+  "#212121",
+  "#FF6F00",
+  "#B0BEC5"
+ ],
+ "icon": "wrench",
+ "about": "Throttle Log runs pre-ride checks, builds a service schedule for your exact bike and mileage, diagnoses noises and symptoms, reads chain and tyre wear from a photo and walks you through winter lay-up.",
+ "persona": "You are a seasoned motorcycle mechanic and riding instructor: methodical, safety-first, and honest about which jobs are DIY and which belong in a shop.",
+ "onboarding": {
+  "title": "Know your bike inside out",
+  "subtitle": "Tell us what you ride and how; every check and schedule is built for it.",
+  "bullets": [
+   "T-CLOCS pre-ride checks in minutes",
+   "Service schedule by your mileage",
+   "Symptom and wear diagnosis"
+  ]
+ },
+ "profile": [
+  {
+   "key": "bike",
+   "label": "Bike (make, model, year)",
+   "type": "text",
+   "placeholder": "Honda CB500F 2019"
+  },
+  {
+   "key": "km",
+   "label": "Odometer (km)",
+   "type": "number",
+   "placeholder": "18400"
+  },
+  {
+   "key": "use",
+   "label": "Riding",
+   "type": "chips",
+   "options": [
+    "Daily commute",
+    "Weekend",
+    "Touring",
+    "Track",
+    "Off-road"
+   ]
+  },
+  {
+   "key": "skill",
+   "label": "Wrenching level",
+   "type": "chips",
+   "options": [
+    "Beginner",
+    "Basic tools",
+    "Confident"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "preride",
+   "title": "Pre-ride check",
+   "subtitle": "T-CLOCS in 5 minutes",
+   "emoji": "🏍️",
+   "inputs": [
+    {
+     "key": "ride",
+     "label": "Today's ride",
+     "type": "chips",
+     "options": [
+      "Commute",
+      "Day trip",
+      "Multi-day tour",
+      "Track day",
+      "Pillion ride"
+     ],
+     "default": "Day trip"
+    },
+    {
+     "key": "concern",
+     "label": "Anything you noticed",
+     "type": "text",
+     "placeholder": "chain looked loose"
+    }
+   ],
+   "prompt": "Build a pre-ride inspection for a {ride} on the profile bike, paying extra attention to: {concern}. Sections: a checklist in T-CLOCS order (Tyres and wheels, Controls, Lights, Oil and fluids, Chassis, Stands) with a pass criterion per item, a kv of target values (cold tyre pressures, chain slack in mm, oil level, brake pad minimum, lever free play), and a callout naming any item that should stop the ride if it fails.",
+   "shape": "checklist, kv, callout",
+   "button": "Run check",
+   "loading": "Kicking tyres…"
+  },
+  {
+   "id": "service",
+   "title": "Service schedule",
+   "subtitle": "What's due at your mileage",
+   "emoji": "🗓️",
+   "inputs": [
+    {
+     "key": "target",
+     "label": "Plan ahead to (km)",
+     "type": "number",
+     "placeholder": "25000"
+    },
+    {
+     "key": "season",
+     "label": "Season",
+     "type": "chips",
+     "options": [
+      "Spring",
+      "Summer",
+      "Autumn",
+      "Winter"
+     ],
+     "default": "Spring"
+    }
+   ],
+   "prompt": "From the profile odometer up to {target} km, starting in {season}: a table (Km due | Job | DIY or shop | Parts | Est. cost | Time) ordered by mileage, bullets of the jobs the profile skill level can safely do at home with a torque wrench, and a callout on the one item riders of this type of bike most often neglect.",
+   "shape": "table, bullets, callout",
+   "button": "Plan services",
+   "loading": "Checking intervals…"
+  },
+  {
+   "id": "diagnose",
+   "title": "Diagnose a symptom",
+   "subtitle": "Noise, vibration, stall, leak",
+   "emoji": "🔧",
+   "inputs": [
+    {
+     "key": "symptom",
+     "label": "What's happening",
+     "type": "longtext",
+     "placeholder": "clunk from the rear when I shut the throttle, worse in 2nd",
+     "required": true
+    },
+    {
+     "key": "when",
+     "label": "Happens",
+     "type": "chips",
+     "options": [
+      "Cold start",
+      "Warm",
+      "Under load",
+      "Braking",
+      "Cornering",
+      "All the time"
+     ],
+     "default": "All the time"
+    }
+   ],
+   "prompt": "Diagnose: {symptom} (occurs: {when}) on the profile bike. A table (Likely cause | Probability | How to check | Fix | DIY?) ordered by likelihood, steps to confirm the top cause with basic tools, and a callout on whether it is safe to ride before it is fixed.",
+   "shape": "table, steps, callout",
+   "button": "Diagnose",
+   "loading": "Listening…"
+  },
+  {
+   "id": "wear",
+   "title": "Chain & tyre check",
+   "subtitle": "Photo → wear verdict",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the chain, sprocket, tyre or pads",
+     "type": "photo",
+     "placeholder": "Close, well lit, straight on",
+     "required": true
+    },
+    {
+     "key": "part",
+     "label": "Showing",
+     "type": "chips",
+     "options": [
+      "Chain & sprocket",
+      "Front tyre",
+      "Rear tyre",
+      "Brake pads"
+     ],
+     "default": "Chain & sprocket"
+    }
+   ],
+   "prompt": "Assess the {part} in the photo. Give a kv (wear level, estimated remaining life in km, replace-by indicator, safe to ride: yes, soon or no), then bullets of exactly what you see (hooked teeth, tight spots, cupping, cracking, wear-bar depth, glazing). Finish with steps for the correct adjustment or the replacement decision, including the part sizes to check for the profile bike.",
+   "shape": "kv, bullets, steps",
+   "button": "Assess",
+   "loading": "Squinting…"
+  },
+  {
+   "id": "storage",
+   "title": "Store & wake up",
+   "subtitle": "Winter lay-up and spring return",
+   "emoji": "❄️",
+   "inputs": [
+    {
+     "key": "mode",
+     "label": "I'm",
+     "type": "chips",
+     "options": [
+      "Putting it away",
+      "Waking it up"
+     ],
+     "default": "Putting it away"
+    },
+    {
+     "key": "weeks",
+     "label": "Weeks off the road",
+     "type": "number",
+     "placeholder": "12"
+    }
+   ],
+   "prompt": "Plan {mode} for {weeks} weeks for the profile bike. Steps in order (fuel and stabiliser, battery tender, tyres and stands, fluids, covers and rodent defence, or their reversal), a checklist of supplies with rough cost, and a callout on the mistakes that cause a no-start, a dead battery or flat-spotted tyres.",
+   "shape": "steps, checklist, callout",
+   "button": "Plan it",
+   "loading": "Tucking in…"
+  }
+ ],
+ "disclaimer": "Maintenance guidance is general; follow your owner's manual and torque specs, and have brakes, steering and tyres checked by a qualified mechanic if in doubt."
+}

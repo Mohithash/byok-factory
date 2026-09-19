@@ -89,7 +89,7 @@
      "placeholder": "ب ت ث"
     }
    ],
-   "prompt": "Teach the next {count} letters for the profile (or these: {letters}). Sections: a table (Letter | Name | Sound in English terms | Isolated | Initial | Medial | Final | Joins to the next letter?), steps for how to write each one (where the pen starts, dots above or below), a callout on the non-connecting letters (ا د ذ ر ز و) and how they break a word, and bullets of one example word per letter with transliteration.",
+   "prompt": "Teach {count} letters for the profile's level. Specific letters requested: {letters} (if not given, take the next {count} letters in alphabet order after what the profile already knows). Sections: a table (Letter | Name | Sound in English terms | Isolated | Initial | Medial | Final), steps for how to write each one (where the pen starts, dots above or below), a callout on the non-connecting letters (ا د ذ ر ز و) and how they break a word, and bullets of one example word per letter with transliteration.",
    "shape": "table, steps, callout, bullets",
    "button": "Teach",
    "loading": "Dipping the qalam…"

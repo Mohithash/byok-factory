@@ -45,7 +45,8 @@
   {
    "key": "poets",
    "label": "Poets you admire",
-   "type": "text"
+   "type": "text",
+   "placeholder": "Dickinson, Ocean Vuong, Heaney…"
   },
   {
    "key": "goal",
@@ -150,7 +151,7 @@
      "placeholder": "the ending feels flat"
     }
    ],
-   "prompt": "Workshop {poem}; the poet asks about: {ask}. Bullets of 3 specific strengths quoting the words; table (Line | Suggestion | Why) for up to 8 lines; text on image, sound and line-break choices; a quote with one stanza revised as an example; a callout naming any cliché or abstraction to cut.",
+   "prompt": "Workshop {poem}; the poet asks about: {ask} (if nothing is asked, give general notes). Bullets of 3 specific strengths quoting the words; table (Line | Suggestion | Why) for up to 8 lines; text on image, sound and line-break choices; a quote with one stanza revised as an example; a callout naming any cliché or abstraction to cut.",
    "shape": "bullets, table, text, quote, callout",
    "button": "Workshop it",
    "loading": "Reading aloud…"
@@ -188,13 +189,13 @@
      "placeholder": "loss"
     }
    ],
-   "prompt": "Find rhymes for '{word}' of kind '{kind}' suited to the mood '{mood}'. Table (Type | Words, 8 to 12 each | Fits the mood?); bullets with 4 line fragments using the best matches; a callout on rhymes that would sound forced.",
+   "prompt": "Find rhymes for '{word}' of kind '{kind}' suited to the mood '{mood}' (if no mood is given, judge fit for general lyric use). Table (Type | Words, 8 to 12 each | Fits the mood?); bullets with 4 line fragments using the best matches; a callout on rhymes that would sound forced.",
    "shape": "table, bullets, callout",
    "button": "Find rhymes",
    "loading": "Hunting echoes…"
   },
   {
-   "id": "prompt",
+   "id": "daily",
    "title": "Today's prompt",
    "subtitle": "Three prompts for your forms",
    "emoji": "✨",

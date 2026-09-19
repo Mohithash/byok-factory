@@ -26,7 +26,7 @@ APP("one_on_one_prep", "1:1 Prep", "Walk into every 1:1 knowing what matters", "
   T("skip", "Skip-level 1:1", "Meet your reports' reports well", "🪜",
     [TXT("who", "Who and their manager", "Lee, reports to Dana", True), CH("goal", "Goal", ["Get to know them", "Check on their manager", "Hear about the team", "Career interest"], "Get to know them")],
     "Plan a skip-level 1:1 with {who} where the goal is '{goal}'. Steps for the 30 minutes with timings, bullets of 6 questions that won't feel like spying on their manager, a quote with how to open the meeting so it feels safe, and a callout on what to do with anything sensitive they tell you.",
-    "steps, bullets, quote, callout", "Plan it", "Climbing a level…")])
+    "steps, bullets, quote, callout", "Plan it", "Climbing a level…")], HR)
 
 # 2 — Performance reviews (manager side)
 APP("review_writer", "Review Writer", "Fair, evidence-based reviews without the dread", "Business", ["#37474F", "#FFB300", "#00ACC1"], "note",
@@ -36,7 +36,7 @@ APP("review_writer", "Review Writer", "Fair, evidence-based reviews without the 
  [NAME, CH("scale", "Rating scale", ["3-point", "4-point", "5-point", "No ratings"], "5-point"), TXT("format", "Your company's review sections", "Impact, Behaviours, Growth areas"), CH("teamtype", "Team type", ["Engineering", "Sales", "Ops", "Creative", "Support", "Mixed"])],
  [T("draft", "Draft a review", "Notes + self-review → full draft", "✍️",
     [TXT("who", "Who and role", "Ana, product designer L3", True), LONG("evidence", "Your notes and examples", "led checkout redesign, +8% conversion; missed 2 deadlines in Q2; mentored intern…"), LONG("self", "Their self-review (optional)", "", False)],
-    "Write a performance review for {who} on the profile's rating scale using its review sections, from this evidence: {evidence} and their self-review: {self}. Produce text for each section citing specific examples with outcomes, a kv (proposed rating, one-line justification, biggest strength, biggest gap), a table (Claim in self-review | Manager's view | Evidence) for anything where you and they differ, and a callout flagging statements that need more evidence before they go in.",
+    "Write a performance review for {who} on the profile's rating scale using its review sections, from this evidence: {evidence} and their self-review: {self}. Produce text for each section citing specific examples with outcomes, a kv (proposed rating, one-line justification, biggest strength, biggest gap), a table (Claim in self-review | Manager's view | Evidence) for anything where you and they differ (omit the table if no self-review was given), and a callout flagging statements that need more evidence before they go in.",
     "text, kv, table, callout", "Draft review", "Weighing evidence…"),
   T("bias", "Bias & vagueness check", "Audit a draft before it's sent", "🔍",
     [LONG("review", "Paste a draft review", "Sam is a great team player but can be abrasive…")],
@@ -79,8 +79,8 @@ APP("straight_talk", "Straight Talk", "Feedback that is kind, specific and unmis
     "table, kv, quote", "Critique", "Replaying…"),
   T("praise", "Praise that lands", "Specific recognition, not 'great job'", "🌟",
     [TXT("who", "Who", "Lena", True), LONG("what", "What they did", "stayed late to fix the deploy and wrote a clear post-mortem")],
-    "Turn this into specific recognition for {who}: {what}. Quote with the exact words to say in person (behaviour, impact, why it matters to you) followed by a public version for team chat, and bullets on how to make praise feel earned rather than routine for this person.",
-    "quote, bullets", "Write praise", "Finding the words…")])
+    "Turn this into specific recognition for {who}: {what}. Quote with the exact words to say in person (behaviour, impact, why it matters to you) followed by a public version for team chat under 60 words, and bullets of 3 ways to make praise feel earned rather than routine for this person.",
+    "quote, bullets", "Write praise", "Finding the words…")], HR)
 
 # 4 — Underperformance and improvement plans
 APP("turnaround_plan", "Turnaround Plan", "Handle underperformance fairly and clearly", "Business", ["#4527A0", "#FF8F00", "#43A047"], "graph",
@@ -148,7 +148,7 @@ APP("retro_room", "Retro Room", "Team rituals people don't dread", "Business", [
     "kv, steps, bullets, callout", "Design retro", "Picking a format…"),
   T("themes", "Theme the sticky notes", "Raw notes → themes, actions, summary", "🗂️",
     [LONG("notes", "Paste all the notes", "deploys are scary; nobody reviews PRs on Fridays; loved the pairing week; too many meetings…")],
-    "Cluster these retro notes: {notes}. Table (Theme | Notes in it | Sentiment | Suggested votes) with at most 6 themes, bullets of 3 discussion questions for the top theme, a checklist of 2–3 concrete actions each with an owner placeholder and a due date, and a quote with a one-paragraph summary to post in the team channel.",
+    "Cluster these retro notes: {notes}. Table (Theme | Notes in it | Sentiment | Priority 1–3) with at most 6 themes, bullets of 3 discussion questions for the top theme, a checklist of 2–3 concrete actions each with an owner placeholder and a due date, and a quote with a one-paragraph summary to post in the team channel.",
     "table, bullets, checklist, quote", "Cluster", "Sorting stickies…"),
   T("charter", "Working agreements", "'We…' statements the team will own", "📜",
     [LONG("pains", "What keeps going wrong", "people join late; decisions get re-opened in DMs; unclear who reviews what"), CH("scope", "Scope", ["Meetings", "Communication", "Code & reviews", "Everything"], "Everything")],
@@ -188,7 +188,7 @@ APP("first_lead", "First Lead", "The pocket coach for brand-new managers", "Busi
   T("drowning", "I'm drowning", "Triage a week that's too much", "🆘",
     [LONG("week", "What this week looks like", "23 meetings, 3 escalations, my own tickets, review due Friday"), CH("feel", "Right now you feel", ["Behind", "Guilty", "Useless", "Angry", "Numb"], "Behind")],
     "Triage this week: {week}, feeling {feel}. Checklist of what to cancel, delegate or shorten today with the exact message to send for each, a kv (hours reclaimed, one thing to do first, one thing to tell your manager), bullets on the pattern that created this, and a callout normalising that this is the standard month-three wall.",
-    "checklist, kv, bullets, callout", "Triage", "Bailing water…")])
+    "checklist, kv, bullets, callout", "Triage", "Bailing water…")], HR)
 
 # 8 — Career growth and promotions (manager side)
 APP("growth_ladder", "Growth Ladder", "Grow your people on purpose, not by accident", "Business", ["#00838F", "#F4511E", "#8E24AA"], "star",
@@ -206,7 +206,7 @@ APP("growth_ladder", "Growth Ladder", "Grow your people on purpose, not by accid
     "table, bullets, steps, callout", "Build plan", "Finding stretch…"),
   T("case", "Promotion case", "Evidence that survives committee", "🏆",
     [TXT("who", "Who", "Diego, IC3 → IC4", True), LONG("evidence", "Evidence", "led the warehouse migration, 3 teams, saved 40h/week; mentored 2 juniors; presented at all-hands"), LONG("bar", "Your company's bar for the next level (paste if you have it)", "", False)],
-    "Write a promotion case for {who} against the bar: {bar} from this evidence: {evidence}. Text of the case under 400 words organised by the level's expectations with scope, impact and behaviour examples, a table (Expectation | Evidence | Strength — strong / adequate / thin), bullets of the questions a sceptical committee will ask with answers, and a callout on the thinnest area and whether to wait a cycle.",
+    "Write a promotion case for {who} against the bar: {bar} (if no bar was given, use a typical bar for the target level on the profile's ladder) from this evidence: {evidence}. Text of the case under 400 words organised by the level's expectations with scope, impact and behaviour examples, a table (Expectation | Evidence | Strength — strong / adequate / thin), bullets of the questions a sceptical committee will ask with answers, and a callout on the thinnest area and whether to wait a cycle.",
     "text, table, bullets, callout", "Write case", "Building the case…"),
   T("notyet", "The 'not yet' conversation", "Decline a promotion honestly", "⏸️",
     [TXT("who", "Who", "Priya", True), LONG("why", "Why not this cycle", "scope is still single-team; two strong peers ahead; committee said not yet")],
@@ -252,7 +252,7 @@ APP("hard_news", "Hard News", "Deliver layoffs and reorgs like a human", "Busine
  [NAME, CH("role", "Your role", ["Team lead", "Manager of managers", "Director+", "Founder"], "Team lead"), NUM("size", "People in your org", "12"), CH("region", "Region", ["US", "UK / EU", "Other"], "US")],
  [T("announce", "Announce a change", "Decision, why, what changes, what's next", "📣",
     [CH("kind", "Change", ["Layoffs", "Reorg", "Project cancelled", "Pay or hiring freeze", "Leader leaving", "Return to office"], "Reorg"), LONG("facts", "Facts you can share", "two teams merge under Dana; no job losses; new reporting lines Monday"), LONG("cant", "What you can't say yet", "budget cut of 15% next year; possible second round", False)],
-    "Write the team announcement for '{kind}' with these shareable facts: {facts} and things not yet shareable: {cant}. Quote with a spoken announcement under 200 words (decision, why, what changes for them, what doesn't, what happens next, how to raise questions), bullets of 6 phrases to avoid because they sound like spin, a table (Likely question | Honest answer | If you can't answer) for 6 questions, and a callout on handling what you can't say without lying.",
+    "Write the team announcement for '{kind}' with these shareable facts: {facts} and things not yet shareable: {cant}. Quote with a spoken announcement under 200 words (decision, why, what changes for them, what doesn't, what happens next, how to raise questions), bullets of 6 phrases to avoid because they sound like spin, a table (Who hears it | When | Channel | Who tells them) sequencing the communication — affected people first, then their team, then peers and partners — so nobody learns it from the rumour mill, and a callout on handling what you can't say without lying.",
     "quote, bullets, table, callout", "Write it", "Cutting the spin…"),
   T("layoff", "The layoff conversation", "Fifteen minutes with dignity", "🪑",
     [TXT("who", "Who", "Chris, 6 years, two kids", True), TXT("terms", "Terms you can share", "8 weeks severance, health cover to March, HR call after", True), CH("your", "You feel", ["Guilty", "Numb", "Angry at leadership", "Relieved it's not me", "Steady"], "Guilty")],

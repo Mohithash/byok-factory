@@ -80,7 +80,7 @@
      "default": "Full solution"
     }
    ],
-   "prompt": "Problem: {problem} (or the photo); mode: {mode}. Steps where each step names the rule used (chain, product, quotient, u-substitution, parts, L'Hôpital, squeeze…) in the profile notation; kv (final answer, verification by differentiating back or a numeric check, domain notes); a callout on the algebra slip most students make here. In 'Hints only' mode give a ladder of 4 hints as steps and no final answer.",
+   "prompt": "Problem: {problem} (or the photo); mode: {mode}. Steps where each step names the rule used (chain, product, quotient, u-substitution, parts, L'Hôpital, squeeze…) in the profile notation; kv (final answer, verification by differentiating back or a numeric check, domain notes); a callout on the algebra slip most students make here. In 'Hints only' mode give a ladder of 4 hints as steps and no final answer; in 'Check my answer' mode the steps compare the user's working line by line, flag the first wrong line and give the corrected value.",
    "shape": "steps, kv, callout",
    "button": "Work it",
    "loading": "Differentiating…"

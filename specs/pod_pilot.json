@@ -92,7 +92,7 @@
      "multi": true
     }
    ],
-   "prompt": "Write Kubernetes manifests for: {service}, including {extras}, in the profile packaging style. Sections: a quote with the complete YAML (requests and limits, liveness and readiness probes, non-root securityContext, consistent labels), a table (Setting | Value chosen | Why), a checklist to apply and verify it, and a callout on the value most likely to need tuning.",
+   "prompt": "Write Kubernetes manifests for: {service} in the profile packaging style. Extra objects requested: {extras} (none if not given). Sections: a quote with the complete YAML (requests and limits, liveness and readiness probes, non-root securityContext, consistent labels), a table (Setting | Value chosen | Why), a checklist to apply and verify it, and a callout on the value most likely to need tuning.",
    "shape": "quote, table, checklist, callout",
    "button": "Write YAML",
    "loading": "Indenting…"
@@ -117,7 +117,7 @@
      "placeholder": "CrashLoopBackOff / Pending / ImagePullBackOff / OOMKilled"
     }
    ],
-   "prompt": "Diagnose a pod in {status} from: {output}. Sections: text naming the cause in two sentences, steps to confirm it with exact kubectl commands, a quote with the fix (a YAML patch or command), and a table of other common causes of {status} (Cause | How to spot it | Fix).",
+   "prompt": "Diagnose a broken pod from: {output}. Reported status: {status} (infer it from the output if not given). Sections: text naming the cause in two sentences, steps to confirm it with exact kubectl commands, a quote with the fix (a YAML patch or command), and a table of other common causes of that same status (Cause | How to spot it | Fix).",
    "shape": "text, steps, quote, table",
    "button": "Diagnose",
    "loading": "Describing pod…"

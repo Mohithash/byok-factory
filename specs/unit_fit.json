@@ -199,7 +199,7 @@
      "default": "Med-surg"
     }
    ],
-   "prompt": "For a {target} job in {state} with the profile's current licence: kv (licence pathway — compact, endorsement or new application; typical processing time; fees; fingerprinting), a table (Certification | Required or preferred | Provider | Renewal) covering BLS, ACLS, PALS, NIHSS, TNCC, CCRN or the unit's equivalents, steps in order with realistic timelines, and a callout to verify with the official board site.",
+   "prompt": "Work out what the profile needs, starting from their current licence, to take a {target} job in {state}. Give kv (licence pathway: compact, endorsement or new application; typical processing time; fees; fingerprinting and background check). Add a table (Certification | Required or preferred | Provider | Renewal) covering BLS, ACLS, PALS, NIHSS, TNCC, CCRN or the unit's equivalents, then steps in order with realistic weeks for each, and a callout to verify with the official board site.",
    "shape": "kv, table, steps, callout",
    "button": "Check",
    "loading": "Verifying…"

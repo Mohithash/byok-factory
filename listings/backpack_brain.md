@@ -11,7 +11,7 @@ WHAT'S INSIDE
 • Fix the backpack — Photo → a system
 • Forgot again — One recurring failure → a cue
 • Transition plan — Screen → dinner, home → bed
-• Home behaviour plan — Points that actually work
+• Daily report card — Teacher rates, home rewards
 • After-school collapse — Held it together all day; now this
 
 BRING YOUR OWN KEY
@@ -23,7 +23,7 @@ Every answer is a structured, shareable document with follow-up questions, saved
 - 🎒 **Fix the backpack** — Photo → a system
 - 🔔 **Forgot again** — One recurring failure → a cue
 - 🔁 **Transition plan** — Screen → dinner, home → bed
-- ⭐ **Home behaviour plan** — Points that actually work
+- ⭐ **Daily report card** — Teacher rates, home rewards
 - 🌪️ **After-school collapse** — Held it together all day; now this
 
 ## Privacy policy

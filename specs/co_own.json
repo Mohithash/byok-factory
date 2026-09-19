@@ -88,7 +88,7 @@
      "default": "3–7 years"
     }
    ],
-   "prompt": "For the profile's co-owners planning to co-own for {term}, produce a checklist of every clause a co-ownership or trust agreement should cover (shares, contributions, sale triggers, buy-out valuation, notice periods, occupancy, renting rooms, repairs, death, disputes), a kv (clause → a sensible default for this group), bullets on which points usually cause the biggest arguments, and a callout on getting it drafted by a property lawyer in the region.",
+   "prompt": "The profile's co-owners plan to co-own for {term}. Produce a checklist of every clause a co-ownership or trust agreement should cover (shares, contributions, sale triggers, buy-out valuation, notice periods, occupancy, renting rooms, repairs, death, disputes). Then a kv (clause → a sensible default for this group), bullets on which points usually cause the biggest arguments, and a callout on getting it drafted by a property lawyer in the region.",
    "shape": "checklist, kv, bullets, callout",
    "button": "List the clauses",
    "loading": "Drafting…"

@@ -138,7 +138,7 @@
      "placeholder": "useDebouncedSearch"
     }
    ],
-   "prompt": "Extract a custom hook called {name} from: {code}. Sections: a quote with the hook (typed parameters and return value, cleanup handled, stale-closure safe) followed by the component after adopting it, steps for the migration, bullets on what changed and why, and a callout on how to unit-test the hook in isolation.",
+   "prompt": "Extract a custom hook from: {code}. Hook name: {name} (if not given, choose a clear use-prefixed name and say why). Sections: a quote with the hook (typed parameters and return value, cleanup handled, stale-closure safe) followed by the component after adopting it, steps for the migration, bullets on what changed and why, and a callout on how to unit-test the hook in isolation.",
    "shape": "quote, steps, bullets, callout",
    "button": "Extract",
    "loading": "Hooking…"

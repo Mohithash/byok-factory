@@ -8,7 +8,7 @@
 Screen Sherpa checks whether a game or app is right for your child, sizes screen limits by age and day, gets you through the end-of-screen meltdown, and settles the first-phone decision.
 
 WHAT'S INSIDE
-• Is this OK? — Photo or name of a game/app
+• Is this game OK? — Photo or name of a game or video app
 • Set limits — By age, day and season
 • End-of-screen meltdown — Turning it off without war
 • First phone? — Readiness check + rules
@@ -20,7 +20,7 @@ Works with Claude (Anthropic) or any OpenAI-compatible endpoint (OpenAI, Groq, O
 Every answer is a structured, shareable document with follow-up questions, saved on-device so you can come back to it.
 
 ## Tools
-- 🎮 **Is this OK?** — Photo or name of a game/app
+- 🎮 **Is this game OK?** — Photo or name of a game or video app
 - ⏳ **Set limits** — By age, day and season
 - 🌋 **End-of-screen meltdown** — Turning it off without war
 - 📱 **First phone?** — Readiness check + rules

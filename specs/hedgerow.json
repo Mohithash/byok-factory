@@ -1,0 +1,219 @@
+{
+ "id": "hedgerow",
+ "name": "Hedgerow",
+ "tagline": "Forage by the season, identify with care, cook the haul",
+ "category": "Lifestyle",
+ "colors": [
+  "#689F38",
+  "#6A1B9A",
+  "#A1887F"
+ ],
+ "icon": "leaf",
+ "about": "Hedgerow is a foraging companion: what's out this month near you, photo identification with lookalikes and a confidence check, what to do with a basket of the good stuff, and the etiquette and law of picking politely.",
+ "persona": "You are a veteran foraging teacher: enthusiastic, encyclopaedic about lookalikes, and utterly immovable on 'when in doubt, leave it out'.",
+ "onboarding": {
+  "title": "Learn the hedgerow",
+  "subtitle": "Your region and interests set the calendar.",
+  "bullets": [
+   "Monthly what's-out calendar",
+   "Photo ID with lookalike warnings",
+   "Recipes and preserves for the haul"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "region",
+   "label": "Region / climate",
+   "type": "text",
+   "placeholder": "southern England, temperate"
+  },
+  {
+   "key": "into",
+   "label": "Most interested in",
+   "type": "chips",
+   "options": [
+    "Berries & fruit",
+    "Greens & herbs",
+    "Mushrooms",
+    "Nuts & seeds",
+    "Seaweed & coast",
+    "Flowers"
+   ],
+   "multi": true
+  },
+  {
+   "key": "level",
+   "label": "Experience",
+   "type": "chips",
+   "options": [
+    "Beginner",
+    "Some seasons",
+    "Experienced"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "month",
+   "title": "What's out now",
+   "subtitle": "Seasonal calendar for your region",
+   "emoji": "📅",
+   "inputs": [
+    {
+     "key": "month",
+     "label": "Month",
+     "type": "chips",
+     "options": [
+      "This month",
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+     ],
+     "default": "This month"
+    },
+    {
+     "key": "habitat",
+     "label": "Habitat you'll walk",
+     "type": "chips",
+     "options": [
+      "Woodland",
+      "Hedgerow & field edge",
+      "Coast",
+      "Urban parks",
+      "Wetland",
+      "Upland"
+     ],
+     "default": "Hedgerow & field edge"
+    }
+   ],
+   "prompt": "For {month} (if 'This month', use today's date) in the profile region, walking {habitat}. Sections: a table (Species | Part to pick | Where to look | Peak weeks | Beginner-safe?), cards for the 3 best targets for the profile's interests (meta = ease · abundance), and a callout on the dangerous lookalikes active this month.",
+   "shape": "table, cards, callout",
+   "button": "Show me",
+   "loading": "Checking the season…"
+  },
+  {
+   "id": "id",
+   "title": "Is this what I think it is?",
+   "subtitle": "Photo → ID, lookalikes, confidence",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Clear photo of the whole plant or fungus (cap, gills, stem base)",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "guess",
+     "label": "What you think it is",
+     "type": "text",
+     "placeholder": "chanterelle"
+    },
+    {
+     "key": "context",
+     "label": "Where found",
+     "type": "text",
+     "placeholder": "under birch, on the ground, October"
+    }
+   ],
+   "prompt": "Identify from the photo, the user's guess '{guess}', found: {context}. kv (most likely species, key features seen, features NOT visible that must be checked, confidence low / medium / high), a table of dangerous or common lookalikes (Lookalike | How to tell apart | Danger), a checklist of tests to do in hand (spore print, smell, bruising, cut), and a callout stating never to eat on the basis of an app identification alone.",
+   "shape": "kv, table, checklist, callout",
+   "button": "Check it",
+   "loading": "Examining the gills…"
+  },
+  {
+   "id": "haul",
+   "title": "Cook the haul",
+   "subtitle": "Recipes and preserves",
+   "emoji": "🫙",
+   "inputs": [
+    {
+     "key": "haul",
+     "label": "What you gathered",
+     "type": "text",
+     "placeholder": "2 kg elderberries, a handful of wild garlic",
+     "required": true
+    },
+    {
+     "key": "keep",
+     "label": "You want to",
+     "type": "chips",
+     "options": [
+      "Eat tonight",
+      "Preserve it",
+      "Both"
+     ],
+     "default": "Both"
+    }
+   ],
+   "prompt": "Use the haul: {haul}, goal: {keep}. Steps for cleaning and preparing safely (including anything that must be cooked before eating), cards of 4 recipes or preserves (meta = minutes · keeps for), kv of storage life by method, and a callout on any part or raw state that is toxic.",
+   "shape": "steps, cards, kv, callout",
+   "button": "Cook it",
+   "loading": "Rinsing the basket…"
+  },
+  {
+   "id": "law",
+   "title": "Pick politely",
+   "subtitle": "Rules, etiquette, sustainability",
+   "emoji": "⚖️",
+   "inputs": [
+    {
+     "key": "place",
+     "label": "Where you'll forage",
+     "type": "text",
+     "placeholder": "public footpath through farmland, plus a National Trust wood",
+     "required": true
+    }
+   ],
+   "prompt": "Foraging at: {place} in the profile region. Bullets on the general legal position in plain English (verify locally), a checklist of forager's etiquette and sustainability rules (take a little, never uproot, avoid roadsides and sprayed edges, leave plenty for wildlife), and a callout on protected species and places.",
+   "shape": "bullets, checklist, callout",
+   "button": "Brief me",
+   "loading": "Reading the bylaws…"
+  },
+  {
+   "id": "walk",
+   "title": "Plan a foraging walk",
+   "subtitle": "Route, kit, targets",
+   "emoji": "🥾",
+   "inputs": [
+    {
+     "key": "length",
+     "label": "Time & distance",
+     "type": "text",
+     "placeholder": "2 hours, 5 km loop"
+    },
+    {
+     "key": "with",
+     "label": "Who's coming",
+     "type": "chips",
+     "options": [
+      "Solo",
+      "Friends",
+      "Kids",
+      "Group I'm leading"
+     ],
+     "default": "Solo"
+    }
+   ],
+   "prompt": "Plan a walk of {length} with {with} in the profile region this season. Sections: kv (best time of day, weather to prefer, kit: baskets, knife, gloves, paper bags, field guide), steps for the walk with what to look for at each habitat change, a checklist for kids or a group (rules, tasting policy), and a table of target species (Species | Where on the walk | What to bring home).",
+   "shape": "kv, steps, checklist, table",
+   "button": "Plan walk",
+   "loading": "Lacing up…"
+  }
+ ],
+ "disclaimer": "Never eat a wild plant or fungus on the strength of an app identification. Misidentification can be fatal; confirm with an expert and a reputable field guide."
+}

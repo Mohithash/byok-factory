@@ -138,7 +138,7 @@
      "default": "Office romance"
     }
    ],
-   "prompt": "Build a phrase pack for {genre} scenes: cards for 8 expressions (Korean + romanisation, meta = level · you'll hear it when), a table of 10 key vocabulary words (Korean | Romanisation | Meaning | Real-life usable?), and a quote with one iconic line type from this genre and a note on which drama made it famous.",
+   "prompt": "Build a phrase pack for {genre} scenes. Sections: cards for 8 expressions (Korean + romanisation, meta = level · you'll hear it when), a table of 10 key vocabulary words (Korean | Romanisation | Meaning | Real-life usable?), and a quote with one iconic line type from this genre and a note on which drama made it famous.",
    "shape": "cards, table, quote",
    "button": "Build pack",
    "loading": "Pouring soju…"
@@ -185,7 +185,7 @@
      "default": "4"
     }
    ],
-   "prompt": "Plan a week of learning around {watching} at {episodes} episodes for the profile's level and goal. Sections: a table (Episode | Listening task | Vocab target | Speaking task), a checklist of subtitle settings and pause habits that make watching count as study, and a callout on one grammar pattern to hunt for across all episodes this week.",
+   "prompt": "Plan a week of learning around {watching} (if not given, use the dramas in the profile) at {episodes} episodes for the profile's level and goal. Sections: a table (Episode | Listening task | Vocab target | Speaking task), a checklist of subtitle settings and pause habits that make watching count as study, and a callout on one grammar pattern to hunt for across all episodes this week.",
    "shape": "table, checklist, callout",
    "button": "Plan my week",
    "loading": "Buffering…"

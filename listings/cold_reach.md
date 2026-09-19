@@ -9,8 +9,8 @@ Cold Reach writes multi-touch outreach sequences across email, LinkedIn and phon
 
 WHAT'S INSIDE
 • Build a sequence — Email + LinkedIn + call touches
-• Personalise from profile — Paste a LinkedIn profile or bio
-• Subject line lab — 10 lines, ranked
+• Personalise a touch — Paste their LinkedIn bio or post
+• Cold subject lines — 10 lines for a cold email, ranked
 • They replied — now what? — Turn any reply into a next step
 • Break-up email — The last touch that gets replies
 
@@ -21,8 +21,8 @@ Every answer is a structured, shareable document with follow-up questions, saved
 
 ## Tools
 - 📨 **Build a sequence** — Email + LinkedIn + call touches
-- 🎯 **Personalise from profile** — Paste a LinkedIn profile or bio
-- 🧪 **Subject line lab** — 10 lines, ranked
+- 🎯 **Personalise a touch** — Paste their LinkedIn bio or post
+- 🧪 **Cold subject lines** — 10 lines for a cold email, ranked
 - 💬 **They replied — now what?** — Turn any reply into a next step
 - 👋 **Break-up email** — The last touch that gets replies
 

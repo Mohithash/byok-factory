@@ -1,0 +1,187 @@
+{
+ "id": "integrated_edge",
+ "name": "Integrated Edge",
+ "tagline": "TOEFL iBT integrated tasks, note-taking and timed speaking",
+ "category": "Education",
+ "colors": [
+  "#00695C",
+  "#FF7043",
+  "#3949AB"
+ ],
+ "icon": "mic",
+ "about": "Integrated Edge prepares you for the TOEFL iBT: it builds integrated writing and speaking sets from reading-plus-lecture pairs, times your 45-second responses, trains a note-taking system that keeps up, and scores your academic-discussion posts.",
+ "persona": "You are a TOEFL iBT coach who knows the scoring rubrics by heart, thinks in templates and timings, and always shows what a top-band response contains.",
+ "onboarding": {
+  "title": "Read, listen, speak, write — on the clock",
+  "subtitle": "Your target score and test date set the pace.",
+  "bullets": [
+   "Integrated tasks from any topic",
+   "45-second speaking with templates",
+   "Note-taking that keeps up with lectures"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "target",
+   "label": "Target total / section",
+   "type": "text",
+   "placeholder": "100 total, 26 speaking"
+  },
+  {
+   "key": "date",
+   "label": "Test date",
+   "type": "text"
+  },
+  {
+   "key": "weak",
+   "label": "Weakest section",
+   "type": "chips",
+   "options": [
+    "Reading",
+    "Listening",
+    "Speaking",
+    "Writing"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "integrated",
+   "title": "Integrated writing set",
+   "subtitle": "Reading + lecture that disagree, with a template",
+   "emoji": "🧩",
+   "inputs": [
+    {
+     "key": "topic",
+     "label": "Topic (or leave blank)",
+     "type": "text",
+     "placeholder": "urban beekeeping"
+    },
+    {
+     "key": "field",
+     "label": "Field",
+     "type": "chips",
+     "options": [
+      "Any",
+      "Biology",
+      "History",
+      "Business",
+      "Environment",
+      "Psychology",
+      "Technology"
+     ],
+     "default": "Any"
+    }
+   ],
+   "prompt": "Create an integrated writing set on {topic} in the field {field} (invent an academic topic in that field if the topic is blank): a text reading passage of about 250 words making 3 points, a text lecture transcript of about 250 words that challenges each point in order, a table (Reading point | Lecture counterpoint | Key detail to cite), a quote holding a 4-paragraph template with the linking phrases filled in, and a callout on the 20-minute time split.",
+   "shape": "text, table, quote, callout",
+   "button": "Build a set",
+   "loading": "Writing the lecture…"
+  },
+  {
+   "id": "speak",
+   "title": "Speaking task drill",
+   "subtitle": "Prompt, template, model, and a score if you paste yours",
+   "emoji": "🎙️",
+   "inputs": [
+    {
+     "key": "task",
+     "label": "Task",
+     "type": "chips",
+     "options": [
+      "Task 1: Independent (paired choice)",
+      "Task 2: Campus announcement",
+      "Task 3: Academic concept + example",
+      "Task 4: Lecture summary"
+     ],
+     "default": "Task 1: Independent (paired choice)"
+    },
+    {
+     "key": "response",
+     "label": "Your response (typed transcript, optional)",
+     "type": "longtext"
+    }
+   ],
+   "prompt": "Set up {task}: a quote with the exact prompt (and, for Tasks 2–4, the source material that task uses — announcement plus conversation, passage plus lecture, or lecture alone — at about 120 words each), kv (prep seconds, speaking seconds, target sentence count), a quote with a fill-in template, and a text model response. If a transcript was provided ({response}), add a table (Rubric area | Score 0–4 | Evidence | Fix) for delivery, language use and topic development.",
+   "shape": "quote, kv, text, table",
+   "button": "Start the clock",
+   "loading": "Prepping 15 seconds…"
+  },
+  {
+   "id": "notes",
+   "title": "Note-taking system",
+   "subtitle": "Symbols, layout and a worked lecture",
+   "emoji": "🗒️",
+   "inputs": [
+    {
+     "key": "source",
+     "label": "For",
+     "type": "chips",
+     "options": [
+      "Lectures",
+      "Conversations",
+      "Reading–lecture pairs"
+     ],
+     "default": "Lectures"
+    }
+   ],
+   "prompt": "Teach a note-taking system for {source}: a table (Symbol or abbreviation | Meaning | Example), steps for the two-column layout and what goes where, a text 200-word sample lecture followed by a text section showing the notes a strong test-taker would have written, and bullets of the signal words that mark an answer is coming.",
+   "shape": "table, steps, text, bullets",
+   "button": "Teach me",
+   "loading": "Abbreviating…"
+  },
+  {
+   "id": "discussion",
+   "title": "Academic discussion post",
+   "subtitle": "Plan and model a 10-minute post, or score yours",
+   "emoji": "💬",
+   "inputs": [
+    {
+     "key": "question",
+     "label": "Professor's question",
+     "type": "text",
+     "placeholder": "Should governments fund space exploration?",
+     "required": true
+    },
+    {
+     "key": "post",
+     "label": "Your post (optional)",
+     "type": "longtext"
+    }
+   ],
+   "prompt": "For the discussion question '{question}': two quote sections holding sample classmate posts that take different positions, steps for a 10-minute plan (30 seconds to pick a side, 7 minutes writing, 2 minutes checking), a text model post of 110–130 words that engages a classmate by name, and, if a post was given ({post}), a table (Criterion | Score 0–5 | Comment) plus bullets of 3 sentence-level edits.",
+   "shape": "quote, steps, text, table, bullets",
+   "button": "Model it",
+   "loading": "Joining the thread…"
+  },
+  {
+   "id": "plan",
+   "title": "Study plan to test day",
+   "subtitle": "Weekly plan by section, plus the final 48 hours",
+   "emoji": "📅",
+   "inputs": [
+    {
+     "key": "hours",
+     "label": "Hours per week",
+     "type": "chips",
+     "options": [
+      "3",
+      "6",
+      "10",
+      "15+"
+     ],
+     "default": "6"
+    }
+   ],
+   "prompt": "Using the profile's target, date and weakest section, plan {hours} hours a week until the test: table (Week | Reading | Listening | Speaking | Writing | Full practice test?), bullets on which free official resources fit each section, a checklist for the final 48 hours (ID rules, check-in time, headset and microphone test), and a callout on score-reporting and retake timing.",
+   "shape": "table, bullets, checklist, callout",
+   "button": "Plan my weeks",
+   "loading": "Scheduling…"
+  }
+ ]
+}

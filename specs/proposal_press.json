@@ -94,7 +94,8 @@
      "key": "goal",
      "label": "Client's stated goal",
      "type": "text",
-     "placeholder": "reduce downtime by 80%"
+     "placeholder": "reduce downtime by 80%",
+     "required": true
     }
    ],
    "prompt": "Rewrite this executive summary: {draft} so it leads with the client goal '{goal}'. Sections: a quote with the new summary (4 short paragraphs: situation, cost of inaction, our approach, expected outcome), bullets listing every phrase you removed and why, and a callout on the one number to put in bold.",

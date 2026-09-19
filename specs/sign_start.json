@@ -77,7 +77,7 @@
      "required": true
     }
    ],
-   "prompt": "For each item in {words}, in the profile's sign language and dominant hand: steps describing the sign (handshape, palm orientation, location, movement, facial expression), then a table (Sign | Similar-looking sign | How to tell them apart), and a callout on any item that has regional variants or is signed differently from its English word order.",
+   "prompt": "Teach each item in {words} in the profile's sign language and dominant hand. Sections: steps describing each sign (handshape, palm orientation, location, movement, facial expression), then a table (Sign | Similar-looking sign | How to tell them apart), and a callout on any item that has regional variants or is signed differently from its English word order.",
    "shape": "steps, table, callout",
    "button": "Show me",
    "loading": "Warming up hands…"
@@ -126,7 +126,7 @@
      "placeholder": "Priya, Marcus"
     }
    ],
-   "prompt": "Fingerspelling drill for {focus} with {names} in the profile's sign language (two-handed for BSL and Auslan, one-handed for ASL and ISL). Sections: a table (Letter | Handshape description | Commonly confused with | Fix), a checklist of 10 practice words in increasing length, steps for a 3-minute daily speed routine, and a callout on the etiquette of fingerspelling names when you meet a Deaf person.",
+   "prompt": "Fingerspelling drill for {focus} in the profile's sign language, using these names: {names} (if not given, use the profile name) (two-handed for BSL and Auslan, one-handed for ASL and ISL). Sections: a table (Letter | Handshape description | Commonly confused with | Fix), a checklist of 10 practice words in increasing length, steps for a 3-minute daily speed routine, and a callout on the etiquette of fingerspelling names when you meet a Deaf person.",
    "shape": "table, checklist, steps, callout",
    "button": "Drill me",
    "loading": "Shaping letters…"
@@ -152,7 +152,7 @@
      "default": "Café or restaurant"
     }
    ],
-   "prompt": "The 15 most useful signs for {setting} in the profile's sign language: cards (sign name, meta = one-line description · category), a quote with a 4-line sample exchange in gloss for this setting, and a checklist of 5 things to do so the conversation works (get attention appropriately, keep eye contact, write it down if stuck).",
+   "prompt": "Give the 15 most useful signs for {setting} in the profile's sign language. Sections: cards (sign name, meta = one-line description · category), a quote with a 4-line sample exchange in gloss for this setting, and a checklist of 5 things to do so the conversation works (get attention appropriately, keep eye contact, write it down if stuck).",
    "shape": "cards, quote, checklist",
    "button": "Build set",
    "loading": "Setting the scene…"
@@ -170,11 +170,11 @@
      "placeholder": "new Deaf colleague on my team, interpreter in meetings"
     }
    ],
-   "prompt": "Etiquette guidance for: {context}. Sections: a table (Do | Instead of | Why), bullets on working with interpreters (who to look at, pacing, not saying 'tell her'), a callout on terms to use and avoid (deaf, Deaf, hard of hearing, 'hearing impaired'), and a quote with one respectful sentence to open with.",
+   "prompt": "Etiquette guidance for: {context}. Sections: a table of 8 rows (Do | Instead of | Why), bullets on working with interpreters (who to look at, pacing, not saying 'tell her'), a callout on terms to use and avoid (deaf, Deaf, hard of hearing, 'hearing impaired'), and a quote with one respectful sentence to open with.",
    "shape": "table, bullets, callout, quote",
    "button": "Guide me",
    "loading": "Learning norms…"
   }
  ],
- "disclaimer": "Text descriptions are a study aid; learn signs from Deaf instructors or video in your chosen sign language, since regional variants and details differ."
+ "disclaimer": "Text descriptions are a study aid; learn signs from Deaf instructors or video in your chosen sign language, since regional variants and details differ. In medical, legal or emergency situations, a qualified interpreter is the right choice — never rely on beginner signing."
 }

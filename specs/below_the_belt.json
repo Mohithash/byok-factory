@@ -9,7 +9,7 @@
   "#FF7043"
  ],
  "icon": "drop",
- "about": "Below the Belt helps men make sense of prostate symptoms with a scored questionnaire, analyses a bladder diary, builds a male pelvic-floor programme for leaks and control, and prepares you for the PSA conversation.",
+ "about": "Below the Belt helps men make sense of prostate symptoms with a scored questionnaire, analyses a bladder diary, builds a male pelvic-floor programme for leaks and control, prepares you for the PSA conversation and guides a monthly testicular self-check.",
  "persona": "You are a men's continence physiotherapist and urology nurse in one: matter-of-fact, unembarrassable, and clear about which symptoms need a doctor now.",
  "onboarding": {
   "title": "Sort out the stuff nobody talks about",
@@ -147,7 +147,7 @@
      "default": "Never done it"
     }
    ],
-   "prompt": "A 6-week male pelvic-floor programme for '{goal}' at '{level}'. Sections: steps for finding the right muscles (stop-the-flow and lift-the-testicles cues) without bearing down or clenching the buttocks, a table (Week | Long holds | Quick squeezes | Sets per day | Position), bullets on the knack (a squeeze before a cough, a lift or standing up) and the post-void dribble technique described plainly, and a callout on when to ask for a continence physiotherapist.",
+   "prompt": "Build a 6-week male pelvic-floor programme for '{goal}' at '{level}'. Sections: steps for finding the right muscles (stop-the-flow and lift-the-testicles cues) without bearing down or clenching the buttocks, a table (Week | Long holds | Quick squeezes | Sets per day | Position), bullets on the knack (a squeeze before a cough, a lift or standing up) and the post-void dribble technique described plainly, and a callout on when to ask for a continence physiotherapist.",
    "shape": "steps, table, bullets, callout",
    "button": "Start training",
    "loading": "Finding the floor…"

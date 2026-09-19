@@ -1,0 +1,239 @@
+{
+ "id": "van_downunder",
+ "name": "Van Down Under",
+ "tagline": "Campervan road trips across Australia and New Zealand",
+ "category": "Travel & Local",
+ "colors": [
+  "#BF360C",
+  "#00838F",
+  "#FFB300"
+ ],
+ "icon": "car",
+ "about": "Van Down Under plans campervan holidays in Australia and New Zealand: routes with honest driving days, the right van for your crew, where you can legally camp tonight, outback and gravel-road safety, and a daily cost sheet for fuel, sites and food.",
+ "persona": "You are a grey-nomad-meets-backpacker campervan guide: relaxed, distance-honest, strict about freedom-camping rules and outback water, fluent in both Aussie and Kiwi road quirks.",
+ "onboarding": {
+  "title": "Which way round?",
+  "subtitle": "Your crew and van size shape the route.",
+  "bullets": [
+   "Routes with honest driving days",
+   "Legal camps every night",
+   "Outback and gravel safety"
+  ]
+ },
+ "profile": [
+  {
+   "key": "country",
+   "label": "Country",
+   "type": "chips",
+   "options": [
+    "Australia",
+    "New Zealand",
+    "Both"
+   ]
+  },
+  {
+   "key": "crew",
+   "label": "Crew",
+   "type": "text",
+   "placeholder": "2 adults, 1 dog"
+  },
+  {
+   "key": "van",
+   "label": "Van",
+   "type": "chips",
+   "options": [
+    "Hi-top 2-berth",
+    "Self-contained 4-berth",
+    "Motorhome 6-berth",
+    "4WD camper",
+    "Not chosen yet"
+   ]
+  },
+  {
+   "key": "season",
+   "label": "Season",
+   "type": "chips",
+   "options": [
+    "Summer (Dec–Feb)",
+    "Autumn",
+    "Winter",
+    "Spring"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "route",
+   "title": "Plan the route",
+   "subtitle": "Region loop with driving days",
+   "emoji": "🛣️",
+   "inputs": [
+    {
+     "key": "region",
+     "label": "Region",
+     "type": "chips",
+     "options": [
+      "NZ South Island",
+      "NZ North Island",
+      "East Coast (Sydney–Cairns)",
+      "Great Ocean Road & Victoria",
+      "Tasmania",
+      "Red Centre / Outback",
+      "Western Australia coast"
+     ],
+     "default": "NZ South Island"
+    },
+    {
+     "key": "days",
+     "label": "Days",
+     "type": "number",
+     "placeholder": "14"
+    },
+    {
+     "key": "must",
+     "label": "Must-dos",
+     "type": "text",
+     "placeholder": "Milford Sound, a glacier walk"
+    }
+   ],
+   "prompt": "Plan {days} days in {region} with must-dos {must} for the profile. Table (Day | Drive km / hours | Route notes | Camp for the night | Highlight), cards for 5 stops (meta = nights · crowd level in the profile's season · fuel stop?), bullets of the legs to skip if the driving is too much, and a callout on ferries, seasonal closures and the one road that needs a 4WD or is off-limits to rental vans.",
+   "shape": "table, cards, bullets, callout",
+   "button": "Plan route",
+   "loading": "Filling the tank…"
+  },
+  {
+   "id": "van",
+   "title": "Pick the van",
+   "subtitle": "Berths, self-contained, budget",
+   "emoji": "🚐",
+   "inputs": [
+    {
+     "key": "people",
+     "label": "People",
+     "type": "number",
+     "placeholder": "2"
+    },
+    {
+     "key": "budget",
+     "label": "Budget per day",
+     "type": "chips",
+     "options": [
+      "Under 80",
+      "80–150",
+      "150–250",
+      "250+"
+     ],
+     "default": "80–150"
+    },
+    {
+     "key": "needs",
+     "label": "Needs",
+     "type": "text",
+     "placeholder": "toilet, solar, baby seat"
+    }
+   ],
+   "prompt": "Recommend a campervan for {people} people, budget {budget} per day, needs: {needs}, in the profile's country and season. Cards for 4 van types (meta = day rate · sleeps · self-contained?), a table (Van type | Freedom-camping eligible | Fuel L/100km | Best for | Watch-outs), a checklist for pick-up day (damage photos, gas bottle, water tanks, insurance excess, toll accounts), and a callout on relocation deals and one-way fees.",
+   "shape": "cards, table, checklist, callout",
+   "button": "Pick van",
+   "loading": "Checking rentals…"
+  },
+  {
+   "id": "camp",
+   "title": "Camp legally tonight",
+   "subtitle": "Free, cheap or holiday park",
+   "emoji": "🏕️",
+   "inputs": [
+    {
+     "key": "where",
+     "label": "Where you'll be",
+     "type": "text",
+     "placeholder": "near Wanaka",
+     "required": true
+    },
+    {
+     "key": "type",
+     "label": "Looking for",
+     "type": "chips",
+     "options": [
+      "Free / freedom camp",
+      "Cheap DOC or council site",
+      "Holiday park with power",
+      "Any"
+     ],
+     "default": "Any"
+    }
+   ],
+   "prompt": "Where can the profile's van camp tonight near {where}, wanting {type}? Kv (freedom-camping rules in this area, self-contained requirement, fines, apps that list sites), cards for 4 candidate sites or site types (meta = cost · toilets · power), a checklist for arriving after dark (level spot, no-camping signs, grey water, wake-up time), and a callout on fire bans, wildlife and weather warnings tonight.",
+   "shape": "kv, cards, checklist, callout",
+   "button": "Find a camp",
+   "loading": "Checking the signs…"
+  },
+  {
+   "id": "outback",
+   "title": "Outback & gravel safety",
+   "subtitle": "Water, fuel, road trains, wildlife",
+   "emoji": "🦘",
+   "inputs": [
+    {
+     "key": "leg",
+     "label": "The leg",
+     "type": "text",
+     "placeholder": "Alice Springs to Uluru",
+     "required": true
+    },
+    {
+     "key": "km",
+     "label": "Distance km",
+     "type": "number",
+     "placeholder": "450"
+    },
+    {
+     "key": "conditions",
+     "label": "Conditions",
+     "type": "text",
+     "placeholder": "sealed, 38°C forecast"
+    }
+   ],
+   "prompt": "Safety brief for the leg {leg}, {km} km, conditions: {conditions}, in the profile's van. Kv (fuel stops and range margin, water litres to carry per person, drive-by time to avoid dusk wildlife, mobile coverage, road-train passing rule), a checklist before departure (tyre pressures, spare, recovery gear, tell someone the plan), steps for a breakdown or getting bogged, and a callout on driving after dark, flooded crossings and heat.",
+   "shape": "kv, checklist, steps, callout",
+   "button": "Brief me",
+   "loading": "Checking the road…"
+  },
+  {
+   "id": "costs",
+   "title": "Daily cost sheet",
+   "subtitle": "Fuel, sites, food, ferries",
+   "emoji": "📒",
+   "inputs": [
+    {
+     "key": "km",
+     "label": "Total km",
+     "type": "number",
+     "placeholder": "2500"
+    },
+    {
+     "key": "days",
+     "label": "Days",
+     "type": "number",
+     "placeholder": "14"
+    },
+    {
+     "key": "eating",
+     "label": "Eating",
+     "type": "chips",
+     "options": [
+      "Cook in the van",
+      "Half and half",
+      "Mostly cafés"
+     ],
+     "default": "Half and half"
+    }
+   ],
+   "prompt": "Estimate the cost of {km} km over {days} days, eating {eating}, for the profile's van and crew. Table (Line | Per day | Total | Notes), a kv (fuel litres and cost at a stated price, campsite mix, ferries and park passes, total per person), bullets on 5 ways to trim it, and a callout on tolls, fuel-price swings in remote areas and rental excess.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Estimate",
+   "loading": "Adding it up…"
+  }
+ ],
+ "disclaimer": "Road and camping rules vary by council and change often; check official sources, road reports and weather warnings before you drive."
+}

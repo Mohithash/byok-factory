@@ -81,7 +81,7 @@
      "placeholder": "40"
     }
    ],
-   "prompt": "Appraise the furniture in the photo, asking {price}. Sections: kv (likely material: solid / veneer / laminate, era or style, construction quality, condition, verdict: buy / haggle / walk away, fair price); a table (Issue seen | Fix difficulty | Cost); bullets of what to check in person (smell, drawer runners, wobble, woodworm); and a callout on how to negotiate given the flaws.",
+   "prompt": "Appraise the furniture in the photo, asking {price} (user's local currency). Sections: kv (likely material: solid / veneer / laminate, era or style, construction quality, condition, verdict: buy / haggle / walk away, fair price); a table (Issue seen | Fix difficulty | Cost); bullets of what to check in person (smell, drawer runners, wobble, woodworm); and a callout on how to negotiate given the flaws.",
    "shape": "kv, table, bullets, callout",
    "button": "Appraise",
    "loading": "Checking the joints…"
@@ -223,7 +223,7 @@
      "placeholder": "6"
     }
    ],
-   "prompt": "Price and list {piece}, which cost {cost} and took {hours} hours. Sections: kv (price range low / target / high, profit at target, hourly rate at target, best platform); a quote with a complete marketplace listing (title, 80–120 word description, dimensions placeholder, collection note); bullets on photographing it (light, angles, staging); and a callout on safe handover and payment.",
+   "prompt": "Price and list {piece}, which cost {cost} (user's local currency) and took {hours} hours. Sections: kv (price range low / target / high, profit at target, hourly rate at target, best platform); a quote with a complete marketplace listing (title, 80–120 word description, dimensions placeholder, collection note); bullets on photographing it (light, angles, staging); and a callout on safe handover and payment.",
    "shape": "kv, quote, bullets, callout",
    "button": "Price it",
    "loading": "Staging the shot…"

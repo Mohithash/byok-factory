@@ -79,7 +79,7 @@
      "placeholder": "14 March"
     }
    ],
-   "prompt": "Draft a one-page birth preferences document for the profile from: {wishes} (due {date}). Sections: a quote containing the full document in first person with headings (Environment, Pain relief, Monitoring, Second stage, Third stage, Baby's first hour, If a caesarean is needed), then a checklist of preferences to confirm with the midwife before it's final, and a callout reminding that preferences are flexible and staff will explain any deviation.",
+   "prompt": "Draft a one-page birth preferences document for the profile from: {wishes} (due {date}). Sections: a quote containing the full document in first person with headings (Environment, Pain relief, Monitoring, Second stage, Third stage, Baby's first hour, If a caesarean is needed), then a checklist of 5–8 preferences to confirm with the midwife before it's final, and a callout reminding that preferences are flexible and staff will explain any deviation.",
    "shape": "quote, checklist, callout",
    "button": "Draft it",
    "loading": "Writing…"
@@ -113,7 +113,7 @@
      "default": "1–2 nights"
     }
    ],
-   "prompt": "Build a hospital bag list for a {stay} stay in {season}, at the profile's birth place. Sections: a checklist split into three labelled groups — Labour bag (for the room), Postnatal bag (for after) and Baby bag — with quantities, then a kv of documents and things to prepare at home (car seat fitted, maternity notes, snacks, phone numbers), and bullets of items people pack but never use.",
+   "prompt": "Build a hospital bag list for a {stay} stay in {season}, at the profile's birth place. Sections: a checklist split into three labelled groups — Labour bag (for the room), Postnatal bag (for after) and Baby bag — with quantities, then a kv of documents and things to prepare at home (car seat fitted, maternity notes, snacks, phone numbers), and bullets of 5 items people pack but never use.",
    "shape": "checklist, kv, bullets",
    "button": "Pack it",
    "loading": "Packing…"
@@ -188,7 +188,7 @@
      "default": "Everything"
     }
    ],
-   "prompt": "Build a comfort toolkit focused on {wants} for the profile's hopes and birth place. Sections: cards (technique, meta = stage it suits · needs kit?), steps to practise the top two at home this week, a table of pain-relief options (Option | Where available | Pros | Cons | Can still move?) so choices are informed, and a callout that changing your mind on the day is fine.",
+   "prompt": "Build a comfort toolkit focused on {wants} for the profile's hopes and birth place. Sections: 5 cards (one technique each, meta = stage it suits · needs kit?), steps to practise the top two at home this week, a table of pain-relief options (Option | Where available | Pros | Cons | Can still move?) so choices are informed, and a callout that changing your mind on the day is fine.",
    "shape": "cards, steps, table, callout",
    "button": "Build toolkit",
    "loading": "Gathering…"

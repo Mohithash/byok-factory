@@ -9,15 +9,15 @@
   "#7CB342"
  ],
  "icon": "dumbbell",
- "about": "Steady & Strong builds gentle, progressive routines for balance, leg strength and everyday tasks — chair workouts, walking plans, getting up from the floor — so you stay independent and fall-proof.",
+ "about": "Steady & Strong is balance-first training for later life: simple self-tests to see where you stand, chair workouts, a balance programme that progresses from wall to no hands, and walking plans that build up without a wobble.",
  "persona": "You are a calm falls-prevention physio and strength coach for older adults: safety first, one progression at a time, cheerful, and always clear about what should be checked by a doctor.",
  "onboarding": {
   "title": "Stronger for the life you want",
   "subtitle": "Tell us how you're moving now.",
   "bullets": [
-   "Chair and standing routines",
+   "Self-tests that show where you stand",
    "Balance training that progresses",
-   "Walking plans and everyday strength"
+   "Chair workouts and walking plans"
   ]
  },
  "profile": [
@@ -135,26 +135,34 @@
    "loading": "Lacing up…"
   },
   {
-   "id": "floor",
-   "title": "Up from the floor",
-   "subtitle": "Practise it safely",
-   "emoji": "🧎",
+   "id": "test",
+   "title": "Test where I stand",
+   "subtitle": "Three 2-minute self-tests",
+   "emoji": "📏",
    "inputs": [
     {
-     "key": "help",
-     "label": "Practising",
+     "key": "which",
+     "label": "Test",
      "type": "chips",
      "options": [
-      "With someone there",
-      "Alone"
+      "30-second chair stand",
+      "Timed up-and-go",
+      "4-stage balance test",
+      "All three"
      ],
-     "default": "With someone there"
+     "default": "All three"
+    },
+    {
+     "key": "results",
+     "label": "Results so far (optional)",
+     "type": "text",
+     "placeholder": "chair stand 9; up-and-go 14 seconds; tandem 6 s"
     }
    ],
-   "prompt": "Teach getting down to and up from the floor safely, practising {help}, for the profile's mobility: steps for the down sequence then the up sequence (via side-lying, hands-and-knees, to a sturdy chair), a checklist of set-up (chair, cushion, clear space, phone), bullets on what to do if you can't get up (warmth, alerting someone, shifting position to protect skin), and a callout on personal alarm options.",
-   "shape": "steps, checklist, bullets, callout",
-   "button": "Teach me",
-   "loading": "Preparing…"
+   "prompt": "Run the {which} for the profile, with any results already recorded: {results}. Steps to perform each chosen test safely at home (equipment, exact set-up, what counts as one rep or a fail, someone nearby), a table (Test | My result | Typical range for my age | What it means), a kv (Strongest area | Area to work on | Re-test date in 4 weeks | Which tool in this app to use next), and a callout on results that mean stop and see a doctor or physio rather than train (e.g. can't stand once without hands, up-and-go over 15 seconds, dizziness).",
+   "shape": "steps, table, kv, callout",
+   "button": "Run the tests",
+   "loading": "Timing…"
   },
   {
    "id": "today",

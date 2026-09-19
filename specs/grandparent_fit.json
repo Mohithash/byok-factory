@@ -95,7 +95,7 @@
      "default": "Slow but fine"
     }
    ],
-   "prompt": "A 4-week plan to make floor play comfortable for someone who gets up '{ability}', respecting the profile's limits. Sections: a table (Week | Exercises | Reps | Floor-time goal), steps for the safest get-up sequence via half-kneeling, bullets of floor-play positions that spare knees and backs (cushions, side-sitting, low stool), and a callout on knee pain that needs checking.",
+   "prompt": "Build a 4-week plan to make floor play comfortable for someone who gets up '{ability}', respecting the profile's limits. Sections: a table (Week | Exercises | Reps | Floor-time goal), steps for the safest get-up sequence via half-kneeling, bullets of floor-play positions that spare knees and backs (cushions, side-sitting, low stool), and a callout on knee pain that needs checking.",
    "shape": "table, steps, bullets, callout",
    "button": "Plan it",
    "loading": "Kneeling…"
@@ -183,7 +183,7 @@
      "default": "None"
     }
    ],
-   "prompt": "A 10-minute, three-times-a-week strength routine with '{kit}' equipment for the profile, built around the lifts and carries of grandparenting. Sections: steps (exercise · sets × reps · why it helps with kids), bullets on how to progress over 6 weeks, and a quote with a fun challenge to set with the grandkids.",
+   "prompt": "Write a 10-minute, three-times-a-week strength routine with '{kit}' equipment for the profile, built around the lifts and carries of grandparenting. Sections: steps (exercise · sets × reps · why it helps with kids), bullets on how to progress over 6 weeks, and a quote with a fun challenge to set with the grandkids.",
    "shape": "steps, bullets, quote",
    "button": "Build routine",
    "loading": "Flexing…"

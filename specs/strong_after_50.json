@@ -141,7 +141,7 @@
      "default": "Anything"
     }
    ],
-   "prompt": "For a {weight} kg person over 50 on a '{diet}' diet. Sections: kv (daily protein target with grams per meal, why older muscle needs more per meal, sleep target, creatine as general information), a table of a sample day (Meal | Foods | Protein g), bullets of cheap high-protein staples, and a callout on kidney conditions and discussing supplements with a doctor.",
+   "prompt": "Set protein and recovery targets for a {weight} kg person over 50 on a '{diet}' diet. Sections: kv (daily protein target with grams per meal, why older muscle needs more per meal, sleep target, creatine as general information), a table of a sample day (Meal | Foods | Protein g), bullets of cheap high-protein staples, and a callout on kidney conditions and discussing supplements with a doctor.",
    "shape": "kv, table, bullets, callout",
    "button": "Set targets",
    "loading": "Weighing up…"
@@ -174,7 +174,7 @@
   {
    "id": "functional",
    "title": "Real-life strength",
-   "subtitle": "Train for stairs, bags, grandkids",
+   "subtitle": "Train for stairs, bags, gardens",
    "emoji": "🧳",
    "inputs": [
     {
@@ -184,8 +184,8 @@
      "options": [
       "Carrying shopping",
       "Stairs without the rail",
-      "Getting off the floor",
-      "Lifting a toddler",
+      "Getting up from a low chair",
+      "Luggage into an overhead locker",
       "Gardening all afternoon"
      ],
      "default": "Carrying shopping"

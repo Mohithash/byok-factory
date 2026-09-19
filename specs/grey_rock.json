@@ -87,8 +87,8 @@
      "default": "Text"
     }
    ],
-   "prompt": "They said ({channel}): {message}. Text identifying the hook in one sentence (guilt, threat, bait, reversal), then 3 quote sections: minimal (under 12 words), neutral-informational (under 30 words), and no-reply with what to do instead; then a table (If they escalate with… | Your response) for 3 escalations, and a callout on not justifying, arguing, defending or explaining.",
-   "shape": "text, quote, table, callout",
+   "prompt": "They said ({channel}): {message}. Text identifying the hook in one sentence (guilt, threat, bait, reversal), then 2 quote sections: minimal (under 12 words) and neutral-informational (under 30 words); bullets on the no-reply option (when it is the right move and what to do with the next hour instead); a table (If they escalate with… | Your response) for 3 escalations, and a callout on not justifying, arguing, defending or explaining.",
+   "shape": "text, quote, bullets, table, callout",
    "button": "Draft reply",
    "loading": "Going grey…"
   },
@@ -143,7 +143,7 @@
      "default": "Reduce"
     }
    ],
-   "prompt": "Prompting this: {why}; leaning: {leaning}. Give a table (Option | What it looks like | Cost to you | Cost to others | Reversible?) across 4 contact levels, a kv of rules for the leaning option (frequency, channels, topics off-limits, what ends a call), a quote announcing the change if one is needed (short, no justification), and a callout on grief and doubt being normal and not evidence of a wrong decision.",
+   "prompt": "Prompting this: {why}; leaning: {leaning}. Give a table (Option | What it looks like | Cost to you | Cost to others | Reversible?) across the 5 contact levels (keep as is, reduce, structured low contact, a break, no contact), a kv of rules for the leaning option (frequency, channels, topics off-limits, what ends a call), a quote announcing the change if one is needed (short, no justification), and a callout on grief and doubt being normal and not evidence of a wrong decision.",
    "shape": "table, kv, quote, callout",
    "button": "Think it through",
    "loading": "Weighing options…"

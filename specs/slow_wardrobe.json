@@ -139,7 +139,7 @@
      "placeholder": "everyday T-shirt"
     }
    ],
-   "prompt": "Read the fibre composition in the photo for a '{use}'. Table (Fibre | % | Durability | Comfort | Environmental note | Care), text on whether this blend suits the use, bullets of better compositions to look for next time, and a callout on microfibre shedding and washing.",
+   "prompt": "Read the fibre composition in the photo for a '{use}'. Table (Fibre | % | Durability | Care | Environmental note), text on whether this blend suits the use for comfort and longevity, bullets of better compositions to look for next time, and a callout on microfibre shedding and washing.",
    "shape": "table, text, bullets, callout",
    "button": "Decode",
    "loading": "Reading fibres…"

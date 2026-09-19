@@ -71,7 +71,7 @@
      "placeholder": "45000"
     }
    ],
-   "prompt": "Profile age and target age, {saved} saved, {monthly}/month, wanting {income}/year. Assume 5% real return before retirement and a 4% withdrawal rate (state both). kv (target pot, projected pot at retirement, gap, projected income, on-track verdict). Table (Age | Projected pot | Target pot | Gap) at 5-year steps to the target age. Bullets on what a state or public pension in the profile country might add (general terms only), and a callout on the single change that closes the most gap.",
+   "prompt": "Profile age and target age; saved so far {saved} (default 0), saving {monthly}/month (default 0), wanting {income}/year in today's money (default 60% of a typical wage in the profile country, state the figure). Assume 5% real return before retirement and a 4% withdrawal rate (state both). Sections: kv (target pot, projected pot at retirement, gap, projected income, on-track verdict), table (Age | Projected pot | Target pot | Gap) at 5-year steps to the target age, bullets on what a state or public pension in the profile country might add (general terms only), and a callout on the single change that closes the most gap.",
    "shape": "kv, table, bullets, callout",
    "button": "Check my gap",
    "loading": "Measuring…"
@@ -100,7 +100,7 @@
      "default": "Moderate"
     }
    ],
-   "prompt": "Close a {gap} gap by the profile target age at a '{appetite}' pace. Table (Lever | Monthly effect | Total effect by target age | Effort) covering extra contributions, retiring later, spending less in retirement, employer matching, side income and asset mix. Then steps for the first 90 days, and a callout on the trade-offs of working longer versus saving harder.",
+   "prompt": "Close a retirement gap of {gap} (if not given, estimate one from the profile and state the assumption) by the profile target age at a '{appetite}' pace. Table (Lever | Monthly effect | Total effect by target age | Effort 1–5) covering extra contributions, retiring later, spending less in retirement, employer matching, side income and asset mix. Then steps for the first 90 days, and a callout on the trade-offs of working longer versus saving harder.",
    "shape": "table, steps, callout",
    "button": "Build plan",
    "loading": "Catching up…"
@@ -124,7 +124,7 @@
      "default": "Which account first?"
     }
    ],
-   "prompt": "For the profile country, answer '{q}' in general terms: text (the principle), table (Account type | Tax treatment (general) | Best for | Watch-out), bullets on the order most people fund accounts in, and a callout to verify current limits and rules with an official source or adviser.",
+   "prompt": "For the profile country and age, answer '{q}' in general terms. Sections: text (the principle in one paragraph), table (Account type | Tax treatment (general) | Best for | Watch-out), bullets on the order most people fund accounts in, and a callout to verify current limits and rules with an official source or adviser.",
    "shape": "text, table, bullets, callout",
    "button": "Explain",
    "loading": "Sorting accounts…"
@@ -142,7 +142,7 @@
      "required": true
     }
    ],
-   "prompt": "Read the statement: kv (provider, balance, contributions this period, employer contribution, fees, fund or allocation, projected value if shown). Text on what stands out, bullets of 3 questions to ask the provider, and a callout on any fee or allocation that looks worth checking.",
+   "prompt": "Read the statement in the photo: kv (provider, balance, contributions this period, employer contribution, fees, fund or allocation, projected value if shown; write 'not shown' where absent). Then text on what stands out, bullets of 3 questions to ask the provider, and a callout on any fee or allocation that looks worth checking.",
    "shape": "kv, text, bullets, callout",
    "button": "Read it",
    "loading": "Squinting…"

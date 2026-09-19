@@ -87,7 +87,7 @@
      "placeholder": "ka-row, or leave blank for the next one"
     }
    ],
-   "prompt": "Teach the next {script} row for the profile (or the {row} row if given). Sections: a table (Kana | Romaji | Mnemonic image | Looks like / confusable with), steps for the stroke order of each character described in words (stroke count, direction, where to start), and a checklist of 5 tiny tasks to lock it in today (trace, write from memory, find it in a word).",
+   "prompt": "Teach one {script} row for the profile's current knowledge. Row requested: {row} (if not given, take the next unlearned row). Sections: a table (Kana | Romaji | Mnemonic image | Looks like / confusable with), steps for the stroke order of each character described in words (stroke count, direction, where to start), and a checklist of 5 tiny tasks to lock it in today (trace, write from memory, find it in a word).",
    "shape": "table, steps, checklist",
    "button": "Teach me",
    "loading": "Grinding ink…"
@@ -165,7 +165,7 @@
      "default": "Food"
     }
    ],
-   "prompt": "Create a katakana loanword game on the theme {theme}: a table (Katakana | Say-it-out-loud hint | Answer (English origin) | Meaning in Japan if different), then bullets explaining 4 rules that transform English sounds into katakana (long vowels, small tsu, l→r, added vowels), and a checklist of 5 katakana words to spot in the wild this week.",
+   "prompt": "Create a katakana loanword game on the theme {theme}. Sections: a table of 12 words (Katakana | Say-it-out-loud hint | Answer (English origin) | Meaning in Japan if different), ordered easy to hard; then bullets explaining 4 rules that transform English sounds into katakana (long vowels, small tsu, l→r, added vowels); and a checklist of 5 katakana words to spot in the wild this week.",
    "shape": "table, bullets, checklist",
    "button": "Play",
    "loading": "Loading menu…"

@@ -1,0 +1,178 @@
+{
+ "id": "fertile_signs",
+ "name": "Fertile Signs",
+ "tagline": "Read your fertility signs with confidence",
+ "category": "Health & Fitness",
+ "colors": [
+  "#3949AB",
+  "#EC407A",
+  "#00ACC1"
+ ],
+ "icon": "graph",
+ "about": "Fertile Signs interprets your basal body temperature, cervical mucus and OPK results using sympto-thermal rules, confirms ovulation, explains confusing cycles and teaches each sign step by step.",
+ "persona": "You are a certified fertility awareness educator: precise about the rules, honest about uncertainty, and clear that avoiding pregnancy with FAM needs proper instruction and consistent charting.",
+ "onboarding": {
+  "title": "Learn your cycle's language",
+  "subtitle": "Your goal changes how conservatively signs are interpreted.",
+  "bullets": [
+   "Chart interpretation with the rules shown",
+   "OPK photo reading",
+   "Sign-by-sign teaching"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "goal",
+   "label": "Charting to",
+   "type": "chips",
+   "options": [
+    "Conceive",
+    "Avoid pregnancy",
+    "Understand my health"
+   ]
+  },
+  {
+   "key": "cycle",
+   "label": "Typical cycle length (days)",
+   "type": "number",
+   "placeholder": "29"
+  },
+  {
+   "key": "method",
+   "label": "Method",
+   "type": "chips",
+   "options": [
+    "Sympto-thermal",
+    "Temperature only",
+    "Mucus only (Billings / Creighton)",
+    "Just starting"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "read",
+   "title": "Read my chart",
+   "subtitle": "Paste temps + mucus + OPKs",
+   "emoji": "📈",
+   "inputs": [
+    {
+     "key": "chart",
+     "label": "Cycle so far",
+     "type": "longtext",
+     "placeholder": "CD1–6 bleed; CD10 36.4 sticky; CD12 36.3 eggwhite; CD13 36.35 EW OPK+; CD14 36.7; CD15 36.75; CD16 36.8 dry…",
+     "required": true
+    },
+    {
+     "key": "photo",
+     "label": "Photo of your chart app (optional)",
+     "type": "photo"
+    }
+   ],
+   "prompt": "Interpret this cycle: {chart} (use the chart photo too if given) under the profile's method and goal. Sections: kv (peak mucus day, temperature shift day, coverline value, ovulation estimate, confirmation status, fertile window opened / closed), text explaining exactly which rule was applied (e.g. 3-over-6 temperature rule, peak-plus-3 mucus rule) and what data is missing, a table (CD | Temp | Mucus | OPK | Interpretation) for the key days, and a callout with the conservative verdict for the profile's goal; for avoiding pregnancy, state clearly that an unclear chart means treat as fertile.",
+   "shape": "kv, text, table, callout",
+   "button": "Interpret",
+   "loading": "Reading chart…"
+  },
+  {
+   "id": "opk",
+   "title": "Read my OPK",
+   "subtitle": "Photo of the strip",
+   "emoji": "🧪",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the ovulation test strip",
+     "type": "photo",
+     "placeholder": "Good light, within the read window",
+     "required": true
+    },
+    {
+     "key": "cd",
+     "label": "Cycle day",
+     "type": "text",
+     "placeholder": "13"
+    }
+   ],
+   "prompt": "Read the ovulation test strip photo taken on cycle day {cd}. Sections: a callout with the read (Negative / Approaching / Positive / Invalid) and the test-versus-control comparison in one line, kv (what a positive means for timing, expected ovulation window, when to retest), bullets of 3–4 common misreads (evaporation lines, dilute urine, PCOS false positives), and text on how this fits with the profile's other signs.",
+   "shape": "callout, kv, bullets, text",
+   "button": "Read strip",
+   "loading": "Comparing lines…"
+  },
+  {
+   "id": "today",
+   "title": "Where am I today?",
+   "subtitle": "Fertile or not, from what you've seen",
+   "emoji": "📍",
+   "inputs": [
+    {
+     "key": "cd",
+     "label": "Cycle day",
+     "type": "number",
+     "placeholder": "11"
+    },
+    {
+     "key": "signs",
+     "label": "Signs today",
+     "type": "text",
+     "placeholder": "creamy mucus, temp 36.4, no OPK yet",
+     "required": true
+    }
+   ],
+   "prompt": "On cycle day {cd} with signs: {signs}, given the profile's cycle length, method and goal. Sections: a callout with today's status (Pre-fertile / Fertile / Peak / Post-ovulatory) and a confidence level, text on what to look for over the next 3 days, a checklist of 3–5 things to record tonight, and bullets on timing for the profile's goal.",
+   "shape": "callout, text, checklist, bullets",
+   "button": "Tell me",
+   "loading": "Locating…"
+  },
+  {
+   "id": "learn",
+   "title": "Learn a sign",
+   "subtitle": "Mucus, temperature, cervix, OPKs",
+   "emoji": "📚",
+   "inputs": [
+    {
+     "key": "sign",
+     "label": "Sign",
+     "type": "chips",
+     "options": [
+      "Cervical mucus",
+      "Basal temperature",
+      "Cervical position",
+      "OPKs",
+      "Coverline & rules"
+     ],
+     "default": "Cervical mucus"
+    }
+   ],
+   "prompt": "Teach {sign} for the profile's method. Sections: steps for exactly how to observe and record it (timing, technique, wording), a table (What you see or measure | Category | Fertility meaning), bullets of 5 common beginner mistakes, and a quote with a one-line memory hook.",
+   "shape": "steps, table, bullets, quote",
+   "button": "Teach me",
+   "loading": "Explaining…"
+  },
+  {
+   "id": "weird",
+   "title": "Weird cycle",
+   "subtitle": "Delayed ovulation, split peaks, no shift",
+   "emoji": "❓",
+   "inputs": [
+    {
+     "key": "issue",
+     "label": "What's odd",
+     "type": "longtext",
+     "placeholder": "two patches of eggwhite, no temp rise by CD24, spotting CD20",
+     "required": true
+    }
+   ],
+   "prompt": "Explain this cycle oddity: {issue} for the profile. Sections: text on the likely explanations (stress-delayed ovulation, anovulatory cycle, illness, disturbed temps, short luteal phase), a table (Possibility | What the chart would show | What to do), a callout on the safe interpretation for the profile's goal, and bullets on when repeated patterns are worth discussing with a doctor (e.g. cycles over 35 days, luteal phase under 10 days, mid-cycle bleeding).",
+   "shape": "text, table, callout, bullets",
+   "button": "Explain",
+   "loading": "Puzzling…"
+  }
+ ],
+ "disclaimer": "Educational information about fertility awareness, not medical or contraceptive advice. Charting to avoid pregnancy requires proper instruction and consistent daily records; unclear signs mean treat the day as fertile."
+}

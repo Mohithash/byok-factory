@@ -1,0 +1,196 @@
+{
+ "id": "presence_lab",
+ "name": "Presence Lab",
+ "tagline": "Be heard in the rooms that matter",
+ "category": "Business",
+ "colors": [
+  "#B71C1C",
+  "#283593",
+  "#FFD54F"
+ ],
+ "icon": "mic",
+ "about": "Presence Lab sharpens how you come across in senior meetings — strips hedging from your messages, preps your one point for the leadership meeting, rehearses recovering the floor when you're talked over and analyses transcripts of you for filler and waffle.",
+ "persona": "You are an executive communication coach for rising leaders: direct, specific, allergic to filler; you focus on behaviours that can change this week, not on personality.",
+ "onboarding": {
+  "title": "Executive presence is a set of habits",
+  "subtitle": "Tell us where you struggle; every drill targets it.",
+  "bullets": [
+   "De-hedge messages before you send",
+   "Make one point in 30 seconds",
+   "Recover when you're talked over"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "struggle",
+   "label": "Where you struggle",
+   "type": "chips",
+   "options": [
+    "I hedge and over-qualify",
+    "I ramble",
+    "I get talked over",
+    "I go quiet in senior rooms",
+    "I sound defensive"
+   ],
+   "multi": true
+  },
+  {
+   "key": "rooms",
+   "label": "The rooms you're in",
+   "type": "text",
+   "placeholder": "weekly leadership meeting, QBRs with clients"
+  },
+  {
+   "key": "level",
+   "label": "Level",
+   "type": "chips",
+   "options": [
+    "IC",
+    "Manager",
+    "Senior manager",
+    "Director+"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "dehedge",
+   "title": "De-hedge my message",
+   "subtitle": "Cut the 'just', 'sort of', 'I think maybe'",
+   "emoji": "✂️",
+   "inputs": [
+    {
+     "key": "draft",
+     "label": "Paste what you're about to send or say",
+     "type": "longtext",
+     "placeholder": "I just wanted to check if maybe we could possibly…",
+     "required": true
+    },
+    {
+     "key": "keep",
+     "label": "Keep it",
+     "type": "chips",
+     "options": [
+      "Warm but direct",
+      "Neutral",
+      "Firm"
+     ],
+     "default": "Warm but direct"
+    }
+   ],
+   "prompt": "Rewrite this to remove hedging and filler while staying {keep}: {draft}. Sections: a quote with the rewritten version; a table (Original phrase | Why it weakens | Replacement) for every hedge found; kv (Words before → after, Asks made explicit); and a callout on the one habit in this draft that matches the profile's stated struggles.",
+   "shape": "quote, table, kv, callout",
+   "button": "Rewrite",
+   "loading": "Trimming…"
+  },
+  {
+   "id": "point",
+   "title": "My one point",
+   "subtitle": "Make it in 30 seconds",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "context",
+     "label": "The meeting and what you want to land",
+     "type": "longtext",
+     "placeholder": "leadership meeting; I want them to stop adding scope to the migration",
+     "required": true
+    },
+    {
+     "key": "seconds",
+     "label": "Time you'll get",
+     "type": "chips",
+     "options": [
+      "15 seconds",
+      "30 seconds",
+      "60 seconds"
+     ],
+     "default": "30 seconds"
+    }
+   ],
+   "prompt": "Prepare a {seconds} contribution for: {context}. Sections: a quote with the exact words (claim first, one piece of evidence, one ask); bullets on when in the meeting to say it and how to get the floor; a table (Pushback | 10-second reply) with 3 rows; and a callout on the signal that it's time to stop talking.",
+   "shape": "quote, bullets, table, callout",
+   "button": "Prep my point",
+   "loading": "Sharpening…"
+  },
+  {
+   "id": "talked_over",
+   "title": "I got talked over",
+   "subtitle": "Recover the floor gracefully",
+   "emoji": "🛑",
+   "inputs": [
+    {
+     "key": "what",
+     "label": "What happened",
+     "type": "text",
+     "placeholder": "VP cut me off mid-sentence, moved on, my idea was later credited to him",
+     "required": true
+    },
+    {
+     "key": "when",
+     "label": "You want to handle it",
+     "type": "chips",
+     "options": [
+      "In the moment next time",
+      "Right after the meeting",
+      "In a 1:1 later"
+     ],
+     "default": "In the moment next time"
+    }
+   ],
+   "prompt": "Situation: {what}. The user wants tactics for: {when}. Sections: a table (Tactic | Words to use | Risk) with 5 tactics matched to the profile's level; a quote with the single best line for this case; steps for a follow-up that reclaims the idea without accusing anyone; and a callout on when this is a pattern worth raising with a manager or sponsor.",
+   "shape": "table, quote, steps, callout",
+   "button": "Give me tactics",
+   "loading": "Standing ground…"
+  },
+  {
+   "id": "transcript",
+   "title": "Analyse my transcript",
+   "subtitle": "Paste a transcript of you speaking",
+   "emoji": "🎙️",
+   "inputs": [
+    {
+     "key": "transcript",
+     "label": "Transcript of you speaking",
+     "type": "longtext",
+     "placeholder": "So, um, I think what we're seeing is, like…",
+     "required": true
+    }
+   ],
+   "prompt": "Analyse this transcript of the user speaking: {transcript}. Sections: kv (Filler words per minute est., Hedges, Average sentence length, Time to first point, Questions vs statements); a table (Habit | Example from the transcript | Replacement) with the top 5 habits; a quote restating the same content the way a confident senior leader would say it in under half the words; and steps for a one-week drill on the single biggest habit.",
+   "shape": "kv, table, quote, steps",
+   "button": "Analyse",
+   "loading": "Listening back…"
+  },
+  {
+   "id": "intro",
+   "title": "Introduce myself upward",
+   "subtitle": "Meeting a senior leader for the first time",
+   "emoji": "🤝",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Who you're meeting and why",
+     "type": "text",
+     "placeholder": "new CFO, 20-minute intro, I lead data platform",
+     "required": true
+    },
+    {
+     "key": "want",
+     "label": "What you want from them",
+     "type": "text",
+     "placeholder": "budget support next year"
+    }
+   ],
+   "prompt": "Prepare the user to meet {who}, wanting: {want}. Sections: a quote with a 30-second self-introduction (role, what you own, one result, what you'd like from them); bullets of 5 questions to ask that show judgement; a table (They'll probably ask | Crisp answer) with 4 rows; and a callout on what to send afterwards and within how many hours.",
+   "shape": "quote, bullets, table, callout",
+   "button": "Prep me",
+   "loading": "Preparing…"
+  }
+ ]
+}

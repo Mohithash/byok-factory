@@ -5,13 +5,13 @@
 **Short description (≤80):** The fastest, cheapest route out of debt, with the maths
 
 ## Full description
-Zero Balance compares avalanche, snowball and hybrid payoff orders with real dates and interest totals, checks whether consolidation is worth it, writes letters to creditors and shows what minimum payments really cost.
+Zero Balance goes deeper than a budget app on debt: avalanche, snowball and hybrid payoff orders with real dates and interest totals, a consolidation reality check, creditor letters, monthly progress check-ins and what minimum payments really cost.
 
 WHAT'S INSIDE
 • Payoff order — Avalanche, snowball or both
 • Is consolidation worth it? — One loan vs the current plan
 • Write to a creditor — Hardship, freeze, settlement, dispute
-• Windfall: debt or buffer? — Split a lump sum wisely
+• Monthly check-in — New balances → updated end date
 • What minimums really cost — One debt, the ugly truth
 
 BRING YOUR OWN KEY
@@ -23,7 +23,7 @@ Every answer is a structured, shareable document with follow-up questions, saved
 - 🪜 **Payoff order** — Avalanche, snowball or both
 - 🔗 **Is consolidation worth it?** — One loan vs the current plan
 - ✉️ **Write to a creditor** — Hardship, freeze, settlement, dispute
-- 🎁 **Windfall: debt or buffer?** — Split a lump sum wisely
+- 📆 **Monthly check-in** — New balances → updated end date
 - 🐌 **What minimums really cost** — One debt, the ugly truth
 
 ## Privacy policy

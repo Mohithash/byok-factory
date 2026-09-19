@@ -1,0 +1,216 @@
+{
+ "id": "async_ink",
+ "name": "Async Ink",
+ "tagline": "Write it once so nobody needs a meeting",
+ "category": "Communication",
+ "colors": [
+  "#5E35B1",
+  "#00ACC1",
+  "#FFB300"
+ ],
+ "icon": "chat",
+ "about": "Async Ink turns half-formed thoughts into clear written updates, decision requests and handoffs for distributed teams, and turns the meeting someone just proposed into a post nobody has to attend.",
+ "persona": "You are an async-communication editor for remote teams: you lead with the ask, front-load context, name owners and dates, and cut every sentence that would make someone schedule a call.",
+ "onboarding": {
+  "title": "Say it in writing, properly",
+  "subtitle": "Tell Async Ink where your team talks and how formal it is.",
+  "bullets": [
+   "Updates people actually read",
+   "Decision requests with a deadline",
+   "Meetings turned into posts"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "channel",
+   "label": "Where your team writes",
+   "type": "chips",
+   "options": [
+    "Slack",
+    "Teams",
+    "Notion",
+    "Email",
+    "Discord",
+    "Linear/Jira"
+   ],
+   "multi": true
+  },
+  {
+   "key": "tone",
+   "label": "House tone",
+   "type": "chips",
+   "options": [
+    "Casual",
+    "Neutral",
+    "Formal"
+   ],
+   "default": "Neutral"
+  },
+  {
+   "key": "team",
+   "label": "Team & role",
+   "type": "text",
+   "placeholder": "design lead, 8-person product team across EU/US"
+  }
+ ],
+ "tools": [
+  {
+   "id": "update",
+   "title": "Write the update",
+   "subtitle": "Raw notes → a status post",
+   "emoji": "📝",
+   "inputs": [
+    {
+     "key": "notes",
+     "label": "What happened",
+     "type": "longtext",
+     "placeholder": "shipped the export flow, blocked on legal review, demo moved to Thu",
+     "required": true
+    },
+    {
+     "key": "audience",
+     "label": "Audience",
+     "type": "chips",
+     "options": [
+      "My team",
+      "Stakeholders",
+      "Whole company"
+     ],
+     "default": "My team"
+    },
+    {
+     "key": "length",
+     "label": "Length",
+     "type": "chips",
+     "options": [
+      "3 lines",
+      "Short post",
+      "Full update"
+     ],
+     "default": "Short post"
+    }
+   ],
+   "prompt": "Turn these notes into a '{length}' status update for {audience} in the profile's house tone: {notes}. Open with a one-line TL;DR as text, then bullets grouped under Done / In progress / Blocked / Needs from you (only groups that apply), then a quote with the final post ready to paste, and a callout naming anything ambiguous in the notes you had to guess at.",
+   "shape": "text, bullets, quote, callout",
+   "button": "Write it",
+   "loading": "Inking…"
+  },
+  {
+   "id": "decide",
+   "title": "Ask for a decision",
+   "subtitle": "Options, recommendation, deadline",
+   "emoji": "⚖️",
+   "inputs": [
+    {
+     "key": "question",
+     "label": "The decision needed",
+     "type": "longtext",
+     "placeholder": "which auth provider for v2",
+     "required": true
+    },
+    {
+     "key": "options",
+     "label": "Options you see",
+     "type": "text",
+     "placeholder": "Auth0, Clerk, build it"
+    },
+    {
+     "key": "deadline",
+     "label": "Decide by",
+     "type": "text",
+     "placeholder": "Friday 5pm CET"
+    }
+   ],
+   "prompt": "Draft an async decision request about: {question}. Options: {options}. Deadline: {deadline}. Produce a table (Option | Pros | Cons | Cost/effort) covering every listed option, a text section with your recommended option and one sentence of reasoning, a quote with the complete post (ask first, context second, options, recommendation, 'silence = agree by {deadline}'), and bullets of 3 questions a reviewer will ask so the author can pre-empt them.",
+   "shape": "table, text, quote, bullets",
+   "button": "Draft request",
+   "loading": "Weighing…"
+  },
+  {
+   "id": "nomeeting",
+   "title": "Replace this meeting",
+   "subtitle": "Turn a proposed call into a post",
+   "emoji": "🚫",
+   "inputs": [
+    {
+     "key": "invite",
+     "label": "The meeting proposed",
+     "type": "longtext",
+     "placeholder": "'Quick sync on the Q3 roadmap, 45 min, 8 people, Thu 4pm CET'",
+     "required": true
+    },
+    {
+     "key": "why",
+     "label": "Why it was called",
+     "type": "text",
+     "placeholder": "PM wants alignment before the board deck"
+    }
+   ],
+   "prompt": "A colleague proposed this meeting: {invite}, because: {why}. Give a text verdict (Fully async / Async first, short call to close / Needs the call) with one sentence of reasoning, a table (Agenda item | Async format: post, doc comments, poll, recorded demo | Owner | Reply-by) for every implied agenda item, a quote with the post that replaces the meeting in the profile's house tone and channel (context, what you need from each reader, reply-by time, what happens on silence), and a callout on the one thing that genuinely still needs voices in a room, if anything.",
+   "shape": "text, table, quote, callout",
+   "button": "Replace it",
+   "loading": "Cancelling politely…"
+  },
+  {
+   "id": "handoff",
+   "title": "End-of-day handoff",
+   "subtitle": "Pass work to the next time zone",
+   "emoji": "🌏",
+   "inputs": [
+    {
+     "key": "state",
+     "label": "Where things stand",
+     "type": "longtext",
+     "placeholder": "PR #412 waiting on review, staging broken since 4pm, customer X wants an answer",
+     "required": true
+    },
+    {
+     "key": "next",
+     "label": "Who picks it up",
+     "type": "text",
+     "placeholder": "Priya in Bangalore"
+    }
+   ],
+   "prompt": "Write an end-of-day handoff for {next} from: {state}. Sections: a checklist of concrete next actions in priority order (each with what 'done' looks like), a kv of open questions with who can answer them and where the files live, a callout of anything that must NOT be touched or is time-sensitive, and a quote with the full handoff message under 150 words.",
+   "shape": "checklist, kv, callout, quote",
+   "button": "Hand off",
+   "loading": "Passing the baton…"
+  },
+  {
+   "id": "edit",
+   "title": "Edit my draft",
+   "subtitle": "Front-load the ask, cut the fluff",
+   "emoji": "✂️",
+   "inputs": [
+    {
+     "key": "draft",
+     "label": "Your draft",
+     "type": "longtext",
+     "placeholder": "Hey all, so I was thinking that maybe we could possibly…",
+     "required": true
+    },
+    {
+     "key": "goal",
+     "label": "What you need from readers",
+     "type": "chips",
+     "options": [
+      "Just FYI",
+      "Feedback",
+      "A decision",
+      "Action from someone"
+     ],
+     "default": "Feedback"
+    }
+   ],
+   "prompt": "Edit this draft so it works asynchronously; readers should give: {goal}. Draft: {draft}. Show a kv scoring the original (ask clarity /5, context /5, scannability /5, word count → new word count), then the rewritten message as a quote with the ask in the first line and bold section labels, bullets listing each change and why, and a callout on information the draft is missing that readers will ask for.",
+   "shape": "kv, quote, bullets, callout",
+   "button": "Edit it",
+   "loading": "Trimming…"
+  }
+ ]
+}

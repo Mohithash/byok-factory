@@ -1,0 +1,185 @@
+{
+ "id": "solo_quest",
+ "name": "Solo Quest",
+ "tagline": "A game master in your pocket for solo roleplaying",
+ "category": "Games",
+ "colors": [
+  "#37474F",
+  "#8D6E63",
+  "#FFB300"
+ ],
+ "icon": "moon",
+ "about": "Solo Quest runs the game when nobody else can: an oracle that answers with twists, scenes that end in real choices, random places to explore, faction maps and a journal that keeps your threads straight.",
+ "persona": "You are a solo-RPG game master and oracle: evocative, fair, never railroading; you end every scene with a decision and keep continuity with what the player has told you.",
+ "onboarding": {
+  "title": "Adventure, no group required",
+  "subtitle": "Tell Solo Quest your hero and world; it remembers them in every scene.",
+  "bullets": [
+   "Oracle answers with twists",
+   "Scenes that end in choices",
+   "Journal that tracks your threads"
+  ]
+ },
+ "profile": [
+  {
+   "key": "hero",
+   "label": "Your character",
+   "type": "text",
+   "placeholder": "Kess, a disgraced knight carrying a stolen relic"
+  },
+  {
+   "key": "genre",
+   "label": "Genre",
+   "type": "chips",
+   "options": [
+    "High fantasy",
+    "Grimdark",
+    "Sci-fi",
+    "Post-apocalypse",
+    "Cosy",
+    "Mystery"
+   ]
+  },
+  {
+   "key": "world",
+   "label": "World notes",
+   "type": "text",
+   "placeholder": "the Empire fell 30 years ago; magic is illegal"
+  }
+ ],
+ "tools": [
+  {
+   "id": "oracle",
+   "title": "Ask the oracle",
+   "subtitle": "Yes/no with a twist",
+   "emoji": "🔮",
+   "inputs": [
+    {
+     "key": "question",
+     "label": "Your question",
+     "type": "text",
+     "placeholder": "Is the bridge guarded?",
+     "required": true
+    },
+    {
+     "key": "odds",
+     "label": "Likelihood",
+     "type": "chips",
+     "options": [
+      "Very unlikely",
+      "Unlikely",
+      "50/50",
+      "Likely",
+      "Very likely"
+     ],
+     "default": "50/50"
+    }
+   ],
+   "prompt": "Answer the oracle question '{question}' with likelihood {odds}: choose an outcome whose odds match the likelihood, leaning toward the more interesting result, and state it plainly as one of Yes / Yes, and / Yes, but / No / No, but / No, and. Give kv (answer, twist, how likely it was), text of 2–3 sentences describing what the hero perceives in the profile genre and world, and bullets of 3 things they could do next.",
+   "shape": "kv, text, bullets",
+   "button": "Consult",
+   "loading": "Casting the bones…"
+  },
+  {
+   "id": "scene",
+   "title": "Run the next scene",
+   "subtitle": "Narrate, then hand me a choice",
+   "emoji": "🎬",
+   "inputs": [
+    {
+     "key": "situation",
+     "label": "Where we are and what just happened",
+     "type": "longtext",
+     "placeholder": "I entered the ruined chapel; the relic is humming",
+     "required": true
+    },
+    {
+     "key": "mood",
+     "label": "Scene mood",
+     "type": "chips",
+     "options": [
+      "Tense",
+      "Action",
+      "Quiet",
+      "Eerie",
+      "Social"
+     ],
+     "default": "Tense"
+    }
+   ],
+   "prompt": "Continue from: {situation} with a {mood} mood, in the profile genre and world. Write text narrating the scene (150–220 words, second person, never deciding for the hero), then cards for 3 distinct choices (meta = risk: low / medium / high), and a callout with a complication to introduce if the hero plays it safe.",
+   "shape": "text, cards, callout",
+   "button": "Play on",
+   "loading": "Setting the scene…"
+  },
+  {
+   "id": "place",
+   "title": "Random location",
+   "subtitle": "Somewhere to explore",
+   "emoji": "🏚️",
+   "inputs": [
+    {
+     "key": "kind",
+     "label": "Kind of place",
+     "type": "chips",
+     "options": [
+      "Wilderness",
+      "Settlement",
+      "Dungeon or ruin",
+      "Ship or vehicle",
+      "Stronghold"
+     ],
+     "default": "Dungeon or ruin"
+    },
+    {
+     "key": "rooms",
+     "label": "Rooms or areas",
+     "type": "number",
+     "placeholder": "6"
+    }
+   ],
+   "prompt": "Generate a {kind} with {rooms} areas for the profile genre. Output text (name and a one-paragraph impression), a table (Area | What's there | Danger | Treasure or clue), bullets of 3 rumours the hero could have heard about it, and a kv of the place's secret, current occupants and what happens if it is left alone.",
+   "shape": "text, table, bullets, kv",
+   "button": "Generate",
+   "loading": "Mapping the unknown…"
+  },
+  {
+   "id": "faction",
+   "title": "Factions & rumours",
+   "subtitle": "Who wants what",
+   "emoji": "🏴",
+   "inputs": [
+    {
+     "key": "region",
+     "label": "Region or city",
+     "type": "text",
+     "placeholder": "the free port of Salt Reach",
+     "required": true
+    }
+   ],
+   "prompt": "Create the power map of {region} for the profile world. Output a table of 4 factions (Faction | Leader | Wants | Fears | How they treat the hero) and bullets of 6 rumours mixing true and false without marking them. Then a kv headed 'Oracle only' listing which rumours are true for the player to reveal later, and a callout on the conflict about to boil over.",
+   "shape": "table, bullets, kv, callout",
+   "button": "Map powers",
+   "loading": "Listening at doors…"
+  },
+  {
+   "id": "journal",
+   "title": "Journal my session",
+   "subtitle": "Notes → recap and threads",
+   "emoji": "📓",
+   "inputs": [
+    {
+     "key": "notes",
+     "label": "Session notes",
+     "type": "longtext",
+     "placeholder": "fought cultists, met Old Marn, lost the map, oracle said the relic is alive",
+     "required": true
+    }
+   ],
+   "prompt": "Turn these notes into a chronicle: {notes}. Write a quote of 4–6 lines as the hero's journal entry in their voice, a table of open threads (Thread | Status | Next step), a kv of NPCs met and their disposition, and bullets of 3 possible openings for the next session.",
+   "shape": "quote, table, kv, bullets",
+   "button": "Chronicle",
+   "loading": "Inking the page…"
+  }
+ ]
+}

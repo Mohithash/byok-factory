@@ -172,7 +172,7 @@
      "default": "Homeowner"
     }
    ],
-   "prompt": "Set payment terms for a {total} job over {days} days for a {type}: kv (deposit %, stage payments with their triggers, final payment due, late-payment note), a quote with plain-English terms and conditions under 200 words, a checklist of things to get in writing before starting, and a callout on materials-upfront and cancellation basics.",
+   "prompt": "Set payment terms for a {total} job over {days} days for a {type} customer. Produce a kv (deposit %, stage payments with their triggers, final payment due, late-payment note), a quote with plain-English terms and conditions under 200 words, a checklist of things to get in writing before starting, and a callout on materials-upfront and cancellation basics.",
    "shape": "kv, quote, checklist, callout",
    "button": "Set terms",
    "loading": "Drafting terms…"

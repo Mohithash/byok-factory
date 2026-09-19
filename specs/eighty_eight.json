@@ -95,8 +95,8 @@
      "placeholder": "bars 15–18, left hand"
     }
    ],
-   "prompt": "A {minutes}-minute practice plan for {piece} with trouble at {trouble}: table (Block | Minutes | What | Tempo | Hands), steps for attacking the trouble spot (hands separately, dotted rhythms, chaining, tempo ladder), and a callout on the tempo ceiling not to exceed today.",
-   "shape": "table, steps, callout",
+   "prompt": "A {minutes}-minute practice plan for {piece} (trouble spot, if any: {trouble}) for the profile level and instrument: table (Block | Minutes | What | Tempo | Hands) with the trouble spot given its own block but no more than a third of the time, bullets of a done-when for each block, a kv (tempo ceiling today, target tempo in 1 week, warm-up key, what to record/mark in the score), and a callout on the tempo ceiling not to exceed today and why. Do not write out the drill itself; point to the 'Crack a passage' tool for that.",
+   "shape": "table, bullets, kv, callout",
    "button": "Plan practice",
    "loading": "Setting the tempo…"
   },

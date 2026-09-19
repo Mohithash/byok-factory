@@ -9,7 +9,7 @@
   "#FF7043"
  ],
  "icon": "bulb",
- "about": "Compound Lab makes compounding visible: year-by-year growth projections, the real cost of starting late, fees and inflation drag, lump sum versus monthly, and the Rule of 72 explained with your own numbers.",
+ "about": "Compound Lab makes compounding visible: year-by-year growth projections, the real cost of starting late, inflation's bite on purchasing power, the monthly amount a goal really needs, and the Rule of 72 explained with your own numbers.",
  "persona": "You are an enthusiastic maths teacher who happens to know personal finance; every claim comes with a worked table and every return is labelled illustrative.",
  "onboarding": {
   "title": "Watch the curve bend",
@@ -17,7 +17,7 @@
   "bullets": [
    "Year-by-year projections",
    "Cost of waiting, in real money",
-   "Fees and inflation made visible"
+   "Goal → monthly amount solver"
   ]
  },
  "profile": [
@@ -71,7 +71,7 @@
      "placeholder": "30"
     }
    ],
-   "prompt": "Project {start} plus {monthly}/month for {years} years at the profile return in the profile currency. Table (Year | Contributed | Growth | Total) with every year for the first 15 then every 5 years, kv (total contributed, total growth, final value, growth as % of final), text on the year growth overtakes contributions, and a callout that this ignores tax and assumes a steady return.",
+   "prompt": "Project starting amount {start} (default 0) plus {monthly}/month (default 250) for {years} years (default 30) at the profile return in the profile currency. Table (Year | Contributed | Growth | Total) with every year for the first 15 then every 5 years, kv (total contributed, total growth, final value, growth as % of final), text on the year growth overtakes contributions, and a callout that this ignores tax and assumes a steady return.",
    "shape": "table, kv, text, callout",
    "button": "Project",
    "loading": "Compounding…"
@@ -101,15 +101,15 @@
      "placeholder": "65"
     }
    ],
-   "prompt": "Compare investing {monthly}/month from the profile age until {until} versus starting {delay} years later, at the profile return. Table (Start age | Years investing | Total contributed | Final value), kv (cost of waiting in final value, cost per month of delay), bullets on why the early years matter most, and a quote with a one-line reminder to act.",
+   "prompt": "Compare investing {monthly}/month (default 300) from the profile age until age {until} (default 65) versus starting {delay} years later (default 5), at the profile return. Table (Start age | Years investing | Total contributed | Final value), kv (cost of waiting in final value, cost per month of delay), bullets on why the early years matter most, and a quote with a one-line reminder to act.",
    "shape": "table, kv, bullets, quote",
    "button": "Compare",
    "loading": "Watching clocks…"
   },
   {
-   "id": "drag",
-   "title": "Fees & inflation drag",
-   "subtitle": "Nominal vs real vs after-fees",
+   "id": "real",
+   "title": "Real vs nominal",
+   "subtitle": "What inflation does to the number",
    "emoji": "🪨",
    "inputs": [
     {
@@ -119,46 +119,52 @@
      "placeholder": "50000"
     },
     {
-     "key": "fee",
-     "label": "Total annual fees %",
-     "type": "number",
-     "placeholder": "1.2"
-    },
-    {
      "key": "inflation",
      "label": "Inflation %",
      "type": "number",
      "placeholder": "3"
-    }
-   ],
-   "prompt": "Show {amount} over 10, 20 and 30 years at the profile return with overlays: table (Years | Nominal | After {fee}% fees | After fees and {inflation}% inflation). Then kv (what 1% of extra fees costs over 30 years, purchasing-power lost to inflation), text on real versus nominal returns, and a callout on the fee level that changes retirement outcomes.",
-   "shape": "table, kv, text, callout",
-   "button": "Show drag",
-   "loading": "Subtracting…"
-  },
-  {
-   "id": "lump",
-   "title": "Lump sum vs monthly",
-   "subtitle": "All at once or spread out?",
-   "emoji": "🧮",
-   "inputs": [
-    {
-     "key": "amount",
-     "label": "Amount available",
-     "type": "number",
-     "placeholder": "24000"
     },
     {
-     "key": "months",
-     "label": "Spread over months",
+     "key": "fee",
+     "label": "Annual fees % (optional overlay)",
      "type": "number",
-     "placeholder": "12"
+     "placeholder": "1"
     }
    ],
-   "prompt": "Compare investing {amount} at once versus {months} equal monthly instalments at the profile return. Table (Scenario | Rising market | Flat market | Falling market | Long-run average) with illustrative outcomes, text on what the evidence says about lump sum versus averaging in, bullets on when averaging is worth its cost, and a callout on the emotional side of the choice.",
-   "shape": "table, text, bullets, callout",
-   "button": "Compare",
-   "loading": "Splitting hairs…"
+   "prompt": "Show {amount} (default 50,000) over 10, 20 and 30 years at the profile return with inflation {inflation}% (default 3) and fees {fee}% (default 0). Table (Years | Nominal value | Real value (after inflation) | Real value after fees | Purchasing power lost %). Then kv (what the profile return is in real terms, what today's amount buys in 30 years, what 1% of extra fees costs over 30 years), text on why real returns are the only ones that matter for spending, and a callout on the mistake of planning retirement in nominal money.",
+   "shape": "table, kv, text, callout",
+   "button": "Show real",
+   "loading": "Deflating…"
+  },
+  {
+   "id": "goal",
+   "title": "Goal solver",
+   "subtitle": "Target and deadline → monthly amount",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "target",
+     "label": "Target amount",
+     "type": "number",
+     "placeholder": "100000"
+    },
+    {
+     "key": "years",
+     "label": "Years to reach it",
+     "type": "number",
+     "placeholder": "15"
+    },
+    {
+     "key": "start",
+     "label": "Already saved",
+     "type": "number",
+     "placeholder": "5000"
+    }
+   ],
+   "prompt": "Solve backwards: monthly contribution needed to turn {start} (default 0) into {target} (default 100,000) in {years} years (default 15) at the profile return. Sections: kv (monthly needed at the profile return, total contributed, growth share %, monthly needed if the deadline moves 5 years earlier and 5 years later), table (Return % | Monthly needed | Total contributed | Growth share %) for the profile return −3, −2, −1, 0, +1, +2 points. Then text on which lever (time, return, amount) moves the answer most, and a callout that a small return change moves the answer a lot, so plan on the cautious side.",
+   "shape": "kv, table, text, callout",
+   "button": "Solve it",
+   "loading": "Solving backwards…"
   },
   {
    "id": "rule72",
@@ -173,7 +179,7 @@
      "placeholder": "7"
     }
    ],
-   "prompt": "Explain the Rule of 72 using {rate}%: kv (years to double, years to triple, years to 10x, rule-of-72 estimate vs exact), table (Rate % | Doubling years) for 2, 4, 6, 8, 10, 12, text on the Rules of 114 and 144, and a callout on applying the same rule to debt APRs.",
+   "prompt": "Explain the Rule of 72 using {rate}% (if not given, use the profile return). Sections: kv (years to double, years to triple, years to 10x, rule-of-72 estimate vs exact), table (Rate % | Doubling years) for 2, 4, 6, 8, 10, 12, text on the Rules of 114 and 144, and a callout on applying the same rule to debt APRs.",
    "shape": "kv, table, text, callout",
    "button": "Explain",
    "loading": "Doubling…"

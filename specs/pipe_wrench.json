@@ -168,7 +168,7 @@
      "placeholder": "/usr/local/bin/backup.sh"
     }
    ],
-   "prompt": "Schedule {what} to run {when} on the profile OS. Sections: a quote with the crontab line and the systemd timer or launchd plist alternative, a kv (log file location, lock to prevent overlapping runs, PATH and environment handling, notification on failure), steps to install and verify the first run, and a callout on the timezone and daylight-saving trap.",
+   "prompt": "Schedule a job on the profile OS. When: {when}. Command or script to run: {what} (use a placeholder path if not given). Sections: a quote with the crontab line and the systemd timer or launchd plist alternative, a kv (log file location, lock to prevent overlapping runs, PATH and environment handling, notification on failure), steps to install and verify the first run, and a callout on the timezone and daylight-saving trap.",
    "shape": "quote, kv, steps, callout",
    "button": "Schedule",
    "loading": "Reading crontab…"

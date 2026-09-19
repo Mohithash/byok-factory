@@ -1,0 +1,205 @@
+{
+ "id": "all_hands",
+ "name": "All Hands",
+ "tagline": "Town halls people don't mute",
+ "category": "Business",
+ "colors": [
+  "#AD1457",
+  "#00897B",
+  "#FFB300"
+ ],
+ "icon": "chat",
+ "about": "All Hands plans and runs your company or department town hall — the run-sheet, each segment's script, triage of the anonymous questions, the live answer to a spiky one and the follow-up that proves people were heard.",
+ "persona": "You are an internal-communications lead who has produced hundreds of all-hands: you cut anything that could have been an email, protect Q&A time, and coach speakers to answer the question that was actually asked.",
+ "onboarding": {
+  "title": "Make the monthly meeting worth attending",
+  "subtitle": "Tell us about your all-hands so scripts match its size and format.",
+  "bullets": [
+   "Run-sheets with timing and owners",
+   "Segment scripts and speaker coaching",
+   "Q&A triage and live answers"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "size",
+   "label": "Audience",
+   "type": "chips",
+   "options": [
+    "Under 30",
+    "30–150",
+    "150–1,000",
+    "1,000+"
+   ]
+  },
+  {
+   "key": "format",
+   "label": "Format",
+   "type": "chips",
+   "options": [
+    "In person",
+    "Video call",
+    "Hybrid"
+   ]
+  },
+  {
+   "key": "role",
+   "label": "Your role",
+   "type": "text",
+   "placeholder": "chief of staff; the CEO presents"
+  }
+ ],
+ "tools": [
+  {
+   "id": "runsheet",
+   "title": "Build the run-sheet",
+   "subtitle": "Segments, timing, owners",
+   "emoji": "🗓️",
+   "inputs": [
+    {
+     "key": "content",
+     "label": "What needs covering",
+     "type": "longtext",
+     "placeholder": "Q3 numbers, new VP intro, product launch demo, benefits change, Q&A",
+     "required": true
+    },
+    {
+     "key": "minutes",
+     "label": "Length (minutes)",
+     "type": "number",
+     "placeholder": "45"
+    }
+   ],
+   "prompt": "Build a {minutes}-minute all-hands run-sheet for the profile's audience and format covering: {content}. Sections: a table (Time | Segment | Speaker | Minutes | Purpose | Format — talk / demo / Q&A / video); bullets on what to cut or move to written comms and why; a checklist for the 24 hours before (slides in, tech check, questions pre-collected, backup presenter); and a callout on protecting Q&A time from overrunning segments.",
+   "shape": "table, bullets, checklist, callout",
+   "button": "Build it",
+   "loading": "Timing segments…"
+  },
+  {
+   "id": "segment",
+   "title": "Script a segment",
+   "subtitle": "Numbers, a change or a win — said well",
+   "emoji": "🎤",
+   "inputs": [
+    {
+     "key": "points",
+     "label": "What the speaker must get across",
+     "type": "longtext",
+     "placeholder": "revenue flat, costs down 8%, hiring freeze continues, morale needs a lift",
+     "required": true
+    },
+    {
+     "key": "kind",
+     "label": "Segment",
+     "type": "chips",
+     "options": [
+      "Business update",
+      "Announcing a change",
+      "Team spotlight / win",
+      "Welcome a new leader",
+      "Strategy refresher"
+     ],
+     "default": "Business update"
+    },
+    {
+     "key": "minutes",
+     "label": "Minutes",
+     "type": "number",
+     "placeholder": "7"
+    }
+   ],
+   "prompt": "Script a {minutes}-minute {kind} segment from: {points}, for the profile's audience. Sections: a quote with the spoken script (open with the headline, no throat-clearing, one number per sentence, close with what it means for the listener); kv (Headline, The one thing to remember, The ask of the audience); bullets with at most 3 slides and their titles; and a callout on the phrases that sound like spin to an employee audience.",
+   "shape": "quote, kv, bullets, callout",
+   "button": "Script it",
+   "loading": "Headline first…"
+  },
+  {
+   "id": "triage",
+   "title": "Triage the questions",
+   "subtitle": "From the anonymous form to a Q&A plan",
+   "emoji": "📥",
+   "inputs": [
+    {
+     "key": "questions",
+     "label": "Paste the submitted questions",
+     "type": "longtext",
+     "placeholder": "…",
+     "required": true
+    },
+    {
+     "key": "minutes",
+     "label": "Q&A minutes",
+     "type": "number",
+     "placeholder": "15"
+    }
+   ],
+   "prompt": "Triage these submitted all-hands questions into a {minutes}-minute Q&A: {questions}. Sections: a table (Theme | Questions merged | Ask live? | Who answers | Answer must include); bullets on the questions to answer in writing afterwards and why; a callout on any question that is really a complaint about a person and how to handle it without naming anyone; and a quote with how the host introduces the Q&A so unanswered questions still feel heard.",
+   "shape": "table, bullets, callout, quote",
+   "button": "Triage",
+   "loading": "Sorting questions…"
+  },
+  {
+   "id": "live",
+   "title": "Answer this live",
+   "subtitle": "A spiky question, 20 seconds to answer",
+   "emoji": "🔥",
+   "inputs": [
+    {
+     "key": "question",
+     "label": "The question (as asked)",
+     "type": "text",
+     "placeholder": "Are there going to be layoffs?",
+     "required": true
+    },
+    {
+     "key": "truth",
+     "label": "What's actually true / what you can say",
+     "type": "longtext",
+     "placeholder": "no plan today; budget review in Nov; can't promise anything",
+     "required": true
+    }
+   ],
+   "prompt": "A spiky question in the live Q&A: '{question}'. What is true and sayable: {truth}. Sections: a quote with a 20-second answer that is honest, doesn't over-promise and doesn't hide (acknowledge, answer, what happens next, when they'll hear more); a table (Bad answer pattern | Why it damages trust) with 3 rows; and a callout on what to do if the honest answer is 'I can't say', and how to say that.",
+   "shape": "quote, table, callout",
+   "button": "Give me the answer",
+   "loading": "Steadying…"
+  },
+  {
+   "id": "followup",
+   "title": "After the meeting",
+   "subtitle": "Recap, open questions, pulse check",
+   "emoji": "📮",
+   "inputs": [
+    {
+     "key": "happened",
+     "label": "What was covered and what was left open",
+     "type": "longtext",
+     "placeholder": "…",
+     "required": true
+    },
+    {
+     "key": "mood",
+     "label": "How it went",
+     "type": "chips",
+     "options": [
+      "Energised",
+      "Flat",
+      "Tense — tough questions",
+      "Mixed"
+     ],
+     "default": "Mixed"
+    }
+   ],
+   "prompt": "Write the post-all-hands follow-up for a meeting that went '{mood}': {happened}. Sections: a quote with the recap post under 200 words (headlines, decisions, links, the unanswered questions with owners and dates); kv of 3 pulse questions to send and what a bad answer to each would tell you; bullets on what to fix in the next edition based on the mood; and a callout on closing the loop on every unanswered question within a week.",
+   "shape": "quote, kv, bullets, callout",
+   "button": "Write follow-up",
+   "loading": "Closing the loop…"
+  }
+ ],
+ "disclaimer": "Check anything about pay, job security, redundancies or legal matters with HR or legal before saying it live."
+}

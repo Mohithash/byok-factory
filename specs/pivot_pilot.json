@@ -177,7 +177,7 @@
      "required": true
     }
    ],
-   "prompt": "Review the spreadsheet in the photo. Table 'Issues' (Cell/Area | Problem | Risk | Fix), bullets on layout improvements (headers, freeze panes, number formats, named ranges, hard-coded numbers), a checklist for making it safe to share, and a callout on the single change that reduces errors most.",
+   "prompt": "Review the spreadsheet in the photo. Table 'Issues' (Cell/Area | Problem | Risk | Fix), bullets of up to 5 layout improvements (headers, freeze panes, number formats, named ranges, hard-coded numbers), a checklist for making it safe to share, and a callout on the single change that reduces errors most.",
    "shape": "table, bullets, checklist, callout",
    "button": "Audit sheet",
    "loading": "Zooming in…"

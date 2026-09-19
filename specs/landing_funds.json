@@ -1,0 +1,219 @@
+{
+ "id": "landing_funds",
+ "name": "Landing Funds",
+ "tagline": "Make your arrival savings last until the first paycheck",
+ "category": "Finance",
+ "colors": [
+  "#C62828",
+  "#00838F",
+  "#FDD835"
+ ],
+ "icon": "plane",
+ "about": "Landing Funds helps newcomers who arrive with limited savings stretch them until the first wage: a landing runway in weeks, setup costs in must/should/later order, a cheap-start guide, a fair-price check for rent, deposits and fees, and what to do if the money runs short.",
+ "persona": "You are a practical resettlement money guide: calm, non-judgmental, fluent in deposits and 'proof of address' loops, and clear about where free help exists.",
+ "onboarding": {
+  "title": "Land on your feet",
+  "subtitle": "Your savings, arrival plans and household size set the runway.",
+  "bullets": [
+   "Weeks of runway, honestly counted",
+   "Setup costs in the right order",
+   "Fair-price checks before you pay"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "country",
+   "label": "Arriving in",
+   "type": "text",
+   "placeholder": "Germany"
+  },
+  {
+   "key": "savings",
+   "label": "Savings you land with",
+   "type": "number",
+   "placeholder": "4500"
+  },
+  {
+   "key": "household",
+   "label": "Household",
+   "type": "chips",
+   "options": [
+    "Just me",
+    "Couple",
+    "Family with kids",
+    "Joining relatives"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "runway",
+   "title": "My landing runway",
+   "subtitle": "Weeks until the money's gone",
+   "emoji": "🛬",
+   "inputs": [
+    {
+     "key": "housing",
+     "label": "Housing plan",
+     "type": "text",
+     "placeholder": "hostel 2 weeks, then a shared flat ~500/month + deposit"
+    },
+    {
+     "key": "job",
+     "label": "Job status",
+     "type": "text",
+     "placeholder": "job offer, first pay ~6 weeks after start"
+    },
+    {
+     "key": "weekly",
+     "label": "Weekly living costs estimate",
+     "type": "number",
+     "placeholder": "150"
+    }
+   ],
+   "prompt": "Housing: {housing}; job: {job}; weekly costs {weekly}; savings and household from the profile. Sections: kv (weeks of runway, cash needed until first pay, surplus or shortfall, the date to worry by); table (Week | Housing | Living | One-offs | Balance) until the first paycheck plus two weeks; a callout on the first-paycheck delay trap (pay in arrears, payroll cut-off dates) and what to ask HR on day one (pay date, cut-off, whether a first-month advance is possible); bullets of 3 adjustments if there is a shortfall.",
+   "shape": "kv, table, callout, bullets",
+   "button": "Count my runway",
+   "loading": "Counting weeks…"
+  },
+  {
+   "id": "setup",
+   "title": "Setup costs, in order",
+   "subtitle": "Must, should, later",
+   "emoji": "🧰",
+   "inputs": [
+    {
+     "key": "have",
+     "label": "Already sorted",
+     "type": "chips",
+     "options": [
+      "Phone / SIM",
+      "Bank account",
+      "Housing",
+      "Transport pass",
+      "Health cover",
+      "Nothing yet"
+     ],
+     "multi": true
+    },
+    {
+     "key": "cap",
+     "label": "Amount you can spend on setup",
+     "type": "number",
+     "placeholder": "900"
+    }
+   ],
+   "prompt": "Already sorted: {have}; setup cap {cap}; country and household from the profile. Sections: table (Item | Must / Should / Later | Est. cost | Cheapest route | Depends on) covering SIM, bank, deposit, registration or ID fees, transport, bedding and kitchen basics, work clothes, health cover; kv (must total, should total, what fits under the cap); steps in the order that unblocks the most (address → registration → bank → phone contract, or the local equivalent); a callout on the 'proof of address' circularity and the workarounds people commonly use.",
+   "shape": "table, kv, steps, callout",
+   "button": "Order the list",
+   "loading": "Sorting priorities…"
+  },
+  {
+   "id": "cheap",
+   "title": "Cheap start guide",
+   "subtitle": "Furnish and feed a home for less",
+   "emoji": "🛋️",
+   "inputs": [
+    {
+     "key": "need",
+     "label": "What you need most",
+     "type": "chips",
+     "options": [
+      "Furniture & bedding",
+      "Kitchen basics",
+      "Winter clothes",
+      "Kids' things",
+      "Work clothes / tools"
+     ],
+     "multi": true
+    },
+    {
+     "key": "style",
+     "label": "Style",
+     "type": "chips",
+     "options": [
+      "Free first",
+      "Cheap and quick",
+      "Buy once, keep"
+     ],
+     "default": "Free first"
+    }
+   ],
+   "prompt": "Needs: {need}, style {style}, household from the profile. Sections: cards for 6 sourcing channels (meta = cost · speed · effort) such as community groups, charity shops, swap and buy-nothing groups, newcomer organisations, discount chains; a checklist of a 'first week kit' with target costs; bullets on safety when buying second-hand (mattresses, electrics, child seats); a callout on scams around 'free' items and deposits.",
+   "shape": "cards, checklist, bullets, callout",
+   "button": "Show me",
+   "loading": "Scouring listings…"
+  },
+  {
+   "id": "fair",
+   "title": "Is this a fair price?",
+   "subtitle": "Rent, deposits, fees, plans",
+   "emoji": "🏷️",
+   "inputs": [
+    {
+     "key": "quote",
+     "label": "What you're being asked to pay",
+     "type": "longtext",
+     "placeholder": "room in shared flat 650/month, 3 months' deposit, 200 'admin fee', pay cash before viewing",
+     "required": true
+    },
+    {
+     "key": "kind",
+     "label": "What it's for",
+     "type": "chips",
+     "options": [
+      "Rent / deposit",
+      "Phone / internet plan",
+      "Agency or admin fee",
+      "Second-hand item",
+      "Transport / licence",
+      "Other"
+     ],
+     "default": "Rent / deposit"
+    }
+   ],
+   "prompt": "Price check for {kind}: {quote}, for a newcomer in the profile's country with the profile's household. Sections: kv (verdict: fair / high / walk away, a typical range for this in general terms, the single biggest red flag if any); table (Charge | Asked | Typical | Customary or legal? | What to ask) with one row per fee or term in the quote; bullets of 4 questions to ask before paying anything; a quote with a polite message that queries or counters the price without sounding difficult; a callout that deposit caps, fee bans and cooling-off rights differ by country, never to pay cash without a receipt or before seeing the thing, and that this is not legal advice.",
+   "shape": "kv, table, bullets, quote, callout",
+   "button": "Check the price",
+   "loading": "Comparing prices…"
+  },
+  {
+   "id": "short",
+   "title": "Money is running out",
+   "subtitle": "Where help exists, what to do first",
+   "emoji": "🆘",
+   "inputs": [
+    {
+     "key": "situation",
+     "label": "What's happening",
+     "type": "text",
+     "placeholder": "rent due Friday, 90 left, job starts in 3 weeks"
+    },
+    {
+     "key": "status",
+     "label": "Your status",
+     "type": "chips",
+     "options": [
+      "Work visa",
+      "Student",
+      "Refugee / asylum",
+      "Family reunion",
+      "Free movement",
+      "Other / prefer not to say"
+     ],
+     "default": "Work visa"
+    }
+   ],
+   "prompt": "Situation: {situation}, status {status}, country and household from the profile. Sections: steps for the next 72 hours in priority order (talk to the landlord before missing the date, newcomer and migrant support organisations, community and faith groups, emergency food, embassy or consulate where relevant); table (Type of help | Who usually offers it | What to bring | Notes); a callout that eligibility for public support depends on status and country, that this is not immigration or legal advice, and to seek a registered adviser or recognised charity; a quote with a short message to the landlord asking for a few days.",
+   "shape": "steps, table, callout, quote",
+   "button": "Help me now",
+   "loading": "Finding help…"
+  }
+ ],
+ "disclaimer": "General information, not financial, tax, legal or immigration advice; rules differ by country and by your status and change often — check official sources, a registered adviser or a recognised migrant-support charity."
+}

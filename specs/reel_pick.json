@@ -1,0 +1,223 @@
+{
+ "id": "reel_pick",
+ "name": "Reel Pick",
+ "tagline": "Movie nights, watch orders and spoiler-safe catch-ups",
+ "category": "Entertainment",
+ "colors": [
+  "#311B92",
+  "#FF8F00",
+  "#00838F"
+ ],
+ "icon": "camera",
+ "about": "Reel Pick picks films and shows the whole room will agree on, plans franchise watch orders, catches you up before a new season without spoiling it, sparks post-credits discussion and schedules marathons.",
+ "persona": "You are a film-and-TV programmer with encyclopaedic taste: opinionated but generous, spoiler-disciplined, and you recommend for the actual people in the room, not the critics.",
+ "onboarding": {
+  "title": "What are we watching?",
+  "subtitle": "Tell Reel Pick your tastes and streaming setup.",
+  "bullets": [
+   "Picks for everyone on the sofa",
+   "Franchise watch orders",
+   "Spoiler-safe catch-ups"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "services",
+   "label": "Streaming",
+   "type": "chips",
+   "options": [
+    "Netflix",
+    "Disney+",
+    "Prime",
+    "Apple TV+",
+    "Max",
+    "Paramount+",
+    "Physical / own"
+   ],
+   "multi": true
+  },
+  {
+   "key": "loves",
+   "label": "Loves",
+   "type": "text",
+   "placeholder": "heist films, slow-burn sci-fi"
+  },
+  {
+   "key": "hates",
+   "label": "Won't watch",
+   "type": "text",
+   "placeholder": "jump-scares, anything over 3 hours"
+  }
+ ],
+ "tools": [
+  {
+   "id": "pick",
+   "title": "Pick tonight's film",
+   "subtitle": "For everyone in the room",
+   "emoji": "🎬",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Who's watching",
+     "type": "text",
+     "placeholder": "me, partner who likes rom-coms, teen who likes anime",
+     "required": true
+    },
+    {
+     "key": "mood",
+     "label": "Mood",
+     "type": "chips",
+     "options": [
+      "Comfort",
+      "Thrilling",
+      "Funny",
+      "Thought-provoking",
+      "Background noise"
+     ],
+     "default": "Comfort"
+    },
+    {
+     "key": "minutes",
+     "label": "Max runtime",
+     "type": "number",
+     "placeholder": "120"
+    }
+   ],
+   "prompt": "Recommend for {who}, mood {mood}, max {minutes} minutes, honouring the profile tastes and services. Output cards for 5 films or series (meta = year · runtime · likely service), a table (Title | Why this room | Who might object | Content notes), and a callout with the one pick to make if nobody can decide.",
+   "shape": "cards, table, callout",
+   "button": "Pick",
+   "loading": "Scanning the shelf…"
+  },
+  {
+   "id": "order",
+   "title": "Watch order",
+   "subtitle": "Franchise or universe",
+   "emoji": "🗂️",
+   "inputs": [
+    {
+     "key": "franchise",
+     "label": "Franchise or series",
+     "type": "text",
+     "placeholder": "Star Wars / Marvel / Ghibli / Fast & Furious",
+     "required": true
+    },
+    {
+     "key": "goal",
+     "label": "Goal",
+     "type": "chips",
+     "options": [
+      "Best first experience",
+      "Chronological",
+      "Essentials only",
+      "Complete"
+     ],
+     "default": "Best first experience"
+    }
+   ],
+   "prompt": "Build a '{goal}' watch order for {franchise}. Give a table (# | Title | Year | Runtime | Why here | Skippable?), a kv of total hours and a realistic schedule for the profile viewer, bullets on the entries most people argue about, and a callout on where a newcomer should stop if they're not hooked.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Build order",
+   "loading": "Sorting the reels…"
+  },
+  {
+   "id": "catchup",
+   "title": "Catch me up",
+   "subtitle": "Spoiler-safe primer",
+   "emoji": "⏩",
+   "inputs": [
+    {
+     "key": "title",
+     "label": "Series or franchise",
+     "type": "text",
+     "placeholder": "Succession before season 4",
+     "required": true
+    },
+    {
+     "key": "seen",
+     "label": "What I've seen",
+     "type": "chips",
+     "options": [
+      "Nothing",
+      "Some early parts",
+      "Most of it, fuzzy on details"
+     ],
+     "default": "Some early parts"
+    },
+    {
+     "key": "spoilers",
+     "label": "Spoiler policy",
+     "type": "chips",
+     "options": [
+      "Keep major twists hidden",
+      "Full recap, spoil everything"
+     ],
+     "default": "Keep major twists hidden"
+    }
+   ],
+   "prompt": "Prepare a primer for {title} for someone who has seen {seen}, policy: {spoilers}. Output text (premise and tone in 4 sentences), a kv of key characters and where they stand, steps summarising what happened in order at the permitted spoiler level, and a callout listing what is deliberately being kept hidden.",
+   "shape": "text, kv, steps, callout",
+   "button": "Catch me up",
+   "loading": "Rewinding…"
+  },
+  {
+   "id": "discuss",
+   "title": "Post-film discussion",
+   "subtitle": "Questions and readings",
+   "emoji": "💬",
+   "inputs": [
+    {
+     "key": "title",
+     "label": "What you just watched",
+     "type": "text",
+     "placeholder": "Arrival",
+     "required": true
+    },
+    {
+     "key": "depth",
+     "label": "Depth",
+     "type": "chips",
+     "options": [
+      "Light chat",
+      "Film-club",
+      "Essay-level"
+     ],
+     "default": "Film-club"
+    }
+   ],
+   "prompt": "Lead a discussion of {title} at {depth} depth; spoilers are allowed because the user has seen it. Output bullets of 8 discussion questions ordered from easy to deep, text on 2 competing readings of the film, a kv of craft notes (direction, score, cinematography, editing, a standout scene), and cards for 3 films to watch next (meta = year · why it pairs).",
+   "shape": "bullets, text, kv, cards",
+   "button": "Discuss",
+   "loading": "Rolling credits…"
+  },
+  {
+   "id": "marathon",
+   "title": "Marathon planner",
+   "subtitle": "A day or weekend of viewing",
+   "emoji": "🍿",
+   "inputs": [
+    {
+     "key": "what",
+     "label": "What to marathon",
+     "type": "text",
+     "placeholder": "Lord of the Rings extended editions",
+     "required": true
+    },
+    {
+     "key": "when",
+     "label": "Time available",
+     "type": "text",
+     "placeholder": "Saturday 10am to midnight"
+    }
+   ],
+   "prompt": "Plan a marathon of {what} in {when}. Output a table (Start time | Title or episode | Runtime | Break after?), a checklist of snacks, seating and screen prep, bullets on where to place the intermission for maximum drama, and a quote with a short toast to open the day.",
+   "shape": "table, checklist, bullets, quote",
+   "button": "Plan marathon",
+   "loading": "Buttering popcorn…"
+  }
+ ]
+}

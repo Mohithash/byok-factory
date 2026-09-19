@@ -9,7 +9,7 @@
   "#43A047"
  ],
  "icon": "gear",
- "about": "Rebalance Kit reads your holdings from a paste or screenshot, finds overlap and concentration, sets a target mix from a short risk check, and gives you the exact trades to get back on target.",
+ "about": "Rebalance Kit reads your holdings from a paste or screenshot, finds overlap and concentration, X-rays two funds for redundancy, sets a target mix from a short risk check, and gives you the exact trades to get back on target.",
  "persona": "You are a methodical portfolio analyst: diversification-minded, cost-aware, never recommending specific securities or forecasting returns, and always noting tax consequences of selling in general terms.",
  "onboarding": {
   "title": "Know what you actually hold",
@@ -53,39 +53,57 @@
   {
    "id": "audit",
    "title": "Audit my holdings",
-   "subtitle": "Paste holdings → overlaps and risks",
+   "subtitle": "Paste or snap holdings → risks",
    "emoji": "🔎",
    "inputs": [
     {
      "key": "holdings",
      "label": "Holdings (name, value)",
      "type": "longtext",
-     "placeholder": "VTI 12,000; AAPL 6,000; BND 3,000…",
-     "required": true
+     "placeholder": "VTI 12,000; AAPL 6,000; BND 3,000…"
+    },
+    {
+     "key": "photo",
+     "label": "Or a screenshot / photo of your holdings",
+     "type": "photo"
     }
    ],
-   "prompt": "Analyse: {holdings}. Table (Holding | Value | % of portfolio | Asset class | Region), kv (equity/bond/cash split, largest single position %, home-country tilt %, estimated blended expense ratio), bullets 'Overlaps and gaps' naming specific pairs that hold the same things, and a callout on the biggest concentration risk versus the profile target.",
+   "prompt": "Holdings as pasted: {holdings}. If a screenshot is attached, extract every holding visible from it and merge with the pasted list. Table (Holding | Value | % of portfolio | Asset class | Region), kv (equity/bond/cash split, largest single position %, home-country tilt %, estimated blended expense ratio, cash drag %), bullets 'Overlaps and gaps' naming specific pairs that hold the same things, and a callout on the biggest concentration risk versus the profile target.",
    "shape": "table, kv, bullets, callout",
    "button": "Audit",
    "loading": "Inspecting…"
   },
   {
-   "id": "screenshot",
-   "title": "Scan a brokerage screen",
-   "subtitle": "Screenshot → holdings table",
-   "emoji": "📷",
+   "id": "xray",
+   "title": "Fund overlap X-ray",
+   "subtitle": "Do these funds hold the same things?",
+   "emoji": "🩻",
    "inputs": [
     {
-     "key": "photo",
-     "label": "Screenshot or photo of your holdings",
-     "type": "photo",
+     "key": "a",
+     "label": "Fund A",
+     "type": "text",
+     "placeholder": "VTI",
      "required": true
+    },
+    {
+     "key": "b",
+     "label": "Fund B",
+     "type": "text",
+     "placeholder": "VOO",
+     "required": true
+    },
+    {
+     "key": "c",
+     "label": "Fund C (optional)",
+     "type": "text",
+     "placeholder": "QQQ"
     }
    ],
-   "prompt": "Extract every holding visible as a table (Holding | Value | % | Asset class), then kv (asset-class split, largest position %, cash drag), bullets on overlaps, and a callout on what looks out of line with the profile target.",
+   "prompt": "Estimate the holdings overlap between {a}, {b} and {c} (ignore C if not given) from their typical index composition. Table (Pair | Estimated overlap % | Shared top holdings | Verdict: redundant / partly / complementary), kv (each fund → what it uniquely adds), bullets on whether holding all of them makes sense for the profile target, and a callout that overlap figures are estimates and the latest fact sheets should be checked.",
    "shape": "table, kv, bullets, callout",
-   "button": "Scan",
-   "loading": "Reading the screen…"
+   "button": "X-ray",
+   "loading": "Comparing insides…"
   },
   {
    "id": "risk",
@@ -117,7 +135,7 @@
      "default": "Steady"
     }
    ],
-   "prompt": "From the profile years-to-goal, the reaction '{drop}' and income '{income}', propose a target allocation: kv (equity %, bonds %, cash %, one-line rationale), table (Asset class | % | Role | Typical fund type), text on how it should glide as the horizon shortens, and a callout that this is an educational template.",
+   "prompt": "From the profile years-to-goal, the reaction '{drop}' and income '{income}', propose a target allocation. Sections: kv (equity %, bonds %, cash %, one-line rationale), table (Asset class | % | Role | Typical fund type), text on how it should glide as the horizon shortens, and a callout that this is an educational template.",
    "shape": "kv, table, text, callout",
    "button": "Set target",
    "loading": "Weighing risk…"
@@ -142,7 +160,7 @@
      "placeholder": "1000"
     }
    ],
-   "prompt": "Rebalance {holdings} plus {cash} new cash to the profile target. Table (Holding | Now % | Target % | Drift | Action | Amount), steps in the order to execute, bullets on using new cash instead of selling in taxable accounts, and a callout on tax and transaction costs in general terms.",
+   "prompt": "Rebalance {holdings} plus new cash of {cash} (default 0) to the profile target. Table (Holding | Now % | Target % | Drift | Action | Amount), steps in the order to execute, bullets on using new cash instead of selling in taxable accounts, and a callout on tax and transaction costs in general terms.",
    "shape": "table, steps, bullets, callout",
    "button": "Rebalance",
    "loading": "Balancing…"
@@ -165,7 +183,7 @@
      "default": "Both"
     }
    ],
-   "prompt": "Write a personal rebalancing policy using '{freq}' for the profile: quote (a 4-line investment policy statement to keep), kv (trigger → action), a checklist for the yearly review, and a callout on why fewer, boring trades tend to win.",
+   "prompt": "Write a personal rebalancing policy using '{freq}' for the profile target and account types. Sections: quote (a 4-line rebalancing rule to keep: when to check, what triggers a trade, where new money goes, what never triggers a trade), kv (trigger → action), a checklist for the yearly review, and a callout on why fewer, boring trades tend to win.",
    "shape": "quote, kv, checklist, callout",
    "button": "Write rules",
    "loading": "Drafting…"

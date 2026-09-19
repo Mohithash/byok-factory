@@ -152,13 +152,15 @@
      "key": "words",
      "label": "Words in what you just read",
      "type": "number",
-     "placeholder": "450"
+     "placeholder": "450",
+     "required": true
     },
     {
      "key": "seconds",
      "label": "Seconds it took",
      "type": "number",
-     "placeholder": "180"
+     "placeholder": "180",
+     "required": true
     },
     {
      "key": "understood",

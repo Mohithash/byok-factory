@@ -1,11 +1,11 @@
-# Pencil Path
+# Neat Hand
 
 **Category:** Education  
 **Package:** `com.mohithash.byok.pencilpath`  
 **Short description (≤80):** Grip, letters and neat writing, one stroke at a time
 
 ## Full description
-Pencil Path coaches handwriting from pre-writing shapes and pencil grip to letter formation, sizing on lines, reversals and joined-up writing, with feedback on a photo of your child's writing and short daily practice that doesn't feel like drill.
+Neat Hand coaches handwriting from pre-writing shapes and pencil grip to letter formation, sizing on lines, reversals and joined-up writing, with feedback on a photo of your child's writing and short daily practice that doesn't feel like drill.
 
 WHAT'S INSIDE
 • Teach a letter — Formation cues and practice

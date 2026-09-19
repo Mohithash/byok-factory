@@ -141,27 +141,34 @@
    "loading": "Cross-examining…"
   },
   {
-   "id": "caption",
-   "title": "Chart caption & takeaway",
-   "subtitle": "One chart, one sentence",
-   "emoji": "🏷️",
+   "id": "update",
+   "title": "Share in Slack or email",
+   "subtitle": "Findings → a short post people read",
+   "emoji": "💬",
    "inputs": [
     {
-     "key": "photo",
-     "label": "Chart screenshot (optional)",
-     "type": "photo"
+     "key": "findings",
+     "label": "What you found",
+     "type": "longtext",
+     "placeholder": "checkout redesign: conversion 3.1% → 3.6% over 3 weeks, mobile drove all of it, desktop flat",
+     "required": true
     },
     {
-     "key": "chart",
-     "label": "Or describe the chart",
-     "type": "text",
-     "placeholder": "weekly active users by platform, iOS flat, Android +30%"
+     "key": "channel",
+     "label": "Format",
+     "type": "chips",
+     "options": [
+      "Slack/Teams post",
+      "Email",
+      "Stand-up script"
+     ],
+     "default": "Slack/Teams post"
     }
    ],
-   "prompt": "Write the takeaway for the chart in the photo or described as: {chart}. Quote with 3 takeaway titles, kv (caption, source line, footnote on caveats), and bullets on what a reader might misread.",
-   "shape": "quote, kv, bullets",
-   "button": "Write takeaway",
-   "loading": "Captioning…"
+   "prompt": "Turn {findings} into a {channel} update for the profile's readers and tone. Quote with the message (a headline sentence containing the key number and its comparison, at most 3 bullets, one clear ask or next step, under 120 words), a kv (headline number, comparison, confidence, where the full analysis lives), bullets of the 3 most likely replies with a one-line answer for each, and a callout on the claim in the update most likely to be over-read.",
+   "shape": "quote, kv, bullets, callout",
+   "button": "Write update",
+   "loading": "Trimming words…"
   }
  ]
 }

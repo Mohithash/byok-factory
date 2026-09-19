@@ -10,7 +10,7 @@
  ],
  "icon": "clock",
  "about": "Sub Splice condenses, splits and QCs subtitle and caption files to your reading-speed and line-length limits, adds SDH sound tags, and turns transcripts into clip captions.",
- "persona": "You are a subtitle editor who lives by characters-per-second and sensible line breaks: condense meaning, never garble it, and keep timing honest.",
+ "persona": "You are a subtitle editor who lives by characters-per-second and sensible line breaks: condense meaning, never garble it, and keep timing honest. If the profile sets no limits, apply the standard limits of the chosen platform and state them.",
  "onboarding": {
   "title": "Every cue readable",
   "subtitle": "Set your platform limits once; every cue is checked against them.",
@@ -67,7 +67,7 @@
      "required": true
     }
    ],
-   "prompt": "Check these cues against the profile characters-per-second and characters-per-line limits: {srt}. Table (Cue | Duration s | Chars | CPS | Verdict | Condensed text) for every cue, condensing only those over the limit while keeping meaning and speaker intent; quote with the corrected SRT block; kv (cues over limit, average CPS before and after, longest cue); a callout on cues that cannot be fixed without retiming.",
+   "prompt": "Check these cues against the profile characters-per-second and characters-per-line limits: {srt}. Table (Cue | Chars / seconds | CPS | Verdict | Condensed text) for every cue, condensing only those over the limit while keeping meaning and speaker intent; quote with the corrected SRT block; kv (cues over limit, average CPS before and after, longest cue); a callout on cues that cannot be fixed without retiming.",
    "shape": "table, quote, kv, callout",
    "button": "Fix speed",
    "loading": "Timing the reader…"

@@ -68,9 +68,15 @@
      "label": "Their typical day",
      "type": "text",
      "placeholder": "shifts 7–3, free evenings, bed 10"
+    },
+    {
+     "key": "zones",
+     "label": "Time zones (if not in profile)",
+     "type": "text",
+     "placeholder": "UK → Toronto"
     }
    ],
-   "prompt": "Using the profile cities for time zones, my day: {mine}; their day: {theirs}. Produce a table (My local time | Their local time | Both free? | Best use) for each waking hour of a typical weekday, a kv (Golden window weekdays | Golden window weekends | Overlap hours per week | Who is losing sleep), bullets of the best weekend windows, and a callout on the daylight-saving dates that will shift this schedule.",
+   "prompt": "Time zones: {zones} (fall back to the profile cities if blank). My day: {mine}; their day: {theirs}. Produce a table (My local time | Their local time | Both free? | Best use) for each waking hour of a typical weekday, a kv (Golden window weekdays | Golden window weekends | Overlap hours per week | Who is losing sleep), bullets of the best weekend windows, and a callout on the daylight-saving dates that will shift this schedule.",
    "shape": "table, kv, bullets, callout",
    "button": "Find overlap",
    "loading": "Syncing clocks…"
@@ -202,7 +208,7 @@
      "placeholder": "her visa, my lease, whose job moves"
     }
    ],
-   "prompt": "Build a closing-the-gap plan over {horizon} given blockers: {blockers}. Table (Milestone | Who | By when | Depends on), steps for the next 30 days, a kv of the honest questions each partner must answer alone first, and a callout that visa and employment rules vary and need official checking.",
+   "prompt": "Build a closing-the-gap plan over {horizon} given blockers: {blockers}. Table (Milestone | Who | By when | Depends on), steps for the next 30 days, a kv (Question | Why it matters) of 4 honest questions each partner must answer alone first, and a callout that visa and employment rules vary and need official checking.",
    "shape": "table, steps, kv, callout",
    "button": "Build the plan",
    "loading": "Plotting the route…"

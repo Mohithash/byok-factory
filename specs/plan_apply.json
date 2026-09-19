@@ -135,7 +135,7 @@
      "placeholder": "module.db.aws_db_instance.main, db-prod-1"
     }
    ],
-   "prompt": "Guide this state operation: {op} with {details} on the profile backend and tool. Sections: steps with exact commands (back up the state first, use moved or import blocks where the version supports them), a quote with the HCL blocks, a checklist to verify that plan shows no changes afterwards, and a callout on what to do if it goes wrong midway.",
+   "prompt": "Guide this state operation on the profile backend and tool: {op}. Resource addresses or ids involved: {details}. Sections: steps with exact commands (back up the state first, use moved or import blocks where the version supports them), a quote with the HCL blocks, a checklist to verify that plan shows no changes afterwards, and a callout on what to do if it goes wrong midway.",
    "shape": "steps, quote, checklist, callout",
    "button": "Guide me",
    "loading": "Locking state…"

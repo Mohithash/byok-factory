@@ -107,7 +107,7 @@
      "placeholder": "1 in 20 runs, mostly on CI"
     }
    ],
-   "prompt": "Diagnose flakiness in: {test}, failing {freq}. Sections: a table (Suspect | Evidence in the test | Likelihood high/med/low) covering timing, ordering, shared state, real network or clock, and resource leaks, a quote with the deflaked test, steps to prove it is fixed (run it N times, stress it on CI), and a callout on why automatic retries are not a fix.",
+   "prompt": "Diagnose flakiness in: {test}. Failure frequency and where: {freq}. Sections: a table (Suspect | Evidence in the test | Likelihood high/med/low) covering timing, ordering, shared state, real network or clock, and resource leaks, a quote with the deflaked test, steps to prove it is fixed (run it N times, stress it on CI), and a callout on why automatic retries are not a fix.",
    "shape": "table, quote, steps, callout",
    "button": "Deflake",
    "loading": "Rolling the dice…"

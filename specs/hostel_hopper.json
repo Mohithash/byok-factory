@@ -1,0 +1,205 @@
+{
+ "id": "hostel_hopper",
+ "name": "Hostel Hopper",
+ "tagline": "Backpack further on a shoestring budget",
+ "category": "Travel & Local",
+ "colors": [
+  "#FF6F00",
+  "#00897B",
+  "#5C6BC0"
+ ],
+ "icon": "bag",
+ "about": "Hostel Hopper is the gap-year backpacker's sidekick: daily budgets by country, hostel picks that match your vibe, border-crossing game plans, dorm-life etiquette and work-for-stay ideas that stretch the trip.",
+ "persona": "You are a seasoned long-term backpacker: frugal, street-smart, warm; you give real numbers in local currency and USD and never romanticise unsafe shortcuts.",
+ "onboarding": {
+  "title": "How far can you stretch it?",
+  "subtitle": "Tell us your style and budget; every plan gets tuned to it.",
+  "bullets": [
+   "Daily budgets, country by country",
+   "Hostel picks that fit your vibe",
+   "Border days and scams decoded"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "style",
+   "label": "Travel style",
+   "type": "chips",
+   "options": [
+    "Ultra-budget",
+    "Budget",
+    "Flashpacker"
+   ]
+  },
+  {
+   "key": "vibe",
+   "label": "Hostel vibe",
+   "type": "chips",
+   "options": [
+    "Party",
+    "Social & chill",
+    "Quiet",
+    "Any"
+   ]
+  },
+  {
+   "key": "daily",
+   "label": "Target daily budget (USD)",
+   "type": "number",
+   "placeholder": "35"
+  }
+ ],
+ "tools": [
+  {
+   "id": "budget",
+   "title": "Budget by country",
+   "subtitle": "What a day really costs on your route",
+   "emoji": "💸",
+   "inputs": [
+    {
+     "key": "countries",
+     "label": "Countries in order",
+     "type": "longtext",
+     "placeholder": "Vietnam, Cambodia, Thailand, Laos",
+     "required": true
+    },
+    {
+     "key": "weeks",
+     "label": "Total weeks",
+     "type": "number",
+     "placeholder": "8"
+    }
+   ],
+   "prompt": "Countries: {countries}. Trip length: {weeks} weeks. Build a table (Country | Dorm bed/night | Food/day | Local transport/day | Daily total USD | Suggested days) using the profile's style and daily target, then a kv of the total estimated cost, a 15% buffer and the cheapest way to travel between the countries, bullets on the 5 biggest money leaks for backpackers on this route, and a callout on where the daily budget will not stretch and what to cut.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Cost my route",
+   "loading": "Counting baht…"
+  },
+  {
+   "id": "pick",
+   "title": "Pick a hostel",
+   "subtitle": "Paste listings, get a verdict",
+   "emoji": "🛏️",
+   "inputs": [
+    {
+     "key": "listings",
+     "label": "Paste 2–4 listing descriptions",
+     "type": "longtext",
+     "placeholder": "1) Riverside Backpackers — rooftop bar, 12-bed dorms, $9… 2) …",
+     "required": true
+    },
+    {
+     "key": "city",
+     "label": "City",
+     "type": "text",
+     "placeholder": "Hanoi"
+    }
+   ],
+   "prompt": "Compare these hostels in {city}: {listings}. Table (Hostel | Price | Dorm size | Vibe match | Location | Red flags), a text verdict naming the best pick for the profile's vibe and why, a checklist of 6 things to confirm before booking (lockers, curfew, free breakfast, female-only dorm, AC, checkout time), and a quote with a short message to send the hostel asking the two questions that matter most.",
+   "shape": "table, text, checklist, quote",
+   "button": "Compare",
+   "loading": "Reading reviews…"
+  },
+  {
+   "id": "border",
+   "title": "Border & bus day",
+   "subtitle": "Cross overland without getting stung",
+   "emoji": "🚌",
+   "inputs": [
+    {
+     "key": "from",
+     "label": "From",
+     "type": "text",
+     "placeholder": "Bangkok",
+     "required": true
+    },
+    {
+     "key": "to",
+     "label": "To",
+     "type": "text",
+     "placeholder": "Siem Reap",
+     "required": true
+    },
+    {
+     "key": "mode",
+     "label": "How",
+     "type": "chips",
+     "options": [
+      "Bus",
+      "Minivan",
+      "Train",
+      "Shared taxi",
+      "Not sure"
+     ],
+     "default": "Not sure"
+    }
+   ],
+   "prompt": "Plan an overland crossing from {from} to {to} by {mode}. Steps for the whole day with rough times and costs (ticket, visa fee, tuk-tuk to the crossing), a kv (visa-on-arrival rules to check, documents, cash to carry and in which currency, passport photos, total journey hours), a callout on the known scams at this crossing and exactly how to refuse them, and bullets on what to pack in your day bag for the journey.",
+   "shape": "steps, kv, callout, bullets",
+   "button": "Plan the crossing",
+   "loading": "Checking the border…"
+  },
+  {
+   "id": "dorm",
+   "title": "Dorm life & safety",
+   "subtitle": "Sleep, lockers, roommates, valuables",
+   "emoji": "🔐",
+   "inputs": [
+    {
+     "key": "worry",
+     "label": "What's on your mind",
+     "type": "chips",
+     "options": [
+      "Theft",
+      "Noisy roommates",
+      "Sharing with strangers",
+      "Getting sick",
+      "Feeling lonely",
+      "Bedbugs"
+     ],
+     "default": "Theft"
+    }
+   ],
+   "prompt": "Practical advice for a backpacker worried about {worry} in hostel dorms. Bullets of 6 concrete habits, a checklist of gear that helps (with rough cost in USD), a quote with one polite sentence to say to a roommate or staff when it comes up, and a callout on when to escalate to staff, switch hostels or seek help.",
+   "shape": "bullets, checklist, quote, callout",
+   "button": "Advise me",
+   "loading": "Asking the dorm…"
+  },
+  {
+   "id": "workstay",
+   "title": "Stretch the trip",
+   "subtitle": "Work-for-stay and volunteering ideas",
+   "emoji": "🌱",
+   "inputs": [
+    {
+     "key": "skills",
+     "label": "Skills you have",
+     "type": "text",
+     "placeholder": "bartending, basic Spanish, photography"
+    },
+    {
+     "key": "months",
+     "label": "Months you want to add",
+     "type": "number",
+     "placeholder": "2"
+    },
+    {
+     "key": "region",
+     "label": "Region",
+     "type": "text",
+     "placeholder": "South America"
+    }
+   ],
+   "prompt": "Suggest ways to extend a trip in {region} by {months} months using skills: {skills}. Cards for 5 options (hostel work exchange, farm stay, teaching, tour guiding, seasonal work; meta = hours/week · what's covered · typical minimum stay), a table (Option | Visa/legal notes to verify | Where to find it | Watch-outs), and a callout on avoiding exploitative placements and checking that the work is legal on a tourist visa.",
+   "shape": "cards, table, callout",
+   "button": "Find options",
+   "loading": "Asking around…"
+  }
+ ],
+ "disclaimer": "Safety and visa information is general; check official government sources and use your judgement on the road."
+}

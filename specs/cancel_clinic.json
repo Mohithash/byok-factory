@@ -189,7 +189,7 @@
      "key": "statement",
      "label": "Paste transactions",
      "type": "longtext",
-     "placeholder": "1 Mar Netflix 15.99; 3 Mar GymCo 39.00; 3 Mar Adobe 21.98…",
+     "placeholder": "1 Mar StreamFlix 15.99; 3 Mar GymCo 39.00; 3 Mar CloudSuite 21.98…",
      "required": true
     }
    ],

@@ -171,7 +171,7 @@
      "default": "Pub night"
     }
    ],
-   "prompt": "From this season: {season}, plan an end-of-season {format}. Sections: cards for 6 awards with winners (meta = award · winner), a quote with a 2-minute manager's speech, a table run-sheet for the night (Time | Item | Who), and bullets on next season's recruitment and retention.",
+   "prompt": "From this season: {season}, plan an end-of-season {format}. Sections: cards for 6 awards, each titled by award with the winner named and a one-line citation (meta = winner · the stat or moment that earned it), a quote with a 2-minute manager's speech, a table run-sheet for the night (Time | Item | Who), and bullets on next season's recruitment and retention.",
    "shape": "cards, quote, table, bullets",
    "button": "Plan awards",
    "loading": "Polishing trophies…"

@@ -9,7 +9,7 @@
   "#00ACC1"
  ],
  "icon": "moon",
- "about": "Book Nook makes read-alouds richer for 2–6-year-olds: question prompts for the exact picture book in your hands, vocabulary to stretch, retell games, book picks for your child's obsessions and a bedtime routine that ends with a story.",
+ "about": "Book Nook makes read-alouds richer for 2–6-year-olds: question prompts for the exact picture book in your hands, vocabulary to stretch, retell games, book picks for your child's obsessions and rhyme-and-sound games that get ears ready for phonics.",
  "persona": "You are an early-literacy librarian trained in dialogic reading (PEER and CROWD prompts): warm, curious, child-led, and you follow the child's interests rather than quizzing them.",
  "onboarding": {
   "title": "Read with them, not at them",
@@ -128,35 +128,41 @@
      "placeholder": "Oi Frog, Dear Zoo"
     }
    ],
-   "prompt": "Recommend 8 real, widely available {kind} books for the profile child's age and obsessions, given they loved: {recent}. Cards (Title by Author, meta = age range · read time · why it fits), then a table (Title | Best for | One question to ask while reading), and a callout on library and second-hand ways to get them cheaply.",
+   "prompt": "Recommend 8 real, widely available {kind} books for the profile child's age and obsessions, given they loved: {recent} (if any). Cards (Title by Author, meta = age range · read time · why it fits), then a table (Title | Best for | One question to ask while reading), and a callout on library and second-hand ways to get them cheaply.",
    "shape": "cards, table, callout",
    "button": "Find books",
    "loading": "Browsing shelves…"
   },
   {
-   "id": "routine",
-   "title": "Story routine",
-   "subtitle": "A bedtime that ends in a book",
-   "emoji": "🌙",
+   "id": "rhyme",
+   "title": "Rhyme time",
+   "subtitle": "Rhyme, syllable and first-sound games",
+   "emoji": "🎵",
    "inputs": [
     {
-     "key": "evening",
-     "label": "What bedtime looks like now",
-     "type": "text",
-     "placeholder": "bath 6:30, chaos, screen until 7:30",
-     "required": true
+     "key": "skill",
+     "label": "Play with",
+     "type": "chips",
+     "options": [
+      "Rhyming",
+      "Syllable claps",
+      "First sounds",
+      "Alliteration",
+      "Sound swaps"
+     ],
+     "default": "Rhyming"
     },
     {
-     "key": "minutes",
-     "label": "Minutes for reading",
-     "type": "number",
-     "placeholder": "15"
+     "key": "using",
+     "label": "Words from their world",
+     "type": "text",
+     "placeholder": "digger, moon, Leo, banana"
     }
    ],
-   "prompt": "Redesign the evening described as: {evening}, so it ends with {minutes} minutes of shared reading before sleep. Sections: steps with clock times, a checklist of reading-nook essentials (light, book basket, cue phrase), bullets on handling 'one more book' and refusals, and a callout on why the same book ten nights running is a good thing.",
-   "shape": "steps, checklist, bullets, callout",
-   "button": "Build routine",
-   "loading": "Dimming lights…"
+   "prompt": "Design three 3-minute '{skill}' games for the profile child built around these words: {using} (use the profile obsessions if blank). Cards (name, meta = minutes · where to play · needs), a quote with the exact call-and-response script for the first game (parent line, expected child reply), a table of 10 word sets to use (Word | Rhyme or sound partner | Odd one out), and a callout on what to do when they get it 'wrong' — keep it silly, never correct the sound.",
+   "shape": "cards, quote, table, callout",
+   "button": "Play rhymes",
+   "loading": "Clapping syllables…"
   },
   {
    "id": "words",

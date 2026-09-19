@@ -138,8 +138,8 @@
   },
   {
    "id": "feedback",
-   "title": "Read my pages",
-   "subtitle": "Honest editorial notes",
+   "title": "Editorial notes",
+   "subtitle": "Honest notes on your pages",
    "emoji": "📝",
    "inputs": [
     {

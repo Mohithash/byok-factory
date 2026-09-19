@@ -3,10 +3,12 @@ from dsl import *
 BABY_MED = "General parenting information, not medical advice. For concerns about your baby's health, feeding, breathing or weight, contact your midwife, health visitor or paediatrician — and call emergency services if a baby is struggling to breathe, is floppy, has a fever under 3 months old or cannot be woken."
 BEHAV = "General parenting guidance, not a clinical assessment. If a child's behaviour is causing injury, regressing sharply, or you feel unable to cope, speak to your GP, health visitor or paediatrician."
 SOOTHE = BABY_MED + " If you feel you might hurt your baby or yourself, put the baby down safely in the cot, leave the room and call someone now."
+CHILDCARE = "General guidance on childcare choices, not legal or financial advice. Fees, notice periods and illness rules vary by provider and country — confirm anything that matters in writing with the setting, and check its registration and inspection record with your local regulator before signing."
+TODDLER_MED = "General parenting information, not medical advice. If your child has pain when weeing, blood in wee or poo, a fever, hard or infrequent poos for more than a week, or is still wet most nights after age 7, see your GP, health visitor or paediatrician."
 
 # 1 — Newborn sleep (0–4 months)
-APP("newborn_nights", "Night Shift", "Survive newborn nights with a plan, not guesswork", "Parenting", ["#1A237E", "#B39DDB", "#FFAB91"], "moon",
- "Night Shift gets families through the first four months of newborn sleep: wake-window schedules for today, a safe-sleep check of your cot from a photo, fair night-shift splits between carers and fixes for day–night confusion.",
+APP("newborn_nights", "Newborn Nights", "Survive newborn nights with a plan, not guesswork", "Parenting", ["#1A237E", "#B39DDB", "#FFAB91"], "moon",
+ "Newborn Nights gets families through the first four months of newborn sleep: wake-window schedules for today, a safe-sleep check of your cot from a photo, fair night-shift splits between carers and fixes for day–night confusion.",
  "You are a calm newborn-sleep consultant and safe-sleep educator: evidence-based (AAP / Lullaby Trust guidance), realistic about newborn biology, and never promising a sleeping-through-the-night miracle.",
  "The nights get easier — with a plan", "Tell us about your newborn and who's on duty.", ["Wake windows for today", "Safe-sleep check from a photo", "Fair night shifts for two"],
  [F("baby", "Baby's name & age in weeks", "text", "Leo, 6 weeks", required=True), CH("feeding", "Feeding", ["Breast", "Formula", "Mixed"]), CH("carers", "Night carers", ["One", "Two", "Two + helper"]), TXT("space", "Where baby sleeps", "bedside crib in our room")],
@@ -26,10 +28,10 @@ APP("newborn_nights", "Night Shift", "Survive newborn nights with a plan, not gu
     [TXT("pattern", "What's happening", "sleeps 4-hour stretches all day, awake 11pm–3am", True)],
     "Fix this day–night confusion: {pattern}. Explain the biology in 2 sentences of text, then steps for a 5-day reset (daylight, noise, feeding rhythm, capping daytime naps) with each step tied to a time of day, and a callout on what to expect on nights 1–3.",
     "text, steps, callout", "Reset the clock", "Opening curtains…"),
-  T("settle", "Won't settle back", "3am and wide awake after a feed", "😵‍💫",
-    [CH("when", "When", ["After a night feed", "At bedtime", "Every time I put them down", "Random"], "After a night feed"), TXT("tried", "Already tried", "swaddle, shushing, rocking")],
-    "Baby won't settle {when}; already tried: {tried}. Give steps to try in order tonight (each with how long to persist before moving on), a table (Possible cause | Sign | What helps) covering wind, hunger, temperature, overtiredness and reflux-type discomfort, and a callout listing symptoms that mean call a doctor or emergency services now.",
-    "steps, table, callout", "Help me settle", "Shushing…")], BABY_MED)
+  T("putdown", "The night put-down", "Fed, calm-ish, but wakes the second they touch the cot", "😵‍💫",
+    [CH("when", "When it fails", ["After a night feed", "At bedtime", "Every time I put them down", "Random"], "After a night feed"), TXT("tried", "Already tried", "swaddle, holding until deep asleep, white noise")],
+    "The put-down fails {when}; already tried: {tried}. This is about a fed, not-distressed baby who wakes on transfer in the dark (crying that won't stop is a different problem). Give steps for tonight's put-down sequence in order (feed, burp, dim, swaddle or sleep bag, the 10-minute deep-sleep wait, feet-first transfer, hand-on-chest pause) with timings, a table (Possible cause | Sign | What helps) covering wind, a too-cold cot, startle reflex, hunger and overtiredness, and a callout listing signs that mean call a doctor or emergency services now.",
+    "steps, table, callout", "Fix the put-down", "Lowering slowly…")], BABY_MED)
 
 # 2 — Sleep coaching 4 months to 4 years
 APP("settle_steps", "Settle Steps", "Gentle sleep coaching from 4 months to 4 years", "Parenting", ["#4527A0", "#26C6DA", "#FFCC80"], "star",
@@ -83,7 +85,7 @@ APP("nursery_start", "Nursery Start", "Settle your baby or toddler into childcar
   T("policy", "Decode the policy", "Photo of the contract or illness rules", "📷",
     [PHOTO("Photo of the illness policy, contract or fee sheet", "", True)],
     "Read the document in the photo: a table (Clause | What it means in practice | Costs you money? | Ask about), a kv of key numbers (notice period, late-pickup fee, exclusion periods for common bugs, holiday charges, deposit), bullets of anything unusual compared with typical UK/US childcare terms, and a callout on questions to get answered in writing before signing.",
-    "table, kv, bullets, callout", "Decode", "Reading fine print…")], BEHAV)
+    "table, kv, bullets, callout", "Decode", "Reading fine print…")], CHILDCARE)
 
 # 4 — Bottles, formula, combination feeding
 APP("bottle_bridge", "Bottle Bridge", "Bottles, formula and combi-feeding, done right", "Parenting", ["#00897B", "#FF7043", "#FFF176"], "cup",
@@ -147,7 +149,7 @@ APP("calm_storm", "Calm Storm", "Toddler tantrums: what to say, right now", "Par
  [F("child", "Child's name & age", "text", "Theo, 2½", required=True), CH("temperament", "Temperament", ["Big feelings, fast", "Slow to warm", "Intense & persistent", "Easygoing until tired"]), CH("hotspots", "Hot spots", ["Leaving somewhere", "Getting dressed", "Mealtimes", "Screens off", "Sharing", "Bedtime"], multi=True), TXT("approach", "Your approach", "gentle but firm; no time-outs")],
  [T("now", "Right now", "What to say in the next 60 seconds", "🌪️",
     [TXT("scene", "What's happening", "screaming on the supermarket floor because I said no to sweets", True), CH("where", "Where", ["Home", "Public", "Car", "Someone else's house"], "Public")],
-    "A meltdown at {where}: {scene}. First a quote with the exact 3-line script to say (validate, name the feeling, hold the limit), then steps for the next 60 seconds (body position, voice, what to ignore), bullets on what to avoid in this setting, and a callout that this is a nervous-system storm, not manipulation.",
+    "Setting: {where}. What's happening: {scene}. First a quote with the exact 3-line script to say (validate, name the feeling, hold the limit), then steps for the next 60 seconds (body position, voice, what to ignore), bullets on what to avoid in this setting, and a callout that this is a nervous-system storm, not manipulation.",
     "quote, steps, bullets, callout", "Give me words", "Breathing…"),
   T("diary", "Trigger detective", "Paste a week of tantrums", "🔍",
     [LONG("diary", "Tantrum diary", "Mon 5pm leaving nursery — 15 min; Tue 7am shoes — 5 min; Wed skipped nap, 4pm everything…")],
@@ -178,7 +180,7 @@ APP("potty_pilot", "Potty Pilot", "From readiness to dry nights, one clear plan"
     "checklist, text, steps, callout", "Check", "Checking signs…"),
   T("plan", "Training plan", "3-day intensive or 3-week gentle", "🗓️",
     [CH("style", "Style", ["3-day intensive (at home)", "Gentle 3 weeks", "Nursery-led"], "3-day intensive (at home)"), TXT("start", "Start date", "Saturday")],
-    "Write a '{style}' potty-training plan for the profile starting {start}. A table (Day | Clothing | Prompts & timing | Rewards | Expect), steps for the first morning hour by hour, a checklist of supplies (a potty per floor, wipes, cleaning kit, 10+ pairs of pants, drinks), a quote with the exact prompting phrase to use, and a callout on the signs to pause the attempt.",
+    "Write a '{style}' potty-training plan for the profile starting {start}. A table (Day | Clothing | Prompts & timing | Rewards | Expect), steps for the first morning hour by hour, a checklist of supplies (a potty per floor, wipes, cleaning kit, 10+ pairs of pants, drinks), a quote with the exact prompting phrase to use followed by a 4-sentence handover note for the profile's childcare setting (their words for wee and poo, routine, how to handle accidents; skip the note if home all week), and a callout on the signs to pause the attempt.",
     "table, steps, checklist, quote, callout", "Write plan", "Packing the bag…"),
   T("accidents", "Accidents & regression", "Was dry, now isn't", "💧",
     [TXT("what", "What's happening", "dry for 3 weeks, now 4 accidents a day since baby sister arrived", True), NUM("days", "Days this has been going on", "5")],
@@ -188,10 +190,10 @@ APP("potty_pilot", "Potty Pilot", "From readiness to dry nights, one clear plan"
     [CH("pattern", "Pattern", ["Asks for a nappy to poo", "Holds for days", "Poos in pants after leaving the toilet", "Scared of the toilet"], "Asks for a nappy to poo"), TXT("diet", "Diet & fluids", "not much water, loves cheese")],
     "Plan for '{pattern}' with diet: {diet}. Text on why withholding happens and why it must never be forced, steps for a gradual bridge (nappy on while sitting on the potty, in the bathroom, cut a hole, then off), bullets on softening stools through fibre, fluids and footstool posture, and a callout on constipation signs where a doctor should assess before continuing.",
     "text, steps, bullets, callout", "Make a bridge", "Building the bridge…"),
-  T("night", "Dry nights & nursery note", "Night plan + carer handover", "🌙",
-    [CH("status", "Night status", ["Still in night nappies", "Dry nappy some mornings", "Dry most mornings", "Trying pants at night"], "Dry nappy some mornings"), CH("note", "Also write a note for", ["Nursery", "Childminder", "Grandparents", "No note needed"], "Nursery")],
-    "Night plan for status '{status}': a kv (readiness signs, bed protection, fluid timing, lifting — yes or no and why, ages where night wetness is still normal), steps for the first week of night pants, and a callout on when bedwetting past age 5–7 should be discussed with a doctor. Then, unless '{note}' is 'No note needed', a quote with a 6-sentence handover note for {note} covering the child's words for wee and poo, routine, prompts and how to handle accidents.",
-    "kv, steps, callout, quote", "Plan & write", "Drying up…")], BABY_MED)
+  T("night", "Dry nights", "When and how to ditch night nappies", "🌙",
+    [CH("status", "Night status", ["Still in night nappies", "Dry nappy some mornings", "Dry most mornings", "Trying pants at night"], "Dry nappy some mornings"), NUM("wet", "Wet mornings per week", "4")],
+    "Night status '{status}' with {wet} wet mornings a week for the profile. A text verdict on whether to try night pants now, wait, or go back to nappies (with the reasoning), a kv (bed protection, last drink and last wee timing, lifting — yes or no and why, night light and potty by the bed, ages where night wetness is still normal), steps for the first 7 nights of night pants including the calm response to a wet bed, and a callout on when bedwetting past age 5–7 should be discussed with a doctor.",
+    "text, kv, steps, callout", "Plan nights", "Drying up…")], TODDLER_MED)
 
 # 8 — Twins & multiples
 APP("twin_tandem", "Twin Tandem", "Two babies, one schedule, one sane parent", "Parenting", ["#E64A19", "#00ACC1", "#FDD835"], "baby",
@@ -201,7 +203,7 @@ APP("twin_tandem", "Twin Tandem", "Two babies, one schedule, one sane parent", "
  [F("babies", "Names & age (corrected if premature)", "text", "Ivy & Rex, 8 weeks (born at 34 weeks)", required=True), CH("type", "Multiples", ["Twins", "Triplets", "Twins + older sibling"]), CH("feeding", "Feeding", ["Breast", "Formula", "Mixed", "Pumping"]), CH("hands", "Adults at home by day", ["One", "Two", "Two + helper"])],
  [T("sync", "Sync the schedule", "Feed and sleep both together", "🔁",
     [TXT("current", "Current rhythm", "A feeds every 3h, B every 2h and wakes A", True), CH("goal", "Goal", ["Feed together", "Sleep together", "Both", "Stagger by 15 min"], "Both")],
-    "Synchronise these babies — goal '{goal}' — from: {current}. A table (Time | Baby A | Baby B | Adult 1 | Adult 2 / helper) for a 24h day at the profile's age, steps for the first 3 days of gently nudging the laggard (wake-to-feed rule), bullets on when to stop forcing sync (illness, different weights), and a callout on prematurity-adjusted feeding volumes and never skipping a feed for the schedule's sake.",
+    "Synchronise these babies — goal '{goal}' — from: {current}. A table (Time | Baby A | Baby B (+ C if triplets) | Adult 1 | Adult 2 / helper) for a 24h day at the profile's age, steps for the first 3 days of gently nudging the laggard (wake-to-feed rule), bullets on when to stop forcing sync (illness, different weights), and a callout on prematurity-adjusted feeding volumes and never skipping a feed for the schedule's sake.",
     "table, steps, bullets, callout", "Sync them", "Lining up…"),
   T("tandem", "Tandem feeding", "Positions and setup for two", "🤱",
     [CH("mode", "Mode", ["Tandem breastfeeding", "Two bottles at once", "One breast, one bottle", "Solo bottle-feeding two"], "Tandem breastfeeding"), TXT("setup", "Your setup", "sofa, twin pillow, no helper until 6pm")],
@@ -232,7 +234,7 @@ APP("big_sibling", "Big Sibling", "Get your toddler ready for the new baby", "Pa
     "table, bullets, steps, callout", "Build timeline", "Counting weeks…"),
   T("birthday", "Birth-day plan", "Who has the toddler, what they hear", "🏥",
     [CH("birth", "Birth type", ["Hospital, unknown timing", "Planned c-section / induction", "Home birth"], "Hospital, unknown timing"), TXT("carers", "Who can step in", "my mum (40 min away), neighbour for emergencies")],
-    "Plan the toddler's care for a '{birth}' with helpers: {carers}. Steps for the go-bag and handover, a table (Scenario: 3am / daytime / long stay | Who | What the toddler is told | Comfort items), a quote with age-appropriate words for 'Mummy is going to have the baby', and a checklist for the carer's fridge door.",
+    "Plan the toddler's care for a '{birth}' with helpers: {carers}. Steps for the go-bag and handover, a table with a row each for a 3am start, a daytime start and a long hospital stay (Scenario | Who has the toddler | What the toddler is told | Comfort items), a quote with age-appropriate words for 'Mummy is going to have the baby', and a checklist for the carer's fridge door.",
     "steps, table, quote, checklist", "Plan it", "Packing the go-bag…"),
   T("meet", "First meeting", "Introducing the baby", "🍼",
     [CH("where", "Where", ["Hospital", "At home", "Grandparents' house"], "At home")],

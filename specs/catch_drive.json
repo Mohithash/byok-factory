@@ -109,7 +109,7 @@
      "required": true
     }
    ],
-   "prompt": "Diagnose the stroke from the photo and: {issue} for the profile boat. Bullets on what the catch, drive, finish and recovery show, a table (Fault | Likely cause | Drill | Reps), steps for the drill progression in one session, and a callout on the fault to fix first and why.",
+   "prompt": "Diagnose the stroke from the photo (if one is given) and: {issue} for the profile boat. 4 bullets, one each for catch, drive, finish and recovery, a table (Fault | Likely cause | Drill | Reps), steps for the drill progression in one session, and a callout on the fault to fix first and why.",
    "shape": "bullets, table, steps, callout",
    "button": "Diagnose",
    "loading": "Watching the blade…"
@@ -146,7 +146,7 @@
      "default": "Aerobic base"
     }
    ],
-   "prompt": "A {goal} week of {sessions} sessions with the longest {minutes} minutes, for the profile level and rate: table (Day | Session | Minutes | Rate | Split guide | Purpose), bullets on the split-to-rate relationship to aim for, a callout on lower-back load, and a checklist of erg or boat setup (damper/drag, foot height, rigging basics).",
+   "prompt": "A {goal} week of {sessions} sessions with the longest {minutes} minutes, for the profile level and rate: table (Day | Session | Minutes | Rate | Split guide | Purpose) with one row per session, 3 bullets on the split-to-rate relationship to aim for, a callout on lower-back load, and a checklist of erg or boat setup (damper/drag, foot height, rigging basics).",
    "shape": "table, bullets, callout, checklist",
    "button": "Build week",
    "loading": "Loading the tank…"
@@ -154,7 +154,7 @@
   {
    "id": "race",
    "title": "Race plan",
-   "subtitle": "Head race or regatta",
+   "subtitle": "On-water race plan with calls",
    "emoji": "🏁",
    "inputs": [
     {
@@ -176,7 +176,7 @@
      "placeholder": "W4+, headwind, first race for two of us"
     }
    ],
-   "prompt": "Race plan for a {format} with: {crew}. Table (Phase | Strokes/distance | Rate | Effort | Call), a quote with the cox or stroke's calls in order, bullets on the start sequence and settle, and a callout on what to do if the crew falls apart mid-race.",
+   "prompt": "Race plan for a {format} with: {crew}. Table (Phase | Strokes/distance | Rate | Effort | Call), a quote with the cox or stroke's calls in order, 5 bullets on the start sequence and settle, and a callout on what to do if the crew falls apart mid-race.",
    "shape": "table, quote, bullets, callout",
    "button": "Plan race",
    "loading": "Calling the race…"
@@ -195,7 +195,7 @@
      "required": true
     }
    ],
-   "prompt": "Debrief: {splits} against the profile best. Bullets on what the split pattern shows, a table (Segment | Split | vs plan | Lesson), kv (predicted next 2k, rate to try, biggest gain), and steps for the 3 weeks before the next test.",
+   "prompt": "Debrief: {splits} against the profile best. 4 bullets on what the split pattern shows, a table (Segment | Split | vs plan | Lesson) with one row per split given, kv (predicted next 2k, rate to try, biggest gain), and steps for the 3 weeks before the next test.",
    "shape": "bullets, table, kv, steps",
    "button": "Debrief",
    "loading": "Reading the monitor…"

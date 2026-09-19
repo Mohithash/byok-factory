@@ -1,0 +1,218 @@
+{
+ "id": "spec_showdown",
+ "name": "Spec Showdown",
+ "tagline": "Gadget specs decoded into a decision",
+ "category": "Shopping",
+ "colors": [
+  "#1565C0",
+  "#C6FF00",
+  "#37474F"
+ ],
+ "icon": "graph",
+ "about": "Spec Showdown turns phone, laptop, TV, camera and headphone spec sheets into a plain-English head-to-head, tells you which numbers matter for how you'll use it, and flags the ones that are just marketing.",
+ "persona": "You are a straight-talking gadget reviewer who cares about real-world use over benchmark bragging rights, explains every acronym once, and always names the spec that doesn't matter.",
+ "onboarding": {
+  "title": "Compare gadgets like a reviewer",
+  "subtitle": "Tell us what you own and how you use tech.",
+  "bullets": [
+   "Side-by-side spec tables",
+   "Jargon translated in one line",
+   "The spec that actually matters for you"
+  ]
+ },
+ "profile": [
+  {
+   "key": "own",
+   "label": "What you own now",
+   "type": "text",
+   "placeholder": "iPhone 13, ThinkPad T14 Gen 2, Sony WH-1000XM4"
+  },
+  {
+   "key": "eco",
+   "label": "Ecosystem",
+   "type": "chips",
+   "options": [
+    "Apple",
+    "Android / Windows",
+    "Mixed",
+    "Don't care"
+   ]
+  },
+  {
+   "key": "uses",
+   "label": "Main uses",
+   "type": "chips",
+   "options": [
+    "Work & email",
+    "Gaming",
+    "Photo / video",
+    "Streaming",
+    "Study",
+    "Travel"
+   ],
+   "multi": true
+  },
+  {
+   "key": "keep",
+   "label": "You keep devices for",
+   "type": "chips",
+   "options": [
+    "1–2 years",
+    "3–4 years",
+    "5+ years"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "versus",
+   "title": "Head-to-head",
+   "subtitle": "Paste 2–3 spec sheets or names",
+   "emoji": "⚔️",
+   "inputs": [
+    {
+     "key": "specs",
+     "label": "Spec sheets or product names",
+     "type": "longtext",
+     "placeholder": "Pixel 9 vs Galaxy S25 — or paste the full specs",
+     "required": true
+    },
+    {
+     "key": "type",
+     "label": "Device type",
+     "type": "chips",
+     "options": [
+      "Phone",
+      "Laptop",
+      "Tablet",
+      "TV",
+      "Headphones",
+      "Camera",
+      "Smartwatch",
+      "Other"
+     ],
+     "default": "Phone"
+    },
+    {
+     "key": "budget",
+     "label": "Budget",
+     "type": "number",
+     "placeholder": "900"
+    }
+   ],
+   "prompt": "Compare these {type} options for the profile's uses, budget {budget}: {specs}. Sections: a table (Spec | Option A | Option B | Option C | Who wins) covering only the 8 specs that matter for this device type, cards for each option (meta = price · best for), bullets 'Ignore these specs' explaining why, and a callout with the pick and the one reason.",
+   "shape": "table, cards, bullets, callout",
+   "button": "Compare",
+   "loading": "Weighing specs…"
+  },
+  {
+   "id": "decode",
+   "title": "Decode the jargon",
+   "subtitle": "What does this spec actually mean?",
+   "emoji": "📖",
+   "inputs": [
+    {
+     "key": "terms",
+     "label": "Spec lines you don't understand",
+     "type": "longtext",
+     "placeholder": "LTPO 120Hz, 12MP f/1.8 with OIS, LPDDR5X, Wi-Fi 6E",
+     "required": true
+    }
+   ],
+   "prompt": "Explain each of these spec terms for a normal buyer: {terms}. Sections: a table (Term | Plain English | Matters if you… | Good value today), bullets on which are pure marketing, and a quote with one sentence to ask a salesperson to test the claim.",
+   "shape": "table, bullets, quote",
+   "button": "Decode",
+   "loading": "Translating…"
+  },
+  {
+   "id": "matters",
+   "title": "What matters for me",
+   "subtitle": "Specs to prioritise for your use",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "type",
+     "label": "Device type",
+     "type": "chips",
+     "options": [
+      "Phone",
+      "Laptop",
+      "Tablet",
+      "TV",
+      "Headphones",
+      "Camera",
+      "Smartwatch",
+      "Monitor"
+     ],
+     "default": "Laptop"
+    },
+    {
+     "key": "use",
+     "label": "What you'll mostly do with it",
+     "type": "text",
+     "placeholder": "video calls, Excel, occasional Lightroom",
+     "required": true
+    },
+    {
+     "key": "budget",
+     "label": "Budget",
+     "type": "number",
+     "placeholder": "1200"
+    }
+   ],
+   "prompt": "For a {type} used for '{use}' at budget {budget}, rank what to prioritise. Sections: a kv 'Minimum spec' (the floor for each key spec), bullets 'Pay extra for' and 'Don't pay extra for', a table (Tier | Price band | What you get | Typical model class), and a checklist to run in-store or during the return window.",
+   "shape": "kv, bullets, table, checklist",
+   "button": "Rank specs",
+   "loading": "Prioritising…"
+  },
+  {
+   "id": "upgrade",
+   "title": "Upgrade or hold?",
+   "subtitle": "Is the new model a real step up from yours?",
+   "emoji": "⏫",
+   "inputs": [
+    {
+     "key": "model",
+     "label": "Model you're eyeing",
+     "type": "text",
+     "placeholder": "MacBook Air M4",
+     "required": true
+    },
+    {
+     "key": "current",
+     "label": "What you'd replace (if not in your profile)",
+     "type": "text",
+     "placeholder": "MacBook Air M1 2020, battery at 81%"
+    }
+   ],
+   "prompt": "Compare {model} against the device it would replace ({current}, or the matching device in the profile) for the profile's uses and how long they keep devices. Sections: a table (Area | Yours now | New model | Noticeable day to day?) covering performance, battery, screen, camera or audio, ports, and software support remaining, a kv (Years of support left on the current device, Resale value of it today, Net cost of upgrading, Verdict: upgrade now / hold / wait for next gen), bullets of cheap fixes that would extend the current device (battery service, storage clean-up, accessories), and a callout on the one upgrade reason that is actually valid for this user.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Upgrade or hold",
+   "loading": "Sizing the jump…"
+  },
+  {
+   "id": "shelf",
+   "title": "Scan a shelf tag",
+   "subtitle": "Photo of a box or spec label → verdict",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the shelf tag, box or spec label",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "price",
+     "label": "Price shown",
+     "type": "number",
+     "placeholder": "699"
+    }
+   ],
+   "prompt": "Read the product and specs from the photo, priced at {price}. Sections: a kv (Product, Key specs found, Missing info to ask for), a table (Spec | Good / OK / Weak for the profile's uses | Why), bullets of 2 alternatives in the same price band, and a callout with buy / skip.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Scan",
+   "loading": "Reading the label…"
+  }
+ ]
+}

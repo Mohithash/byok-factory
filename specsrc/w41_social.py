@@ -17,8 +17,8 @@ APP("committee_kit", "Committee Kit", "Run your club like it's not your second j
     "kv, text, table, checklist", "Write minutes", "Typing up…"),
   T("roles", "Role descriptions", "Recruit an officer and hand over cleanly", "🪪",
     [CH("post", "Post", ["Chair", "Secretary", "Treasurer", "Membership secretary", "Events officer", "Welfare officer", "Social media"], "Treasurer"), TXT("context", "What the job really involves", "about 3 hours a month, mostly emails and the bank")],
-    "Write a role description for the {post} of the club given: {context}. Sections: cards for the role (responsibilities, time per month, skills; meta = hours/month · term length), a checklist handover pack the outgoing person should leave, a quote with a 120-word recruitment message for the newsletter, and bullets on making the role less scary for a first-timer.",
-    "cards, checklist, quote, bullets", "Write it", "Drafting…"),
+    "Write a role description for the {post} of the club given: {context}. Sections: cards for the 4–6 core responsibilities of the post (meta = hours/month · busiest months), kv (term length, time per month, skills needed, who they report to), a checklist handover pack the outgoing person should leave, a quote with a 120-word recruitment message for the newsletter, and bullets on making the role less scary for a first-timer.",
+    "cards, kv, checklist, quote, bullets", "Write it", "Drafting…"),
   T("treasurer", "Treasurer's report", "Figures into a report members follow", "💷",
     [LONG("figures", "Income and spending", "Subs 1,800; bar 640; hall hire -900; insurance -310; equipment -450; bank now 2,140"), TXT("period", "Period", "year to 31 March")],
     "Turn these figures into a treasurer's report for {period}: {figures}. Sections: a table (Category | Income | Spending | Net), kv (opening balance, closing balance, surplus or deficit, months of running costs held in reserve), text of the report in plain English a member can follow in two minutes, bullets of questions members may ask with suggested answers, and a callout on anything that needs the club's own rules or an accountant (reporting thresholds, gift aid, reserves policy).",
@@ -53,7 +53,8 @@ APP("reunion_ready", "Reunion Ready", "Get the old crowd back in one room", "Eve
   T("icebreak", "Break the ice", "The first 30 minutes, handled", "🧊",
     [CH("worry", "Biggest worry", ["Cliques re-forming", "Nobody remembers names", "Awkward silence", "One person dominating", "People leaving early"], "Nobody remembers names")],
     "The organiser's biggest worry is: {worry}. Sections: cards for 4 icebreakers suited to the reunion type and size (meta = minutes · props needed?), a quote with a 90-second welcome speech that sets the tone, steps for the first 30 minutes so nobody stands alone, and bullets on gracefully handling someone who has had a hard time since you last met.",
-    "cards, quote, steps, bullets", "Get ideas", "Warming up…")])
+    "cards, quote, steps, bullets", "Get ideas", "Warming up…")],
+ "Search for people only through public channels and mutual friends, never share anyone's details without their OK, and treat ticket pricing as a guide, not financial advice.")
 
 APP("supper_circle", "Supper Circle", "A rotating dinner club that actually keeps going", "Social", ["#BF360C", "#FBC02D", "#4A148C"], "cup",
  "Supper Circle runs a rotating dinner club among friends or neighbours: a fair hosting rota, themed host briefs that respect every diet at the table, sensible money rules, a newcomer's first night and the nudges that keep the club alive when life gets busy.",
@@ -105,7 +106,7 @@ APP("gather_round", "Gather Round", "Start a meetup people keep coming back to",
     "text, table, quote, steps", "Fix it", "Counting chairs…"),
   T("grow", "Hand over & grow", "Co-hosts, splits and stepping back", "🌱",
     [CH("goal", "Goal", ["Recruit co-hosts", "Split into two groups", "Add a second format", "Step back without it dying"], "Recruit co-hosts")],
-    "Goal: {goal}. Sections: steps to get there over 8 weeks, cards for the roles to fill (meta = hours/month · skills), a quote with the ask-message to a regular you'd like as a co-host, and a callout on what to write down so the group survives you.",
+    "Goal: {goal}. Sections: steps to get there over 8 weeks, cards for the 2–3 roles to fill (meta = hours/month · skills), a quote with the ask-message to a regular you'd like as a co-host, and a callout on what to write down so the group survives you.",
     "steps, cards, quote, callout", "Plan it", "Growing roots…")],
  "Meeting strangers carries some risk: use public venues, tell someone your plans, and follow local rules for events in public spaces.")
 
@@ -159,7 +160,7 @@ APP("team_sheet", "Team Sheet", "The admin side of amateur sport, sorted", "Spor
     "table, checklist, kv, callout", "Plan it", "Loading the boot…"),
   T("awards", "End-of-season night", "Awards, speech and next season", "🏆",
     [LONG("season", "Season summary", "finished 4th, Jay 12 clean sheets, Ade top scorer with 19, Sam never missed a game"), CH("format", "Format", ["Pub night", "Dinner", "Family BBQ"], "Pub night")],
-    "From this season: {season}, plan an end-of-season {format}. Sections: cards for 6 awards with winners (meta = award · winner), a quote with a 2-minute manager's speech, a table run-sheet for the night (Time | Item | Who), and bullets on next season's recruitment and retention.",
+    "From this season: {season}, plan an end-of-season {format}. Sections: cards for 6 awards, each titled by award with the winner named and a one-line citation (meta = winner · the stat or moment that earned it), a quote with a 2-minute manager's speech, a table run-sheet for the night (Time | Item | Who), and bullets on next season's recruitment and retention.",
     "cards, quote, table, bullets", "Plan awards", "Polishing trophies…")],
  "Not medical advice: follow your league's rules on injuries, concussion and first-aid cover, and never let an injured player return on your say-so alone.")
 
@@ -205,7 +206,7 @@ APP("green_room", "Green Room", "Run an am-dram show from auditions to curtain c
     "table, bullets, kv, callout", "Schedule", "Calling the cast…"),
   T("lists", "Props & costume", "Production lists from the script", "🎩",
     [LONG("script", "Paste a scene or act summary", "Act 1: living room, seance, gramophone, tray of martinis, Madame Arcati in a cape…")],
-    "From: {script}, build production lists. Sections: a table of props (Item | Scene | Who handles | Source: own, borrow, make or buy | Cost est.), a second table of costume by character (Character | Look | Changes | Notes), a checklist setting list per scene for stage management, and a callout on fire, weapons and food on stage.",
+    "From: {script}, build production lists. Sections: a table of props (Item | Scene | Handled by | Source | Cost est.) where Source is one of own, borrow, make or buy, a second table of costume by character (Character | Look | Changes | Notes), a checklist setting list per scene for stage management, and a callout on fire, weapons and food on stage.",
     "table, checklist, callout", "Build lists", "Rummaging backstage…"),
   T("foh", "Front of house", "Ticket prices, rota and house rules", "🎟️",
     [NUM("seats", "Seats per night", "120"), NUM("nights", "Performances", "3"), TXT("costs", "Production costs", "rights 400, set 300, costumes 200, hall 250")],
@@ -263,7 +264,7 @@ APP("head_count", "Head Count", "Big group trips and weekends without the chaos"
     "kv, table, quote, callout", "Sort money", "Splitting the bill…"),
   T("messages", "The tricky message", "Say the hard thing kindly", "💬",
     [CH("situation", "Situation", ["Someone can't afford it", "Someone's dropping out late", "Two people don't get along", "The plan changed", "Someone's being difficult", "Uninviting someone"], "Someone can't afford it"), TXT("details", "Details", "")],
-    "Situation: {situation}. Details: {details}. Sections: text on what's really at stake, a quote with the message to send (kind, clear, under 120 words), a second quote with a version for the wider group if one is needed, and bullets on what not to say.",
+    "Situation: {situation}. Details, if any: {details}. Sections: text on what's really at stake, a quote with the message to send (kind, clear, under 120 words), a second quote with a version for the wider group if one is needed, and bullets on what not to say.",
     "text, quote, bullets", "Write it", "Choosing words…"),
   T("day", "Run-sheet & kit", "The big day, minute by minute", "🎒",
     [TXT("day", "The big day or night", "Saturday: brunch, boat 2pm, dinner 8pm, bar after")],

@@ -79,7 +79,7 @@
      "type": "photo"
     }
    ],
-   "prompt": "Turn {project} (and the drawing or photo if provided) into a portfolio entry for the profile's discipline. Give cards for the entry (meta = role · tools · quantified outcome) covering problem, constraints, analysis and result; a quote with a 30-second spoken version for interviews; a table (Skill shown | Evidence in this project | Posting keyword); and a callout on what to redact for confidentiality.",
+   "prompt": "Turn {project} (and the drawing or photo if provided) into a portfolio entry for the profile's discipline. Give 4 cards titled Problem, Constraints, Analysis and Result (meta = your role · tools used · quantified outcome), each 2–3 sentences in engineering language; a quote with a 30-second spoken version for interviews; a table (Skill shown | Evidence in this project | Posting keyword); and a callout on what to redact for confidentiality.",
    "shape": "cards, quote, table, callout",
    "button": "Write entry",
    "loading": "Drafting…"

@@ -154,7 +154,7 @@
      "default": "Less morning stiffness"
     }
    ],
-   "prompt": "A 3-week, 10-minute daily plan for the {joint} aimed at '{goal}'. Sections: a table (Week | Moves | Reps or hold | Progression), steps for the correct form of the two key moves, a kv of simple weekly self-tests to see progress, and a callout on symptoms that mean pause and see a clinician (locking, giving way, night pain, numbness).",
+   "prompt": "Write a 3-week, 10-minute daily plan for the {joint} aimed at '{goal}'. Sections: a table (Week | Moves | Reps or hold | Progression), steps for the correct form of the two key moves, a kv of simple weekly self-tests to see progress, and a callout on symptoms that mean pause and see a clinician (locking, giving way, night pain, numbness).",
    "shape": "table, steps, kv, callout",
    "button": "Start plan",
    "loading": "Charting range…"
@@ -209,7 +209,7 @@
      "default": "Whole body"
     }
    ],
-   "prompt": "A 10-minute seated mobility routine for '{focus}' that can be done in an armchair while watching TV. Sections: steps with reps and cues, bullets on chair setup and posture, and a checklist of three moves to repeat at every ad break.",
+   "prompt": "Write a 10-minute seated mobility routine for '{focus}' that can be done in an armchair while watching TV. Sections: steps with reps and cues, bullets on chair setup and posture, and a checklist of three moves to repeat at every ad break.",
    "shape": "steps, bullets, checklist",
    "button": "Build routine",
    "loading": "Settling in…"

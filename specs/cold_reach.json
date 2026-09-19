@@ -95,8 +95,8 @@
   },
   {
    "id": "personalise",
-   "title": "Personalise from profile",
-   "subtitle": "Paste a LinkedIn profile or bio",
+   "title": "Personalise a touch",
+   "subtitle": "Paste their LinkedIn bio or post",
    "emoji": "🎯",
    "inputs": [
     {
@@ -126,8 +126,8 @@
   },
   {
    "id": "subject",
-   "title": "Subject line lab",
-   "subtitle": "10 lines, ranked",
+   "title": "Cold subject lines",
+   "subtitle": "10 lines for a cold email, ranked",
    "emoji": "🧪",
    "inputs": [
     {
@@ -151,7 +151,7 @@
      "default": "Mix"
     }
    ],
-   "prompt": "For this email: {email} — generate 10 subject lines in the {style} style as a table (Subject | Angle | Predicted open tier: High/Med/Low | Spam-word risk). Then bullets with the 3 preview-text lines that pair best with the top subject, and a callout on words and formatting that trigger spam filters.",
+   "prompt": "For this cold email to a prospect who has never heard of us: {email} — generate 10 subject lines in the {style} style as a table (Subject | Angle | Open tier: High/Med/Low | Spam-word risk). Then bullets with the 3 preview-text lines that pair best with the top subject, and a callout on words and formatting that trigger spam filters.",
    "shape": "table, bullets, callout",
    "button": "Rank subjects",
    "loading": "Testing lines…"
@@ -176,7 +176,7 @@
      "placeholder": "3rd touch, they opened twice"
     }
    ],
-   "prompt": "The prospect replied: {reply_text} (context: {context}). Classify the reply in kv (Type | Real meaning | Win probability), then write 2 response options as quote sections (one short and low-pressure, one that reframes with a question), and steps for what to do if they go silent again.",
+   "prompt": "The prospect replied: {reply_text}. Context, if any: {context}. Classify the reply in kv (Type | Real meaning | Win probability), then write 2 response options as quote sections (one short and low-pressure, one that reframes with a question), and steps for what to do if they go silent again.",
    "shape": "kv, quote, steps",
    "button": "Draft reply",
    "loading": "Reading the room…"
@@ -190,14 +190,16 @@
     {
      "key": "thread",
      "label": "What you've sent so far",
-     "type": "text",
-     "placeholder": "4 emails about invoice automation, no reply"
+     "type": "longtext",
+     "placeholder": "4 emails about invoice automation over 3 weeks, no reply",
+     "required": true
     }
    ],
-   "prompt": "Write a break-up email closing a sequence where {thread}. Sections: a quote with the email (under 60 words, no guilt-tripping, one clear door left open), bullets with 3 alternative closing lines for different personas, and a callout on when to actually re-engage (timing and trigger events).",
+   "prompt": "Write a break-up email closing this sequence: {thread}. Sections: a quote with the email (under 60 words, no guilt-tripping, one clear door left open), bullets with 3 alternative closing lines for different personas, and a callout on when to actually re-engage (timing and trigger events).",
    "shape": "quote, bullets, callout",
    "button": "Write it",
    "loading": "Saying goodbye…"
   }
- ]
+ ],
+ "disclaimer": "Cold outreach is regulated: check consent, opt-out and B2B rules that apply where your prospects live (CAN-SPAM, GDPR, PECR, CASL) before sending, and honour every unsubscribe."
 }

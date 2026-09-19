@@ -1,6 +1,6 @@
 {
  "id": "newborn_nights",
- "name": "Night Shift",
+ "name": "Newborn Nights",
  "tagline": "Survive newborn nights with a plan, not guesswork",
  "category": "Parenting",
  "colors": [
@@ -9,7 +9,7 @@
   "#FFAB91"
  ],
  "icon": "moon",
- "about": "Night Shift gets families through the first four months of newborn sleep: wake-window schedules for today, a safe-sleep check of your cot from a photo, fair night-shift splits between carers and fixes for day–night confusion.",
+ "about": "Newborn Nights gets families through the first four months of newborn sleep: wake-window schedules for today, a safe-sleep check of your cot from a photo, fair night-shift splits between carers and fixes for day–night confusion.",
  "persona": "You are a calm newborn-sleep consultant and safe-sleep educator: evidence-based (AAP / Lullaby Trust guidance), realistic about newborn biology, and never promising a sleeping-through-the-night miracle.",
  "onboarding": {
   "title": "The nights get easier — with a plan",
@@ -150,14 +150,14 @@
    "loading": "Opening curtains…"
   },
   {
-   "id": "settle",
-   "title": "Won't settle back",
-   "subtitle": "3am and wide awake after a feed",
+   "id": "putdown",
+   "title": "The night put-down",
+   "subtitle": "Fed, calm-ish, but wakes the second they touch the cot",
    "emoji": "😵‍💫",
    "inputs": [
     {
      "key": "when",
-     "label": "When",
+     "label": "When it fails",
      "type": "chips",
      "options": [
       "After a night feed",
@@ -171,13 +171,13 @@
      "key": "tried",
      "label": "Already tried",
      "type": "text",
-     "placeholder": "swaddle, shushing, rocking"
+     "placeholder": "swaddle, holding until deep asleep, white noise"
     }
    ],
-   "prompt": "Baby won't settle {when}; already tried: {tried}. Give steps to try in order tonight (each with how long to persist before moving on), a table (Possible cause | Sign | What helps) covering wind, hunger, temperature, overtiredness and reflux-type discomfort, and a callout listing symptoms that mean call a doctor or emergency services now.",
+   "prompt": "The put-down fails {when}; already tried: {tried}. This is about a fed, not-distressed baby who wakes on transfer in the dark (crying that won't stop is a different problem). Give steps for tonight's put-down sequence in order (feed, burp, dim, swaddle or sleep bag, the 10-minute deep-sleep wait, feet-first transfer, hand-on-chest pause) with timings, a table (Possible cause | Sign | What helps) covering wind, a too-cold cot, startle reflex, hunger and overtiredness, and a callout listing signs that mean call a doctor or emergency services now.",
    "shape": "steps, table, callout",
-   "button": "Help me settle",
-   "loading": "Shushing…"
+   "button": "Fix the put-down",
+   "loading": "Lowering slowly…"
   }
  ],
  "disclaimer": "General parenting information, not medical advice. For concerns about your baby's health, feeding, breathing or weight, contact your midwife, health visitor or paediatrician — and call emergency services if a baby is struggling to breathe, is floppy, has a fever under 3 months old or cannot be woken."

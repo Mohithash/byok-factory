@@ -197,7 +197,7 @@
      "default": "Email"
     }
    ],
-   "prompt": "Write the {channel} invitation and two reminders for the profile's respondents, incentive: {incentive}. Quote for each message (subject line and body under 90 words), a table 'Schedule' (Message | Send day | Send time | Who receives it), bullets of subject-line variants to test, and a callout on consent, anonymity and opt-out wording.",
+   "prompt": "Write the {channel} invitation and two reminders for the profile's respondents, incentive: {incentive}. Quote for each message (subject line and body under 90 words), a table 'Schedule' (Message | Send day | Send time | Who receives it), bullets of 5 subject-line variants to test, and a callout on consent, anonymity and opt-out wording.",
    "shape": "quote, table, bullets, callout",
    "button": "Write invites",
    "loading": "Polishing…"

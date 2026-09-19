@@ -41,7 +41,7 @@
   {
    "key": "months",
    "label": "Months since arrival",
-   "type": "text",
+   "type": "number",
    "placeholder": "4"
   }
  ],
@@ -67,7 +67,7 @@
      "default": "Everyday life"
     }
    ],
-   "prompt": "An etiquette briefing for the profile in the context '{context}': a table (Situation | Expected here | Home-culture habit that trips people up | Why), bullets of 5 phrases or gestures that earn goodwill, a callout on the single most costly faux pas, and text on how norms differ by generation or region.",
+   "prompt": "An etiquette briefing for the profile in the context '{context}': a table (Situation | Expected here | Home-culture habit that trips people up | Why), bullets of 5 habits or gestures that earn goodwill, a callout on the single most costly faux pas, and text on how norms differ by generation or region.",
    "shape": "table, bullets, callout, text",
    "button": "Brief me",
    "loading": "Reading the room…"

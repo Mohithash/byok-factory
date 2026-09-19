@@ -100,13 +100,12 @@
     },
     {
      "key": "sheet",
-     "label": "Your style sheet",
+     "label": "Your style sheet (optional)",
      "type": "longtext",
-     "placeholder": "grey not gray; Dr with no full stop; 1990s not 1990's…",
-     "required": true
+     "placeholder": "grey not gray; Dr with no full stop; 1990s not 1990's…"
     }
    ],
-   "prompt": "Check {text} against this style sheet: {sheet}, plus the profile English and house style. Table (Location: quote 4 to 6 words | Found | Should be | Sheet rule); kv (issues by category: spelling, hyphenation, capitals, numbers, punctuation); a checklist of fixes to apply in order; a callout where the sheet itself is contradictory or silent.",
+   "prompt": "Check {text} against this style sheet: {sheet} (if none is given, treat the chapter's own majority usage as the sheet), plus the profile English and house style. Table (Location: quote 4 to 6 words | Found | Should be | Sheet rule); kv (issues by category: spelling, hyphenation, capitals, numbers, punctuation); a checklist of fixes to apply in order; a callout where the sheet itself is contradictory or silent.",
    "shape": "table, kv, checklist, callout",
    "button": "Check chapter",
    "loading": "Comparing…"

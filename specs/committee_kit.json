@@ -153,8 +153,8 @@
      "placeholder": "about 3 hours a month, mostly emails and the bank"
     }
    ],
-   "prompt": "Write a role description for the {post} of the club given: {context}. Sections: cards for the role (responsibilities, time per month, skills; meta = hours/month · term length), a checklist handover pack the outgoing person should leave, a quote with a 120-word recruitment message for the newsletter, and bullets on making the role less scary for a first-timer.",
-   "shape": "cards, checklist, quote, bullets",
+   "prompt": "Write a role description for the {post} of the club given: {context}. Sections: cards for the 4–6 core responsibilities of the post (meta = hours/month · busiest months), kv (term length, time per month, skills needed, who they report to), a checklist handover pack the outgoing person should leave, a quote with a 120-word recruitment message for the newsletter, and bullets on making the role less scary for a first-timer.",
+   "shape": "cards, kv, checklist, quote, bullets",
    "button": "Write it",
    "loading": "Drafting…"
   },

@@ -8,7 +8,7 @@
 Runbook Right writes the internal engineering documents nobody enjoys writing, from runbooks and blameless postmortems to design docs, ADRs and how-to guides, in a format on-call engineers and reviewers actually use.
 
 WHAT'S INSIDE
-• Write a runbook — Alert → steps for 3 a.m.
+• Write a runbook — Alert → diagnosis, fix, rollback, close-out
 • Blameless postmortem — Timeline → causes → actions
 • Design doc / RFC — A proposal reviewers can approve
 • Decision record — One-page ADR
@@ -20,7 +20,7 @@ Works with Claude (Anthropic) or any OpenAI-compatible endpoint (OpenAI, Groq, O
 Every answer is a structured, shareable document with follow-up questions, saved on-device so you can come back to it.
 
 ## Tools
-- 🚨 **Write a runbook** — Alert → steps for 3 a.m.
+- 🚨 **Write a runbook** — Alert → diagnosis, fix, rollback, close-out
 - 🧯 **Blameless postmortem** — Timeline → causes → actions
 - 📐 **Design doc / RFC** — A proposal reviewers can approve
 - 📌 **Decision record** — One-page ADR

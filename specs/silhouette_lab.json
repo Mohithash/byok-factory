@@ -80,7 +80,7 @@
      "default": "Not sure"
     }
    ],
-   "prompt": "From the measurements {measures}, the profile height and leg-to-torso balance '{legs}', identify the body shape and vertical proportions. Sections: kv (shape, key ratios, vertical type, where the eye naturally goes), text explaining the reasoning in plain words, bullets of 6 silhouette principles that balance these proportions, and a callout reminding that shape is a styling tool, not a grade.",
+   "prompt": "From the measurements {measures}, the profile's height and leg-to-torso balance '{legs}', identify the body shape and vertical proportions. Sections: kv (shape, key ratios, vertical type, where the eye naturally goes), text explaining the reasoning in plain words, bullets of 6 silhouette principles that balance these proportions, and a callout reminding that shape is a styling tool, not a grade.",
    "shape": "kv, text, bullets, callout",
    "button": "Find my shape",
    "loading": "Measuring up…"

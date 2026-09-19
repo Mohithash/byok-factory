@@ -188,29 +188,44 @@
    "loading": "Opening range…"
   },
   {
-   "id": "cooldown",
-   "title": "Post-session reset",
-   "subtitle": "5 minutes after lifting",
-   "emoji": "🧊",
+   "id": "retest",
+   "title": "Log a retest",
+   "subtitle": "Before and after numbers into a verdict",
+   "emoji": "📏",
    "inputs": [
     {
-     "key": "lift",
-     "label": "What you just trained",
+     "key": "joint",
+     "label": "Joint",
      "type": "chips",
      "options": [
-      "Squat",
-      "Deadlift",
-      "Press",
-      "Pull",
-      "Full body"
+      "Ankles",
+      "Hips",
+      "Thoracic spine",
+      "Shoulders",
+      "Wrists",
+      "Hamstrings"
      ],
-     "default": "Full body"
+     "default": "Ankles"
+    },
+    {
+     "key": "before",
+     "label": "Starting measurement",
+     "type": "text",
+     "placeholder": "knee-to-wall 6 cm left, 8 cm right",
+     "required": true
+    },
+    {
+     "key": "now",
+     "label": "Today's measurement",
+     "type": "text",
+     "placeholder": "knee-to-wall 9 cm left, 10 cm right",
+     "required": true
     }
    ],
-   "prompt": "A 5-minute post-{lift} reset for the profile sticky areas. Sections: steps (drill · seconds · breathing), bullets on what to skip when very fatigued, and a quote with a single line on why long static stretching belongs in a separate session.",
-   "shape": "steps, bullets, quote",
-   "button": "Reset",
-   "loading": "Cooling down…"
+   "prompt": "Compare the {joint} retest {now} against the start {before} for the profile lifts. Sections: kv (change per side, asymmetry, weeks of programme run, verdict: keep going, change drills, or move to loading in the lift), a table (Test | Typical standard for the profile lifts | Start | Now | Pass or not yet), steps for the next 2 weeks (which drills to keep, drop or load heavier), and a callout on a stalled retest usually meaning a stability or technique limit rather than a need for more stretching.",
+   "shape": "kv, table, steps, callout",
+   "button": "Compare",
+   "loading": "Measuring range…"
   }
  ],
  "disclaimer": "Not medical advice. Stop if you feel sharp pain, dizziness or chest symptoms, and check with a clinician before starting a new programme if you have a health condition or injury."

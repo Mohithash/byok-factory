@@ -5,11 +5,11 @@
 **Short description (≤80):** Check your portfolio's balance and fix it in one session
 
 ## Full description
-Rebalance Kit reads your holdings from a paste or screenshot, finds overlap and concentration, sets a target mix from a short risk check, and gives you the exact trades to get back on target.
+Rebalance Kit reads your holdings from a paste or screenshot, finds overlap and concentration, X-rays two funds for redundancy, sets a target mix from a short risk check, and gives you the exact trades to get back on target.
 
 WHAT'S INSIDE
-• Audit my holdings — Paste holdings → overlaps and risks
-• Scan a brokerage screen — Screenshot → holdings table
+• Audit my holdings — Paste or snap holdings → risks
+• Fund overlap X-ray — Do these funds hold the same things?
 • Set my target mix — A short risk check → allocation
 • Rebalance now — Exact buys and sells
 • My rebalancing rules — A policy so you stop tinkering
@@ -20,8 +20,8 @@ Works with Claude (Anthropic) or any OpenAI-compatible endpoint (OpenAI, Groq, O
 Every answer is a structured, shareable document with follow-up questions, saved on-device so you can come back to it.
 
 ## Tools
-- 🔎 **Audit my holdings** — Paste holdings → overlaps and risks
-- 📷 **Scan a brokerage screen** — Screenshot → holdings table
+- 🔎 **Audit my holdings** — Paste or snap holdings → risks
+- 🩻 **Fund overlap X-ray** — Do these funds hold the same things?
 - 🎛️ **Set my target mix** — A short risk check → allocation
 - 🔁 **Rebalance now** — Exact buys and sells
 - 📜 **My rebalancing rules** — A policy so you stop tinkering

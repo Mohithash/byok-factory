@@ -122,7 +122,7 @@
      "required": true
     }
    ],
-   "prompt": "Cascade the company objective '{parent}' to the {teamname} team. Table (Team KR | How it ladders up | Metric source | Weekly check), steps for a 45-minute team OKR workshop, and bullets of cross-team dependencies to surface early.",
+   "prompt": "Cascade the company objective '{parent}' to the {teamname} team as 3–4 team key results. Table (Team KR | How it ladders up | Metric source | Weekly check), steps for a 45-minute team OKR workshop, and bullets of cross-team dependencies to surface early.",
    "shape": "table, steps, bullets",
    "button": "Cascade",
    "loading": "Aligning…"

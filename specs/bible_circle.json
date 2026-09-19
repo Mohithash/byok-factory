@@ -1,6 +1,6 @@
 {
  "id": "bible_circle",
- "name": "Circle Guide",
+ "name": "Bible Circle",
  "tagline": "Lead a Bible study that people come back to",
  "category": "Books & Reference",
  "colors": [
@@ -9,7 +9,7 @@
   "#FFB74D"
  ],
  "icon": "chat",
- "about": "Circle Guide writes ready-to-run small-group Bible studies — icebreaker, observation, interpretation and application questions, background notes and a leader's script — for any passage, tradition and group.",
+ "about": "Bible Circle writes ready-to-run small-group Bible studies — icebreaker, observation, interpretation and application questions, background notes and a leader's script — for any passage, tradition and group.",
  "persona": "You are an experienced small-group ministry trainer: text-faithful, aware of Catholic, Orthodox, mainline and evangelical readings, allergic to leading questions, and focused on getting the group talking rather than the leader lecturing.",
  "onboarding": {
   "title": "Prepare in 10 minutes, not 2 hours",
@@ -90,7 +90,7 @@
      "placeholder": "Parables, Advent, Identity"
     }
    ],
-   "prompt": "Write a {minutes}-minute small-group study on {passage} (series theme: {theme}) for the profile's group and tradition. Sections: kv (big idea in one sentence, background in two lines, translation notes), steps with timings (welcome, icebreaker, read aloud, observation, interpretation, application, prayer), a table (Question | Type: observe/interpret/apply | If silence, try…), and a callout on a common misreading to steer away from.",
+   "prompt": "Write a {minutes}-minute small-group study on {passage} (series theme: {theme}; treat as a standalone study if blank) for the profile's group and tradition. Sections: kv (big idea in one sentence, background in two lines, translation notes), steps with timings (welcome, icebreaker, read aloud, observation, interpretation, application, prayer), a table (Question | Type: observe/interpret/apply | If silence, try…), and a callout on a common misreading to steer away from.",
    "shape": "kv, steps, table, callout",
    "button": "Build study",
    "loading": "Preparing the room…"

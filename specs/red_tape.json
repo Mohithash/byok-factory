@@ -100,7 +100,7 @@
      "placeholder": "residence registration"
     }
    ],
-   "prompt": "This form is for: {about}. Translate and explain it as a table (Field | Meaning | What to write | Notes), bullets of the fields people most often get wrong, and a callout on attachments, signatures and copies required.",
+   "prompt": "This form is for: {about}. Translate and explain it as a table (Field | Meaning | What to write | Notes), bullets of the 3–5 fields people most often get wrong, and a callout on attachments, signatures and copies required.",
    "shape": "table, bullets, callout",
    "button": "Explain",
    "loading": "Translating…"

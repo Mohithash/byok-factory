@@ -1,0 +1,222 @@
+{
+ "id": "lplate_coach",
+ "name": "L-Plate Coach",
+ "tagline": "Practise between lessons and pass the practical first time",
+ "category": "Auto & Vehicles",
+ "colors": [
+  "#D32F2F",
+  "#1976D2",
+  "#FBC02D"
+ ],
+ "icon": "car",
+ "about": "L-Plate Coach turns driving lessons into practice sessions for learner drivers and the parents supervising them, breaks down every manoeuvre with reference points, rehearses test day and turns a fail into a plan.",
+ "persona": "You are a patient approved driving instructor: calm voice, small steps, praise for what went right, and clear about what examiners actually mark.",
+ "onboarding": {
+  "title": "From L-plates to licence",
+  "subtitle": "A few details tune every drill to the learner.",
+  "bullets": [
+   "Practice drives with a supervisor script",
+   "Manoeuvres with reference points",
+   "Test-day plans and fail recovery"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "transmission",
+   "label": "Transmission",
+   "type": "chips",
+   "options": [
+    "Manual",
+    "Automatic"
+   ]
+  },
+  {
+   "key": "hours",
+   "label": "Hours of practice so far",
+   "type": "number",
+   "placeholder": "20"
+  },
+  {
+   "key": "side",
+   "label": "Traffic drives on the",
+   "type": "chips",
+   "options": [
+    "Left",
+    "Right"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "session",
+   "title": "Plan a practice drive",
+   "subtitle": "One hour with a supervising driver",
+   "emoji": "🚗",
+   "inputs": [
+    {
+     "key": "focus",
+     "label": "Work on",
+     "type": "chips",
+     "options": [
+      "Junctions & roundabouts",
+      "Parallel park",
+      "Bay park",
+      "Hill starts & clutch",
+      "Motorway or dual carriageway",
+      "Independent driving"
+     ],
+     "default": "Junctions & roundabouts"
+    },
+    {
+     "key": "last",
+     "label": "What the instructor said last lesson",
+     "type": "text",
+     "placeholder": "hesitant at roundabouts, good mirrors"
+    },
+    {
+     "key": "nerves",
+     "label": "Confidence today",
+     "type": "chips",
+     "options": [
+      "Low",
+      "OK",
+      "High"
+     ],
+     "default": "OK"
+    }
+   ],
+   "prompt": "Plan a 60-minute practice drive on {focus} for the profile learner, instructor feedback: {last}, confidence {nerves}. Steps with minutes (warm-up route, skill blocks, cool-down), a checklist for the supervising driver (what to watch, when to speak, when to stay silent), a quote with the exact calm phrases to use when it goes wrong, and a callout on what the law requires of a supervising driver.",
+   "shape": "steps, checklist, quote, callout",
+   "button": "Plan drive",
+   "loading": "Adjusting mirrors…"
+  },
+  {
+   "id": "manoeuvre",
+   "title": "Master a manoeuvre",
+   "subtitle": "Reference points and cues",
+   "emoji": "🅿️",
+   "inputs": [
+    {
+     "key": "move",
+     "label": "Manoeuvre",
+     "type": "chips",
+     "options": [
+      "Parallel park",
+      "Reverse bay park",
+      "Forward bay park",
+      "Pull up on the right and reverse",
+      "Turn in the road",
+      "Emergency stop",
+      "Hill start"
+     ],
+     "default": "Parallel park"
+    },
+    {
+     "key": "car",
+     "label": "Car",
+     "type": "text",
+     "placeholder": "small hatchback"
+    }
+   ],
+   "prompt": "Teach {move} in a {car} for the profile transmission and driving side. Steps with reference points, speed, steering amounts and observation at each stage, bullets of the faults examiners mark and how to fix them, a kv of the observation checks in order, and a quote with a rhythm phrase to say under the breath.",
+   "shape": "steps, bullets, kv, quote",
+   "button": "Teach me",
+   "loading": "Finding markers…"
+  },
+  {
+   "id": "mock",
+   "title": "Mock test debrief",
+   "subtitle": "Turn faults into a plan",
+   "emoji": "📝",
+   "inputs": [
+    {
+     "key": "faults",
+     "label": "Faults from the mock or lesson",
+     "type": "longtext",
+     "placeholder": "2 minors for mirrors before signalling, 1 for undue hesitation, nearly a serious at a closed junction",
+     "required": true
+    },
+    {
+     "key": "weeks",
+     "label": "Weeks to the test",
+     "type": "number",
+     "placeholder": "3"
+    }
+   ],
+   "prompt": "Debrief: {faults} with {weeks} weeks to the test. A table (Fault | Minor or serious | Root cause | Drill to fix | Practice location), a plan as steps per week with hours, and a callout on whether the test date is realistic or should move.",
+   "shape": "table, steps, callout",
+   "button": "Debrief",
+   "loading": "Marking the sheet…"
+  },
+  {
+   "id": "testday",
+   "title": "Test-day plan",
+   "subtitle": "Nerves, timeline, show-me tell-me",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "time",
+     "label": "Test time",
+     "type": "text",
+     "placeholder": "10:14",
+     "required": true
+    },
+    {
+     "key": "worry",
+     "label": "Biggest worry",
+     "type": "chips",
+     "options": [
+      "Nerves",
+      "Sat-nav section",
+      "Roundabouts",
+      "Manoeuvre",
+      "Show-me tell-me",
+      "The examiner"
+     ],
+     "default": "Nerves"
+    }
+   ],
+   "prompt": "Build the test-day plan for a {time} test where the biggest worry is {worry}. Steps as a timeline from waking up to the result, a table of likely vehicle-safety questions (Question | Answer | Where in the car), bullets of nerve techniques that work in the waiting room, and a quote with a 3-line script for the moment a mistake happens mid-test.",
+   "shape": "steps, table, bullets, quote",
+   "button": "Plan test day",
+   "loading": "Breathing out…"
+  },
+  {
+   "id": "failed",
+   "title": "I failed — now what",
+   "subtitle": "Rebuild fast",
+   "emoji": "💪",
+   "inputs": [
+    {
+     "key": "result",
+     "label": "Result sheet",
+     "type": "longtext",
+     "placeholder": "1 serious: observation at a roundabout, 6 minors: 3 for mirrors, 2 steering, 1 response to signs",
+     "required": true
+    },
+    {
+     "key": "feel",
+     "label": "Feeling",
+     "type": "chips",
+     "options": [
+      "Gutted",
+      "Angry",
+      "Relieved",
+      "Determined"
+     ],
+     "default": "Gutted"
+    }
+   ],
+   "prompt": "The learner failed with: {result}, feeling {feel}. Text that is kind and honest about what the result actually means, a table (Fault | Pattern | Fix | Hours needed), steps for the next four weeks including when to rebook, and a callout on the one habit that caused the serious fault.",
+   "shape": "text, table, steps, callout",
+   "button": "Rebuild",
+   "loading": "Regrouping…"
+  }
+ ],
+ "disclaimer": "Follow local law on supervising drivers, licences and insurance; this is practice guidance, not a substitute for lessons with an approved instructor."
+}

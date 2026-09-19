@@ -158,7 +158,7 @@
      "required": true
     }
    ],
-   "prompt": "Critique the menu in the photo: bullets on layout, eye-flow, price formatting and description quality, a table (Item | Issue | Rewrite) with rewritten descriptions for up to 6 items, steps to re-lay-out the page for higher average spend, and a callout on any allergen or legal labelling gaps to check.",
+   "prompt": "Critique the menu in the photo. Give bullets on layout, eye-flow, price formatting and description quality, a table (Item | Issue | Rewrite) with rewritten descriptions for up to 6 items, steps to re-lay-out the page for higher average spend, and a callout on any allergen or legal labelling gaps to check.",
    "shape": "bullets, table, steps, callout",
    "button": "Critique",
    "loading": "Reading the menu…"
@@ -189,7 +189,7 @@
      "placeholder": "35"
     }
    ],
-   "prompt": "For the special '{special}' at plate cost {cost} and {covers} covers: kv (suggested price, food cost %, gross profit per plate, total GP if sold out), a quote with a 25-word server upsell line, bullets of 3 pairing add-ons with their margins, and a callout on the minimum plates to sell before prep cost is covered.",
+   "prompt": "Price tonight's special '{special}' at plate cost {cost} for {covers} expected covers, using the profile target food cost. Produce a kv (suggested price, food cost %, gross profit per plate, total GP if sold out), a quote with a 25-word server upsell line, bullets of 3 pairing add-ons with their margins, and a callout on the minimum plates to sell before prep cost is covered.",
    "shape": "kv, quote, bullets, callout",
    "button": "Price it",
    "loading": "Plating…"

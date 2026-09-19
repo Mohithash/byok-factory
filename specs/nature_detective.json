@@ -73,7 +73,7 @@
      "placeholder": "30"
     }
    ],
-   "prompt": "Create a {minutes}-minute scavenger hunt for the profile kids at the {place} in the profile season and region. Sections: a checklist of 12 things to find graded easy to hard with a one-line clue each, a table of 4 bonus challenges (Challenge | Skill: observe, measure, listen, compare | Points), bullets on the rules (look don't take, no picking, hands off fungi), and a quote with a 'detective briefing' to read at the start.",
+   "prompt": "Create a {minutes}-minute (30 if blank) scavenger hunt for the profile kids at the {place} in the profile season and region. Sections: a checklist of 12 things to find graded easy to hard with a one-line clue each, a table of 4 bonus challenges (Challenge | Skill: observe, measure, listen, compare | Points), bullets on the rules (look don't take, no picking, hands off fungi), and a quote with a 'detective briefing' to read at the start.",
    "shape": "checklist, table, bullets, quote",
    "button": "Make hunt",
    "loading": "Sniffing trails…"
@@ -97,7 +97,7 @@
      "placeholder": "under a log in the park"
     }
    ],
-   "prompt": "Identify the find in the photo (found: {spot}) as far as the image allows, for the profile kids and region. Sections: kv (Most likely, Also could be, Confidence, Size, Where it lives, Safe to handle?), a text section with 3 kid-level fun facts, bullets of 2 things to observe or measure before leaving it be, and a callout on safety (stings, toxins, wash hands, never eat).",
+   "prompt": "Identify the find in the photo (found: {spot}, if given) as far as the image allows, for the profile kids and region. Sections: kv (Most likely, Also could be, Confidence, Size, Where it lives, Safe to handle?), a text section with 3 kid-level fun facts, bullets of 2 things to observe or measure before leaving it be, and a callout on safety (stings, toxins, wash hands, never eat).",
    "shape": "kv, text, bullets, callout",
    "button": "Identify",
    "loading": "Checking the guide…"

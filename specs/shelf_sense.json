@@ -159,7 +159,7 @@
      "default": "Higher basket size"
     }
    ],
-   "prompt": "Assess the display in the photo for '{goal}': bullets on what is working, a table (Zone | Now | Change | Why) covering eye level, ends and price points, steps to re-merchandise it in under 30 minutes, and a quote with one shelf-talker line to print.",
+   "prompt": "Assess the display in the photo for the goal '{goal}'. Give bullets on what is working, a table (Zone | Now | Change | Why) covering eye level, ends and price points, steps to re-merchandise it in under 30 minutes, and a quote with one shelf-talker line to print.",
    "shape": "bullets, table, steps, quote",
    "button": "Assess shelf",
    "loading": "Eyeing the shelf…"

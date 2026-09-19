@@ -1,0 +1,226 @@
+{
+ "id": "boat_helm",
+ "name": "Helm Notes",
+ "tagline": "Skipper your small boat with a plan, not a prayer",
+ "category": "Auto & Vehicles",
+ "colors": [
+  "#0D47A1",
+  "#F44336",
+  "#FFCA28"
+ ],
+ "icon": "globe",
+ "about": "Helm Notes writes passage plans around tides and weather windows, runs pre-launch checks, troubleshoots outboards and inboards, schedules antifouling and winterising, and gives you the exact words for VHF calls.",
+ "persona": "You are an experienced small-craft skipper and marine engineer: methodical, weather-respecting, plain-spoken, and firm that the sea does not negotiate.",
+ "onboarding": {
+  "title": "Plan the passage, enjoy the water",
+  "subtitle": "Your boat and home waters shape every plan and check.",
+  "bullets": [
+   "Passage plans with tides",
+   "Engine troubleshooting",
+   "Season maintenance calendar"
+  ]
+ },
+ "profile": [
+  {
+   "key": "boat",
+   "label": "Boat (type, length, engine)",
+   "type": "text",
+   "placeholder": "6 m RIB, 115 hp outboard"
+  },
+  {
+   "key": "water",
+   "label": "Home waters",
+   "type": "chips",
+   "options": [
+    "Coastal",
+    "Estuary",
+    "Lake",
+    "River",
+    "Offshore"
+   ]
+  },
+  {
+   "key": "exp",
+   "label": "Experience",
+   "type": "chips",
+   "options": [
+    "New skipper",
+    "A few seasons",
+    "Experienced"
+   ]
+  },
+  {
+   "key": "prop",
+   "label": "Propulsion",
+   "type": "chips",
+   "options": [
+    "Outboard",
+    "Inboard diesel",
+    "Sail + auxiliary",
+    "Electric"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "passage",
+   "title": "Passage plan",
+   "subtitle": "Route, tides, weather window",
+   "emoji": "🧭",
+   "inputs": [
+    {
+     "key": "route",
+     "label": "From → to",
+     "type": "text",
+     "placeholder": "Poole Harbour to Swanage and back",
+     "required": true
+    },
+    {
+     "key": "tide",
+     "label": "Tide times & heights",
+     "type": "text",
+     "placeholder": "HW 10:42 1.8 m, LW 16:05 0.6 m"
+    },
+    {
+     "key": "forecast",
+     "label": "Forecast",
+     "type": "text",
+     "placeholder": "SW 4 gusting 5, sea state slight, 20% rain"
+    }
+   ],
+   "prompt": "Write a passage plan for {route} with tides: {tide} and forecast: {forecast} for the profile boat and experience. A table (Leg | Distance nm | Approx. course, verify on chart | Speed | Time | Tide and height notes | Hazards), a kv of go/no-go limits (wind, sea state, visibility, fuel reserve rule), a checklist of pre-departure items and who ashore to tell, and a callout listing bail-out ports and turn-back criteria.",
+   "shape": "table, kv, checklist, callout",
+   "button": "Plan passage",
+   "loading": "Reading the tide…"
+  },
+  {
+   "id": "launch",
+   "title": "Pre-launch check",
+   "subtitle": "Trailer to water in order",
+   "emoji": "🚤",
+   "inputs": [
+    {
+     "key": "trip",
+     "label": "Today",
+     "type": "chips",
+     "options": [
+      "Short hop",
+      "Full day",
+      "Overnight",
+      "Fishing",
+      "Watersports"
+     ],
+     "default": "Full day"
+    },
+    {
+     "key": "crew",
+     "label": "People aboard",
+     "type": "number",
+     "placeholder": "4"
+    }
+   ],
+   "prompt": "Build the pre-launch checklist for a {trip} with {crew} aboard on the profile boat. Group the checklist as trailer and road, hull and engine, safety kit (lifejackets per person, kill cord, flares, VHF, anchor, bailer), fuel and weather. Then a kv of fuel needed using the rule of thirds in litres, and a callout on the slipway sequence that avoids the classic ramp mistakes.",
+   "shape": "checklist, kv, callout",
+   "button": "Run check",
+   "loading": "Counting jackets…"
+  },
+  {
+   "id": "engine",
+   "title": "Engine trouble",
+   "subtitle": "Won't start, overheats, stalls",
+   "emoji": "🔧",
+   "inputs": [
+    {
+     "key": "symptom",
+     "label": "What's happening",
+     "type": "longtext",
+     "placeholder": "cranks but won't fire after sitting 3 weeks; fuel smell",
+     "required": true
+    },
+    {
+     "key": "place",
+     "label": "Where are you",
+     "type": "chips",
+     "options": [
+      "At the dock",
+      "On the trailer",
+      "Out on the water"
+     ],
+     "default": "At the dock"
+    }
+   ],
+   "prompt": "Diagnose {symptom} on the profile propulsion, currently {place}. If on the water, open with a callout on immediate safety (anchor, VHF, position, drift). Then a table (Cause | Likelihood | Check | Fix now?) ordered by likelihood, steps for the checks that need no tools (kill cord, primer bulb, tank vent, fuel, tilt, tell-tale), and bullets on what to tell a marine engineer.",
+   "shape": "callout, table, steps, bullets",
+   "button": "Diagnose",
+   "loading": "Priming the bulb…"
+  },
+  {
+   "id": "season",
+   "title": "Season schedule",
+   "subtitle": "Antifoul, service, winterise",
+   "emoji": "📅",
+   "inputs": [
+    {
+     "key": "now",
+     "label": "Time of year",
+     "type": "chips",
+     "options": [
+      "Pre-season",
+      "Mid-season",
+      "End of season",
+      "Mid-winter"
+     ],
+     "default": "Pre-season"
+    },
+    {
+     "key": "kept",
+     "label": "Boat lives",
+     "type": "chips",
+     "options": [
+      "Marina berth",
+      "Swing mooring",
+      "Trailer at home",
+      "Dry stack"
+     ],
+     "default": "Trailer at home"
+    }
+   ],
+   "prompt": "Build the maintenance calendar for the profile boat kept on a {kept}, starting {now}. A table (Month | Job | DIY or yard | Materials | Est. cost) including antifouling, anodes, impeller, gearbox oil, batteries, trailer bearings and winterising, steps for the biggest job of the coming month, and a callout on the items insurers and surveyors check.",
+   "shape": "table, steps, callout",
+   "button": "Build calendar",
+   "loading": "Scraping the hull…"
+  },
+  {
+   "id": "radio",
+   "title": "Radio & signals",
+   "subtitle": "Say it right on VHF",
+   "emoji": "📻",
+   "inputs": [
+    {
+     "key": "call",
+     "label": "Call type",
+     "type": "chips",
+     "options": [
+      "Routine call to marina",
+      "Sécurité",
+      "Pan-Pan",
+      "Mayday",
+      "Bridge or lock request"
+     ],
+     "default": "Routine call to marina"
+    },
+    {
+     "key": "details",
+     "label": "Details",
+     "type": "text",
+     "placeholder": "boat name Kestrel, 4 aboard, engine failure 1 nm south of the pier"
+    }
+   ],
+   "prompt": "Write the {call} VHF script with: {details}. A quote with the exact call in the standard format including channel and phonetic spellings, steps for what to do before and after transmitting, and a callout on when a Pan-Pan must become a Mayday and how to cancel a false alarm.",
+   "shape": "quote, steps, callout",
+   "button": "Write script",
+   "loading": "Keying the mic…"
+  }
+ ],
+ "disclaimer": "Not a substitute for official forecasts, charts, a proper passage plan or safety training; wear lifejackets, carry a VHF and tell someone ashore your plan."
+}

@@ -82,7 +82,7 @@
      "required": true
     }
    ],
-   "prompt": "For {event} with controls: {controls}, using the profile moving speed and stop style, build a table (Control | km | Opens | Closes | Planned arrival | Stop minutes | Buffer). Then kv (required average, planned average, total stop time, sleep window), bullets on which controls are tight, and a callout on the rule for leaving a control on time.",
+   "prompt": "For {event} with controls: {controls}, using the profile moving speed and stop style, build a table (Control | km | Opens | Closes | Planned arrival | Stop minutes | Buffer) with one row per control. Then kv (required average, planned average, total stop time, sleep window), bullets naming the 2–3 tightest controls and why, and a callout on the rule for leaving a control on time.",
    "shape": "table, kv, bullets, callout",
    "button": "Build card",
    "loading": "Doing the maths…"
@@ -113,7 +113,7 @@
      "default": "Control sleep stop"
     }
    ],
-   "prompt": "Sleep plan for {event} with {style} sleeping and the profile habits: table (Night | Location km | Sleep from → to | Hours | Why here), steps for a fast reset on waking (kit, food, lights), bullets on spotting dangerous drowsiness, and a callout on what to do the moment you feel micro-sleeps.",
+   "prompt": "Sleep plan for {event} with {style} sleeping and the profile habits: table (Night | Location km | Sleep from → to | Hours | Why here), steps for a fast reset on waking (kit, food, lights), 5 bullets on spotting dangerous drowsiness, and a callout on what to do the moment you feel micro-sleeps.",
    "shape": "table, steps, bullets, callout",
    "button": "Plan sleep",
    "loading": "Counting winks…"
@@ -162,7 +162,7 @@
      "placeholder": "6"
     }
    ],
-   "prompt": "Status: {status} with {hours} hours until the next control closes. Give a text verdict (finishable or not, and the required speed), then steps for the next 2 hours (position, stops, food approach, drafting), bullets of time leaks to cut, and a callout on the point at which abandoning is the right call.",
+   "prompt": "Status: {status} with {hours} hours until the next control closes. Give a text verdict (finishable or not, and the required speed), then steps for the next 2 hours (position, stops, food approach, drafting), 5 bullets of time leaks to cut, and a callout on the point at which abandoning is the right call.",
    "shape": "text, steps, bullets, callout",
    "button": "Rescue plan",
    "loading": "Regrouping…"
@@ -193,7 +193,7 @@
      "placeholder": "10"
     }
    ],
-   "prompt": "Progression from the profile longest ride to {target} in {weeks} weeks: table (Week | Long ride km | Purpose | Practise this), bullets on the skills that change at this distance (pacing, eating on the move, contact points), a checklist of kit to test on training rides, and a callout on saddle and hand issues that need attention early.",
+   "prompt": "Progression from the profile longest ride to {target} in {weeks} weeks: table (Week | Long ride km | Purpose | Practise this) with one row per week, 4 bullets on the skills that change at this distance (pacing, eating on the move, contact points), a checklist of kit to test on training rides, and a callout on saddle and hand issues that need attention early.",
    "shape": "table, bullets, checklist, callout",
    "button": "Plan the step",
    "loading": "Going longer…"

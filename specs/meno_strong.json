@@ -139,7 +139,8 @@
      "key": "weekly",
      "label": "Time available per week",
      "type": "text",
-     "placeholder": "3 × 30 min"
+     "placeholder": "3 × 30 min",
+     "required": true
     }
    ],
    "prompt": "Build a weekly cardio plan using {likes} within {weekly}, respecting the profile's limits. Sections: table (Session | Type: zone 2 / intervals / mobility | Minutes | Effort cue | Notes), bullets on why short intervals matter for insulin sensitivity and VO2max in midlife, steps for one safe interval session, and a callout on pelvic floor and joint warning signs.",

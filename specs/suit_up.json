@@ -99,7 +99,7 @@
      "default": "Under 100"
     }
    ],
-   "prompt": "Decode '{invite}' for a {season} event with {budget} to spend on new pieces, for the profile's build and lifestyle. Sections: kv (dress code name, formality 1–10, jacket?, tie?, shoe type, what is too much / too little), 3 complete looks as cards (meta = formality · cost of new items), a checklist of everything to lay out the night before, and a callout on the one mistake that gets men noticed for the wrong reason.",
+   "prompt": "Decode '{invite}' for a {season} event with a new-item budget of '{budget}', for the profile's build and lifestyle. Sections: kv (dress code name, formality 1–10, jacket?, tie?, shoe type, what is too much / too little), 3 complete looks as cards (meta = formality · cost of new items), a checklist of everything to lay out the night before, and a callout on the one mistake that gets men noticed for the wrong reason.",
    "shape": "kv, cards, checklist, callout",
    "button": "Decode",
    "loading": "Reading the invite…"
@@ -131,7 +131,7 @@
      "default": "Whole outfit"
     }
    ],
-   "prompt": "Assess the fit in the photo, focusing on {piece}, for the profile's build. Table (Garment | Fit issue | Tailorable? | Est. alteration cost), bullets on what already works, steps to brief a tailor in priority order, and a callout on which issues mean return or resell rather than alter.",
+   "prompt": "Assess the fit in the photo, focusing on {piece}, for the profile's build. Table (Garment | Fit issue | Tailorable? | Est. alteration cost), 3 bullets on what already works, steps to brief a tailor in priority order, and a callout on which issues mean return or resell rather than alter.",
    "shape": "table, bullets, steps, callout",
    "button": "Check fit",
    "loading": "Eyeing the seams…"
@@ -192,7 +192,7 @@
      "default": "Work"
     }
    ],
-   "prompt": "For '{outfit}' at a {occasion}, choose the shoes, belt, watch and socks. kv (shoe style & colour, belt, watch case & strap, sock colour, bag if any), a table (Leather colour | Works with | Avoid with), bullets naming two budget and two premium shoe options by type, and a callout on the metal-matching rule and when it does not matter.",
+   "prompt": "For '{outfit}' worn for the occasion '{occasion}', choose the shoes, belt, watch and socks. kv (shoe style & colour, belt, watch case & strap, sock colour, bag if any), a table (Leather colour | Works with | Avoid with), bullets naming two budget and two premium shoe options by type, and a callout on the metal-matching rule and when it does not matter.",
    "shape": "kv, table, bullets, callout",
    "button": "Match it",
    "loading": "Polishing…"

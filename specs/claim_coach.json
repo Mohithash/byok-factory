@@ -138,7 +138,7 @@
      "key": "story",
      "label": "Full story with dates",
      "type": "longtext",
-     "placeholder": "…",
+     "placeholder": "3 Mar paid 1,800 deposit by transfer; quote said start by 31 Mar; no work by 30 Apr; 2 May asked for refund by text, refused…",
      "required": true
     },
     {

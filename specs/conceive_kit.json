@@ -135,7 +135,7 @@
      "placeholder": "sore boobs, cramping, googling everything"
     }
    ],
-   "prompt": "Support the two-week wait at {dpo} days past ovulation with: {feeling}. Sections: text that is honest that progesterone causes identical symptoms whether or not pregnant, kv (earliest reliable test day, what hCG does day by day in general terms, when a faint line is meaningful), a checklist of things to do instead of symptom-spotting, and a quote with a kind message to self for today.",
+   "prompt": "Support the two-week wait at {dpo} days past ovulation with: {feeling}. Sections: text that is honest that progesterone causes identical symptoms whether or not pregnant, kv (earliest reliable test day, what hCG does day by day in general terms, when a faint line is meaningful), a checklist of 5–7 things to do instead of symptom-spotting, and a quote with a kind message to self for today.",
    "shape": "text, kv, checklist, quote",
    "button": "Get me through",
    "loading": "Waiting with you…"
@@ -169,7 +169,8 @@
      "key": "habits",
      "label": "Their habits",
      "type": "text",
-     "placeholder": "cycling 10h a week, hot tubs, 4 beers a night, vapes"
+     "placeholder": "cycling 10h a week, hot tubs, 4 beers a night, vapes",
+     "required": true
     }
    ],
    "prompt": "Give sperm-health guidance for: {habits}. Sections: a table (Habit | Effect on sperm, with evidence strength | Change | Time to see effect, roughly 3 months), a checklist of the top 6 changes ranked, kv on what a semen analysis measures and general reference ranges, and a callout that supplements are not a substitute for a semen analysis if it has been a while.",

@@ -1,0 +1,218 @@
+{
+ "id": "classic_garage",
+ "name": "Patina Garage",
+ "tagline": "Buy, restore and enjoy a classic without regret",
+ "category": "Auto & Vehicles",
+ "colors": [
+  "#8D6E63",
+  "#B71C1C",
+  "#FFD54F"
+ ],
+ "icon": "star",
+ "about": "Patina Garage sizes up a candidate classic from photos and an advert, plans a restoration in phases and budgets, works out where to find parts, preps you for show day and keeps a laid-up classic healthy.",
+ "persona": "You are a classic-car restorer and concours judge: patient, originality-aware, honest about rust and budgets, and convinced classics should be driven.",
+ "onboarding": {
+  "title": "Old metal, new plan",
+  "subtitle": "Tell us the car and the dream; we'll keep the budget honest.",
+  "bullets": [
+   "Candidate assessment from photos",
+   "Phased restoration plans",
+   "Parts, shows and storage"
+  ]
+ },
+ "profile": [
+  {
+   "key": "car",
+   "label": "The classic (or the one you're after)",
+   "type": "text",
+   "placeholder": "1972 MGB GT"
+  },
+  {
+   "key": "aim",
+   "label": "Aim",
+   "type": "chips",
+   "options": [
+    "Daily-ish driver",
+    "Weekend fun",
+    "Concours",
+    "Investment",
+    "Learn to restore"
+   ]
+  },
+  {
+   "key": "skill",
+   "label": "Workshop skill",
+   "type": "chips",
+   "options": [
+    "None yet",
+    "Spanners",
+    "Welding & paint"
+   ]
+  },
+  {
+   "key": "budget",
+   "label": "Total budget",
+   "type": "number",
+   "placeholder": "8000"
+  }
+ ],
+ "tools": [
+  {
+   "id": "assess",
+   "title": "Size up a candidate",
+   "subtitle": "Photos + advert → verdict",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the car (exterior, engine bay or underside)",
+     "type": "photo"
+    },
+    {
+     "key": "advert",
+     "label": "Advert text or seller's description",
+     "type": "longtext",
+     "placeholder": "matching numbers, some bubbling on the sills, runs and drives",
+     "required": true
+    }
+   ],
+   "prompt": "Assess the candidate classic from any photo and: {advert}. A table (Area | What the photo or advert suggests | Risk | What to check in person) covering the known rust zones for this model, originality, mechanicals and paperwork, a kv of value drivers (matching numbers, rare options, history file, colour, mileage), bullets of questions to ask the seller, and a callout on the deal-breakers for this model.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Assess",
+   "loading": "Tapping the sills…"
+  },
+  {
+   "id": "plan",
+   "title": "Restoration plan",
+   "subtitle": "Phases, order, budget",
+   "emoji": "🧰",
+   "inputs": [
+    {
+     "key": "condition",
+     "label": "Current condition",
+     "type": "longtext",
+     "placeholder": "runs, brakes spongy, rust in floor pans, interior tired",
+     "required": true
+    },
+    {
+     "key": "timeline",
+     "label": "Timeline",
+     "type": "chips",
+     "options": [
+      "6 months",
+      "1 year",
+      "2 years",
+      "As long as it takes"
+     ],
+     "default": "1 year"
+    }
+   ],
+   "prompt": "Plan a restoration of the profile car from: {condition}, over {timeline}, within the profile budget and skill. Steps for the phase order (safety first, then structure, mechanicals, then cosmetics), a table (Phase | Jobs | DIY or specialist | Est. cost | Weeks), a callout on where budgets blow up on this model, and bullets on what to photograph and bag-and-tag before disassembly.",
+   "shape": "steps, table, callout, bullets",
+   "button": "Plan it",
+   "loading": "Ordering parts bins…"
+  },
+  {
+   "id": "parts",
+   "title": "Find a part",
+   "subtitle": "Sourcing strategy for anything",
+   "emoji": "🔩",
+   "inputs": [
+    {
+     "key": "part",
+     "label": "Part",
+     "type": "text",
+     "placeholder": "front brake calipers",
+     "required": true
+    },
+    {
+     "key": "pref",
+     "label": "Prefer",
+     "type": "chips",
+     "options": [
+      "Original/NOS",
+      "Good reproduction",
+      "Cheapest that works",
+      "Upgrade"
+     ],
+     "default": "Good reproduction"
+    }
+   ],
+   "prompt": "Source {part} for the profile car, preference: {pref}. A table (Route | Where to look | Typical price | Lead time | Watch out for) covering marque specialists, owners' clubs, autojumbles, donor cars, reproduction and remanufacture, bullets of part numbers or identifiers to search by, and a callout on cross-compatible parts from other models.",
+   "shape": "table, bullets, callout",
+   "button": "Find it",
+   "loading": "Rummaging…"
+  },
+  {
+   "id": "show",
+   "title": "Show-day prep",
+   "subtitle": "Judging sheet and what to bring",
+   "emoji": "🏆",
+   "inputs": [
+    {
+     "key": "event",
+     "label": "Event",
+     "type": "chips",
+     "options": [
+      "Local show",
+      "Club concours",
+      "Cars & coffee",
+      "Owners' club rally"
+     ],
+     "default": "Local show"
+    },
+    {
+     "key": "days",
+     "label": "Days to go",
+     "type": "number",
+     "placeholder": "10"
+    }
+   ],
+   "prompt": "Prepare the profile car for a {event} in {days} days. A checklist of prep jobs ordered by day, a table (Judging area | What judges look for | Quick wins | Points at risk), bullets for the display kit (info board, mats, cleaning kit, spares, chairs), and a quote with a 60-second history card to print for the windscreen.",
+   "shape": "checklist, table, bullets, quote",
+   "button": "Prep",
+   "loading": "Polishing chrome…"
+  },
+  {
+   "id": "layup",
+   "title": "Lay-up & recommission",
+   "subtitle": "Storage without rot",
+   "emoji": "🛡️",
+   "inputs": [
+    {
+     "key": "mode",
+     "label": "I'm",
+     "type": "chips",
+     "options": [
+      "Storing it",
+      "Bringing it back"
+     ],
+     "default": "Storing it"
+    },
+    {
+     "key": "months",
+     "label": "Months off the road",
+     "type": "number",
+     "placeholder": "5"
+    },
+    {
+     "key": "where",
+     "label": "Storage",
+     "type": "chips",
+     "options": [
+      "Heated garage",
+      "Unheated garage",
+      "Carport",
+      "Outdoors under cover"
+     ],
+     "default": "Unheated garage"
+    }
+   ],
+   "prompt": "Plan {mode} for {months} months in a {where} for the profile car. Steps in order (fuel, fluids, battery, tyres, brakes, rodents, humidity and covers), a checklist of supplies with rough cost, and a callout on the checks to make before the first drive back.",
+   "shape": "steps, checklist, callout",
+   "button": "Plan",
+   "loading": "Draping the cover…"
+  }
+ ],
+ "disclaimer": "Restoration and valuation guidance is general; safety-critical work (brakes, steering, fuel, structural welding) should be done or inspected by a qualified specialist."
+}

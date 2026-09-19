@@ -115,7 +115,7 @@
      "placeholder": "borrow from the next column"
     }
    ],
-   "prompt": "Compare how the parent does {topic} ('{myway}') with the school method for the profile curriculum and year. Sections: a table (Step | Your way | School way | Same idea because…), a callout on which parts of your way to keep quiet about for now, steps to check an answer using your way without showing it, and a quote with one sentence to say if the child says 'that's not how we do it'.",
+   "prompt": "Compare how the parent does {topic} ('{myway}', or the traditional method if blank) with the school method for the profile curriculum and year. Sections: a table (Step | Your way | School way | Same idea because…), a callout on which parts of your way to keep quiet about for now, steps to check an answer using your way without showing it, and a quote with one sentence to say if the child says 'that's not how we do it'.",
    "shape": "table, callout, steps, quote",
    "button": "Compare",
    "loading": "Translating…"
@@ -156,7 +156,7 @@
      "default": "Fluency"
     }
    ],
-   "prompt": "Write {count} {level} questions on {topic} in the style and layout of the profile curriculum for that year. Sections: a table (No. | Question | Answer | Method hint), steps for the full working of the hardest one, bullets on the misconceptions each question is designed to catch, and a callout on how long the set should take.",
+   "prompt": "Write {count} {level} questions on {topic} set out exactly as the profile curriculum presents them for that year, each answerable with the school's taught method. Sections: a table (No. | Question | Method the school expects | Answer), steps for the full working of the hardest one, bullets on the misconceptions each question is designed to catch, and a callout on how long the set should take.",
    "shape": "table, steps, bullets, callout",
    "button": "Make set",
    "loading": "Setting questions…"

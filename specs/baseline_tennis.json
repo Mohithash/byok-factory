@@ -1,0 +1,251 @@
+{
+ "id": "baseline_tennis",
+ "name": "Baseline",
+ "tagline": "Stroke fixes, serve clinics and match tactics",
+ "category": "Sports",
+ "colors": [
+  "#D84315",
+  "#C6FF00",
+  "#1565C0"
+ ],
+ "icon": "flame",
+ "about": "Baseline fixes your tennis strokes and serve one cue at a time, builds tactics against the opponent in front of you, plans practice with a partner, wall or machine, and turns match notes into a clear next step.",
+ "persona": "You are a club tennis coach: technique by symptom, tactics before power, drill-driven, and honest that consistency beats winners for most players.",
+ "onboarding": {
+  "title": "What's your game?",
+  "subtitle": "Level, backhand and playing style shape every drill.",
+  "bullets": [
+   "Stroke and serve fixes",
+   "Tactics against any opponent",
+   "Practice plans with or without a partner"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "level",
+   "label": "Level (NTRP-style)",
+   "type": "chips",
+   "options": [
+    "2.5 beginner",
+    "3.0",
+    "3.5",
+    "4.0",
+    "4.5+"
+   ]
+  },
+  {
+   "key": "backhand",
+   "label": "Backhand",
+   "type": "chips",
+   "options": [
+    "Two-handed",
+    "One-handed"
+   ]
+  },
+  {
+   "key": "style",
+   "label": "Style",
+   "type": "chips",
+   "options": [
+    "Baseliner",
+    "All-court",
+    "Serve & volley",
+    "Counterpuncher",
+    "Not sure"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "stroke",
+   "title": "Fix a stroke",
+   "subtitle": "Symptom → cause, drill, cue",
+   "emoji": "🎾",
+   "inputs": [
+    {
+     "key": "stroke",
+     "label": "Stroke",
+     "type": "chips",
+     "options": [
+      "Forehand",
+      "Backhand",
+      "Volley",
+      "Overhead",
+      "Slice",
+      "Return"
+     ],
+     "default": "Forehand"
+    },
+    {
+     "key": "symptom",
+     "label": "Symptom",
+     "type": "chips",
+     "options": [
+      "Into the net",
+      "Long",
+      "Framing / shanks",
+      "No pace",
+      "Wide / no control",
+      "Late on fast balls"
+     ],
+     "default": "Long"
+    },
+    {
+     "key": "photo",
+     "label": "Photo or video still (optional)",
+     "type": "photo"
+    }
+   ],
+   "prompt": "Diagnose a {stroke} going '{symptom}' from the photo (if attached) for the profile level and backhand type. Sections: text on the most likely cause in 2 sentences, a table (Cause | How to check | Fix | Shadow drill), steps for a progressive drill (drop-feed → cooperative rally → live points), and a quote with one cue to say before each ball.",
+   "shape": "text, table, steps, quote",
+   "button": "Diagnose",
+   "loading": "Watching contact…"
+  },
+  {
+   "id": "serve",
+   "title": "Serve clinic",
+   "subtitle": "Toss, contact, targets, ball counts",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "goal",
+     "label": "Work on",
+     "type": "chips",
+     "options": [
+      "First-serve consistency",
+      "More pace",
+      "Kick serve",
+      "Slice serve",
+      "The toss",
+      "Second-serve confidence"
+     ],
+     "default": "First-serve consistency"
+    },
+    {
+     "key": "balls",
+     "label": "Balls available",
+     "type": "number",
+     "placeholder": "30"
+    }
+   ],
+   "prompt": "A serve session on '{goal}' with {balls} balls for the profile level. Sections: kv (stance, grip, toss position, contact point, target), steps for a drill sequence with ball counts that add up to {balls}, a table (Fault | What you'd see | Fix), and a callout on shoulder and back care for serving volume.",
+   "shape": "kv, steps, table, callout",
+   "button": "Build session",
+   "loading": "Tossing…"
+  },
+  {
+   "id": "tactics",
+   "title": "Beat this opponent",
+   "subtitle": "Scout → game plan",
+   "emoji": "♟️",
+   "inputs": [
+    {
+     "key": "opp",
+     "label": "Describe them",
+     "type": "longtext",
+     "placeholder": "big forehand, weak backhand, hates the net, gets nervous at 30-30",
+     "required": true
+    },
+    {
+     "key": "format",
+     "label": "Match",
+     "type": "chips",
+     "options": [
+      "Singles",
+      "Doubles"
+     ],
+     "default": "Singles"
+    }
+   ],
+   "prompt": "Build a {format} game plan for the profile style and level against: {opp}. Sections: bullets with a 3-point game plan, a table (Situation | Their tendency | Your play), steps for the first 4 games (what to test), a callout on what to change if it isn't working by mid-first-set, and a quote with a between-points reset line.",
+   "shape": "bullets, table, steps, callout, quote",
+   "button": "Plan match",
+   "loading": "Scouting…"
+  },
+  {
+   "id": "practice",
+   "title": "Practice plan",
+   "subtitle": "Partner, wall, machine or feed",
+   "emoji": "🧱",
+   "inputs": [
+    {
+     "key": "with",
+     "label": "Practising with",
+     "type": "chips",
+     "options": [
+      "A partner",
+      "A wall",
+      "Ball machine",
+      "Coach feed"
+     ],
+     "default": "A partner"
+    },
+    {
+     "key": "minutes",
+     "label": "Minutes",
+     "type": "chips",
+     "options": [
+      "30",
+      "60",
+      "90"
+     ],
+     "default": "60"
+    },
+    {
+     "key": "focus",
+     "label": "Focus",
+     "type": "chips",
+     "options": [
+      "Consistency",
+      "Footwork",
+      "Net play",
+      "Serve + return",
+      "Match play"
+     ],
+     "default": "Consistency"
+    }
+   ],
+   "prompt": "A {minutes}-minute session with {with} on '{focus}' for the profile level. Sections: a table (Block | Minutes | Drill | Target or scoring), steps for a warm-up with a mini-tennis progression, bullets on keeping a practice partner engaged so both get reps, and a callout on when to stop for elbow or shoulder pain.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Plan it",
+   "loading": "Opening a can…"
+  },
+  {
+   "id": "match",
+   "title": "Review my match",
+   "subtitle": "Notes → the stat that decided it",
+   "emoji": "📓",
+   "inputs": [
+    {
+     "key": "notes",
+     "label": "Match notes (score, what happened)",
+     "type": "longtext",
+     "placeholder": "lost 4-6 6-3 4-6, 8 double faults, won most net points, lost the long rallies",
+     "required": true
+    },
+    {
+     "key": "feel",
+     "label": "How it felt",
+     "type": "chips",
+     "options": [
+      "Nervous",
+      "Fine",
+      "Frustrated",
+      "Confident"
+     ],
+     "default": "Fine"
+    }
+   ],
+   "prompt": "Review this match (it felt {feel}): {notes}. Sections: kv (result summary, the stat that decided it, biggest strength shown), a table (Pattern | Evidence | Next step), bullets of 2 things to keep doing, steps for the next 2 practice sessions, and a quote with one line to write in the notebook.",
+   "shape": "kv, table, bullets, steps, quote",
+   "button": "Review",
+   "loading": "Rewinding…"
+  }
+ ],
+ "disclaimer": "Not medical advice; see a clinician for persistent elbow, shoulder or wrist pain."
+}

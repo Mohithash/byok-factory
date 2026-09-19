@@ -1,6 +1,7 @@
 from dsl import *
 SAFE = "Coaching, not therapy. If you ever feel unsafe, controlled or afraid of someone close to you, contact a domestic-abuse helpline or emergency services."
 LEGAL_FAM = "Not legal advice. Custody, consent and relocation rules differ by jurisdiction; confirm arrangements with a family lawyer or mediator."
+COACH = "Relationship coaching, not therapy or legal advice. If you ever feel unsafe, controlled or afraid at home, contact a domestic-abuse helpline or emergency services."
 
 # 1 ── Couples: after a fight ────────────────────────────────────────────────
 APP("repair_talk", "Repair Talk", "Come back from a fight closer than before", "Lifestyle", ["#AD1457", "#00897B", "#FFB300"], "heart",
@@ -18,7 +19,7 @@ APP("repair_talk", "Repair Talk", "Come back from a fight closer than before", "
     "quote, kv, bullets, callout", "Soften it", "Rewording…"),
   T("apology", "Apologise properly", "No 'sorry you feel that way'", "🤍",
     [LONG("did", "What I did / said", "I rolled my eyes and left mid-conversation"), TXT("hurt", "How it landed for them", "they felt abandoned")],
-    "Write a real apology for: {did}, which landed as: {hurt}. Sections: a quote with the spoken apology (name the act, name the impact, no 'but', one concrete change), a checklist of the 5 parts of a complete apology with each marked as present or missing in this draft, and a callout on what not to expect straight after apologising.",
+    "Write a real apology for: {did}, which landed as: {hurt}. Sections: a quote with the spoken apology (name the act, name the impact, no 'but', one concrete change), a checklist of the 5 parts of a complete apology (name the act, name the impact, no excuse or 'but', the concrete change, ask what they need) each quoting the line of the script that covers it so you can tick them off as you say it, and a callout on what not to expect straight after apologising.",
     "quote, checklist, callout", "Write it", "Owning it…"),
   T("repeat", "Stop the repeat fight", "Same argument, third time this month", "🔁",
     [LONG("theme", "The recurring fight", "money — I save, they spend on takeaways"), CH("tried", "We've already tried", ["Talking it out", "Avoiding it", "Compromise that didn't stick", "Nothing yet"], "Talking it out")],
@@ -36,8 +37,8 @@ APP("miles_apart", "Miles Apart", "Long-distance love that feels close", "Lifest
  "Closer than the map says", "Tell us where you both are and how often you can visit.", ["Overlap hours across time zones", "Virtual dates beyond video calls", "A real plan to close the gap"],
  [NAME, TXT("partner", "Partner's name", "Priya"), TXT("cities", "Your city → their city", "Manchester → Toronto"), CH("visits", "We see each other", ["Every few weeks", "Every 2–3 months", "Twice a year", "Rarely"])],
  [T("overlap", "Find our hours", "When we're both awake and free", "🕰️",
-    [TXT("mine", "My typical day", "work 9–6, gym 7pm, bed 11:30"), TXT("theirs", "Their typical day", "shifts 7–3, free evenings, bed 10")],
-    "Using the profile cities for time zones, my day: {mine}; their day: {theirs}. Produce a table (My local time | Their local time | Both free? | Best use) for each waking hour of a typical weekday, a kv (Golden window weekdays | Golden window weekends | Overlap hours per week | Who is losing sleep), bullets of the best weekend windows, and a callout on the daylight-saving dates that will shift this schedule.",
+    [TXT("mine", "My typical day", "work 9–6, gym 7pm, bed 11:30"), TXT("theirs", "Their typical day", "shifts 7–3, free evenings, bed 10"), TXT("zones", "Time zones (if not in profile)", "UK → Toronto")],
+    "Time zones: {zones} (fall back to the profile cities if blank). My day: {mine}; their day: {theirs}. Produce a table (My local time | Their local time | Both free? | Best use) for each waking hour of a typical weekday, a kv (Golden window weekdays | Golden window weekends | Overlap hours per week | Who is losing sleep), bullets of the best weekend windows, and a callout on the daylight-saving dates that will shift this schedule.",
     "table, kv, bullets, callout", "Find overlap", "Syncing clocks…"),
   T("vdate", "Plan a virtual date", "Better than 'so how was your day'", "🎬",
     [CH("vibe", "Vibe", ["Playful", "Romantic", "Cook together", "Deep talk", "Lazy Sunday"], "Playful"), NUM("length", "Minutes", "90"), TXT("budget", "Budget", "under 20")],
@@ -53,7 +54,7 @@ APP("miles_apart", "Miles Apart", "Long-distance love that feels close", "Lifest
     "text, quote, bullets, callout", "Help me", "Thinking it through…"),
   T("close", "Close the distance", "The plan to end up in one place", "🗺️",
     [CH("horizon", "Target", ["6 months", "1 year", "2 years", "Not sure"], "1 year"), TXT("blockers", "What's in the way", "her visa, my lease, whose job moves")],
-    "Build a closing-the-gap plan over {horizon} given blockers: {blockers}. Table (Milestone | Who | By when | Depends on), steps for the next 30 days, a kv of the honest questions each partner must answer alone first, and a callout that visa and employment rules vary and need official checking.",
+    "Build a closing-the-gap plan over {horizon} given blockers: {blockers}. Table (Milestone | Who | By when | Depends on), steps for the next 30 days, a kv (Question | Why it matters) of 4 honest questions each partner must answer alone first, and a callout that visa and employment rules vary and need official checking.",
     "table, steps, kv, callout", "Build the plan", "Plotting the route…")], "Relationship coaching only; immigration and employment rules must be checked with official sources.")
 
 # 3 ── In-laws ───────────────────────────────────────────────────────────────
@@ -81,7 +82,7 @@ APP("inlaw_bridge", "In-Law Bridge", "Keep the peace with their family, and your
   T("visit", "Survive the visit", "Hosting them or staying there", "🧳",
     [CH("type", "Visit", ["They're staying with us", "We're staying with them", "Day visit"], "They're staying with us"), NUM("days", "Days", "3"), TXT("worries", "What I'm dreading", "no privacy, comments on how we parent")],
     "Visit type: {type}, {days} days, dreading: {worries}. Checklist to prep (space, food, ground rules agreed with partner), a table (Day | Plan | Built-in break | Who hosts that slot), bullets of 5 safe conversation topics and 3 to avoid, and a quote with a graceful exit line for when you need ten minutes alone.",
-    "checklist, table, bullets, quote", "Plan the visit", "Fluffing pillows…")])
+    "checklist, table, bullets, quote", "Plan the visit", "Fluffing pillows…")], COACH)
 
 # 4 ── Co-parenting after separation ─────────────────────────────────────────
 APP("coparent_calm", "Co-Parent Calm", "Raise the kids together, even apart", "Parenting", ["#00838F", "#7CB342", "#FFA000"], "calendar",
@@ -91,7 +92,7 @@ APP("coparent_calm", "Co-Parent Calm", "Raise the kids together, even apart", "P
  [NAME, TXT("kids", "Kids (names, ages)", "Leo 6, Ava 9"), TXT("ex", "Co-parent's name", "Chris"), CH("tone", "Communication is", ["Civil", "Tense", "Hostile", "Minimal"])],
  [T("biff", "Rewrite my message", "Brief, informative, friendly, firm", "✉️",
     [LONG("draft", "What I want to send", "You're late AGAIN and Leo was crying, this is the third time…"), CH("goal", "I need", ["An answer", "A change in behaviour", "To document it", "To decline a request"], "A change in behaviour")],
-    "Rewrite this message so it is brief, informative, friendly and firm, goal: {goal}: {draft}. Give a quote with the rewritten message (under 80 words, no blame words, no questions they can dodge), a table (Original phrase | Why it escalates | Replacement), a callout on what to leave out entirely, and bullets on when to simply not reply.",
+    "Rewrite this message so it is brief, informative, friendly and firm. Goal: {goal}. Draft: {draft}. Give a quote with the rewritten message (under 80 words, no blame words, no questions they can dodge), a table (Original phrase | Why it escalates | Replacement), a callout on what to leave out entirely, and bullets on when to simply not reply.",
     "quote, table, callout, bullets", "Rewrite", "Cooling it down…"),
   T("schedule", "Build a schedule", "2-2-3, week-on/off, or custom", "📅",
     [CH("split", "Time split", ["50/50", "60/40", "70/30", "Every other weekend"], "50/50"), TXT("constraints", "Constraints", "I work nights Mon–Wed, school is nearer my ex"), CH("ages", "Youngest child is", ["Under 3", "3–6", "7–12", "Teen"], "3–6")],
@@ -199,15 +200,15 @@ APP("grey_rock", "Grey Rock", "Stay steady with a difficult relative", "Lifestyl
  [NAME, TXT("person", "The person (relationship)", "my mother"), CH("behaviours", "What they do", ["Guilt trips", "Criticism", "Rage", "Silent treatment", "Rewriting history", "Triangulating others", "Money control"], multi=True), CH("contact", "Contact now", ["Daily", "Weekly", "Occasional", "Low contact", "No contact"])],
  [T("reply", "Grey-rock reply", "Respond without feeding it", "🪨",
     [LONG("message", "What they sent / said", "'I guess I'm just a terrible mother then. Don't bother coming Sunday.'"), CH("channel", "Via", ["Text", "Call", "In person", "Through a relative"], "Text")],
-    "They said ({channel}): {message}. Text identifying the hook in one sentence (guilt, threat, bait, reversal), then 3 quote sections: minimal (under 12 words), neutral-informational (under 30 words), and no-reply with what to do instead; then a table (If they escalate with… | Your response) for 3 escalations, and a callout on not justifying, arguing, defending or explaining.",
-    "text, quote, table, callout", "Draft reply", "Going grey…"),
+    "They said ({channel}): {message}. Text identifying the hook in one sentence (guilt, threat, bait, reversal), then 2 quote sections: minimal (under 12 words) and neutral-informational (under 30 words); bullets on the no-reply option (when it is the right move and what to do with the next hour instead); a table (If they escalate with… | Your response) for 3 escalations, and a callout on not justifying, arguing, defending or explaining.",
+    "text, quote, bullets, table, callout", "Draft reply", "Going grey…"),
   T("visit", "Visit survival plan", "Get in, get out, stay intact", "🚪",
     [TXT("event", "The occasion", "Dad's 70th, 4 hours at their house"), TXT("ally", "Who's on your side there", "my brother, my partner")],
     "Occasion: {event}; allies: {ally}. Steps for before, during and after (arrival time, exit line, ride home), a checklist of things to arrange with allies beforehand (signal, seating, rescue), bullets of 5 safe topics and 3 to deflect, a quote with the exact exit line, and a callout on the emotional crash the day after.",
     "steps, checklist, bullets, quote, callout", "Plan it", "Mapping exits…"),
   T("contact", "Contact level", "More, less, or none — thinking it through", "📉",
     [LONG("why", "What's prompting the question", "every call ends with me crying; she told my aunt I'm unstable"), CH("leaning", "I'm leaning towards", ["Keep as is", "Reduce", "Structured low contact", "A break", "No contact"], "Reduce")],
-    "Prompting this: {why}; leaning: {leaning}. Give a table (Option | What it looks like | Cost to you | Cost to others | Reversible?) across 4 contact levels, a kv of rules for the leaning option (frequency, channels, topics off-limits, what ends a call), a quote announcing the change if one is needed (short, no justification), and a callout on grief and doubt being normal and not evidence of a wrong decision.",
+    "Prompting this: {why}; leaning: {leaning}. Give a table (Option | What it looks like | Cost to you | Cost to others | Reversible?) across the 5 contact levels (keep as is, reduce, structured low contact, a break, no contact), a kv of rules for the leaning option (frequency, channels, topics off-limits, what ends a call), a quote announcing the change if one is needed (short, no justification), and a callout on grief and doubt being normal and not evidence of a wrong decision.",
     "table, kv, quote, callout", "Think it through", "Weighing options…"),
   T("reality", "Reality check", "Am I overreacting?", "🔍",
     [LONG("incident", "What happened", "she 'forgot' my birthday then said I never call"), TXT("pattern", "Has this happened before?", "yes, most years")],
@@ -243,7 +244,7 @@ APP("invisible_load", "Invisible Load", "Share the mental load, not just the cho
   T("slipped", "The deal slipped", "Back to doing it all again", "📉",
     [LONG("what", "What's slipped", "I'm back to doing all the school admin"), NUM("weeks", "Weeks since the deal", "6")],
     "Deal slipped: {what}, {weeks} weeks after agreeing. Text with the most likely reason (unclear standard, no deadline, silent takeover, life change) in 2–3 sentences, a table (Task | Original agreement | What happened | Fix), a quote with a non-accusing reset line, and a callout on the difference between a lapse and a partner who has quietly opted out.",
-    "text, table, quote, callout", "Reset the deal", "Rebalancing…")])
+    "text, table, quote, callout", "Reset the deal", "Rebalancing…")], COACH)
 
 # 10 ── Pre-commitment conversations ─────────────────────────────────────────
 APP("big_talks", "Big Talks", "The conversations to have before you commit", "Lifestyle", ["#C2185B", "#303F9F", "#FFC107"], "ring",

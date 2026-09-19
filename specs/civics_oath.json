@@ -128,7 +128,7 @@
      "default": "Application (form) questions"
     }
    ],
-   "prompt": "Run a citizenship interview rehearsal for the profile's country, part: {part}. A quote holding a 10-line officer-and-applicant script at the profile's English level, a table (Officer's question | What they are checking | Strong short answer), bullets of 5 vocabulary words from the form or test (for the US, draw from the official reading and writing vocabulary lists), and a callout on what to bring and how to politely ask the officer to repeat a question.",
+   "prompt": "Run a citizenship interview rehearsal for the profile's country, part: {part}. A quote holding a 10-line officer-and-applicant script at the profile's English level, a table (Officer's question | What they are checking | Strong short answer), bullets of 5 vocabulary words from the form or test (for the US, draw from the official reading and writing vocabulary lists), and a callout on what to bring and how to politely ask the officer to repeat a question. If the profile's country has no formal interview (for example the UK), rehearse the test-centre check-in, ID checks and English conversation the applicant will actually face, and say so in the callout.",
    "shape": "quote, table, bullets, callout",
    "button": "Rehearse",
    "loading": "Calling your number…"

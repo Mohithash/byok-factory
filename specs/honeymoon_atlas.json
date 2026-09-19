@@ -1,0 +1,230 @@
+{
+ "id": "honeymoon_atlas",
+ "name": "Honeymoon Atlas",
+ "tagline": "The trip after the wedding, planned like a gift",
+ "category": "Travel & Local",
+ "colors": [
+  "#AD1457",
+  "#F48FB1",
+  "#FFD54F"
+ ],
+ "icon": "ring",
+ "about": "Honeymoon Atlas picks the destination for your month and budget, builds a two-week itinerary with the splurge moments in the right places, plans surprises for your partner and sets a booking timeline that works around the wedding.",
+ "persona": "You are a luxury-travel planner who spends other people's money carefully: romantic without being cheesy, honest about weather and value, and great at one-perfect-moment planning.",
+ "onboarding": {
+  "title": "Where will you two go?",
+  "subtitle": "A few details about you both, then we plan.",
+  "bullets": [
+   "Destinations by month, vibe and budget",
+   "Itineraries with splurges placed right",
+   "Surprises and a booking timeline"
+  ]
+ },
+ "profile": [
+  {
+   "key": "names",
+   "label": "Your names",
+   "type": "text",
+   "placeholder": "Sam & Priya"
+  },
+  {
+   "key": "date",
+   "label": "Wedding date",
+   "type": "text",
+   "placeholder": "14 June"
+  },
+  {
+   "key": "vibe",
+   "label": "Honeymoon vibe",
+   "type": "chips",
+   "options": [
+    "Beach & do nothing",
+    "Cities & food",
+    "Safari & wild",
+    "Mountains & hikes",
+    "Island hopping",
+    "Mix of everything"
+   ]
+  },
+  {
+   "key": "budget",
+   "label": "Budget per person",
+   "type": "chips",
+   "options": [
+    "Under 1,500",
+    "1,500–3,000",
+    "3,000–6,000",
+    "6,000+"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "where",
+   "title": "Pick the destination",
+   "subtitle": "Right place for your month and money",
+   "emoji": "🌍",
+   "inputs": [
+    {
+     "key": "month",
+     "label": "Travel month",
+     "type": "chips",
+     "options": [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec"
+     ],
+     "default": "Jun"
+    },
+    {
+     "key": "days",
+     "label": "Days",
+     "type": "number",
+     "placeholder": "14"
+    },
+    {
+     "key": "from",
+     "label": "Flying from",
+     "type": "text",
+     "placeholder": "London"
+    }
+   ],
+   "prompt": "Recommend honeymoon destinations for {month}, {days} days, flying from {from}, matching the profile's vibe and budget. Cards for 5 destinations (meta = flight hours · weather that month · value rating), a table (Destination | Why now | Risk that month | Rough cost per person), a text section naming the top pick and the runner-up in two sentences each, and a callout on passport validity, visas and any vaccine or entry rules to check.",
+   "shape": "cards, table, text, callout",
+   "button": "Find our place",
+   "loading": "Spinning the globe…"
+  },
+  {
+   "id": "plan",
+   "title": "Two-week itinerary",
+   "subtitle": "Slow days, big moments, in the right order",
+   "emoji": "💞",
+   "inputs": [
+    {
+     "key": "dest",
+     "label": "Destination(s)",
+     "type": "text",
+     "placeholder": "Bali and the Gili islands",
+     "required": true
+    },
+    {
+     "key": "days",
+     "label": "Days",
+     "type": "number",
+     "placeholder": "14"
+    },
+    {
+     "key": "pace",
+     "label": "Pace",
+     "type": "chips",
+     "options": [
+      "Mostly rest",
+      "Balanced",
+      "See a lot"
+     ],
+     "default": "Balanced"
+    }
+   ],
+   "prompt": "Build a {days}-day honeymoon itinerary for {dest}, pace {pace}, for the profile. Table (Day | Base | Plan | Splurge or save | Note), cards for 4 signature moments (meta = cost · book ahead? · best time of day), bullets on what to do in the first 48 hours when wedding exhaustion hits, and a callout on the single booking to make first.",
+   "shape": "table, cards, bullets, callout",
+   "button": "Plan it",
+   "loading": "Scattering petals…"
+  },
+  {
+   "id": "splurge",
+   "title": "Splurge vs save",
+   "subtitle": "Where the money actually shows",
+   "emoji": "💎",
+   "inputs": [
+    {
+     "key": "dest",
+     "label": "Destination",
+     "type": "text",
+     "placeholder": "Maldives",
+     "required": true
+    },
+    {
+     "key": "total",
+     "label": "Total budget for two",
+     "type": "number",
+     "placeholder": "8000"
+    }
+   ],
+   "prompt": "For a honeymoon in {dest} with {total} total for two: table (Category | Save option | Splurge option | Difference | Worth it?), a kv allocating the budget across flights, stays, food, experiences and a buffer, bullets on 5 honeymoon perks worth asking for (upgrades, mentioning the occasion, shoulder-season timing), and a callout on the common overspends.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Allocate",
+   "loading": "Weighing it up…"
+  },
+  {
+   "id": "surprise",
+   "title": "Plan a surprise",
+   "subtitle": "One moment they'll talk about for years",
+   "emoji": "🎁",
+   "inputs": [
+    {
+     "key": "partner",
+     "label": "What your partner loves",
+     "type": "text",
+     "placeholder": "sunsets, jazz, terrible puns",
+     "required": true
+    },
+    {
+     "key": "dest",
+     "label": "Where you'll be",
+     "type": "text",
+     "placeholder": "Lisbon"
+    },
+    {
+     "key": "scale",
+     "label": "Scale",
+     "type": "chips",
+     "options": [
+      "Small & sweet",
+      "An evening",
+      "A whole day"
+     ],
+     "default": "An evening"
+    }
+   ],
+   "prompt": "Design a '{scale}' surprise in {dest} for a partner who loves {partner}. Cards for 3 ideas (meta = cost · lead time · secrecy difficulty), steps to pull off the best one without giving it away, a quote with a short note or toast to go with it, and a callout on the backup plan if weather or timing fails.",
+   "shape": "cards, steps, quote, callout",
+   "button": "Plan surprise",
+   "loading": "Shh…"
+  },
+  {
+   "id": "timeline",
+   "title": "Booking timeline",
+   "subtitle": "What to book, when, around the wedding",
+   "emoji": "📆",
+   "inputs": [
+    {
+     "key": "dest",
+     "label": "Destination",
+     "type": "text",
+     "placeholder": "Japan",
+     "required": true
+    },
+    {
+     "key": "depart",
+     "label": "Departure date",
+     "type": "text",
+     "placeholder": "16 June"
+    }
+   ],
+   "prompt": "Create a booking timeline for a honeymoon to {dest} departing {depart}, working back from the profile's wedding date. Table (When | Book / do | Why then | Cost due), a checklist of documents and admin (passport names matching the booking, honeymoon fund or registry, travel insurance, currency, phone plan), and a callout on name changes and tickets.",
+   "shape": "table, checklist, callout",
+   "button": "Build timeline",
+   "loading": "Marking dates…"
+  }
+ ],
+ "disclaimer": "Costs and weather are estimates, not financial advice; confirm visas, entry rules and vaccine requirements with official sources and a travel clinic."
+}

@@ -51,7 +51,7 @@
     "Losing things",
     "Homework not handed in",
     "Transitions",
-    "Morning launch",
+    "Getting out the door",
     "Big emotions",
     "Sitting still"
    ],
@@ -155,35 +155,42 @@
    "loading": "Setting the timer…"
   },
   {
-   "id": "plan",
-   "title": "Home behaviour plan",
-   "subtitle": "Points that actually work",
+   "id": "reportcard",
+   "title": "Daily report card",
+   "subtitle": "Teacher rates, home rewards",
    "emoji": "⭐",
    "inputs": [
     {
-     "key": "target",
-     "label": "Target",
+     "key": "targets",
+     "label": "Target behaviours at school",
      "type": "chips",
      "options": [
-      "Morning tasks done",
-      "Homework started",
-      "Kind words to sibling",
-      "Bedtime on time",
-      "Chores"
+      "Starts work when asked",
+      "Hands in homework",
+      "Keeps hands to self",
+      "Stays in seat",
+      "Follows the first instruction",
+      "Brings planner home"
      ],
-     "default": "Homework started"
+     "multi": true
     },
     {
-     "key": "days",
-     "label": "Trial length (days)",
+     "key": "teacher",
+     "label": "Teacher and how they communicate",
+     "type": "text",
+     "placeholder": "Ms Lopez, emails weekly, open to ideas"
+    },
+    {
+     "key": "weeks",
+     "label": "Trial length (weeks)",
      "type": "number",
-     "placeholder": "14"
+     "placeholder": "3"
     }
    ],
-   "prompt": "Build a {days}-day home behaviour plan for '{target}' for the profile's child. Sections: a kv (behaviour in observable words, immediate reinforcer, daily reward menu, weekly bonus, what happens when missed — never point removal), a table (Day | Goal | Reinforcer | Notes), bullets on immediacy, frequency and novelty for ADHD brains, and a callout on when to fade the plan and what to do if it stops working.",
-   "shape": "kv, table, bullets, callout",
-   "button": "Build plan",
-   "loading": "Charting…"
+   "prompt": "Design a school-home daily report card for the profile's child targeting: {targets}, with teacher {teacher}, as a {weeks}-week trial. Sections: a table (Target behaviour | Worded so the teacher rates it yes/no | Rated when (per lesson, AM/PM) | Starting bar, e.g. 3 of 4), a quote with a respectful email to the teacher proposing the card and how little it asks of them (under 150 words), a kv of the home side (how the card gets home, same-day reward menu, weekly bonus, what happens on a lost or bad card — never punishment), steps for the first week including when to raise the bar, and a callout on keeping ratings positive so the child wants to bring it home.",
+   "shape": "table, quote, kv, steps, callout",
+   "button": "Build card",
+   "loading": "Ruling lines…"
   },
   {
    "id": "collapse",

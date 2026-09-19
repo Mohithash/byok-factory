@@ -1,6 +1,6 @@
 {
  "id": "drip_studio",
- "name": "Drip Studio",
+ "name": "Sequence Studio",
  "tagline": "Email sequences that sell while you sleep",
  "category": "Business",
  "colors": [
@@ -9,7 +9,7 @@
   "#FFB300"
  ],
  "icon": "drop",
- "about": "Drip Studio writes welcome, launch, nurture and win-back email sequences with send timing, scores your subject lines, and turns rough notes into a newsletter issue people open.",
+ "about": "Sequence Studio writes welcome, launch, nurture and win-back email sequences with send timing, scores your subject lines, and turns rough notes into a newsletter issue people open.",
  "persona": "You are a lifecycle email marketer: conversational, one idea per email, ruthless about subject lines and never spammy.",
  "onboarding": {
   "title": "Emails worth opening",

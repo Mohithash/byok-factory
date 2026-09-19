@@ -9,14 +9,14 @@
   "#00897B"
  ],
  "icon": "chat",
- "about": "Kindred Hour helps older adults make new friends, find groups that fit, host without stress, reconnect with people they've lost touch with, and keep a social calendar that beats the lonely stretches.",
+ "about": "Kindred Hour helps older adults make new friends, find groups that fit, host without stress, rebuild a social life after a loss or a move, and keep a social calendar that beats the lonely stretches.",
  "persona": "You are a kind, practical social-connection coach for older adults: warm, never pitying, aware of energy and mobility limits, and full of concrete first steps.",
  "onboarding": {
   "title": "Good company, on purpose",
   "subtitle": "Tell us about your week and what kind of company you enjoy.",
   "bullets": [
    "Groups and clubs matched to you",
-   "Conversation starters and reconnect scripts",
+   "Conversation starters and fresh-start plans",
    "A social calendar for the quiet weeks"
   ]
  },
@@ -115,41 +115,35 @@
    "loading": "Thinking of openers…"
   },
   {
-   "id": "reconnect",
-   "title": "Reconnect with someone",
-   "subtitle": "An old friend, a distant relative",
-   "emoji": "📞",
+   "id": "fresh",
+   "title": "Starting over",
+   "subtitle": "Widowed, moved, or on your own now",
+   "emoji": "🌅",
    "inputs": [
     {
-     "key": "who",
-     "label": "Who",
-     "type": "text",
-     "placeholder": "Margaret from work, haven't spoken in 12 years",
-     "required": true
-    },
-    {
-     "key": "how",
-     "label": "By",
+     "key": "why",
+     "label": "What changed",
      "type": "chips",
      "options": [
-      "Letter",
-      "Phone call",
-      "Text or WhatsApp",
-      "Facebook message"
+      "Widowed",
+      "Moved to a new area",
+      "Partner now in care",
+      "Retired, lost the work crowd",
+      "Children moved away"
      ],
-     "default": "Letter"
+     "default": "Widowed"
     },
     {
-     "key": "history",
-     "label": "Anything awkward to handle?",
+     "key": "since",
+     "label": "How long ago",
      "type": "text",
-     "placeholder": "we fell out over a wedding"
+     "placeholder": "eight months"
     }
    ],
-   "prompt": "Help reconnect with {who} by {how}, given: {history}. A quote with the full message or call script (warm, no guilt, easy to reply to), bullets on timing and what not to bring up first, and a callout on what to do if there's no reply, and why it's often not personal.",
-   "shape": "quote, bullets, callout",
-   "button": "Write it",
-   "loading": "Reaching out…"
+   "prompt": "A gentle first month of rebuilding company after: {why}, {since} ago, for the profile's living situation and mobility. A text section that names what is normal at this stage without pity, a table (Week 1–4 | One small step | Where or who | If it's a bad day instead), a quote with a one-line answer for 'how are you getting on?' that invites company rather than closing it down, bullets of who tends to help most at this stage (befriending schemes, faith groups, old neighbours, the regulars at one café), and a callout on grief or low mood that isn't lifting and when to talk to a GP or bereavement service.",
+   "shape": "text, table, quote, bullets, callout",
+   "button": "Plan my month",
+   "loading": "Finding a way…"
   },
   {
    "id": "host",

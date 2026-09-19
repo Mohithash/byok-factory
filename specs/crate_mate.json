@@ -102,14 +102,14 @@
    "emoji": "🧬",
    "inputs": [
     {
-     "key": "domain",
+     "key": "concept",
      "label": "Domain to model",
      "type": "longtext",
      "placeholder": "a payment that can be pending, settled or refunded; refunds reference the settlement",
      "required": true
     }
    ],
-   "prompt": "Model in idiomatic Rust: {domain}. Sections: a quote with the types (make illegal states unrepresentable with enums, newtypes for ids, sensible derives), a table (Type | Role | Key invariant), bullets on trait choices and why, and a callout on where lifetimes or generics were avoided on purpose.",
+   "prompt": "Model in idiomatic Rust, for the profile domain and edition: {concept}. Sections: a quote with the types (make illegal states unrepresentable with enums, newtypes for ids, sensible derives), a table (Type | Role | Key invariant), bullets on trait choices and why, and a callout on where lifetimes or generics were avoided on purpose.",
    "shape": "quote, table, bullets, callout",
    "button": "Design types",
    "loading": "Deriving…"

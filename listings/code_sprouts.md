@@ -12,7 +12,7 @@ WHAT'S INSIDE
 • Screen-free coding — Games that teach loops and logic
 • Fix my kid's code — Screenshot → hints, not answers
 • Project ladder — 12 weeks from first click to real game
-• Explain it like they're 8 — A coding idea in kid words
+• Explain in kid words — A coding idea at their age
 
 BRING YOUR OWN KEY
 Works with Claude (Anthropic) or any OpenAI-compatible endpoint (OpenAI, Groq, OpenRouter, Ollama…). Your key and everything you write stay on your phone; requests go straight from your device to the provider you chose. No accounts, no ads, no analytics.
@@ -24,7 +24,7 @@ Every answer is a structured, shareable document with follow-up questions, saved
 - 🎲 **Screen-free coding** — Games that teach loops and logic
 - 🐛 **Fix my kid's code** — Screenshot → hints, not answers
 - 🪜 **Project ladder** — 12 weeks from first click to real game
-- 💡 **Explain it like they're 8** — A coding idea in kid words
+- 💡 **Explain in kid words** — A coding idea at their age
 
 ## Privacy policy
 See [PRIVACY.md](../PRIVACY.md). Data safety: no data collected by the developer; user-entered content (and optional photos) sent to the user's chosen AI provider only on user action.

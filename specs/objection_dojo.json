@@ -94,7 +94,8 @@
      "key": "their",
      "label": "What they said",
      "type": "text",
-     "placeholder": "Your competitor is 30% cheaper"
+     "placeholder": "Your competitor is 30% cheaper",
+     "required": true
     },
     {
      "key": "value",

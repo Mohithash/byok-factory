@@ -1,0 +1,195 @@
+{
+ "id": "heap_keeper",
+ "name": "Heap Keeper",
+ "tagline": "Composting that doesn't smell, stall or attract flies",
+ "category": "House & Home",
+ "colors": [
+  "#6D4C41",
+  "#8BC34A",
+  "#FF8F00"
+ ],
+ "icon": "leaf",
+ "about": "Heap Keeper picks the right composting system for your space, answers 'can I compost this?', diagnoses a smelly or stalled heap from a photo, keeps a worm farm alive and tells you when the compost is ready and how to use it.",
+ "persona": "You are a hands-on compost mentor: science-based on carbon-to-nitrogen and moisture, relaxed about mess, and clear about what belongs in a bin versus the council collection.",
+ "onboarding": {
+  "title": "Turn scraps into soil",
+  "subtitle": "Your space and setup shape every answer.",
+  "bullets": [
+   "The right system for your space",
+   "Fix smells, flies and slow heaps",
+   "Know when it's ready"
+  ]
+ },
+ "profile": [
+  {
+   "key": "space",
+   "label": "Space",
+   "type": "chips",
+   "options": [
+    "Balcony / indoors",
+    "Small yard",
+    "Garden",
+    "Allotment"
+   ]
+  },
+  {
+   "key": "system",
+   "label": "Current system",
+   "type": "chips",
+   "options": [
+    "None yet",
+    "Worm farm",
+    "Bokashi",
+    "Open heap",
+    "Tumbler",
+    "Hot bin",
+    "Council caddy only"
+   ]
+  },
+  {
+   "key": "climate",
+   "label": "Climate",
+   "type": "chips",
+   "options": [
+    "Cold winters",
+    "Temperate",
+    "Hot / dry",
+    "Humid"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "pick",
+   "title": "Pick my system",
+   "subtitle": "Match a method to your space and scraps",
+   "emoji": "🧭",
+   "inputs": [
+    {
+     "key": "scraps",
+     "label": "What you produce",
+     "type": "text",
+     "placeholder": "veg peel, coffee grounds, some cooked leftovers, cat litter"
+    },
+    {
+     "key": "budget",
+     "label": "Budget",
+     "type": "number",
+     "placeholder": "60"
+    }
+   ],
+   "prompt": "Recommend a composting system for the profile space and climate, handling: {scraps}, with a budget of {budget}. Cards for the top 3 options (meta = cost · effort per week · handles cooked food yes/no), a table comparing them (System | Space needed | Time to compost | Smell risk | Best for), steps to set up the winner this weekend, and a callout on what should never go in any home system.",
+   "shape": "cards, table, steps, callout",
+   "button": "Recommend",
+   "loading": "Weighing options…"
+  },
+  {
+   "id": "canit",
+   "title": "Can I compost this?",
+   "subtitle": "Yes, no, or only in some systems",
+   "emoji": "🥑",
+   "inputs": [
+    {
+     "key": "item",
+     "label": "Item",
+     "type": "text",
+     "placeholder": "avocado stone, tea bags, bread, pet hair",
+     "required": true
+    }
+   ],
+   "prompt": "For '{item}' and the profile's current system: kv (verdict, why, which systems accept it, prep needed, how long to break down), bullets on quantities and mixing, and a callout on the risk if it goes wrong (pests, pathogens, plastics).",
+   "shape": "kv, bullets, callout",
+   "button": "Check",
+   "loading": "Sniffing…"
+  },
+  {
+   "id": "fix",
+   "title": "Fix my heap",
+   "subtitle": "Photo + symptom → what to add and do",
+   "emoji": "🩺",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the heap or bin contents",
+     "type": "photo"
+    },
+    {
+     "key": "problem",
+     "label": "Problem",
+     "type": "chips",
+     "options": [
+      "Smells rotten",
+      "Fruit flies",
+      "Too wet / slimy",
+      "Bone dry, nothing happening",
+      "Rats or pests",
+      "Ants",
+      "Too slow"
+     ],
+     "default": "Smells rotten"
+    }
+   ],
+   "prompt": "Diagnose '{problem}' using the photo if provided and the profile system. Text on the likely cause (browns/greens ratio, moisture, air), steps to fix it today with quantities (e.g. 'add 2 buckets of shredded cardboard'), a checklist to prevent it recurring, and a callout on when to empty and restart.",
+   "shape": "text, steps, checklist, callout",
+   "button": "Diagnose",
+   "loading": "Turning the pile…"
+  },
+  {
+   "id": "worms",
+   "title": "Worm farm care",
+   "subtitle": "Feeding, bedding, moisture, weather",
+   "emoji": "🪱",
+   "inputs": [
+    {
+     "key": "topic",
+     "label": "Help with",
+     "type": "chips",
+     "options": [
+      "Feeding schedule",
+      "Too many / dead worms",
+      "Moving or winter",
+      "Harvesting castings",
+      "Worm tea"
+     ],
+     "default": "Feeding schedule"
+    },
+    {
+     "key": "detail",
+     "label": "Details",
+     "type": "text",
+     "placeholder": "two-tray farm, feeding twice a week, indoors"
+    }
+   ],
+   "prompt": "Worm-farm guidance on '{topic}' for: {detail}. Steps to do now, a table (Feed | Amount per week | Prep | Avoid), and a callout on the temperature range and moisture that keep worms alive.",
+   "shape": "steps, table, callout",
+   "button": "Advise",
+   "loading": "Feeding worms…"
+  },
+  {
+   "id": "ready",
+   "title": "Is it ready?",
+   "subtitle": "Test it, then use it",
+   "emoji": "🌱",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the finished compost",
+     "type": "photo",
+     "placeholder": "Grab a handful and photograph it in daylight",
+     "required": true
+    },
+    {
+     "key": "age",
+     "label": "How long it's been going",
+     "type": "text",
+     "placeholder": "4 months, turned twice"
+    }
+   ],
+   "prompt": "Judge readiness from the photo and '{age}': kv (ready?, signs seen, what's still visible, weeks to go), steps for a simple readiness test (smell, squeeze, bag test), and cards for 4 ways to use it (meta = amount · where · when) such as top-dressing pots, seed mix, lawn and mulch.",
+   "shape": "kv, steps, cards",
+   "button": "Check it",
+   "loading": "Crumbling…"
+  }
+ ],
+ "disclaimer": "Compost can carry moulds and bacteria: wear gloves, avoid breathing dust from a dry heap, and keep meat, dairy and pet waste out unless your system is designed for them."
+}

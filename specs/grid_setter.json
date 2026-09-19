@@ -1,0 +1,197 @@
+{
+ "id": "grid_setter",
+ "name": "Grid Setter",
+ "tagline": "Crossword clues that are fair, funny and fiendish",
+ "category": "Games",
+ "colors": [
+  "#212121",
+  "#D32F2F",
+  "#FBC02D"
+ ],
+ "icon": "note",
+ "about": "Grid Setter is a crossword constructor's assistant: cryptic and quick clues for any answer, themed entry sets that fit your grid, editor-grade fairness checks on your clues and plain-English parses of any cryptic.",
+ "persona": "You are an experienced crossword setter and editor: precise about cryptic grammar, allergic to unfair indicators, playful with surfaces, and you explain every device you use.",
+ "onboarding": {
+  "title": "Set puzzles people finish",
+  "subtitle": "Tell us your style so clues match your house rules.",
+  "bullets": [
+   "Cryptic + quick clues for any word",
+   "Themed entries that fit your grid",
+   "Editor-grade fairness checks"
+  ]
+ },
+ "profile": [
+  {
+   "key": "style",
+   "label": "Clue style",
+   "type": "chips",
+   "options": [
+    "British cryptic",
+    "American-style",
+    "Quick / concise",
+    "Mixed"
+   ]
+  },
+  {
+   "key": "level",
+   "label": "Target solver",
+   "type": "chips",
+   "options": [
+    "Beginner",
+    "Regular",
+    "Expert"
+   ]
+  },
+  {
+   "key": "rules",
+   "label": "House rules",
+   "type": "text",
+   "placeholder": "no indirect anagrams, Ximenean"
+  }
+ ],
+ "tools": [
+  {
+   "id": "clue",
+   "title": "Clue this word",
+   "subtitle": "Several devices, ranked",
+   "emoji": "✏️",
+   "inputs": [
+    {
+     "key": "answer",
+     "label": "Answer",
+     "type": "text",
+     "placeholder": "CARPENTER",
+     "required": true
+    },
+    {
+     "key": "theme",
+     "label": "Puzzle theme (optional)",
+     "type": "text",
+     "placeholder": "tools of the trade"
+    },
+    {
+     "key": "count",
+     "label": "How many clues",
+     "type": "number",
+     "placeholder": "5"
+    }
+   ],
+   "prompt": "Write {count} clues for the answer {answer}, fitting the theme {theme} if given, in the profile style and level. Output a table (Clue | Device | Definition | Wordplay parse | Difficulty 1–5) ordered best first, bullets on which surface reads most naturally and why, and a callout flagging any clue that bends the house rules.",
+   "shape": "table, bullets, callout",
+   "button": "Write clues",
+   "loading": "Sharpening pencils…"
+  },
+  {
+   "id": "theme",
+   "title": "Theme a puzzle",
+   "subtitle": "Entries + a gimmick",
+   "emoji": "🧩",
+   "inputs": [
+    {
+     "key": "theme",
+     "label": "Theme",
+     "type": "text",
+     "placeholder": "1990s sitcoms",
+     "required": true
+    },
+    {
+     "key": "size",
+     "label": "Grid size",
+     "type": "chips",
+     "options": [
+      "11×11",
+      "13×13",
+      "15×15",
+      "21×21"
+     ],
+     "default": "15×15"
+    },
+    {
+     "key": "lengths",
+     "label": "Lengths you need (optional)",
+     "type": "text",
+     "placeholder": "two 15s, four 9s"
+    }
+   ],
+   "prompt": "Build a themed entry set for a {size} grid on {theme}, honouring the lengths {lengths} if given. Give text with the gimmick or revealer idea, a table of theme entries (Entry | Length | Why it fits | Symmetry partner), bullets of 10 shorter fill words that reinforce the theme, and a callout on obscurity risks for the profile solver level.",
+   "shape": "text, table, bullets, callout",
+   "button": "Build theme",
+   "loading": "Filling the grid…"
+  },
+  {
+   "id": "check",
+   "title": "Check my clue",
+   "subtitle": "Editor's verdict",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "clue",
+     "label": "Your clue",
+     "type": "text",
+     "placeholder": "Sailor's drink taken back in dive (6)",
+     "required": true
+    },
+    {
+     "key": "answer",
+     "label": "Intended answer",
+     "type": "text",
+     "placeholder": "the word the clue should yield",
+     "required": true
+    }
+   ],
+   "prompt": "Edit this clue: '{clue}' for the answer {answer} under the profile house rules. Provide kv (definition, wordplay parse, device, surface reading score /10, fairness verdict), bullets of specific problems (unindicated parts, indirect anagram, misleading grammar, wrong enumeration), a quote with a revised version of the clue, and a callout on whether it suits the target solver.",
+   "shape": "kv, bullets, quote, callout",
+   "button": "Check it",
+   "loading": "Reading closely…"
+  },
+  {
+   "id": "parse",
+   "title": "Explain a cryptic",
+   "subtitle": "How does this clue work?",
+   "emoji": "💡",
+   "inputs": [
+    {
+     "key": "clue",
+     "label": "The clue",
+     "type": "text",
+     "placeholder": "Flower of London? (6)",
+     "required": true
+    },
+    {
+     "key": "answer",
+     "label": "Answer if known",
+     "type": "text"
+    }
+   ],
+   "prompt": "Parse the cryptic clue '{clue}' (answer if known: {answer}). Give text naming the answer and the device in one line, steps walking through each part of the wordplay, a kv of the definition, indicator words and fodder, and bullets of 3 similar devices to watch for.",
+   "shape": "text, steps, kv, bullets",
+   "button": "Explain",
+   "loading": "Decoding…"
+  },
+  {
+   "id": "fill",
+   "title": "Words for a pattern",
+   "subtitle": "Fit letters and a flavour",
+   "emoji": "🔤",
+   "inputs": [
+    {
+     "key": "pattern",
+     "label": "Letter pattern (? = unknown)",
+     "type": "text",
+     "placeholder": "C?R?E?",
+     "required": true
+    },
+    {
+     "key": "flavour",
+     "label": "Preferred flavour",
+     "type": "text",
+     "placeholder": "food words, avoid abbreviations"
+    }
+   ],
+   "prompt": "List up to 12 words matching the pattern {pattern} (question mark = any letter), preferring {flavour}. Check every candidate letter by letter against the pattern and the exact length before including it. Output a table (Word | Meaning | Familiarity for the profile solver | Clueability note), bullets of the 3 you'd pick for a lively grid, and a callout on any that editors usually reject.",
+   "shape": "table, bullets, callout",
+   "button": "Find words",
+   "loading": "Scanning lexicon…"
+  }
+ ]
+}

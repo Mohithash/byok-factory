@@ -82,13 +82,15 @@
      "key": "cost",
      "label": "Annual cost of our solution",
      "type": "number",
-     "placeholder": "360000"
+     "placeholder": "360000",
+     "required": true
     },
     {
      "key": "benefit",
      "label": "Estimated annual benefit",
      "type": "number",
-     "placeholder": "900000"
+     "placeholder": "900000",
+     "required": true
     },
     {
      "key": "ramp",
@@ -97,7 +99,7 @@
      "placeholder": "6"
     }
    ],
-   "prompt": "Model ROI with annual cost {cost}, estimated annual benefit {benefit} and {ramp} months ramp to full value, in the profile's currency. Sections: a table (Scenario | Year-1 net | Year-3 net | Payback months | ROI %) for Conservative (50% of benefit), Base (100%) and Upside (130%), steps showing how each figure was calculated, a callout on which scenario to present first and why, and a quote with one sentence to say when they challenge the benefit number.",
+   "prompt": "Model ROI with annual cost {cost}, estimated annual benefit {benefit} and {ramp} months ramp to full value (assume 6 if blank), in the profile's currency. Sections: a table (Scenario | Year-1 net | Year-3 net | Payback months | ROI %) for Conservative (50% of benefit), Base (100%) and Upside (130%), steps showing how each figure was calculated, a callout on which scenario to present first and why, and a quote with one sentence to say when they challenge the benefit number.",
    "shape": "table, steps, callout, quote",
    "button": "Calculate",
    "loading": "Sharpening pencil…"
@@ -163,7 +165,8 @@
      "key": "champion",
      "label": "Champion & their role",
      "type": "text",
-     "placeholder": "Priya, ops manager, first time sponsoring a purchase"
+     "placeholder": "Priya, ops manager, first time sponsoring a purchase",
+     "required": true
     },
     {
      "key": "audience",

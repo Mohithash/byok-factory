@@ -5,12 +5,12 @@
 **Short description (≤80):** Plan, write and grow a newsletter people open
 
 ## Full description
-Issue Zero is a newsletter writer's desk: it drafts issues from raw notes, tests subject lines, writes welcome sequences, plans list growth and reads your stats.
+Issue Zero is an independent newsletter writer's desk: it drafts issues from raw notes, plans an editorial calendar you can keep, turns reader replies into a mailbag section, plans list growth and reads your issue stats.
 
 WHAT'S INSIDE
 • Draft this issue — Notes → a full issue
-• Subject line lab — Openable, not spammy
-• Welcome sequence — First 3 emails for new subscribers
+• Editorial calendar — The next 8 issues, planned
+• Reader mailbag — Replies → a Q&A section
 • Growth plan — From this list size to the next
 • Issue retro — Stats → what to change
 
@@ -21,8 +21,8 @@ Every answer is a structured, shareable document with follow-up questions, saved
 
 ## Tools
 - 📰 **Draft this issue** — Notes → a full issue
-- ✉️ **Subject line lab** — Openable, not spammy
-- 👋 **Welcome sequence** — First 3 emails for new subscribers
+- 🗓️ **Editorial calendar** — The next 8 issues, planned
+- 📬 **Reader mailbag** — Replies → a Q&A section
 - 📈 **Growth plan** — From this list size to the next
 - 🔬 **Issue retro** — Stats → what to change
 

@@ -148,22 +148,28 @@
    "loading": "Building guards…"
   },
   {
-   "id": "photo",
-   "title": "Read a messy sheet",
-   "subtitle": "Photo → what to fix first",
+   "id": "reshape",
+   "title": "Untangle a layout",
+   "subtitle": "Human-formatted sheet → tidy table",
    "emoji": "📷",
    "inputs": [
     {
      "key": "photo",
-     "label": "Photo or screenshot of the data",
+     "label": "Photo or screenshot of the sheet",
      "type": "photo",
      "required": true
+    },
+    {
+     "key": "purpose",
+     "label": "What you need to do with it",
+     "type": "text",
+     "placeholder": "pivot by month, load into Looker"
     }
    ],
-   "prompt": "From the photo, catalogue the visible data-quality problems as a table (Area | Problem | Fix), bullets on restructuring it into a tidy one-row-per-record layout with one value per cell, and steps for the first 15 minutes of clean-up.",
-   "shape": "table, bullets, steps",
-   "button": "Read sheet",
-   "loading": "Squinting…"
+   "prompt": "The sheet in the photo was laid out for humans, not analysis; the user needs to: {purpose}. Table 'Layout habits' (Area | Habit (merged cells, multi-row headers, months as columns, subtotal rows, colour or bold used as data, notes inside cells, several tables on one sheet) | Why it blocks the purpose | Fix), a kv 'Tidy target' (one row equals, columns, key column, grain, expected row count), steps to reshape it in the profile's tool (unpivot, TRANSPOSE, Power Query unpivot or pandas melt as appropriate), and a callout on the reconciliation checks to run after reshaping (row counts, grand totals, blank keys).",
+   "shape": "table, kv, steps, callout",
+   "button": "Untangle",
+   "loading": "Unmerging cells…"
   }
  ]
 }

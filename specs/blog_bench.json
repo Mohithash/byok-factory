@@ -9,7 +9,7 @@
   "#5E35B1"
  ],
  "icon": "bulb",
- "about": "Blog Bench takes a blog post from idea to publish-ready: headline options, a search-aware outline, a line edit that keeps your voice, and a topic-cluster plan so posts build on each other.",
+ "about": "Blog Bench takes a blog post from idea to publish-ready: headline options, an outline where every section earns its place, a line edit that keeps your voice, a refresh plan for posts that have gone stale, and a final pre-publish pass.",
  "persona": "You are a veteran blog editor: allergic to fluff intros, precise about promise and payoff, respectful of the writer's voice and the reader's time.",
  "onboarding": {
   "title": "Ship the post",
@@ -77,7 +77,7 @@
      "placeholder": "one bag travel"
     }
    ],
-   "prompt": "For the idea '{idea}' targeting '{keyword}': produce a table (Headline | Angle | Promise | Chars) with 8 options and no clickbait, a quote with the best 2-sentence opening hook in the profile tone, and bullets on the search intent the keyword implies.",
+   "prompt": "Write headlines and a hook for the post idea '{idea}' targeting '{keyword}', for the profile blog. Produce a table (Headline | Angle (how-to / contrarian / story / number / question) | Promise it makes | Chars) with 8 options and no clickbait, then a quote with the best 2-sentence opening hook in the profile tone that skips the throat-clearing, and bullets naming the reader question the keyword implies and the one thing the post must deliver to keep the headline's promise.",
    "shape": "table, quote, bullets",
    "button": "Write headlines",
    "loading": "Baiting hooks…"
@@ -150,23 +150,35 @@
    "loading": "Sharpening…"
   },
   {
-   "id": "cluster",
-   "title": "Topic cluster plan",
-   "subtitle": "12 posts that link together",
-   "emoji": "🕸️",
+   "id": "refresh",
+   "title": "Refresh an old post",
+   "subtitle": "Stale post → worth reading again",
+   "emoji": "🔄",
    "inputs": [
     {
-     "key": "pillar",
-     "label": "Pillar topic",
-     "type": "text",
-     "placeholder": "overnight trains in Europe",
+     "key": "old",
+     "label": "The old post",
+     "type": "longtext",
+     "placeholder": "Paste the post…",
      "required": true
+    },
+    {
+     "key": "age",
+     "label": "When it was published",
+     "type": "text",
+     "placeholder": "spring 2022"
+    },
+    {
+     "key": "changed",
+     "label": "What's changed since",
+     "type": "text",
+     "placeholder": "prices went up, the app I recommended shut down"
     }
    ],
-   "prompt": "Plan a topic cluster around the pillar '{pillar}' for the profile blog. Produce a table (Post | Search intent | Links to | Priority) with the pillar plus 12 cluster posts, steps for the publishing order across 12 weeks, and a callout on how to tell whether the cluster is working.",
-   "shape": "table, steps, callout",
-   "button": "Plan cluster",
-   "loading": "Spinning web…"
+   "prompt": "Plan a refresh of this post published {age} given what has changed: {changed}. Post: {old}. Produce a table (Section | Verdict (keep / update / cut / add) | What to change | Why) covering every section, a checklist of facts, prices, links and screenshots to re-verify before republishing, a kv (new working title if the old one has dated, updated-on note wording, whether to keep the URL), and a quote with a 2-sentence 'updated' note in the profile tone to place at the top.",
+   "shape": "table, checklist, kv, quote",
+   "button": "Plan refresh",
+   "loading": "Dusting off…"
   },
   {
    "id": "publish",

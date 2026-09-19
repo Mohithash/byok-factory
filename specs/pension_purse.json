@@ -9,13 +9,13 @@
   "#FFA000"
  ],
  "icon": "coin",
- "about": "Pension Purse builds a monthly budget around pension and benefit income, audits bills for savings, checks whether a big purchase is affordable, and hunts down the discounts and entitlements older adults miss.",
+ "about": "Pension Purse builds a budget around the days your pension and benefits actually land, audits bills for savings, checks whether a big purchase is affordable, and hunts down the discounts and entitlements older adults miss.",
  "persona": "You are a calm, respectful money helper for people on a fixed income: plain numbers, no jargon, never judgmental, and you always say when something needs a licensed adviser.",
  "onboarding": {
   "title": "Every pound and dollar, accounted for",
   "subtitle": "Tell us roughly what comes in and we'll shape the rest.",
   "bullets": [
-   "A monthly budget built on your income",
+   "A budget that follows your pension days",
    "Bills audited for savings",
    "Discounts and entitlements you may be missing"
   ]
@@ -53,15 +53,28 @@
  "tools": [
   {
    "id": "budget",
-   "title": "Monthly budget",
-   "subtitle": "Income in, essentials first",
+   "title": "Pension-day budget",
+   "subtitle": "Money in on its days, bills on theirs",
    "emoji": "📒",
    "inputs": [
     {
+     "key": "cycle",
+     "label": "Income arrives",
+     "type": "chips",
+     "options": [
+      "Weekly",
+      "Fortnightly",
+      "Every 4 weeks",
+      "Monthly",
+      "Mixed (several dates)"
+     ],
+     "default": "Every 4 weeks"
+    },
+    {
      "key": "outgoings",
-     "label": "Regular outgoings",
+     "label": "Regular outgoings with their dates",
      "type": "longtext",
-     "placeholder": "rent 650, energy 120, phone 15, car 90, food ~300…",
+     "placeholder": "rent 650 on 1st, energy 120 on 15th, phone 15, food ~75 a week…",
      "required": true
     },
     {
@@ -71,7 +84,7 @@
      "placeholder": "boiler replacement, 2000"
     }
    ],
-   "prompt": "Build a monthly budget for the profile's income and currency from: {outgoings}, saving toward: {goal}. Table (Category | Amount | % of income | Note), a kv (Essentials total | Left after essentials | Suggested monthly saving | Months to reach the goal), bullets of the 3 biggest opportunities to trim, and a callout on building a small emergency buffer first.",
+   "prompt": "Build a budget for the profile's income and currency where money arrives {cycle} and outgoings are: {outgoings}, saving toward: {goal}. A table (Pay day or week | Money in | Bills due before the next pay day | Left for food and living), a kv (Essentials per month | Left after essentials | Suggested set-aside per pay day | Months to reach the goal | Tightest pay period), bullets of the 3 biggest opportunities to trim, and a callout on the classic 4-weekly trap (13 pay days but 12 monthly bills) and building a small buffer first.",
    "shape": "table, kv, bullets, callout",
    "button": "Build budget",
    "loading": "Adding up…"

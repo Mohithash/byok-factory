@@ -85,7 +85,7 @@
      "multi": true
     }
    ],
-   "prompt": "Compare how {traditions} approach '{theme}' at the profile's depth. Sections: a table (Tradition | Core teaching | Key passage with reference | A practice it shapes), bullets titled 'Shared ground' (3–5 points), bullets titled 'Real differences' stated neutrally, and a callout noting where each tradition has internal disagreement.",
+   "prompt": "Compare how {traditions} approach '{theme}' at the profile's depth (if no traditions were chosen, pick the four most relevant, always including the profile's own background). Sections: a table (Tradition | Core teaching | Key passage with reference | A practice it shapes), bullets titled 'Shared ground' (3–5 points), bullets titled 'Real differences' stated neutrally, and a callout noting where each tradition has internal disagreement.",
    "shape": "table, bullets, callout",
    "button": "Compare",
    "loading": "Consulting texts…"

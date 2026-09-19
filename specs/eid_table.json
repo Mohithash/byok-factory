@@ -1,0 +1,226 @@
+{
+ "id": "eid_table",
+ "name": "Eid Table",
+ "tagline": "Eid hosting from Chaand Raat to the last guest",
+ "category": "Lifestyle",
+ "colors": [
+  "#00695C",
+  "#C9A227",
+  "#3949AB"
+ ],
+ "icon": "moon",
+ "about": "Eid Table plans Eid al-Fitr and Eid al-Adha at home: the Eid-day run sheet, a feast menu in your family's cuisine, Eidi and gifts for the kids, open-house waves for a long day of visitors, and qurbani share distribution.",
+ "persona": "You are a seasoned Eid host who knows South Asian, Arab, Turkish, Malay, African and convert households, keeps prayer first and the chai flowing, and defers to the local mosque on rulings.",
+ "onboarding": {
+  "title": "Eid Mubarak, and everything ready",
+  "subtitle": "Tell us which Eid, your family's cuisine and who's at home.",
+  "bullets": [
+   "Eid-day run sheet around prayer",
+   "Feast menu in your cuisine",
+   "Eidi, open-house waves and qurbani shares"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "eid",
+   "label": "Planning for",
+   "type": "chips",
+   "options": [
+    "Eid al-Fitr",
+    "Eid al-Adha"
+   ]
+  },
+  {
+   "key": "cuisine",
+   "label": "Family cuisine",
+   "type": "chips",
+   "options": [
+    "South Asian",
+    "Arab / Levantine",
+    "Gulf",
+    "Turkish",
+    "Malay / Indonesian",
+    "North African",
+    "Somali / East African",
+    "West African",
+    "Mixed / convert household"
+   ]
+  },
+  {
+   "key": "household",
+   "label": "Who's at home",
+   "type": "text",
+   "placeholder": "2 adults, kids 4 and 8, grandparents visiting"
+  }
+ ],
+ "tools": [
+  {
+   "id": "morning",
+   "title": "Eid day run sheet",
+   "subtitle": "From pre-dawn to the last visit",
+   "emoji": "🌙",
+   "inputs": [
+    {
+     "key": "prayer",
+     "label": "Eid prayer time & place",
+     "type": "text",
+     "placeholder": "8:30 at the community centre",
+     "required": true
+    },
+    {
+     "key": "visits",
+     "label": "Visiting plan",
+     "type": "chips",
+     "options": [
+      "Hosting all day",
+      "Visiting others",
+      "Host lunch, visit evening",
+      "Quiet at home"
+     ],
+     "default": "Host lunch, visit evening"
+    }
+   ],
+   "prompt": "Build an Eid-day run sheet for the profile household with prayer at {prayer} and plan '{visits}'. Sections: a table (Time | What | Who | Prep done earlier) from pre-dawn ghusl and laid-out clothes, through takbeer, prayer, breakfast (sheer khurma or the cuisine's equivalent), visits and the evening; a checklist for Chaand Raat / the night before (mehndi, ironing, Eidi envelopes, zakat al-fitr paid if it is al-Fitr, phone charged for calls); and a callout on balancing kids' energy with elders' rest.",
+   "shape": "table, checklist, callout",
+   "button": "Plan the day",
+   "loading": "Ironing kurtas…"
+  },
+  {
+   "id": "menu",
+   "title": "Eid feast menu",
+   "subtitle": "Dishes, cook timeline, shopping",
+   "emoji": "🍛",
+   "inputs": [
+    {
+     "key": "guests",
+     "label": "Guests to feed",
+     "type": "number",
+     "placeholder": "16"
+    },
+    {
+     "key": "service",
+     "label": "Service",
+     "type": "chips",
+     "options": [
+      "Sit-down lunch",
+      "Buffet open house",
+      "Dessert & chai only",
+      "Brunch after prayer"
+     ],
+     "default": "Buffet open house"
+    },
+    {
+     "key": "needs",
+     "label": "Dietary needs",
+     "type": "text",
+     "placeholder": "two vegetarians, one nut allergy"
+    }
+   ],
+   "prompt": "Design an Eid menu in the profile cuisine for {guests} guests as a '{service}' with needs: {needs}, weighted for the profile Eid (sweets-led for al-Fitr, meat-led for al-Adha). Table (Dish | Course | Serves | Make-ahead | Needs notes); steps for the cook timeline working back from serving time; a checklist shopping list grouped by halal butcher / grocer / bakery; and a callout on holding food safely across a long open house.",
+   "shape": "table, steps, checklist, callout",
+   "button": "Plan the feast",
+   "loading": "Simmering…"
+  },
+  {
+   "id": "eidi",
+   "title": "Eidi & gifts",
+   "subtitle": "Fair amounts by age, nice presentation",
+   "emoji": "💵",
+   "inputs": [
+    {
+     "key": "kids",
+     "label": "Kids & ages (and others to gift)",
+     "type": "longtext",
+     "placeholder": "Zayn 4, Amira 9, nephew 15, mum…",
+     "required": true
+    },
+    {
+     "key": "currency",
+     "label": "Currency",
+     "type": "chips",
+     "options": [
+      "GBP",
+      "USD",
+      "EUR",
+      "AED",
+      "PKR",
+      "INR",
+      "MYR",
+      "Other"
+     ],
+     "default": "GBP"
+    }
+   ],
+   "prompt": "Plan Eidi and gifts for: {kids} in {currency}. Table (Person | Eidi range | Gift idea | Budget) using sensible age-graded amounts and noting that local norms vary; then bullets on presentation (crisp notes, envelopes, kids' Eid bags); then a callout on keeping it fair between cousins and gently teaching kids to give a share as sadaqah.",
+   "shape": "table, bullets, callout",
+   "button": "Plan Eidi",
+   "loading": "Counting envelopes…"
+  },
+  {
+   "id": "waves",
+   "title": "Open house waves",
+   "subtitle": "Forty guests, fourteen seats, one day",
+   "emoji": "🫖",
+   "inputs": [
+    {
+     "key": "total",
+     "label": "Guests expected across the day",
+     "type": "number",
+     "placeholder": "40"
+    },
+    {
+     "key": "hours",
+     "label": "Hours open",
+     "type": "number",
+     "placeholder": "8"
+    },
+    {
+     "key": "seats",
+     "label": "Seats you have",
+     "type": "number",
+     "placeholder": "14"
+    }
+   ],
+   "prompt": "Plan an open house for {total} guests over {hours} hours with {seats} seats. Table (Wave | Time | Likely guests | What's served | Reset job) staggering families; a checklist for the reset kit between waves (plates, chai, sweets tray, bathroom, kids' corner); a quote with a warm invite message that gently suggests time slots without sounding like a booking system; and bullets on greeting etiquette across generations.",
+   "shape": "table, checklist, quote, bullets",
+   "button": "Plan waves",
+   "loading": "Refilling chai…"
+  },
+  {
+   "id": "qurbani",
+   "title": "Qurbani share plan",
+   "subtitle": "Arrange, divide, distribute",
+   "emoji": "🐑",
+   "inputs": [
+    {
+     "key": "form",
+     "label": "Qurbani",
+     "type": "chips",
+     "options": [
+      "Local (animal or share)",
+      "Overseas via charity",
+      "Both",
+      "Not doing it this year"
+     ],
+     "default": "Local (animal or share)"
+    },
+    {
+     "key": "families",
+     "label": "Families to distribute to",
+     "type": "number",
+     "placeholder": "6"
+    }
+   ],
+   "prompt": "Plan qurbani for Eid al-Adha with '{form}' and {families} families to share with. If the profile says Eid al-Fitr or the form is 'Not doing it this year', open with one line saying qurbani belongs to Eid al-Adha and plan for that Eid anyway. Sections: steps for arranging it (booking, timing after prayer, collection); a table (Portion | Traditional recipient | Households | Storage) applying the customary thirds (own family, relatives and friends, those in need) with distribution across the {families} families; a checklist of containers, labels and freezer space; and a callout on hygiene for fresh meat and on following your local mosque's guidance.",
+   "shape": "steps, table, checklist, callout",
+   "button": "Plan shares",
+   "loading": "Sorting shares…"
+  }
+ ],
+ "disclaimer": "Practices vary by school of thought and family; follow your local mosque or scholar for religious rulings, and standard food-safety guidance for fresh meat."
+}

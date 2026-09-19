@@ -1,0 +1,176 @@
+{
+ "id": "fixable",
+ "name": "Fixable",
+ "tagline": "Fix the appliance instead of binning it",
+ "category": "House & Home",
+ "colors": [
+  "#37474F",
+  "#FF5722",
+  "#00ACC1"
+ ],
+ "icon": "wrench",
+ "about": "Fixable helps you rescue small appliances and gadgets: diagnose from the symptom, decide if a repair is worth it, read the rating plate for parts and manuals, find spares and repair cafés, and check repairability before you buy the next one.",
+ "persona": "You are a repair-café volunteer with a multimeter: safety-obsessed about mains and capacitors, methodical, and honest when a repair is beyond a beginner.",
+ "onboarding": {
+  "title": "Most things are fixable",
+  "subtitle": "Tell us your comfort level so advice matches your tools.",
+  "bullets": [
+   "Symptom → likely fault",
+   "Worth-it maths before you start",
+   "Parts, manuals and repair cafés"
+  ]
+ },
+ "profile": [
+  {
+   "key": "level",
+   "label": "Comfort level",
+   "type": "chips",
+   "options": [
+    "Total beginner",
+    "Can use a screwdriver",
+    "Own a multimeter",
+    "Confident with electronics"
+   ]
+  },
+  {
+   "key": "tools",
+   "label": "Tools you have",
+   "type": "text",
+   "placeholder": "screwdrivers, pliers, no soldering iron"
+  },
+  {
+   "key": "region",
+   "label": "Region",
+   "type": "chips",
+   "options": [
+    "UK / EU",
+    "North America",
+    "Australia / NZ",
+    "Other"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "diagnose",
+   "title": "Diagnose it",
+   "subtitle": "Symptom → causes, in order",
+   "emoji": "🔎",
+   "inputs": [
+    {
+     "key": "thing",
+     "label": "Appliance or gadget",
+     "type": "text",
+     "placeholder": "kettle, cordless vacuum, bluetooth speaker",
+     "required": true
+    },
+    {
+     "key": "symptom",
+     "label": "What it's doing",
+     "type": "longtext",
+     "placeholder": "turns on, heats for 10 seconds then clicks off",
+     "required": true
+    }
+   ],
+   "prompt": "Diagnose a {thing} with symptom: {symptom}. Table (Likely cause | Probability | How to confirm | Fix difficulty for the profile level), steps to test the top cause safely, a callout on unplugging, capacitor and heating-element hazards, and bullets on what to note before opening it (photos, screw positions).",
+   "shape": "table, steps, callout, bullets",
+   "button": "Diagnose",
+   "loading": "Listening…"
+  },
+  {
+   "id": "worth",
+   "title": "Worth fixing?",
+   "subtitle": "Repair cost vs replacement vs lifetime",
+   "emoji": "⚖️",
+   "inputs": [
+    {
+     "key": "thing",
+     "label": "Appliance and age",
+     "type": "text",
+     "placeholder": "6-year-old washing machine, bearings noisy",
+     "required": true
+    },
+    {
+     "key": "quote",
+     "label": "Repair quote or part cost",
+     "type": "number",
+     "placeholder": "180"
+    },
+    {
+     "key": "new",
+     "label": "New replacement price",
+     "type": "number",
+     "placeholder": "450"
+    }
+   ],
+   "prompt": "For {thing}: repair at {quote} versus new at {new}. kv (expected remaining life if repaired, cost per remaining year both ways, verdict), a table (Option | Cost now | Years expected | Waste | Risk), bullets on negotiating the repair or DIY-ing the part, and a callout on when replacing is genuinely greener (efficiency gains).",
+   "shape": "kv, table, bullets, callout",
+   "button": "Decide",
+   "loading": "Doing the maths…"
+  },
+  {
+   "id": "plate",
+   "title": "Read the rating plate",
+   "subtitle": "Photo → model, parts, search terms",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the rating plate or label",
+     "type": "photo",
+     "placeholder": "Usually underneath or on the back",
+     "required": true
+    }
+   ],
+   "prompt": "From the plate photo: kv (brand, model, serial pattern, voltage, wattage, year if shown), bullets of exact search terms for the service manual, exploded diagram and spares, a table (Common part | Typical price | Where to search), and a callout on counterfeit parts and safety-critical components not to substitute.",
+   "shape": "kv, bullets, table, callout",
+   "button": "Read plate",
+   "loading": "Squinting…"
+  },
+  {
+   "id": "help",
+   "title": "Find parts & help",
+   "subtitle": "Spares, repair cafés, manufacturer routes",
+   "emoji": "🧰",
+   "inputs": [
+    {
+     "key": "need",
+     "label": "What you need",
+     "type": "text",
+     "placeholder": "door seal for a Bosch dishwasher, or someone to resolder a charging port",
+     "required": true
+    }
+   ],
+   "prompt": "For '{need}' in the profile region: steps in order (manufacturer spares → independent spares → repair café → local repairer), cards for the kinds of sources to try (meta = cost · speed · reliability), a checklist of details to have ready when asking, and a callout on right-to-repair and warranty rights that may apply.",
+   "shape": "steps, cards, checklist, callout",
+   "button": "Find help",
+   "loading": "Asking around…"
+  },
+  {
+   "id": "buy",
+   "title": "Buy repairable",
+   "subtitle": "Check before you buy the next one",
+   "emoji": "🛍️",
+   "inputs": [
+    {
+     "key": "product",
+     "label": "What you're buying",
+     "type": "text",
+     "placeholder": "cordless stick vacuum",
+     "required": true
+    },
+    {
+     "key": "budget",
+     "label": "Budget",
+     "type": "number",
+     "placeholder": "250"
+    }
+   ],
+   "prompt": "Buying a {product} under {budget} with repairability in mind: a checklist of things to verify (replaceable battery, spares availability, repair index score, screws not glue, warranty length), a table (Feature | Why it matters | How to check in-store or online), bullets on designs that are historically repairable versus sealed, and a callout on extended-warranty traps.",
+   "shape": "checklist, table, bullets, callout",
+   "button": "Check it",
+   "loading": "Reading labels…"
+  }
+ ],
+ "disclaimer": "Mains electricity, capacitors and heating elements can kill; unplug and discharge before opening anything, and leave gas, microwaves and sealed units to a qualified professional."
+}

@@ -1,0 +1,196 @@
+{
+ "id": "van_dwell",
+ "name": "Van Dwell",
+ "tagline": "Power, parking, admin and the weekly rhythm of van life",
+ "category": "Lifestyle",
+ "colors": [
+  "#F57F17",
+  "#00796B",
+  "#BF360C"
+ ],
+ "icon": "car",
+ "about": "Van Dwell is for people already living or weekending in a van: ration today's power from the battery and the forecast, judge an overnight spot, keep a weekly water-waste-laundry-wifi rhythm, sort mail, domicile and insurance as a nomad, and run a pre-trip inspection before a long drive.",
+ "persona": "You are a full-time van dweller and former auto-electrician: unromantic about the lifestyle, precise about watt-hours, and considerate of the towns you park in.",
+ "onboarding": {
+  "title": "Make the van work",
+  "subtitle": "Tell us about the van, who lives in it and what it runs on.",
+  "bullets": [
+   "Daily power budget from battery and forecast",
+   "Overnight-spot checks and a weekly rhythm",
+   "Nomad admin: mail, domicile, insurance"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "van",
+   "label": "Van",
+   "type": "text",
+   "placeholder": "2018 Ford Transit high roof LWB"
+  },
+  {
+   "key": "people",
+   "label": "Living in it",
+   "type": "chips",
+   "options": [
+    "Solo",
+    "Couple",
+    "With a dog",
+    "Family"
+   ],
+   "multi": true
+  },
+  {
+   "key": "setup",
+   "label": "Power & water setup",
+   "type": "text",
+   "placeholder": "200 Ah LiFePO4, 300 W solar, DC-DC charger, 80 L fresh / 40 L grey"
+  }
+ ],
+ "tools": [
+  {
+   "id": "energy",
+   "title": "Today's power budget",
+   "subtitle": "Battery + forecast → what to run",
+   "emoji": "🔋",
+   "inputs": [
+    {
+     "key": "state",
+     "label": "Battery & charging now",
+     "type": "text",
+     "placeholder": "62%, 9 am, cloudy for 2 days, no driving planned",
+     "required": true
+    },
+    {
+     "key": "forecast",
+     "label": "Next 3 days",
+     "type": "text",
+     "placeholder": "overcast tomorrow, sun from Thursday, 1 h drive on Friday"
+    },
+    {
+     "key": "loads",
+     "label": "What you want to run today",
+     "type": "longtext",
+     "placeholder": "fridge, laptop 6 h, diesel heater overnight, induction hob 20 min, Starlink 4 h",
+     "required": true
+    }
+   ],
+   "prompt": "Ration power for the profile setup: battery {state}, forecast {forecast}, wanted loads {loads}. Sections: a table (Load | Watts | Hours | Wh | Run / Trim / Skip), kv (usable Wh left, expected solar Wh per day for this forecast, alternator Wh from any driving, hours until low-voltage cut-off if nothing changes), steps for the day in order (what to run while the sun is up, what to charge while driving, what waits), and a callout on the state of charge never to dip below and the signs of a failing battery.",
+   "shape": "table, kv, steps, callout",
+   "button": "Budget power",
+   "loading": "Counting watt-hours…"
+  },
+  {
+   "id": "admin",
+   "title": "Nomad admin",
+   "subtitle": "Mail, domicile, insurance, healthcare",
+   "emoji": "📬",
+   "inputs": [
+    {
+     "key": "country",
+     "label": "Country you're based in",
+     "type": "text",
+     "placeholder": "UK",
+     "required": true
+    },
+    {
+     "key": "topic",
+     "label": "Sort out",
+     "type": "chips",
+     "options": [
+      "Mail & parcels",
+      "Legal address / domicile",
+      "Vehicle insurance & registration",
+      "Healthcare & prescriptions",
+      "Banking & credit",
+      "All of it"
+     ],
+     "default": "All of it"
+    }
+   ],
+   "prompt": "For a van dweller based in {country}, sort out: {topic}, for the profile. Sections: a table (Job | Options | Typical cost | Gotcha), steps to set each up in the right order (address first, then everything that hangs off it), a checklist of documents and renewals to put in the calendar, and a callout on what to verify with an official source (insurer, licensing agency, doctor).",
+   "shape": "table, steps, checklist, callout",
+   "button": "Sort admin",
+   "loading": "Forwarding the post…"
+  },
+  {
+   "id": "spot",
+   "title": "Check an overnight spot",
+   "subtitle": "Stay or move on?",
+   "emoji": "🌙",
+   "inputs": [
+    {
+     "key": "spot",
+     "label": "Describe the spot",
+     "type": "text",
+     "placeholder": "quiet lay-by outside a village, no signs, houses 100 m away, Friday night",
+     "required": true
+    },
+    {
+     "key": "country",
+     "label": "Country / state",
+     "type": "text",
+     "placeholder": "Scotland"
+    }
+   ],
+   "prompt": "Assess: {spot} in {country}. kv (verdict: stay / move on / ask, with the reason), a checklist of stealth-and-courtesy rules (no chairs out, no levelling blocks, no grey water, gone by 8), bullets on the general legal picture there in plain English (verify locally), and a callout on the signals that mean leave now.",
+   "shape": "kv, checklist, bullets, callout",
+   "button": "Check spot",
+   "loading": "Peeking outside…"
+  },
+  {
+   "id": "week",
+   "title": "Weekly rhythm",
+   "subtitle": "Water, waste, laundry, wifi, body",
+   "emoji": "🔁",
+   "inputs": [
+    {
+     "key": "week",
+     "label": "Next week",
+     "type": "text",
+     "placeholder": "working Mon–Fri remotely, weekend surfing in Cornwall",
+     "required": true
+    },
+    {
+     "key": "constraints",
+     "label": "Constraints",
+     "type": "text",
+     "placeholder": "need a shower by Wednesday, parcel to collect in Exeter, grey tank nearly full"
+    }
+   ],
+   "prompt": "Plan the week: {week} with constraints {constraints} for the profile setup. A table (Day | Base | Fill / dump | Laundry / shower | Connectivity | Notes), a checklist of supplies and services to find (water taps, dump points, launderette, gym for showers), bullets on keeping the van from becoming a mess, and a callout on moisture and mould in the sleeping area.",
+   "shape": "table, checklist, bullets, callout",
+   "button": "Plan week",
+   "loading": "Finding a tap…"
+  },
+  {
+   "id": "inspect",
+   "title": "Pre-trip inspection",
+   "subtitle": "Before a long drive",
+   "emoji": "🔧",
+   "inputs": [
+    {
+     "key": "km",
+     "label": "Trip length (km)",
+     "type": "number",
+     "placeholder": "1500"
+    },
+    {
+     "key": "since",
+     "label": "Since last service",
+     "type": "text",
+     "placeholder": "8,000 km, coolant top-up last month"
+    }
+   ],
+   "prompt": "Pre-trip inspection for {km} km in the profile van, service history: {since}. A checklist grouped Under bonnet / Tyres & brakes / Gas & electrics / Habitation / Documents, a table of spares and tools to carry (Item | Why | Roadside-fixable?), and a callout on what should go to a garage before leaving.",
+   "shape": "checklist, table, callout",
+   "button": "Inspect",
+   "loading": "Kicking tyres…"
+  }
+ ],
+ "disclaimer": "Electrical, gas and vehicle guidance is general; have installations checked by a qualified professional, verify legal and insurance questions with the relevant authority, and follow local parking laws."
+}

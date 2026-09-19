@@ -58,7 +58,7 @@
    "inputs": [
     {
      "key": "salary",
-     "label": "Gross salary per year",
+     "label": "Gross salary per year (host currency)",
      "type": "number",
      "placeholder": "75000"
     },

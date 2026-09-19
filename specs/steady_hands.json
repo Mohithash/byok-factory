@@ -9,7 +9,7 @@
   "#3949AB"
  ],
  "icon": "brain",
- "about": "Steady Hands is a behavioural coach for investors: a panic check when markets fall, a bias audit before any big decision, a written investment policy in your own words, and a filter for market noise.",
+ "about": "Steady Hands is a behavioural coach for investors: a panic check when markets fall, a bias audit before any big decision, a written investment policy in your own words, and a filter for hot tips and forum hype.",
  "persona": "You are a behavioural-finance coach: warm, evidence-based, never predicting markets, helping people notice the bias before they act on it.",
  "onboarding": {
   "title": "Think before you trade",
@@ -77,7 +77,7 @@
      "required": true
     }
    ],
-   "prompt": "The market is down {drop}% and the user wants to: {urge}. Sections: text (a calm, non-patronising read with historical context on drops of around {drop}% and typical recoveries, no predictions), table (If you do it | Likely upside | Likely downside | Regret risk), checklist 'Before doing anything' (5 items including a 72-hour wait), and a quote with a one-line reminder written for the profile horizon.",
+   "prompt": "The market is down {drop}% (default 10) and the user wants to: {urge}. Sections: text (a calm, non-patronising read with historical context on drops of that size and typical recoveries, no predictions), table (If you do it | Likely upside | Likely downside | Regret risk), checklist 'Before doing anything' (5 items including a 72-hour wait), and a quote with a one-line reminder written for the profile horizon.",
    "shape": "text, table, checklist, quote",
    "button": "Talk me down",
    "loading": "Breathing…"
@@ -96,7 +96,7 @@
      "required": true
     }
    ],
-   "prompt": "Audit this decision for bias: {decision}. Table (Bias | Evidence in your reasoning | Question to test it) covering at least 4 biases, text with the strongest case for and against, bullets on a smaller version of the same move, and a callout with a go / wait / no verdict and why.",
+   "prompt": "Audit this decision for bias, using the profile history: {decision}. Table (Bias | Evidence in your reasoning | Question to test it) covering at least 4 biases, text with the strongest case for and against, bullets on a smaller version of the same move, and a callout with a go / wait / no verdict and why.",
    "shape": "table, text, bullets, callout",
    "button": "Audit",
    "loading": "Holding a mirror…"
@@ -133,19 +133,19 @@
   },
   {
    "id": "noise",
-   "title": "Noise filter",
-   "subtitle": "Headlines, tips, forum posts",
+   "title": "Tip filter",
+   "subtitle": "Hot tips, forum posts, group chats",
    "emoji": "🔇",
    "inputs": [
     {
      "key": "input",
-     "label": "Paste headlines, tips or a forum post",
+     "label": "Paste the tip, post or chat message",
      "type": "longtext",
      "placeholder": "Everyone on the forum is moving to gold…",
      "required": true
     }
    ],
-   "prompt": "Filter: {input}. Table (Claim | Type: fact / forecast / opinion / hype | Relevant to a long-term investor?), text on the incentive behind the source, bullets of what would actually change the profile plan, and a callout on FOMO.",
+   "prompt": "Filter this tip or post: {input}. Table (Claim | Type: fact / forecast / opinion / hype | Relevant to a long-term investor?), text on the incentive and track record behind this kind of source, bullets of what would actually have to be true to change the profile plan, and a callout on FOMO and the profile history.",
    "shape": "table, text, bullets, callout",
    "button": "Filter",
    "loading": "Muting noise…"
@@ -169,7 +169,7 @@
      "default": "Check less often"
     }
    ],
-   "prompt": "Design a 4-week behaviour plan to '{goal}' for the profile: steps (one per week with a concrete action and a friction trick), kv (trigger → replacement behaviour), a checklist of app and notification settings to change, and a quote with a mantra.",
+   "prompt": "Design a 4-week behaviour plan to '{goal}', starting from the profile checking frequency and history. Sections: steps (one per week with a concrete action and a friction trick), kv (trigger → replacement behaviour), a checklist of app and notification settings to change, and a quote with a mantra.",
    "shape": "steps, kv, checklist, quote",
    "button": "Plan habits",
    "loading": "Rewiring…"

@@ -66,7 +66,7 @@
      "options": [
       "Right now, quick",
       "We've got 10 minutes",
-      "Bedtime — calm"
+      "In the car"
      ],
      "default": "Right now, quick"
     }
@@ -96,7 +96,7 @@
      "placeholder": "bowl, tin foil, coins, water"
     }
    ],
-   "prompt": "Design a 5-minute demonstration of '{concept}' for the profile child using: {have} (substitute common household items if needed). Sections: a checklist of materials, steps with a 'what do you think will happen?' prediction moment, a quote with the one-sentence explanation to say afterwards at the child's level, and a callout with safety notes and a mess rating.",
+   "prompt": "Design a 5-minute demonstration of '{concept}' for the profile child using: {have} (assume a normal kitchen if blank; substitute common items if needed). Sections: a checklist of materials, steps with a 'what do you think will happen?' prediction moment, a quote with the one-sentence explanation to say afterwards at the child's level, and a callout with safety notes and a mess rating.",
    "shape": "checklist, steps, quote, callout",
    "button": "Set up demo",
    "loading": "Gathering jars…"
@@ -160,8 +160,8 @@
   },
   {
    "id": "spotted",
-   "title": "What is this?",
-   "subtitle": "Photo of the thing they're asking about",
+   "title": "How does that work?",
+   "subtitle": "Photo of a machine, gadget or effect",
    "emoji": "📷",
    "inputs": [
     {
@@ -174,12 +174,12 @@
      "key": "asked",
      "label": "What they asked",
      "type": "text",
-     "placeholder": "why is it that colour?"
+     "placeholder": "why does it go up by itself?"
     }
    ],
-   "prompt": "Identify what's in the photo as best you can and answer the child's question '{asked}' at the profile level. Sections: kv (What it probably is, Confidence, Fun fact, Safe to touch?), a quote with the answer in the parent's voice, bullets of 2 things to look at more closely right now, and a callout on any safety point (don't touch, don't eat, wash hands).",
+   "prompt": "Work out what is happening in the photo — a machine, a gadget, a light or weather effect, something in the kitchen — and answer the child's question '{asked}' (if blank, explain how the thing works) at the profile level. Sections: kv (What it is, The science in one line, Where else they'll see it, Safe to touch?), a quote with the answer in the parent's voice using one analogy from the profile's interests, bullets of 2 things to look at more closely right now, and a callout on any safety point (hot, sharp, electric, don't touch).",
    "shape": "kv, quote, bullets, callout",
-   "button": "Tell me",
+   "button": "Explain it",
    "loading": "Zooming in…"
   }
  ],

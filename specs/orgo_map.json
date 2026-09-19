@@ -144,7 +144,7 @@
      "placeholder": "any alkene with ≤ 4 carbons"
     }
    ],
-   "prompt": "Plan a synthesis of {target} starting from {start}: steps in forward order (reagents, conditions, product of each step), a table (Step | Reaction type | Regio / stereo control), a callout on the step most likely to give side products, and bullets sketching one alternative route.",
+   "prompt": "Plan a synthesis of {target}; starting material (if given, otherwise choose a cheap commercial one): {start}. Steps in forward order (reagents, conditions, product of each step), a table (Step | Reaction type | Regio / stereo control), a callout on the step most likely to give side products, and bullets sketching one alternative route.",
    "shape": "steps, table, callout, bullets",
    "button": "Plan route",
    "loading": "Retrosynthesising…"

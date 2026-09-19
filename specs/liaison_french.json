@@ -103,21 +103,37 @@
   },
   {
    "id": "liaison",
-   "title": "Liaison checker",
-   "subtitle": "Which links are required, optional, forbidden",
+   "title": "Liaison quiz",
+   "subtitle": "Required, optional or forbidden?",
    "emoji": "🔗",
    "inputs": [
     {
-     "key": "text",
-     "label": "French text",
-     "type": "longtext",
-     "placeholder": "Ils ont acheté des oranges et un ananas.",
-     "required": true
+     "key": "focus",
+     "label": "Focus",
+     "type": "chips",
+     "options": [
+      "Required liaisons",
+      "Forbidden liaisons",
+      "Optional (register)",
+      "Elision & enchaînement",
+      "Mixed"
+     ],
+     "default": "Mixed"
+    },
+    {
+     "key": "n",
+     "label": "Items",
+     "type": "chips",
+     "options": [
+      "10",
+      "20"
+     ],
+     "default": "10"
     }
    ],
-   "prompt": "Mark every potential liaison and elision in: {text}. Sections: a table (Between | Sound produced | Required, optional or forbidden | Rule), a quote with the text rewritten marking required liaisons with ‿ and forbidden ones with ‖, and bullets of the 3 liaison rules illustrated here that matter most at the profile's level.",
-   "shape": "table, quote, bullets",
-   "button": "Check",
+   "prompt": "Write a {n}-item quiz on {focus} at the profile's level. Sections: a numbered checklist where each item is a short phrase with the candidate link marked [?] and the question 'required, optional or forbidden?'; then a text line labelled 'Answers' followed by a table (# | Verdict | Sound produced | Rule); and a callout stating the one rule behind the items learners most often miss.",
+   "shape": "checklist, text, table, callout",
+   "button": "Quiz me",
    "loading": "Linking…"
   },
   {
@@ -134,7 +150,7 @@
      "required": true
     }
    ],
-   "prompt": "Diagnose: {problem}, for a speaker of the profile's first language. Sections: text naming the likely phonetic cause, steps for a 2-week fix (daily 5-minute exercises, each with what to listen for), a table (Day | Exercise | Success check), and a callout on how to self-record and compare against a native model.",
+   "prompt": "Diagnose: {problem}, for a speaker of the profile's first language. Sections: text naming the likely phonetic cause, steps for the core corrective exercise (lips, tongue, jaw, and what to listen for), a table (Day | Exercise | Minutes | Success check) laying out a 14-day plan, and a callout on how to self-record and compare against a native model.",
    "shape": "text, steps, table, callout",
    "button": "Diagnose",
    "loading": "Listening closely…"
@@ -171,7 +187,7 @@
      "default": "Medium"
     }
    ],
-   "prompt": "Give 5 {difficulty} French tongue twisters targeting {sound}: cards (twister with IPA, meta = speed goal · meaning in English), steps for building speed without losing the sound, and a quote with the classic one every French child knows for this sound.",
+   "prompt": "Give 5 {difficulty} French tongue twisters targeting {sound}. Sections: cards (twister with IPA, meta = speed goal · meaning in English), steps for building speed without losing the sound, and a quote with the classic one every French child knows for this sound.",
    "shape": "cards, steps, quote",
    "button": "Twist me",
    "loading": "Untangling…"

@@ -1,0 +1,185 @@
+{
+ "id": "buzzer_brain",
+ "name": "Buzzer Brain",
+ "tagline": "Train to win pub quizzes and game-show auditions",
+ "category": "Games",
+ "colors": [
+  "#1565C0",
+  "#FDD835",
+  "#E53935"
+ ],
+ "icon": "bolt",
+ "about": "Buzzer Brain trains trivia players rather than hosts: category drills with answers, study sheets for the topics quizzes love, gap analysis from your results, wager and team strategy, and post-quiz reviews.",
+ "persona": "You are a trivia coach and former quiz-show contestant: accurate, obsessive about the facts quizzes actually ask, and honest about what is worth memorising.",
+ "onboarding": {
+  "title": "Know the answer first",
+  "subtitle": "Tell us where you play and where you're weak.",
+  "bullets": [
+   "Drills in the categories quizzes ask",
+   "Study sheets for the classics",
+   "Wager & team strategy"
+  ]
+ },
+ "profile": [
+  {
+   "key": "arena",
+   "label": "Where you play",
+   "type": "chips",
+   "options": [
+    "Pub quiz",
+    "Online leagues",
+    "Game-show hopeful",
+    "University challenge style",
+    "Family bragging rights"
+   ]
+  },
+  {
+   "key": "weak",
+   "label": "Weak categories",
+   "type": "chips",
+   "options": [
+    "Sport",
+    "Science",
+    "Geography",
+    "History",
+    "Pop music",
+    "Film & TV",
+    "Literature",
+    "Art"
+   ],
+   "multi": true
+  },
+  {
+   "key": "region",
+   "label": "Region",
+   "type": "chips",
+   "options": [
+    "UK",
+    "US",
+    "Australia",
+    "Ireland",
+    "Canada",
+    "Global"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "drill",
+   "title": "Drill a category",
+   "subtitle": "20 questions with answers",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "category",
+     "label": "Category",
+     "type": "text",
+     "placeholder": "capital cities / 80s number ones",
+     "required": true
+    },
+    {
+     "key": "difficulty",
+     "label": "Difficulty",
+     "type": "chips",
+     "options": [
+      "Warm-up",
+      "Pub standard",
+      "Expert"
+     ],
+     "default": "Pub standard"
+    }
+   ],
+   "prompt": "Write 20 {difficulty} trivia questions on {category} for the profile region and arena, as a self-test. Output a table (# | Question | Angle quizzes take | Points) with no answers in it, then a kv headed 'Answers' at the very end (number → answer), and bullets of 5 related facts that often appear as follow-up questions.",
+   "shape": "table, bullets",
+   "button": "Drill me",
+   "loading": "Loading buzzers…"
+  },
+  {
+   "id": "sheet",
+   "title": "Study sheet",
+   "subtitle": "The classics, condensed",
+   "emoji": "📄",
+   "inputs": [
+    {
+     "key": "topic",
+     "label": "Topic",
+     "type": "text",
+     "placeholder": "Best Picture winners / periodic table basics / US presidents",
+     "required": true
+    }
+   ],
+   "prompt": "Build a one-page study sheet for {topic} tuned to the profile region. Provide a table of the core facts (Item | Key detail | Date or number | Common trick question), bullets of 5 quiz favourites from this topic, a kv of 3 memory hooks, and a callout on the fact most often asked and most often got wrong.",
+   "shape": "table, bullets, kv, callout",
+   "button": "Build sheet",
+   "loading": "Cramming…"
+  },
+  {
+   "id": "gaps",
+   "title": "Find my gaps",
+   "subtitle": "Paste your results",
+   "emoji": "📊",
+   "inputs": [
+    {
+     "key": "results",
+     "label": "Round scores from recent quizzes",
+     "type": "longtext",
+     "placeholder": "Week 1: sport 3/10, science 8/10, film 6/10. Week 2: sport 4/10…",
+     "required": true
+    }
+   ],
+   "prompt": "Analyse these round scores: {results} against the profile weak categories. Give a table (Category | Average score | Trend | Priority), text on the pattern behind the low rounds (recall vs knowledge vs buzzer timing), steps for a 2-week study plan of 20 minutes a day, and a callout on the single category with the best points-per-hour return.",
+   "shape": "table, text, steps, callout",
+   "button": "Analyse",
+   "loading": "Marking…"
+  },
+  {
+   "id": "strategy",
+   "title": "Wager & buzzer strategy",
+   "subtitle": "Play the game, not just the questions",
+   "emoji": "🧠",
+   "inputs": [
+    {
+     "key": "format",
+     "label": "Format",
+     "type": "chips",
+     "options": [
+      "Pub quiz with joker round",
+      "Jeopardy-style wagers",
+      "Buzzer head-to-head",
+      "Team of 6"
+     ],
+     "default": "Pub quiz with joker round"
+    },
+    {
+     "key": "situation",
+     "label": "Situation",
+     "type": "text",
+     "placeholder": "we're 4 points behind going into the last round"
+    }
+   ],
+   "prompt": "Advise for {format} in this situation: {situation}. Output kv (recommended move, expected-value reasoning, risk), steps for a decision process to reuse, bullets on team-play etiquette (who answers, when to overrule), and a quote with the one rule to remember under pressure.",
+   "shape": "kv, steps, bullets, quote",
+   "button": "Advise",
+   "loading": "Running the numbers…"
+  },
+  {
+   "id": "missed",
+   "title": "Learn what we missed",
+   "subtitle": "Answers, hooks and siblings",
+   "emoji": "📝",
+   "inputs": [
+    {
+     "key": "missed",
+     "label": "Questions you got wrong",
+     "type": "longtext",
+     "placeholder": "1. Which river flows through Vienna? we said Rhine…",
+     "required": true
+    }
+   ],
+   "prompt": "Teach the missed questions: {missed}. Give a table (Question | Correct answer | Why the wrong answer was tempting | Memory hook), then bullets of 2 sibling questions per item that test the same fact from another angle, and a callout on whether any question was unfair or ambiguous and how to appeal it politely.",
+   "shape": "table, bullets, callout",
+   "button": "Teach me",
+   "loading": "Checking answers…"
+  }
+ ]
+}

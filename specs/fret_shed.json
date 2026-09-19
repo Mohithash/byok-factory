@@ -88,7 +88,7 @@
      "placeholder": "F barre chord changes"
     }
    ],
-   "prompt": "Plan a {minutes}-minute practice session around '{song}' with focus on {struggle} for the profile: table (Block | Minutes | Exercise | Tempo BPM | Done when), steps for the single technique fix that matters most, and a callout on when to stop before bad habits set in.",
+   "prompt": "Song being worked on: {song}. Struggling with: {struggle}. Plan a {minutes}-minute practice session for the profile guitar, level and goal (if no song is given, pick one that suits the level and goal and say why): table (Block | Minutes | Exercise | Tempo BPM | Done when), steps for the single technique fix that matters most, and a callout on when to stop before bad habits set in.",
    "shape": "table, steps, callout",
    "button": "Plan session",
    "loading": "Tuning up…"

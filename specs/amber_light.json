@@ -1,0 +1,211 @@
+{
+ "id": "amber_light",
+ "name": "Amber Light",
+ "tagline": "Know what your car is telling you before the garage does",
+ "category": "Auto & Vehicles",
+ "colors": [
+  "#FFA000",
+  "#37474F",
+  "#E53935"
+ ],
+ "icon": "gear",
+ "about": "Amber Light decodes dashboard warning lights from a photo, diagnoses noises and smells, sanity-checks a mechanic's quote line by line, walks you through a roadside breakdown and explains an inspection failure.",
+ "persona": "You are an independent master technician who does not sell repairs: plain English, honest about urgency, and fair about what a job should cost.",
+ "onboarding": {
+  "title": "Your second opinion, in your pocket",
+  "subtitle": "Your car and region make the diagnosis and prices accurate.",
+  "bullets": [
+   "Warning lights decoded from a photo",
+   "Garage quotes checked line by line",
+   "Breakdown and inspection help"
+  ]
+ },
+ "profile": [
+  {
+   "key": "car",
+   "label": "Car (make, model, year, engine)",
+   "type": "text",
+   "placeholder": "Ford Focus 2016 1.0 EcoBoost"
+  },
+  {
+   "key": "km",
+   "label": "Mileage (km)",
+   "type": "number",
+   "placeholder": "96000"
+  },
+  {
+   "key": "region",
+   "label": "Region",
+   "type": "chips",
+   "options": [
+    "UK",
+    "EU",
+    "USA",
+    "Canada",
+    "Australia",
+    "India",
+    "Other"
+   ]
+  },
+  {
+   "key": "confidence",
+   "label": "Under the bonnet",
+   "type": "chips",
+   "options": [
+    "Never opened it",
+    "Basic checks",
+    "DIY repairs"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "light",
+   "title": "Decode a warning light",
+   "subtitle": "Photo → meaning, urgency",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the dashboard",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "behaviour",
+     "label": "The car is",
+     "type": "chips",
+     "options": [
+      "Driving normally",
+      "Losing power",
+      "Running rough",
+      "Making a noise",
+      "Overheating"
+     ],
+     "default": "Driving normally"
+    }
+   ],
+   "prompt": "Identify every warning light in the photo; the car is {behaviour}. A table (Light | Meaning | Urgency: drive on, drive to a garage or stop now | Likely causes for the profile car), a callout on whether to keep driving, steps to try right now (fuel cap, oil level, coolant, tyre pressures, restart), and bullets on what a fault-code reader would add.",
+   "shape": "table, callout, steps, bullets",
+   "button": "Decode",
+   "loading": "Reading the dash…"
+  },
+  {
+   "id": "noise",
+   "title": "Noise or smell",
+   "subtitle": "Describe it, get the suspects",
+   "emoji": "👂",
+   "inputs": [
+    {
+     "key": "symptom",
+     "label": "Describe it",
+     "type": "longtext",
+     "placeholder": "high-pitched squeal on cold start that goes away after 2 minutes",
+     "required": true
+    },
+    {
+     "key": "when",
+     "label": "Happens when",
+     "type": "chips",
+     "options": [
+      "Starting",
+      "Idling",
+      "Accelerating",
+      "Braking",
+      "Turning",
+      "Over bumps",
+      "Always"
+     ],
+     "default": "Always"
+    }
+   ],
+   "prompt": "Diagnose: {symptom}, when {when}, on the profile car and mileage. A table (Suspect | Likelihood | How to confirm | Typical repair cost range | Urgency) ordered by likelihood, steps for safe checks at the profile confidence level, and a callout on the symptoms that mean stop driving now.",
+   "shape": "table, steps, callout",
+   "button": "Diagnose",
+   "loading": "Listening closely…"
+  },
+  {
+   "id": "quote",
+   "title": "Check a garage quote",
+   "subtitle": "Paste it → fair or fleeced",
+   "emoji": "🧾",
+   "inputs": [
+    {
+     "key": "quote",
+     "label": "Quote or invoice",
+     "type": "longtext",
+     "placeholder": "Front pads and discs 380, brake fluid 65, air-con regas 120, diagnostic 75…",
+     "required": true
+    },
+    {
+     "key": "ask",
+     "label": "This was",
+     "type": "chips",
+     "options": [
+      "Quoted before work",
+      "Already invoiced",
+      "Recommended at service"
+     ],
+     "default": "Quoted before work"
+    }
+   ],
+   "prompt": "Review: {quote} ({ask}) for the profile car and region. A table (Item | Quoted | Fair range | Needed now, soon or optional | Note), a kv (total quoted, fair total, potential saving), a quote with a polite message to send the garage asking the right questions or declining items, and a callout on consumer basics such as written quotes, authorising extra work and asking for old parts back.",
+   "shape": "table, kv, quote, callout",
+   "button": "Check it",
+   "loading": "Adding it up…"
+  },
+  {
+   "id": "breakdown",
+   "title": "Broken down",
+   "subtitle": "Roadside steps right now",
+   "emoji": "🚨",
+   "inputs": [
+    {
+     "key": "where",
+     "label": "Where",
+     "type": "chips",
+     "options": [
+      "Motorway hard shoulder",
+      "Smart motorway, no shoulder",
+      "Busy road",
+      "Quiet road",
+      "Car park",
+      "Home"
+     ],
+     "default": "Busy road"
+    },
+    {
+     "key": "what",
+     "label": "What happened",
+     "type": "longtext",
+     "placeholder": "steam from under the bonnet, temperature gauge in the red",
+     "required": true
+    }
+   ],
+   "prompt": "The car is on a {where} and: {what}. Open with a callout on immediate personal safety for that location (hazard lights, which side to exit, get behind the barrier, never stand in a live lane). Then steps for the next 15 minutes in order, bullets of what NOT to do for this fault (opening a hot radiator cap, driving on a flat), a kv of what to tell the recovery service, and a checklist for the wait.",
+   "shape": "callout, steps, bullets, kv, checklist",
+   "button": "Help me",
+   "loading": "Hazards on…"
+  },
+  {
+   "id": "inspection",
+   "title": "Failed inspection",
+   "subtitle": "MOT or safety test explained",
+   "emoji": "📋",
+   "inputs": [
+    {
+     "key": "sheet",
+     "label": "Failure items",
+     "type": "longtext",
+     "placeholder": "Nearside front tyre below 1.6 mm, offside headlamp aim too high, exhaust emissions high, advisory: rear pads low",
+     "required": true
+    }
+   ],
+   "prompt": "Explain the inspection result: {sheet} for the profile car and region. A table (Item | What it means | Fix | DIY? | Fair cost | Retest impact), steps in the cheapest order to pass a retest, and a callout on the retest window and the rules for driving while the car is failed.",
+   "shape": "table, steps, callout",
+   "button": "Explain",
+   "loading": "Reading the sheet…"
+  }
+ ],
+ "disclaimer": "Diagnosis and price guidance is general; safety systems (brakes, steering, airbags, fuel) need a qualified technician, and in a breakdown your personal safety comes before the car."
+}

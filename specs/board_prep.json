@@ -146,7 +146,7 @@
      "required": true
     }
    ],
-   "prompt": "Given the weak spots: {weak}, list the hard questions this board will ask. Table (Question | Who will ask it | Honest answer outline | Data to bring), a quote with a 3-sentence opening that frames the weak spots before they are raised, and bullets on handling a question with no good answer yet.",
+   "prompt": "Given the weak spots: {weak}, list the 8 hardest questions this board will ask. Table (Question | Who will ask it | Honest answer outline | Data to bring), a quote with a 3-sentence opening that frames the weak spots before they are raised, and bullets on handling a question with no good answer yet.",
    "shape": "table, quote, bullets",
    "button": "Prepare me",
    "loading": "Anticipating…"

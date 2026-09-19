@@ -85,7 +85,7 @@
      "type": "longtext"
     }
    ],
-   "prompt": "Write a performance review for {who} on the profile's rating scale using its review sections, from this evidence: {evidence} and their self-review: {self}. Produce text for each section citing specific examples with outcomes, a kv (proposed rating, one-line justification, biggest strength, biggest gap), a table (Claim in self-review | Manager's view | Evidence) for anything where you and they differ, and a callout flagging statements that need more evidence before they go in.",
+   "prompt": "Write a performance review for {who} on the profile's rating scale using its review sections, from this evidence: {evidence} and their self-review: {self}. Produce text for each section citing specific examples with outcomes, a kv (proposed rating, one-line justification, biggest strength, biggest gap), a table (Claim in self-review | Manager's view | Evidence) for anything where you and they differ (omit the table if no self-review was given), and a callout flagging statements that need more evidence before they go in.",
    "shape": "text, kv, table, callout",
    "button": "Draft review",
    "loading": "Weighing evidence…"

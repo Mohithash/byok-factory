@@ -76,7 +76,7 @@
      "default": "Email"
     }
    ],
-   "prompt": "The problem: {issue}. Desired outcome: {want}. Channel: {channel}. Write the complaint as a quote (subject line, dated facts in order, the remedy requested, a 14-day deadline, and one line noting the general consumer rights that apply in the profile region). Then bullets of attachments to include and a callout on what to do if they ignore it.",
+   "prompt": "The problem: {issue}. Desired outcome: {want}. Channel: {channel}. Write the complaint as a quote (subject line, dated facts in order, the remedy requested, a 14-day deadline, and one line noting the general consumer rights that apply in the profile region). Then bullets of the 3–5 attachments to include and a callout on what to do if they ignore the 14-day deadline.",
    "shape": "quote, bullets, callout",
    "button": "Write it",
    "loading": "Sharpening the pen…"
@@ -110,7 +110,7 @@
      "default": "Retailer"
     }
    ],
-   "prompt": "History: {history}. Company type: {company}. Give a steps escalation ladder specific to a {company} in the profile region (manager → formal complaint → regulator, ombudsman or ADR → chargeback → small claims), a quote with the escalation message that references their previous response, and a kv of typical deadlines and time limits at each rung.",
+   "prompt": "History: {history}. Company type: {company}. Give a 5–6 rung steps escalation ladder specific to a {company} in the profile region (manager → formal complaint → regulator, ombudsman or ADR → chargeback → small claims), marking which rung the user is on now, a quote with the escalation message that references their previous response, and a kv of typical deadlines and time limits at each rung.",
    "shape": "steps, quote, kv",
    "button": "Escalate",
    "loading": "Climbing…"

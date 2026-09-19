@@ -212,7 +212,7 @@
      "default": "Peak"
     }
    ],
-   "prompt": "Recommend 12 tracks similar to '{ref}' suited for {use} within the profile genres: table (Artist | Track | Year | BPM | Key | Why it fits), bullets of 3 labels or artists to explore next, and a callout on buying sources and checking versions (radio edit vs extended mix).",
+   "prompt": "Recommend 12 tracks similar to '{ref}' suited for {use} within the profile genres: table (Artist | Track | Year | BPM (approx.) | Key (Camelot, approx.) | Why it fits) — only real, released tracks, and flag any you are unsure of; bullets of 3 labels or artists to explore next, and a callout on buying sources and checking versions (radio edit vs extended mix).",
    "shape": "table, bullets, callout",
    "button": "Dig",
    "loading": "Flipping crates…"

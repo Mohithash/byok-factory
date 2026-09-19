@@ -133,8 +133,8 @@
      "required": true
     }
    ],
-   "prompt": "Write the weekly company update from: {notes}. A quote with the update (Wins, Numbers, What's next, Shout-outs, Help needed; under 250 words, plain tone), and bullets of anything in the notes that deserves its own message instead.",
-   "shape": "quote, bullets",
+   "prompt": "Write the weekly company update from: {notes}. A quote with the update (Wins, Numbers, What's next, Shout-outs, Help needed; under 250 words, plain tone), a kv of the 3 numbers of the week with direction versus last week, and bullets of anything in the notes that deserves its own message instead.",
+   "shape": "quote, kv, bullets",
    "button": "Write update",
    "loading": "Summarising…"
   },

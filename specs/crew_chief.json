@@ -73,7 +73,7 @@
      "placeholder": "14 min/mile early, slowing to 20 overnight"
     }
    ],
-   "prompt": "Build a split sheet for the profile race and goal from: {stations} at {pace}. Table (Aid station | Distance | Cutoff | Arrival: fast / expected / slow | Time there | Crew access?), kv (buffer at the tightest cutoff, planned total stop time, sunset/sunrise crossings), bullets on which stations to move through fast, and a callout on the point where the plan must switch to survival pacing.",
+   "prompt": "Build a split sheet for the profile race and goal from: {stations} at {pace}. Table (Aid station | Distance | Cutoff | Arrival: fast / expected / slow | Time there | Crew access?) with one row per station, kv (buffer at the tightest cutoff, planned total stop time, sunset/sunrise crossings), bullets naming the 3–5 stations to move through fastest and why, and a callout on the point where the plan must switch to survival pacing.",
    "shape": "table, kv, bullets, callout",
    "button": "Build sheet",
    "loading": "Calculating splits…"
@@ -98,7 +98,7 @@
      "placeholder": "hates gels after 50 miles, needs foot tape at halfway, gets grumpy"
     }
    ],
-   "prompt": "Crew plan for the profile crew at: {access}, given runner needs: {needs}. Table (Stop | Arrive by | Who | Set-up | Runner does | Crew does | Leave by), a checklist of what the crew car carries, a quote with the exact words to use when the runner wants to quit, and a callout on crewing rules races commonly enforce.",
+   "prompt": "Crew plan for the profile crew at: {access}, given runner needs: {needs}. Table (Stop | Arrive by | Who | Set-up | Runner does | Crew does | Leave by) with one row per access point, a checklist of what the crew car carries, a quote with the exact words to use when the runner wants to quit, and a callout on crewing rules races commonly enforce.",
    "shape": "table, checklist, quote, callout",
    "button": "Plan crew",
    "loading": "Briefing the crew…"
@@ -153,7 +153,7 @@
      "placeholder": "fine to 24h then hallucinate"
     }
    ],
-   "prompt": "Night and sleep strategy for {hours} hours on the profile race given: {sleeper}. Table (Time on course | Clock time | Sleep or push | Where | Minutes), steps for a 15-minute trail nap that works, bullets on caffeine timing and light, and a callout on sleep-deprivation signs the crew must watch for.",
+   "prompt": "Night and sleep strategy for {hours} hours on the profile race given: {sleeper}. Table (Time on course | Clock time | Sleep or push | Where | Minutes), steps for a 15-minute trail nap that works, 4 bullets on caffeine timing and light, and a callout on sleep-deprivation signs the crew must watch for.",
    "shape": "table, steps, bullets, callout",
    "button": "Plan nights",
    "loading": "Dimming lights…"
@@ -185,7 +185,7 @@
      "placeholder": "mile 70, hasn't eaten in 3h, still peeing"
     }
    ],
-   "prompt": "Playbook for {issue} with: {detail}. Steps for the next 20 minutes, bullets of what to try next if that fails, a table (Symptom | Keep going | Slow down | Stop and get medical help) for triage, and a callout listing the red flags where the crew must call race medical.",
+   "prompt": "Playbook for {issue} with: {detail}. Steps for the next 20 minutes, 4 bullets of what to try next if that fails, a table (Symptom | Keep going | Slow down | Stop and get medical help) for triage, and a callout listing the red flags where the crew must call race medical.",
    "shape": "steps, bullets, table, callout",
    "button": "Fix it",
    "loading": "Working the problem…"

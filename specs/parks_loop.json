@@ -1,0 +1,228 @@
+{
+ "id": "parks_loop",
+ "name": "Parks Loop",
+ "tagline": "US national park road trips, park by park",
+ "category": "Travel & Local",
+ "colors": [
+  "#2E7D32",
+  "#EF6C00",
+  "#5D4037"
+ ],
+ "icon": "pin",
+ "about": "Parks Loop plans US national park road trips: a day-by-day loop with realistic drive hours, the timed-entry and permit reservations you must win months out, campground vs lodge choices, hikes matched to your group, and trailhead plans that respect heat, altitude and wildlife.",
+ "persona": "You are a former park ranger turned road-trip planner: exact about drive times and reservation windows, safety-first about heat, altitude and bears, and enthusiastic about the quieter corners.",
+ "onboarding": {
+  "title": "Which parks are calling?",
+  "subtitle": "Your group and vehicle set the pace.",
+  "bullets": [
+   "Loops with honest drive hours",
+   "Permit and timed-entry calendar",
+   "Hikes and trailhead plans for your group"
+  ]
+ },
+ "profile": [
+  {
+   "key": "group",
+   "label": "Who's going",
+   "type": "text",
+   "placeholder": "2 adults, kids 8 and 12"
+  },
+  {
+   "key": "vehicle",
+   "label": "Vehicle",
+   "type": "chips",
+   "options": [
+    "Car",
+    "SUV",
+    "RV / campervan",
+    "Rental TBD"
+   ]
+  },
+  {
+   "key": "sleep",
+   "label": "Sleeping",
+   "type": "chips",
+   "options": [
+    "Camping",
+    "Lodges & hotels",
+    "Mix",
+    "RV hookups"
+   ]
+  },
+  {
+   "key": "fitness",
+   "label": "Hiking level",
+   "type": "chips",
+   "options": [
+    "Easy walks",
+    "Moderate",
+    "Strong hikers"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "loop",
+   "title": "Build the loop",
+   "subtitle": "Days, drives and where to sleep",
+   "emoji": "🗺️",
+   "inputs": [
+    {
+     "key": "start",
+     "label": "Start city & month",
+     "type": "text",
+     "placeholder": "Las Vegas, May",
+     "required": true
+    },
+    {
+     "key": "days",
+     "label": "Days",
+     "type": "number",
+     "placeholder": "10"
+    },
+    {
+     "key": "parks",
+     "label": "Parks wishlist",
+     "type": "text",
+     "placeholder": "Zion, Bryce, Capitol Reef, Arches, Canyonlands"
+    }
+   ],
+   "prompt": "Plan a {days}-day national park loop starting from {start} covering {parks} for the profile. Table (Day | Drive (hours / miles) | Park | Highlight | Sleep), cards for each park (meta = nights · crowd level that month · must-book?), bullets of 3 things to drop if the drives are too long, and a callout on the reservations that must be made first and when they open.",
+   "shape": "table, cards, bullets, callout",
+   "button": "Build loop",
+   "loading": "Unfolding the map…"
+  },
+  {
+   "id": "permits",
+   "title": "Permits & timed entry",
+   "subtitle": "Win the reservations months out",
+   "emoji": "🎟️",
+   "inputs": [
+    {
+     "key": "parks",
+     "label": "Parks / trails",
+     "type": "text",
+     "placeholder": "Yosemite, Glacier, Zion (Angels Landing)",
+     "required": true
+    },
+    {
+     "key": "dates",
+     "label": "Travel dates",
+     "type": "text",
+     "placeholder": "July 10–20"
+    }
+   ],
+   "prompt": "For {parks} on {dates}: a table (Park / trail | Reservation type | Opens when | Where to book | Lottery? | Backup if you miss), a checklist of booking tasks ordered by date, and a callout on first-come sites and the hour to show up.",
+   "shape": "table, checklist, callout",
+   "button": "Check permits",
+   "loading": "Refreshing the page…"
+  },
+  {
+   "id": "sleep",
+   "title": "Camp or lodge?",
+   "subtitle": "Where to sleep each night",
+   "emoji": "⛺",
+   "inputs": [
+    {
+     "key": "park",
+     "label": "Park",
+     "type": "text",
+     "placeholder": "Yellowstone",
+     "required": true
+    },
+    {
+     "key": "nights",
+     "label": "Nights",
+     "type": "number",
+     "placeholder": "3"
+    },
+    {
+     "key": "budget",
+     "label": "Budget per night",
+     "type": "chips",
+     "options": [
+      "Under 50",
+      "50–150",
+      "150–300",
+      "300+"
+     ],
+     "default": "50–150"
+    }
+   ],
+   "prompt": "Where to sleep for {nights} nights at {park}, budget {budget}, for the profile's sleeping style. Cards for 5 options inside and just outside the park (meta = price · distance to main sights · booking difficulty), a table (Option | Pros | Cons | Book when), and a callout on wildlife food storage and quiet-hour rules for campers.",
+   "shape": "cards, table, callout",
+   "button": "Compare",
+   "loading": "Checking sites…"
+  },
+  {
+   "id": "hikes",
+   "title": "Hikes for us",
+   "subtitle": "Matched to legs, lungs and time",
+   "emoji": "🥾",
+   "inputs": [
+    {
+     "key": "park",
+     "label": "Park",
+     "type": "text",
+     "placeholder": "Rocky Mountain",
+     "required": true
+    },
+    {
+     "key": "hours",
+     "label": "Hours available",
+     "type": "number",
+     "placeholder": "4"
+    },
+    {
+     "key": "kids",
+     "label": "Kids' ages, if any",
+     "type": "text",
+     "placeholder": "8 and 12"
+    }
+   ],
+   "prompt": "Pick hikes in {park} for {hours} hours at the profile's hiking level; kids' ages if any: {kids}. Cards for 4 hikes (meta = miles · elevation gain ft · time · shade or exposure), a table (Hike | Best start time | Parking difficulty | Turnaround rule), and a callout on altitude, heat and the wildlife to expect on these trails.",
+   "shape": "cards, table, callout",
+   "button": "Pick hikes",
+   "loading": "Lacing boots…"
+  },
+  {
+   "id": "day",
+   "title": "Trailhead day plan",
+   "subtitle": "Timed for parking, heat and daylight",
+   "emoji": "🌄",
+   "inputs": [
+    {
+     "key": "hike",
+     "label": "Hike / trail",
+     "type": "text",
+     "placeholder": "Delicate Arch, Arches",
+     "required": true
+    },
+    {
+     "key": "date",
+     "label": "Date",
+     "type": "text",
+     "placeholder": "Aug 3"
+    },
+    {
+     "key": "start",
+     "label": "Start time",
+     "type": "chips",
+     "options": [
+      "Sunrise",
+      "Early morning",
+      "Mid-morning",
+      "Afternoon",
+      "Sunset"
+     ],
+     "default": "Early morning"
+    }
+   ],
+   "prompt": "Plan {hike} on {date} starting {start} for the profile. Steps with clock times from leaving camp to back at the car, a checklist (water litres per person, salty snacks, sun kit, layers, headlamp, offline map, first aid), a kv (sunrise/sunset, expected temperature range, turnaround time, cell coverage), and a callout on heat illness, altitude signs and wildlife encounters.",
+   "shape": "steps, checklist, kv, callout",
+   "button": "Plan the day",
+   "loading": "Reading the sky…"
+  }
+ ],
+ "disclaimer": "Outdoor conditions change fast; check park alerts, carry water and turn back early. Not a substitute for ranger guidance."
+}

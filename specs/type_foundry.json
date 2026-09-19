@@ -115,7 +115,7 @@
    "emoji": "🛡️",
    "inputs": [
     {
-     "key": "shape",
+     "key": "data",
      "label": "Data shape",
      "type": "longtext",
      "placeholder": "user: { id: uuid, email, role: 'admin' | 'member', createdAt: ISO date }",
@@ -135,7 +135,7 @@
      "default": "HTTP API"
     }
    ],
-   "prompt": "Write a validator for {shape} arriving from {source} using the profile validation library. Sections: a quote with the schema, the inferred type and a parse function returning a typed result, a table (Field | Rule | Error message), bullets on coercion decisions (dates, numbers from strings, trimming), and a callout on validating at the boundary only.",
+   "prompt": "Write a validator for this data shape: {data}, arriving from {source}, using the profile validation library. Sections: a quote with the schema, the inferred type and a parse function returning a typed result, a table (Field | Rule | Error message), bullets on coercion decisions (dates, numbers from strings, trimming), and a callout on validating at the boundary only.",
    "shape": "quote, table, bullets, callout",
    "button": "Write schema",
    "loading": "Parsing…"
@@ -178,7 +178,7 @@
      "placeholder": "get to strict without breaking the build"
     }
    ],
-   "prompt": "Review {tsconfig} against the goal: {goal} for the profile runtime and version. Sections: a table (Option | Current | Recommended | Why), a quote with the updated tsconfig.json, steps to enable strict flags one at a time in the safest order, and a callout on the flags that change emitted JavaScript rather than just type-checking.",
+   "prompt": "Current tsconfig.json: {tsconfig} (assume TypeScript defaults if not given). Goal: {goal}, for the profile runtime and version. Sections: a table (Option | Current | Recommended | Why), a quote with the updated tsconfig.json, steps to enable strict flags one at a time in the safest order, and a callout on the flags that change emitted JavaScript rather than just type-checking.",
    "shape": "table, quote, steps, callout",
    "button": "Tune it",
    "loading": "Flipping flags…"

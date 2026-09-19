@@ -1,0 +1,202 @@
+{
+ "id": "base_weight",
+ "name": "Base Weight",
+ "tagline": "Lighter pack, warmer nights, happier feet",
+ "category": "Travel & Local",
+ "colors": [
+  "#546E7A",
+  "#FF7043",
+  "#9CCC65"
+ ],
+ "icon": "bag",
+ "about": "Base Weight audits your backpacking gear list gram by gram, checks your sleep system against the real overnight lows, picks a layering system for the forecast, and fixes feet, packs and blisters before they end a trip.",
+ "persona": "You are a thru-hiker and gear tester: ruthlessly practical about weight, but the first to say comfort and safety beat a number on a scale.",
+ "onboarding": {
+  "title": "Carry less, go further",
+  "subtitle": "Your style, pack and how you sleep tune every plan.",
+  "bullets": [
+   "Gear list audit with cut suggestions",
+   "Sleep system checked against the lows",
+   "Layering, feet and pack-fit fixes"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "style",
+   "label": "Style",
+   "type": "chips",
+   "options": [
+    "Weekender",
+    "Section hiker",
+    "Thru-hiker",
+    "Ultralight",
+    "Comfort camper"
+   ]
+  },
+  {
+   "key": "sleeper",
+   "label": "You sleep",
+   "type": "chips",
+   "options": [
+    "Cold",
+    "Average",
+    "Warm"
+   ]
+  },
+  {
+   "key": "pack",
+   "label": "Pack & shelter",
+   "type": "text",
+   "placeholder": "Osprey Exos 58, Durston X-Mid 1"
+  }
+ ],
+ "tools": [
+  {
+   "id": "audit",
+   "title": "Audit my gear list",
+   "subtitle": "Paste it → weights and cuts",
+   "emoji": "⚖️",
+   "inputs": [
+    {
+     "key": "list",
+     "label": "Gear list (with weights if you know them)",
+     "type": "longtext",
+     "placeholder": "tent 1100 g, quilt 600 g, pad, stove + pot, 2 shirts, rain jacket 300 g, headtorch, power bank 20000 mAh…",
+     "required": true
+    },
+    {
+     "key": "trip",
+     "label": "Trip type",
+     "type": "text",
+     "placeholder": "3 nights, alpine, lows around 2°C"
+    }
+   ],
+   "prompt": "Audit this list: {list} for {trip}. A table (Item | Weight g, given or estimated | Category | Keep / Swap / Cut), kv (base weight, consumables estimate, total from skin out, target for the profile style), bullets of the 5 highest-value swaps with grams saved, and a callout on what should never be cut for this trip.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Audit list",
+   "loading": "Weighing the stakes…"
+  },
+  {
+   "id": "sleep",
+   "title": "Sleep system for the lows",
+   "subtitle": "Quilt, pad, layers → warm enough?",
+   "emoji": "🌙",
+   "inputs": [
+    {
+     "key": "low",
+     "label": "Expected overnight low (°C)",
+     "type": "number",
+     "placeholder": "2"
+    },
+    {
+     "key": "system",
+     "label": "Current sleep system",
+     "type": "text",
+     "placeholder": "600 g quilt rated 5°C comfort, pad R 2.1, sleep in base layers",
+     "required": true
+    },
+    {
+     "key": "where",
+     "label": "Sleeping",
+     "type": "chips",
+     "options": [
+      "Tent",
+      "Tarp / open",
+      "Hammock",
+      "Hut / shelter"
+     ],
+     "default": "Tent"
+    }
+   ],
+   "prompt": "Check the sleep system '{system}' against a low of {low}°C in a {where} for the profile sleeper. Sections: kv (comfort rating needed with a margin for wind and damp, pad R-value needed, verdict: fine / marginal / too cold), a table of fixes (Fix | Warmth gained | Weight cost | Cost), steps for a warm night with what you have (hot bottle, eat fat late, vent the tent, pad placement, hood and socks), and a callout on the signs of hypothermia and when to get up and move.",
+   "shape": "kv, table, steps, callout",
+   "button": "Check sleep",
+   "loading": "Fluffing the quilt…"
+  },
+  {
+   "id": "layers",
+   "title": "Layer for the forecast",
+   "subtitle": "A clothing system, nothing more",
+   "emoji": "🧥",
+   "inputs": [
+    {
+     "key": "forecast",
+     "label": "Forecast",
+     "type": "text",
+     "placeholder": "highs 18°C, lows 3°C, rain day 2, wind on the ridge",
+     "required": true
+    },
+    {
+     "key": "run",
+     "label": "You run",
+     "type": "chips",
+     "options": [
+      "Cold",
+      "Average",
+      "Hot"
+     ],
+     "default": "Average"
+    }
+   ],
+   "prompt": "Clothing system for {forecast} for someone who runs {run}. Sections: a table (Layer | Item | Worn or packed | When it goes on), a checklist for keeping kit dry (pack liner, dry sacks, what must stay dry no matter what), bullets on staying dry from the inside (vent early, hike cool), and a callout on hypothermia signs in the group.",
+   "shape": "table, checklist, bullets, callout",
+   "button": "Layer up",
+   "loading": "Checking wind chill…"
+  },
+  {
+   "id": "feet",
+   "title": "Feet, blisters, hot spots",
+   "subtitle": "Prevent and treat",
+   "emoji": "🩹",
+   "inputs": [
+    {
+     "key": "problem",
+     "label": "The problem",
+     "type": "text",
+     "placeholder": "hot spot on left heel after 8 miles, new shoes",
+     "required": true
+    },
+    {
+     "key": "kit",
+     "label": "First-aid kit contents",
+     "type": "text",
+     "placeholder": "Leukotape, blister plasters, alcohol wipes"
+    }
+   ],
+   "prompt": "For: {problem}, with kit: {kit}. Steps to treat it tonight and re-tape in the morning, bullets on the likely cause (lacing, socks, fit, wet feet), a table (Prevention | How | When), and a callout on infection signs that mean stop hiking.",
+   "shape": "steps, bullets, table, callout",
+   "button": "Fix my feet",
+   "loading": "Cutting the tape…"
+  },
+  {
+   "id": "fit",
+   "title": "Pack fit & load",
+   "subtitle": "Photo → adjustments",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Side photo wearing your loaded pack",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "pain",
+     "label": "What hurts",
+     "type": "text",
+     "placeholder": "shoulders after an hour, hip belt slips"
+    }
+   ],
+   "prompt": "Assess the pack fit from the photo; the complaint: {pain}. A table (Adjustment | Now | Target | How), steps for loading the pack for balance (heavy items close to the back, high or low by terrain), bullets on the strap sequence when putting it on, and a callout on when the pack is simply the wrong size.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Fit my pack",
+   "loading": "Cinching straps…"
+  }
+ ],
+ "disclaimer": "Gear and layering guidance is general; blister and first-aid notes are not medical advice, so seek care for any sign of infection, and never cut safety kit to save weight."
+}

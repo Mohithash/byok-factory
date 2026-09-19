@@ -13,7 +13,7 @@
  "persona": "You are an evidence-based hypertrophy coach who trains people in garages: fixated on effective reps, progressive overload and full range, honest that a pair of dumbbells goes further than most think.",
  "onboarding": {
   "title": "What dumbbells do you own?",
-  "subtitle": "Weights, bench and days per week set every programme.",
+  "subtitle": "Dumbbells, bench and days per week set every programme.",
   "bullets": [
    "Programmes for your exact weights",
    "Any gym exercise into a dumbbell version",
@@ -27,20 +27,10 @@
    "type": "text"
   },
   {
-   "key": "weights",
-   "label": "Dumbbells available (kg)",
+   "key": "kit",
+   "label": "Dumbbells (kg) and bench",
    "type": "text",
-   "placeholder": "adjustable 2.5–24 kg pair"
-  },
-  {
-   "key": "bench",
-   "label": "Bench",
-   "type": "chips",
-   "options": [
-    "None",
-    "Flat",
-    "Adjustable"
-   ]
+   "placeholder": "adjustable 2.5–24 kg pair, flat bench"
   },
   {
    "key": "days",
@@ -76,14 +66,14 @@
    "inputs": [
     {
      "key": "weeks",
-     "label": "Length",
+     "label": "Length (weeks)",
      "type": "chips",
      "options": [
-      "4 weeks",
-      "6 weeks",
-      "8 weeks"
+      "4",
+      "6",
+      "8"
      ],
-     "default": "6 weeks"
+     "default": "6"
     },
     {
      "key": "minutes",
@@ -97,7 +87,7 @@
      "default": "45"
     }
    ],
-   "prompt": "Write a {weeks} hypertrophy programme with {minutes}-minute sessions for the profile dumbbells, bench, days and priority. Sections: kv (split name, weekly sets per muscle, rep ranges, rest), a table (Day | Exercise | Sets x reps | Target RPE | Progression rule), bullets on progressing when the heaviest dumbbell is not heavy enough (tempo, pauses, unilateral, rest-pause), and a callout on the deload in the final week.",
+   "prompt": "Write a {weeks}-week hypertrophy programme with {minutes}-minute sessions for the profile dumbbells, bench, days and priority. Sections: kv (split name, weekly sets per muscle, rep ranges, rest), a table (Day | Exercise | Sets x reps | Target RPE | Progression rule), bullets on progressing when the heaviest dumbbell is not heavy enough (tempo, pauses, unilateral, rest-pause), and a callout on the deload in the final week.",
    "shape": "kv, table, bullets, callout",
    "button": "Write programme",
    "loading": "Racking dumbbells…"
@@ -170,17 +160,17 @@
     },
     {
      "key": "weeks",
-     "label": "Length",
+     "label": "Length (weeks)",
      "type": "chips",
      "options": [
-      "3 weeks",
-      "4 weeks",
-      "6 weeks"
+      "3",
+      "4",
+      "6"
      ],
-     "default": "4 weeks"
+     "default": "4"
     }
    ],
-   "prompt": "Design a {weeks} {muscle} specialisation block for the profile dumbbells and days, keeping other muscles at maintenance. Sections: a table (Day | Exercise | Sets x reps | Intensity technique), bullets on why the extra frequency works and what to pull back on, steps for the two highest-value exercises with form cues, and a callout on elbow and shoulder overuse warning signs.",
+   "prompt": "Design a {weeks}-week {muscle} specialisation block for the profile dumbbells and days, keeping other muscles at maintenance. Sections: a table (Day | Exercise | Sets x reps | Intensity technique), bullets on why the extra frequency works and what to pull back on, steps for the two highest-value exercises with form cues, and a callout on elbow and shoulder overuse warning signs.",
    "shape": "table, bullets, steps, callout",
    "button": "Design block",
    "loading": "Isolating…"

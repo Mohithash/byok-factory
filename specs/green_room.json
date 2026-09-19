@@ -133,7 +133,7 @@
      "required": true
     }
    ],
-   "prompt": "From: {script}, build production lists. Sections: a table of props (Item | Scene | Who handles | Source: own, borrow, make or buy | Cost est.), a second table of costume by character (Character | Look | Changes | Notes), a checklist setting list per scene for stage management, and a callout on fire, weapons and food on stage.",
+   "prompt": "From: {script}, build production lists. Sections: a table of props (Item | Scene | Handled by | Source | Cost est.) where Source is one of own, borrow, make or buy, a second table of costume by character (Character | Look | Changes | Notes), a checklist setting list per scene for stage management, and a callout on fire, weapons and food on stage.",
    "shape": "table, checklist, callout",
    "button": "Build lists",
    "loading": "Rummaging backstage…"

@@ -10,7 +10,7 @@ Liaison French breaks any sentence into sounds, marks liaisons and silent letter
 WHAT'S INSIDE
 • Sound map — How to say this exact sentence
 • Minimal pairs — u vs ou, é vs è, nasals
-• Liaison checker — Which links are required, optional, forbidden
+• Liaison quiz — Required, optional or forbidden?
 • Fix my accent — Describe the problem, get a plan
 • Virelangues — Tongue twisters for one sound
 
@@ -22,7 +22,7 @@ Every answer is a structured, shareable document with follow-up questions, saved
 ## Tools
 - 🗺️ **Sound map** — How to say this exact sentence
 - 👂 **Minimal pairs** — u vs ou, é vs è, nasals
-- 🔗 **Liaison checker** — Which links are required, optional, forbidden
+- 🔗 **Liaison quiz** — Required, optional or forbidden?
 - 🎯 **Fix my accent** — Describe the problem, get a plan
 - 🌀 **Virelangues** — Tongue twisters for one sound
 

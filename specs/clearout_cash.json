@@ -1,0 +1,203 @@
+{
+ "id": "clearout_cash",
+ "name": "Clearout Cash",
+ "tagline": "Turn the stuff you don't use into money",
+ "category": "Shopping",
+ "colors": [
+  "#2E7D32",
+  "#FFB300",
+  "#6D4C41"
+ ],
+ "icon": "bag",
+ "about": "Clearout Cash triages a room of unused stuff into sell, donate or bin, prices each item from a photo, writes listings for the right platform, answers lowballers and time-wasters for you, and gets it packed and posted without getting scammed.",
+ "persona": "You are a seasoned marketplace seller: realistic about what sells, allergic to wasted effort, polite but firm with buyers, and alert to every common scam.",
+ "onboarding": {
+  "title": "Sell the clutter, keep the cash",
+  "subtitle": "Tell us where you are and how much effort you want to put in.",
+  "bullets": [
+   "Sell / donate / bin triage with a cash estimate",
+   "Listings written for each platform",
+   "Buyer replies and scam checks"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "region",
+   "label": "Country",
+   "type": "chips",
+   "options": [
+    "US",
+    "UK",
+    "EU",
+    "Canada",
+    "Australia",
+    "India",
+    "Other"
+   ]
+  },
+  {
+   "key": "platforms",
+   "label": "Platforms you use",
+   "type": "chips",
+   "options": [
+    "eBay",
+    "Facebook Marketplace",
+    "Vinted",
+    "Depop",
+    "Craigslist",
+    "Gumtree",
+    "OLX",
+    "Poshmark",
+    "Mercari"
+   ],
+   "multi": true
+  },
+  {
+   "key": "effort",
+   "label": "Effort level",
+   "type": "chips",
+   "options": [
+    "Quick — local pickup only",
+    "Happy to post items",
+    "Maximise every dollar"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "triage",
+   "title": "Triage a clearout",
+   "subtitle": "List everything → sell, donate or bin",
+   "emoji": "📋",
+   "inputs": [
+    {
+     "key": "items",
+     "label": "Everything you want gone",
+     "type": "longtext",
+     "placeholder": "old iPhone 11, IKEA Kallax, 20 paperbacks, kids' bike, breadmaker never used…",
+     "required": true
+    }
+   ],
+   "prompt": "Triage this clearout for the profile's platforms and effort level: {items}. Sections: a table (Item | Sell / Donate / Bin | Best platform | Realistic price | Effort), a kv (Expected total, Time to list everything, Items worth bundling), steps for the order to list things (highest value and fastest movers first), and a callout on items that are illegal or risky to sell second-hand (car seats, recalled goods, some electricals).",
+   "shape": "table, kv, steps, callout",
+   "button": "Triage",
+   "loading": "Sorting the pile…"
+  },
+  {
+   "id": "price",
+   "title": "Price it",
+   "subtitle": "Photo → what it'll actually fetch",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the item",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "details",
+     "label": "Details",
+     "type": "text",
+     "placeholder": "bought 2021, box included, small scratch on lid"
+    }
+   ],
+   "prompt": "Identify the item in the photo with details: {details}, and price it for the profile's region. Sections: a kv (What it is, Condition grade, Sold-price range, List-at price, Accept-at floor), a table (Platform | Fees | Net to you | Speed to sell), bullets of what to check or mention that changes the price, and a callout if it is likely fake, recalled or not worth listing.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Price it",
+   "loading": "Pricing it…"
+  },
+  {
+   "id": "listing",
+   "title": "Write the listing",
+   "subtitle": "Title, description and keywords",
+   "emoji": "✍️",
+   "inputs": [
+    {
+     "key": "item",
+     "label": "Item",
+     "type": "text",
+     "placeholder": "Nintendo Switch OLED, white",
+     "required": true
+    },
+    {
+     "key": "details",
+     "label": "Condition, extras, flaws",
+     "type": "text",
+     "placeholder": "2 games, charger, slight joy-con drift"
+    },
+    {
+     "key": "price",
+     "label": "Price",
+     "type": "number",
+     "placeholder": "220"
+    }
+   ],
+   "prompt": "Write a listing for {item} ({details}) at {price} for the profile's main platform. Sections: a quote with the search-optimised title (under 80 characters), a quote with the description (honest flaws first, then extras, then collection / postage terms), bullets of 8 keyword tags, a checklist for the photos to take (angles, flaws, serial or label), and a kv (Category to list under, Best time to post, Price if no bites in 7 days).",
+   "shape": "quote, bullets, checklist, kv",
+   "button": "Write it",
+   "loading": "Typing the listing…"
+  },
+  {
+   "id": "buyers",
+   "title": "Handle buyers",
+   "subtitle": "Paste a message → your reply",
+   "emoji": "💬",
+   "inputs": [
+    {
+     "key": "message",
+     "label": "Message from the buyer",
+     "type": "longtext",
+     "placeholder": "'Is this available? I can do 40 and my courier will collect'",
+     "required": true
+    },
+    {
+     "key": "context",
+     "label": "Your item and price",
+     "type": "text",
+     "placeholder": "Kallax shelf, listed at 60"
+    }
+   ],
+   "prompt": "A buyer sent: {message} about {context}. Sections: a kv (What they're doing: lowball / scam pattern / genuine / time-waster, Risk level, Recommended stance), a quote with the exact reply to send, bullets of what never to do next (share codes, accept overpayment, use their courier), and a text section on the fallback if they push back.",
+   "shape": "kv, quote, bullets, text",
+   "button": "Reply",
+   "loading": "Reading the buyer…"
+  },
+  {
+   "id": "ship",
+   "title": "Pack & post",
+   "subtitle": "Get it there in one piece",
+   "emoji": "📦",
+   "inputs": [
+    {
+     "key": "item",
+     "label": "Item",
+     "type": "text",
+     "placeholder": "framed print 50x70cm",
+     "required": true
+    },
+    {
+     "key": "mode",
+     "label": "Handover",
+     "type": "chips",
+     "options": [
+      "Post",
+      "Courier collection",
+      "Local pickup / meet"
+     ],
+     "default": "Post"
+    }
+   ],
+   "prompt": "Plan the handover of {item} by {mode}. Sections: a checklist for packaging materials and method (double-box, corners, fragile labelling as relevant), a kv (Cheapest sensible service, Insurance / tracking, What to photograph before sending), steps for the handover itself including proof of postage or a safe public meeting spot, and a callout on the payment methods that leave you unprotected.",
+   "shape": "checklist, kv, steps, callout",
+   "button": "Plan it",
+   "loading": "Finding a box…"
+  }
+ ],
+ "disclaimer": "Meet buyers in public places and never share verification codes or accept overpayments; platform fees and buyer-protection rules change, so check the current terms."
+}

@@ -1,0 +1,183 @@
+{
+ "id": "first_payday",
+ "name": "First Payday",
+ "tagline": "Your first real salary, without the lifestyle creep",
+ "category": "Finance",
+ "colors": [
+  "#2E7D32",
+  "#FF5252",
+  "#1E88E5"
+ ],
+ "icon": "coin",
+ "about": "First Payday helps new graduates and first-jobbers split the salary before it disappears, decide whether to overpay a student loan, check if moving out adds up, compare job offers beyond the headline number and plan the first 12 months.",
+ "persona": "You are an older-sibling money mentor for first salaries: candid about lifestyle creep, pro employer pension match, and never boring.",
+ "onboarding": {
+  "title": "Salary in, plan ready",
+  "subtitle": "Tell us what you'll earn and where you live now.",
+  "bullets": [
+   "A split for every payday",
+   "Student loan: overpay or not?",
+   "Moving-out affordability, honestly"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "salary",
+   "label": "Annual salary (gross)",
+   "type": "number",
+   "placeholder": "29000"
+  },
+  {
+   "key": "living",
+   "label": "Living",
+   "type": "chips",
+   "options": [
+    "With family",
+    "Shared house",
+    "Renting alone",
+    "With partner"
+   ]
+  },
+  {
+   "key": "country",
+   "label": "Country",
+   "type": "text",
+   "placeholder": "UK"
+  }
+ ],
+ "tools": [
+  {
+   "id": "split",
+   "title": "Split my first payday",
+   "subtitle": "Where every unit of pay goes",
+   "emoji": "💸",
+   "inputs": [
+    {
+     "key": "net",
+     "label": "Monthly take-home",
+     "type": "number",
+     "placeholder": "1950"
+    },
+    {
+     "key": "fixed",
+     "label": "Fixed costs",
+     "type": "text",
+     "placeholder": "rent 700, travel 120, phone 25, loan 60"
+    },
+    {
+     "key": "goal",
+     "label": "Priority",
+     "type": "chips",
+     "options": [
+      "Build a buffer",
+      "Move out",
+      "Clear debt",
+      "Travel",
+      "Invest early"
+     ],
+     "default": "Build a buffer"
+    }
+   ],
+   "prompt": "Take-home {net}, fixed costs {fixed}, priority {goal}, living situation from the profile. Sections: kv (fixed total, needs / wants / save split in amounts, buffer target of 3 months' fixed costs, months to reach it); table (Pot | Amount | Account | Day it moves) for an automatic payday routine; a callout on the employer pension match and why skipping it is the most expensive mistake; bullets naming 4 lifestyle-creep traps of the first year with a spend limit for each.",
+   "shape": "kv, table, callout, bullets",
+   "button": "Split it",
+   "loading": "Dividing…"
+  },
+  {
+   "id": "loan",
+   "title": "Student loan: overpay?",
+   "subtitle": "The maths for your loan type",
+   "emoji": "🎓",
+   "inputs": [
+    {
+     "key": "balance",
+     "label": "Loan balance",
+     "type": "number",
+     "placeholder": "42000"
+    },
+    {
+     "key": "rate",
+     "label": "Interest rate %",
+     "type": "number",
+     "placeholder": "6.2"
+    },
+    {
+     "key": "type",
+     "label": "Loan type / repayment rule",
+     "type": "text",
+     "placeholder": "UK Plan 2, 9% over the threshold"
+    }
+   ],
+   "prompt": "Balance {balance}, rate {rate}%, type: {type}, salary from the profile. Sections: text explaining how this loan type actually behaves (income-contingent with write-off vs a standard amortising loan) in plain words; table (Strategy | Monthly | Total paid | Years | Best when…) for minimum only, plus 100 per month, a lump sum, and prioritising other goals; kv (recommended stance for this profile and the one number that would change it); a callout that this is general information, loan rules change, and the official loan body is the source of truth.",
+   "shape": "text, table, kv, callout",
+   "button": "Compare",
+   "loading": "Crunching…"
+  },
+  {
+   "id": "moveout",
+   "title": "Can I move out?",
+   "subtitle": "Rent, deposit, the real monthly",
+   "emoji": "🚪",
+   "inputs": [
+    {
+     "key": "rent",
+     "label": "Rent you're looking at",
+     "type": "number",
+     "placeholder": "900"
+    },
+    {
+     "key": "bills",
+     "label": "Estimated bills + local tax",
+     "type": "number",
+     "placeholder": "220"
+    },
+    {
+     "key": "saved",
+     "label": "Saved so far",
+     "type": "number",
+     "placeholder": "1500"
+    }
+   ],
+   "prompt": "Rent {rent}, bills {bills}, saved {saved}, salary and living situation from the profile. Sections: kv (move-in cash needed: deposit, first month, furniture basics, fees where legal; shortfall vs saved; months to save it; rent as a share of take-home); table (Cost | One-off | Monthly | Notes) including the things first-timers forget (contents insurance, broadband setup, a bed); a callout with the affordability rule of thumb and a verdict for this case; a checklist for viewing and signing safely.",
+   "shape": "kv, table, callout, checklist",
+   "button": "Check it",
+   "loading": "Packing boxes…"
+  },
+  {
+   "id": "offer",
+   "title": "Compare job offers",
+   "subtitle": "Salary is not the whole number",
+   "emoji": "🤝",
+   "inputs": [
+    {
+     "key": "offers",
+     "label": "The offers",
+     "type": "longtext",
+     "placeholder": "A: 30k, 5% pension match, hybrid, 25 days. B: 33k, no match, fully office, 20 days, 1h commute",
+     "required": true
+    }
+   ],
+   "prompt": "Offers: {offers}, home location from the profile. Sections: table (Factor | Offer A | Offer B | Annual value estimate) covering pay, pension match, commute cost and time, holiday, bonuses, training; kv (total compensation estimate for each, monthly net after commute for each, the tie-breaker question); a quote with a polite negotiation message to the lower offer; a callout on what to verify in the contract before accepting.",
+   "shape": "table, kv, quote, callout",
+   "button": "Compare offers",
+   "loading": "Weighing…"
+  },
+  {
+   "id": "year",
+   "title": "My first 12 months",
+   "subtitle": "Milestones from payday one",
+   "emoji": "🗓️",
+   "inputs": [],
+   "prompt": "Build a 12-month money plan for the profile's first year on this salary. Sections: table (Month | Milestone | Amount | Why now) covering buffer, pension check, credit basics, tax-code check, first pay review; checklist for the first 30 days (payslip check, tax code, pension enrolment, bank account setup, automatic transfers); a callout on the annual tax and pay-review moments to put in the diary; a quote with a one-sentence rule to remember every payday.",
+   "shape": "table, checklist, callout, quote",
+   "button": "Plan the year",
+   "loading": "Sketching the year…"
+  }
+ ],
+ "disclaimer": "General information, not financial, tax or legal advice; rules, thresholds and entitlements differ by country and change — confirm with official sources or a regulated adviser before acting."
+}

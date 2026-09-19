@@ -123,7 +123,7 @@
      "placeholder": "2"
     }
    ],
-   "prompt": "Design 2 unplugged games teaching '{concept}' for {players} players at the profile child's age, using paper, cups, toys or a rug grid. Cards (name, meta = minutes · materials · age fit), steps for the first game, a quote with how to explain the concept in one child-sized sentence linked back to the game, and a callout on the misconception this concept usually causes.",
+   "prompt": "Design 2 unplugged games teaching '{concept}' for {players} players (2 if blank) at the profile child's age, using paper, cups, toys or a rug grid. Cards (name, meta = minutes · materials · age fit), steps for the first game, a quote with how to explain the concept in one child-sized sentence linked back to the game, and a callout on the misconception this concept usually causes.",
    "shape": "cards, steps, quote, callout",
    "button": "Play",
    "loading": "Unplugging…"
@@ -181,8 +181,8 @@
   },
   {
    "id": "explain",
-   "title": "Explain it like they're 8",
-   "subtitle": "A coding idea in kid words",
+   "title": "Explain in kid words",
+   "subtitle": "A coding idea at their age",
    "emoji": "💡",
    "inputs": [
     {

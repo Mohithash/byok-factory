@@ -88,7 +88,7 @@
      "default": "Build"
     }
    ],
-   "prompt": "Plan one {phase} week for the profile distance, hours and weak sport within: {schedule}. Table (Day | AM session | PM session | Duration | Purpose), bullets on which session matters most and which to drop first if life intervenes, and a callout on the extra attention the weak sport gets this week.",
+   "prompt": "Plan one {phase} week for the profile distance, hours and weak sport within: {schedule}. Table (Day | AM session | PM session | Duration | Purpose) with all 7 days, 2 bullets: which session matters most, and which to drop first if life intervenes, and a callout on the extra attention the weak sport gets this week.",
    "shape": "table, bullets, callout",
    "button": "Plan week",
    "loading": "Juggling sports…"
@@ -118,7 +118,7 @@
      "placeholder": "75"
     }
    ],
-   "prompt": "A {minutes}-minute {type} brick for the profile distance: steps with each segment as duration · intensity · cue, including the transition practice in between, kv (target effort per leg, transition target time, fuel to take), bullets on what jelly legs are telling you, and a callout on when to cut it short.",
+   "prompt": "A {minutes}-minute {type} brick for the profile distance: steps with each segment as duration · intensity · cue, including the transition practice in between, kv (target effort per leg, transition target time, fuel to take), 3 bullets on what jelly legs are telling you, and a callout on when to cut it short.",
    "shape": "steps, kv, bullets, callout",
    "button": "Build brick",
    "loading": "Stacking bricks…"
@@ -173,7 +173,7 @@
      "placeholder": "30 min drive, transition closes 07:00, bike racked night before"
     }
    ],
-   "prompt": "Build a race-day timeline for a {start} start with: {logistics}, for the profile distance. Steps with clock times from alarm to start (eat, travel, rack, wetsuit, warm-up), a table (Leg | Target time | Effort | Fuel/drink | Reminder), a callout on the pre-race mistakes that cost the most, and a quote with a one-line mantra for the swim start.",
+   "prompt": "Build a race-day timeline for a {start} start with: {logistics}, for the profile distance. Steps with clock times from alarm to start (eat, travel, rack, wetsuit, warm-up), a table (Leg | Target time | Effort | Fuel/drink | Reminder) covering swim, T1, bike, T2 and run, a callout on the pre-race mistakes that cost the most, and a quote with a one-line mantra for the swim start.",
    "shape": "steps, table, callout, quote",
    "button": "Build timeline",
    "loading": "Setting alarms…"
@@ -191,7 +191,7 @@
      "placeholder": "12 h/week for 6 weeks, long ride 4 h, long run 90 min"
     }
    ],
-   "prompt": "A 2-week taper for the profile race after: {recent}. Table (Day | Swim | Bike | Run | Notes) with volume dropping and intensity kept, bullets on sleep, food and kit admin by day, a callout on taper anxiety and phantom niggles, and a checklist for the final 48 hours.",
+   "prompt": "A 2-week taper for the profile race after: {recent}. Table (Day | Swim | Bike | Run | Notes) with all 14 days, volume dropping and intensity kept, 5 bullets on sleep, food and kit admin by day, a callout on taper anxiety and phantom niggles, and a checklist for the final 48 hours.",
    "shape": "table, bullets, callout, checklist",
    "button": "Plan taper",
    "loading": "Sharpening up…"

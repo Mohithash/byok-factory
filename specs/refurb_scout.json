@@ -1,0 +1,195 @@
+{
+ "id": "refurb_scout",
+ "name": "Refurb Scout",
+ "tagline": "Buy used and refurbished tech without the gamble",
+ "category": "Shopping",
+ "colors": [
+  "#6A1B9A",
+  "#1DE9B6",
+  "#37474F"
+ ],
+ "icon": "shield",
+ "about": "Refurb Scout decodes refurbished grades and what discount each deserves, tells you how many years of updates a used phone or laptop has left, screens a listing for scam signals, and gives you a handover test checklist so you never take home a locked or dying device.",
+ "persona": "You are a repair-shop technician who buys and sells used tech every week: blunt about grades, wary of too-good prices, and specific about the tests to run before money changes hands.",
+ "onboarding": {
+  "title": "Second-hand tech, first-rate checks",
+  "subtitle": "Tell us what you're after and how much risk you'll take.",
+  "bullets": [
+   "Grade → fair discount",
+   "Years of updates left",
+   "Handover test checklist"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "region",
+   "label": "Country",
+   "type": "chips",
+   "options": [
+    "US",
+    "UK",
+    "EU",
+    "Canada",
+    "Australia",
+    "India",
+    "Other"
+   ]
+  },
+  {
+   "key": "risk",
+   "label": "Risk appetite",
+   "type": "chips",
+   "options": [
+    "Retailer-refurbished only",
+    "Reputable resellers",
+    "Private sellers fine"
+   ]
+  },
+  {
+   "key": "after",
+   "label": "What you're looking for",
+   "type": "text",
+   "placeholder": "iPhone 14 Pro, 256GB"
+  }
+ ],
+ "tools": [
+  {
+   "id": "grade",
+   "title": "Decode the grade",
+   "subtitle": "Grade A/B/C, renewed, open box",
+   "emoji": "🏷️",
+   "inputs": [
+    {
+     "key": "listing",
+     "label": "Item and grade wording",
+     "type": "text",
+     "placeholder": "iPad Air 5th gen — 'Grade B, pristine'",
+     "required": true
+    },
+    {
+     "key": "price",
+     "label": "Listed price",
+     "type": "number",
+     "placeholder": "379"
+    },
+    {
+     "key": "new",
+     "label": "Price new",
+     "type": "number",
+     "placeholder": "599"
+    }
+   ],
+   "prompt": "Decode the grade in '{listing}' listed at {price} versus {new} new. Sections: a kv (What this grade usually means, Cosmetic expectations, Battery / functional expectations, Fair discount % for this grade, Verdict on the price), a table (Seller type | Typical warranty | Return window | Trust level), bullets of questions to ask the seller before paying, and a callout on grade words that mean nothing.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Decode",
+   "loading": "Reading the grade…"
+  },
+  {
+   "id": "support",
+   "title": "Years left",
+   "subtitle": "Software support, parts and resale",
+   "emoji": "⏳",
+   "inputs": [
+    {
+     "key": "model",
+     "label": "Exact model",
+     "type": "text",
+     "placeholder": "Galaxy S22, 128GB",
+     "required": true
+    }
+   ],
+   "prompt": "Assess {model} as a used buy today. Sections: a kv (Release date, OS updates expected until, Security updates until, Battery service availability, Typical used price range in the profile's region), a text verdict on the sweet-spot price and how long it will feel fine, bullets of known faults for this model to check, and a callout listing the models one generation newer worth stretching to.",
+   "shape": "kv, text, bullets, callout",
+   "button": "Assess",
+   "loading": "Checking roadmap…"
+  },
+  {
+   "id": "legit",
+   "title": "Is this listing legit?",
+   "subtitle": "Paste or snap it",
+   "emoji": "🚩",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Screenshot of the listing",
+     "type": "photo",
+     "placeholder": "optional"
+    },
+    {
+     "key": "text",
+     "label": "Listing text and seller details",
+     "type": "longtext",
+     "placeholder": "'Brand new sealed MacBook Pro M3, 900, need quick sale, my cousin can deliver'",
+     "required": true
+    }
+   ],
+   "prompt": "Screen this listing for fraud using the text: {text} and the screenshot if attached. Sections: a kv (Risk: Low / Medium / High, Price vs market, Biggest red flag), a table (Signal | Seen? | Why it matters) covering price, stock photos, urgency, payment method, off-platform contact, account age, and serial / IMEI availability, a quote with a message that asks for the proof scammers can't give, and a callout on how to pay safely for this item type.",
+   "shape": "kv, table, quote, callout",
+   "button": "Screen it",
+   "loading": "Sniffing for scams…"
+  },
+  {
+   "id": "handover",
+   "title": "Handover tests",
+   "subtitle": "What to run before you pay",
+   "emoji": "✅",
+   "inputs": [
+    {
+     "key": "type",
+     "label": "Device",
+     "type": "chips",
+     "options": [
+      "Phone",
+      "Laptop",
+      "Tablet",
+      "Smartwatch",
+      "Console",
+      "Camera",
+      "Headphones"
+     ],
+     "default": "Phone"
+    },
+    {
+     "key": "model",
+     "label": "Model",
+     "type": "text"
+    }
+   ],
+   "prompt": "Build the handover test routine for a used {type} ({model}). Sections: a checklist of tests in order (activation / account lock removed, IMEI or serial check, battery health, screen, cameras, ports, speakers, buttons, Wi-Fi and cellular, water indicators) with pass criteria, a kv (Menus or apps that show battery health and lock status on this device, Time the tests take), steps for a safe meeting and payment, and a callout on the one test never to skip.",
+   "shape": "checklist, kv, steps, callout",
+   "button": "Build tests",
+   "loading": "Loading checklist…"
+  },
+  {
+   "id": "newused",
+   "title": "New or refurbished?",
+   "subtitle": "Where the savings are real",
+   "emoji": "🔁",
+   "inputs": [
+    {
+     "key": "item",
+     "label": "What you want",
+     "type": "text",
+     "placeholder": "noise-cancelling headphones",
+     "required": true
+    },
+    {
+     "key": "budget",
+     "label": "Budget",
+     "type": "number",
+     "placeholder": "250"
+    }
+   ],
+   "prompt": "For {item} with budget {budget}, decide between new, retailer-refurbished and private used, respecting the profile's risk appetite. Sections: a table (Route | Typical price | Warranty | Main risk | Best for), cards for the 3 best concrete options in that budget across routes (meta = route · price), bullets of versions of this item where used is a bad idea (hygiene, worn batteries, discontinued support), and a callout with the recommendation.",
+   "shape": "table, cards, bullets, callout",
+   "button": "Recommend",
+   "loading": "Comparing routes…"
+  }
+ ],
+ "disclaimer": "Meet private sellers in public, pay through protected methods and verify lock status before paying; this is general information, not legal advice."
+}

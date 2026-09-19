@@ -17,7 +17,7 @@
   "bullets": [
    "Monthly multi-faith observance lists",
    "Meeting and exam date checks",
-   "Greetings and inclusive event plans"
+   "Shared-calendar entries, ready to add"
   ]
  },
  "profile": [
@@ -80,7 +80,7 @@
      "required": true
     }
    ],
-   "prompt": "List the religious and cultural observances in {month} for the profile's communities and country. Sections: a table (Date or range | Observance | Tradition | Type: holy day / fast / festival / national | Typical impact: day off, fasting, early finish, dietary), bullets of greetings for each with pronunciation, and a callout stating which dates depend on moon sighting or vary by locale and must be confirmed.",
+   "prompt": "List the religious and cultural observances in {month} for the profile's communities and country (if no communities were chosen, cover the six largest in that country). Sections: a table (Date or range | Observance | Tradition | Type: holy day / fast / festival / national | Typical impact: day off, fasting, early finish, dietary), bullets of greetings for each with pronunciation, and a callout stating which dates depend on moon sighting or vary by locale and must be confirmed.",
    "shape": "table, bullets, callout",
    "button": "Show month",
    "loading": "Checking calendars…"
@@ -167,9 +167,9 @@
    "loading": "Drafting…"
   },
   {
-   "id": "year",
-   "title": "Year at a glance",
-   "subtitle": "Key dates for the shared calendar",
+   "id": "shared",
+   "title": "Set up the shared calendar",
+   "subtitle": "Entries ready to type into Google or Outlook",
    "emoji": "🗓️",
    "inputs": [
     {
@@ -178,11 +178,23 @@
      "type": "text",
      "placeholder": "2027",
      "required": true
+    },
+    {
+     "key": "system",
+     "label": "Calendar",
+     "type": "chips",
+     "options": [
+      "Google Calendar",
+      "Outlook / Microsoft 365",
+      "Apple Calendar",
+      "School MIS / other"
+     ],
+     "default": "Google Calendar"
     }
    ],
-   "prompt": "Produce a year-at-a-glance for {year} for the profile's communities and country. Sections: a table (Month | Major observances | Approx. dates | Flag for scheduling), bullets of the 8–10 dates most worth adding to a shared calendar, steps for confirming moveable dates each quarter, and a callout that lunar dates shift about 11 days earlier each year and are confirmed locally.",
-   "shape": "table, bullets, steps, callout",
-   "button": "Build year",
+   "prompt": "Produce the shared-calendar entries for {year} for the profile's communities and country, formatted for {system}. Sections: a table (Entry title as it should appear | Date(s) | All-day or sunset-to-sunset | Reminder lead (days) | One-line note for colleagues) with 12–20 entries, steps for adding them in {system} including why lunar dates must not be set to repeat yearly, a checklist of who to ask to confirm moon-sighting dates and when, and a callout that lunar dates move about 11 days earlier each year and are confirmed locally.",
+   "shape": "table, steps, checklist, callout",
+   "button": "Build entries",
    "loading": "Aligning calendars…"
   }
  ],

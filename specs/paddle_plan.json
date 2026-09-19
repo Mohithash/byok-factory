@@ -1,0 +1,222 @@
+{
+ "id": "paddle_plan",
+ "name": "Paddle Plan",
+ "tagline": "Plan the paddle, read the water, sharpen the strokes",
+ "category": "Sports",
+ "colors": [
+  "#0277BD",
+  "#FF6F00",
+  "#26A69A"
+ ],
+ "icon": "globe",
+ "about": "Paddle Plan builds kayak and canoe trips around tide, wind and your group, packs the safety kit that fits the water, reads a rapid or crossing from a photo, coaches strokes and rolls, and drills the rescues you hope never to need.",
+ "persona": "You are a sea-kayak and whitewater coach: calm, precise about wind and tide, and convinced the best paddlers are the ones who turn back.",
+ "onboarding": {
+  "title": "Paddle further, safer",
+  "subtitle": "Your boat and water type shape every plan.",
+  "bullets": [
+   "Trip plans with tide and wind reasoning",
+   "Photo read of rapids and crossings",
+   "Stroke, roll and rescue coaching"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "boat",
+   "label": "Boat",
+   "type": "chips",
+   "options": [
+    "Sea kayak",
+    "Whitewater kayak",
+    "Sit-on-top",
+    "Canoe",
+    "Inflatable / packraft",
+    "Touring kayak"
+   ]
+  },
+  {
+   "key": "water",
+   "label": "You paddle",
+   "type": "chips",
+   "options": [
+    "Sea & coast",
+    "Rivers",
+    "Lakes",
+    "Estuaries",
+    "Whitewater"
+   ],
+   "multi": true
+  },
+  {
+   "key": "level",
+   "label": "Level",
+   "type": "chips",
+   "options": [
+    "Beginner",
+    "Can self-rescue",
+    "Roll and rescue confident",
+    "Guide / coach"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "trip",
+   "title": "Plan a paddle",
+   "subtitle": "Tide, wind, timings, escape routes",
+   "emoji": "🗺️",
+   "inputs": [
+    {
+     "key": "route",
+     "label": "Route",
+     "type": "text",
+     "placeholder": "Anglesey: Rhoscolyn to Trearddur Bay and back",
+     "required": true
+    },
+    {
+     "key": "conditions",
+     "label": "Forecast & tides",
+     "type": "text",
+     "placeholder": "wind SW F3–4 rising F5 pm, HW 11:40, springs",
+     "required": true
+    },
+    {
+     "key": "group",
+     "label": "Group",
+     "type": "text",
+     "placeholder": "3 paddlers, one beginner, 4 hours max"
+    }
+   ],
+   "prompt": "Plan {route} with conditions {conditions} for group {group} in the profile boat. kv (go / no-go recommendation with reason, launch time, turnaround time, latest return, tidal flow direction by hour), a table of legs (Leg | Distance | Time | Hazards | Escape / landing), a checklist for the float plan to leave with someone, and a callout on the specific thing that would make you cancel on the beach.",
+   "shape": "kv, table, checklist, callout",
+   "button": "Plan trip",
+   "loading": "Plotting the flow…"
+  },
+  {
+   "id": "kit",
+   "title": "Safety kit",
+   "subtitle": "What to carry for this water",
+   "emoji": "🦺",
+   "inputs": [
+    {
+     "key": "water",
+     "label": "Trip type",
+     "type": "chips",
+     "options": [
+      "Sheltered lake",
+      "River grade 1–2",
+      "Whitewater grade 3+",
+      "Coastal day trip",
+      "Open crossing",
+      "Multi-day"
+     ],
+     "default": "Coastal day trip"
+    },
+    {
+     "key": "temp",
+     "label": "Water temperature",
+     "type": "chips",
+     "options": [
+      "Warm (20°C+)",
+      "Cool (12–20°C)",
+      "Cold (under 12°C)"
+     ],
+     "default": "Cool (12–20°C)"
+    }
+   ],
+   "prompt": "Kit for a {water} in {temp} water for the profile boat and level. Sections: a checklist grouped On body / In boat / Group kit / Comms, a table of clothing by air-versus-water temperature (Layer | Warm day | Cold day | Why), and a callout on cold-water shock and the 1-10-1 rule.",
+   "shape": "checklist, table, callout",
+   "button": "Pack kit",
+   "loading": "Clipping the tow…"
+  },
+  {
+   "id": "read",
+   "title": "Read this water",
+   "subtitle": "Photo of a rapid, tide race or crossing",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the water",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "info",
+     "label": "What you know",
+     "type": "text",
+     "placeholder": "grade 3, river dropping, we'd run river-left"
+    }
+   ],
+   "prompt": "Read the water in the photo with context {info}. Sections: text describing the features (eddies, holes, stoppers, tongues, overfalls, clapotis, tide race), a table (Feature | Risk | Line to take | Where it goes wrong), steps for the line and the eddy plan, a callout on whether to portage or wait, and bullets for the safety setup (spotters, throwbag positions).",
+   "shape": "text, table, steps, callout, bullets",
+   "button": "Read water",
+   "loading": "Scouting the line…"
+  },
+  {
+   "id": "stroke",
+   "title": "Fix a stroke or roll",
+   "subtitle": "Technique coaching",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "skill",
+     "label": "Skill",
+     "type": "chips",
+     "options": [
+      "Forward stroke",
+      "Sweep & turning",
+      "Edging",
+      "Low brace",
+      "Roll",
+      "Bow rudder",
+      "Ferry glide",
+      "Surf launch & landing"
+     ],
+     "default": "Forward stroke"
+    },
+    {
+     "key": "issue",
+     "label": "What's happening",
+     "type": "text",
+     "placeholder": "boat veers left, shoulders ache"
+    }
+   ],
+   "prompt": "Coach {skill} for the profile level; the issue: {issue}. Text on the likely cause, steps for a 20-minute drill progression on flat water, bullets of body cues (torso, hips, head, blade), and a quote with the one cue to say out loud.",
+   "shape": "text, steps, bullets, quote",
+   "button": "Coach me",
+   "loading": "Rotating the torso…"
+  },
+  {
+   "id": "rescue",
+   "title": "Rescue drills",
+   "subtitle": "Practise before you need it",
+   "emoji": "🛟",
+   "inputs": [
+    {
+     "key": "scenario",
+     "label": "Scenario",
+     "type": "chips",
+     "options": [
+      "Capsize, cold water",
+      "Paddler separated from boat",
+      "Swimmer in a rapid",
+      "Group split in wind",
+      "Injured paddler, 2 km from shore"
+     ],
+     "default": "Capsize, cold water"
+    }
+   ],
+   "prompt": "Drill for '{scenario}' with the profile boat and level. Sections: steps for the rescue in order with who does what, a checklist to practise it safely on a calm day, a table (Mistake | Consequence | Fix), and a callout on when to call the coastguard or emergency services and what to say.",
+   "shape": "steps, checklist, table, callout",
+   "button": "Drill it",
+   "loading": "Counting to ten…"
+  }
+ ],
+ "disclaimer": "Paddling can kill. This is general coaching, not a substitute for training, a buoyancy aid, checking the forecast and telling someone your plan."
+}

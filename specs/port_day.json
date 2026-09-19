@@ -1,0 +1,228 @@
+{
+ "id": "port_day",
+ "name": "Port Day",
+ "tagline": "Cabins, port days and onboard budgets, sorted",
+ "category": "Travel & Local",
+ "colors": [
+  "#01579B",
+  "#FFCA28",
+  "#26C6DA"
+ ],
+ "icon": "sun",
+ "about": "Port Day helps cruisers choose the right cabin, plan every port stop around the all-aboard time, decide between ship excursions and doing it yourself, pack for formal nights and keep the onboard bill under control.",
+ "persona": "You are a veteran cruiser and former ship crew member: practical about tenders, tides and all-aboard times, honest about upsells, and allergic to missing the ship.",
+ "onboarding": {
+  "title": "Which ship, which sea?",
+  "subtitle": "Your cruise style tunes every plan.",
+  "bullets": [
+   "Cabin picks by motion, noise and view",
+   "Port days timed to all-aboard",
+   "Onboard spend that stays on budget"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "who",
+   "label": "Travelling as",
+   "type": "chips",
+   "options": [
+    "Couple",
+    "Family with kids",
+    "Solo",
+    "Group of friends",
+    "Multigenerational"
+   ]
+  },
+  {
+   "key": "seasick",
+   "label": "Motion sensitivity",
+   "type": "chips",
+   "options": [
+    "None",
+    "A little",
+    "Very"
+   ]
+  },
+  {
+   "key": "style",
+   "label": "Cruise style",
+   "type": "chips",
+   "options": [
+    "Budget",
+    "Mainstream",
+    "Premium",
+    "Luxury",
+    "Expedition"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "cabin",
+   "title": "Pick my cabin",
+   "subtitle": "Deck, position and category",
+   "emoji": "🛏️",
+   "inputs": [
+    {
+     "key": "ship",
+     "label": "Ship / line",
+     "type": "text",
+     "placeholder": "MSC Seaside",
+     "required": true
+    },
+    {
+     "key": "nights",
+     "label": "Nights",
+     "type": "number",
+     "placeholder": "7"
+    },
+    {
+     "key": "priority",
+     "label": "Priority",
+     "type": "chips",
+     "options": [
+      "Price",
+      "Quiet",
+      "View",
+      "Least motion",
+      "Near kids' club",
+      "Accessibility"
+     ],
+     "default": "Least motion"
+    }
+   ],
+   "prompt": "Recommend cabins on {ship} for {nights} nights, prioritising {priority} for the profile. Cards for 3 cabin categories (meta = deck position · relative price · motion rating), a table (Deck zone | Pros | Cons | Avoid if), a callout on noise traps (above the theatre, under the pool deck, near the anchor), and bullets of 4 questions to ask the booking agent.",
+   "shape": "cards, table, callout, bullets",
+   "button": "Choose cabin",
+   "loading": "Reading deck plans…"
+  },
+  {
+   "id": "port",
+   "title": "Plan a port day",
+   "subtitle": "Back on board with time to spare",
+   "emoji": "⚓",
+   "inputs": [
+    {
+     "key": "port",
+     "label": "Port",
+     "type": "text",
+     "placeholder": "Kotor, Montenegro",
+     "required": true
+    },
+    {
+     "key": "hours",
+     "label": "Docked hours & type",
+     "type": "text",
+     "placeholder": "08:00–17:00, tender",
+     "required": true
+    },
+    {
+     "key": "pace",
+     "label": "Pace",
+     "type": "chips",
+     "options": [
+      "Relaxed",
+      "See the highlights",
+      "Pack it in"
+     ],
+     "default": "See the highlights"
+    }
+   ],
+   "prompt": "Plan a port day in {port}, docked {hours}, at a {pace} pace for the profile. Steps with clock times ending at least 60 minutes before all-aboard (90 if tendering), cards for 4 things to do (meta = minutes from pier · cost), a kv (currency, taxi or shuttle cost, where to get wifi or a SIM, one useful local phrase), and a callout on what happens if you miss the ship and how to make sure you don't.",
+   "shape": "steps, cards, kv, callout",
+   "button": "Plan the day",
+   "loading": "Ringing the bell…"
+  },
+  {
+   "id": "excursion",
+   "title": "Ship tour or DIY?",
+   "subtitle": "Compare the excursion with going alone",
+   "emoji": "🚐",
+   "inputs": [
+    {
+     "key": "excursion",
+     "label": "Ship excursion",
+     "type": "text",
+     "placeholder": "Ephesus & Terrace Houses, $129, 6h",
+     "required": true
+    },
+    {
+     "key": "port",
+     "label": "Port",
+     "type": "text",
+     "placeholder": "Kusadasi"
+    }
+   ],
+   "prompt": "Compare the ship's excursion '{excursion}' in {port} with doing it independently. Table (Option | Cost per person | Time | Ship-guaranteed return? | Hassle | Verdict), text with a two-sentence recommendation for the profile's group type, steps for the DIY version if it is viable, and a callout on when the ship excursion is genuinely worth the premium (tenders, long distances, tight port hours).",
+   "shape": "table, text, steps, callout",
+   "button": "Compare",
+   "loading": "Weighing anchor…"
+  },
+  {
+   "id": "pack",
+   "title": "Pack for the cruise",
+   "subtitle": "Formal nights, port days and the sea day",
+   "emoji": "🧳",
+   "inputs": [
+    {
+     "key": "nights",
+     "label": "Nights",
+     "type": "number",
+     "placeholder": "7"
+    },
+    {
+     "key": "itinerary",
+     "label": "Ports / climate",
+     "type": "text",
+     "placeholder": "Caribbean, 3 ports, 2 sea days"
+    },
+    {
+     "key": "formal",
+     "label": "Formal nights",
+     "type": "number",
+     "placeholder": "2"
+    }
+   ],
+   "prompt": "Packing list for a {nights}-night cruise ({itinerary}) with {formal} formal nights, for the profile. Checklist grouped by Cabin, Port days, Formal nights, Sea days and Documents, a table (Item | Why cruisers forget it | Price onboard if forgotten), and a callout on things cruise lines commonly prohibit (irons, extension cords, some alcohol rules) to verify with your line.",
+   "shape": "checklist, table, callout",
+   "button": "Pack me",
+   "loading": "Folding…"
+  },
+  {
+   "id": "bill",
+   "title": "Onboard budget",
+   "subtitle": "Drinks packages, gratuities, extras",
+   "emoji": "💳",
+   "inputs": [
+    {
+     "key": "nights",
+     "label": "Nights",
+     "type": "number",
+     "placeholder": "7"
+    },
+    {
+     "key": "drinks",
+     "label": "Drinks per person per day",
+     "type": "number",
+     "placeholder": "4"
+    },
+    {
+     "key": "extras",
+     "label": "Extras you want",
+     "type": "text",
+     "placeholder": "one specialty dinner, spa day, wifi"
+    }
+   ],
+   "prompt": "Estimate the onboard bill for the profile over {nights} nights with about {drinks} drinks per person per day and extras: {extras}. Table (Item | Pay-as-you-go | Package price | Which wins), a kv (daily gratuities estimate, wifi, specialty dining, total per person), bullets on 5 ways to trim the bill without feeling it, and a callout on how the onboard account and card holds work.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Estimate",
+   "loading": "Adding it up…"
+  }
+ ],
+ "disclaimer": "Prices, policies and port times vary by line and sailing; confirm all-aboard times and rules with your cruise line, and ask a doctor about motion-sickness medication."
+}

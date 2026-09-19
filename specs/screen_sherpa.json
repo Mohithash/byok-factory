@@ -54,27 +54,27 @@
     "Content",
     "Gaming rage",
     "Sleep",
-    "Social media"
+    "Fights at switch-off"
    ]
   }
  ],
  "tools": [
   {
    "id": "check",
-   "title": "Is this OK?",
-   "subtitle": "Photo or name of a game/app",
+   "title": "Is this game OK?",
+   "subtitle": "Photo or name of a game or video app",
    "emoji": "🎮",
    "inputs": [
     {
      "key": "photo",
-     "label": "Screenshot of the app or game listing",
+     "label": "Screenshot of the game or app listing",
      "type": "photo"
     },
     {
      "key": "title",
      "label": "Game or app name",
      "type": "text",
-     "placeholder": "Roblox"
+     "placeholder": "Roblox, Fortnite, YouTube Kids"
     },
     {
      "key": "child",
@@ -84,7 +84,7 @@
      "required": true
     }
    ],
-   "prompt": "Assess {title} (or the app shown in the photo) for {child}. Sections: a kv (official age rating, real content themes, chat with strangers?, in-app purchases, addictive-design features, our verdict), bullets on settings to change before first use, a callout on the single biggest risk, and a quote with a one-sentence explanation the child will accept if the answer is no or not yet.",
+   "prompt": "Assess the game or video app {title} (or the one shown in the photo) for {child}. Sections: a kv (official age rating, real content themes, in-game chat and who can message, in-app purchases and loot mechanics, addictive-design features, our verdict: yes / with settings / not yet), bullets on the exact settings to change before first play, a callout on the single biggest risk, and a quote with a one-sentence explanation the child will accept if the answer is no or not yet.",
    "shape": "kv, bullets, callout, quote",
    "button": "Assess",
    "loading": "Reading ratings…"
@@ -226,5 +226,6 @@
    "button": "Analyse",
    "loading": "Adding up…"
   }
- ]
+ ],
+ "disclaimer": "Age ratings and app features change often; check the current store listing and each device's own parental controls, and talk to your child's doctor about sleep or mood concerns."
 }

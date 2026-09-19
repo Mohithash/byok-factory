@@ -1,0 +1,207 @@
+{
+ "id": "rail_rover",
+ "name": "Rail Rover",
+ "tagline": "Interrail, Eurail and JR Pass trips, leg by leg",
+ "category": "Travel & Local",
+ "colors": [
+  "#1E88E5",
+  "#E53935",
+  "#FDD835"
+ ],
+ "icon": "globe",
+ "about": "Rail Rover plans rail-pass backpacking through Europe and Japan: whether a pass beats point-to-point tickets, a leg-by-leg route with journey times, overnight trains, seat-reservation traps and what to do with a long layover.",
+ "persona": "You are a rail-travel obsessive who knows the timetables, the reservation quirks and the scenic lines; precise about hours and fees, honest about when a pass isn't worth it.",
+ "onboarding": {
+  "title": "Where does the line take you?",
+  "subtitle": "Your pass and pace shape every route.",
+  "bullets": [
+   "Pass vs tickets, actually calculated",
+   "Leg-by-leg routes with hours",
+   "Overnight trains and reservation know-how"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "pass",
+   "label": "Pass",
+   "type": "chips",
+   "options": [
+    "Interrail",
+    "Eurail",
+    "JR Pass",
+    "No pass yet",
+    "Point-to-point"
+   ]
+  },
+  {
+   "key": "pace",
+   "label": "Pace",
+   "type": "chips",
+   "options": [
+    "Slow — 3+ nights per stop",
+    "Steady — 2 nights",
+    "Fast — new city daily"
+   ]
+  },
+  {
+   "key": "age",
+   "label": "Age band",
+   "type": "chips",
+   "options": [
+    "Under 27",
+    "27–59",
+    "60+"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "worth",
+   "title": "Is a pass worth it?",
+   "subtitle": "Compare against buying tickets",
+   "emoji": "🧮",
+   "inputs": [
+    {
+     "key": "route",
+     "label": "Cities in order",
+     "type": "longtext",
+     "placeholder": "Paris → Amsterdam → Berlin → Prague → Vienna",
+     "required": true
+    },
+    {
+     "key": "days",
+     "label": "Trip days",
+     "type": "number",
+     "placeholder": "14"
+    }
+   ],
+   "prompt": "Route: {route} over {days} days. Estimate each leg's point-to-point fare (advance vs walk-up) and journey time as a table (Leg | Hours | Advance fare | Walk-up fare | Reservation needed?), then a kv comparing total ticket cost vs the most sensible pass for the profile's age band (including estimated reservation fees), a text verdict with the break-even logic in two sentences, and bullets on which legs to book early regardless.",
+   "shape": "table, kv, text, bullets",
+   "button": "Compare",
+   "loading": "Running the numbers…"
+  },
+  {
+   "id": "route",
+   "title": "Build my rail route",
+   "subtitle": "From A to B with must-sees",
+   "emoji": "🗺️",
+   "inputs": [
+    {
+     "key": "ends",
+     "label": "Start → end city",
+     "type": "text",
+     "placeholder": "London → Rome",
+     "required": true
+    },
+    {
+     "key": "days",
+     "label": "Days",
+     "type": "number",
+     "placeholder": "12"
+    },
+    {
+     "key": "must",
+     "label": "Must-sees",
+     "type": "text",
+     "placeholder": "Swiss mountains, one beach"
+    }
+   ],
+   "prompt": "Plan a rail route {ends} in {days} days including {must}, at the profile's pace. Table (Day | From → To | Train type | Hours | Notes / scenic?), cards for each stop (meta = nights · why it's here), a callout on the one leg most likely to sell out or need a reservation, and bullets of 3 swaps if the itinerary is too rushed.",
+   "shape": "table, cards, callout, bullets",
+   "button": "Build route",
+   "loading": "Laying track…"
+  },
+  {
+   "id": "night",
+   "title": "Overnight train",
+   "subtitle": "Save a hostel night, arrive rested",
+   "emoji": "🌙",
+   "inputs": [
+    {
+     "key": "leg",
+     "label": "Overnight leg",
+     "type": "text",
+     "placeholder": "Vienna → Venice",
+     "required": true
+    },
+    {
+     "key": "class",
+     "label": "Class",
+     "type": "chips",
+     "options": [
+      "Seat",
+      "Couchette",
+      "Sleeper",
+      "Whatever's cheapest"
+     ],
+     "default": "Couchette"
+    }
+   ],
+   "prompt": "Guide the overnight train {leg} in {class}. Kv (operator, departure/arrival window, typical supplement with a pass, what's included, booking window), steps for the evening from boarding to breakfast, a checklist of what to have in your small bag (earplugs, lock, water, layers), and a callout on securing valuables and border checks on board.",
+   "shape": "kv, steps, checklist, callout",
+   "button": "Plan the night",
+   "loading": "Making the bed…"
+  },
+  {
+   "id": "reserve",
+   "title": "Reservation check",
+   "subtitle": "Which legs need a seat booking",
+   "emoji": "🎫",
+   "inputs": [
+    {
+     "key": "legs",
+     "label": "Your legs",
+     "type": "longtext",
+     "placeholder": "Paris–Barcelona TGV, Barcelona–Madrid AVE, Madrid–Lisbon night train",
+     "required": true
+    }
+   ],
+   "prompt": "For these legs: {legs} — a table (Leg | Reservation mandatory? | Typical fee with pass | Where to book | Book by), a checklist of bookings in the order to do them today, and a callout on the legs where pass-holder quotas run out early and the regional alternative that needs no reservation.",
+   "shape": "table, checklist, callout",
+   "button": "Check legs",
+   "loading": "Checking quotas…"
+  },
+  {
+   "id": "layover",
+   "title": "Long layover",
+   "subtitle": "Hours in a station city, bags and all",
+   "emoji": "⏱️",
+   "inputs": [
+    {
+     "key": "station",
+     "label": "Station / city",
+     "type": "text",
+     "placeholder": "Zürich HB",
+     "required": true
+    },
+    {
+     "key": "hours",
+     "label": "Hours to fill",
+     "type": "number",
+     "placeholder": "4"
+    },
+    {
+     "key": "bags",
+     "label": "Bags",
+     "type": "chips",
+     "options": [
+      "Backpack on",
+      "Locker them",
+      "Not sure"
+     ],
+     "default": "Not sure"
+    }
+   ],
+   "prompt": "Plan {hours} hours around {station} with bags: {bags}. Kv (luggage locker location and cost, walking distance to the centre, platform buffer to return by), steps with times for a loop that gets back with 20 minutes spare, cards for 3 food options near the station (meta = minutes away · price), and a callout on validating tickets and finding the right platform.",
+   "shape": "kv, steps, cards, callout",
+   "button": "Fill the hours",
+   "loading": "Checking the board…"
+  }
+ ],
+ "disclaimer": "Fares, timetables and reservation rules are estimates and change often; confirm with the operator or pass provider before you book."
+}

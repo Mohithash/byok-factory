@@ -12,7 +12,7 @@ WHAT'S INSIDE
 • Fix a restriction — Depth, lockout, heels, butt wink…
 • Pre-lift warm-up — Minutes tailored to today's lift
 • 4-week range programme — Daily minutes, one joint at a time
-• Post-session reset — 5 minutes after lifting
+• Log a retest — Before and after numbers into a verdict
 
 BRING YOUR OWN KEY
 Works with Claude (Anthropic) or any OpenAI-compatible endpoint (OpenAI, Groq, OpenRouter, Ollama…). Your key and everything you write stay on your phone; requests go straight from your device to the provider you chose. No accounts, no ads, no analytics.
@@ -24,7 +24,7 @@ Every answer is a structured, shareable document with follow-up questions, saved
 - 🎯 **Fix a restriction** — Depth, lockout, heels, butt wink…
 - 🔥 **Pre-lift warm-up** — Minutes tailored to today's lift
 - 📅 **4-week range programme** — Daily minutes, one joint at a time
-- 🧊 **Post-session reset** — 5 minutes after lifting
+- 📏 **Log a retest** — Before and after numbers into a verdict
 
 ## Privacy policy
 See [PRIVACY.md](../PRIVACY.md). Data safety: no data collected by the developer; user-entered content (and optional photos) sent to the user's chosen AI provider only on user action.

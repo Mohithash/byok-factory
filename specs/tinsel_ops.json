@@ -1,0 +1,204 @@
+{
+ "id": "tinsel_ops",
+ "name": "Tinsel Ops",
+ "tagline": "Christmas hosting with a timetable, not a meltdown",
+ "category": "House & Home",
+ "colors": [
+  "#1B5E20",
+  "#C62828",
+  "#FFB300"
+ ],
+ "icon": "gift",
+ "about": "Tinsel Ops runs Christmas at your house: an oven timetable that works backwards from serving time, beds and seating for everyone staying, a fair Secret Santa draw, Christmas Eve and morning plans for the kids, and a Boxing Day leftovers plan.",
+ "persona": "You are a calm Christmas host and home cook: you plan backwards from serving time, run one oven like a pro, and keep guests, kids and cooks all sane.",
+ "onboarding": {
+  "title": "Host Christmas on rails",
+  "subtitle": "Tell us who's coming and what the big meal is.",
+  "bullets": [
+   "Oven timetable from serving time",
+   "Beds, seats and a fair Secret Santa",
+   "Christmas Eve, morning and leftovers"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "guests",
+   "label": "Usual Christmas headcount",
+   "type": "number",
+   "placeholder": "10"
+  },
+  {
+   "key": "main",
+   "label": "Main event",
+   "type": "chips",
+   "options": [
+    "Christmas Day lunch",
+    "Christmas Eve dinner",
+    "Boxing Day buffet",
+    "Whole week of hosting"
+   ]
+  },
+  {
+   "key": "household",
+   "label": "Who's coming",
+   "type": "text",
+   "placeholder": "parents, sister's family with 2 kids, one vegan"
+  }
+ ],
+ "tools": [
+  {
+   "id": "timetable",
+   "title": "Oven timetable",
+   "subtitle": "Backwards from serving time",
+   "emoji": "🦃",
+   "inputs": [
+    {
+     "key": "roast",
+     "label": "Main",
+     "type": "chips",
+     "options": [
+      "Turkey",
+      "Turkey crown",
+      "Ham",
+      "Beef",
+      "Goose",
+      "Nut roast / vegan centrepiece",
+      "Two mains"
+     ],
+     "default": "Turkey"
+    },
+    {
+     "key": "weight",
+     "label": "Weight (kg)",
+     "type": "number",
+     "placeholder": "5"
+    },
+    {
+     "key": "serve",
+     "label": "Serving time",
+     "type": "text",
+     "placeholder": "2:00pm",
+     "required": true
+    }
+   ],
+   "prompt": "Build a cook timetable for {roast} at {weight} kg to serve at {serve} for the profile headcount, assuming a single oven. Table (Clock time | Task | Oven °C & shelf | Notes) working backwards from serving, including resting, potatoes, sides, gravy and a vegan or vegetarian option if the profile needs one; then a checklist of night-before prep (peel, par-boil, stuffing, table laid); then a kv of quantities per person (potatoes, veg, pigs in blankets, gravy); then a callout on safe internal temperatures and defrosting time.",
+   "shape": "table, checklist, kv, callout",
+   "button": "Build timetable",
+   "loading": "Preheating…"
+  },
+  {
+   "id": "beds",
+   "title": "Beds, seats & house prep",
+   "subtitle": "Who sleeps where, who sits where",
+   "emoji": "🛏️",
+   "inputs": [
+    {
+     "key": "staying",
+     "label": "Who's staying and when",
+     "type": "longtext",
+     "placeholder": "Mum & Dad Tue–Fri; sister + Ben + kids (3, 7) Wed–Thu…",
+     "required": true
+    },
+    {
+     "key": "rooms",
+     "label": "Spare rooms / sofas",
+     "type": "number",
+     "placeholder": "2"
+    }
+   ],
+   "prompt": "Allocate sleeping for {staying} across {rooms} spare rooms or sofas. Sections: a table (Night | Room / space | Who | Bedding needed); a second table for the Christmas Day seating plan by the profile household (Seat | Person | Why here); a checklist of house prep (linens, towels, heating, Wi-Fi card, spare toothbrushes, child safety); and a callout on giving hosts and guests one hour of no-plan time each day.",
+   "shape": "table, checklist, callout",
+   "button": "Allocate",
+   "loading": "Plumping pillows…"
+  },
+  {
+   "id": "santa",
+   "title": "Secret Santa draw",
+   "subtitle": "Fair pairings and the announcement",
+   "emoji": "🎅",
+   "inputs": [
+    {
+     "key": "people",
+     "label": "Participants (and any 'not with' pairs)",
+     "type": "longtext",
+     "placeholder": "Amy, Ben, Chloe, Dan, Eve — Amy not Ben",
+     "required": true
+    },
+    {
+     "key": "limit",
+     "label": "Spend limit",
+     "type": "number",
+     "placeholder": "25"
+    },
+    {
+     "key": "date",
+     "label": "Exchange date",
+     "type": "text",
+     "placeholder": "Christmas Eve"
+    }
+   ],
+   "prompt": "Run a Secret Santa for {people} with a {limit} limit, exchanging on {date}. Produce a table of pairings (Giver | Buys for) that respects every 'not with' rule and forms one loop with nobody drawing themselves; then a quote with the announcement message (rules, limit, date, how to hint at wishes); then a second quote with a private message template each giver can be sent; then bullets of 5 gift ideas under the limit that suit anyone.",
+   "shape": "table, quote, bullets",
+   "button": "Draw names",
+   "loading": "Drawing names…"
+  },
+  {
+   "id": "eve",
+   "title": "Christmas Eve & morning",
+   "subtitle": "The magic, scheduled",
+   "emoji": "🎄",
+   "inputs": [
+    {
+     "key": "kids",
+     "label": "Kids & ages",
+     "type": "text",
+     "placeholder": "Leo 4, Zara 8",
+     "required": true
+    },
+    {
+     "key": "traditions",
+     "label": "Traditions to include",
+     "type": "chips",
+     "options": [
+      "Stockings",
+      "Santa tracker",
+      "Christmas Eve box",
+      "Church / carols",
+      "Midnight service",
+      "Pyjama walk"
+     ],
+     "multi": true
+    }
+   ],
+   "prompt": "Plan Christmas Eve and morning for {kids} with traditions {traditions}. Steps for the evening with clock times (wind-down, treats for Santa, bedtime script); a second steps section for the morning (wake rule, stocking order, breakfast before the big gifts, photo moments); a quote with a short note from Santa; and a callout on managing overwhelm and sugar with the youngest.",
+   "shape": "steps, quote, callout",
+   "button": "Plan the magic",
+   "loading": "Sprinkling snow…"
+  },
+  {
+   "id": "leftovers",
+   "title": "Leftovers & Boxing Day",
+   "subtitle": "Use it all up safely",
+   "emoji": "🥪",
+   "inputs": [
+    {
+     "key": "left",
+     "label": "What's left",
+     "type": "longtext",
+     "placeholder": "half a turkey, roast potatoes, red cabbage, stuffing, cheese board…",
+     "required": true
+    }
+   ],
+   "prompt": "Turn {left} into a Boxing Day plan for the profile headcount: cards for 5 dishes (meta = minutes · what it uses up); steps for the best one; a table (Item | Fridge days | Freeze? | Reheat to) for safe storage; and bullets on a lazy Boxing Day buffet layout.",
+   "shape": "cards, steps, table, bullets",
+   "button": "Rescue leftovers",
+   "loading": "Raiding the fridge…"
+  }
+ ],
+ "disclaimer": "Cooking times are estimates; always check meat reaches a safe internal temperature with a thermometer."
+}

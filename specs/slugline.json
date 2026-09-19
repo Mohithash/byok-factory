@@ -107,7 +107,7 @@
      "placeholder": "reveal that Ana lied about the money"
     }
    ],
-   "prompt": "Give reader coverage on: {scene}, which must accomplish: {purpose}. Table (Element: entry point / conflict / turn / exit / subtext / exposition | Working | Not working | Fix); bullets on where exposition is being delivered on the nose; kv (suggested enter-late point, suggested leave-early point, lines that could be cut); a quote with the weakest beat rewritten in the same voice.",
+   "prompt": "Give reader coverage on: {scene}, which must accomplish: {purpose} (if not given, first infer the scene's purpose from context and state it). Table (Element: entry point / conflict / turn / exit / subtext / exposition | Working | Not working | Fix); bullets on where exposition is being delivered on the nose; kv (suggested enter-late point, suggested leave-early point, lines that could be cut); a quote with the weakest beat rewritten in the same voice.",
    "shape": "table, bullets, kv, quote",
    "button": "Give notes",
    "loading": "Reading coverage…"

@@ -64,7 +64,7 @@
      "placeholder": "12 May, at home, will held by a solicitor"
     }
    ],
-   "prompt": "Situation: {died}. Produce steps for the first 30 days grouped by week (registration and certificates, funeral, securing property, finding the will, stopping payments), a checklist of documents to gather, a kv of typical timelines and grants (probate or equivalent) in the profile region, and a callout on what an executor should not do before authority is granted.",
+   "prompt": "Situation: {died}. Produce steps for the first 30 days grouped by week (week 1: registration and certificates, funeral, securing property; week 2: finding the will, notifying key organisations; weeks 3–4: stopping payments, valuations, applying for authority), a checklist of documents to gather, a kv of typical timelines and grants (probate or equivalent) in the profile region, and a callout on what an executor should not do before authority is granted.",
    "shape": "steps, checklist, kv, callout",
    "button": "Start",
    "loading": "Taking it slowly…"
@@ -101,7 +101,7 @@
      "key": "org",
      "label": "Organisation",
      "type": "text",
-     "placeholder": "Nationwide bank account",
+     "placeholder": "Northbank current account",
      "required": true
     },
     {
@@ -167,7 +167,7 @@
      "default": "Warm"
     }
    ],
-   "prompt": "Status: {status}. Tone: {tone}. Write a quote with an update message to beneficiaries (what's done, what's next, realistic timing, why nothing can be paid out yet), bullets on handling pressure from impatient relatives, and a callout on an executor's duty to treat beneficiaries even-handedly and keep records.",
+   "prompt": "Status: {status}. Tone: {tone}. Write a quote with an update message to beneficiaries (what's done, what's next, realistic timing, why nothing can be paid out yet), bullets of 4 ready-made replies for handling pressure from impatient relatives, and a callout on an executor's duty to treat beneficiaries even-handedly and keep records.",
    "shape": "quote, bullets, callout",
    "button": "Draft update",
    "loading": "Choosing kind words…"

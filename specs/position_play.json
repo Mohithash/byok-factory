@@ -88,7 +88,7 @@
      "key": "their_copy",
      "label": "Their homepage / ad copy (paste, optional)",
      "type": "longtext",
-     "placeholder": "…"
+     "placeholder": "'The #1 field service software. Quote, schedule, invoice…'"
     }
    ],
    "prompt": "Tear down {competitor} versus the profile product using their copy: {their_copy} (use general knowledge if none given). A table (Dimension | Them | Us | Who wins | Message to use), bullets of claims they make that you can counter, a quote with a 'why us over them' paragraph for a sales page, and a callout on what to say when a prospect names them.",
@@ -102,7 +102,7 @@
    "subtitle": "One promise, three pillars, proof",
    "emoji": "🏛️",
    "inputs": [],
-   "prompt": "Create a messaging hierarchy for the profile product: kv (brand promise ≤12 words, one-sentence elevator pitch, 3 tagline options), cards for 3 message pillars (meta = customer pain it answers; body = pillar statement, 2 supporting points, proof needed), a table (Audience | Lead message | Proof | Avoid saying), and a checklist of places to update once the hierarchy is approved.",
+   "prompt": "Create a messaging hierarchy for the profile product against its competitors. A kv (brand promise ≤12 words, one-sentence elevator pitch, 3 tagline options), cards for 3 message pillars (meta = customer pain it answers; body = pillar statement, 2 supporting points, proof needed), a table (Audience | Lead message | Proof | Avoid saying), and a checklist of places to update once the hierarchy is approved.",
    "shape": "kv, cards, table, checklist",
    "button": "Build hierarchy",
    "loading": "Stacking messages…"
@@ -157,5 +157,6 @@
    "button": "Test it",
    "loading": "Poking holes…"
   }
- ]
+ ],
+ "disclaimer": "Claims about named competitors must be accurate, current and substantiated; check comparative-advertising and trademark rules in your market before publishing."
 }

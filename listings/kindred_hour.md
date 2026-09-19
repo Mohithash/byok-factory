@@ -5,12 +5,12 @@
 **Short description (≤80):** New friends and real connection in later life
 
 ## Full description
-Kindred Hour helps older adults make new friends, find groups that fit, host without stress, reconnect with people they've lost touch with, and keep a social calendar that beats the lonely stretches.
+Kindred Hour helps older adults make new friends, find groups that fit, host without stress, rebuild a social life after a loss or a move, and keep a social calendar that beats the lonely stretches.
 
 WHAT'S INSIDE
 • Find my people — Clubs, classes and communities
 • Conversation starters — Beyond the weather
-• Reconnect with someone — An old friend, a distant relative
+• Starting over — Widowed, moved, or on your own now
 • Host without stress — Coffee, cards, Sunday lunch
 • Beat the quiet week — Plan human contact ahead
 
@@ -22,7 +22,7 @@ Every answer is a structured, shareable document with follow-up questions, saved
 ## Tools
 - 🔎 **Find my people** — Clubs, classes and communities
 - 💬 **Conversation starters** — Beyond the weather
-- 📞 **Reconnect with someone** — An old friend, a distant relative
+- 🌅 **Starting over** — Widowed, moved, or on your own now
 - ☕ **Host without stress** — Coffee, cards, Sunday lunch
 - 📆 **Beat the quiet week** — Plan human contact ahead
 

@@ -1,0 +1,181 @@
+{
+ "id": "clocked",
+ "name": "Clocked",
+ "tagline": "Know what your hours really earn",
+ "category": "Finance",
+ "colors": [
+  "#F9A825",
+  "#212121",
+  "#00897B"
+ ],
+ "icon": "coin",
+ "about": "Clocked turns a freelancer's messy time log into the truth: your effective hourly rate per client, which projects were underquoted, where non-billable hours leak, and better estimates for the next job.",
+ "persona": "You are a numbers-first freelance profitability analyst: you show the arithmetic, name the worst client by the data, and suggest one change at a time.",
+ "onboarding": {
+  "title": "Every hour, accounted for",
+  "subtitle": "Your target rate turns time logs into verdicts.",
+  "bullets": [
+   "Effective rate per client",
+   "Underquoted projects flagged",
+   "Estimates from your own history"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "work",
+   "label": "What you do",
+   "type": "text",
+   "placeholder": "freelance video editor"
+  },
+  {
+   "key": "target",
+   "label": "Target hourly rate",
+   "type": "number",
+   "placeholder": "80"
+  },
+  {
+   "key": "currency",
+   "label": "Currency",
+   "type": "text",
+   "placeholder": "GBP"
+  }
+ ],
+ "tools": [
+  {
+   "id": "analyse",
+   "title": "Analyse my time log",
+   "subtitle": "Paste hours, get the truth",
+   "emoji": "📊",
+   "inputs": [
+    {
+     "key": "log",
+     "label": "Time log",
+     "type": "longtext",
+     "placeholder": "Client A: 22h, paid 1200; Client B: 40h, paid 1800; admin 9h; marketing 5h",
+     "required": true
+    },
+    {
+     "key": "period",
+     "label": "Period",
+     "type": "chips",
+     "options": [
+      "This week",
+      "This month",
+      "This quarter"
+     ],
+     "default": "This month"
+    }
+   ],
+   "prompt": "Analyse this time log for '{period}': {log}. Produce a table (Client/Project | Hours | Paid | Effective rate | vs profile target), a kv (total hours, billable %, blended effective rate, hours worked below target, best and worst client), bullets with the 3 findings that matter most, and a callout with the single change that would raise the blended rate most next period.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Analyse",
+   "loading": "Doing the sums…"
+  },
+  {
+   "id": "estimate",
+   "title": "Estimate the next job",
+   "subtitle": "From your own history",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "history",
+     "label": "Past similar projects",
+     "type": "longtext",
+     "placeholder": "3-min promo: 28h; 90-sec ad: 14h; 5-min doc: 46h",
+     "required": true
+    },
+    {
+     "key": "new",
+     "label": "The new job",
+     "type": "longtext",
+     "placeholder": "2-min brand film, 2 shoot days, motion graphics",
+     "required": true
+    }
+   ],
+   "prompt": "Using this history: {history}, estimate the new job: {new}. Produce a table (Phase | Low hours | Likely hours | High hours | Basis from history), a kv (likely total hours, price at the profile target rate, price with 15% contingency, suggested fixed price), a text section on the assumptions and what would blow the estimate, and a callout on the questions to ask before committing to a number.",
+   "shape": "table, kv, text, callout",
+   "button": "Estimate",
+   "loading": "Consulting the past…"
+  },
+  {
+   "id": "timesheet",
+   "title": "Timesheet → invoice lines",
+   "subtitle": "Group, round, describe",
+   "emoji": "🧾",
+   "inputs": [
+    {
+     "key": "entries",
+     "label": "Raw entries",
+     "type": "longtext",
+     "placeholder": "Mon 1.2h edit v2; Tue 0.4 call; Tue 2.1 colour grade; Wed 0.3 email…",
+     "required": true
+    },
+    {
+     "key": "rounding",
+     "label": "Rounding",
+     "type": "chips",
+     "options": [
+      "Exact",
+      "Nearest 15 min",
+      "Nearest 30 min",
+      "Nearest hour"
+     ],
+     "default": "Nearest 15 min"
+    }
+   ],
+   "prompt": "Convert these entries: {entries} into invoice lines using '{rounding}' rounding. Produce a table (Line | Description written for the client | Hours | Amount at the profile rate) grouped by task type, a kv (raw total, rounded total, difference), bullets of entries you'd consider non-billable or should flag to the client before billing, and a callout on describing work as outcomes rather than activities.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Convert",
+   "loading": "Tidying the sheet…"
+  },
+  {
+   "id": "leaks",
+   "title": "Non-billable audit",
+   "subtitle": "Where the unpaid hours go",
+   "emoji": "🕳️",
+   "inputs": [
+    {
+     "key": "admin",
+     "label": "Your unpaid hours last month",
+     "type": "longtext",
+     "placeholder": "invoicing 4h, proposals 9h, calls with no-shows 3h, tool fiddling 6h",
+     "required": true
+    }
+   ],
+   "prompt": "Audit these unpaid hours: {admin}. Produce a table (Activity | Hours | Cost at the profile target rate | Cut, automate, delegate or bill?), steps to reclaim the biggest 3 in order of effort, a kv of the monthly value recovered if the plan works, and a callout on the unpaid hours that are actually investments and should stay.",
+   "shape": "table, steps, kv, callout",
+   "button": "Audit",
+   "loading": "Finding the leaks…"
+  },
+  {
+   "id": "raise",
+   "title": "Time to raise my rate?",
+   "subtitle": "Signals from the data",
+   "emoji": "📈",
+   "inputs": [
+    {
+     "key": "utilisation",
+     "label": "Billable hours % last quarter",
+     "type": "number",
+     "placeholder": "85"
+    },
+    {
+     "key": "signals",
+     "label": "Recent signals",
+     "type": "text",
+     "placeholder": "3 inquiries turned away, no pushback on quotes since spring"
+    }
+   ],
+   "prompt": "Utilisation: {utilisation}%. Signals: {signals}. Give a text verdict on whether to raise the profile target rate and by roughly how much, a table (Signal | Points to a raise? | Weight) with the evidence, a kv (proposed new rate, expected client churn range, break-even churn so income stays flat), and a callout on sequencing: new clients first, existing clients with notice.",
+   "shape": "text, table, kv, callout",
+   "button": "Decide",
+   "loading": "Reading signals…"
+  }
+ ],
+ "disclaimer": "Not financial or tax advice; figures are estimates based on what you enter."
+}

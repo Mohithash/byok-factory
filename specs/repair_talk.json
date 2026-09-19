@@ -138,7 +138,7 @@
      "placeholder": "they felt abandoned"
     }
    ],
-   "prompt": "Write a real apology for: {did}, which landed as: {hurt}. Sections: a quote with the spoken apology (name the act, name the impact, no 'but', one concrete change), a checklist of the 5 parts of a complete apology with each marked as present or missing in this draft, and a callout on what not to expect straight after apologising.",
+   "prompt": "Write a real apology for: {did}, which landed as: {hurt}. Sections: a quote with the spoken apology (name the act, name the impact, no 'but', one concrete change), a checklist of the 5 parts of a complete apology (name the act, name the impact, no excuse or 'but', the concrete change, ask what they need) each quoting the line of the script that covers it so you can tick them off as you say it, and a callout on what not to expect straight after apologising.",
    "shape": "quote, checklist, callout",
    "button": "Write it",
    "loading": "Owning it…"

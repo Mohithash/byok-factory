@@ -1,0 +1,213 @@
+{
+ "id": "coach_mode",
+ "name": "Coach Mode",
+ "tagline": "Ask, don't tell: coaching skills for managers",
+ "category": "Business",
+ "colors": [
+  "#F9A825",
+  "#00695C",
+  "#6D4C41"
+ ],
+ "icon": "bulb",
+ "about": "Coach Mode helps managers develop people instead of solving their problems for them — coaching questions for the problem someone just brought you, GROW session plans, learning debriefs after a mistake, and an honest critique of your own coaching.",
+ "persona": "You are an ICF-style leadership coach who trains managers: you favour open questions over advice, hold people as capable, and know exactly when coaching is the wrong tool and direction is needed.",
+ "onboarding": {
+  "title": "Develop people, don't just direct them",
+  "subtitle": "Tell Coach Mode about the people you manage and your reflexes.",
+  "bullets": [
+   "Coaching questions for real situations",
+   "GROW session plans in 30 minutes",
+   "Critique of your own 1:1 transcripts"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "reports",
+   "label": "Direct reports",
+   "type": "number",
+   "placeholder": "5"
+  },
+  {
+   "key": "experience",
+   "label": "Managing for",
+   "type": "chips",
+   "options": [
+    "Under 1 year",
+    "1–3 years",
+    "3–10 years",
+    "10+ years"
+   ]
+  },
+  {
+   "key": "tendency",
+   "label": "Your default when someone brings a problem",
+   "type": "text",
+   "placeholder": "I jump in and fix it"
+  }
+ ],
+ "tools": [
+  {
+   "id": "question",
+   "title": "They brought me a problem",
+   "subtitle": "Coach it instead of solving it",
+   "emoji": "❓",
+   "inputs": [
+    {
+     "key": "problem",
+     "label": "What they said",
+     "type": "longtext",
+     "placeholder": "'I can't get the data team to prioritise my request'",
+     "required": true
+    },
+    {
+     "key": "time",
+     "label": "Time you have",
+     "type": "chips",
+     "options": [
+      "2 minutes in the corridor",
+      "15 minutes",
+      "A full 1:1"
+     ],
+     "default": "15 minutes"
+    }
+   ],
+   "prompt": "A report said: {problem}. The manager has {time} and the profile states their default reflex. Sections: text with a two-sentence call on whether to coach, direct, or both here; bullets of 6 open questions in the order to ask them (no 'why' questions, no advice disguised as a question); a quote with the first thing to say out loud; and a callout on the moment the manager will be tempted to take over and what to do instead.",
+   "shape": "text, bullets, quote, callout",
+   "button": "Give me questions",
+   "loading": "Biting my tongue…"
+  },
+  {
+   "id": "grow",
+   "title": "GROW session plan",
+   "subtitle": "Goal, Reality, Options, Will — in 30 minutes",
+   "emoji": "🌱",
+   "inputs": [
+    {
+     "key": "topic",
+     "label": "Coaching topic",
+     "type": "text",
+     "placeholder": "wants to get better at running client meetings",
+     "required": true
+    },
+    {
+     "key": "person",
+     "label": "Who",
+     "type": "text",
+     "placeholder": "Lena, mid-level, ambitious, a bit defensive"
+    }
+   ],
+   "prompt": "Plan a 30-minute GROW coaching session with {person} on: {topic}. Sections: steps with minutes for each phase (Goal, Reality, Options, Will), each containing 3 questions to ask; a table (If they say… | Coaching move) for defensiveness, vagueness and 'just tell me what to do'; a checklist of what to write down at the end (their goal in their words, the options, the commitment, the next check-in); and a callout on keeping the manager's own opinion out until Options.",
+   "shape": "steps, table, checklist, callout",
+   "button": "Plan session",
+   "loading": "Growing…"
+  },
+  {
+   "id": "commit",
+   "title": "They didn't do it",
+   "subtitle": "A commitment slipped — hold the line, keep the trust",
+   "emoji": "🔁",
+   "inputs": [
+    {
+     "key": "promise",
+     "label": "What they committed to",
+     "type": "text",
+     "placeholder": "send the proposal draft by Friday",
+     "required": true
+    },
+    {
+     "key": "times",
+     "label": "How often this happens",
+     "type": "chips",
+     "options": [
+      "First slip",
+      "Second time",
+      "Pattern"
+     ],
+     "default": "First slip"
+    },
+    {
+     "key": "excuse",
+     "label": "Their explanation",
+     "type": "chips",
+     "options": [
+      "Too busy",
+      "Unclear what to do",
+      "Didn't think it mattered",
+      "No explanation yet"
+     ],
+     "default": "No explanation yet"
+    }
+   ],
+   "prompt": "A report committed to '{promise}' and did not do it. Frequency: {times}. Their explanation so far: {excuse}. Sections: text with a three-sentence diagnosis of whether this is a will, skill, clarity or priority problem; a quote with the opening line that names the gap without accusation; bullets of 5 questions that surface the real obstacle; a table (If they say… | Coaching response | Trap to avoid) with 4 rows; and a callout on when repeated slips stop being coachable and become performance management.",
+   "shape": "text, quote, bullets, table, callout",
+   "button": "Plan the talk",
+   "loading": "Holding the line…"
+  },
+  {
+   "id": "mirror",
+   "title": "Critique my coaching",
+   "subtitle": "Paste what you said in a 1:1",
+   "emoji": "🪞",
+   "inputs": [
+    {
+     "key": "transcript",
+     "label": "What you said (or the exchange)",
+     "type": "longtext",
+     "placeholder": "Me: Have you tried just emailing them? Them: Yes. Me: OK, what about…",
+     "required": true
+    }
+   ],
+   "prompt": "Critique the manager's coaching in this exchange: {transcript}. Sections: kv (Ask-to-tell ratio, Open vs closed questions, Advice disguised as questions, Longest manager monologue); a table (What you said | What it did | Ask this instead) for the 5 most telling moments; a quote with how the manager could have opened the exchange; and a callout on whether the profile's stated default reflex showed up here.",
+   "shape": "kv, table, quote, callout",
+   "button": "Critique me",
+   "loading": "Replaying…"
+  },
+  {
+   "id": "mistake",
+   "title": "They messed up",
+   "subtitle": "A learning debrief, not a telling-off",
+   "emoji": "🧯",
+   "inputs": [
+    {
+     "key": "what",
+     "label": "What happened",
+     "type": "longtext",
+     "placeholder": "sent the wrong pricing to a client, caught by the client",
+     "required": true
+    },
+    {
+     "key": "first",
+     "label": "Occurrence",
+     "type": "chips",
+     "options": [
+      "First time",
+      "Second time",
+      "Pattern"
+     ],
+     "default": "First time"
+    },
+    {
+     "key": "mood",
+     "label": "How they seem",
+     "type": "chips",
+     "options": [
+      "Mortified",
+      "Defensive",
+      "Unbothered",
+      "Unknown"
+     ],
+     "default": "Unknown"
+    }
+   ],
+   "prompt": "A report made a mistake: {what}. Occurrence: {first}. They seem {mood}. Sections: text with a 3-sentence judgement on whether this is a coaching moment, a feedback moment or a process fix; steps for a 20-minute learning debrief (what happened, what they would do differently, what the system allowed, the agreement); bullets of 6 questions that produce learning rather than excuses; a quote with the opening line matched to how they seem; and a callout on when repeated mistakes stop being coachable.",
+   "shape": "text, steps, bullets, quote, callout",
+   "button": "Plan the debrief",
+   "loading": "Cooling heads…"
+  }
+ ]
+}

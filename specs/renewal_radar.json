@@ -1,7 +1,7 @@
 {
  "id": "renewal_radar",
  "name": "Renewal Radar",
- "tagline": "Spot churn early, renew on time, expand naturally",
+ "tagline": "Spot churn early, drive adoption, renew on time",
  "category": "Business",
  "colors": [
   "#AD1457",
@@ -9,7 +9,7 @@
   "#7CB342"
  ],
  "icon": "heart",
- "about": "Renewal Radar is a customer success manager's toolkit: health scores from messy notes, 30/60/90 onboarding plans, renewal playbooks and save plans for accounts going quiet.",
+ "about": "Renewal Radar is a customer success manager's toolkit: health scores from messy notes, 30/60/90 onboarding plans, adoption nudge campaigns, renewal playbooks and save plans for accounts going quiet.",
  "persona": "You are a seasoned customer success lead: proactive, outcome-obsessed, calm under escalation; you measure success in the customer's metrics, not logins.",
  "onboarding": {
   "title": "Keep customers, grow customers",
@@ -148,7 +148,8 @@
      "key": "value_amt",
      "label": "Account value",
      "type": "text",
-     "placeholder": "$45k ARR"
+     "placeholder": "$45k ARR",
+     "required": true
     }
    ],
    "prompt": "Build a save plan for a {value_amt} account where: {why}. Sections: kv (Save probability | Root cause | What they need to hear | Decision maker), steps for the next 10 days with owners, a table (Offer lever | Cost to us | Use if…), a quote with the apology-plus-plan message from the CSM, and a callout on when to gracefully let them go.",
@@ -157,23 +158,35 @@
    "loading": "Throwing lifeline…"
   },
   {
-   "id": "expand",
-   "title": "Expansion signals",
-   "subtitle": "Find the upsell in the notes",
+   "id": "adopt",
+   "title": "Adoption nudge",
+   "subtitle": "A feature nobody's using yet",
    "emoji": "📈",
    "inputs": [
     {
-     "key": "notes",
-     "label": "Recent call notes / tickets",
-     "type": "longtext",
-     "placeholder": "asked if we support contractors; opening an office in Spain; CFO joined the last call",
+     "key": "feature",
+     "label": "Feature or workflow",
+     "type": "text",
+     "placeholder": "self-service timesheet approvals",
      "required": true
+    },
+    {
+     "key": "usage",
+     "label": "Who's using it and who isn't",
+     "type": "text",
+     "placeholder": "12 of 40 managers; the Spain office hasn't logged in"
+    },
+    {
+     "key": "stakes",
+     "label": "Why it matters for renewal",
+     "type": "text",
+     "placeholder": "it's the feature they bought us for"
     }
    ],
-   "prompt": "Find expansion opportunities in: {notes} for the profile's product. Sections: a table (Signal | Opportunity | Est. uplift | Who to involve), bullets of questions to validate each opportunity on the next call, a quote with a soft, value-led introduction of the best one, and a callout on why not to pitch expansion during an open escalation.",
-   "shape": "table, bullets, quote, callout",
-   "button": "Find upsell",
-   "loading": "Reading signals…"
+   "prompt": "Design an adoption campaign for {feature} where usage looks like: {usage}; stakes: {stakes}; matching the profile's motion. Sections: kv (Likely blocker: awareness/skill/workflow/permissions | Segment to target first | 30-day adoption target | Metric to watch), steps for a 3-touch nudge campaign over 3 weeks (channel, audience, message goal), two quote sections (the email to the customer admin and a 40-word in-app message), a checklist of enablement assets to prepare, and a callout on the signs that low adoption is a product-fit problem, not a training one.",
+   "shape": "kv, steps, quote, checklist, callout",
+   "button": "Plan nudges",
+   "loading": "Lighting the path…"
   }
  ]
 }

@@ -81,7 +81,7 @@
      "placeholder": "grandma just got out of hospital"
     }
    ],
-   "prompt": "Phrases for {moment} in the profile's family language and dialect, details: {detail}. Sections: a table (Phrase in native script | Romanisation | Meaning | Respect level), a quote with a short 6-line model conversation that keeps going after the greeting, bullets of the follow-up questions relatives love to be asked, and a callout on one respectful custom for this moment.",
+   "prompt": "Phrases for {moment} in the profile's family language and dialect, details: {detail}. Sections: a table (Phrase in native script | Romanisation | Meaning | Respect level), a quote with a short 6-line model conversation that keeps going after the greeting, bullets of 5 follow-up questions relatives love to be asked, and a callout on one respectful custom for this moment.",
    "shape": "table, quote, bullets, callout",
    "button": "Prepare me",
    "loading": "Setting the table…"

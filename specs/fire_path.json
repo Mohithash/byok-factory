@@ -9,7 +9,7 @@
   "#FDD835"
  ],
  "icon": "flame",
- "about": "FIRE Path calculates your financial-independence number and date, models lean, coast and barista variants, stress-tests your withdrawal rate and shows exactly which lever shortens the wait.",
+ "about": "FIRE Path calculates your financial-independence number and date, models lean, coast and barista variants, stress-tests a 40–60 year retirement and shows exactly which lever shortens the wait.",
  "persona": "You are a calm FIRE-community veteran: numbers-first, honest about assumptions, allergic to hype, and clear that early retirement is optional, not mandatory.",
  "onboarding": {
   "title": "Find your FI date",
@@ -17,7 +17,7 @@
   "bullets": [
    "FI number and date",
    "Lean, coast, barista scenarios",
-   "Withdrawal stress tests"
+   "Long-retirement stress tests"
   ]
  },
  "profile": [
@@ -71,7 +71,7 @@
      "placeholder": "5"
     }
    ],
-   "prompt": "Using the profile (age, spending, invested) plus {save}/month, a {swr}% withdrawal rate and {ret}% real return: kv (FI number, years to FI, FI age, current progress %). Table (Year | Age | Portfolio | % of FI number) with one row per year until FI, capped at 40 rows. Bullets on the three assumptions that matter most, and a callout that this is a projection, not a promise.",
+   "prompt": "Use the profile (age, spending, invested) with monthly savings {save} (default 2,000), withdrawal rate {swr}% (default 4) and real return {ret}% (default 5). Sections: kv (FI number, years to FI, FI age, current progress %), table (Year | Age | Portfolio | % of FI number) with one row per year until FI, capped at 40 rows. Then bullets on the three assumptions that matter most, and a callout that this is a projection, not a promise.",
    "shape": "kv, table, bullets, callout",
    "button": "Calculate",
    "loading": "Running the numbers…"
@@ -102,7 +102,7 @@
      "placeholder": "2000"
     }
    ],
-   "prompt": "Baseline: the profile plus {save}/month at 5% real return and a 4% withdrawal rate. Apply '{lever}' and compare: table (Metric | Baseline | With lever | Change) with rows FI number, years to FI, FI age. Then text on why this lever has the effect it does, bullets on 3 practical ways to actually pull it, and a callout on the hidden cost of the lever.",
+   "prompt": "Baseline: the profile with monthly savings {save} (default 2,000) at 5% real return and a 4% withdrawal rate. Apply '{lever}' and compare: table (Metric | Baseline | With lever | Change) with rows FI number, years to FI, FI age. Then text on why this lever has the effect it does, bullets on 3 practical ways to actually pull it, and a callout on the hidden cost of the lever.",
    "shape": "table, text, bullets, callout",
    "button": "Compare",
    "loading": "Pulling levers…"
@@ -126,7 +126,7 @@
      "placeholder": "teaching, freelance design"
     }
    ],
-   "prompt": "Model four paths from the profile with {save}/month: cards for Lean FI, Regular FI, Coast FI (stop saving now, let it grow to 65) and Barista FI (part-time {job} covering half of spending), meta = FI age · portfolio needed. Then a table (Path | Portfolio needed | Age reached | Trade-off), and a callout on which path fits someone who would enjoy {job}.",
+   "prompt": "Model four paths from the profile with monthly savings {save} (default 2,000). Part-time work for the barista path: {job} (if not given, assume any part-time work paying half of current spending). Cards for Lean FI (spending 25% below profile), Regular FI, Coast FI (stop saving now, let it grow to 65) and Barista FI (part-time work covers half of spending), meta = FI age · portfolio needed. Then a table (Path | Portfolio needed | Age reached | Trade-off), and a callout on which path fits this person and why.",
    "shape": "cards, table, callout",
    "button": "Model paths",
    "loading": "Mapping routes…"
@@ -134,7 +134,7 @@
   {
    "id": "stress",
    "title": "Stress test my plan",
-   "subtitle": "Bad first years, inflation, long life",
+   "subtitle": "50 years, bad starts, pension gap",
    "emoji": "🌩️",
    "inputs": [
     {
@@ -156,7 +156,7 @@
      "placeholder": "50"
     }
    ],
-   "prompt": "Stress-test withdrawing {swr}% from {portfolio} over {years} years. Table (Scenario | Description | Likely outcome | Adjustment) for: bad first 5 years, high-inflation decade, average markets, great start. Then bullets 'Guardrails' (spending rules that adapt), kv (a safer starting rate for {years} years → why), and a callout explaining sequence-of-returns risk in one paragraph.",
+   "prompt": "Stress-test an early retirement: portfolio {portfolio} (default 1,000,000), withdrawal rate {swr}% (default 4), lasting {years} years (default 50). Table (Scenario | Description | Likely outcome | Adjustment) for: bad first 5 years, high-inflation decade, healthcare cost shock before any state pension, average markets, great start. Then bullets 'Guardrails' (spending rules that adapt), kv (a safer starting rate for that many years → why, bridge years before pension access → how to fund them), and a callout explaining sequence-of-returns risk in one paragraph.",
    "shape": "table, bullets, kv, callout",
    "button": "Stress test",
    "loading": "Simulating storms…"
@@ -181,7 +181,7 @@
      "required": true
     }
    ],
-   "prompt": "The user is {gap} months from planned FI and worried about: {worry}. Sections: text (an honest read on whether each worry is a money problem or a life-design problem), table (Worry | Money fix | Non-money fix), checklist 'Before you hand in notice', and a quote with a one-sentence decision rule for one-more-year syndrome.",
+   "prompt": "The user is {gap} months (default 12) from planned FI and worried about: {worry}. Sections: text (an honest read on whether each worry is a money problem or a life-design problem), table (Worry | Money fix | Non-money fix), checklist 'Before you hand in notice' (6 items), and a quote with a one-sentence decision rule for one-more-year syndrome.",
    "shape": "text, table, checklist, quote",
    "button": "Help me decide",
    "loading": "Weighing it up…"

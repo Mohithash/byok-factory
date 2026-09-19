@@ -92,13 +92,13 @@
      "required": true
     },
     {
-     "key": "quote",
+     "key": "quote_hints",
      "label": "Quote hints",
      "type": "text",
      "placeholder": "CEO on why safety, investor on why now"
     }
    ],
-   "prompt": "Write a press release for '{headline}' using these facts: {facts} and quote hints: {quote}, for the profile company. A text section with the full release: dateline, headline ≤12 words, subhead, 4–6 paragraphs in inverted pyramid, two quotes, boilerplate and media contact; a kv (headline, subhead, 3 alternate headlines); and a checklist of assets to attach (photos, logo, fact sheet).",
+   "prompt": "Write a press release for '{headline}' using these facts: {facts} and quote hints: {quote_hints}, for the profile company. A text section with the full release: dateline, headline ≤12 words, subhead, 4–6 paragraphs in inverted pyramid, two quotes, boilerplate and media contact; a kv (headline, subhead, 3 alternate headlines); and a checklist of assets to attach (photos, logo, fact sheet).",
    "shape": "text, kv, checklist",
    "button": "Write release",
    "loading": "Setting type…"
@@ -149,7 +149,7 @@
      "required": true
     }
    ],
-   "prompt": "From: {facts}, write for the profile company and spokesperson: a kv with a 25-word bio, a 75-word bio and a 150-word bio; a quote with the 60-word company boilerplate for press releases; a second quote with a 40-word speaker introduction to be read aloud; and bullets of 5 credibility facts to weave into interviews.",
+   "prompt": "Using these facts: {facts}, write bios for the profile company and spokesperson. A kv with a 25-word bio, a 75-word bio and a 150-word bio; a quote with the 60-word company boilerplate for press releases; a second quote with a 40-word speaker introduction to be read aloud; and bullets of 5 credibility facts to weave into interviews.",
    "shape": "kv, quote, bullets",
    "button": "Write bios",
    "loading": "Polishing the bio…"

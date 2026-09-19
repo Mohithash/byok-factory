@@ -124,7 +124,7 @@
      "default": "Comfortable"
     }
    ],
-   "prompt": "Estimate the vocal range of '{song}' (original key, lowest and highest notes) and recommend keys for the profile range aiming for {aim}: kv (original key, song range, recommended key, transposition in semitones, hardest note), a table (Key option | Lowest | Highest | Feel), and bullets on where breath marks and register shifts fall. Do not quote the lyrics.",
+   "prompt": "Estimate the vocal range of '{song}' (original key, lowest and highest notes; say 'approx.' where unsure) and recommend keys for the profile range aiming for {aim}: kv (original key, song range, recommended key, transposition in semitones, hardest note), a table (Key option | Lowest | Highest | Feel), and bullets on where breath marks and register shifts fall. Do not quote the lyrics.",
    "shape": "kv, table, bullets",
    "button": "Find key",
    "loading": "Checking the range…"
@@ -181,7 +181,7 @@
      "placeholder": "14"
     }
    ],
-   "prompt": "A {days}-day prep plan for {what}: table (Day | Focus | Minutes), bullets of song choices suited to the profile voice and styles with a suggested 16/32-bar cut for each, a checklist for audition day (sheet music, water, warm-up timing), and a quote with a short, confident intro to say when you walk in.",
+   "prompt": "Days until the audition: {days} (assume 14 if not given). Build a day-by-day prep plan for {what}: table (Day | Focus | Minutes), bullets of song choices suited to the profile voice and styles with a suggested 16/32-bar cut for each, a checklist for audition day (sheet music, water, warm-up timing), and a quote with a short, confident intro to say when you walk in.",
    "shape": "table, bullets, checklist, quote",
    "button": "Prep me",
    "loading": "Running lines…"

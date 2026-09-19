@@ -1,0 +1,203 @@
+{
+ "id": "work_from_there",
+ "name": "Work From There",
+ "tagline": "Workations your manager and your team say yes to",
+ "category": "Travel & Local",
+ "colors": [
+  "#00838F",
+  "#FF8F00",
+  "#8E24AA"
+ ],
+ "icon": "pin",
+ "about": "Work From There is for employees who want to work abroad for a few weeks: it checks the practical and policy questions, drafts the request to your manager, plans a day that keeps team overlap, and handles the hiccups when the Wi-Fi or the team pushes back.",
+ "persona": "You are a remote-work enablement specialist who has approved and rejected hundreds of workation requests: practical, compliance-aware, on the employee's side.",
+ "onboarding": {
+  "title": "Take your job somewhere nicer",
+  "subtitle": "Your role and team set the constraints.",
+  "bullets": [
+   "Policy and risk check in plain English",
+   "A manager request that gets a yes",
+   "Daily plans that keep the overlap"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "role",
+   "label": "Role & company type",
+   "type": "text",
+   "placeholder": "customer success manager, 200-person SaaS"
+  },
+  {
+   "key": "base",
+   "label": "Home time zone",
+   "type": "text",
+   "placeholder": "Toronto (ET)"
+  },
+  {
+   "key": "teamzones",
+   "label": "Team's time zones",
+   "type": "text",
+   "placeholder": "ET, PT"
+  }
+ ],
+ "tools": [
+  {
+   "id": "check",
+   "title": "Can I work from there?",
+   "subtitle": "Policy, tax and practical factors",
+   "emoji": "🧭",
+   "inputs": [
+    {
+     "key": "where",
+     "label": "Destination",
+     "type": "text",
+     "placeholder": "Lisbon, Portugal",
+     "required": true
+    },
+    {
+     "key": "days",
+     "label": "Days away",
+     "type": "number",
+     "placeholder": "28"
+    },
+    {
+     "key": "policy",
+     "label": "Company policy",
+     "type": "chips",
+     "options": [
+      "No written policy",
+      "Allows up to X days",
+      "Needs approval",
+      "Forbids"
+     ],
+     "default": "Needs approval"
+    }
+   ],
+   "prompt": "Destination: {where} for {days} days, company policy: '{policy}'. Produce a table (Factor | What usually applies for this length | Risk level | What to check) covering right to work or tourist limits, tax-residency days, data security, insurance, equipment and payroll, a text verdict on how easy approval is likely to be, a checklist of documents and confirmations to gather, and a callout that rules vary by country and employer and HR or a tax adviser should confirm.",
+   "shape": "table, text, checklist, callout",
+   "button": "Check",
+   "loading": "Reading the rules…"
+  },
+  {
+   "id": "ask",
+   "title": "Ask my manager",
+   "subtitle": "A proposal with coverage built in",
+   "emoji": "📨",
+   "inputs": [
+    {
+     "key": "dates",
+     "label": "Dates & place",
+     "type": "text",
+     "placeholder": "4–29 Nov, Lisbon",
+     "required": true
+    },
+    {
+     "key": "worries",
+     "label": "What they'll worry about",
+     "type": "text",
+     "placeholder": "customer calls in PT afternoons, our quarterly review"
+    }
+   ],
+   "prompt": "Write a workation proposal for {dates} pre-empting these worries: {worries}. Produce a kv (working hours in local time mapped to the profile team zones, overlap hours, coverage plan, connectivity backup, check-in cadence), a quote with the request message under 200 words that leads with what stays the same, bullets of 3 concessions to offer if they hesitate, and a callout on the reasons managers say no and how each is addressed.",
+   "shape": "kv, quote, bullets, callout",
+   "button": "Draft request",
+   "loading": "Making the case…"
+  },
+  {
+   "id": "day",
+   "title": "My workation day",
+   "subtitle": "Overlap, focus, then see the place",
+   "emoji": "🌅",
+   "inputs": [
+    {
+     "key": "where",
+     "label": "Destination",
+     "type": "text",
+     "placeholder": "Lisbon",
+     "required": true
+    },
+    {
+     "key": "style",
+     "label": "Work style",
+     "type": "chips",
+     "options": [
+      "Front-load early",
+      "Split shift",
+      "Late shift"
+     ],
+     "default": "Split shift"
+    }
+   ],
+   "prompt": "Design a typical working day in {where} with a '{style}' pattern for the profile role and team zones. Produce a table (Local time | Team time | Activity | Type: overlap / focus / life) from wake to sleep, bullets on where to work from (apartment, coworking, café) by task type, a callout on the trap of doing one and a half jobs, and a quote with the away-message or calendar note that tells colleagues when you're reachable.",
+   "shape": "table, bullets, callout, quote",
+   "button": "Plan my day",
+   "loading": "Sun and Slack…"
+  },
+  {
+   "id": "setup",
+   "title": "First-day setup",
+   "subtitle": "Connectivity, security, backups",
+   "emoji": "🔌",
+   "inputs": [
+    {
+     "key": "accommodation",
+     "label": "Where you're staying",
+     "type": "text",
+     "placeholder": "Airbnb apartment, host says 100 Mbps"
+    },
+    {
+     "key": "calls",
+     "label": "Call load",
+     "type": "chips",
+     "options": [
+      "Few calls",
+      "Daily calls",
+      "Back-to-back"
+     ],
+     "default": "Daily calls"
+    }
+   ],
+   "prompt": "Prepare a first-day checklist for {accommodation} with a '{calls}' call load. Produce a checklist (speed-test targets, backup data, VPN and MFA, power, call space, noise, lighting), a table (Failure | Likelihood | Backup plan | Cost) for internet, power, device and health, a kv of numbers to keep to hand (local emergency, embassy, IT helpdesk, insurance), and a callout on public Wi-Fi and company data.",
+   "shape": "checklist, table, kv, callout",
+   "button": "Set up",
+   "loading": "Testing the Wi-Fi…"
+  },
+  {
+   "id": "hiccup",
+   "title": "Handle a hiccup",
+   "subtitle": "Outage, illness or team pushback",
+   "emoji": "🩹",
+   "inputs": [
+    {
+     "key": "what",
+     "label": "What happened",
+     "type": "chips",
+     "options": [
+      "Internet down",
+      "I'm sick abroad",
+      "Team says I'm hard to reach",
+      "Manager wants me back",
+      "Missed a key meeting"
+     ],
+     "default": "Internet down"
+    },
+    {
+     "key": "details",
+     "label": "Details",
+     "type": "text",
+     "placeholder": "outage since 9am, client call at 2pm"
+    }
+   ],
+   "prompt": "Hiccup: '{what}'. Details: {details}. Give steps for the next 2 hours in order, a quote with the message to send to your team or manager that is honest and solution-first, bullets of what to do to prevent a repeat, and a callout on when the right move is to cut the trip short.",
+   "shape": "steps, quote, bullets, callout",
+   "button": "Fix it",
+   "loading": "Keeping calm…"
+  }
+ ],
+ "disclaimer": "General information only; immigration, tax and employment rules vary by country and employer. Confirm with HR, and a tax or immigration adviser where money or status is at stake. If you are ill abroad, contact local medical services and your insurer first."
+}

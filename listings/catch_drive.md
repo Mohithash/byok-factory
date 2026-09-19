@@ -11,7 +11,7 @@ WHAT'S INSIDE
 • Erg test pace plan — 2k, 5k, 30 min
 • Fix my stroke — Photo or description → drills
 • Steady-state week — Build the engine
-• Race plan — Head race or regatta
+• Race plan — On-water race plan with calls
 • Erg test debrief — Paste your splits
 
 BRING YOUR OWN KEY
@@ -23,7 +23,7 @@ Every answer is a structured, shareable document with follow-up questions, saved
 - 🎯 **Erg test pace plan** — 2k, 5k, 30 min
 - 📷 **Fix my stroke** — Photo or description → drills
 - 📅 **Steady-state week** — Build the engine
-- 🏁 **Race plan** — Head race or regatta
+- 🏁 **Race plan** — On-water race plan with calls
 - 📊 **Erg test debrief** — Paste your splits
 
 ## Privacy policy

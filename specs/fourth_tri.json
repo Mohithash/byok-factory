@@ -42,7 +42,7 @@
    "key": "born",
    "label": "Baby born on",
    "type": "text",
-   "placeholder": "2 September"
+   "placeholder": "2 September 2026"
   },
   {
    "key": "feeding",
@@ -63,20 +63,14 @@
    "emoji": "🩹",
    "inputs": [
     {
-     "key": "today",
-     "label": "Today's date",
-     "type": "text",
-     "placeholder": "19 September",
-     "required": true
-    },
-    {
      "key": "how",
      "label": "How you're feeling",
      "type": "text",
-     "placeholder": "sore, tired, stitches sting"
+     "placeholder": "sore, tired, stitches sting",
+     "required": true
     }
    ],
-   "prompt": "Work out days or weeks postpartum from the profile's birth date and today {today}; the user feels: {how}. Sections: kv (stage, what is healing now, what bleeding usually looks like this week, sensible activity level), a checklist of daily care for the profile's birth type (wound or perineum care, pain-relief timing, bowel and bladder, rest), bullets on what to gently avoid, and a callout on red flags (heavy bleeding or clots, fever, wound changes, calf pain, chest pain, severe headache).",
+   "prompt": "Work out days or weeks postpartum from the profile's birth date and today's date (given in the system context); the user feels: {how}. Sections: kv (stage, what is healing now, what bleeding usually looks like this week, sensible activity level), a checklist of 6–8 daily-care items for the profile's birth type (wound or perineum care, pain-relief timing, bowel and bladder, rest), bullets of 3–5 things to gently avoid, and a callout on red flags (heavy bleeding or clots, fever, wound changes, calf pain, chest pain, severe headache).",
    "shape": "kv, checklist, bullets, callout",
    "button": "Show my week",
    "loading": "Checking in…"
@@ -95,7 +89,7 @@
      "required": true
     }
    ],
-   "prompt": "Assess: {symptom} for the profile's birth type and timing. Sections: a callout with a level (Normal & monitor / Call midwife or GP today / Urgent care now) and a one-line reason, text on the likely explanations, bullets of what helps now, and a checklist of changes that should trigger an immediate call. Never diagnose; always err toward calling when unsure.",
+   "prompt": "Assess: {symptom} for the profile's birth type and timing. Sections: a callout with a level (Normal & monitor / Call midwife or GP today / Urgent care now) and a one-line reason, text on the likely explanations, bullets of 3–5 things that help now, and a checklist of 4–6 changes that should trigger an immediate call. Never diagnose; always err toward calling when unsure.",
    "shape": "callout, text, bullets, checklist",
    "button": "Check",
    "loading": "Reviewing…"
@@ -156,7 +150,7 @@
      "placeholder": "someone to take the baby 6–8am so I can sleep"
     }
    ],
-   "prompt": "Write scripts to ask {who} for: {need}. Sections: a quote with a kind, direct message (text or spoken) followed by a firmer version to use if the first is brushed off, bullets of specific tasks to delegate this week, and a callout on setting visitor boundaries without guilt.",
+   "prompt": "Write scripts to ask {who} for: {need}. Sections: a quote with a kind, direct message (text or spoken) followed by a firmer version to use if the first is brushed off, bullets of 5 specific tasks to delegate this week, and a callout on setting visitor boundaries without guilt.",
    "shape": "quote, bullets, callout",
    "button": "Write scripts",
    "loading": "Drafting…"
@@ -171,7 +165,8 @@
      "key": "concerns",
      "label": "Your concerns",
      "type": "text",
-     "placeholder": "leaking when I sneeze, sex sounds terrifying, want to run again"
+     "placeholder": "leaking when I sneeze, sex sounds terrifying, want to run again",
+     "required": true
     }
    ],
    "prompt": "Prepare the user for the 6–8 week postnatal check with concerns: {concerns}. Sections: bullets of 8 prioritised questions, a table (Topic | Ask about | Why it matters) covering wound, bleeding, pelvic floor, mood, contraception, feeding, return to exercise and sex, a checklist of things to note beforehand, and a callout on what should not wait for the check.",

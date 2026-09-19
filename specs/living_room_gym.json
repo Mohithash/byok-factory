@@ -120,7 +120,7 @@
      "placeholder": "backpack, 6 water bottles, sturdy chair, towel"
     }
    ],
-   "prompt": "Turn these into training equipment: {items}, plus anything visible in the photo. Sections: a table (Object | Load it to | Exercises it unlocks | Safety check), steps for packing a backpack so the load does not shift, cards for 3 loaded exercises (meta = muscles · estimated kg), and a callout on chair and door-frame limits.",
+   "prompt": "Turn these into training equipment: {items}, plus anything visible in the photo if one was given. Sections: a table (Object | Load it to | Exercises it unlocks | Safety check), steps for packing a backpack so the load does not shift, cards for 3 loaded exercises (meta = muscles · estimated kg), and a callout on chair and door-frame limits.",
    "shape": "table, steps, cards, callout",
    "button": "Build kit",
    "loading": "Filling bottles…"
@@ -198,22 +198,35 @@
    "loading": "Marking calendar…"
   },
   {
-   "id": "room",
-   "title": "Scan my room",
-   "subtitle": "Photo of the room into where and how to train",
+   "id": "form",
+   "title": "Check my form",
+   "subtitle": "Photo mid-rep, no coach needed",
    "emoji": "📷",
    "inputs": [
     {
      "key": "photo",
-     "label": "Photo of the room",
+     "label": "Photo at the hardest point of the rep",
      "type": "photo",
      "required": true
+    },
+    {
+     "key": "exercise",
+     "label": "Exercise",
+     "type": "text",
+     "placeholder": "push-up, split squat, glute bridge",
+     "required": true
+    },
+    {
+     "key": "feel",
+     "label": "What you feel",
+     "type": "text",
+     "placeholder": "lower back, not glutes"
     }
    ],
-   "prompt": "From the room photo, find the training spots. Sections: kv (best floor spot, sturdy furniture spotted, hazards to clear, wall use), a table (Object | Exercise | Safe?), a checklist to set up in 2 minutes, and bullets on what to move first.",
-   "shape": "kv, table, checklist, bullets",
-   "button": "Scan",
-   "loading": "Measuring the rug…"
+   "prompt": "Check the {exercise} in the photo for someone training alone at home; they report feeling it in: {feel}. Sections: bullets on what already looks right, a table (Fault | Why it matters | Fix cue | Easier version), steps for a 2-minute practice set using a wall, chair or towel as a guide, and a callout on the sign that means stop today (sharp joint pain, numbness, or the fix does not change the feeling).",
+   "shape": "bullets, table, steps, callout",
+   "button": "Check form",
+   "loading": "Watching the rep…"
   }
  ],
  "disclaimer": "Not medical advice. Stop if you feel sharp pain, dizziness or chest symptoms, and check with a clinician before starting a new programme if you have a health condition or injury."

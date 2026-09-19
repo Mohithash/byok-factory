@@ -1,0 +1,200 @@
+{
+ "id": "boss_buddy",
+ "name": "Boss Buddy",
+ "tagline": "Beat the boss, fix the build, spoilers only on request",
+ "category": "Games",
+ "colors": [
+  "#B71C1C",
+  "#00B8D4",
+  "#7E57C2"
+ ],
+ "icon": "spark",
+ "about": "Boss Buddy is a spoiler-aware video game guide: boss strategies, build and loadout planning, hint ladders when you're stuck, screenshot decoding and completion checklists, tuned to how much help you actually want.",
+ "persona": "You are a patient, knowledgeable gaming guide: you give only as much help as asked, respect spoiler limits strictly, and note when a strategy may differ by patch or platform.",
+ "onboarding": {
+  "title": "Get unstuck your way",
+  "subtitle": "Tell us what you play and how much help you like.",
+  "bullets": [
+   "Boss strategies at your hint level",
+   "Build & loadout planning",
+   "Screenshot → what am I looking at?"
+  ]
+ },
+ "profile": [
+  {
+   "key": "platform",
+   "label": "Platform",
+   "type": "chips",
+   "options": [
+    "PC",
+    "PlayStation",
+    "Xbox",
+    "Switch",
+    "Mobile"
+   ],
+   "multi": true
+  },
+  {
+   "key": "help",
+   "label": "Help level",
+   "type": "chips",
+   "options": [
+    "Nudge only",
+    "Clear strategy",
+    "Tell me everything"
+   ]
+  },
+  {
+   "key": "style",
+   "label": "Play style",
+   "type": "chips",
+   "options": [
+    "Casual",
+    "Completionist",
+    "Competitive",
+    "Speedrun-curious"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "boss",
+   "title": "Beat this boss",
+   "subtitle": "Phases, tells, punish windows",
+   "emoji": "👹",
+   "inputs": [
+    {
+     "key": "game",
+     "label": "Game",
+     "type": "text",
+     "placeholder": "Elden Ring",
+     "required": true
+    },
+    {
+     "key": "boss",
+     "label": "Boss or fight",
+     "type": "text",
+     "placeholder": "Malenia, second phase",
+     "required": true
+    },
+    {
+     "key": "setup",
+     "label": "Your build / level",
+     "type": "text",
+     "placeholder": "level 90, bleed katana, no summons"
+    }
+   ],
+   "prompt": "Strategy for {boss} in {game} with setup {setup}, at the profile help level. Output a table of phases (Phase | Key attacks & tells | Response | Punish window), steps for the opening 30 seconds, bullets of build or consumable tweaks that help, and a callout on what may differ by patch or platform and what the player should confirm in-game.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Get strategy",
+   "loading": "Studying the tells…"
+  },
+  {
+   "id": "build",
+   "title": "Build planner",
+   "subtitle": "Stats, gear, priorities",
+   "emoji": "🛠️",
+   "inputs": [
+    {
+     "key": "game",
+     "label": "Game",
+     "type": "text",
+     "placeholder": "Diablo 4 / Baldur's Gate 3",
+     "required": true
+    },
+    {
+     "key": "goal",
+     "label": "What you want",
+     "type": "text",
+     "placeholder": "a lightning sorcerer that survives endgame",
+     "required": true
+    },
+    {
+     "key": "have",
+     "label": "What you have",
+     "type": "text",
+     "placeholder": "level 40, mostly rare gear"
+    }
+   ],
+   "prompt": "Plan a build in {game} for {goal}, starting from {have}. Give a kv of the concept (role, core damage source, defensive answer, weakness), a table of priorities (Stat or skill | Why | Target value | When), steps for the levelling order, and a callout on patch sensitivity and cheap alternatives to key items.",
+   "shape": "kv, table, steps, callout",
+   "button": "Plan build",
+   "loading": "Respeccing…"
+  },
+  {
+   "id": "stuck",
+   "title": "I'm stuck",
+   "subtitle": "Hint ladder, spoiler-safe",
+   "emoji": "🧩",
+   "inputs": [
+    {
+     "key": "game",
+     "label": "Game",
+     "type": "text",
+     "placeholder": "Outer Wilds",
+     "required": true
+    },
+    {
+     "key": "where",
+     "label": "Where you are and what you've tried",
+     "type": "longtext",
+     "placeholder": "I'm in the flooded temple, found two levers, the door won't open",
+     "required": true
+    }
+   ],
+   "prompt": "The player is stuck in {game}: {where}. Respect the profile help level and never reveal beyond it. Output steps as a hint ladder (hint 1 gentle, hint 2 directional, hint 3 near-explicit, hint 4 the solution), each labelled so the player can stop reading, bullets of things they may have missed, and a callout stating what remains unspoiled.",
+   "shape": "steps, bullets, callout",
+   "button": "Give hints",
+   "loading": "Hiding spoilers…"
+  },
+  {
+   "id": "screen",
+   "title": "Decode a screenshot",
+   "subtitle": "What is this?",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Screenshot of your game",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "question",
+     "label": "Your question",
+     "type": "text",
+     "placeholder": "what do these icons mean / what should I do here"
+    }
+   ],
+   "prompt": "Look at the screenshot and answer: {question}. Give a kv of what is identified (game, screen or location, key UI elements, any status effects), bullets of what the player should do next at the profile help level, and a callout on anything uncertain from the image.",
+   "shape": "kv, bullets, callout",
+   "button": "Decode",
+   "loading": "Zooming in…"
+  },
+  {
+   "id": "complete",
+   "title": "Completion checklist",
+   "subtitle": "Nothing missed",
+   "emoji": "✅",
+   "inputs": [
+    {
+     "key": "game",
+     "label": "Game",
+     "type": "text",
+     "placeholder": "Hollow Knight",
+     "required": true
+    },
+    {
+     "key": "done",
+     "label": "What you've already done",
+     "type": "text",
+     "placeholder": "3 dreamers, 1800 essence"
+    }
+   ],
+   "prompt": "Build a completion plan for {game} given progress {done}, matching the profile play style. Output a checklist of remaining objectives grouped by area, a table of missables (Item or event | When it locks | How to avoid missing it), and a callout on the spoiler-safe phrasing used and what to verify in-game.",
+   "shape": "checklist, table, callout",
+   "button": "Build list",
+   "loading": "Counting relics…"
+  }
+ ]
+}

@@ -1,0 +1,189 @@
+{
+ "id": "bin_zero",
+ "name": "Bin Zero",
+ "tagline": "Shrink your bin, one swap at a time",
+ "category": "Lifestyle",
+ "colors": [
+  "#1B5E20",
+  "#FF6F00",
+  "#5D4037"
+ ],
+ "icon": "bag",
+ "about": "Bin Zero audits what you throw away, finds the swaps that actually pay off, tells you how to dispose of the awkward stuff and plans package-free shopping trips that fit your week.",
+ "persona": "You are a practical zero-waste coach: budget-aware, allergic to guilt trips and eco-gadgets, focused on the few changes that remove the most waste for this household.",
+ "onboarding": {
+  "title": "Less in the bin, less to buy",
+  "subtitle": "Tell us about your household and we'll start with the biggest wins.",
+  "bullets": [
+   "Bin audit from a photo",
+   "Swaps ranked by payback",
+   "Disposal answers for anything"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "household",
+   "label": "Household",
+   "type": "chips",
+   "options": [
+    "Just me",
+    "Couple",
+    "Family with kids",
+    "Shared house"
+   ]
+  },
+  {
+   "key": "stage",
+   "label": "Where you are",
+   "type": "chips",
+   "options": [
+    "Just starting",
+    "Some swaps done",
+    "Pretty far along"
+   ]
+  },
+  {
+   "key": "local",
+   "label": "Local services",
+   "type": "text",
+   "placeholder": "kerbside recycling, no food-waste collection, refill shop nearby"
+  }
+ ],
+ "tools": [
+  {
+   "id": "audit",
+   "title": "Audit my bin",
+   "subtitle": "Photo of a day's rubbish → what to divert",
+   "emoji": "🗑️",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of your bin or a day's rubbish",
+     "type": "photo",
+     "placeholder": "Tip a bag out on newspaper first",
+     "required": true
+    },
+    {
+     "key": "bin",
+     "label": "Which bin",
+     "type": "chips",
+     "options": [
+      "General waste",
+      "Recycling",
+      "Food waste"
+     ],
+     "default": "General waste"
+    }
+   ],
+   "prompt": "This is the {bin} bin. Identify every visible item as a table (Item | Should go in | Could be avoided by | Effort). Then bullets naming the 3 biggest waste streams by volume, a checklist of swaps to try this week ordered by impact, and a callout on anything contaminating the recycling.",
+   "shape": "table, bullets, checklist, callout",
+   "button": "Audit",
+   "loading": "Sorting through…"
+  },
+  {
+   "id": "swap",
+   "title": "Is this swap worth it?",
+   "subtitle": "Cost, payback and whether it lasts",
+   "emoji": "🔁",
+   "inputs": [
+    {
+     "key": "swap",
+     "label": "The swap",
+     "type": "text",
+     "placeholder": "safety razor instead of disposables",
+     "required": true
+    },
+    {
+     "key": "spend",
+     "label": "What you spend now per month",
+     "type": "number",
+     "placeholder": "8"
+    }
+   ],
+   "prompt": "Evaluate the swap '{swap}' against current spend of {spend} per month: kv (upfront cost range, monthly cost after, payback in months, waste avoided per year, verdict), bullets on what people get wrong when they try it, and a callout on when the swap is NOT worth it (e.g. it sits unused).",
+   "shape": "kv, bullets, callout",
+   "button": "Check swap",
+   "loading": "Doing the sums…"
+  },
+  {
+   "id": "dispose",
+   "title": "What do I do with this?",
+   "subtitle": "Reuse, recycle or safe disposal",
+   "emoji": "♻️",
+   "inputs": [
+    {
+     "key": "item",
+     "label": "Item",
+     "type": "text",
+     "placeholder": "old duvet, broken hair dryer, expired medicines",
+     "required": true
+    }
+   ],
+   "prompt": "For '{item}' given the local services in the profile: steps for the best route in order (reuse → donate → recycle → dispose), kv (kerbside?, drop-off type, prep needed, hazard notes), and a callout on what must NOT go in household bins.",
+   "shape": "steps, kv, callout",
+   "button": "Tell me",
+   "loading": "Checking…"
+  },
+  {
+   "id": "shop",
+   "title": "Package-free shop",
+   "subtitle": "Plan a refill or bulk run",
+   "emoji": "🛒",
+   "inputs": [
+    {
+     "key": "list",
+     "label": "Shopping list",
+     "type": "longtext",
+     "placeholder": "oats, olive oil, washing-up liquid, rice…",
+     "required": true
+    },
+    {
+     "key": "where",
+     "label": "Shopping at",
+     "type": "chips",
+     "options": [
+      "Refill shop",
+      "Supermarket only",
+      "Market + supermarket"
+     ],
+     "default": "Supermarket only"
+    }
+   ],
+   "prompt": "Plan a low-packaging shop for: {list}, shopping at {where}. Table (Item | Best low-waste option | Container to bring | Fallback if unavailable), a checklist of containers and bags to pack, and bullets on storing bulk buys so nothing spoils.",
+   "shape": "table, checklist, bullets",
+   "button": "Plan shop",
+   "loading": "Packing jars…"
+  },
+  {
+   "id": "room",
+   "title": "Zero-waste room reset",
+   "subtitle": "Kitchen, bathroom, cleaning or laundry",
+   "emoji": "🚿",
+   "inputs": [
+    {
+     "key": "room",
+     "label": "Room",
+     "type": "chips",
+     "options": [
+      "Kitchen",
+      "Bathroom",
+      "Cleaning cupboard",
+      "Laundry",
+      "Home office"
+     ],
+     "default": "Bathroom"
+    }
+   ],
+   "prompt": "A zero-waste reset for the {room} for this household: cards for the 5 highest-impact swaps (meta = cost · payback · effort), a checklist for the 'use up what you have first' phase, and a callout on greenwashed products to skip.",
+   "shape": "cards, checklist, callout",
+   "button": "Reset room",
+   "loading": "Emptying the drawer…"
+  }
+ ],
+ "disclaimer": "General guidance only; batteries, chemicals, medicines and electricals are hazardous waste — follow your local council or pharmacy rules and never put them in household bins."
+}

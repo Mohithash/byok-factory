@@ -5,13 +5,13 @@
 **Short description (≤80):** See what time does to money, in tables not slogans
 
 ## Full description
-Compound Lab makes compounding visible: year-by-year growth projections, the real cost of starting late, fees and inflation drag, lump sum versus monthly, and the Rule of 72 explained with your own numbers.
+Compound Lab makes compounding visible: year-by-year growth projections, the real cost of starting late, inflation's bite on purchasing power, the monthly amount a goal really needs, and the Rule of 72 explained with your own numbers.
 
 WHAT'S INSIDE
 • Project it — Start, monthly, years → table
 • Cost of waiting — Start now vs start later
-• Fees & inflation drag — Nominal vs real vs after-fees
-• Lump sum vs monthly — All at once or spread out?
+• Real vs nominal — What inflation does to the number
+• Goal solver — Target and deadline → monthly amount
 • Rule of 72 & friends — Mental maths for doubling
 
 BRING YOUR OWN KEY
@@ -22,8 +22,8 @@ Every answer is a structured, shareable document with follow-up questions, saved
 ## Tools
 - 📈 **Project it** — Start, monthly, years → table
 - ⏳ **Cost of waiting** — Start now vs start later
-- 🪨 **Fees & inflation drag** — Nominal vs real vs after-fees
-- 🧮 **Lump sum vs monthly** — All at once or spread out?
+- 🪨 **Real vs nominal** — What inflation does to the number
+- 🎯 **Goal solver** — Target and deadline → monthly amount
 - ✖️ **Rule of 72 & friends** — Mental maths for doubling
 
 ## Privacy policy

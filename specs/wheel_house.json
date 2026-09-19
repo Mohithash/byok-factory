@@ -73,12 +73,12 @@
     },
     {
      "key": "budget",
-     "label": "Budget for upgrades",
+     "label": "Upgrade budget (your currency)",
      "type": "number",
      "placeholder": "50"
     }
    ],
-   "prompt": "Audit the cage in the photo for the profile species with a {budget} budget. Sections: a table (Element | What I see | Minimum / ideal | Verdict) covering floor area, bedding depth, wheel size, hides, sand bath, sprays and chews, water and bar spacing, a checklist of upgrades ranked by welfare impact within budget, a callout on the most urgent problem, and bullets of cheap DIY options (bin cages, cardboard multi-chamber hides).",
+   "prompt": "Audit the cage in the photo for the profile species with an upgrade budget of {budget} in the user's currency. Sections: a table (Element | What I see | Minimum / ideal | Verdict) covering floor area, bedding depth, wheel size, hides, sand bath, sprays and chews, water and bar spacing, a checklist of upgrades ranked by welfare impact within budget, a callout on the most urgent problem, and bullets of cheap DIY options (bin cages, cardboard multi-chamber hides).",
    "shape": "table, checklist, callout, bullets",
    "button": "Audit",
    "loading": "Measuring bedding…"

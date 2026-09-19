@@ -171,7 +171,7 @@
      "required": true
     }
    ],
-   "prompt": "Diagnose from the photo and symptoms: {symptoms}. Sections: cards for the 3 most likely conditions (meta = likelihood · contagious?), a table (Condition | Key sign | Treatment | Duration), steps for immediate action including water testing and quarantine, and a callout on medications that harm shrimp, scaleless fish or plants.",
+   "prompt": "Diagnose from the photo (if provided) and these symptoms: {symptoms}. Sections: cards for the 3 most likely conditions (meta = likelihood · contagious?), a table (Condition | Key sign | Treatment | Duration), steps for immediate action including water testing and quarantine, and a callout on medications that harm shrimp, scaleless fish or plants.",
    "shape": "cards, table, steps, callout",
    "button": "Diagnose",
    "loading": "Looking closely…"

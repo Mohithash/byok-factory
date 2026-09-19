@@ -136,7 +136,7 @@
      "required": true
     }
    ],
-   "prompt": "Critique the stall in the photo: bullets on what stops passers-by and what doesn't, a table (Zone | Now | Change | Why) covering height, hero product, price visibility, signage and reach, steps to re-set it in 15 minutes, and a quote with a 6-word sign for the front.",
+   "prompt": "Critique the stall in the photo. Give bullets on what stops passers-by and what doesn't, a table (Zone | Now | Change | Why) covering height, hero product, price visibility, signage and reach, steps to re-set it in 15 minutes, and a quote with a 6-word sign for the front.",
    "shape": "bullets, table, steps, quote",
    "button": "Check layout",
    "loading": "Standing back…"
@@ -180,7 +180,7 @@
      "default": "Asks the price"
     }
    ],
-   "prompt": "Give me lines for when '{moment}' happens at a stall selling the profile products: a quote with 3 short things to say, bullets on body language and timing, and a callout on what not to say.",
+   "prompt": "Give me lines for when '{moment}' happens at a stall selling the profile products. A quote with 3 short things to say, each under 15 words, bullets on body language and timing, and a callout on what not to say.",
    "shape": "quote, bullets, callout",
    "button": "Give me lines",
    "loading": "Warming up…"

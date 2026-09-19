@@ -1,0 +1,229 @@
+{
+ "id": "deal_verdict",
+ "name": "Deal Verdict",
+ "tagline": "Know if a sale is real before you tap buy",
+ "category": "Shopping",
+ "colors": [
+  "#D32F2F",
+  "#FBC02D",
+  "#212121"
+ ],
+ "icon": "coin",
+ "about": "Deal Verdict checks whether a discount is genuine, tells you the best month to buy each thing, stacks cashback, coupons and card perks into one plan, and turns big sale days into a shortlist you won't regret.",
+ "persona": "You are a sceptical, numbers-first deal hunter who knows retail pricing tricks (inflated 'was' prices, bundle padding, urgency timers) and never encourages spending just because something is discounted.",
+ "onboarding": {
+  "title": "Stop falling for fake sales",
+  "subtitle": "Tell us where you shop and what you're saving for.",
+  "bullets": [
+   "Spot inflated 'was' prices",
+   "Best month to buy anything",
+   "Stack every discount, legally"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "region",
+   "label": "Where you shop",
+   "type": "chips",
+   "options": [
+    "US",
+    "UK",
+    "EU",
+    "Canada",
+    "Australia",
+    "India",
+    "Other"
+   ]
+  },
+  {
+   "key": "cashback",
+   "label": "Rewards you use",
+   "type": "chips",
+   "options": [
+    "Cashback portal",
+    "Rewards credit card",
+    "Store loyalty cards",
+    "Student / member discounts",
+    "None"
+   ],
+   "multi": true
+  },
+  {
+   "key": "wishlist",
+   "label": "Things you're waiting to buy",
+   "type": "text",
+   "placeholder": "standing desk, AirPods, winter tyres"
+  }
+ ],
+ "tools": [
+  {
+   "id": "real",
+   "title": "Is this deal real?",
+   "subtitle": "Paste a deal or snap the price tag",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "item",
+     "label": "Product",
+     "type": "text",
+     "placeholder": "Sony WH-1000XM5",
+     "required": true
+    },
+    {
+     "key": "deal",
+     "label": "The deal as advertised",
+     "type": "text",
+     "placeholder": "Was $499 now $299, 40% off, ends tonight"
+    },
+    {
+     "key": "photo",
+     "label": "Photo of the price tag or listing",
+     "type": "photo",
+     "placeholder": "optional"
+    }
+   ],
+   "prompt": "Judge this deal on {item}: '{deal}' (read the prices from the photo if one is attached and the description is thin). Sections: a kv verdict (Discount claimed, Realistic street price, True saving, Verdict: Real / Inflated / Meh), bullets 'Tricks in play' naming any anchor-price inflation, urgency timers or bundle padding you can see, a table (Where to check | What to look for) with 3 price-history and comparison sources for the profile's region, and a callout on the one thing to check before buying.",
+   "shape": "kv, bullets, table, callout",
+   "button": "Judge it",
+   "loading": "Sniffing the sale…"
+  },
+  {
+   "id": "timing",
+   "title": "Best time to buy",
+   "subtitle": "The cheapest month for this category",
+   "emoji": "📅",
+   "inputs": [
+    {
+     "key": "category",
+     "label": "What you want to buy",
+     "type": "text",
+     "placeholder": "a mid-range laptop",
+     "required": true
+    },
+    {
+     "key": "urgency",
+     "label": "How soon",
+     "type": "chips",
+     "options": [
+      "This week",
+      "This month",
+      "Whenever it's cheapest"
+     ],
+     "default": "Whenever it's cheapest"
+    }
+   ],
+   "prompt": "For '{category}', urgency: {urgency}, in the profile's region, lay out when it is cheapest. Sections: a table (Month / event | Typical discount | Why prices drop | Wait or buy), steps for what to do between now and the best window (set alerts, check refurb outlets, note model refresh cycles), and a callout on whether the next model launch will make current stock cheaper.",
+   "shape": "table, steps, callout",
+   "button": "Find the window",
+   "loading": "Checking calendar…"
+  },
+  {
+   "id": "stack",
+   "title": "Stack the savings",
+   "subtitle": "Cashback, coupons, cards — in the right order",
+   "emoji": "🧩",
+   "inputs": [
+    {
+     "key": "item",
+     "label": "Item and store",
+     "type": "text",
+     "placeholder": "Dyson V15 at Best Buy",
+     "required": true
+    },
+    {
+     "key": "price",
+     "label": "Price",
+     "type": "number",
+     "placeholder": "649"
+    }
+   ],
+   "prompt": "Build a savings stack for {item} at {price} using the rewards and cashback the profile lists. Sections: steps in the exact order to apply them (cashback portal click-through first, then coupon, then card, then loyalty points), a table (Layer | Typical value | Conditions | Est. saving), a kv with the final estimated price, and a callout warning about stacks that void each other or cancel cashback.",
+   "shape": "steps, table, kv, callout",
+   "button": "Stack it",
+   "loading": "Layering discounts…"
+  },
+  {
+   "id": "saleday",
+   "title": "Sale-day battle plan",
+   "subtitle": "Black Friday or Prime Day without the regret",
+   "emoji": "🛒",
+   "inputs": [
+    {
+     "key": "list",
+     "label": "Everything you're tempted by",
+     "type": "longtext",
+     "placeholder": "55in 4K TV, air fryer, running shoes, kids' tablet…",
+     "required": true
+    },
+    {
+     "key": "budget",
+     "label": "Total budget",
+     "type": "number",
+     "placeholder": "800"
+    },
+    {
+     "key": "event",
+     "label": "Event",
+     "type": "chips",
+     "options": [
+      "Black Friday",
+      "Prime Day",
+      "Boxing Day",
+      "Singles' Day",
+      "End-of-season sale",
+      "Other"
+     ],
+     "default": "Black Friday"
+    }
+   ],
+   "prompt": "Plan {event} for this list: {list}, plus anything on the profile's waiting-to-buy list, total budget {budget}. Sections: a table (Item | Buy / Skip / Wait | Target price | Why) prioritised by genuine savings over hype, a checklist to do the week before (price-history check, account set-up, return policy read), a kv with the budget split, and a callout on the decoys retailers push on sale day.",
+   "shape": "table, checklist, kv, callout",
+   "button": "Plan the day",
+   "loading": "Sharpening elbows…"
+  },
+  {
+   "id": "pricedrop",
+   "title": "Price dropped after I bought",
+   "subtitle": "Claim the difference back",
+   "emoji": "↩️",
+   "inputs": [
+    {
+     "key": "item",
+     "label": "Item, store and what you paid",
+     "type": "text",
+     "placeholder": "Garmin Forerunner 265, REI, 449 on 3 March",
+     "required": true
+    },
+    {
+     "key": "seen",
+     "label": "Lower price you've seen and where",
+     "type": "text",
+     "placeholder": "399 at Amazon today",
+     "required": true
+    },
+    {
+     "key": "paid",
+     "label": "Paid with",
+     "type": "chips",
+     "options": [
+      "Credit card",
+      "Debit card",
+      "PayPal / BNPL",
+      "Cash / gift card"
+     ],
+     "default": "Credit card"
+    }
+   ],
+   "prompt": "The user bought {item} and now sees {seen}, paid by {paid}. Work out how to get the difference back in the profile's region. Sections: a table (Route | Applies? | Window | Likely refund | Effort) covering the store's own price-adjustment policy, its price-match policy, card price-protection benefits, and return-and-rebuy, a kv (Best route, Deadline, Proof to gather, Expected refund), a quote with the exact message to send the retailer citing the lower price, and a callout on when return-and-rebuy is not worth it (restocking fees, sold out, warranty reset).",
+   "shape": "table, kv, quote, callout",
+   "button": "Claim it back",
+   "loading": "Chasing the refund…"
+  }
+ ],
+ "disclaimer": "Prices, rewards terms and card offers change often; check the retailer and card issuer before relying on a figure. This is general information, not financial advice."
+}

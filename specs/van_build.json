@@ -1,0 +1,244 @@
+{
+ "id": "van_build",
+ "name": "Ply & Volt",
+ "tagline": "Convert a panel van into a camper that actually works",
+ "category": "Auto & Vehicles",
+ "colors": [
+  "#FFB300",
+  "#5D4037",
+  "#455A64"
+ ],
+ "icon": "bulb",
+ "about": "Ply & Volt plans your DIY campervan conversion: furniture build plans with cut lists, a wired-and-fused 12 V system sized to what you run, insulation and ventilation choices, a build order with budget, and the paperwork to make it legal.",
+ "persona": "You are a van-conversion builder and 12 V electrician: practical, safety-obsessed about gas and wiring, and allergic to spending on things you'll rip out later.",
+ "onboarding": {
+  "title": "Build it once, build it right",
+  "subtitle": "Your van, budget and skills set the plan.",
+  "bullets": [
+   "Furniture plans with cut lists",
+   "Electrics sized, wired and fused",
+   "Build order and legal route"
+  ]
+ },
+ "profile": [
+  {
+   "key": "van",
+   "label": "Van (model, wheelbase, roof)",
+   "type": "text",
+   "placeholder": "VW Crafter MWB high roof"
+  },
+  {
+   "key": "people",
+   "label": "Sleeps",
+   "type": "chips",
+   "options": [
+    "1",
+    "2",
+    "2 + dog",
+    "Family"
+   ]
+  },
+  {
+   "key": "budget",
+   "label": "Build budget",
+   "type": "number",
+   "placeholder": "9000"
+  },
+  {
+   "key": "skill",
+   "label": "Skills",
+   "type": "chips",
+   "options": [
+    "First build",
+    "Handy",
+    "Trade skills"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "furniture",
+   "title": "Furniture build plan",
+   "subtitle": "One unit → dimensions, cut list, fixings",
+   "emoji": "🪚",
+   "inputs": [
+    {
+     "key": "unit",
+     "label": "What you're building",
+     "type": "longtext",
+     "placeholder": "fixed transverse bed 1900 × 1400 over a bike garage, lift-up slats",
+     "required": true
+    },
+    {
+     "key": "material",
+     "label": "Sheet material",
+     "type": "chips",
+     "options": [
+      "12 mm poplar ply",
+      "15 mm birch ply",
+      "9 mm ply on battens",
+      "Lightweight honeycomb board"
+     ],
+     "default": "12 mm poplar ply"
+    },
+    {
+     "key": "tools",
+     "label": "Tools",
+     "type": "chips",
+     "options": [
+      "Hand tools + drill",
+      "Track or circular saw",
+      "Full workshop"
+     ],
+     "default": "Track or circular saw"
+    }
+   ],
+   "prompt": "Design the build of: {unit} in {material} using {tools} for the profile van and skill level. Give a kv of finished dimensions (length, width, height, clearance under, mattress or worktop size, estimated weight in kg), then a cut-list table (Piece | Qty | Length × width mm | Material | From sheet #) that minimises sheet waste and ends with the number of sheets to buy. Then steps for assembly with joinery, glue, screw sizes and how to fix to the van ribs or floor without piercing the outer skin, and a callout on crash loading and why beds and seats must be anchored, not just sat on the floor.",
+   "shape": "kv, table, steps, callout",
+   "button": "Draw it up",
+   "loading": "Marking out…"
+  },
+  {
+   "id": "electrics",
+   "title": "Size the electrics",
+   "subtitle": "Solar, battery, inverter, wire",
+   "emoji": "⚡",
+   "inputs": [
+    {
+     "key": "loads",
+     "label": "What you'll run",
+     "type": "longtext",
+     "placeholder": "12 V fridge, diesel heater, laptop 4 h/day, lights, water pump, phone charging, occasional induction hob",
+     "required": true
+    },
+    {
+     "key": "days",
+     "label": "Days off-grid",
+     "type": "chips",
+     "options": [
+      "1–2",
+      "3–4",
+      "5+"
+     ],
+     "default": "3–4"
+    },
+    {
+     "key": "season",
+     "label": "Worst season used",
+     "type": "chips",
+     "options": [
+      "Summer only",
+      "Spring/autumn",
+      "Winter"
+     ],
+     "default": "Spring/autumn"
+    }
+   ],
+   "prompt": "Size a 12 V system for: {loads}, for {days} days off-grid in {season}. A table (Load | Watts | Hours/day | Wh/day), a kv of results (daily Wh, battery Ah for lithium and for AGM, solar watts, inverter size, DC-DC charger amps, main fuse), a second table of cable and fuse per circuit (Circuit | Amps | Length | mm² | Fuse), and a callout on the wiring mistakes that start fires.",
+   "shape": "table, kv, callout",
+   "button": "Size it",
+   "loading": "Counting amps…"
+  },
+  {
+   "id": "insulate",
+   "title": "Insulation & ventilation",
+   "subtitle": "Warm, dry, no condensation",
+   "emoji": "🧊",
+   "inputs": [
+    {
+     "key": "climate",
+     "label": "Climate",
+     "type": "chips",
+     "options": [
+      "Hot",
+      "Cold",
+      "Damp/temperate",
+      "Everything"
+     ],
+     "default": "Damp/temperate"
+    },
+    {
+     "key": "priority",
+     "label": "Priority",
+     "type": "chips",
+     "options": [
+      "Cheapest",
+      "Thinnest",
+      "Best performance",
+      "Non-toxic"
+     ],
+     "default": "Best performance"
+    }
+   ],
+   "prompt": "Specify insulation and ventilation for the profile van in a {climate} climate with priority {priority}. A table (Zone | Material | Thickness | Vapour strategy | Cost) for floor, walls, ceiling, doors and windows, steps for the install order with adhesives and fixings, and a callout on condensation sources and the roof fan plus low vent combination that solves them.",
+   "shape": "table, steps, callout",
+   "button": "Specify",
+   "loading": "Stuffing the ribs…"
+  },
+  {
+   "id": "order",
+   "title": "Build order & budget",
+   "subtitle": "What comes before what",
+   "emoji": "🛠️",
+   "inputs": [
+    {
+     "key": "weekends",
+     "label": "Weekends available",
+     "type": "number",
+     "placeholder": "16"
+    },
+    {
+     "key": "gas",
+     "label": "Cooking and heating",
+     "type": "chips",
+     "options": [
+      "Diesel heater + induction",
+      "LPG hob + heater",
+      "Portable gas",
+      "Electric only"
+     ],
+     "default": "Diesel heater + induction"
+    }
+   ],
+   "prompt": "Sequence the full build over {weekends} weekends with {gas} for the profile van, budget and skill. Steps for the phases in the correct order (strip, rust, windows and fan, wiring first fix, insulation, floor, walls, furniture, electrics second fix, water, gas), a table (Phase | Weekends | Est. cost | Tools needed | Outsource?), a checklist of tools to buy or borrow, and a callout on the jobs that must be certified by a professional.",
+   "shape": "steps, table, checklist, callout",
+   "button": "Sequence it",
+   "loading": "Sharpening the saw…"
+  },
+  {
+   "id": "legal",
+   "title": "Make it legal",
+   "subtitle": "Registration, insurance, weights",
+   "emoji": "📋",
+   "inputs": [
+    {
+     "key": "country",
+     "label": "Country",
+     "type": "chips",
+     "options": [
+      "UK",
+      "Ireland",
+      "Germany",
+      "France",
+      "Netherlands",
+      "USA",
+      "Australia",
+      "Other"
+     ],
+     "default": "UK"
+    },
+    {
+     "key": "stage",
+     "label": "Where you are",
+     "type": "text",
+     "placeholder": "build finished, need to reclassify and insure"
+    }
+   ],
+   "prompt": "For a self-build in {country} at stage: {stage}, explain the route to a road-legal, insurable camper. Steps from build to reclassification or inspection, a checklist of features and evidence typically required (bed, cooking, storage, seating, photos, receipts), a kv of weight and seat-belt considerations, and a callout on gas and electrical certificates insurers may ask for, noting where rules vary by region.",
+   "shape": "steps, checklist, kv, callout",
+   "button": "Explain",
+   "loading": "Reading the rules…"
+  }
+ ],
+ "disclaimer": "Electrical, gas and structural guidance is general; have LPG installations, mains wiring and seat or bed anchorages certified by qualified professionals and check current rules where you live."
+}

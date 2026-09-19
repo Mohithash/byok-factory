@@ -8,7 +8,7 @@
 Bump Weekly explains what's happening to you and the baby each week, checks whether a symptom is normal or needs a call, answers 'is this safe?' questions and preps you for every appointment.
 
 WHAT'S INSIDE
-• This week — Body, baby, to-dos
+• This week — Body, baby, to-dos — one tap
 • Is this safe? — Food, meds, activities, beauty
 • Normal or call? — Aches, spotting, headaches, swelling
 • Appointment prep — Questions for your midwife or OB
@@ -20,7 +20,7 @@ Works with Claude (Anthropic) or any OpenAI-compatible endpoint (OpenAI, Groq, O
 Every answer is a structured, shareable document with follow-up questions, saved on-device so you can come back to it.
 
 ## Tools
-- 🗓️ **This week** — Body, baby, to-dos
+- 🗓️ **This week** — Body, baby, to-dos — one tap
 - ✅ **Is this safe?** — Food, meds, activities, beauty
 - 🩺 **Normal or call?** — Aches, spotting, headaches, swelling
 - 📋 **Appointment prep** — Questions for your midwife or OB

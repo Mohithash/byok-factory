@@ -1,0 +1,192 @@
+{
+ "id": "feast_famine",
+ "name": "Feast & Famine",
+ "tagline": "Know which projects fit before you say yes",
+ "category": "Business",
+ "colors": [
+  "#E65100",
+  "#2E7D32",
+  "#6D4C41"
+ ],
+ "icon": "calendar",
+ "about": "Feast & Famine helps freelancers decide whether they can take a project, stack multiple client deadlines into a workable week, fill a quiet month with pipeline work, hand part of the load to a subcontractor without losing margin, and renegotiate calmly when overbooked.",
+ "persona": "You are a freelance operations coach: realistic about hours, allergic to 60-hour weeks, and always ready with the exact message to send a client.",
+ "onboarding": {
+  "title": "Steady work, steady weeks",
+  "subtitle": "Your capacity numbers make every answer honest.",
+  "bullets": [
+   "A yes/no on every new project",
+   "Deadlines stacked, not piled",
+   "A plan for quiet months"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "work",
+   "label": "What you do",
+   "type": "text",
+   "placeholder": "freelance copywriter"
+  },
+  {
+   "key": "capacity",
+   "label": "Billable hours per week",
+   "type": "number",
+   "placeholder": "25"
+  },
+  {
+   "key": "buffer",
+   "label": "Buffer you keep",
+   "type": "chips",
+   "options": [
+    "None",
+    "10%",
+    "20%",
+    "30%"
+   ],
+   "default": "20%"
+  }
+ ],
+ "tools": [
+  {
+   "id": "take",
+   "title": "Can I take it?",
+   "subtitle": "Capacity check for a new project",
+   "emoji": "🤔",
+   "inputs": [
+    {
+     "key": "commitments",
+     "label": "Current commitments",
+     "type": "longtext",
+     "placeholder": "Client A site copy due 12 Oct (~15h left); Client B retainer 8h/week",
+     "required": true
+    },
+    {
+     "key": "new",
+     "label": "The new project",
+     "type": "longtext",
+     "placeholder": "landing page + 6 emails, wants it by 20 Oct, ~20h",
+     "required": true
+    }
+   ],
+   "prompt": "Current commitments: {commitments}. New project: {new}. Using the profile capacity and buffer, produce a table (Week | Hours committed | Hours free | Fits?), a text verdict (Yes / Yes with a later start / No) with the earliest realistic start and delivery dates, a quote with the reply to the client for that verdict, and a callout on the hidden hours (admin, revisions, calls) you added to the estimate.",
+   "shape": "table, text, quote, callout",
+   "button": "Check",
+   "loading": "Counting hours…"
+  },
+  {
+   "id": "stack",
+   "title": "Stack my deadlines",
+   "subtitle": "One week, several clients",
+   "emoji": "🧱",
+   "inputs": [
+    {
+     "key": "tasks",
+     "label": "Everything due",
+     "type": "longtext",
+     "placeholder": "A: draft due Wed; B: revisions by Thu; C: call Tue 3pm; invoices; my own newsletter",
+     "required": true
+    },
+    {
+     "key": "fixed",
+     "label": "Fixed appointments",
+     "type": "text",
+     "placeholder": "school run 8–9, gym Wed 6pm"
+    }
+   ],
+   "prompt": "Plan the week from: {tasks} around fixed appointments: {fixed}, keeping within the profile capacity. Produce a table (Day | Morning block | Afternoon block | Buffer) for Mon–Fri, a checklist of tasks in order with time estimates, a callout naming what will not fit and which client to warn now, and a quote with a short 'here's when you'll get it' message for each client at risk.",
+   "shape": "table, checklist, callout, quote",
+   "button": "Stack it",
+   "loading": "Tetris time…"
+  },
+  {
+   "id": "slow",
+   "title": "Slow month playbook",
+   "subtitle": "Fill the pipeline when it's quiet",
+   "emoji": "🌧️",
+   "inputs": [
+    {
+     "key": "weeks",
+     "label": "How quiet",
+     "type": "chips",
+     "options": [
+      "This week",
+      "Next 2 weeks",
+      "Whole month"
+     ],
+     "default": "Next 2 weeks"
+    },
+    {
+     "key": "assets",
+     "label": "What you have",
+     "type": "text",
+     "placeholder": "40 past clients, a dead newsletter, 3 case studies"
+    }
+   ],
+   "prompt": "Work is quiet for '{weeks}'. Assets: {assets}. Produce a table (Activity | Hours | Payoff window | Why now) with 8 pipeline-building activities ranked by expected return for the profile's work, a checklist for the first 3 days, a quote with a warm re-engagement message to past clients that offers something specific, and a callout on the weekly pipeline habit to keep during busy months so the next quiet stretch is shorter.",
+   "shape": "table, checklist, quote, callout",
+   "button": "Fill the pipe",
+   "loading": "Rainmaking…"
+  },
+  {
+   "id": "delegate",
+   "title": "Hand some of it off",
+   "subtitle": "Subcontract without losing margin",
+   "emoji": "🤲",
+   "inputs": [
+    {
+     "key": "workload",
+     "label": "Everything on your plate",
+     "type": "longtext",
+     "placeholder": "Client A: 12 product descriptions; Client B: brand guide; my own site copy; 2 discovery calls",
+     "required": true
+    },
+    {
+     "key": "rates",
+     "label": "Your rate → what you'd pay",
+     "type": "text",
+     "placeholder": "I bill 80/h, I'd pay a sub 35/h",
+     "required": true
+    },
+    {
+     "key": "disclose",
+     "label": "Client knows you subcontract?",
+     "type": "chips",
+     "options": [
+      "Yes, in the contract",
+      "Not yet",
+      "Client wants me only"
+     ],
+     "default": "Not yet"
+    }
+   ],
+   "prompt": "Workload: {workload}. Rates: {rates}; client disclosure status: '{disclose}'. Produce a table (Task | Keep / Hand off / Split | Why | Hours freed | Margin kept), a kv (hours freed this week, subcontractor cost, your margin on handed-off work, hours you must still reserve for briefing and review), a quote with the subcontractor brief for the largest handed-off task (deliverable, voice, deadline, files, what not to touch), and a callout on confidentiality and what to tell the client for that disclosure status.",
+   "shape": "table, kv, quote, callout",
+   "button": "Split the load",
+   "loading": "Calling in help…"
+  },
+  {
+   "id": "overbooked",
+   "title": "I'm overbooked",
+   "subtitle": "Renegotiate before you burn out",
+   "emoji": "🔥",
+   "inputs": [
+    {
+     "key": "situation",
+     "label": "What's on fire",
+     "type": "longtext",
+     "placeholder": "3 deadlines same Friday, one client keeps adding rounds, I'm at 55h",
+     "required": true
+    }
+   ],
+   "prompt": "Situation: {situation}. Triage as a table (Project | Consequence of slipping | Flexibility | Action: hold / move / trim / hand off), steps for the next 48 hours in order, a quote with the renegotiation message for the project most worth moving, and a callout on what to change in your booking rules so this recurs less.",
+   "shape": "table, steps, quote, callout",
+   "button": "Triage",
+   "loading": "Putting out fires…"
+  }
+ ]
+}

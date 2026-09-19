@@ -1,0 +1,226 @@
+{
+ "id": "tide_tackle",
+ "name": "Tide & Tackle",
+ "tagline": "Bait, rigs and tide windows for shore and boat anglers",
+ "category": "Sports",
+ "colors": [
+  "#01579B",
+  "#FFB300",
+  "#37474F"
+ ],
+ "icon": "pin",
+ "about": "Tide & Tackle plans sea and coarse fishing sessions around tides and seasons, picks bait and rigs by venue and species, identifies your catch from a photo with keep-or-return notes, and audits your tackle box before you leave.",
+ "persona": "You are a tackle-shop owner and charter skipper: blunt, local-knowledge-first, and serious about tides, rock marks and the sea taking people.",
+ "onboarding": {
+  "title": "Fish when the fish are there",
+  "subtitle": "Where you fish and what you chase shape the plans.",
+  "bullets": [
+   "Session plans around tides",
+   "Bait and rig by venue and species",
+   "Catch ID with keep-or-return notes"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "venue",
+   "label": "You mostly fish",
+   "type": "chips",
+   "options": [
+    "Beach",
+    "Rock marks",
+    "Pier / harbour",
+    "Estuary",
+    "Boat",
+    "Rivers",
+    "Lakes / canals"
+   ],
+   "multi": true
+  },
+  {
+   "key": "target",
+   "label": "Targets",
+   "type": "chips",
+   "options": [
+    "Bass",
+    "Cod / pollack",
+    "Flatfish",
+    "Mackerel",
+    "Rays / smoothhound",
+    "Carp",
+    "Pike / perch",
+    "Anything that pulls"
+   ],
+   "multi": true
+  },
+  {
+   "key": "kit",
+   "label": "Rods & reels",
+   "type": "text",
+   "placeholder": "12 ft beachcaster, 6000 fixed spool"
+  }
+ ],
+ "tools": [
+  {
+   "id": "session",
+   "title": "Plan a session",
+   "subtitle": "Tide, time, mark",
+   "emoji": "🌊",
+   "inputs": [
+    {
+     "key": "mark",
+     "label": "Venue / mark",
+     "type": "text",
+     "placeholder": "Chesil Beach, Dorset",
+     "required": true
+    },
+    {
+     "key": "tides",
+     "label": "Tide times & height",
+     "type": "text",
+     "placeholder": "HW 14:10 (5.8 m), LW 20:25",
+     "required": true
+    },
+    {
+     "key": "date",
+     "label": "Date & weather",
+     "type": "text",
+     "placeholder": "Saturday, SW 15 mph, overcast"
+    }
+   ],
+   "prompt": "Plan a session at {mark} with tides {tides} on {date} for the profile targets. A table (Time window | State of tide | Target | Method), kv (arrive by, fish hardest, pack up, safety cut-off before the tide turns), steps for fishing the mark through the window, and a callout on tide cut-off, swell and rock safety for this kind of venue.",
+   "shape": "table, kv, steps, callout",
+   "button": "Plan session",
+   "loading": "Reading tides…"
+  },
+  {
+   "id": "rig",
+   "title": "Bait & rig",
+   "subtitle": "What goes on the end",
+   "emoji": "🪝",
+   "inputs": [
+    {
+     "key": "species",
+     "label": "Target species",
+     "type": "text",
+     "placeholder": "bass",
+     "required": true
+    },
+    {
+     "key": "water",
+     "label": "Water",
+     "type": "chips",
+     "options": [
+      "Surf beach",
+      "Rocks / kelp",
+      "Pier",
+      "Estuary mud",
+      "Boat over wreck",
+      "Still water",
+      "Flowing river"
+     ],
+     "default": "Surf beach"
+    },
+    {
+     "key": "shop",
+     "label": "Bait access",
+     "type": "chips",
+     "options": [
+      "Tackle shop fresh",
+      "Frozen only",
+      "Dig / gather my own",
+      "Lures only"
+     ],
+     "default": "Tackle shop fresh"
+    }
+   ],
+   "prompt": "Bait and rig for {species} at {water} with bait access: {shop}. A table (Bait | Presentation | Hook size | When it works), kv for the best rig (name, hook, trace length, weight, snood or hooklength), steps to tie it, and bullets on lure choice if bait is out.",
+   "shape": "table, kv, steps, bullets",
+   "button": "Rig me up",
+   "loading": "Sharpening hooks…"
+  },
+  {
+   "id": "catch",
+   "title": "What did I catch?",
+   "subtitle": "Photo → species, size, keep or return",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the catch",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "where",
+     "label": "Where and how",
+     "type": "text",
+     "placeholder": "pier, ragworm, evening"
+    }
+   ],
+   "prompt": "Identify the catch in the photo (caught: {where}). Sections: kv (species, estimated length, distinguishing features, confidence), a callout on spines, teeth or venom to handle carefully, a table (Consideration | General guidance | Check locally) for minimum size, season and protected status, and steps for a clean return or a humane dispatch and bleed if keeping.",
+   "shape": "kv, callout, table, steps",
+   "button": "Identify",
+   "loading": "Counting fin rays…"
+  },
+  {
+   "id": "box",
+   "title": "Tackle box audit",
+   "subtitle": "Photo → what's missing",
+   "emoji": "🧰",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of your tackle box / bag",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "trip",
+     "label": "Next trip",
+     "type": "text",
+     "placeholder": "weekend rock mark for pollack and wrasse"
+    }
+   ],
+   "prompt": "Audit the tackle box in the photo for: {trip}. A table (Have | Enough? | Note), a checklist of what to buy or pack grouped Terminal tackle / Bait / Tools / Safety, and a callout on the safety items that are not optional (headtorch, knife, lifejacket on rocks).",
+   "shape": "table, checklist, callout",
+   "button": "Audit box",
+   "loading": "Untangling…"
+  },
+  {
+   "id": "marks",
+   "title": "Find a mark",
+   "subtitle": "Where to try near you",
+   "emoji": "📍",
+   "inputs": [
+    {
+     "key": "area",
+     "label": "Area",
+     "type": "text",
+     "placeholder": "north Cornwall coast",
+     "required": true
+    },
+    {
+     "key": "access",
+     "label": "Access",
+     "type": "chips",
+     "options": [
+      "Easy walk",
+      "Fine with a scramble",
+      "Boat"
+     ],
+     "default": "Easy walk"
+    }
+   ],
+   "prompt": "Suggest marks in {area} for the profile targets with {access} access. Sections: cards of 5 mark types or well-known public spots (meta = species · best tide state · difficulty), bullets on how to read a new mark at low water, and a callout on private land, military ranges and harbour bylaws to check.",
+   "shape": "cards, bullets, callout",
+   "button": "Find marks",
+   "loading": "Scouting the coast…"
+  }
+ ],
+ "disclaimer": "Rock marks, tides and swell kill anglers every year: wear a lifejacket, never turn your back on the sea, and check local licences and size limits."
+}

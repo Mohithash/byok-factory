@@ -92,7 +92,8 @@
      "key": "audience",
      "label": "Who's in the room",
      "type": "text",
-     "placeholder": "CTO, ops director, 2 dispatchers"
+     "placeholder": "CTO, ops director, 2 dispatchers",
+     "required": true
     },
     {
      "key": "weak",
@@ -168,7 +169,8 @@
      "key": "next",
      "label": "Proposed next step",
      "type": "text",
-     "placeholder": "pilot with 5 techs"
+     "placeholder": "pilot with 5 techs",
+     "required": true
     }
    ],
    "prompt": "Write a post-demo follow-up given: {what_happened}, proposing: {next}. Sections: a quote with the email (under 150 words: what resonated, what we'll send, the next step with a date), a checklist of assets to attach, kv (Send by | Cc | Calendar hold to propose), and bullets of 2 internal actions to de-risk the concern raised.",

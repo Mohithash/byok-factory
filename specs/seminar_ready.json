@@ -9,7 +9,7 @@
   "#FDD835"
  ],
  "icon": "mic",
- "about": "Seminar Ready triages your reading list, decodes dense passages, prepares talking points and sharp questions, and debriefs after the seminar so you show up prepared and get credit for participating.",
+ "about": "Seminar Ready triages your reading list, decodes dense passages, prepares your talking points, plans the session when it's your turn to present, and debriefs afterwards so you show up prepared and get credit for participating.",
  "persona": "You are a seminar tutor who loves a well-prepared student: candid about what can be skimmed, generous with reading strategies, and encouraging to people who hate speaking up.",
  "onboarding": {
   "title": "Speak up with confidence",
@@ -17,7 +17,7 @@
   "bullets": [
    "Reading-list triage with minutes per item",
    "Dense passages decoded",
-   "Talking points and good questions"
+   "Talking points and your turn to present"
   ]
  },
  "profile": [
@@ -143,22 +143,41 @@
    "loading": "Sharpening…"
   },
   {
-   "id": "ask",
-   "title": "Ask a good question",
-   "subtitle": "Four kinds of question, ready to go",
-   "emoji": "❓",
+   "id": "lead",
+   "title": "Lead the seminar",
+   "subtitle": "Your turn to present the reading",
+   "emoji": "🎤",
    "inputs": [
     {
      "key": "reading",
-     "label": "The reading or topic",
+     "label": "The reading you're presenting",
      "type": "text",
+     "placeholder": "Rawls, A Theory of Justice, ch. 3",
      "required": true
+    },
+    {
+     "key": "minutes",
+     "label": "Minutes you have",
+     "type": "number",
+     "placeholder": "15"
+    },
+    {
+     "key": "format",
+     "label": "Format",
+     "type": "chips",
+     "options": [
+      "Presentation then discussion",
+      "Handout-led",
+      "Debate: for and against",
+      "Response paper read aloud"
+     ],
+     "default": "Presentation then discussion"
     }
    ],
-   "prompt": "For {reading}, write cards for 4 questions (meta = type: clarifying · challenging · connecting · applying), each card with the question, why it's a good one and a follow-up if the room goes quiet. Then bullets on timing: when in the seminar each type lands best.",
-   "shape": "cards, bullets",
-   "button": "Give me questions",
-   "loading": "Wondering…"
+   "prompt": "Presenting: {reading}. Time: {minutes} minutes. Format: {format}. Build steps for the session with minutes per section (hook, the author's argument in 3 moves, the strongest objection, your own position, hand-over to discussion) that fit the time, a table (Section | Key content | Page or passage to point the room to) so every claim is anchored in the text, 3 cards of discussion questions to pose (meta = type · when to ask · what to do if silence), a quote with a one-paragraph handout summary the student can print, and a callout on the classic student-presenter failure: summarising the reading instead of arguing about it.",
+   "shape": "steps, table, cards, quote, callout",
+   "button": "Plan my session",
+   "loading": "Taking the floor…"
   },
   {
    "id": "debrief",

@@ -1,0 +1,193 @@
+{
+ "id": "field_glass",
+ "name": "Field Glass",
+ "tagline": "Identify, find and log birds like a lifelong birder",
+ "category": "Lifestyle",
+ "colors": [
+  "#00838F",
+  "#F9A825",
+  "#455A64"
+ ],
+ "icon": "sun",
+ "about": "Field Glass identifies birds from a photo or a description of shape, song and behaviour, plans outings for the species you're missing, sets up your garden to bring birds in, and turns a day's scribbled sightings into a proper trip report.",
+ "persona": "You are a lifelong birder and county recorder: precise about field marks, honest about uncertainty, and generous with beginners.",
+ "onboarding": {
+  "title": "See more birds",
+  "subtitle": "Your patch and your gear tune everything.",
+  "bullets": [
+   "ID from photo, song or description",
+   "Outings planned for your target species",
+   "Trip reports and study plans"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "patch",
+   "label": "Home patch / region",
+   "type": "text",
+   "placeholder": "Norfolk coast, UK"
+  },
+  {
+   "key": "gear",
+   "label": "Gear",
+   "type": "chips",
+   "options": [
+    "Binoculars",
+    "Scope",
+    "Camera",
+    "Phone only"
+   ],
+   "multi": true
+  },
+  {
+   "key": "level",
+   "label": "Level",
+   "type": "chips",
+   "options": [
+    "Beginner",
+    "Know the common ones",
+    "Experienced",
+    "Lister"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "id",
+   "title": "What bird is that?",
+   "subtitle": "Photo or description → ID",
+   "emoji": "🔭",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo (optional)",
+     "type": "photo"
+    },
+    {
+     "key": "desc",
+     "label": "Describe it",
+     "type": "longtext",
+     "placeholder": "sparrow-sized, streaky brown, white outer tail feathers, sang from a fence post, 'tsip' call"
+    },
+    {
+     "key": "where",
+     "label": "Where & when",
+     "type": "text",
+     "placeholder": "farmland edge, April, morning"
+    }
+   ],
+   "prompt": "Identify the bird from the photo and/or the description '{desc}', seen at {where}, considering the profile patch. kv (best match, confidence, key field marks that support it, marks to check next time), a table of confusion species (Species | How to separate | Likelihood here), and bullets on the song or call to listen for to confirm.",
+   "shape": "kv, table, bullets",
+   "button": "Identify",
+   "loading": "Checking the guide…"
+  },
+  {
+   "id": "outing",
+   "title": "Plan an outing",
+   "subtitle": "Targets, site, timing",
+   "emoji": "🗺️",
+   "inputs": [
+    {
+     "key": "targets",
+     "label": "Species you want",
+     "type": "text",
+     "placeholder": "bittern, bearded tit, marsh harrier",
+     "required": true
+    },
+    {
+     "key": "when",
+     "label": "When",
+     "type": "text",
+     "placeholder": "Sunday morning, late October"
+    },
+    {
+     "key": "area",
+     "label": "Area you can reach",
+     "type": "text",
+     "placeholder": "within an hour of Norwich"
+    }
+   ],
+   "prompt": "Plan an outing for {targets} on {when} in {area} with the profile gear. Sections: cards of 3 site types or well-known public reserves (meta = target likelihood · walk length), steps for the morning with timings around light and tide if relevant, a checklist of gear and etiquette (hides, distance, no playback), and a callout on what would make the trip a bust and the plan B.",
+   "shape": "cards, steps, checklist, callout",
+   "button": "Plan it",
+   "loading": "Checking the tides…"
+  },
+  {
+   "id": "garden",
+   "title": "Bring them to the garden",
+   "subtitle": "Feeders, plants, water",
+   "emoji": "🌳",
+   "inputs": [
+    {
+     "key": "garden",
+     "label": "Your garden / balcony",
+     "type": "text",
+     "placeholder": "small suburban garden, one apple tree, cats next door",
+     "required": true
+    },
+    {
+     "key": "want",
+     "label": "Birds you'd love",
+     "type": "text",
+     "placeholder": "goldfinch, long-tailed tit"
+    }
+   ],
+   "prompt": "For a garden like: {garden}, wanting {want} in the profile region. Sections: a table (Feature | What to add | Which species it draws | Cost), steps for a feeder setup that stays hygienic, bullets on cat and window-strike safety, and a callout on feeder hygiene and diseases such as trichomonosis.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Plan garden",
+   "loading": "Filling feeders…"
+  },
+  {
+   "id": "report",
+   "title": "Trip report",
+   "subtitle": "Turn notes into a list",
+   "emoji": "📓",
+   "inputs": [
+    {
+     "key": "notes",
+     "label": "Your notes from the day",
+     "type": "longtext",
+     "placeholder": "8am Cley: 3 avocet, 1 marsh harrier m, lots of teal, ~20 golden plover, poss. little stint?",
+     "required": true
+    }
+   ],
+   "prompt": "Turn these notes into a trip report: {notes}. A table (Species | Count | Location | Notes | Status: confirmed / possible), text summarising the highlights in one paragraph, bullets of records worth submitting and what a county recorder would want to know, and a quote with a one-line day summary for the log.",
+   "shape": "table, text, bullets, quote",
+   "button": "Write report",
+   "loading": "Tallying…"
+  },
+  {
+   "id": "learn",
+   "title": "Learn a group",
+   "subtitle": "Warblers, waders, gulls…",
+   "emoji": "🎓",
+   "inputs": [
+    {
+     "key": "group",
+     "label": "Group",
+     "type": "chips",
+     "options": [
+      "Warblers",
+      "Waders",
+      "Gulls",
+      "Raptors",
+      "Ducks & geese",
+      "Finches & buntings",
+      "Seabirds"
+     ],
+     "default": "Waders"
+    }
+   ],
+   "prompt": "Teach {group} for the profile level and region. Sections: a table (Species | Size | Key marks | Habitat | Season), steps for a 4-week practice plan, bullets of the classic confusion pairs and the single mark that separates each, and a callout on the mistake beginners make most with this group.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Teach me",
+   "loading": "Opening the guide…"
+  }
+ ],
+ "disclaimer": "Identifications from a photo or description are best guesses; verify unusual records before submitting them, and check reserve access, tides and weather before you go."
+}

@@ -118,7 +118,7 @@
      "default": "Okay"
     }
    ],
-   "prompt": "A workout for the profile's available minutes in the {where} with '{energy}' energy. Sections: steps (exercise · reps or seconds · rest) as a circuit with the number of rounds, bullets on form for the two hardest moves, and a quote with one line to say when you want to quit.",
+   "prompt": "Write a workout for the profile's available minutes in the {where} with '{energy}' energy. Sections: steps (exercise · reps or seconds · rest) as a circuit with the number of rounds, bullets on form for the two hardest moves, and a quote with one line to say when you want to quit.",
    "shape": "steps, bullets, quote",
    "button": "Give me one",
    "loading": "Warming up…"
@@ -149,7 +149,7 @@
      "placeholder": "6"
     }
    ],
-   "prompt": "Plan a {event} where the user would normally have {drinks} drinks. Sections: a kv of the plan (drinks cap, what to order, what to eat before, the exit time), a table (Usual choice | Calories | Swap | Calories) with 5 rows, bullets of tactics that don't look weird to mates, and a callout on the next-morning recovery routine.",
+   "prompt": "Plan a {event} where the user would normally have {drinks} drinks. Sections: a kv of the plan (drinks cap, what to order, what to eat before, the exit time), a table (Usual choice | Calories | Swap to | Calories after) with 5 rows, bullets of tactics that don't look weird to mates, and a callout on the next-morning recovery routine.",
    "shape": "kv, table, bullets, callout",
    "button": "Plan the night",
    "loading": "Ordering wisely…"
@@ -182,7 +182,7 @@
      "placeholder": "lamb bhuna, pilau rice, 2 naan, onion bhajis"
     }
    ],
-   "prompt": "The usual {cuisine} order is: {usual}. Sections: a table (Item | Approx. calories | Keep / swap / halve | Swap to), a kv with the new order and the calories saved, bullets on portion tricks (plate it, box half first), and a callout on doing this for the two biggest items only if the full swap feels like too much.",
+   "prompt": "Rework this usual {cuisine} takeaway order: {usual}. Sections: a table (Item | Approx. calories | Keep / swap / halve | Swap to), a kv with the new order and the calories saved, bullets on portion tricks (plate it, box half first), and a callout on doing this for the two biggest items only if the full swap feels like too much.",
    "shape": "table, kv, bullets, callout",
    "button": "Fix my order",
    "loading": "Reading the menu…"

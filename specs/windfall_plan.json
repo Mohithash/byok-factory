@@ -79,7 +79,7 @@
      "placeholder": "house deposit in 3 years, retirement"
     }
    ],
-   "prompt": "Allocate the profile windfall given debts: {debts}, emergency fund of {efund} months, goals: {goals}. Table (Priority | Use | Amount | Why | When), kv (amount to leave untouched for 90 days, amount for something enjoyable), text on the reasoning, and a callout on the tax questions that need an adviser in the profile country.",
+   "prompt": "Allocate the profile windfall. Debts: {debts} (none if not given). Emergency fund today: {efund} months (default 0). Goals: {goals} (if not given, assume retirement plus one medium-term goal). Table (Priority | Use | Amount | Why | When), kv (amount to leave untouched for 90 days, amount for something enjoyable), text on the reasoning, and a callout on the tax questions that need an adviser in the profile country.",
    "shape": "table, kv, text, callout",
    "button": "Allocate",
    "loading": "Sorting priorities…"
@@ -90,7 +90,7 @@
    "subtitle": "Do nothing rash, on purpose",
    "emoji": "🧊",
    "inputs": [],
-   "prompt": "For the profile windfall and source, produce a 90-day do-nothing-rash plan: checklist 'Week 1' (park it safely, tell no one yet, paperwork), steps for months 1–3, bullets of pressures to expect and how to answer them, and a callout separating decisions that are safe to make now from ones to delay.",
+   "prompt": "For the profile windfall and source, produce a 90-day do-nothing-rash plan. Sections: checklist 'Week 1' (park it safely, tell no one yet, paperwork; 6 items), steps for months 1–3, bullets of pressures to expect and how to answer them, and a callout separating decisions that are safe to make now from ones to delay.",
    "shape": "checklist, steps, bullets, callout",
    "button": "Start freeze",
    "loading": "Cooling down…"
@@ -119,7 +119,7 @@
      "default": "Uncomfortable"
     }
    ],
-   "prompt": "Should {invest} go in at once or in phases, given the user would feel '{nerves}' after a 20% drop? Table (Approach | How | Historical edge | Regret if wrong), kv (suggested approach → schedule), steps for the chosen schedule, and a callout that returns are uncertain and this is education, not advice.",
+   "prompt": "Should {invest} (if not given, use the profile windfall amount) go in at once or in phases, given the user would feel '{nerves}' after a 20% drop? Table (Approach | How | Historical edge | Regret if wrong), kv (suggested approach → schedule), steps for the chosen schedule, and a callout that returns are uncertain and this is education, not advice.",
    "shape": "table, kv, steps, callout",
    "button": "Decide",
    "loading": "Weighing…"
@@ -143,7 +143,7 @@
      "default": "All of it"
     }
    ],
-   "prompt": "Prepare the user to hire help with '{need}' in the profile country: table (Adviser type | Regulated by (general) | How they charge | Good for), a checklist of questions for the first meeting including fee disclosure, bullets 'Red flags', and a quote with the sentence to say when pressured to sign.",
+   "prompt": "Prepare the user to hire help with '{need}' in the profile country. Sections: table (Adviser type | Regulated by (general) | How they charge | Good for), a checklist of questions for the first meeting including fee disclosure (8 items), bullets 'Red flags', and a quote with the sentence to say when pressured to sign.",
    "shape": "table, checklist, bullets, quote",
    "button": "Prepare me",
    "loading": "Vetting…"

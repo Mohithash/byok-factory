@@ -1,0 +1,200 @@
+{
+ "id": "fly_box",
+ "name": "Fly Box",
+ "tagline": "Match the hatch, rig right, read the water",
+ "category": "Sports",
+ "colors": [
+  "#00695C",
+  "#C0CA33",
+  "#5D4037"
+ ],
+ "icon": "drop",
+ "about": "Fly Box helps fly anglers pick flies for the water and the month, build leaders that turn over, read a run from a photo, fix casting faults, and identify and release fish properly.",
+ "persona": "You are a river guide with 30 seasons: observant, specific about sizes and patterns, and devoted to catch-and-release done well.",
+ "onboarding": {
+  "title": "Fish the right fly",
+  "subtitle": "Your rod and home waters tune every suggestion.",
+  "bullets": [
+   "Fly picks by water and month",
+   "Leader and tippet formulas",
+   "Read the water from a photo"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "rod",
+   "label": "Rod",
+   "type": "chips",
+   "options": [
+    "3wt",
+    "4wt",
+    "5wt",
+    "6wt",
+    "7wt+",
+    "Tenkara"
+   ]
+  },
+  {
+   "key": "water",
+   "label": "Home water",
+   "type": "chips",
+   "options": [
+    "Freestone river",
+    "Tailwater",
+    "Chalk stream",
+    "Stillwater",
+    "Saltwater flats",
+    "Small streams"
+   ],
+   "multi": true
+  },
+  {
+   "key": "level",
+   "label": "Level",
+   "type": "chips",
+   "options": [
+    "New",
+    "Intermediate",
+    "Seasoned"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "hatch",
+   "title": "Match the hatch",
+   "subtitle": "What to tie on today",
+   "emoji": "🪰",
+   "inputs": [
+    {
+     "key": "river",
+     "label": "Water & region",
+     "type": "text",
+     "placeholder": "Madison River, Montana",
+     "required": true
+    },
+    {
+     "key": "month",
+     "label": "Month & conditions",
+     "type": "text",
+     "placeholder": "late June, water clear, 55°F, cloudy afternoon"
+    },
+    {
+     "key": "seen",
+     "label": "What you've seen",
+     "type": "text",
+     "placeholder": "small mayflies, fish rising in the seams"
+    }
+   ],
+   "prompt": "Fly selection for {river} in {month}, with observations: {seen}. A table (Fly pattern | Size | Stage: nymph / emerger / dun / spinner | When in the day), cards for the top 3 rigs (meta = dry · dropper · streamer) with how to fish each, and a callout on the single change to make if fish refuse.",
+   "shape": "table, cards, callout",
+   "button": "Pick flies",
+   "loading": "Watching the seam…"
+  },
+  {
+   "id": "leader",
+   "title": "Build my leader",
+   "subtitle": "A formula that turns over",
+   "emoji": "🧵",
+   "inputs": [
+    {
+     "key": "style",
+     "label": "Fishing",
+     "type": "chips",
+     "options": [
+      "Dry fly",
+      "Nymphs (indicator)",
+      "Euro nymphing",
+      "Streamers",
+      "Stillwater"
+     ],
+     "default": "Dry fly"
+    },
+    {
+     "key": "fly",
+     "label": "Fly & target size",
+     "type": "text",
+     "placeholder": "size 16 dry, 12–16 inch trout"
+    }
+   ],
+   "prompt": "Leader for {style} with {fly} on the profile's rod. Sections: kv (total length, butt / mid / tippet sections with diameters in X and inches, tippet material, knots used), steps to tie the connections in order, and a table (Wind or fly-size change | What to adjust).",
+   "shape": "kv, steps, table",
+   "button": "Build leader",
+   "loading": "Measuring tippet…"
+  },
+  {
+   "id": "read",
+   "title": "Read the water",
+   "subtitle": "Photo of a run → where fish hold",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the run or pool",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Read the water in the photo. Sections: text describing the currents, seams, depth changes and structure visible, a table of holding spots (Spot | Why fish hold there | Approach | Presentation), steps for fishing it top to bottom without spooking fish, and a callout on wading hazards visible.",
+   "shape": "text, table, steps, callout",
+   "button": "Read it",
+   "loading": "Spotting seams…"
+  },
+  {
+   "id": "cast",
+   "title": "Fix my cast",
+   "subtitle": "One fault, one fix",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "fault",
+     "label": "What's going wrong",
+     "type": "chips",
+     "options": [
+      "Tailing loops / wind knots",
+      "Piling up",
+      "Won't turn over",
+      "Wind blows it back",
+      "Can't reach",
+      "Spooking fish on delivery"
+     ],
+     "default": "Tailing loops / wind knots"
+    }
+   ],
+   "prompt": "Diagnose '{fault}' for the profile's level. Sections: text on the most likely cause, steps for a 10-minute drill on grass, bullets of cues to feel, and a quote with the one thought to keep during the cast.",
+   "shape": "text, steps, bullets, quote",
+   "button": "Fix it",
+   "loading": "Watching the loop…"
+  },
+  {
+   "id": "fish",
+   "title": "ID & release",
+   "subtitle": "Photo → species, size, safe release",
+   "emoji": "🐟",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the fish",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "where",
+     "label": "Where caught",
+     "type": "text",
+     "placeholder": "River Test, England"
+    }
+   ],
+   "prompt": "Identify the fish in the photo, caught at {where}. Sections: kv (species, likely size, wild-vs-stocked signs, confidence), steps for a fast safe release (wet hands, seconds out of water, reviving), a callout on general size and season rules to check locally, and bullets on getting a better fish photo faster.",
+   "shape": "kv, steps, callout, bullets",
+   "button": "Identify",
+   "loading": "Looking at the fins…"
+  }
+ ],
+ "disclaimer": "Check local licences, seasons and size limits; regulations here are general only."
+}

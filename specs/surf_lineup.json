@@ -1,0 +1,214 @@
+{
+ "id": "surf_lineup",
+ "name": "Dawn Patrol",
+ "tagline": "Read the forecast, pick the board, catch more waves",
+ "category": "Sports",
+ "colors": [
+  "#00838F",
+  "#F4D19B",
+  "#FF7043"
+ ],
+ "icon": "drop",
+ "about": "Dawn Patrol reads the surf forecast for you, picks the right board for the day, coaches your pop-up and turns, explains rips and etiquette, and keeps you surf-fit through landlocked weeks.",
+ "persona": "You are a surf coach and lifeguard: stoked but safety-first, honest about board volume and conditions, explaining waves in plain language and always respecting the locals.",
+ "onboarding": {
+  "title": "Where do you surf?",
+  "subtitle": "Your level, boards and home break shape every tip.",
+  "bullets": [
+   "Forecast → go or no-go",
+   "Board picks for the day",
+   "Pop-up, turns and etiquette"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "level",
+   "label": "Level",
+   "type": "chips",
+   "options": [
+    "Whitewater",
+    "Catching green waves",
+    "Starting to turn",
+    "Intermediate+"
+   ]
+  },
+  {
+   "key": "boards",
+   "label": "Boards you own",
+   "type": "text",
+   "placeholder": "8' foamie, 7'2 mini-mal"
+  },
+  {
+   "key": "home",
+   "label": "Home break",
+   "type": "text",
+   "placeholder": "Fistral, beach break"
+  }
+ ],
+ "tools": [
+  {
+   "id": "forecast",
+   "title": "Read the forecast",
+   "subtitle": "Paste it → go or skip",
+   "emoji": "🌊",
+   "inputs": [
+    {
+     "key": "forecast",
+     "label": "Paste the forecast",
+     "type": "longtext",
+     "placeholder": "Swell 1.2 m @ 11 s WSW, wind 15 kt NE offshore, high tide 09:40, low 15:50",
+     "required": true
+    },
+    {
+     "key": "when",
+     "label": "When",
+     "type": "chips",
+     "options": [
+      "Dawn",
+      "Mid-morning",
+      "Lunch",
+      "Afternoon",
+      "Evening"
+     ],
+     "default": "Mid-morning"
+    }
+   ],
+   "prompt": "Interpret this forecast for the profile level and home break, planning to surf {when}: {forecast}. Sections: kv (verdict go / maybe / skip, expected wave face height, wind effect, best tide window), a table (Time | Tide | Wind | Expected quality), bullets on which of the profile boards to bring and why, and a callout on hazards (rips, size, crowds, cold) at this level.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Read it",
+   "loading": "Checking the cam…"
+  },
+  {
+   "id": "board",
+   "title": "Board picker",
+   "subtitle": "Volume, shape, three options",
+   "emoji": "🏄",
+   "inputs": [
+    {
+     "key": "stats",
+     "label": "Height & weight",
+     "type": "text",
+     "placeholder": "175 cm, 78 kg",
+     "required": true
+    },
+    {
+     "key": "goal",
+     "label": "Next board is for",
+     "type": "chips",
+     "options": [
+      "Progressing to green waves",
+      "Learning to turn",
+      "Small summer days",
+      "Bigger winter days",
+      "Travel"
+     ],
+     "default": "Learning to turn"
+    }
+   ],
+   "prompt": "Recommend a next board for stats {stats}, the profile level and goal '{goal}'. Sections: kv (shape, length, width, thickness, volume in litres, fin setup), cards for 3 options (meta = volume · price band), a table (Option | Paddle | Turning | Forgiveness), and bullets on what to check when buying second-hand.",
+   "shape": "kv, cards, table, bullets",
+   "button": "Pick board",
+   "loading": "Measuring litres…"
+  },
+  {
+   "id": "technique",
+   "title": "Fix my surfing",
+   "subtitle": "Pop-up, nosedives, turns",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo or video still (optional)",
+     "type": "photo"
+    },
+    {
+     "key": "issue",
+     "label": "Problem",
+     "type": "chips",
+     "options": [
+      "Pop-up too slow",
+      "Nosediving",
+      "Missing waves",
+      "Can't get past the whitewater",
+      "Stuck going straight",
+      "Bottom turn",
+      "Cutback"
+     ],
+     "default": "Pop-up too slow"
+    }
+   ],
+   "prompt": "Coach '{issue}' from the photo (if attached) for the profile level and boards. Sections: text on the root cause in 2 sentences, steps for 2 on-land drills and 1 in-water drill with reps, a table (What you're doing | What to do instead | Cue), and a callout on the one habit that fixes most of this.",
+   "shape": "text, steps, table, callout",
+   "button": "Coach me",
+   "loading": "Watching the set…"
+  },
+  {
+   "id": "safety",
+   "title": "Rips, etiquette, hazards",
+   "subtitle": "Plain-language ocean sense",
+   "emoji": "🚩",
+   "inputs": [
+    {
+     "key": "topic",
+     "label": "Topic",
+     "type": "chips",
+     "options": [
+      "Spotting a rip",
+      "Caught in a rip",
+      "Priority & drop-ins",
+      "Paddling out on a bigger day",
+      "Surfing a new spot",
+      "Cold-water surfing",
+      "Reef breaks"
+     ],
+     "default": "Spotting a rip"
+    }
+   ],
+   "prompt": "Explain '{topic}' for the profile level. Sections: text in plain language, steps for exactly what to do, bullets of the signs to look for, a quote with what to say to a local or a lifeguard, and a callout on when not to paddle out at all.",
+   "shape": "text, steps, bullets, quote, callout",
+   "button": "Explain",
+   "loading": "Scanning the water…"
+  },
+  {
+   "id": "fitness",
+   "title": "Landlocked training",
+   "subtitle": "Paddle, pop-up, balance",
+   "emoji": "💪",
+   "inputs": [
+    {
+     "key": "weeks",
+     "label": "Weeks until next surf",
+     "type": "chips",
+     "options": [
+      "2",
+      "4",
+      "8"
+     ],
+     "default": "4"
+    },
+    {
+     "key": "kit",
+     "label": "Kit",
+     "type": "chips",
+     "options": [
+      "Bodyweight",
+      "Gym",
+      "Pool",
+      "Balance board"
+     ],
+     "multi": true
+    }
+   ],
+   "prompt": "A {weeks}-week surf-fitness plan with {kit} for the profile level. Sections: a table (Week | Paddle strength | Pop-up & mobility | Balance & legs | Breath work), steps for the 5 core exercises with reps, bullets on shoulder care for paddling, and a callout on breath-hold training safety (never alone, never in water without supervision).",
+   "shape": "table, steps, bullets, callout",
+   "button": "Build plan",
+   "loading": "Paddling on land…"
+  }
+ ],
+ "disclaimer": "Not a substitute for lessons or lifeguard advice. Surf within your ability, never alone at unfamiliar spots, and if in doubt, don't go out."
+}

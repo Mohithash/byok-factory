@@ -9,15 +9,15 @@
   "#43A047"
  ],
  "icon": "pin",
- "about": "Manners Map briefs you on the etiquette of any country or community — greetings, dining, gifts, business meetings, dress at sacred sites — and decodes awkward moments after they happen.",
+ "about": "Manners Map is the pre-trip etiquette briefing for travellers: greetings, dining, business meetings, sacred sites, and a photo check that your outfit is right for where you are going.",
  "persona": "You are a seasoned cross-cultural coach: concrete, non-judgemental, aware that customs vary by region, generation and setting; you give the safe default and the nuance, never stereotypes.",
  "onboarding": {
   "title": "Respect is a skill",
   "subtitle": "Where are you from, and where are you going?",
   "bullets": [
-   "Country etiquette briefings",
-   "Dining, gifts and business norms",
-   "Decode what just happened"
+   "Trip etiquette briefings",
+   "Dining, business and sacred-site norms",
+   "Photo check: is this outfit OK here?"
   ]
  },
  "profile": [
@@ -49,8 +49,8 @@
  "tools": [
   {
    "id": "brief",
-   "title": "Country briefing",
-   "subtitle": "Greetings, dining, taboos",
+   "title": "Trip briefing",
+   "subtitle": "Greetings, dining, taboos for this trip",
    "emoji": "🗺️",
    "inputs": [
     {
@@ -62,19 +62,25 @@
     },
     {
      "key": "context",
-     "label": "Context",
+     "label": "Trip type",
      "type": "chips",
      "options": [
       "Tourist",
       "Business trip",
       "Meeting a partner's family",
-      "Living there"
+      "Visiting friends"
      ],
      "default": "Tourist"
+    },
+    {
+     "key": "days",
+     "label": "Days there",
+     "type": "number",
+     "placeholder": "7"
     }
    ],
-   "prompt": "Etiquette briefing for {place} as a {context}, contrasted with the profile's home culture. Sections: a table (Situation | Do | Don't | Why), kv (greeting, forms of address, tipping, punctuality norm, dress baseline), bullets of 5 phrases worth learning with pronunciation hints, and a callout on the single most common mistake visitors from the home culture make.",
-   "shape": "table, kv, bullets, callout",
+   "prompt": "Pre-trip etiquette briefing for {days} days in {place} as a {context}, contrasted with the profile's home culture. Sections: a table of 8–10 rows (Situation | Do | Don't | Why), kv (greeting, forms of address, tipping, punctuality norm, dress baseline, gesture to avoid), bullets of 5 phrases worth learning with pronunciation hints, a checklist of things to sort before departure (cash for tipping, modest layer, small gift), and a callout on the single most common mistake visitors from the home culture make.",
+   "shape": "table, kv, bullets, checklist, callout",
    "button": "Brief me",
    "loading": "Packing manners…"
   },
@@ -174,29 +180,44 @@
    "loading": "Removing shoes…"
   },
   {
-   "id": "decode",
-   "title": "What just happened?",
-   "subtitle": "Decode an awkward moment",
-   "emoji": "😬",
+   "id": "outfit",
+   "title": "Is this outfit OK?",
+   "subtitle": "Photo check before you walk out",
+   "emoji": "👗",
    "inputs": [
     {
-     "key": "moment",
-     "label": "What happened",
-     "type": "longtext",
-     "placeholder": "my host refused my gift twice then took it; my colleague went silent after I said no directly",
+     "key": "photo",
+     "label": "Photo of the outfit",
+     "type": "photo",
+     "placeholder": "Full length, as you'd wear it",
      "required": true
     },
     {
-     "key": "place",
-     "label": "Where",
+     "key": "where",
+     "label": "Where you're going",
      "type": "text",
-     "placeholder": "Japan"
+     "placeholder": "Doha business dinner, Kyoto temple, Delhi wedding, Bali beach town",
+     "required": true
+    },
+    {
+     "key": "occasion",
+     "label": "Occasion",
+     "type": "chips",
+     "options": [
+      "Sightseeing",
+      "Business",
+      "Place of worship",
+      "Family meal",
+      "Evening out",
+      "Wedding or ceremony"
+     ],
+     "default": "Sightseeing"
     }
    ],
-   "prompt": "Decode this moment in {place}: {moment}. Sections: text explaining what it most likely meant in local terms, bullets of alternative readings, steps to repair or respond well now, and a quote with a short message or sentence the user could send or say.",
-   "shape": "text, bullets, steps, quote",
-   "button": "Decode",
-   "loading": "Reading the signs…"
+   "prompt": "Assess the outfit in the photo for {occasion} in {where}. Sections: kv (verdict: fine / adjust / change, coverage, colours, footwear, accessories), a table (Item seen | Local read | Keep / adjust / swap | Why), a checklist of quick fixes achievable with what is likely in a suitcase (scarf, layer, closed shoes), and a callout on anything that could bar entry or cause offence at that kind of place. Never comment on the person's body, only the clothing.",
+   "shape": "kv, table, checklist, callout",
+   "button": "Check outfit",
+   "loading": "Checking the mirror…"
   }
  ],
  "disclaimer": "Customs vary by region, generation and family; when in doubt, watch and ask."

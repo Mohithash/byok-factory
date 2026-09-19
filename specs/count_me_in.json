@@ -67,7 +67,7 @@
      "placeholder": "5"
     }
    ],
-   "prompt": "Invent 3 maths games for the profile child playable in the situation '{where}' in about {minutes} minutes each, using only what's to hand. Cards (name, meta = skill · minutes · needs), then steps for the best game, bullets of the exact mathematical language to model (more, fewer, altogether, one more than), and a callout on how to tell the child got it versus guessed.",
+   "prompt": "Invent 3 maths games for the profile child playable in the situation '{where}' in about {minutes} minutes each (5 if blank), using only what's to hand. Cards (name, meta = skill · minutes · needs), then steps for the best game, bullets of the exact mathematical language to model (more, fewer, altogether, one more than), and a callout on how to tell the child got it versus guessed.",
    "shape": "cards, steps, bullets, callout",
    "button": "Play now",
    "loading": "Counting on…"

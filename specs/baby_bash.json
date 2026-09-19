@@ -1,0 +1,211 @@
+{
+ "id": "baby_bash",
+ "name": "Baby Bash",
+ "tagline": "Host a shower the mum-to-be actually enjoys",
+ "category": "Events",
+ "colors": [
+  "#5C6BC0",
+  "#F48FB1",
+  "#FFD54F"
+ ],
+ "icon": "baby",
+ "about": "Baby Bash helps the friend or sister hosting a baby shower, sprinkle or sip-and-see: run sheet and budget, games nobody dreads, a pregnancy-safe menu, invite wording, and a gift log with thank-yous.",
+ "persona": "You are an experienced shower host: organised, kind, allergic to cringe games, and protective of the guest of honour's comfort and privacy.",
+ "onboarding": {
+  "title": "Throw a shower with zero cringe",
+  "subtitle": "Tell us about the parents-to-be and the kind of celebration.",
+  "bullets": [
+   "Run sheet, budget and prep checklist",
+   "Games and activities people enjoy",
+   "Pregnancy-safe menu and mocktails"
+  ]
+ },
+ "profile": [
+  {
+   "key": "parents",
+   "label": "Parents-to-be",
+   "type": "text",
+   "placeholder": "Priya & Sam"
+  },
+  {
+   "key": "due",
+   "label": "Due date",
+   "type": "text",
+   "placeholder": "late May"
+  },
+  {
+   "key": "type",
+   "label": "Celebration",
+   "type": "chips",
+   "options": [
+    "Baby shower",
+    "Sprinkle (2nd+ baby)",
+    "Sip & see (after birth)",
+    "Co-ed shower",
+    "Virtual shower"
+   ]
+  },
+  {
+   "key": "vibe",
+   "label": "Vibe",
+   "type": "chips",
+   "options": [
+    "Brunch",
+    "Garden tea",
+    "Evening mocktails",
+    "Casual at home"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "plan",
+   "title": "Plan the shower",
+   "subtitle": "Run sheet, checklist, budget",
+   "emoji": "🍼",
+   "inputs": [
+    {
+     "key": "guests",
+     "label": "Guests",
+     "type": "number",
+     "placeholder": "20"
+    },
+    {
+     "key": "budget",
+     "label": "Budget",
+     "type": "number",
+     "placeholder": "400"
+    },
+    {
+     "key": "theme",
+     "label": "Theme (optional)",
+     "type": "text",
+     "placeholder": "wildflowers, no pink or blue"
+    }
+   ],
+   "prompt": "Plan the profile celebration for {guests} guests within {budget}, theme: {theme}. Sections: a table run sheet (Time | What happens | Host job) for a 2.5-hour event with food and gifts placed where guest energy is highest; a checklist across '4 weeks out / 1 week / day before / morning of'; a kv budget split (food, drinks, decor, games & prizes, favours, printing); and a callout on the guest of honour's comfort (seating, bathroom access, timing, no surprises she didn't ask for).",
+   "shape": "table, checklist, kv, callout",
+   "button": "Plan it",
+   "loading": "Tying ribbons…"
+  },
+  {
+   "id": "games",
+   "title": "Games people don't dread",
+   "subtitle": "Activities matched to the crowd",
+   "emoji": "🎲",
+   "inputs": [
+    {
+     "key": "crowd",
+     "label": "Crowd",
+     "type": "chips",
+     "options": [
+      "All close friends",
+      "Mixed family & friends",
+      "Co-ed",
+      "Includes kids",
+      "Online"
+     ],
+     "default": "Mixed family & friends"
+    },
+    {
+     "key": "mood",
+     "label": "Mood",
+     "type": "chips",
+     "options": [
+      "Funny",
+      "Sweet",
+      "Low-key"
+     ],
+     "default": "Sweet"
+    }
+   ],
+   "prompt": "Suggest 6 shower activities for a '{crowd}' crowd in a {mood} mood, avoiding anything that puts the guest of honour on the spot or references her body. Cards (meta = minutes · prep · prizes needed) ordered for the flow of the event; then steps to run the best one including any printable wording; then bullets of 3 quiet alternatives for guests who don't do games (advice cards, onesie decorating, book inscriptions).",
+   "shape": "cards, steps, bullets",
+   "button": "Pick games",
+   "loading": "Shuffling…"
+  },
+  {
+   "id": "menu",
+   "title": "Menu she can eat",
+   "subtitle": "Pregnancy-safe food and mocktails",
+   "emoji": "🥂",
+   "inputs": [
+    {
+     "key": "diet",
+     "label": "Dietary needs in the room",
+     "type": "chips",
+     "options": [
+      "None known",
+      "Vegetarian",
+      "Vegan",
+      "Halal",
+      "Gluten-free",
+      "Dairy-free"
+     ],
+     "multi": true
+    },
+    {
+     "key": "guests",
+     "label": "Guests",
+     "type": "number",
+     "placeholder": "20"
+    }
+   ],
+   "prompt": "Design a menu matching the profile vibe for {guests} people with dietary needs {diet}, where every dish is safe for a pregnant guest of honour (no unpasteurised cheese, raw or undercooked egg, deli meats, high-mercury fish, alcohol). Table (Dish | Serves | Pregnancy-safe note | Make-ahead); a checklist shopping list; cards for 3 signature mocktails (meta = prep minutes · batchable); and a callout on food left out too long at a warm event.",
+   "shape": "table, checklist, cards, callout",
+   "button": "Plan menu",
+   "loading": "Pouring mocktails…"
+  },
+  {
+   "id": "invite",
+   "title": "Invites & registry wording",
+   "subtitle": "Say it warmly, not grabbily",
+   "emoji": "💌",
+   "inputs": [
+    {
+     "key": "details",
+     "label": "Date, time, place",
+     "type": "text",
+     "placeholder": "Sun 3 May, 11am, my flat",
+     "required": true
+    },
+    {
+     "key": "registry",
+     "label": "Gift approach",
+     "type": "chips",
+     "options": [
+      "Include registry politely",
+      "Group gift / fund",
+      "No gifts, just come",
+      "Books instead of cards"
+     ],
+     "default": "Include registry politely"
+    }
+   ],
+   "prompt": "Write invitation wording for the profile celebration at {details} with gift approach '{registry}'. Sections: a quote with the invitation (under 90 words, RSVP line, dietary ask); a second quote with a one-line gift sentence that doesn't sound grabby; a third quote with the reminder message for the week before; and bullets on etiquette (who hosts, whether parents' names appear, how far ahead to send, options for remote guests).",
+   "shape": "quote, bullets",
+   "button": "Write invites",
+   "loading": "Addressing…"
+  },
+  {
+   "id": "gifts",
+   "title": "Gift log & thank-yous",
+   "subtitle": "Track who gave what, write the notes",
+   "emoji": "🎁",
+   "inputs": [
+    {
+     "key": "gifts",
+     "label": "Gifts received (giver → gift)",
+     "type": "longtext",
+     "placeholder": "Aunt Meena → pram blanket; work team → voucher…",
+     "required": true
+    }
+   ],
+   "prompt": "From this gift list: {gifts}, build a table (Giver | Gift | Thank-you sent ☐ | Note idea). Then a quote with 3 thank-you note templates (close friend, relative, group or workplace) that mention the specific gift and the baby, and bullets on timing and on thanking the host's helpers too.",
+   "shape": "table, quote, bullets",
+   "button": "Log gifts",
+   "loading": "Writing thanks…"
+  }
+ ],
+ "disclaimer": "Food-safety notes are general guidance; pregnant guests should follow their midwife's or doctor's advice."
+}

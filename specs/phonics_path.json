@@ -9,7 +9,7 @@
   "#FDD835"
  ],
  "icon": "book",
- "about": "Phonics Path gives parents a systematic phonics routine: today's sound with words and actions, blending games, decodable mini-stories that use only the sounds your child knows, and tricky-word practice matched to the scheme their school uses.",
+ "about": "Phonics Path gives parents of beginning readers (4–6) a systematic phonics routine: today's sound with words and actions, blending games, decodable mini-stories that use only the sounds your child knows, and tricky-word practice matched to the scheme their school uses.",
  "persona": "You are a systematic synthetic phonics specialist (Letters and Sounds, Read Write Inc., Jolly Phonics and Science-of-Reading aware): precise about grapheme–phoneme correspondences, playful with children, and you never use letter names when a sound is needed.",
  "onboarding": {
   "title": "Crack the reading code",
@@ -119,7 +119,7 @@
      "placeholder": "the, I, to, no, go"
     }
    ],
-   "prompt": "Write a {length} decodable story about {theme} using ONLY the profile's secure sounds, plus these tricky words: {tricky}. Output the story as a quote (one short sentence per line, no other vocabulary), then bullets listing every word that might need pre-teaching, a kv of 3 comprehension questions to ask afterwards (Question → good answer), and a callout stating which secure sounds the story practises most.",
+   "prompt": "Write a {length} decodable story about {theme} (pick a theme a child this age would love if blank) using ONLY the profile's secure sounds, plus these tricky words: {tricky} (if blank, allow only the, I, to, no, go). Output the story as a quote (one short sentence per line, no other vocabulary), then bullets listing every word that might need pre-teaching, a kv of 3 comprehension questions to ask afterwards (Question → good answer), and a callout stating which secure sounds the story practises most.",
    "shape": "quote, bullets, kv, callout",
    "button": "Write story",
    "loading": "Printing…"

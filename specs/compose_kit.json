@@ -119,7 +119,7 @@
      "placeholder": "only after returning from the camera"
     }
    ],
-   "prompt": "Diagnose this Android crash: {logcat}, which happens {when}. Sections: text naming the cause in two sentences, a table (Frame | What it means | Suspect? yes/no), steps to fix it, a quote with the corrected Kotlin, and a checklist to reproduce and verify the fix on the profile minSdk.",
+   "prompt": "Diagnose this Android crash: {logcat}. When it happens: {when}. Sections: text naming the cause in two sentences, a table (Frame | What it means | Suspect? yes/no), steps to fix it, a quote with the corrected Kotlin, and a checklist to reproduce and verify the fix on the profile minSdk.",
    "shape": "text, table, steps, quote, checklist",
    "button": "Diagnose",
    "loading": "Reading logcat…"

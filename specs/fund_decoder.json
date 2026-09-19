@@ -67,7 +67,7 @@
      "required": true
     }
    ],
-   "prompt": "Read the fact sheet: kv (fund name, ticker/ISIN, index tracked, expense ratio, number of holdings, top-3 holdings, region/sector tilt, distribution type, fund size, inception date). Then text on what this fund is for in one paragraph, bullets 'Watch-outs' (overlap, currency, tracking difference, fees), and a callout with 3 questions to answer before buying.",
+   "prompt": "Read the fact sheet in the photo: kv (fund name, ticker/ISIN, index tracked, expense ratio, number of holdings, top-3 holdings, region/sector tilt, distribution type, fund size, inception date; write 'not shown' where absent). Then text on what this fund is for in one paragraph, bullets 'Watch-outs' (overlap, currency, tracking difference, fees), and a callout with 3 questions to answer before buying.",
    "shape": "kv, text, bullets, callout",
    "button": "Decode",
    "loading": "Fine print…"
@@ -99,7 +99,7 @@
      "placeholder": "10000"
     }
    ],
-   "prompt": "Compare {a} vs {b} for {amount} invested over the profile horizon. Table (Feature | {a} | {b}) with rows: index tracked, expense ratio, holdings count, regions, distribution policy, domicile, typical use. Then kv 'Cost over 20 years' (annual fee cost and 20-year fee drag for each at an illustrative 6% return), bullets on what actually differs in practice, and a callout on the things a fact sheet won't tell you.",
+   "prompt": "Compare {a} vs {b} over the profile horizon. Amount invested: {amount} (default 10,000). Table (Feature | {a} | {b}) with rows: index tracked, expense ratio, holdings count, regions, distribution policy, domicile, typical use. Then kv 'Cost over 20 years' (annual fee cost and 20-year fee drag for each at an illustrative 6% return), bullets on what actually differs in practice, and a callout on the things a fact sheet won't tell you.",
    "shape": "table, kv, bullets, callout",
    "button": "Compare",
    "loading": "Lining them up…"
@@ -129,7 +129,7 @@
      "placeholder": "300"
     }
    ],
-   "prompt": "Show the cost of a {ratio}% expense ratio on {amount} plus {monthly}/month over 10, 20 and 30 years at an illustrative 6% gross return, versus a 0.10% fund. Table (Years | Value at {ratio}% | Value at 0.10% | Difference), text on why the gap compounds, kv (fees paid over 30 years → as a % of final value), and a callout that returns are illustrative, not predictions.",
+   "prompt": "Inputs: expense ratio {ratio}% (default 0.75), starting amount {amount} (default 20,000), monthly contribution {monthly} (default 300), illustrative 6% gross return. Show the cost of that expense ratio over 10, 20 and 30 years versus a 0.10% fund: table (Years | Value at the given ratio | Value at 0.10% | Difference), text on why the gap compounds, kv (fees paid over 30 years → as a % of final value), and a callout that returns are illustrative, not predictions.",
    "shape": "table, text, kv, callout",
    "button": "Show me",
    "loading": "Counting bps…"
@@ -137,7 +137,7 @@
   {
    "id": "starter",
    "title": "Build a starter mix",
-   "subtitle": "A simple fund allocation template",
+   "subtitle": "Which index types to combine",
    "emoji": "🧱",
    "inputs": [
     {
@@ -163,7 +163,7 @@
      "default": "3"
     }
    ],
-   "prompt": "Design a {funds}-fund starter allocation for a '{risk}' investor with the profile horizon and country. Table (Role | Fund type (describe the index type, not a specific product) | Allocation % | Why), steps to set it up in a typical broker, bullets on what to check once a year, and a callout that this is an educational template, not a recommendation.",
+   "prompt": "Design a {funds}-fund starter portfolio for a '{risk}' investor with the profile horizon, country and preference, using index types rather than specific products. Table (Role | Index type (e.g. global all-cap, aggregate bond) | Allocation % | Why this type | Overlap to avoid), steps to set it up in a typical broker including Acc/Dist choice, bullets on what to check once a year, and a callout that this is an educational template, not a recommendation.",
    "shape": "table, steps, bullets, callout",
    "button": "Build mix",
    "loading": "Mixing…"
@@ -182,7 +182,7 @@
      "required": true
     }
    ],
-   "prompt": "Explain '{label}' as seen on fund listings: kv (term → what it means for you in practice), bullets on which variant usually suits the profile country and style, and a callout on the tax or currency gotcha most people miss.",
+   "prompt": "Explain '{label}' as seen on fund listings. Sections: kv (term → what it means for you in practice), bullets on which variant usually suits the profile country and preference, and a callout on the tax or currency gotcha most people miss.",
    "shape": "kv, bullets, callout",
    "button": "Explain",
    "loading": "Unpacking…"

@@ -1,0 +1,203 @@
+{
+ "id": "parlour_pack",
+ "name": "Parlour Pack",
+ "tagline": "Custom party games built for the people in the room",
+ "category": "Entertainment",
+ "colors": [
+  "#E91E63",
+  "#00BCD4",
+  "#FFC107"
+ ],
+ "icon": "gift",
+ "about": "Parlour Pack generates party game content on demand: custom question decks, charades and taboo word banks, games invented from whatever is in the room, mini-games tournaments with scoring, and a rescue plan when the room goes quiet.",
+ "persona": "You are a party-game designer with a quick wit: inclusive, tuned to the crowd's spice level, and you never let a game outstay its welcome.",
+ "onboarding": {
+  "title": "Never a dull room",
+  "subtitle": "Tell us who's usually at your parties.",
+  "bullets": [
+   "Question decks for your crowd",
+   "Word banks for charades & taboo",
+   "Games invented from the room"
+  ]
+ },
+ "profile": [
+  {
+   "key": "crowd",
+   "label": "Usual crowd",
+   "type": "chips",
+   "options": [
+    "Close friends",
+    "Family with kids",
+    "Work colleagues",
+    "Couples",
+    "Students"
+   ]
+  },
+  {
+   "key": "spice",
+   "label": "Spice level",
+   "type": "chips",
+   "options": [
+    "Wholesome",
+    "Cheeky",
+    "Spicy"
+   ]
+  },
+  {
+   "key": "size",
+   "label": "Typical group size",
+   "type": "number",
+   "placeholder": "8"
+  }
+ ],
+ "tools": [
+  {
+   "id": "deck",
+   "title": "Custom question deck",
+   "subtitle": "Cards to print or read out",
+   "emoji": "🃏",
+   "inputs": [
+    {
+     "key": "format",
+     "label": "Format",
+     "type": "chips",
+     "options": [
+      "Would you rather",
+      "Hot takes",
+      "Never have I ever",
+      "Most likely to",
+      "Two truths prompts"
+     ],
+     "default": "Would you rather"
+    },
+    {
+     "key": "theme",
+     "label": "Theme or in-jokes",
+     "type": "text",
+     "placeholder": "our hiking trip, Dave's cooking"
+    },
+    {
+     "key": "cards",
+     "label": "Cards",
+     "type": "number",
+     "placeholder": "40"
+    }
+   ],
+   "prompt": "Write {cards} '{format}' cards for the profile crowd and spice level, themed on {theme} if given. Output a table (# | Card | Spice 1–3 | Best for), a kv of rules (how to play, scoring, tie-breaker), and a callout on cards to skip for a mixed crowd.",
+   "shape": "table, kv, callout",
+   "button": "Build deck",
+   "loading": "Shuffling…"
+  },
+  {
+   "id": "words",
+   "title": "Word bank",
+   "subtitle": "Charades, taboo, pictionary",
+   "emoji": "🎨",
+   "inputs": [
+    {
+     "key": "game",
+     "label": "Game",
+     "type": "chips",
+     "options": [
+      "Charades",
+      "Taboo",
+      "Pictionary",
+      "Heads-up style"
+     ],
+     "default": "Charades"
+    },
+    {
+     "key": "category",
+     "label": "Category",
+     "type": "text",
+     "placeholder": "90s movies, animals, office life",
+     "required": true
+    },
+    {
+     "key": "difficulty",
+     "label": "Difficulty",
+     "type": "chips",
+     "options": [
+      "Easy",
+      "Mixed",
+      "Hard"
+     ],
+     "default": "Mixed"
+    }
+   ],
+   "prompt": "Generate a {game} word bank for {category} at {difficulty} difficulty suited to the profile crowd. Give a table of 30 entries (Word or phrase | Difficulty | Taboo words or hint), where the last column holds 5 forbidden words for Taboo and a one-line hint for the actor or artist in other games. Then bullets on house rules and timing, and a kv of team scoring.",
+   "shape": "table, bullets, kv",
+   "button": "Generate",
+   "loading": "Miming furiously…"
+  },
+  {
+   "id": "invent",
+   "title": "Invent a game",
+   "subtitle": "From what's in the room",
+   "emoji": "🪑",
+   "inputs": [
+    {
+     "key": "items",
+     "label": "What's around",
+     "type": "text",
+     "placeholder": "cushions, a deck of cards, spoons, a phone",
+     "required": true
+    },
+    {
+     "key": "minutes",
+     "label": "Minutes to fill",
+     "type": "number",
+     "placeholder": "20"
+    }
+   ],
+   "prompt": "Invent 2 original games for the profile group using only {items}, each playable in about {minutes} minutes. Present both as cards (meta = players · minutes · energy), then steps for the rules of the better one, a kv of scoring and win condition, and a callout on safety (no throwing near glass, no dares that embarrass).",
+   "shape": "cards, steps, kv, callout",
+   "button": "Invent",
+   "loading": "Rummaging…"
+  },
+  {
+   "id": "tournament",
+   "title": "Mini-games night",
+   "subtitle": "Rounds, bracket, scoring",
+   "emoji": "🏆",
+   "inputs": [
+    {
+     "key": "hours",
+     "label": "Hours",
+     "type": "number",
+     "placeholder": "2"
+    },
+    {
+     "key": "vibe",
+     "label": "Vibe",
+     "type": "text",
+     "placeholder": "competitive but silly"
+    }
+   ],
+   "prompt": "Plan a {hours}-hour mini-games tournament for the profile group with vibe {vibe}. Output a table (Round | Game | Minutes | Points | Equipment), text explaining team formation and a fair bracket for the profile group size, a kv of scoring rules and tie-breakers, and a quote for a 30-second MC intro.",
+   "shape": "table, text, kv, quote",
+   "button": "Plan night",
+   "loading": "Building bracket…"
+  },
+  {
+   "id": "rescue",
+   "title": "Rescue a flat party",
+   "subtitle": "It's gone quiet",
+   "emoji": "🚨",
+   "inputs": [
+    {
+     "key": "situation",
+     "label": "What's happening",
+     "type": "text",
+     "placeholder": "people on phones, two groups not mixing, host stressed",
+     "required": true
+    }
+   ],
+   "prompt": "The party situation: {situation}. Give steps for the next 15 minutes (the specific game to launch, who to recruit first, what to say), bullets of 3 backup games needing zero equipment, and a callout on when to just change the music and let it be.",
+   "shape": "steps, bullets, callout",
+   "button": "Rescue",
+   "loading": "Reading the room…"
+  }
+ ],
+ "disclaimer": "Every game here works without alcohol; if drinks are involved, keep them optional and drink responsibly."
+}

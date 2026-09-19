@@ -83,7 +83,7 @@
      "placeholder": "overcast, 6°C air, light wind, swimming with two friends"
     }
    ],
-   "prompt": "Plan a dip at {temp}°C in: {conditions} for the profile experience and kit. kv (recommended time in, hard exit time, entry method, minutes of rewarming needed), steps for entry, swimming and exit including breathing through cold shock, bullets on how the body will feel minute by minute, and a callout on symptoms that mean get out now.",
+   "prompt": "Plan a dip at {temp}°C in: {conditions} for the profile experience and kit. kv (recommended time in, hard exit time, entry method, minutes of rewarming needed), steps for entry, swimming and exit including breathing through cold shock, bullets with one line per minute up to the exit time on how the body will feel, and a callout on symptoms that mean get out now.",
    "shape": "kv, steps, bullets, callout",
    "button": "Plan dip",
    "loading": "Testing the water…"
@@ -113,7 +113,7 @@
      "default": "8 weeks"
     }
    ],
-   "prompt": "Acclimatisation over {weeks} from: {now}. Table (Week | Expected water temp | Dips per week | Time in | Focus), bullets on the habits that build cold tolerance (and the myths that don't), a checklist of kit to add as temperatures drop, and a callout on why times should shrink as temperature falls.",
+   "prompt": "Acclimatisation over {weeks} from: {now}. Table (Week | Expected water temp | Dips per week | Time in | Focus) with one row per week, 6 bullets: 3 habits that build cold tolerance and 3 myths that don't, a checklist of kit to add as temperatures drop, and a callout on why times should shrink as temperature falls.",
    "shape": "table, bullets, checklist, callout",
    "button": "Plan season",
    "loading": "Chilling gradually…"
@@ -143,7 +143,7 @@
      "placeholder": "shivering hard, fingers useless"
     }
    ],
-   "prompt": "After {minutes} minutes at {temp}°C feeling: {state}. Steps for the next 30 minutes in order (dry, layers, hat, drink, movement), bullets on afterdrop and why it peaks later, a table (Do | Don't | Why) covering hot showers, alcohol and driving, and a callout on hypothermia signs that need help.",
+   "prompt": "After {minutes} minutes at {temp}°C feeling: {state}. Steps for the next 30 minutes in order (dry, layers, hat, drink, movement) with minute marks, 3 bullets on afterdrop and why it peaks later, a table (Do | Don't | Why) covering hot showers, alcohol and driving, and a callout on hypothermia signs that need help.",
    "shape": "steps, bullets, table, callout",
    "button": "Rewarm me",
    "loading": "Layering up…"
@@ -191,7 +191,7 @@
      "placeholder": "two first-timers, one strong swimmer who goes far out"
     }
    ],
-   "prompt": "A briefing for {swimmers} swimmers, mix: {mix}, at the profile spot. Quote with the 60-second briefing to read aloud, a checklist for the leader (spotter, kit, buddy pairs, exit signal), bullets on managing the first-timers and the far swimmer, and a callout on the emergency plan and who calls for help.",
+   "prompt": "A briefing for {swimmers} swimmers, mix: {mix}, at the profile spot. Quote with the 60-second briefing to read aloud, a checklist for the leader (spotter, kit, buddy pairs, exit signal), 4 bullets on managing the first-timers and the far swimmer, and a callout on the emergency plan and who calls for help.",
    "shape": "quote, checklist, bullets, callout",
    "button": "Write briefing",
    "loading": "Gathering the group…"

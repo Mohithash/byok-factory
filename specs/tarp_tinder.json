@@ -1,0 +1,203 @@
+{
+ "id": "tarp_tinder",
+ "name": "Tarp & Tinder",
+ "tagline": "Wild camping and bushcraft skills, one night at a time",
+ "category": "Lifestyle",
+ "colors": [
+  "#4E342E",
+  "#FF8F00",
+  "#7CB342"
+ ],
+ "icon": "flame",
+ "about": "Tarp & Tinder teaches wild camping and bushcraft: finding a legal, low-impact pitch, tarp and hammock rigs for the weather, fire lays that light in the damp, water sourcing and treatment, and what to do when the map stops making sense.",
+ "persona": "You are a bushcraft instructor and mountain-rescue volunteer: patient, hands-on, leave-no-trace to the bone, and never casual about fire, water or hypothermia.",
+ "onboarding": {
+  "title": "Sleep out, leave nothing",
+  "subtitle": "Your kit and experience shape every plan.",
+  "bullets": [
+   "Pitch selection from a photo",
+   "Tarp rigs and fire lays for real weather",
+   "Water, navigation and stay-safe protocols"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "level",
+   "label": "Experience",
+   "type": "chips",
+   "options": [
+    "First nights out",
+    "A few trips",
+    "Regular",
+    "Instructor-level"
+   ]
+  },
+  {
+   "key": "shelter",
+   "label": "Shelter",
+   "type": "chips",
+   "options": [
+    "Tarp",
+    "Hammock + tarp",
+    "Bivvy",
+    "Small tent"
+   ]
+  },
+  {
+   "key": "kit",
+   "label": "Kit",
+   "type": "text",
+   "placeholder": "ferro rod, folding saw, 3x3 tarp, squeeze filter"
+  }
+ ],
+ "tools": [
+  {
+   "id": "pitch",
+   "title": "Find a pitch",
+   "subtitle": "Photo or description → yes/no and why",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the spot (optional)",
+     "type": "photo"
+    },
+    {
+     "key": "spot",
+     "label": "Describe the spot",
+     "type": "text",
+     "placeholder": "beech wood above a stream, 200 m from a footpath, gentle slope",
+     "required": true
+    },
+    {
+     "key": "region",
+     "label": "Country / region",
+     "type": "text",
+     "placeholder": "Scotland"
+    }
+   ],
+   "prompt": "Assess this wild-camp spot: {spot} (use the photo if attached) in {region}. A text verdict on the spot, a table of checks (Check | Pass / Fail | Why) covering water, deadfall, flood, wind, visibility and distance from homes and paths, a callout on the general access rules for the region in plain language (verify locally), and a checklist for leaving no trace at dawn.",
+   "shape": "text, table, callout, checklist",
+   "button": "Assess spot",
+   "loading": "Scanning the wood…"
+  },
+  {
+   "id": "rig",
+   "title": "Rig for the weather",
+   "subtitle": "Tarp / hammock configurations",
+   "emoji": "⛺",
+   "inputs": [
+    {
+     "key": "weather",
+     "label": "Tonight's weather",
+     "type": "text",
+     "placeholder": "rain then clearing, 25 mph gusts from SW, 4°C",
+     "required": true
+    },
+    {
+     "key": "trees",
+     "label": "What's around",
+     "type": "text",
+     "placeholder": "two oaks 4 m apart, no big rocks"
+    }
+   ],
+   "prompt": "Choose a rig for the profile's shelter given '{weather}' and surroundings '{trees}'. Sections: kv (configuration name, pitch height, door orientation, ridge type, minimum pegs and lines), steps to set it up naming the knot for each attachment point, bullets of the knots to practise, and a callout on condensation and cold from below.",
+   "shape": "kv, steps, bullets, callout",
+   "button": "Rig it",
+   "loading": "Tying a taut-line…"
+  },
+  {
+   "id": "fire",
+   "title": "Light a fire that stays lit",
+   "subtitle": "Tinder, lay and safety for the conditions",
+   "emoji": "🔥",
+   "inputs": [
+    {
+     "key": "conditions",
+     "label": "Conditions",
+     "type": "chips",
+     "options": [
+      "Dry",
+      "Damp after rain",
+      "Soaked",
+      "Snow",
+      "Windy"
+     ],
+     "default": "Damp after rain"
+    },
+    {
+     "key": "purpose",
+     "label": "Fire for",
+     "type": "chips",
+     "options": [
+      "Cooking",
+      "Warmth",
+      "Signal",
+      "Just a small one"
+     ],
+     "default": "Cooking"
+    }
+   ],
+   "prompt": "Fire plan for {conditions} conditions, purpose: {purpose}, with the profile kit. A table of tinder and kindling to gather (Material | Where to find it | How to prep), steps for the lay and ignition in order, a checklist for site prep and full extinguishment, and a callout on when NOT to light one (bans, peat, wind, dry grass).",
+   "shape": "table, steps, checklist, callout",
+   "button": "Plan the fire",
+   "loading": "Feathering sticks…"
+  },
+  {
+   "id": "water",
+   "title": "Water plan",
+   "subtitle": "Source, treat, carry",
+   "emoji": "💧",
+   "inputs": [
+    {
+     "key": "sources",
+     "label": "Water sources on route",
+     "type": "text",
+     "placeholder": "stream below camp, a small lochan, farm run-off above",
+     "required": true
+    },
+    {
+     "key": "hours",
+     "label": "Hours until the next reliable source",
+     "type": "number",
+     "placeholder": "6"
+    }
+   ],
+   "prompt": "Plan water with the profile kit: sources are {sources}, next reliable source in {hours} hours. A table (Source | Risk | Treatment method | Time), kv (litres to carry, litres per hour of walking, reserve), steps for the treatment method that fits the kit, and a callout on what no filter removes.",
+   "shape": "table, kv, steps, callout",
+   "button": "Plan water",
+   "loading": "Reading the stream…"
+  },
+  {
+   "id": "lost",
+   "title": "Map stopped making sense",
+   "subtitle": "Calm, stepwise relocation",
+   "emoji": "🧭",
+   "inputs": [
+    {
+     "key": "known",
+     "label": "What you know",
+     "type": "text",
+     "placeholder": "left the ridge path 40 min ago, heading roughly NE, stream on my left",
+     "required": true
+    },
+    {
+     "key": "light",
+     "label": "Daylight and weather",
+     "type": "text",
+     "placeholder": "2 hours of light, cloud dropping"
+    }
+   ],
+   "prompt": "Relocate calmly: {known}; conditions: {light}. Steps in the STOP order (stop, think, observe, plan) with concrete things to check at each, bullets of natural-navigation clues to use, a kv decision (keep moving / hold and shelter / call for help, with the reason), and a callout on what to tell rescue if you call.",
+   "shape": "steps, bullets, kv, callout",
+   "button": "Talk me through",
+   "loading": "Taking a bearing…"
+  }
+ ],
+ "disclaimer": "Outdoor guidance is general; conditions and laws vary. Check local access and fire rules and always carry the means to call for help."
+}

@@ -5,10 +5,10 @@
 **Short description (≤80):** Make a fixed income go further, every month
 
 ## Full description
-Pension Purse builds a monthly budget around pension and benefit income, audits bills for savings, checks whether a big purchase is affordable, and hunts down the discounts and entitlements older adults miss.
+Pension Purse builds a budget around the days your pension and benefits actually land, audits bills for savings, checks whether a big purchase is affordable, and hunts down the discounts and entitlements older adults miss.
 
 WHAT'S INSIDE
-• Monthly budget — Income in, essentials first
+• Pension-day budget — Money in on its days, bills on theirs
 • Bill audit — Photo or describe a bill
 • Can I afford it? — A purchase, a trip, a gift
 • Discounts & entitlements — What you may be missing
@@ -20,7 +20,7 @@ Works with Claude (Anthropic) or any OpenAI-compatible endpoint (OpenAI, Groq, O
 Every answer is a structured, shareable document with follow-up questions, saved on-device so you can come back to it.
 
 ## Tools
-- 📒 **Monthly budget** — Income in, essentials first
+- 📒 **Pension-day budget** — Money in on its days, bills on theirs
 - 🔍 **Bill audit** — Photo or describe a bill
 - 🛒 **Can I afford it?** — A purchase, a trip, a gift
 - 🎟️ **Discounts & entitlements** — What you may be missing

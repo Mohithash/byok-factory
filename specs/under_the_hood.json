@@ -9,7 +9,7 @@
   "#00ACC1"
  ],
  "icon": "wrench",
- "about": "Under the Hood tells men exactly which health checks are due at their age, scripts the awkward conversations with a doctor, and turns family history and habits into a clear risk map.",
+ "about": "Under the Hood tells men exactly which health checks are due at their age, scripts the awkward conversations with a doctor, maps family-history risk, decodes results and makes sense of what was said in the appointment.",
  "persona": "You are a straight-talking men's health GP: no lectures, no jargon, always clear about which checks are age-based guidance and which depend on personal history.",
  "onboarding": {
   "title": "Book the service you've been putting off",
@@ -70,7 +70,7 @@
      "placeholder": "UK"
     }
    ],
-   "prompt": "For the profile's age, smoking status and family history, with last checks: {last}, in {country}. Sections: a table (Check | Why for you | Typical frequency | Status: due / soon / fine), a checklist of what to book this month in priority order, bullets on what each test involves (time, fasting, discomfort), and a callout that screening intervals vary by national guidance and personal history.",
+   "prompt": "Work out which health checks are due for the profile's age, smoking status and family history, given the last checks: {last}, following national guidance in {country}. Sections: a table (Check | Why for you | Typical frequency | Status: due / soon / fine), a checklist of what to book this month in priority order, bullets on what each test involves (time, fasting, discomfort), and a callout that screening intervals vary by national guidance and personal history.",
    "shape": "table, checklist, bullets, callout",
    "button": "Show what's due",
    "loading": "Checking the log…"
@@ -151,47 +151,35 @@
    "loading": "Reading the sheet…"
   },
   {
-   "id": "mot",
-   "title": "Habit MOT",
-   "subtitle": "Ten-minute lifestyle audit",
-   "emoji": "🔧",
+   "id": "debrief",
+   "title": "After the appointment",
+   "subtitle": "Make sense of what was said",
+   "emoji": "📝",
    "inputs": [
     {
-     "key": "drinks",
-     "label": "Drinks per week",
-     "type": "chips",
-     "options": [
-      "0",
-      "1–7",
-      "8–14",
-      "15–21",
-      "22+"
-     ],
-     "default": "8–14"
+     "key": "said",
+     "label": "What the doctor said, or the letter text",
+     "type": "longtext",
+     "placeholder": "said BP is borderline, wants it rechecked, mentioned a statin, referred for a scan",
+     "required": true
     },
     {
-     "key": "waist",
-     "label": "Waist (cm)",
-     "type": "number",
-     "placeholder": "98"
-    },
-    {
-     "key": "move",
-     "label": "Weekly exercise",
+     "key": "feel",
+     "label": "How you left feeling",
      "type": "chips",
      "options": [
-      "None",
-      "Under 75 min",
-      "75–150 min",
-      "150+ min"
+      "Clear",
+      "Confused",
+      "Brushed off",
+      "Worried"
      ],
-     "default": "Under 75 min"
+     "default": "Confused"
     }
    ],
-   "prompt": "Run a lifestyle MOT for the profile: {drinks} drinks per week, waist {waist} cm, exercise {move}. Sections: a table (Area | Your status | Target | Gap), cards for the three highest-impact changes (meta = effort · payoff), steps for the first two weeks, and a callout on waist size as a heart and diabetes risk marker.",
-   "shape": "table, cards, steps, callout",
-   "button": "Run the MOT",
-   "loading": "Lifting the bonnet…"
+   "prompt": "Decode this appointment for the profile: {said}; the user left feeling '{feel}'. Sections: a kv (Working diagnosis or concern | Tests ordered | Medicines mentioned | Referral | Next appointment), a checklist of actions with a deadline for each (book, collect, chase, monitor), bullets of the questions to ask next time and how to get a copy of results or the letter, and a callout on anything time-sensitive or any symptom that should not wait for the follow-up.",
+   "shape": "kv, checklist, bullets, callout",
+   "button": "Decode it",
+   "loading": "Reading the notes…"
   }
  ],
  "disclaimer": "General information, not medical advice or a substitute for your doctor. Screening guidance differs by country and personal history; seek urgent care for chest pain, blood in urine or stool, or a testicular lump."

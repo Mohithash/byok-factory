@@ -149,23 +149,42 @@
    "loading": "Reviewing…"
   },
   {
-   "id": "terms",
-   "title": "Decode will words",
-   "subtitle": "Residue? Per stirpes? Life interest?",
-   "emoji": "📖",
+   "id": "shares",
+   "title": "Fair shares",
+   "subtitle": "Balance gifts across kids, step-kids and a partner",
+   "emoji": "⚖️",
    "inputs": [
     {
-     "key": "terms",
-     "label": "Terms to explain",
+     "key": "estate",
+     "label": "Rough estate value",
      "type": "text",
-     "placeholder": "residuary estate, per stirpes, life interest, codicil",
+     "placeholder": "house 300k, savings 60k, pension outside the estate",
      "required": true
+    },
+    {
+     "key": "people",
+     "label": "Beneficiaries and anything already given",
+     "type": "longtext",
+     "placeholder": "Anna (got 40k house deposit in 2019), Ben (nothing yet), my partner Jo (not married, lives in the house), Jo's daughter Lily…",
+     "required": true
+    },
+    {
+     "key": "aim",
+     "label": "Your aim",
+     "type": "chips",
+     "options": [
+      "Equal between children",
+      "Equalise for gifts already made",
+      "Protect partner, then children",
+      "Something else"
+     ],
+     "default": "Equalise for gifts already made"
     }
    ],
-   "prompt": "For each of: {terms} — a table (Term | Plain English | Example in a family), and a quote with one-line memory hooks for the trickiest ones.",
-   "shape": "table, quote",
-   "button": "Explain",
-   "loading": "Translating…"
+   "prompt": "Estate: {estate}. People and past gifts: {people}. Aim: {aim}. Build a table (Beneficiary | Already received | Proposed share | Adjusted for past gifts | Rationale) so the numbers add up, then text on 2–3 structures that achieve the aim in general terms (e.g. equalisation clause, life interest for a partner with remainder to children, specific gifts plus residue), bullets on how each structure feels to the people involved, and a callout on the blended-family and unmarried-partner traps that most often end in a dispute in the profile region.",
+   "shape": "table, text, bullets, callout",
+   "button": "Balance shares",
+   "loading": "Doing the sums…"
   }
  ],
  "disclaimer": "General information only, not legal advice; rules differ by country and state and change over time — check official sources or a qualified professional before acting."

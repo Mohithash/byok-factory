@@ -1,0 +1,229 @@
+{
+ "id": "cradle_costs",
+ "name": "Cradle Costs",
+ "tagline": "Budget for the baby before the baby arrives",
+ "category": "Finance",
+ "colors": [
+  "#EC407A",
+  "#29B6F6",
+  "#FFCA28"
+ ],
+ "icon": "baby",
+ "about": "Cradle Costs prices the first year of a baby, plans the income dip during parental leave month by month, works out whether going back to work pays after childcare, trims the buy-list to what newborns actually need, and lists the support to check for.",
+ "persona": "You are a warm, numbers-first new-parent money planner: you separate marketing from need, plan the leave gap month by month, and never shame either parent's choice.",
+ "onboarding": {
+  "title": "Plan the year before it starts",
+  "subtitle": "Due date, income and leave plans make the numbers real.",
+  "bullets": [
+   "A first-year cost forecast",
+   "Parental-leave cash plan, month by month",
+   "Childcare vs going back to work, in numbers"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "due",
+   "label": "Due date / baby's age",
+   "type": "text",
+   "placeholder": "due 14 March"
+  },
+  {
+   "key": "income",
+   "label": "Household monthly take-home now",
+   "type": "number",
+   "placeholder": "4200"
+  },
+  {
+   "key": "country",
+   "label": "Country / region",
+   "type": "text",
+   "placeholder": "Ireland"
+  }
+ ],
+ "tools": [
+  {
+   "id": "buylist",
+   "title": "The buy list, trimmed",
+   "subtitle": "Need, nice, skip",
+   "emoji": "🍼",
+   "inputs": [
+    {
+     "key": "budget",
+     "label": "Setup budget",
+     "type": "chips",
+     "options": [
+      "Under 300",
+      "300–800",
+      "800–1500",
+      "No fixed limit"
+     ],
+     "default": "300–800"
+    },
+    {
+     "key": "space",
+     "label": "Home",
+     "type": "chips",
+     "options": [
+      "Small flat",
+      "House",
+      "Sharing with family"
+     ],
+     "default": "Small flat"
+    },
+    {
+     "key": "have",
+     "label": "Already have / offered",
+     "type": "text",
+     "placeholder": "cot from sister, pram gifted"
+    }
+   ],
+   "prompt": "Build a newborn setup list for budget {budget}, home {space}, already have: {have}. Sections: table (Item | Need / Nice / Skip | New vs second-hand | Est. cost | Why); kv (total for needs, total with nice-to-haves, saving vs buying everything new); a callout on the few items to always buy new or check for recalls (car seat, mattress) plus safe-sleep basics; a checklist of what to ask family and friends for so you don't receive duplicates.",
+   "shape": "table, kv, callout, checklist",
+   "button": "Trim the list",
+   "loading": "Sorting the nursery…"
+  },
+  {
+   "id": "leave",
+   "title": "Parental-leave cash plan",
+   "subtitle": "The income dip, month by month",
+   "emoji": "📉",
+   "inputs": [
+    {
+     "key": "leave",
+     "label": "Leave plans and pay",
+     "type": "longtext",
+     "placeholder": "me: 6 months at 90% then 3 months statutory; partner: 2 weeks full pay",
+     "required": true
+    },
+    {
+     "key": "costs",
+     "label": "Household monthly costs",
+     "type": "number",
+     "placeholder": "3300"
+    },
+    {
+     "key": "savings",
+     "label": "Savings now",
+     "type": "number",
+     "placeholder": "5000"
+    }
+   ],
+   "prompt": "Leave and pay: {leave}; household costs {costs}; savings {savings}; current income from the profile. Sections: table (Month | Income | Costs | Baby costs | Surplus / deficit | Savings balance) for 12 months from the due date; kv (lowest savings point and when, total size of the dip, monthly saving needed before the birth to stay above a one-month buffer); bullets on the least painful levers during leave (temporarily pausing pension contributions and what that costs, subscriptions, negotiating bills); a callout to get statutory entitlements and employer top-ups confirmed in writing before leave starts, noting rules differ by country.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Plan the dip",
+   "loading": "Forecasting…"
+  },
+  {
+   "id": "childcare",
+   "title": "Back to work or not?",
+   "subtitle": "Childcare vs salary, honestly",
+   "emoji": "🧮",
+   "inputs": [
+    {
+     "key": "salary",
+     "label": "Returning parent's monthly take-home",
+     "type": "number",
+     "placeholder": "2400"
+    },
+    {
+     "key": "care",
+     "label": "Childcare cost per month",
+     "type": "number",
+     "placeholder": "1100"
+    },
+    {
+     "key": "days",
+     "label": "Days per week",
+     "type": "chips",
+     "options": [
+      "5",
+      "4",
+      "3",
+      "2"
+     ],
+     "default": "5"
+    }
+   ],
+   "prompt": "Returning salary {salary}, childcare {care}, {days} days per week. Sections: table (Option | Net after childcare | Commute & work costs | Pension & progression effect | Net per month) comparing full return, reduced days, one parent at home, and a family-help hybrid; kv (break-even childcare cost, net gain per hour worked); a callout on the long-term cost of a career pause that never shows up in one month's maths, and on childcare subsidies or tax-free schemes to check locally; a quote with a message to a manager asking about a flexible or reduced-days return.",
+   "shape": "table, kv, callout, quote",
+   "button": "Run the numbers",
+   "loading": "Balancing…"
+  },
+  {
+   "id": "monthly",
+   "title": "First-year monthly budget",
+   "subtitle": "What a baby costs each month",
+   "emoji": "📆",
+   "inputs": [
+    {
+     "key": "feeding",
+     "label": "Feeding",
+     "type": "chips",
+     "options": [
+      "Breastfeeding",
+      "Formula",
+      "Mixed"
+     ],
+     "default": "Mixed"
+    },
+    {
+     "key": "nappies",
+     "label": "Nappies",
+     "type": "chips",
+     "options": [
+      "Disposable",
+      "Cloth",
+      "Mix"
+     ],
+     "default": "Disposable"
+    },
+    {
+     "key": "stage",
+     "label": "Stage",
+     "type": "chips",
+     "options": [
+      "0–3 months",
+      "3–6 months",
+      "6–12 months"
+     ],
+     "default": "0–3 months"
+    }
+   ],
+   "prompt": "Monthly baby budget for {stage}, feeding: {feeding}, nappies: {nappies}. Sections: table (Category | Low | Typical | High | Notes) covering feeding, nappies and wipes, clothes, health, childcare if any, transport, treats; kv (typical monthly total, cheapest realistic total, biggest swing item); bullets of 5 savings that do not compromise safety; a callout on growth-spurt and teething months when costs jump.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Show the budget",
+   "loading": "Counting nappies…"
+  },
+  {
+   "id": "entitle",
+   "title": "What we're entitled to",
+   "subtitle": "Benefits, leave and grants to check",
+   "emoji": "🗂️",
+   "inputs": [
+    {
+     "key": "work",
+     "label": "Work situation",
+     "type": "chips",
+     "options": [
+      "Both employed",
+      "One employed",
+      "Self-employed",
+      "Student / unemployed",
+      "Mixed"
+     ],
+     "default": "Both employed"
+    }
+   ],
+   "prompt": "For a new-parent household with {work} in the profile's region, list the kinds of support to check. Sections: checklist of entitlements to look up (statutory parental pay and leave, child benefit or allowance, childcare subsidies, tax credits, one-off maternity grants, employer schemes, health-cost exemptions); table (Support type | Who usually qualifies | When to apply | Where to check); a callout that names differ by country, amounts change yearly and only official sources or an adviser confirm eligibility; steps for the first 6 weeks after the birth (registering the birth, adding the baby to insurance or health cover, benefit applications with typical deadlines).",
+   "shape": "checklist, table, callout, steps",
+   "button": "Show the list",
+   "loading": "Checking…"
+  }
+ ],
+ "disclaimer": "General information, not financial, tax or legal advice; rules, thresholds and entitlements differ by country and change — confirm with official sources or a regulated adviser before acting."
+}

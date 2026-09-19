@@ -1,0 +1,210 @@
+{
+ "id": "choreo_lab",
+ "name": "Choreo Lab",
+ "tagline": "Learn routines faster and make your own",
+ "category": "Entertainment",
+ "colors": [
+  "#6A1B9A",
+  "#00E5FF",
+  "#FF4081"
+ ],
+ "icon": "star",
+ "about": "Choreo Lab helps dancers learn routines faster and create their own: it turns your notes into 8-count sheets, cleans a run-through from a still, choreographs combos to a track, runs freestyle sessions and preps you for auditions and team tryouts.",
+ "persona": "You are a working choreographer and dance-team captain: 8-count fluent, honest but encouraging, big on cleaning (timing, levels, angles) and on protecting knees and ankles.",
+ "onboarding": {
+  "title": "Let's make it clean",
+  "subtitle": "Your styles, level and goal shape every count.",
+  "bullets": [
+   "Routines written in 8-counts",
+   "Cleaning plans that fix timing",
+   "Freestyle and audition prep"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "styles",
+   "label": "Styles",
+   "type": "chips",
+   "options": [
+    "Hip hop",
+    "K-pop",
+    "Contemporary",
+    "Jazz",
+    "Heels",
+    "House",
+    "Popping / Locking",
+    "Bollywood"
+   ],
+   "multi": true
+  },
+  {
+   "key": "level",
+   "label": "Level",
+   "type": "chips",
+   "options": [
+    "Beginner",
+    "Intermediate",
+    "Advanced",
+    "Teach / lead"
+   ]
+  },
+  {
+   "key": "goal",
+   "label": "Goal",
+   "type": "chips",
+   "options": [
+    "Learn covers",
+    "Join a team",
+    "Auditions",
+    "Make my own",
+    "Fitness & fun"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "counts",
+   "title": "Notes → 8-counts",
+   "subtitle": "Your description → a count sheet",
+   "emoji": "🔢",
+   "inputs": [
+    {
+     "key": "routine",
+     "label": "Describe the routine",
+     "type": "longtext",
+     "placeholder": "body roll on 1, arms cross on 3-4, step-touch left right, chorus is a groove…",
+     "required": true
+    },
+    {
+     "key": "song",
+     "label": "Song",
+     "type": "text",
+     "placeholder": "Dynamite – BTS"
+    }
+   ],
+   "prompt": "Convert this routine description (song: {song}) into a clean count sheet: {routine}. Sections: a table (8-count | Counts | Movement | Level / direction | Cue word), bullets flagging where the description is ambiguous and what to check in the video, steps for a chunk-and-loop learning order (which 8s to learn first and how to join them), and a quote with the cue words in order as a chant.",
+   "shape": "table, bullets, steps, quote",
+   "button": "Write counts",
+   "loading": "5-6-7-8…"
+  },
+  {
+   "id": "clean",
+   "title": "Clean my run-through",
+   "subtitle": "Still + notes → fixes",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Still from your video (optional)",
+     "type": "photo"
+    },
+    {
+     "key": "notes",
+     "label": "What looks off",
+     "type": "longtext",
+     "placeholder": "late on the chorus, arms look soft, my spins travel",
+     "required": true
+    }
+   ],
+   "prompt": "Diagnose and clean from the photo (if attached) and these notes for the profile level: {notes}. Sections: a table (Symptom | Likely cause | Fix | Drill), steps for a 20-minute cleaning session (slow-mo, half-time, mirror, film-and-compare), bullets on angles, levels and energy, and a callout on knee and ankle safety for jumps and floorwork.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Clean it",
+   "loading": "Half-time…"
+  },
+  {
+   "id": "make",
+   "title": "Make a combo",
+   "subtitle": "Choreograph to a track",
+   "emoji": "✨",
+   "inputs": [
+    {
+     "key": "track",
+     "label": "Song / vibe",
+     "type": "text",
+     "placeholder": "slow R&B, 70 bpm",
+     "required": true
+    },
+    {
+     "key": "length",
+     "label": "Length",
+     "type": "chips",
+     "options": [
+      "2 eights",
+      "4 eights",
+      "8 eights",
+      "Full chorus"
+     ],
+     "default": "4 eights"
+    },
+    {
+     "key": "style",
+     "label": "Style for this piece",
+     "type": "chips",
+     "options": [
+      "Hip hop",
+      "K-pop",
+      "Contemporary",
+      "Jazz",
+      "Heels",
+      "House",
+      "Popping / Locking",
+      "Bollywood"
+     ],
+     "default": "Hip hop"
+    }
+   ],
+   "prompt": "Choreograph {length} in {style} to '{track}' for the profile level. Sections: a table (8-count | Counts | Movement | Texture (sharp / smooth) | Facing or formation), text with the concept in 2 sentences, bullets of 3 variations to make it easier or harder, and a callout on musicality: which accents in the track to hit.",
+   "shape": "table, text, bullets, callout",
+   "button": "Choreograph",
+   "loading": "Feeling the beat…"
+  },
+  {
+   "id": "freestyle",
+   "title": "Freestyle session",
+   "subtitle": "Constraints that unlock movement",
+   "emoji": "🎧",
+   "inputs": [
+    {
+     "key": "minutes",
+     "label": "Session length",
+     "type": "chips",
+     "options": [
+      "5",
+      "10",
+      "20"
+     ],
+     "default": "10"
+    }
+   ],
+   "prompt": "Design a {minutes}-minute freestyle practice for the profile styles. Sections: steps (round · minutes · constraint, e.g. 'only levels', 'one body part', 'textures'), bullets of grooves to fall back on, a quote with a mantra for when you freeze, and kv (a tempo range and 3 suggested tracks per profile style).",
+   "shape": "steps, bullets, quote, kv",
+   "button": "Start session",
+   "loading": "Dropping a beat…"
+  },
+  {
+   "id": "audition",
+   "title": "Audition / tryout prep",
+   "subtitle": "Two weeks to the room",
+   "emoji": "🎫",
+   "inputs": [
+    {
+     "key": "event",
+     "label": "Audition",
+     "type": "text",
+     "placeholder": "uni hip-hop team tryouts in 2 weeks, learn 2 combos on the day",
+     "required": true
+    }
+   ],
+   "prompt": "Prepare for: {event}, for the profile level and goal. Sections: a 14-day table (Day | Focus | Minutes), a checklist for audition day (outfit, shoes, water, warm-up, number, video release), bullets on how to pick up choreography fast in the room, steps for a 10-minute warm-up, and a callout on handling nerves and what panels actually score.",
+   "shape": "table, checklist, bullets, steps, callout",
+   "button": "Prep me",
+   "loading": "Pinning the number…"
+  }
+ ],
+ "disclaimer": "Warm up first and stop for sharp knee, ankle or back pain; not medical advice."
+}

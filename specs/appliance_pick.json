@@ -1,0 +1,215 @@
+{
+ "id": "appliance_pick",
+ "name": "Appliance Pick",
+ "tagline": "The right washer, fridge or oven for your home",
+ "category": "House & Home",
+ "colors": [
+  "#00838F",
+  "#FF7043",
+  "#546E7A"
+ ],
+ "icon": "home",
+ "about": "Appliance Pick sizes washers, fridges, dishwashers, ovens and vacuums to your household, reads energy labels into yearly running costs, compares two models honestly, and checks the delivery will actually fit through the door.",
+ "persona": "You are a practical appliance specialist who has installed hundreds of units: you size for real households, read energy labels into money, and care about door widths as much as features.",
+ "onboarding": {
+  "title": "Buy it once, buy it right",
+  "subtitle": "A few household details make every recommendation fit.",
+  "bullets": [
+   "Capacity sized to your household",
+   "Energy label → yearly cost",
+   "Fit and installation checks"
+  ]
+ },
+ "profile": [
+  {
+   "key": "people",
+   "label": "People in the household",
+   "type": "number",
+   "placeholder": "3"
+  },
+  {
+   "key": "home",
+   "label": "Home",
+   "type": "chips",
+   "options": [
+    "Flat / apartment",
+    "House",
+    "Shared",
+    "Rental"
+   ]
+  },
+  {
+   "key": "priority",
+   "label": "Matters most",
+   "type": "chips",
+   "options": [
+    "Low running cost",
+    "Quiet",
+    "Capacity",
+    "Price",
+    "Longevity"
+   ],
+   "multi": true
+  },
+  {
+   "key": "kwh",
+   "label": "Electricity price per kWh, with currency (optional)",
+   "type": "text",
+   "placeholder": "0.28 USD"
+  }
+ ],
+ "tools": [
+  {
+   "id": "size",
+   "title": "Size it for my home",
+   "subtitle": "Capacity and features that fit how you live",
+   "emoji": "📏",
+   "inputs": [
+    {
+     "key": "appliance",
+     "label": "Appliance",
+     "type": "chips",
+     "options": [
+      "Washing machine",
+      "Fridge freezer",
+      "Dishwasher",
+      "Oven / range",
+      "Tumble dryer",
+      "Vacuum",
+      "Air conditioner",
+      "Water heater"
+     ],
+     "default": "Washing machine"
+    },
+    {
+     "key": "habits",
+     "label": "How you use it",
+     "type": "text",
+     "placeholder": "2 loads a day, lots of sports kit, cold washes"
+    }
+   ],
+   "prompt": "Recommend the right {appliance} for the profile's household given: {habits}. Sections: a kv (Capacity / size to buy, Type, Must-have features, Skip these features, Price band), a table (Feature | Worth paying for? | Why), bullets on what breaks first on this appliance type and what to check for longevity, and a callout on the sizing mistake most households make.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Size it",
+   "loading": "Measuring up…"
+  },
+  {
+   "id": "label",
+   "title": "Read the energy label",
+   "subtitle": "Photo → cost per year",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the energy label",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Read the energy label in the photo. Sections: a kv (Appliance & model if visible, Efficiency class, Annual kWh, Water use if shown, Noise dB), a table (Scenario | Yearly cost | 10-year cost) using the profile's kWh price or a sensible regional default, bullets comparing it to a typical best-in-class unit, and a callout on what the label does not tell you.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Read label",
+   "loading": "Crunching kWh…"
+  },
+  {
+   "id": "compare",
+   "title": "Compare two models",
+   "subtitle": "Paste both listings",
+   "emoji": "⚖️",
+   "inputs": [
+    {
+     "key": "a",
+     "label": "Model A",
+     "type": "longtext",
+     "placeholder": "Bosch Series 6 WGG244A9GB — paste specs or just the name",
+     "required": true
+    },
+    {
+     "key": "b",
+     "label": "Model B",
+     "type": "longtext",
+     "placeholder": "Samsung WW90T534DAW — paste specs or just the name",
+     "required": true
+    }
+   ],
+   "prompt": "Compare {a} against {b} for the profile's household and priorities. Sections: a table (Factor | Model A | Model B | Edge) covering capacity, efficiency, noise, programme times, reliability reputation, warranty and price, a text verdict, bullets of questions to ask the retailer, and a callout on total 10-year cost including running costs.",
+   "shape": "table, text, bullets, callout",
+   "button": "Compare",
+   "loading": "Weighing them up…"
+  },
+  {
+   "id": "fit",
+   "title": "Will it fit & install?",
+   "subtitle": "Measure before you order",
+   "emoji": "🚪",
+   "inputs": [
+    {
+     "key": "appliance",
+     "label": "Appliance",
+     "type": "chips",
+     "options": [
+      "Washing machine",
+      "Fridge freezer",
+      "American fridge",
+      "Dishwasher",
+      "Oven / range",
+      "Tumble dryer"
+     ],
+     "default": "Fridge freezer"
+    },
+    {
+     "key": "space",
+     "label": "Space and route",
+     "type": "text",
+     "placeholder": "alcove 60x60x85cm, 2nd floor, narrow hallway",
+     "required": true
+    }
+   ],
+   "prompt": "Check whether a {appliance} will fit and install in: {space}. Sections: a checklist of measurements to take (unit, clearance for ventilation and door swing, every doorway and turn on the route, plug and water / waste positions), a table (Check | Your value | Typical requirement | OK?), steps for delivery day (old unit removal, transit bolts, levelling, first run), and a callout on what installers will refuse to do.",
+   "shape": "checklist, table, steps, callout",
+   "button": "Check fit",
+   "loading": "Tape measure out…"
+  },
+  {
+   "id": "upgrade",
+   "title": "Is a new one worth it?",
+   "subtitle": "Old unit vs efficient replacement",
+   "emoji": "🔧",
+   "inputs": [
+    {
+     "key": "appliance",
+     "label": "Appliance",
+     "type": "chips",
+     "options": [
+      "Washing machine",
+      "Fridge freezer",
+      "Dishwasher",
+      "Oven / range",
+      "Tumble dryer",
+      "Boiler / water heater",
+      "Air conditioner"
+     ],
+     "default": "Fridge freezer"
+    },
+    {
+     "key": "age",
+     "label": "Age in years",
+     "type": "number",
+     "placeholder": "12"
+    },
+    {
+     "key": "condition",
+     "label": "Condition, faults, any repair quote",
+     "type": "text",
+     "placeholder": "runs loud, seal cracked; repair quote 180",
+     "required": true
+    }
+   ],
+   "prompt": "Decide whether to replace a {age}-year-old {appliance} in this state: {condition}. Sections: a kv (Estimated running cost now, Running cost of an efficient replacement, Yearly saving, Payback years, Verdict: keep / repair / replace), a table (Option | Cost now | 5-year cost incl. energy | Risk), bullets of what a replacement should do better for the profile's priorities, and a callout on faults that mean stop using it now.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Decide",
+   "loading": "Thinking it over…"
+  }
+ ],
+ "disclaimer": "Electrical, gas and plumbing work may legally require a qualified installer in your area; running-cost figures are estimates."
+}

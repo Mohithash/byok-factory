@@ -1,0 +1,221 @@
+{
+ "id": "buy_in",
+ "name": "Buy-In",
+ "tagline": "Cross-team support for ideas you can't mandate",
+ "category": "Business",
+ "colors": [
+  "#F4511E",
+  "#1E88E5",
+  "#43A047"
+ ],
+ "icon": "spark",
+ "about": "Buy-In helps people who lead without authority — product managers, programme leads, chiefs of staff — map who matters, sequence the conversations, pitch a sceptical peer, write the one-page proposal and recover from a no.",
+ "persona": "You are a veteran programme lead and influence coach: you think in stakeholders, sequencing and self-interest, and you never confuse a nod in a meeting with real support.",
+ "onboarding": {
+  "title": "Influence is a sequence, not a speech",
+  "subtitle": "Tell us your role and how decisions really get made where you work.",
+  "bullets": [
+   "Stakeholder and power maps",
+   "Conversation sequencing and pre-wiring",
+   "Peer pitches and objection handling"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "role",
+   "label": "Role",
+   "type": "chips",
+   "options": [
+    "Product manager",
+    "Programme / project lead",
+    "Chief of staff",
+    "Team lead",
+    "Individual contributor"
+   ]
+  },
+  {
+   "key": "org",
+   "label": "Organisation",
+   "type": "chips",
+   "options": [
+    "Startup",
+    "Scale-up",
+    "Corporate",
+    "Public sector / non-profit"
+   ]
+  },
+  {
+   "key": "politics",
+   "label": "How decisions really get made",
+   "type": "text",
+   "placeholder": "loudest VP wins; CEO decides in hallway chats"
+  }
+ ],
+ "tools": [
+  {
+   "id": "map",
+   "title": "Map the stakeholders",
+   "subtitle": "Power, interest, stance — and who moves whom",
+   "emoji": "🗺️",
+   "inputs": [
+    {
+     "key": "proposal",
+     "label": "What you're proposing",
+     "type": "longtext",
+     "placeholder": "consolidate three ticketing tools into one; support and eng both affected",
+     "required": true
+    },
+    {
+     "key": "people",
+     "label": "Who's involved (names, roles, what you know)",
+     "type": "longtext",
+     "placeholder": "Dana VP Support — loves her tool; Raj CTO — wants fewer vendors; …",
+     "required": true
+    }
+   ],
+   "prompt": "Map stakeholders for: {proposal}. People: {people}. Sections: a table (Person | Power | Interest | Stance — champion / neutral / sceptic / blocker | What they care about | Who influences them); text identifying the one person whose support flips the outcome and why; bullets listing the coalition to build in order; and a callout on any blocker who should be met before, not after, the champions.",
+   "shape": "table, text, bullets, callout",
+   "button": "Map it",
+   "loading": "Charting the room…"
+  },
+  {
+   "id": "sequence",
+   "title": "Sequence the conversations",
+   "subtitle": "Who to talk to, in what order, saying what",
+   "emoji": "🔢",
+   "inputs": [
+    {
+     "key": "proposal",
+     "label": "The proposal",
+     "type": "longtext",
+     "placeholder": "…",
+     "required": true
+    },
+    {
+     "key": "deadline",
+     "label": "Decision needed by",
+     "type": "text",
+     "placeholder": "steering committee on the 14th"
+    },
+    {
+     "key": "known",
+     "label": "Already in favour / against",
+     "type": "text",
+     "placeholder": "Raj in favour, Dana against, others unknown"
+    }
+   ],
+   "prompt": "Build a pre-wiring plan for: {proposal}, decided by {deadline}. Stance so far: {known}. Sections: steps as an ordered sequence of conversations (person, purpose, what to ask them for, what to give them) ending at the decision meeting; a table (Conversation | If it goes well | If it goes badly, then…); a quote with the 3-line message requesting the first meeting; and a callout on why the formal meeting must never be where anyone hears the idea first.",
+   "shape": "steps, table, quote, callout",
+   "button": "Plan sequence",
+   "loading": "Lining up dominoes…"
+  },
+  {
+   "id": "pitch",
+   "title": "Pitch a sceptical peer",
+   "subtitle": "One conversation, one convert",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Who and why they're sceptical",
+     "type": "text",
+     "placeholder": "Dana, VP Support — thinks she'll lose control of her queue",
+     "required": true
+    },
+    {
+     "key": "proposal",
+     "label": "The proposal in one line",
+     "type": "text",
+     "placeholder": "one shared ticketing tool by Q2"
+    },
+    {
+     "key": "give",
+     "label": "What you can offer them",
+     "type": "text",
+     "placeholder": "she picks the tool; her team leads the config"
+    }
+   ],
+   "prompt": "Prepare a 20-minute conversation to win over {who} on: {proposal}. What can be offered: {give}. Sections: kv (What they lose, What they gain, What they fear nobody will say, The trade to propose); a quote with the opening 4 sentences that start from their world, not the proposal; a table (Objection | Response | Evidence to bring) with 4 rows; and a callout on the signs they're saying yes to end the meeting rather than meaning it.",
+   "shape": "kv, quote, table, callout",
+   "button": "Prep the pitch",
+   "loading": "Finding overlap…"
+  },
+  {
+   "id": "proposal",
+   "title": "Write the proposal",
+   "subtitle": "One page they can say yes to",
+   "emoji": "📄",
+   "inputs": [
+    {
+     "key": "idea",
+     "label": "The idea and the evidence",
+     "type": "longtext",
+     "placeholder": "…",
+     "required": true
+    },
+    {
+     "key": "decider",
+     "label": "Decider",
+     "type": "chips",
+     "options": [
+      "A single exec",
+      "A committee",
+      "A peer group by consensus"
+     ],
+     "default": "A single exec"
+    },
+    {
+     "key": "length",
+     "label": "Length",
+     "type": "chips",
+     "options": [
+      "Half page",
+      "One page",
+      "Two pages"
+     ],
+     "default": "One page"
+    }
+   ],
+   "prompt": "Write a {length} proposal for {decider} from: {idea}. Sections: a quote with the full proposal (recommendation first, the problem in numbers, options considered with trade-offs, cost and ask, risks with mitigations, decision requested by date); a table (Option | Cost | Benefit | Risk | Why not) for the alternatives; and a callout on the one number or fact the proposal is missing that a {decider} will ask for.",
+   "shape": "quote, table, callout",
+   "button": "Write proposal",
+   "loading": "Drafting…"
+  },
+  {
+   "id": "no",
+   "title": "They said no",
+   "subtitle": "Understand the no and find the next move",
+   "emoji": "🚧",
+   "inputs": [
+    {
+     "key": "what",
+     "label": "What was said and by whom",
+     "type": "longtext",
+     "placeholder": "'not this quarter' from the CTO, no reason given",
+     "required": true
+    },
+    {
+     "key": "read",
+     "label": "Your read of it",
+     "type": "chips",
+     "options": [
+      "A real no",
+      "Not now",
+      "Not like this",
+      "Not from you"
+     ],
+     "default": "Not now"
+    }
+   ],
+   "prompt": "The proposal was refused: {what}. The user reads it as: {read}. Sections: text on the four kinds of no and which this most likely is, using the profile's politics; a table (Kind of no | Signal | Next move); a quote with a short gracious reply that keeps the door open and asks one clarifying question; steps for the next 30 days (smaller pilot, new sponsor, better timing, or park it); and a callout on the moves that turn a 'not now' into a 'never'.",
+   "shape": "text, table, quote, steps, callout",
+   "button": "Find the move",
+   "loading": "Regrouping…"
+  }
+ ]
+}

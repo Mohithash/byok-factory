@@ -113,7 +113,7 @@
      "default": "30 days"
     }
    ],
-   "prompt": "Design shipping and returns for the profile store: free shipping {free} at {threshold}, returns window {returns}. kv (recommended threshold vs the profile AOV, expected AOV lift, cost per order at the threshold), a quote with customer-facing policy text (one paragraph for shipping, one for returns), a table (Scenario | Who pays | Refund type | Notes) for damaged, changed-mind, wrong-item and late-delivery cases, and a callout on legal minimums to check for the ship-to regions.",
+   "prompt": "Design shipping and returns for the profile store. Free-shipping policy: {free} (threshold, if any: {threshold}); returns window: {returns}. Produce a kv (recommended threshold vs the profile AOV, expected AOV lift, cost per order at the threshold), a quote with customer-facing policy text (one paragraph for shipping, one for returns), a table (Scenario | Who pays | Refund type | Notes) for damaged, changed-mind, wrong-item and late-delivery cases, and a callout on legal minimums to check for the ship-to regions.",
    "shape": "kv, quote, table, callout",
    "button": "Write policy",
    "loading": "Boxing it up…"
@@ -161,7 +161,7 @@
      "required": true
     }
    ],
-   "prompt": "Critique the product-page screenshot for conversion: table (Element | Now | Fix | Priority) covering title, price display, images, trust signals, CTA, shipping info and reviews, a quote with a rewritten title and the first 2 lines of description, a checklist of quick wins under 30 minutes, and a callout on any claim that may need substantiation.",
+   "prompt": "Critique the product-page screenshot for conversion. Produce a table (Element | Now | Fix | Priority) covering title, price display, images, trust signals, CTA, shipping info and reviews, a quote with a rewritten title and the first 2 lines of description, a checklist of quick wins under 30 minutes, and a callout on any claim that may need substantiation.",
    "shape": "table, quote, checklist, callout",
    "button": "Critique page",
    "loading": "Scrolling…"
@@ -186,7 +186,7 @@
      "placeholder": "3 weeks, maybe longer"
     }
    ],
-   "prompt": "Handle a stock-out of {item} with ETA {eta}: steps for the product page (back-in-stock capture, pre-order, substitute), a quote with the customer email for open orders, bullets of substitute-offer tactics, and a kv of the metrics to watch (lost sessions, waitlist size, refund rate).",
+   "prompt": "Handle a stock-out of {item} with restock ETA {eta}. Give steps for the product page (back-in-stock capture, pre-order, substitute), a quote with the customer email for open orders, bullets of substitute-offer tactics, and a kv of the metrics to watch (lost sessions, waitlist size, refund rate).",
    "shape": "steps, quote, bullets, kv",
    "button": "Make a plan",
    "loading": "Planning…"

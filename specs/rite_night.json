@@ -1,0 +1,218 @@
+{
+ "id": "rite_night",
+ "name": "Rite Night",
+ "tagline": "Quinceañeras, Sweet 16s, Debuts and Mitzvah parties",
+ "category": "Events",
+ "colors": [
+  "#6A1B9A",
+  "#00E5FF",
+  "#FF4081"
+ ],
+ "icon": "star",
+ "about": "Rite Night plans coming-of-age celebrations — quinceañera, Sweet 16, bar or bat mitzvah party, Filipino 18th debut, 18th and 21st — with the timeline, the traditional moments scripted, court coordination, the playlist, and a parent speech the teen won't hate.",
+ "persona": "You are a coming-of-age party planner fluent in Latin American, Jewish, Filipino and secular traditions: you respect the elders, protect the teen's taste, and keep the run sheet moving.",
+ "onboarding": {
+  "title": "Their big night, planned right",
+  "subtitle": "Tell us who's celebrating and which tradition.",
+  "bullets": [
+   "Timeline, budget and run sheet",
+   "Traditional moments scripted",
+   "Court, playlist and the parent speech"
+  ]
+ },
+ "profile": [
+  {
+   "key": "teen",
+   "label": "Celebrant's name",
+   "type": "text",
+   "placeholder": "Sofia"
+  },
+  {
+   "key": "tradition",
+   "label": "Celebration",
+   "type": "chips",
+   "options": [
+    "Quinceañera",
+    "Sweet 16",
+    "Bar / Bat Mitzvah party",
+    "Filipino Debut (18th)",
+    "18th / 21st birthday",
+    "Coming-of-age, our own way"
+   ]
+  },
+  {
+   "key": "taste",
+   "label": "Their taste",
+   "type": "text",
+   "placeholder": "reggaeton, aesthetic photos, hates speeches"
+  },
+  {
+   "key": "scale",
+   "label": "Scale",
+   "type": "chips",
+   "options": [
+    "Small family dinner",
+    "Medium party (30–60)",
+    "Big (60–150)",
+    "Grand (150+)"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "plan",
+   "title": "Plan the celebration",
+   "subtitle": "Timeline, budget, run sheet",
+   "emoji": "📋",
+   "inputs": [
+    {
+     "key": "budget",
+     "label": "Budget",
+     "type": "number",
+     "placeholder": "5000"
+    },
+    {
+     "key": "date",
+     "label": "Date",
+     "type": "text",
+     "placeholder": "Sat 20 Sept",
+     "required": true
+    },
+    {
+     "key": "venue",
+     "label": "Venue",
+     "type": "chips",
+     "options": [
+      "Home / garden",
+      "Restaurant",
+      "Hall / banquet",
+      "Hotel",
+      "Outdoor / marquee"
+     ],
+     "default": "Hall / banquet"
+    }
+   ],
+   "prompt": "Plan the profile celebration for {date} at a '{venue}' within {budget}, at the profile scale. Table (Months or weeks out | Task | Owner | Done ☐) from venue and outfit to DJ and photographer; a kv budget split with typical percentages for this kind of event; a second table for the night's run sheet (Time | Moment | Who cues it); and a callout on the three things families most often forget (vendor meals, a changing space, the celebrant actually eating).",
+   "shape": "table, kv, callout",
+   "button": "Plan it",
+   "loading": "Booking the hall…"
+  },
+  {
+   "id": "moments",
+   "title": "Ceremony moments",
+   "subtitle": "Scripted, cued, adaptable",
+   "emoji": "👑",
+   "inputs": [
+    {
+     "key": "include",
+     "label": "Traditional moments",
+     "type": "chips",
+     "options": [
+      "Grand entrance",
+      "Court / entourage dance",
+      "18 roses / 18 candles",
+      "Changing of the shoes",
+      "Last doll / last toy",
+      "Candle lighting",
+      "Hora / chair lift",
+      "Parent dance",
+      "Toast"
+     ],
+     "multi": true
+    }
+   ],
+   "prompt": "Script the moments {include} for the profile tradition and celebrant; if none were chosen, pick the customary moments for that tradition. Sections: steps in order with what happens, who's involved and music suggestions; a quote with MC lines to introduce each moment (short, no cringe); a table (Moment | People to brief | Props | Rehearsal needed?); and bullets on adapting or skipping a tradition without offending elders.",
+   "shape": "steps, quote, table, bullets",
+   "button": "Script it",
+   "loading": "Cueing the music…"
+  },
+  {
+   "id": "court",
+   "title": "Court & entourage",
+   "subtitle": "Damas, chambelanes, 18 roses",
+   "emoji": "🕺",
+   "inputs": [
+    {
+     "key": "people",
+     "label": "Court members / roles",
+     "type": "longtext",
+     "placeholder": "damas: Ana, Lucia…; chambelanes: Mateo…; 18 roses: dad, uncle Rey…",
+     "required": true
+    },
+    {
+     "key": "weeks",
+     "label": "Weeks until",
+     "type": "number",
+     "placeholder": "10"
+    }
+   ],
+   "prompt": "Coordinate the court {people} with {weeks} weeks to go. Sections: a table (Person | Role | Outfit spec | Rehearsal dates | Confirmed ☐); a checklist for rehearsals and fittings across the weeks; a quote with the group-chat message that sets expectations kindly (cost, dates, commitment); and a callout on dropouts and lining up a substitute.",
+   "shape": "table, checklist, quote, callout",
+   "button": "Coordinate",
+   "loading": "Herding the court…"
+  },
+  {
+   "id": "vibe",
+   "title": "Playlist & photo plan",
+   "subtitle": "Every generation on the floor",
+   "emoji": "🎧",
+   "inputs": [
+    {
+     "key": "music",
+     "label": "Music",
+     "type": "chips",
+     "options": [
+      "DJ",
+      "Live band",
+      "Playlist from a phone"
+     ],
+     "default": "DJ"
+    },
+    {
+     "key": "rules",
+     "label": "Must-play / never-play",
+     "type": "text",
+     "placeholder": "must: Bad Bunny; never: anything Dad picks"
+    }
+   ],
+   "prompt": "Plan the vibe with {music} and rules: {rules}, for the celebrant's taste in the profile. Table (Phase | Energy | 5 example tracks | Notes) from arrival to last dance across generations; bullets of 8 photo set-ups (with lighting and timing) the teen won't hate; cards for 3 activities besides dancing (meta = minutes · cost); and a callout on volume and a quiet zone for grandparents.",
+   "shape": "table, bullets, cards, callout",
+   "button": "Set the vibe",
+   "loading": "Testing the mic…"
+  },
+  {
+   "id": "speech",
+   "title": "Parent speech",
+   "subtitle": "Two minutes, zero embarrassment",
+   "emoji": "🎤",
+   "inputs": [
+    {
+     "key": "memories",
+     "label": "Memories & what you're proud of",
+     "type": "longtext",
+     "placeholder": "first day of school; her stubborn streak; how she looked after her brother…",
+     "required": true
+    },
+    {
+     "key": "speaker",
+     "label": "Speaker",
+     "type": "chips",
+     "options": [
+      "Mum",
+      "Dad",
+      "Both parents",
+      "Grandparent",
+      "Sibling",
+      "Godparent"
+     ],
+     "default": "Both parents"
+    }
+   ],
+   "prompt": "Write a 2-minute speech for {speaker} using {memories}, for the profile celebrant who may hate speeches. Output a quote with the full speech (one funny story, one proud moment, one hope, under 300 words, nothing that embarrasses them in front of friends); bullets on delivery; and a second quote with a 4-line version for a nervous speaker.",
+   "shape": "quote, bullets",
+   "button": "Write speech",
+   "loading": "Wiping tears…"
+  }
+ ],
+ "disclaimer": "If alcohol is served, follow local law on serving minors and arrange safe rides home."
+}

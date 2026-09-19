@@ -175,7 +175,7 @@
      "placeholder": "15 Oct"
     }
    ],
-   "prompt": "Explain {term} for the profile freight mode and destination: kv (who pays what, where risk passes, documents you need), a table (Stage | Who | Typical days | Watch-outs) from the purchase order on {date} to goods on your shelf with estimated dates, and a callout on what changes if you switch to DDP.",
+   "prompt": "Explain {term} for the profile freight mode and destination. Produce a kv (who pays what, where risk passes, documents you need), a table (Stage | Who | Typical days | Watch-outs) from the purchase order on {date} to goods on your shelf with estimated dates, and a callout on what changes if you switch to DDP.",
    "shape": "kv, table, callout",
    "button": "Explain",
    "loading": "Mapping the route…"
@@ -199,7 +199,7 @@
      "placeholder": "matte black, 750ml, logo 40mm centred"
     }
    ],
-   "prompt": "Inspect the sample photo against the spec '{spec}': table (Check | Spec | Observed | Pass?), a checklist of hands-on tests to run before approving (fit, finish, function, packaging), bullets of what to write back to the supplier, and a callout on booking an AQL inspection before the full order ships.",
+   "prompt": "Inspect the sample photo against the spec '{spec}'. Produce a table (Check | Spec | Observed | Pass?), a checklist of hands-on tests to run before approving (fit, finish, function, packaging), bullets of what to write back to the supplier, and a callout on booking an AQL inspection before the full order ships.",
    "shape": "table, checklist, bullets, callout",
    "button": "Inspect",
    "loading": "Looking closely…"

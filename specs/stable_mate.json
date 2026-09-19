@@ -131,7 +131,7 @@
      "default": "Out"
     }
    ],
-   "prompt": "Choose rugging for the profile horse: {weather}, {clip}, {where}. Sections: a callout with the recommended rug (none / 0 g / 100 g / 200 g / 300 g, neck or not) and why, a table (Temp range | Unclipped | Clipped | Notes) for planning the week, bullets on checking for sweating, rubs and slipping, and a quote with a one-line rule of thumb.",
+   "prompt": "Choose rugging for the profile horse. Forecast: {weather}. Clip: {clip}. Tonight the horse is: {where}. Sections: a callout with the recommended rug (none / 0 g / 100 g / 200 g / 300 g, neck or not) and why, a table (Temp range | Unclipped | Clipped | Notes) for planning the week, bullets on checking for sweating, rubs and slipping, and a quote with a one-line rule of thumb.",
    "shape": "callout, table, bullets, quote",
    "button": "Pick rug",
    "loading": "Checking the sky…"
@@ -176,8 +176,8 @@
      "default": "4"
     }
    ],
-   "prompt": "A 6-week {discipline} conditioning plan for the profile horse toward {goal} with {days} ride days per week. Sections: a table (Week | Day | Session | Duration | Intensity), text explaining the purpose of each session type (walk hacking, hill work, interval canter, schooling), a checklist for pre-ride checks (legs, shoes, tack fit, girth), and a callout on signs of overwork (heat, filling, sour attitude).",
-   "shape": "table, text, checklist, callout",
+   "prompt": "A 6-week {discipline} conditioning plan for the profile horse toward {goal} with {days} ride days per week. Sections: a table (Week | Focus | Sessions that week | Longest session (min) | Intensity 1–5) with one row per week, steps giving week 1 day by day (session, minutes, what to feel for), bullets explaining the purpose of each session type (walk hacking, hill work, interval canter, schooling), a checklist for pre-ride checks (legs, shoes, tack fit, girth), and a callout on signs of overwork (heat, filling, sour attitude).",
+   "shape": "table, steps, bullets, checklist, callout",
    "button": "Plan",
    "loading": "Tacking up…"
   },

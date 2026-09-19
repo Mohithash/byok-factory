@@ -1,11 +1,11 @@
-# Drip Studio
+# Sequence Studio
 
 **Category:** Business  
 **Package:** `com.mohithash.byok.dripstudio`  
 **Short description (≤80):** Email sequences that sell while you sleep
 
 ## Full description
-Drip Studio writes welcome, launch, nurture and win-back email sequences with send timing, scores your subject lines, and turns rough notes into a newsletter issue people open.
+Sequence Studio writes welcome, launch, nurture and win-back email sequences with send timing, scores your subject lines, and turns rough notes into a newsletter issue people open.
 
 WHAT'S INSIDE
 • Welcome sequence — 5 emails for new subscribers

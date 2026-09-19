@@ -1,11 +1,11 @@
-# Circle Guide
+# Bible Circle
 
 **Category:** Books & Reference  
 **Package:** `com.mohithash.byok.biblecircle`  
 **Short description (≤80):** Lead a Bible study that people come back to
 
 ## Full description
-Circle Guide writes ready-to-run small-group Bible studies — icebreaker, observation, interpretation and application questions, background notes and a leader's script — for any passage, tradition and group.
+Bible Circle writes ready-to-run small-group Bible studies — icebreaker, observation, interpretation and application questions, background notes and a leader's script — for any passage, tradition and group.
 
 WHAT'S INSIDE
 • Build a study — Passage → complete guide

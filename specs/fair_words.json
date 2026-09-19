@@ -122,7 +122,7 @@
      "placeholder": "the chart's upward trend"
     }
    ],
-   "prompt": "Write alt text for the image, which appears on a {use}; what matters: {focus}. Sections: quote with short alt text of at most 125 characters; quote with a long description of 2 to 4 sentences for complex images; bullets on what was deliberately left out and why; a callout on when this image should be marked decorative instead.",
+   "prompt": "Write alt text for the image, which appears on a {use}; what matters: {focus} (if not given, decide from the image and where it appears). Sections: quote with short alt text of at most 125 characters; quote with a long description of 2 to 4 sentences for complex images; bullets on what was deliberately left out and why; a callout on when this image should be marked decorative instead.",
    "shape": "quote, bullets, callout",
    "button": "Describe image",
    "loading": "Looking closely…"
@@ -172,7 +172,7 @@
      "required": true
     }
    ],
-   "prompt": "Check {text} for accessible writing. Checklist (headings in order, descriptive link text, lists for sequences, acronyms expanded on first use, no meaning carried by colour or position alone, paragraphs under 5 sentences, plain words) each marked pass or fail; table (Location | Issue | Fix); kv (estimated reading grade, average sentence length, longest paragraph).",
+   "prompt": "Check {text} for accessible writing. Checklist (headings in order, descriptive link text, lists for sequences, acronyms expanded on first use, no meaning carried by colour or position alone, paragraphs under 5 sentences, plain words) each marked pass or fail; table (Location | Issue | Fix); kv (headings out of order, vague link texts such as 'click here', acronyms never expanded, longest paragraph in sentences, checks passed out of 7).",
    "shape": "checklist, table, kv",
    "button": "Check",
    "loading": "Testing readability…"

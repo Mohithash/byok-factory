@@ -109,7 +109,7 @@
      "placeholder": "80"
     }
    ],
-   "prompt": "At price {price}, {volume} units per month and the profile margin, model a {discount}% discount: kv (margin before, margin after, extra units needed to earn the same profit, % volume lift required), a table (Discount % | Units needed | Realistic?) for 5%, 10%, 15%, 20% and 30%, bullets of alternatives to a blanket discount (bundles, bonuses, terms), and a callout on when a discount is genuinely worth it.",
+   "prompt": "At price {price}, {volume} units per month and the profile margin, model a {discount}% discount. Produce a kv (margin before, margin after, extra units needed to earn the same profit, % volume lift required), a table (Discount % | Units needed | Realistic?) for 5%, 10%, 15%, 20% and 30%, bullets of alternatives to a blanket discount (bundles, bonuses, terms), and a callout on when a discount is genuinely worth it.",
    "shape": "kv, table, bullets, callout",
    "button": "Run the maths",
    "loading": "Crunching…"
@@ -168,7 +168,7 @@
      "placeholder": "95/month"
     }
    ],
-   "prompt": "From the screenshot, extract the competitor's pricing as a table (Tier or product | Price | What's included | Notes), compare against my price {mine} in a kv (positioning, gap %, apparent value differences), bullets on how to differentiate without matching, and a callout on any claim in the screenshot worth checking.",
+   "prompt": "From the screenshot, extract the competitor's pricing as a table (Tier or product | Price | What's included | Notes). Then compare against my price {mine} in a kv (positioning, gap %, apparent value differences), bullets on how to differentiate without matching, and a callout on any claim in the screenshot worth checking.",
    "shape": "table, kv, bullets, callout",
    "button": "Compare",
    "loading": "Reading the page…"

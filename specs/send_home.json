@@ -1,0 +1,186 @@
+{
+ "id": "send_home",
+ "name": "Send Home",
+ "tagline": "Support family back home without sinking your own budget",
+ "category": "Finance",
+ "colors": [
+  "#6A1B9A",
+  "#43A047",
+  "#FFB300"
+ ],
+ "icon": "globe",
+ "about": "Send Home helps immigrants balance remittances to family with rent, savings and a future here: a send-home amount you can sustain, kind but firm scripts for relatives' requests, building credit from zero, decoding your payslip and spotting the scams aimed at newcomers.",
+ "persona": "You are a trusted community money mentor who has lived the newcomer years: respectful of family duty, protective of the person in front of you, and clear that rules differ by country.",
+ "onboarding": {
+  "title": "Two homes, one budget",
+  "subtitle": "Where you live, what you earn and who depends on you shape every answer.",
+  "bullets": [
+   "A remittance plan you can sustain",
+   "Kind, firm scripts for family requests",
+   "Credit from zero and payslips decoded"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "country",
+   "label": "Country you live in now",
+   "type": "text",
+   "placeholder": "Canada"
+  },
+  {
+   "key": "home",
+   "label": "Country family is in",
+   "type": "text",
+   "placeholder": "Philippines"
+  },
+  {
+   "key": "income",
+   "label": "Monthly take-home",
+   "type": "number",
+   "placeholder": "3100"
+  }
+ ],
+ "tools": [
+  {
+   "id": "ratio",
+   "title": "My send-home plan",
+   "subtitle": "How much to send, sustainably",
+   "emoji": "🌏",
+   "inputs": [
+    {
+     "key": "send",
+     "label": "Currently sending per month",
+     "type": "number",
+     "placeholder": "800"
+    },
+    {
+     "key": "costs",
+     "label": "Your essential costs here",
+     "type": "number",
+     "placeholder": "2100"
+    },
+    {
+     "key": "needs",
+     "label": "What the money covers at home",
+     "type": "text",
+     "placeholder": "parents' medicine, brother's school fees"
+    }
+   ],
+   "prompt": "Sends {send} per month, essentials {costs}, income from the profile, covering: {needs}. Sections: kv (left after essentials and sending, months of emergency buffer you hold, a sustainable send range, an amount to save here each month); table (Scenario | Send | Save here | Left for you | Buffer reached in) for current, sustainable and stretch levels; a callout on why an emergency fund here also protects the family at home (a job loss means sending stops entirely); bullets of 3 ways to lower the cost of what the money covers at home (paying the school or pharmacy directly, bulk-paying fees per term, agreeing one fixed monthly amount instead of ad-hoc top-ups).",
+   "shape": "kv, table, callout, bullets",
+   "button": "Set my plan",
+   "loading": "Balancing homes…"
+  },
+  {
+   "id": "family",
+   "title": "A request from family",
+   "subtitle": "Say yes, no or not yet, kindly",
+   "emoji": "💬",
+   "inputs": [
+    {
+     "key": "ask",
+     "label": "The request",
+     "type": "longtext",
+     "placeholder": "my cousin wants 1,500 for a motorbike for his business",
+     "required": true
+    },
+    {
+     "key": "answer",
+     "label": "You want to say",
+     "type": "chips",
+     "options": [
+      "Yes, a smaller amount",
+      "Not now",
+      "No",
+      "Yes, as a loan with terms",
+      "Not sure"
+     ],
+     "default": "Not sure"
+    }
+   ],
+   "prompt": "Request: {ask}; leaning toward: {answer}. Sections: text weighing the request against the profile's situation without judging the family; table (Option | Cost to you | Effect on the relationship | How to say it); a quote with the message in warm, respectful language; a callout on patterns that signal a dependence that needs a family conversation, and on never borrowing at high interest in order to send.",
+   "shape": "text, table, quote, callout",
+   "button": "Help me answer",
+   "loading": "Choosing words…"
+  },
+  {
+   "id": "credit",
+   "title": "Build credit from zero",
+   "subtitle": "No history here yet",
+   "emoji": "🧱",
+   "inputs": [
+    {
+     "key": "have",
+     "label": "You already have",
+     "type": "chips",
+     "options": [
+      "A local bank account",
+      "A secured card",
+      "A phone contract",
+      "Nothing yet"
+     ],
+     "multi": true
+    },
+    {
+     "key": "goal",
+     "label": "Goal",
+     "type": "chips",
+     "options": [
+      "Rent a flat",
+      "Car loan",
+      "Mortgage one day",
+      "Just a normal card"
+     ],
+     "default": "Just a normal card"
+    }
+   ],
+   "prompt": "Already has: {have}; goal: {goal}; country from the profile. Sections: steps in order over 12 months (account, secured or credit-builder product, one small recurring bill, a utilisation rule, checking the report); table (Month | Action | What it does for the file); bullets of mistakes that set newcomers back (missed tiny bills, too many applications, co-signing for others); a callout that credit systems, bureaus and product names differ by country and to rely on official or regulator-listed sources.",
+   "shape": "steps, table, bullets, callout",
+   "button": "Start building",
+   "loading": "Laying bricks…"
+  },
+  {
+   "id": "payslip",
+   "title": "Decode my payslip",
+   "subtitle": "Photo → what every line means",
+   "emoji": "🧾",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of your payslip",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Read the payslip photo. Sections: table (Line | Amount | What it is | Normal?) for every line; kv (gross, total deductions, net, effective deduction rate, hours or rate if shown); a callout flagging anything unusual (missing contributions, unexplained deductions, pay below what the hours suggest) with where to raise it (employer payroll first, then a labour or tax authority) and that this is not legal advice; bullets on which records to keep and for how long.",
+   "shape": "table, kv, callout, bullets",
+   "button": "Decode",
+   "loading": "Reading lines…"
+  },
+  {
+   "id": "scam",
+   "title": "Is this a scam?",
+   "subtitle": "Paste the message, call or offer",
+   "emoji": "🚨",
+   "inputs": [
+    {
+     "key": "msg",
+     "label": "The message, call or offer",
+     "type": "longtext",
+     "placeholder": "Text says my immigration file has a problem and I must pay a fee by gift card today…",
+     "required": true
+    }
+   ],
+   "prompt": "Assess: {msg}, for someone in the profile's country. Sections: kv (verdict: scam / likely scam / suspicious / probably fine, confidence, the tactic being used); bullets of red flags found; steps for what to do now (do not pay, verify via an official number you look up yourself, report, protect accounts); a quote with a reply or script to end the contact; a callout listing common newcomer-targeted scams (immigration fees, fake jobs, rental deposits, 'government' calls) and reminding that officials never ask for gift cards or crypto.",
+   "shape": "kv, bullets, steps, quote, callout",
+   "button": "Check it",
+   "loading": "Sniffing…"
+  }
+ ],
+ "disclaimer": "General information, not financial, tax, legal or immigration advice; rules differ by country and by your status and change often — check official sources, a registered adviser or a recognised migrant-support charity."
+}

@@ -7,7 +7,7 @@ MH = "Quiet Hall offers general coping strategies, not therapy or diagnosis. If 
 LABSAFE = "Safety information here is general and must never replace your institution's risk assessment, your lab manual or the supervisor in the room."
 ETHICS = "Templates and drafts here do not replace your institution's ethics process or your supervisor's approval. Never collect data from people before ethics approval is granted."
 
-APP("thesis_pilot", "Thesis Pilot", "From vague topic to submitted dissertation", "Education", ["#1A237E", "#00897B", "#FFB300"], "pin",
+APP("thesis_pilot", "Thesis Pilot", "From vague topic to submitted dissertation", "Education", ["#1A237E", "#00897B", "#FFB300"], "plane",
  "Thesis Pilot turns a fuzzy topic into a defensible research question, plans your chapters backwards from the deadline, preps every supervisor meeting and gets you ready for the viva.",
  "You are a seasoned dissertation supervisor: rigorous about scope, allergic to vague questions, generous with structure, and firm that the student does the writing.",
  "Land the dissertation", "Tell us your level, field and deadline so every plan fits your calendar.", ["Research questions that are actually doable", "Chapter plans with real dates", "Supervisor meetings and viva prep"],
@@ -190,9 +190,9 @@ APP("lecture_lens", "Lecture Lens", "Slides and scribbles into notes you'll actu
     "steps, table, checklist", "Plan session", "Consolidating…")])
 
 APP("seminar_ready", "Seminar Ready", "Read smarter, then say something worth hearing", "Education", ["#1B5E20", "#BF360C", "#FDD835"], "mic",
- "Seminar Ready triages your reading list, decodes dense passages, prepares talking points and sharp questions, and debriefs after the seminar so you show up prepared and get credit for participating.",
+ "Seminar Ready triages your reading list, decodes dense passages, prepares your talking points, plans the session when it's your turn to present, and debriefs afterwards so you show up prepared and get credit for participating.",
  "You are a seminar tutor who loves a well-prepared student: candid about what can be skimmed, generous with reading strategies, and encouraging to people who hate speaking up.",
- "Speak up with confidence", "Tell us your course and how you feel about speaking so prep matches the room.", ["Reading-list triage with minutes per item", "Dense passages decoded", "Talking points and good questions"],
+ "Speak up with confidence", "Tell us your course and how you feel about speaking so prep matches the room.", ["Reading-list triage with minutes per item", "Dense passages decoded", "Talking points and your turn to present"],
  [NAME, TXT("course", "Course / module", "Political Theory, 2nd year"), CH("speaking", "Speaking in seminars", ["Hate it", "Nervous but try", "Comfortable", "Too much"], "Nervous but try"), CH("assessed", "Participation graded?", ["Yes", "No", "Not sure"], "Not sure")],
  [T("triage", "Triage the reading list", "Hours available → what to read how", "⏱️",
     [LONG("list", "This week's readings", "paste the list with page counts if known"), NUM("hours", "Hours you actually have", "4"), TXT("focus", "Seminar question / focus", "Is Rawls' veil of ignorance persuasive?")],
@@ -206,10 +206,10 @@ APP("seminar_ready", "Seminar Ready", "Read smarter, then say something worth he
     [TXT("reading", "The reading", "Rawls, A Theory of Justice, ch. 3", True), LONG("reaction", "Your honest reaction", "seems idealistic; how would this work with real inequality?")],
     "Reading: {reading}. Reaction: {reaction}. Produce bullets of 3 talking points, each with a claim, a reference to a specific part of the reading and a why-it-matters, a quote with an opening line for the student's first contribution calibrated to the profile's comfort with speaking, a table (If someone says… | You could respond…) with 4 rows for likely pushback, and a callout on the minimum viable contribution if nerves win: one question, asked early.",
     "bullets, quote, table, callout", "Prep points", "Sharpening…"),
-  T("ask", "Ask a good question", "Four kinds of question, ready to go", "❓",
-    [TXT("reading", "The reading or topic", "", True)],
-    "For {reading}, write cards for 4 questions (meta = type: clarifying · challenging · connecting · applying), each card with the question, why it's a good one and a follow-up if the room goes quiet. Then bullets on timing: when in the seminar each type lands best.",
-    "cards, bullets", "Give me questions", "Wondering…"),
+  T("lead", "Lead the seminar", "Your turn to present the reading", "🎤",
+    [TXT("reading", "The reading you're presenting", "Rawls, A Theory of Justice, ch. 3", True), NUM("minutes", "Minutes you have", "15"), CH("format", "Format", ["Presentation then discussion", "Handout-led", "Debate: for and against", "Response paper read aloud"], "Presentation then discussion")],
+    "Presenting: {reading}. Time: {minutes} minutes. Format: {format}. Build steps for the session with minutes per section (hook, the author's argument in 3 moves, the strongest objection, your own position, hand-over to discussion) that fit the time, a table (Section | Key content | Page or passage to point the room to) so every claim is anchored in the text, 3 cards of discussion questions to pose (meta = type · when to ask · what to do if silence), a quote with a one-paragraph handout summary the student can print, and a callout on the classic student-presenter failure: summarising the reading instead of arguing about it.",
+    "steps, table, cards, quote, callout", "Plan my session", "Taking the floor…"),
   T("debrief", "After the seminar", "What happened, what next", "📝",
     [LONG("what", "What happened", "said one thing, tutor pushed back, didn't know how to respond"), CH("felt", "How it felt", ["Went well", "Okay", "Embarrassing", "Said nothing"], "Okay")],
     "What happened: {what}. Felt: {felt}. Write text reframing the experience honestly (what worked, what the tutor's pushback usually means), a kv logging the seminar (Key idea, Best point heard, My contribution, Open question), steps for next week that are one notch braver than this week, and a quote with the sentence to use next time when challenged ('That's fair — I think the stronger version of my point is…').",
@@ -234,10 +234,10 @@ APP("rubric_radar", "Rubric Radar", "Decode the brief, hit the top band, learn f
     "table, text, steps, quote", "Decode feedback", "Translating…"),
   T("grade", "What do I need?", "Current marks → required scores", "🧮",
     [LONG("marks", "Marks so far with weights", "Essay 1: 62 (30%), Presentation: 70 (20%)"), LONG("remaining", "Remaining assessments with weights", "Exam (50%)")],
-    "So far: {marks}. Remaining: {remaining}. Compute a kv (Current weighted average, Weight remaining, Mark needed on remaining for the profile's target, Mark needed for the band below, Best achievable), a table (Remaining assessment | Weight | Needed for target | Needed for band below), and a callout on realism: how the needed mark compares to marks so far and where the effort pays most.",
-    "kv, table, callout", "Calculate", "Doing the maths…"),
+    "So far: {marks}. Remaining: {remaining}. Work the arithmetic out explicitly in text first (each mark × weight, the sum, the weight still to play for) so every number can be checked, then a kv (Current weighted average, Weight remaining, Mark needed on remaining for the profile's target, Mark needed for the band below, Best achievable), a table (Remaining assessment | Weight | Needed for target | Needed for band below), and a callout on realism: how the needed mark compares to marks so far and where the effort pays most.",
+    "text, kv, table, callout", "Calculate", "Doing the maths…"),
   T("extension", "Extension request", "Say the right thing, attach the right evidence", "📨",
-    [LONG("reason", "Why you need it", "flu since Monday, GP note available"), TXT("days", "Days requested", "5"), TXT("deadline", "Original deadline", "Friday 14th")],
+    [LONG("reason", "Why you need it", "flu since Monday, GP note available"), NUM("days", "Days requested", "5"), TXT("deadline", "Original deadline", "Friday 14th")],
     "Reason: {reason}. Requesting: {days} days. Deadline: {deadline}. Write a quote with a concise, honest extension-request email that states the reason, the evidence attached, the new date requested and a commitment, then a checklist of evidence and forms universities typically ask for in this situation, bullets on what usually strengthens or weakens a request, and a callout on the alternative if the extension is refused (late-penalty maths, mitigating-circumstances routes).",
     "quote, checklist, bullets, callout", "Draft request", "Writing carefully…")])
 

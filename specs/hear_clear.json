@@ -117,7 +117,7 @@
      "default": "Choose the table"
     }
    ],
-   "prompt": "Plan {event} where I can {control}. Bullets on choosing and positioning (wall behind me, light on faces, away from the kitchen), a checklist for the day (aid programme, spare batteries, seat request), a quote with what to say when booking or to the host, and a kv (Best seat | Worst seat | Hearing aid programme to use | Backup if it's too loud).",
+   "prompt": "Plan {event}. My say over the venue or seating: {control}. Bullets on choosing and positioning (wall behind me, light on faces, away from the kitchen), a checklist for the day (aid programme, spare batteries, seat request), a quote with what to say when booking or to the host, and a kv (Best seat | Worst seat | Hearing aid programme to use | Backup if it's too loud).",
    "shape": "bullets, checklist, quote, kv",
    "button": "Plan it",
    "loading": "Scouting…"
@@ -180,7 +180,7 @@
      "placeholder": "Samsung TV, iPhone 13"
     }
    ],
-   "prompt": "Set up {device} on {model} for the profile's hearing: a checklist of settings to turn on with menu paths (captions, mono audio, hearing-aid compatibility, streaming to aids, flashing alerts), a table (Option | Cost | Works with my aids? | Notes) of add-on gadgets worth considering (TV streamer, captioned phone, vibrating alarm), and a callout on keeping volume safe for others and for your remaining hearing.",
+   "prompt": "Set up {device} for the profile's hearing. Device details: {model}. Provide a checklist of settings to turn on with menu paths (captions, mono audio, hearing-aid compatibility, streaming to aids, flashing alerts), a table (Option | Cost | Works with my aids? | Notes) of add-on gadgets worth considering (TV streamer, captioned phone, vibrating alarm), and a callout on keeping volume safe for others and for your remaining hearing.",
    "shape": "checklist, table, callout",
    "button": "Set up",
    "loading": "Tuning…"

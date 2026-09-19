@@ -112,7 +112,7 @@
      "placeholder": "English"
     }
    ],
-   "prompt": "Back-translate this text literally into {into}, preserving word order and ambiguity rather than smoothing: {target}. Sections: quote with the literal back-translation; bullets listing every place where the meaning a reader gets may differ from what was probably intended; table (Phrase | Literal meaning | Likely intended meaning | Risk).",
+   "prompt": "Back-translate this text literally into {into} (if not given, into the source language of the profile pair), preserving word order and ambiguity rather than smoothing: {target}. Sections: quote with the literal back-translation; bullets listing every place where the meaning a reader gets may differ from what was probably intended; table (Phrase | Literal meaning | Likely intended meaning | Risk).",
    "shape": "quote, bullets, table",
    "button": "Back-translate",
    "loading": "Reversing…"
@@ -175,7 +175,7 @@
      "placeholder": "Mexico, not Spain"
     }
    ],
-   "prompt": "Rewrite {text} in the target language for register '{formality}' and locale '{locale}'. Sections: quote with the rewritten text; table (Original | Changed to | Why: pronoun / verb form / vocabulary / idiom); a callout on locale traps (words that are fine in one country and rude or odd in another).",
+   "prompt": "Rewrite {text} in the target language for register '{formality}' and locale '{locale}' (if no locale is given, use the most widely understood variety of the profile target language). Sections: quote with the rewritten text; table (Original | Changed to | Why: pronoun / verb form / vocabulary / idiom); a callout on locale traps (words that are fine in one country and rude or odd in another).",
    "shape": "quote, table, callout",
    "button": "Adjust register",
    "loading": "Tuning tone…"
@@ -198,5 +198,6 @@
    "button": "Check sign",
    "loading": "Squinting…"
   }
- ]
+ ],
+ "disclaimer": "Back Check is an editing aid, not a certified translation; have legal, medical and safety-critical text reviewed by a qualified professional translator."
 }

@@ -1,8 +1,6 @@
 from dsl import *
 # w23 — Business: job search by field (nurses, travel nurses, teachers, academics, engineers, trades, retail, hospitality, government, first responders)
 
-PAYLEGAL = "Pay and licensing details are general guidance, not financial or legal advice; confirm with the employer and the official regulator."
-
 APP("unit_fit", "Unit Fit", "Land the nursing job on the unit you actually want", "Business", ["#00897B", "#EF5350", "#5C6BC0"], "heart",
  "Unit Fit helps RNs, LPNs and new grads find the right unit, tailor real clinical experience to postings, rehearse scenario interviews, check licence and cert requirements, and compare offers line by line.",
  "You are a nurse recruiter turned career mentor: clinically literate, straight-talking about ratios and differentials, and never willing to let anyone overstate their scope of practice.",
@@ -22,7 +20,7 @@ APP("unit_fit", "Unit Fit", "Land the nursing job on the unit you actually want"
     "cards, quote, checklist", "Start mock", "Paging the panel…"),
   T("licence", "Licence & certs check", "What you need before day one", "📋",
     [TXT("state", "State / country of the job", "Texas", True), CH("target", "Target unit", ["Med-surg", "ICU", "ED", "L&D", "Paeds", "OR", "Oncology", "Psych", "Travel"], "Med-surg")],
-    "For a {target} job in {state} with the profile's current licence: kv (licence pathway — compact, endorsement or new application; typical processing time; fees; fingerprinting), a table (Certification | Required or preferred | Provider | Renewal) covering BLS, ACLS, PALS, NIHSS, TNCC, CCRN or the unit's equivalents, steps in order with realistic timelines, and a callout to verify with the official board site.",
+    "Work out what the profile needs, starting from their current licence, to take a {target} job in {state}. Give kv (licence pathway: compact, endorsement or new application; typical processing time; fees; fingerprinting and background check). Add a table (Certification | Required or preferred | Provider | Renewal) covering BLS, ACLS, PALS, NIHSS, TNCC, CCRN or the unit's equivalents, then steps in order with realistic weeks for each, and a callout to verify with the official board site.",
     "kv, table, steps, callout", "Check", "Verifying…"),
   T("offers", "Compare offers", "Differentials, bonuses and the fine print", "⚖️",
     [LONG("offer_a", "Offer A", "$38/hr, $4 nights, $10k sign-on with 2-yr clawback, 5:1"), LONG("offer_b", "Offer B", "$41/hr, no differential, self-scheduling, 6:1")],
@@ -81,7 +79,8 @@ APP("staffroom_ready", "Staffroom Ready", "Teacher applications, demo lessons an
   T("portfolio", "Build my portfolio", "Evidence over adjectives", "📁",
     [CH("format", "Format", ["Physical binder", "Digital site", "PDF", "Slides"], "PDF")],
     "Design a teaching portfolio in {format} for the profile's status and level. Provide a table (Section | Artefact to include | What it proves | Pages or slides), a checklist of artefacts to collect this term (anonymised work samples, data trackers, feedback, lesson plans), steps for assembling it in a weekend, and a callout on pupil privacy and permissions.",
-    "table, checklist, steps, callout", "Design it", "Curating…")])
+    "table, checklist, steps, callout", "Design it", "Curating…")],
+ "Pay-scale, contract and safeguarding information is general guidance, not legal or HR advice; follow your school, union and regulator's official policies.")
 
 APP("tenure_track", "Tenure Track", "Faculty applications from statements to startup package", "Business", ["#4A148C", "#C0CA33", "#00838F"], "hat",
  "Tenure Track guides PhDs and postdocs through the academic job market: research and teaching statements, the job talk, the two-day campus visit and negotiating the startup package, tuned to R1, teaching-focused and community-college searches.",
@@ -117,7 +116,7 @@ APP("title_block", "Title Block", "Engineering jobs: portfolio, technical rounds
  [NAME, CH("discipline", "Discipline", ["Mechanical", "Civil/Structural", "Electrical", "Chemical/Process", "Industrial", "Aerospace", "Environmental"]), CH("level", "Level", ["Student/intern", "Graduate/EIT", "3–7 years", "Senior/PE", "Manager"]), TXT("tools", "Tools & software", "SolidWorks, ANSYS, Python")],
  [T("project", "Portfolio entry", "One project, told like an engineer", "📐",
     [LONG("project", "Describe a project", "redesigned a conveyor bracket that kept cracking…"), PHOTO("Drawing or photo (optional)")],
-    "Turn {project} (and the drawing or photo if provided) into a portfolio entry for the profile's discipline. Give cards for the entry (meta = role · tools · quantified outcome) covering problem, constraints, analysis and result; a quote with a 30-second spoken version for interviews; a table (Skill shown | Evidence in this project | Posting keyword); and a callout on what to redact for confidentiality.",
+    "Turn {project} (and the drawing or photo if provided) into a portfolio entry for the profile's discipline. Give 4 cards titled Problem, Constraints, Analysis and Result (meta = your role · tools used · quantified outcome), each 2–3 sentences in engineering language; a quote with a 30-second spoken version for interviews; a table (Skill shown | Evidence in this project | Posting keyword); and a callout on what to redact for confidentiality.",
     "cards, quote, table, callout", "Write entry", "Drafting…"),
   T("technical", "Technical drill", "Fundamentals questions for your discipline", "🧮",
     [CH("topic", "Topic", ["Statics & mechanics", "Thermo & fluids", "Circuits & power", "Controls", "Materials", "Process & mass balance", "Structures & loads", "Manufacturing", "Codes & standards"], "Statics & mechanics"), CH("format", "Interview format", ["Whiteboard", "Verbal", "Take-home", "Panel"], "Verbal")],
@@ -148,11 +147,11 @@ APP("trade_ticket", "Trade Ticket", "Apprenticeships, tickets and job-site hires
     "steps, checklist, table, quote", "Plan it", "Lining up…"),
   T("aptitude", "Aptitude test practice", "Algebra, reading and mechanical reasoning", "📏",
     [CH("area", "Practise", ["Algebra & functions", "Reading comprehension", "Mechanical reasoning", "Spatial", "Mixed"], "Mixed"), CH("length", "Length", ["10 questions", "20 questions"], "10 questions")],
-    "Generate a {length} practice set on {area} in the style of trade entrance aptitude tests for the profile's trade. Provide a table (No. | Question | Answer | Method) with every question and worked answer, steps for the fastest method on the hardest question type, bullets of timing strategy, and a callout on what score ranks well and how retakes work.",
+    "Generate a practice set of {length} on {area} in the style of trade entrance aptitude tests for the profile's trade. Provide a table (No. | Question | Answer | Method) with every question and worked answer, steps for the fastest method on the hardest question type, bullets of timing strategy, and a callout on what score ranks well and how retakes work.",
     "table, steps, bullets, callout", "Test me", "Setting the test…"),
   T("tickets", "Licence & ticket check", "What you need to work legally", "🪪",
     [TXT("job", "Job you're going for", "commercial electrician, high-rise", True)],
-    "For {job} in the profile's region and trade: a table (Licence or ticket | Who issues it | Prerequisites | Cost | Renewal) covering the trade licence, safety tickets (working at heights, confined space, OSHA/CSCS/White Card equivalents), first aid and equipment cards; steps to get the missing ones fastest; a kv of what to carry on day one; and a callout to verify with the official regulator.",
+    "List what {job} legally requires in the profile's region and trade. Give a table (Licence or ticket | Who issues it | Prerequisites | Cost | Renewal) covering the trade licence, safety tickets (working at heights, confined space, OSHA/CSCS/White Card equivalents), first aid and equipment cards. Then steps to get the missing ones fastest, a kv of what to carry on day one (cards, ID, PPE, tools), and a callout to verify with the official regulator.",
     "table, steps, kv, callout", "Check", "Checking cards…"),
   T("pitch", "Job-site pitch", "How to get hired by a foreman", "🏗️",
     [CH("how", "Approach", ["Walk-on / cold visit", "Phone call", "Text or email", "Referral"], "Phone call"), TXT("employer", "Who", "mid-size electrical contractor, mostly commercial")],

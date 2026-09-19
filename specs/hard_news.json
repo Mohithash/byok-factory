@@ -91,7 +91,7 @@
      "placeholder": "budget cut of 15% next year; possible second round"
     }
    ],
-   "prompt": "Write the team announcement for '{kind}' with these shareable facts: {facts} and things not yet shareable: {cant}. Quote with a spoken announcement under 200 words (decision, why, what changes for them, what doesn't, what happens next, how to raise questions), bullets of 6 phrases to avoid because they sound like spin, a table (Likely question | Honest answer | If you can't answer) for 6 questions, and a callout on handling what you can't say without lying.",
+   "prompt": "Write the team announcement for '{kind}' with these shareable facts: {facts} and things not yet shareable: {cant}. Quote with a spoken announcement under 200 words (decision, why, what changes for them, what doesn't, what happens next, how to raise questions), bullets of 6 phrases to avoid because they sound like spin, a table (Who hears it | When | Channel | Who tells them) sequencing the communication — affected people first, then their team, then peers and partners — so nobody learns it from the rumour mill, and a callout on handling what you can't say without lying.",
    "shape": "quote, bullets, table, callout",
    "button": "Write it",
    "loading": "Cutting the spin…"

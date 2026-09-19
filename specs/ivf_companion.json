@@ -77,7 +77,7 @@
      "placeholder": "3 October"
     }
    ],
-   "prompt": "Turn this protocol into a schedule starting {start}: {protocol}. Sections: a table (Date | Day | Medication & dose | Time | Appointment or test | Notes), a checklist of supplies and storage (fridge items, sharps bin, pen needles, swabs), steps for injection technique and site rotation, and a callout that the clinic's written instructions override this and to call the clinic if anything conflicts.",
+   "prompt": "Turn this protocol into a schedule starting {start}: {protocol}. Sections: a table (Date | Day | Medication & dose | Time | Appointment or test | Notes), a checklist of 6–10 supplies and storage items (fridge items, sharps bin, pen needles, swabs), steps for injection technique and site rotation, and a callout that the clinic's written instructions override this and to call the clinic if anything conflicts.",
    "shape": "table, checklist, steps, callout",
    "button": "Build schedule",
    "loading": "Organising…"
@@ -106,7 +106,7 @@
      "default": "Stimulation"
     }
    ],
-   "prompt": "Explain {stage} for the profile's treatment and cycle number. Sections: text on what happens and why, kv (typical duration, what the clinic measures, what good looks like in general terms, common feelings), bullets of practical tips, and a callout on what to phone the clinic about at this stage.",
+   "prompt": "Explain {stage} for the profile's treatment and cycle number. Sections: text on what happens and why, kv (typical duration, what the clinic measures, what good looks like in general terms, common feelings), bullets of 4–6 practical tips, and a callout on what to phone the clinic about at this stage.",
    "shape": "text, kv, bullets, callout",
    "button": "Explain",
    "loading": "Explaining…"
@@ -125,7 +125,7 @@
      "required": true
     }
    ],
-   "prompt": "Assess: {symptom} for the profile's treatment. Sections: a callout with a level (Expected, self-care / Call the clinic today / Emergency now), text on the likely cause, bullets of what helps, and a checklist of OHSS and other red flags (rapid weight gain, breathlessness, severe pain, low urine output, calf swelling).",
+   "prompt": "Assess: {symptom} for the profile's treatment. Sections: a callout with a level (Expected, self-care / Call the clinic today / Emergency now), text on the likely cause, bullets of 3–5 things that help, and a checklist of 5–7 OHSS and other red flags (rapid weight gain, breathlessness, severe pain, low urine output, calf swelling).",
    "shape": "callout, text, bullets, checklist",
    "button": "Check",
    "loading": "Reviewing…"
@@ -154,7 +154,7 @@
      "default": "Frozen"
     }
    ],
-   "prompt": "Prepare for a {type} embryo transfer on {date} for the profile. Sections: a checklist for the 48h before (medications, bladder timing, what to wear, what to bring), kv (what happens in the room, how long, what you'll be told), bullets of evidence-based do's and don'ts afterwards (normal activity is fine; bed rest is not needed), and a quote with a grounding phrase for the procedure.",
+   "prompt": "Prepare for a {type} embryo transfer on {date} for the profile. Sections: a checklist for the 48h before (medications, bladder timing, what to wear, what to bring), kv (what happens in the room, how long, what you'll be told), bullets of 5–6 evidence-based do's and don'ts afterwards (normal activity is fine; bed rest is not needed), and a quote with a grounding phrase for the procedure.",
    "shape": "checklist, kv, bullets, quote",
    "button": "Prep me",
    "loading": "Preparing…"
@@ -173,7 +173,7 @@
      "required": true
     }
    ],
-   "prompt": "Explain in plain English: {results} for the profile. Sections: a table (Item | Your number or grade | What it means | Typical range), text on what this suggests for next steps without promising outcomes, bullets of questions to ask the embryologist or nurse, and a callout that grades and numbers are imperfect predictors and the clinic makes the decisions.",
+   "prompt": "Explain in plain English: {results} for the profile. Sections: a table (Item | Your number or grade | What it means | Typical range), text on what this suggests for what comes next without promising outcomes, bullets of 5 questions to ask the embryologist or nurse, and a callout that grades and numbers are imperfect predictors and the clinic makes the decisions.",
    "shape": "table, text, bullets, callout",
    "button": "Decode",
    "loading": "Interpreting…"

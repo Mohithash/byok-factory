@@ -1,0 +1,218 @@
+{
+ "id": "big_zero",
+ "name": "Big Zero",
+ "tagline": "Milestone birthdays that feel like them, not a template",
+ "category": "Events",
+ "colors": [
+  "#1A237E",
+  "#FFC400",
+  "#E91E63"
+ ],
+ "icon": "spark",
+ "about": "Big Zero plans the big 3-0, 4-0, 5-0 and beyond: party concepts that fit the person, surprise logistics, a born-in-the-year quiz, the toast or roast, and a group memory montage.",
+ "persona": "You are a milestone-party producer with a warm sense of humour: you build moments people remember, keep surprises watertight, and never embarrass the guest of honour.",
+ "onboarding": {
+  "title": "Make the big one count",
+  "subtitle": "Tell us who's turning what, and how they like to celebrate.",
+  "bullets": [
+   "Concepts matched to their style",
+   "Surprise logistics that don't leak",
+   "Toasts, roasts and memory montages"
+  ]
+ },
+ "profile": [
+  {
+   "key": "who",
+   "label": "Who's turning",
+   "type": "text",
+   "placeholder": "my dad, Raj"
+  },
+  {
+   "key": "age",
+   "label": "Milestone",
+   "type": "chips",
+   "options": [
+    "30",
+    "40",
+    "50",
+    "60",
+    "70",
+    "80",
+    "90",
+    "100"
+   ]
+  },
+  {
+   "key": "style",
+   "label": "Their style",
+   "type": "chips",
+   "options": [
+    "Loves a big party",
+    "Small & meaningful",
+    "Surprise-tolerant",
+    "Hates fuss"
+   ]
+  },
+  {
+   "key": "date",
+   "label": "Party date",
+   "type": "text",
+   "placeholder": "12 Nov"
+  }
+ ],
+ "tools": [
+  {
+   "id": "concept",
+   "title": "Party concepts",
+   "subtitle": "Four ideas that fit the person",
+   "emoji": "💡",
+   "inputs": [
+    {
+     "key": "guests",
+     "label": "Guests",
+     "type": "number",
+     "placeholder": "40"
+    },
+    {
+     "key": "budget",
+     "label": "Budget",
+     "type": "number",
+     "placeholder": "1500"
+    },
+    {
+     "key": "format",
+     "label": "Format",
+     "type": "chips",
+     "options": [
+      "Dinner",
+      "Cocktail party",
+      "Weekend away",
+      "Backyard bash",
+      "Afternoon tea",
+      "Activity day"
+     ],
+     "default": "Dinner"
+    }
+   ],
+   "prompt": "Propose 4 celebration concepts for the profile person and milestone: a {format} for {guests} guests within {budget}. Cards (meta = est. cost · effort · surprise-friendly yes/no), each with a one-line hook tied to their style and decade; then a kv budget split for the best fit; then a callout on what people at this milestone say they actually wanted afterwards (a moment, not more stuff).",
+   "shape": "cards, kv, callout",
+   "button": "Show concepts",
+   "loading": "Counting candles…"
+  },
+  {
+   "id": "surprise",
+   "title": "Surprise logistics",
+   "subtitle": "Cover story, countdown, reveal",
+   "emoji": "🤫",
+   "inputs": [
+    {
+     "key": "cover",
+     "label": "Cover story",
+     "type": "text",
+     "placeholder": "dinner with just us two",
+     "required": true
+    },
+    {
+     "key": "weeks",
+     "label": "Weeks until",
+     "type": "number",
+     "placeholder": "6"
+    },
+    {
+     "key": "accomplices",
+     "label": "Who's helping",
+     "type": "text",
+     "placeholder": "sister, best mate Tom"
+    }
+   ],
+   "prompt": "Plan a surprise for the profile person with cover story '{cover}', {weeks} weeks out, helpers: {accomplices}. Sections: a table (Week | Task | Owner | Leak risk) counting down; a checklist for the day itself (guest arrival window, where they hide, the reveal cue, who films); a quote with the exact message to guests about secrecy and timing; and a callout on the most common ways surprises get spoiled plus a fallback if it's rumbled early.",
+   "shape": "table, checklist, quote, callout",
+   "button": "Plan surprise",
+   "loading": "Shushing everyone…"
+  },
+  {
+   "id": "year",
+   "title": "Born in…",
+   "subtitle": "Then-vs-now facts and a quiz",
+   "emoji": "📻",
+   "inputs": [
+    {
+     "key": "year",
+     "label": "Birth year",
+     "type": "number",
+     "placeholder": "1976",
+     "required": true
+    }
+   ],
+   "prompt": "For someone born in {year}: a table of that year's world (Category | Then | Now; approximate, for the country the profile suggests) covering price of bread and a house, the No.1 song, the biggest film, the tech people had, and the headline event; then bullets of 8 quiz questions with answers spanning that year and each decade since; then a kv of 'by the numbers' facts for the milestone (days lived, approx. heartbeats, Christmases, Mondays survived) for a card or slide.",
+   "shape": "table, bullets, kv",
+   "button": "Time travel",
+   "loading": "Rewinding…"
+  },
+  {
+   "id": "speech",
+   "title": "Toast or roast",
+   "subtitle": "Land the laugh and the lump in the throat",
+   "emoji": "🥂",
+   "inputs": [
+    {
+     "key": "kind",
+     "label": "Kind",
+     "type": "chips",
+     "options": [
+      "Heartfelt toast",
+      "Gentle roast",
+      "Both in one"
+     ],
+     "default": "Both in one"
+    },
+    {
+     "key": "stories",
+     "label": "Stories & facts",
+     "type": "longtext",
+     "placeholder": "always late, ran a marathon at 45, terrible at karaoke, best listener…",
+     "required": true
+    },
+    {
+     "key": "length",
+     "label": "Length",
+     "type": "chips",
+     "options": [
+      "1 minute",
+      "3 minutes",
+      "5 minutes"
+     ],
+     "default": "3 minutes"
+    }
+   ],
+   "prompt": "Write a {length} {kind} for the profile person using: {stories}. Output a quote with the full speech (open with a laugh, land one sincere line, end with a raise-your-glass cue; nothing that would embarrass them in front of their boss or their kids), then bullets on delivery (pauses, where to look, what to do with your hands), then a second quote with a 2-line backup version if nerves hit.",
+   "shape": "quote, bullets",
+   "button": "Write it",
+   "loading": "Clearing throat…"
+  },
+  {
+   "id": "tribute",
+   "title": "Memory montage brief",
+   "subtitle": "Collect messages from everyone",
+   "emoji": "🎬",
+   "inputs": [
+    {
+     "key": "output",
+     "label": "Output",
+     "type": "chips",
+     "options": [
+      "Video montage",
+      "Memory book",
+      "Wall of notes",
+      "Playlist with stories"
+     ],
+     "default": "Video montage"
+    }
+   ],
+   "prompt": "Design a group {output} for the profile person. Sections: a quote with the message to send friends and family asking for contributions (what to send, length and format, deadline); a checklist of collection and assembly steps with a timeline working back from the date; bullets of 8 prompt questions to give contributors so the messages aren't all 'happy birthday'; and a callout on staging the reveal.",
+   "shape": "quote, checklist, bullets, callout",
+   "button": "Brief it",
+   "loading": "Gathering memories…"
+  }
+ ]
+}

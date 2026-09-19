@@ -148,7 +148,7 @@
    "inputs": [
     {
      "key": "room",
-     "label": "Room",
+     "label": "Room or target",
      "type": "chips",
      "options": [
       "Kitchen",

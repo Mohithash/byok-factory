@@ -4,9 +4,9 @@
  "tagline": "Pick a base, count your days, keep the routine",
  "category": "Travel & Local",
  "colors": [
-  "#00838F",
-  "#FF8F00",
-  "#8E24AA"
+  "#006064",
+  "#F9A825",
+  "#D81B60"
  ],
  "icon": "pin",
  "about": "Nomad Base helps remote workers choose their next base city, compare long-stay and nomad-visa options in general terms, count days for tax and visa limits, set up a productive month anywhere and pack for it.",
@@ -40,7 +40,7 @@
   },
   {
    "key": "budget",
-   "label": "Monthly budget",
+   "label": "Monthly budget (USD)",
    "type": "number",
    "placeholder": "2500"
   }

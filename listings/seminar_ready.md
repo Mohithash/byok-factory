@@ -5,13 +5,13 @@
 **Short description (≤80):** Read smarter, then say something worth hearing
 
 ## Full description
-Seminar Ready triages your reading list, decodes dense passages, prepares talking points and sharp questions, and debriefs after the seminar so you show up prepared and get credit for participating.
+Seminar Ready triages your reading list, decodes dense passages, prepares your talking points, plans the session when it's your turn to present, and debriefs afterwards so you show up prepared and get credit for participating.
 
 WHAT'S INSIDE
 • Triage the reading list — Hours available → what to read how
 • Decode a passage — Photo or paste → plain English
 • Talking points — Your reaction → 3 things to say
-• Ask a good question — Four kinds of question, ready to go
+• Lead the seminar — Your turn to present the reading
 • After the seminar — What happened, what next
 
 BRING YOUR OWN KEY
@@ -23,7 +23,7 @@ Every answer is a structured, shareable document with follow-up questions, saved
 - ⏱️ **Triage the reading list** — Hours available → what to read how
 - 🔍 **Decode a passage** — Photo or paste → plain English
 - 💬 **Talking points** — Your reaction → 3 things to say
-- ❓ **Ask a good question** — Four kinds of question, ready to go
+- 🎤 **Lead the seminar** — Your turn to present the reading
 - 📝 **After the seminar** — What happened, what next
 
 ## Privacy policy

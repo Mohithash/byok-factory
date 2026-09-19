@@ -1,0 +1,238 @@
+{
+ "id": "carve_coach",
+ "name": "Carve Coach",
+ "tagline": "Ski and snowboard better, from fix to first lift",
+ "category": "Sports",
+ "colors": [
+  "#0288D1",
+  "#B3E5FC",
+  "#FF6F00"
+ ],
+ "icon": "sun",
+ "about": "Carve Coach fixes your skiing or snowboarding by symptom, builds pre-season leg and balance prep, plans a resort day for your level and the conditions, answers gear questions and explains off-piste basics you then learn properly on a course.",
+ "persona": "You are a ski-school instructor who also rides: friendly, drill-based, one fix at a time, matching terrain to ability; you never send anyone off-piste without beacon, shovel, probe, training and a partner.",
+ "onboarding": {
+  "title": "Which way do you point?",
+  "subtitle": "Discipline and level shape every drill and plan.",
+  "bullets": [
+   "Technique fixes by symptom",
+   "6-week pre-season prep",
+   "Day plans for your level and the snow"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "discipline",
+   "label": "Discipline",
+   "type": "chips",
+   "options": [
+    "Ski",
+    "Snowboard",
+    "Both"
+   ]
+  },
+  {
+   "key": "level",
+   "label": "Level",
+   "type": "chips",
+   "options": [
+    "First week",
+    "Blues",
+    "Reds / blacks",
+    "Off-piste / park"
+   ]
+  },
+  {
+   "key": "days",
+   "label": "Days per season",
+   "type": "chips",
+   "options": [
+    "1–5",
+    "6–15",
+    "15+"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "fix",
+   "title": "Fix my technique",
+   "subtitle": "Symptom → drills in order",
+   "emoji": "🎿",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo or video still (optional)",
+     "type": "photo"
+    },
+    {
+     "key": "symptom",
+     "label": "Symptom",
+     "type": "chips",
+     "options": [
+      "Skidding not carving",
+      "Leaning back",
+      "Catching edges",
+      "Can't link turns",
+      "Legs burn fast",
+      "Scared on steeps",
+      "Bumps / moguls",
+      "Powder"
+     ],
+     "default": "Skidding not carving"
+    },
+    {
+     "key": "detail",
+     "label": "More detail",
+     "type": "text",
+     "placeholder": "worse on my left turns"
+    }
+   ],
+   "prompt": "Coach the profile discipline and level for '{symptom}' from the photo (if attached) and this detail (if given): {detail}. Sections: text with the root cause in 2 sentences, steps for 3 drills in order (terrain, what to feel, reps), a table (Fault | What you feel | Fix cue), and a callout on the terrain to practise on and the terrain to avoid until it's fixed.",
+   "shape": "text, steps, table, callout",
+   "button": "Coach me",
+   "loading": "Setting the edge…"
+  },
+  {
+   "id": "prep",
+   "title": "Pre-season prep",
+   "subtitle": "Legs, balance, knees",
+   "emoji": "🦵",
+   "inputs": [
+    {
+     "key": "weeks",
+     "label": "Weeks until trip",
+     "type": "chips",
+     "options": [
+      "3",
+      "6",
+      "10"
+     ],
+     "default": "6"
+    },
+    {
+     "key": "kit",
+     "label": "Training kit",
+     "type": "chips",
+     "options": [
+      "Bodyweight",
+      "Gym",
+      "Bike / running"
+     ],
+     "multi": true
+    },
+    {
+     "key": "body",
+     "label": "Injuries / concerns",
+     "type": "text",
+     "placeholder": "old ACL, weak ankles"
+    }
+   ],
+   "prompt": "Write a {weeks}-week pre-season plan using {kit} with these concerns: {body}, for the profile discipline and level. Sections: a table (Week | Session 1 | Session 2 | Session 3 | Focus), steps for the 5 key exercises with reps (wall sits, lateral hops, single-leg balance, step-downs, hip hinges), bullets on progression and on the last 3 days before the trip, and a callout on knee safety.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Build plan",
+   "loading": "Wall sit…"
+  },
+  {
+   "id": "day",
+   "title": "Plan my mountain day",
+   "subtitle": "Where, when and why",
+   "emoji": "🗺️",
+   "inputs": [
+    {
+     "key": "resort",
+     "label": "Resort",
+     "type": "text",
+     "placeholder": "Val Thorens",
+     "required": true
+    },
+    {
+     "key": "conditions",
+     "label": "Conditions / forecast",
+     "type": "text",
+     "placeholder": "20 cm overnight, sunny then clouding over, -8°C"
+    },
+    {
+     "key": "group",
+     "label": "Group",
+     "type": "chips",
+     "options": [
+      "Solo",
+      "Same level",
+      "Mixed levels",
+      "With kids"
+     ],
+     "default": "Same level"
+    }
+   ],
+   "prompt": "Plan a day at {resort} for the profile level with conditions {conditions} and group '{group}'. Sections: a table (Time | Terrain type or area | Why now | Watch for), a checklist for the morning (layers, goggle lens, sunscreen, water, pass, lift map, meeting point), bullets on managing the group's energy and confidence, and a callout on sun, cold, flat light and end-of-day fatigue risk.",
+   "shape": "table, checklist, bullets, callout",
+   "button": "Plan day",
+   "loading": "Checking lifts…"
+  },
+  {
+   "id": "gear",
+   "title": "Gear & setup",
+   "subtitle": "Length, tune, boots, bindings",
+   "emoji": "🔧",
+   "inputs": [
+    {
+     "key": "question",
+     "label": "Question",
+     "type": "chips",
+     "options": [
+      "What length / size",
+      "Tune & wax",
+      "Boot pain",
+      "Binding setup",
+      "Rent vs buy",
+      "Helmet & goggles"
+     ],
+     "default": "What length / size"
+    },
+    {
+     "key": "stats",
+     "label": "Height, weight, current gear",
+     "type": "text",
+     "placeholder": "178 cm, 80 kg, 170 cm all-mountain skis"
+    }
+   ],
+   "prompt": "Answer '{question}' for the profile discipline and level with stats: {stats}. Sections: kv with the specific recommendation (numbers or settings), a table (Option | Best for | Trade-off | Price band), bullets on what to ask in the shop, and a callout on what must be done by a technician (binding DIN, boot fitting) rather than at home.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Advise me",
+   "loading": "Waxing…"
+  },
+  {
+   "id": "offpiste",
+   "title": "Off-piste basics",
+   "subtitle": "Orientation before the course",
+   "emoji": "⚠️",
+   "inputs": [
+    {
+     "key": "topic",
+     "label": "Topic",
+     "type": "chips",
+     "options": [
+      "Avalanche danger scale",
+      "Beacon, shovel, probe",
+      "Reading terrain",
+      "Tree wells",
+      "Going with a guide",
+      "First ski-touring day"
+     ],
+     "default": "Avalanche danger scale"
+    }
+   ],
+   "prompt": "Explain '{topic}' for a recreational rider at the profile level. Sections: text with the essentials in plain words, a checklist of what to have and check before leaving the piste, bullets of the most common fatal mistakes, kv (rule-of-thumb numbers such as danger levels and slope angles), and a callout stating this is orientation only and that a certified avalanche course plus a guide are required before going off-piste.",
+   "shape": "text, checklist, bullets, kv, callout",
+   "button": "Explain",
+   "loading": "Reading bulletin…"
+  }
+ ],
+ "disclaimer": "Not a substitute for lessons, a guide or an avalanche course. Ride within your ability, wear a helmet, and never leave the piste without training, equipment and a partner."
+}

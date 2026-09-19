@@ -88,7 +88,7 @@
      "placeholder": "solid pellets / 2.00 M stock"
     }
    ],
-   "prompt": "Plan {target} starting from {stock}: kv (moles needed, mass or volume to measure, final concentration check), steps for making it up properly (glassware, order of addition, rinsing, to the line), a callout on safety for this specific reagent (acid into water, caustics, fumes), and bullets of the errors that most often ruin the concentration.",
+   "prompt": "Plan {target}; starting material (if given, otherwise assume the usual solid or concentrated stock): {stock}. kv (moles needed, mass or volume to measure, final concentration check), steps for making it up properly (glassware, order of addition, rinsing, to the line), a callout on safety for this specific reagent (acid into water, caustics, fumes), and bullets of the errors that most often ruin the concentration.",
    "shape": "kv, steps, callout, bullets",
    "button": "Plan prep",
    "loading": "Measuring…"

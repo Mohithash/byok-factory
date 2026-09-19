@@ -1,0 +1,174 @@
+{
+ "id": "whodunit_host",
+ "name": "Whodunit Host",
+ "tagline": "Write and run a murder mystery party for your guests",
+ "category": "Entertainment",
+ "colors": [
+  "#880E4F",
+  "#455A64",
+  "#D4AF37"
+ ],
+ "icon": "pin",
+ "about": "Whodunit Host writes a complete murder mystery party for exactly your guest list: characters with secrets, a crime timeline, clue reveals per round, invitations and a host script that keeps everyone in the game.",
+ "persona": "You are a murder-mystery party writer: witty, tightly plotted, fair to the detective in every guest; every character has a secret, a motive and an alibi that can crack.",
+ "onboarding": {
+  "title": "Everyone's a suspect",
+  "subtitle": "Tell us the size of your party and its tone.",
+  "bullets": [
+   "Characters sized to your guest list",
+   "Clue reveals round by round",
+   "Host script and printable packets"
+  ]
+ },
+ "profile": [
+  {
+   "key": "guests",
+   "label": "Number of guests",
+   "type": "number",
+   "placeholder": "8"
+  },
+  {
+   "key": "tone",
+   "label": "Tone",
+   "type": "chips",
+   "options": [
+    "Classic 1920s",
+    "Campy comedy",
+    "Noir",
+    "Sci-fi",
+    "Modern reality-TV"
+   ]
+  },
+  {
+   "key": "rating",
+   "label": "Content rating",
+   "type": "chips",
+   "options": [
+    "Family-friendly",
+    "Teens",
+    "Adults only"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "plot",
+   "title": "Write the mystery",
+   "subtitle": "Crime, killer, timeline",
+   "emoji": "🕯️",
+   "inputs": [
+    {
+     "key": "setting",
+     "label": "Setting",
+     "type": "text",
+     "placeholder": "a snowed-in ski lodge",
+     "required": true
+    },
+    {
+     "key": "victim",
+     "label": "Victim (optional)",
+     "type": "text",
+     "placeholder": "the lodge's tyrannical owner"
+    }
+   ],
+   "prompt": "Write a murder mystery for the profile guest count, tone and rating, set in {setting} with victim {victim} if given. Sections: text (premise for the invitation, no spoilers), a kv of the solution marked HOST ONLY (killer, motive, method, the one clue that proves it), steps of the crime timeline hour by hour, a table of suspects with exactly one character per guest (Character | Public persona | Secret | Motive | Alibi weakness), and a callout on the red herring.",
+   "shape": "text, kv, steps, table, callout",
+   "button": "Write mystery",
+   "loading": "Plotting the crime…"
+  },
+  {
+   "id": "packet",
+   "title": "Character packet",
+   "subtitle": "One guest's secrets and goals",
+   "emoji": "🎭",
+   "inputs": [
+    {
+     "key": "character",
+     "label": "Character name & role",
+     "type": "text",
+     "placeholder": "Lady Ashcombe, the widow",
+     "required": true
+    },
+    {
+     "key": "plot",
+     "label": "Paste the mystery summary",
+     "type": "longtext",
+     "placeholder": "killer is the butler; Lady A. is having an affair with…",
+     "required": true
+    }
+   ],
+   "prompt": "Write the private packet for {character} using the plot: {plot}. Give text (who you are, second person, about 120 words), bullets of what you know about the other guests, a kv of your secret, your goal for the evening and what you must never admit unless confronted with evidence, a quote with your opening line, and a checklist of 3 things to do during each round.",
+   "shape": "text, bullets, kv, quote, checklist",
+   "button": "Write packet",
+   "loading": "Sealing envelope…"
+  },
+  {
+   "id": "rounds",
+   "title": "Clue reveals",
+   "subtitle": "What comes out each round",
+   "emoji": "🔎",
+   "inputs": [
+    {
+     "key": "plot",
+     "label": "Paste the mystery summary",
+     "type": "longtext",
+     "placeholder": "killer is the butler; the poison came from…",
+     "required": true
+    },
+    {
+     "key": "rounds",
+     "label": "Number of rounds",
+     "type": "number",
+     "placeholder": "3"
+    }
+   ],
+   "prompt": "Plan {rounds} rounds of revelations for: {plot}. Output a table (Round | Clue revealed | Delivered how | Who it implicates | What it rules out), bullets of physical clue props to prepare, and a callout on the moment of the final accusation and how to run the vote.",
+   "shape": "table, bullets, callout",
+   "button": "Plan rounds",
+   "loading": "Dropping clues…"
+  },
+  {
+   "id": "script",
+   "title": "Host script",
+   "subtitle": "Welcome, rounds, reveal",
+   "emoji": "🎙️",
+   "inputs": [
+    {
+     "key": "names",
+     "label": "Guest names (optional)",
+     "type": "text",
+     "placeholder": "Sam, Priya, Jo…"
+    },
+    {
+     "key": "minutes",
+     "label": "Evening length (minutes)",
+     "type": "number",
+     "placeholder": "120"
+    }
+   ],
+   "prompt": "Write the host script for a {minutes}-minute evening with guests {names} if given, in the profile tone. Give steps with clock times (arrival, round openings, dinner break, accusations, reveal), a quote for the welcome speech and the reveal speech, bullets on handling a guest who solves it early or forgets their secret, and a checklist of props, costumes and printing.",
+   "shape": "steps, quote, bullets, checklist",
+   "button": "Write script",
+   "loading": "Clearing my throat…"
+  },
+  {
+   "id": "invite",
+   "title": "Invitations & costumes",
+   "subtitle": "Get guests into character",
+   "emoji": "💌",
+   "inputs": [
+    {
+     "key": "date",
+     "label": "Date, time, address",
+     "type": "text",
+     "placeholder": "Sat 14 March, 7pm, ours",
+     "required": true
+    }
+   ],
+   "prompt": "Write invitations for the profile party on {date}. Give a quote with the invitation text in the profile tone (including the date, time and address). Then a table with one row per guest (Character | Costume from a normal wardrobe | One prop), and bullets on setting the scene (lighting, music, a themed dish or drink name).",
+   "shape": "quote, table, bullets",
+   "button": "Write invites",
+   "loading": "Licking envelopes…"
+  }
+ ]
+}

@@ -1,0 +1,211 @@
+{
+ "id": "manage_up",
+ "name": "Manage Up",
+ "tagline": "Get the most out of the boss you actually have",
+ "category": "Business",
+ "colors": [
+  "#5D4037",
+  "#00ACC1",
+  "#FFCA28"
+ ],
+ "icon": "star",
+ "about": "Manage Up decodes your manager's style, preps you for the conversations that matter — more scope, a disagreement, a brand-new boss — and designs an update rhythm that stops them micromanaging or vanishing.",
+ "persona": "You are a career coach who has sat on both sides of the desk: pragmatic about power, honest about what a boss can and can't give you, and clear that managing up is not flattery.",
+ "onboarding": {
+  "title": "Your boss is a system. Learn it.",
+  "subtitle": "Describe your manager; every script is tuned to them.",
+  "bullets": [
+   "Decode how your manager decides",
+   "Ask for scope, budget and backing",
+   "Disagree without damage"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "boss",
+   "label": "Your manager (role, style)",
+   "type": "text",
+   "placeholder": "VP Ops, terse, hates surprises, decides in the moment"
+  },
+  {
+   "key": "relationship",
+   "label": "Relationship today",
+   "type": "chips",
+   "options": [
+    "New — under 3 months",
+    "Good",
+    "Distant",
+    "Strained"
+   ]
+  },
+  {
+   "key": "goal",
+   "label": "What you want most",
+   "type": "chips",
+   "options": [
+    "More scope",
+    "Promotion",
+    "Less micromanagement",
+    "Air cover",
+    "Just clarity"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "decode",
+   "title": "Decode my manager",
+   "subtitle": "How they think, decide and judge",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "evidence",
+     "label": "Things they've said or done",
+     "type": "longtext",
+     "placeholder": "cancelled my project after one bad demo; praises people who send numbers; replies at 6am",
+     "required": true
+    }
+   ],
+   "prompt": "Profile the user's manager from this evidence and the profile: {evidence}. Sections: kv (Decides by, Trusts people who, Hates, Best time and channel to reach, What 'good' looks like to them); a table (Their behaviour | Likely reason | Your adjustment) with 5 rows; bullets on the two things to stop doing this week; and a callout on the risk of over-reading a few data points.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Decode them",
+   "loading": "Reading the boss…"
+  },
+  {
+   "id": "ask",
+   "title": "Make the ask",
+   "subtitle": "Scope, budget, headcount, backing",
+   "emoji": "🙋",
+   "inputs": [
+    {
+     "key": "want",
+     "label": "What you want",
+     "type": "text",
+     "placeholder": "to own the pricing project end to end",
+     "required": true
+    },
+    {
+     "key": "why_them",
+     "label": "Why it's good for them",
+     "type": "text",
+     "placeholder": "it's on their OKRs and nobody owns it"
+    },
+    {
+     "key": "format",
+     "label": "Format",
+     "type": "chips",
+     "options": [
+      "In a 1:1",
+      "Email first, then 1:1",
+      "Written proposal"
+     ],
+     "default": "In a 1:1"
+    }
+   ],
+   "prompt": "Prepare the ask: {want}, delivered {format}, tuned to the profile's manager. Their upside: {why_them}. Sections: a quote with the ask in under 120 words (context, the ask, what it costs them, what they get, what you need decided); a table (Their likely objection | Your response) with 4 rows; steps for timing it (when in the week, what to send beforehand, what to do if they defer); and a callout on the version of this ask that sounds like a complaint and why to avoid it.",
+   "shape": "quote, table, steps, callout",
+   "button": "Prep the ask",
+   "loading": "Building the case…"
+  },
+  {
+   "id": "disagree",
+   "title": "Disagree with my boss",
+   "subtitle": "Push back without the fallout",
+   "emoji": "⚡",
+   "inputs": [
+    {
+     "key": "decision",
+     "label": "Their decision and why you disagree",
+     "type": "longtext",
+     "placeholder": "they want to ship Friday; QA hasn't run; I think we'll break checkout",
+     "required": true
+    },
+    {
+     "key": "stakes",
+     "label": "Stakes",
+     "type": "chips",
+     "options": [
+      "Low — style preference",
+      "Medium",
+      "High — real harm or cost"
+     ],
+     "default": "Medium"
+    },
+    {
+     "key": "public",
+     "label": "Where",
+     "type": "chips",
+     "options": [
+      "Private 1:1",
+      "In a group meeting",
+      "In writing"
+     ],
+     "default": "Private 1:1"
+    }
+   ],
+   "prompt": "The user disagrees with their manager: {decision}. Stakes: {stakes}. Setting: {public}. Sections: text with a 3-sentence read on whether to push back, log the concern or let it go, given the stakes and the profile's relationship; a quote with the words (acknowledge their goal, the specific concern with evidence, an alternative, then 'your call'); bullets on what to do if overruled, including how to document without being passive-aggressive; and a callout on the tone traps of a {public} setting.",
+   "shape": "text, quote, bullets, callout",
+   "button": "Give me the words",
+   "loading": "Choosing the moment…"
+  },
+  {
+   "id": "newboss",
+   "title": "New boss playbook",
+   "subtitle": "First 30 days with a new manager",
+   "emoji": "🆕",
+   "inputs": [
+    {
+     "key": "about",
+     "label": "What you know about them",
+     "type": "text",
+     "placeholder": "external hire from a bigger company, 2 weeks in"
+    },
+    {
+     "key": "worry",
+     "label": "What you're worried about",
+     "type": "text",
+     "placeholder": "they'll reorganise my team"
+    }
+   ],
+   "prompt": "Plan the first 30 days with a new manager: {about}. Worry: {worry}. Sections: steps by week (what to share, what to ask, what to deliver early); bullets of 8 questions to ask in the first 1:1 that reveal how they work; a quote with a one-page 'here is my area' summary to send them (team, priorities, risks, decisions pending); and a callout on the mistakes people make with a new boss (over-selling, old-boss comparisons, hiding problems).",
+   "shape": "steps, bullets, quote, callout",
+   "button": "Build playbook",
+   "loading": "Starting fresh…"
+  },
+  {
+   "id": "cadence",
+   "title": "Keep them informed",
+   "subtitle": "Enough updates to stop the check-ins",
+   "emoji": "📡",
+   "inputs": [
+    {
+     "key": "problem",
+     "label": "Current problem",
+     "type": "chips",
+     "options": [
+      "They micromanage",
+      "They're absent",
+      "They get surprised",
+      "They forget what I told them"
+     ],
+     "default": "They get surprised"
+    },
+    {
+     "key": "area",
+     "label": "Your area in one line",
+     "type": "text",
+     "placeholder": "I run the data platform team, 7 engineers"
+    }
+   ],
+   "prompt": "Design an upward-communication rhythm for someone who runs: {area}, whose manager's issue is: {problem}. Sections: a table (Touchpoint | Frequency | Format | Contents | Purpose) tailored to the profile's manager; a quote with a template for the recurring update; a checklist of what always gets flagged before the manager can be surprised; and a callout on how the rhythm reduces check-ins if the problem is micromanagement or keeps you visible if the manager is absent.",
+   "shape": "table, quote, checklist, callout",
+   "button": "Design rhythm",
+   "loading": "Tuning the signal…"
+  }
+ ]
+}

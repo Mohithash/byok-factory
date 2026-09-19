@@ -5,7 +5,7 @@
 **Short description (≤80):** Prostate, bladder and pelvic floor, explained for men
 
 ## Full description
-Below the Belt helps men make sense of prostate symptoms with a scored questionnaire, analyses a bladder diary, builds a male pelvic-floor programme for leaks and control, and prepares you for the PSA conversation.
+Below the Belt helps men make sense of prostate symptoms with a scored questionnaire, analyses a bladder diary, builds a male pelvic-floor programme for leaks and control, prepares you for the PSA conversation and guides a monthly testicular self-check.
 
 WHAT'S INSIDE
 • Symptom score — Three questions, explained
