@@ -16,7 +16,7 @@ Write ONE Python file `specsrc/<batchname>.py` that starts with `from dsl import
   - `disclaimer`: REQUIRED for medical, mental-health, legal, financial, safety topics (the engine appends it as a callout).
 - `T(id, title, sub, emoji, inputs, prompt, shape, button, loading)`
   - `inputs`: list of fields: `LONG(key, label, placeholder, required=True)`, `TXT(key, label, placeholder, required=False)`, `CH(key, label, [options], default, multi)`, `NUM(key, label, placeholder)`, `PHOTO(label, hint, required)` (key is always `photo`), `F(key, label, type, placeholder, options, default, required, multi)` with type text|longtext|number|chips|photo|toggle. 0–3 inputs per tool; at least one tool with zero inputs is fine ("Plan my week" from profile).
-  - `prompt`: the instruction. MUST reference every input key as `{key}` (e.g. `{pantry}`). Say exactly which sections to produce and what goes in each, using the section kinds below. Be concrete about counts, units, ordering. 2–5 sentences.
+  - `prompt`: the instruction. MUST reference every **text** input key as `{key}` (e.g. `{pantry}`) — text, longtext, number, chips and toggle fields. **Photo inputs are exempt:** the image is sent to the model as an attachment, not as text, so just write "the photo" / "from the photo" in the prompt. (If you do write `{photo}`, the engine renders it as "the attached photo", or "(no photo attached)" when the user skipped an optional photo — it is never "(not given)".) Say exactly which sections to produce and what goes in each, using the section kinds below. Be concrete about counts, units, ordering. 2–5 sentences.
   - `shape`: comma list of preferred section kinds in order, from: text, bullets, steps, checklist, cards, table, kv, callout, quote.
   - `button`: verb phrase ≤ 18 chars. `loading`: playful ≤ 20 chars.
 
@@ -25,7 +25,7 @@ Write ONE Python file `specsrc/<batchname>.py` that starts with `from dsl import
 - Prompts must produce structured, useful output: tables with named columns, cards with meta labels (time/cost/level), checklists that can be ticked, callouts for safety/important notes, quote for scripts/messages/templates.
 - Use profile context: prompts can say "for the profile" — the engine already injects it.
 - No duplicates with the existing catalog (list provided). Distinct ids and names.
-- Photo inputs are valuable for identify/scan/critique tools — use where natural.
+- Photo inputs are valuable for identify/scan/critique tools — use where natural. Reviewers: do NOT flag a photo tool for lacking `{photo}`; only text-typed keys must appear as `{key}`.
 - Tone: helpful, specific, never preachy. Keep everything in English.
 
 ## Example (abbreviated)

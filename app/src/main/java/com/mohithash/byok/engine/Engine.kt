@@ -16,17 +16,24 @@ class Engine(private val client: AiClient, private val spec: AppSpec) {
         |${DocSchema.GUIDE}
         |Be specific and practical; never pad; if the request is unsafe or outside your remit say so briefly in a callout.${if (spec.disclaimer.isNotBlank()) " Always end with a callout: ${spec.disclaimer}" else ""}""".trimMargin()
 
-    fun render(tool: Tool, inputs: Map<String, String>, profile: Map<String, String>): String {
+    /**
+     * Fills the tool's prompt template. Photo fields never carry text — the image travels as a separate
+     * content block — so `{photo}` (or any photo-typed key) renders as a reference to the attachment, and
+     * is never reported as "(not given)". [hasImage] says whether an image is actually attached to this call.
+     */
+    fun render(tool: Tool, inputs: Map<String, String>, profile: Map<String, String>, hasImage: Boolean = false): String {
         var p = tool.prompt.replace("{profile}", profileSummary(profile))
-        // Inputs the prompt template forgot to reference are appended, so nothing the user typed is lost.
-        val orphan = tool.inputs.filter { f -> f.type != "photo" && !tool.prompt.contains("{${f.key}}") && inputs[f.key].orEmpty().isNotBlank() }
-        tool.inputs.forEach { f -> p = p.replace("{${f.key}}", inputs[f.key].orEmpty().ifBlank { "(not given)" }) }
+        val (photoFields, textFields) = tool.inputs.partition { it.type == "photo" }
+        // Text inputs the prompt template forgot to reference are appended, so nothing the user typed is lost.
+        val orphan = textFields.filter { f -> !tool.prompt.contains("{${f.key}}") && inputs[f.key].orEmpty().isNotBlank() }
+        textFields.forEach { f -> p = p.replace("{${f.key}}", inputs[f.key].orEmpty().ifBlank { "(not given)" }) }
+        photoFields.forEach { f -> p = p.replace("{${f.key}}", if (hasImage) "the attached photo" else "(no photo attached)") }
         if (orphan.isNotEmpty()) p += "\n\n" + orphan.joinToString("\n") { f -> "${f.label}: ${inputs[f.key]}" }
         return p + if (tool.shape.isNotBlank()) "\n\nPreferred sections: ${tool.shape}" else ""
     }
 
     suspend fun run(ai: AiSettings, tool: Tool, inputs: Map<String, String>, profile: Map<String, String>, image: String?): Doc {
-        val raw = client.chat(ai, system(profile), listOf(ChatMsg("user", render(tool, inputs, profile), image)), DocSchema.schema, 6000)
+        val raw = client.chat(ai, system(profile), listOf(ChatMsg("user", render(tool, inputs, profile, hasImage = image != null), image)), DocSchema.schema, 6000)
         return client.json.decodeFromString(Doc.serializer(), client.extractJson(raw))
     }
 
