@@ -1,0 +1,172 @@
+{
+ "id": "global_family",
+ "name": "Global Family",
+ "tagline": "Move abroad with kids who land on their feet",
+ "category": "Parenting",
+ "colors": [
+  "#F57C00",
+  "#5C6BC0",
+  "#26C6DA"
+ ],
+ "icon": "baby",
+ "about": "Global Family helps parents relocate with children — choosing schools, preparing each child by age, planning languages, keeping heritage culture alive and handling the goodbyes and first-day nerves.",
+ "persona": "You are a family relocation specialist with a child-development background: age-specific, reassuring, honest about what is hard and never judgemental about school choices.",
+ "onboarding": {
+  "title": "Kids who land on their feet",
+  "subtitle": "Ages and destination shape every plan.",
+  "bullets": [
+   "School choice, compared honestly",
+   "Age-by-age move preparation",
+   "Language and heritage plans"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "kids",
+   "label": "Children (names & ages)",
+   "type": "text",
+   "placeholder": "Lena 5, Tomás 11"
+  },
+  {
+   "key": "to",
+   "label": "Moving to",
+   "type": "text",
+   "placeholder": "Dubai, UAE"
+  },
+  {
+   "key": "langs",
+   "label": "Languages at home",
+   "type": "text",
+   "placeholder": "Spanish, English"
+  }
+ ],
+ "tools": [
+  {
+   "id": "school",
+   "title": "Choose a school type",
+   "subtitle": "International, local, bilingual, online",
+   "emoji": "🏫",
+   "inputs": [
+    {
+     "key": "stay",
+     "label": "Expected stay",
+     "type": "chips",
+     "options": [
+      "1–2 years",
+      "3–5 years",
+      "Indefinite"
+     ],
+     "default": "3–5 years"
+    },
+    {
+     "key": "budget",
+     "label": "School budget per child / year",
+     "type": "number",
+     "placeholder": "15000"
+    },
+    {
+     "key": "priorities",
+     "label": "Priorities",
+     "type": "text",
+     "placeholder": "continuity with home curriculum, sport"
+    }
+   ],
+   "prompt": "Stay {stay}, budget {budget} per child, priorities {priorities}. For each child in the profile, a table (School type | Fit for this child | Curriculum continuity | Language load | Cost vs budget), cards for the top 2 options per child (meta = admission lead time · waitlist risk), a checklist of admission documents (reports, vaccinations, assessments), and a callout on application deadlines and mid-year entry.",
+   "shape": "table, cards, checklist, callout",
+   "button": "Compare",
+   "loading": "Weighing up…"
+  },
+  {
+   "id": "prep",
+   "title": "Prepare each child",
+   "subtitle": "Age-appropriate, week by week",
+   "emoji": "🧸",
+   "inputs": [
+    {
+     "key": "weeks",
+     "label": "Weeks until the move",
+     "type": "number",
+     "placeholder": "8"
+    }
+   ],
+   "prompt": "{weeks} weeks to go. For each child in the profile by age: steps week by week (what to tell them, rituals, involvement in decisions), bullets of books, films or games that help at their age, a quote with a script for the 'we are moving' conversation, and a callout on behaviours that are normal versus worth extra support.",
+   "shape": "steps, bullets, quote, callout",
+   "button": "Plan it",
+   "loading": "Preparing…"
+  },
+  {
+   "id": "language",
+   "title": "Language plan",
+   "subtitle": "New language without losing the old",
+   "emoji": "🗣️",
+   "inputs": [
+    {
+     "key": "goal",
+     "label": "Goal",
+     "type": "chips",
+     "options": [
+      "Keep home language strong",
+      "Fast-track the new one",
+      "Balance both"
+     ],
+     "default": "Balance both"
+    }
+   ],
+   "prompt": "Goal: {goal} for the profile's children and home languages in the destination: a table (Child | Home-language plan | New-language plan | Weekly minutes), bullets on one-parent-one-language and other strategies, a checklist of resources (schools, tutors, media, community), and a callout on the common silent period and when to worry.",
+   "shape": "table, bullets, checklist, callout",
+   "button": "Plan",
+   "loading": "Planning…"
+  },
+  {
+   "id": "heritage",
+   "title": "Keep home alive",
+   "subtitle": "Traditions, family, festivals",
+   "emoji": "🎎",
+   "inputs": [
+    {
+     "key": "traditions",
+     "label": "Traditions that matter",
+     "type": "text",
+     "placeholder": "Christmas with grandparents, Sunday asado",
+     "required": true
+    }
+   ],
+   "prompt": "Traditions: {traditions}. A table (Tradition | How to keep it abroad | Who to involve | Prep), cards for 4 monthly rituals connecting the kids to grandparents and home (meta = time · cost), and a quote with a message to grandparents proposing a regular video-call ritual.",
+   "shape": "table, cards, quote",
+   "button": "Plan rituals",
+   "loading": "Remembering…"
+  },
+  {
+   "id": "wobble",
+   "title": "First-weeks wobble",
+   "subtitle": "Tears, refusal, regression",
+   "emoji": "🌧️",
+   "inputs": [
+    {
+     "key": "child",
+     "label": "Which child",
+     "type": "text",
+     "placeholder": "Tomás",
+     "required": true
+    },
+    {
+     "key": "what",
+     "label": "What's happening",
+     "type": "longtext",
+     "placeholder": "cries before school, says he has no friends, wets the bed",
+     "required": true
+    }
+   ],
+   "prompt": "{child} is: {what}. Text explaining what is typical at this age after a move, steps for the next 2 weeks (routines, school contact, friendship scaffolding), a quote with what to say at bedtime, and a callout on signs that need the school counsellor or a paediatrician.",
+   "shape": "text, steps, quote, callout",
+   "button": "Help",
+   "loading": "Thinking…"
+  }
+ ],
+ "disclaimer": "General parenting information, not medical or psychological advice; talk to a paediatrician or school counsellor if you're worried."
+}

@@ -1,0 +1,161 @@
+{
+ "id": "logic_forge",
+ "name": "Logic Forge",
+ "tagline": "Truth tables, K-maps, binary and the circuits behind CPUs",
+ "category": "Education",
+ "colors": [
+  "#37474F",
+  "#76FF03",
+  "#FF4081"
+ ],
+ "icon": "gear",
+ "about": "Logic Forge builds truth tables, simplifies Boolean expressions with K-maps, converts and explains number representations, designs combinational and sequential circuits from a spec, and drills computer-architecture concepts.",
+ "persona": "You are a digital-logic and computer-architecture instructor: precise about bits, gates and timing; you show the table before the formula and the formula before the circuit.",
+ "onboarding": {
+  "title": "From bits to gates to CPUs",
+  "subtitle": "Your course and gate library set the conventions.",
+  "bullets": [
+   "Truth tables & K-map simplification",
+   "Two's complement, floats, hex",
+   "Circuit design from a spec"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "course",
+   "label": "Course",
+   "type": "chips",
+   "options": [
+    "Intro digital logic",
+    "Computer architecture",
+    "Embedded / FPGA",
+    "Self-study"
+   ]
+  },
+  {
+   "key": "gates",
+   "label": "Gate library",
+   "type": "chips",
+   "options": [
+    "Any gates",
+    "NAND only",
+    "NOR only",
+    "AND / OR / NOT"
+   ],
+   "default": "Any gates"
+  }
+ ],
+ "tools": [
+  {
+   "id": "truth",
+   "title": "Truth table & simplify",
+   "subtitle": "Expression → table → minimal form",
+   "emoji": "📋",
+   "inputs": [
+    {
+     "key": "expr",
+     "label": "Boolean expression",
+     "type": "text",
+     "placeholder": "F = A'B + AB'C + ABC",
+     "required": true
+    },
+    {
+     "key": "form",
+     "label": "Target form",
+     "type": "chips",
+     "options": [
+      "SOP",
+      "POS",
+      "Either"
+     ],
+     "default": "SOP"
+    }
+   ],
+   "prompt": "For {expr}, target {form}: table (the full truth table with a column per input, each intermediate term and F), steps for the K-map grouping naming each group and the literal it eliminates, kv (minimal expression, gate count in the profile gate library, minterm and maxterm lists), and a callout on don't-cares or static hazards if relevant.",
+   "shape": "table, steps, kv, callout",
+   "button": "Simplify",
+   "loading": "Grouping ones…"
+  },
+  {
+   "id": "numbers",
+   "title": "Number representation",
+   "subtitle": "Binary, hex, two's complement, IEEE 754",
+   "emoji": "🔢",
+   "inputs": [
+    {
+     "key": "value",
+     "label": "Value",
+     "type": "text",
+     "placeholder": "-37 as 8-bit two's complement, or 0x3F800000 as a float",
+     "required": true
+    }
+   ],
+   "prompt": "Convert and explain {value}: table (Representation | Bits or digits | How obtained) for unsigned, two's complement, hex, octal and IEEE 754 where applicable, steps for the conversion, kv (range and overflow notes at this width), and bullets of 3 practice conversions with answers.",
+   "shape": "table, steps, kv, bullets",
+   "button": "Convert",
+   "loading": "Flipping bits…"
+  },
+  {
+   "id": "design",
+   "title": "Design a circuit",
+   "subtitle": "Spec → gates or flip-flops",
+   "emoji": "🔧",
+   "inputs": [
+    {
+     "key": "spec",
+     "label": "Specification",
+     "type": "longtext",
+     "placeholder": "a 2-bit comparator / a mod-6 counter / a vending-machine FSM",
+     "required": true
+    }
+   ],
+   "prompt": "Design {spec}: kv (inputs, outputs, combinational or sequential, state count if sequential), a table (truth table or state-transition table), steps deriving the equations and the gate or flip-flop level design in the profile gate library, text describing how to wire the schematic, and a callout on timing, glitches or reset handling.",
+   "shape": "kv, table, steps, text, callout",
+   "button": "Design",
+   "loading": "Wiring gates…"
+  },
+  {
+   "id": "arch",
+   "title": "Architecture explainer",
+   "subtitle": "Pipelines, caches, ISA…",
+   "emoji": "🧠",
+   "inputs": [
+    {
+     "key": "topic",
+     "label": "Topic",
+     "type": "text",
+     "placeholder": "why a data hazard stalls a 5-stage pipeline",
+     "required": true
+    }
+   ],
+   "prompt": "Explain {topic} at the profile course level: text (intuition), steps (the mechanism cycle by cycle or level by level), a table (Term | Meaning | Where it shows up), a quote with a worked mini-example (e.g. a 4-instruction pipeline diagram in text), and bullets of exam-style questions on it.",
+   "shape": "text, steps, table, quote, bullets",
+   "button": "Explain",
+   "loading": "Fetching…"
+  },
+  {
+   "id": "quiz",
+   "title": "Quiz me",
+   "subtitle": "10 questions on one chapter",
+   "emoji": "❓",
+   "inputs": [
+    {
+     "key": "chapter",
+     "label": "Chapter",
+     "type": "text",
+     "placeholder": "sequential logic and flip-flops",
+     "required": true
+    }
+   ],
+   "prompt": "10 questions on {chapter} for the profile course mixing calculation and concept: table (No. | Question | Answer | One-line why), and a callout on the concept students most often confuse in this chapter.",
+   "shape": "table, callout",
+   "button": "Quiz",
+   "loading": "Writing…"
+  }
+ ]
+}

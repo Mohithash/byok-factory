@@ -1,0 +1,184 @@
+{
+ "id": "debt_zero",
+ "name": "Zero Balance",
+ "tagline": "The fastest, cheapest route out of debt, with the maths",
+ "category": "Finance",
+ "colors": [
+  "#B71C1C",
+  "#00897B",
+  "#FBC02D"
+ ],
+ "icon": "scale",
+ "about": "Zero Balance compares avalanche, snowball and hybrid payoff orders with real dates and interest totals, checks whether consolidation is worth it, writes letters to creditors and shows what minimum payments really cost.",
+ "persona": "You are a no-shame debt coach: precise with interest maths, practical about motivation, never judgemental, and you flag when free debt-advice services or a regulated adviser are the right next step.",
+ "onboarding": {
+  "title": "Every debt has an end date",
+  "subtitle": "List what you owe once; every tool uses it.",
+  "bullets": [
+   "Avalanche vs snowball, with dates",
+   "Consolidation reality check",
+   "Creditor letters that work"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "debts",
+   "label": "Your debts (name, balance, APR, minimum)",
+   "type": "longtext",
+   "placeholder": "Visa 4,200 @ 24% min 120; car loan 9,800 @ 7% min 260"
+  },
+  {
+   "key": "extra",
+   "label": "Extra you can pay per month",
+   "type": "number",
+   "placeholder": "300"
+  },
+  {
+   "key": "country",
+   "label": "Country",
+   "type": "text",
+   "placeholder": "US"
+  }
+ ],
+ "tools": [
+  {
+   "id": "order",
+   "title": "Payoff order",
+   "subtitle": "Avalanche, snowball or both",
+   "emoji": "🪜",
+   "inputs": [
+    {
+     "key": "method",
+     "label": "Method",
+     "type": "chips",
+     "options": [
+      "Avalanche (highest APR first)",
+      "Snowball (smallest balance first)",
+      "Compare both"
+     ],
+     "default": "Compare both"
+    }
+   ],
+   "prompt": "Using the profile debts and extra monthly payment, apply '{method}'. Table (Order | Debt | Balance | APR | Paid off by | Interest paid), kv (debt-free date, total interest, months saved vs minimums only), text on why the order is set that way, and a callout on the motivation trade-off between the two methods.",
+   "shape": "table, kv, text, callout",
+   "button": "Plan payoff",
+   "loading": "Stacking debts…"
+  },
+  {
+   "id": "consolidate",
+   "title": "Is consolidation worth it?",
+   "subtitle": "One loan vs the current plan",
+   "emoji": "🔗",
+   "inputs": [
+    {
+     "key": "rate",
+     "label": "Offered APR %",
+     "type": "number",
+     "placeholder": "11.9"
+    },
+    {
+     "key": "term",
+     "label": "Term (months)",
+     "type": "number",
+     "placeholder": "48"
+    },
+    {
+     "key": "fee",
+     "label": "Fees",
+     "type": "number",
+     "placeholder": "300"
+    }
+   ],
+   "prompt": "Compare consolidating the profile debts into one loan at {rate}% over {term} months with {fee} in fees, versus the current avalanche plan. Table (Option | Monthly payment | Total interest + fees | Debt-free date | Risk), bullets on when consolidation backfires, a checklist of what to verify in the offer, and a callout on balance-transfer promo traps.",
+   "shape": "table, bullets, checklist, callout",
+   "button": "Compare",
+   "loading": "Crunching…"
+  },
+  {
+   "id": "letter",
+   "title": "Write to a creditor",
+   "subtitle": "Hardship, freeze, settlement, dispute",
+   "emoji": "✉️",
+   "inputs": [
+    {
+     "key": "type",
+     "label": "Letter",
+     "type": "chips",
+     "options": [
+      "Hardship / reduced payment",
+      "Interest freeze request",
+      "Settlement offer",
+      "Dispute a charge"
+     ],
+     "default": "Hardship / reduced payment"
+    },
+    {
+     "key": "situation",
+     "label": "Your situation",
+     "type": "text",
+     "placeholder": "lost hours at work, can pay 60/month for 6 months",
+     "required": true
+    },
+    {
+     "key": "creditor",
+     "label": "Creditor",
+     "type": "text",
+     "placeholder": "the card issuer"
+    }
+   ],
+   "prompt": "Write a '{type}' letter to {creditor} given: {situation}. Sections: quote with the full letter (formal, factual, with a specific amount and dates), bullets on what to attach, steps for what happens next and when to follow up, and a callout naming the kinds of free debt-advice services available in the profile country in general terms.",
+   "shape": "quote, bullets, steps, callout",
+   "button": "Draft letter",
+   "loading": "Writing…"
+  },
+  {
+   "id": "windfall",
+   "title": "Windfall: debt or buffer?",
+   "subtitle": "Split a lump sum wisely",
+   "emoji": "🎁",
+   "inputs": [
+    {
+     "key": "amount",
+     "label": "Amount",
+     "type": "number",
+     "placeholder": "2500"
+    },
+    {
+     "key": "source",
+     "label": "Where from",
+     "type": "text",
+     "placeholder": "tax refund"
+    }
+   ],
+   "prompt": "The user has {amount} from {source}. Decide how to split it across the profile debts, a starter emergency fund and anything else: table (Use | Amount | Why | Effect on debt-free date), text on the maths versus the psychology, and a callout on the risk of sending everything to debt with no buffer.",
+   "shape": "table, text, callout",
+   "button": "Split it",
+   "loading": "Dividing…"
+  },
+  {
+   "id": "minimum",
+   "title": "What minimums really cost",
+   "subtitle": "One debt, the ugly truth",
+   "emoji": "🐌",
+   "inputs": [
+    {
+     "key": "debt",
+     "label": "One debt",
+     "type": "text",
+     "placeholder": "Visa 4,200 @ 24% min 120",
+     "required": true
+    }
+   ],
+   "prompt": "For {debt}: kv (years to pay off at minimums only, total interest at minimums, months if 50 more per month, months if 100 more per month), table (Extra per month | Payoff months | Interest saved) for 0, 25, 50, 100, 200, text explaining how minimum payments are designed to keep you paying, and a callout on the first move to make this week.",
+   "shape": "kv, table, text, callout",
+   "button": "Show me",
+   "loading": "Doing the maths…"
+  }
+ ],
+ "disclaimer": "General education only — not financial, tax or legal advice. Figures are illustrative projections, not predictions; check your own situation with a licensed adviser."
+}

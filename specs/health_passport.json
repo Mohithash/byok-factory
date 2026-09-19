@@ -1,0 +1,168 @@
+{
+ "id": "health_passport",
+ "name": "Health Passport",
+ "tagline": "Find the right care in an unfamiliar system",
+ "category": "Medical",
+ "colors": [
+  "#0277BD",
+  "#E53935",
+  "#66BB6A"
+ ],
+ "icon": "pill",
+ "about": "Health Passport explains how healthcare works where you've moved — who to see, how to register, what insurance covers — and scripts your symptoms and medication questions in the local language.",
+ "persona": "You are a patient-navigator nurse with international experience: calm, practical, precise about medication names and clear that you don't diagnose.",
+ "onboarding": {
+  "title": "Healthcare, explained for newcomers",
+  "subtitle": "Your country and cover shape what applies.",
+  "bullets": [
+   "How the local system works",
+   "Say your symptoms in the local language",
+   "Medication equivalents & pharmacies"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "country",
+   "label": "Country & city",
+   "type": "text",
+   "placeholder": "Lyon, France"
+  },
+  {
+   "key": "cover",
+   "label": "Cover",
+   "type": "chips",
+   "options": [
+    "Public insurance",
+    "Private insurance",
+    "Employer plan",
+    "Travel insurance",
+    "None yet"
+   ]
+  },
+  {
+   "key": "conditions",
+   "label": "Ongoing conditions / meds",
+   "type": "text",
+   "placeholder": "asthma, sertraline 50mg"
+  }
+ ],
+ "tools": [
+  {
+   "id": "system",
+   "title": "How it works here",
+   "subtitle": "GP, specialist, pharmacy, ER",
+   "emoji": "🏥",
+   "inputs": [],
+   "prompt": "Explain the healthcare system in the profile's country for a newcomer with the profile's cover: kv (emergency number, how to see a GP, whether specialists need a referral, typical costs at point of use, pharmacy hours pattern), a table (Need | Go to | Cost expectation | How to book), steps to register or enrol, and a callout on what to sort this week if cover is incomplete.",
+   "shape": "kv, table, steps, callout",
+   "button": "Explain",
+   "loading": "Mapping…"
+  },
+  {
+   "id": "symptoms",
+   "title": "Describe my symptoms",
+   "subtitle": "Local-language script for the doctor",
+   "emoji": "🗣️",
+   "inputs": [
+    {
+     "key": "symptoms",
+     "label": "What's going on",
+     "type": "longtext",
+     "placeholder": "sore throat 3 days, fever 38.5 last night, hurts to swallow",
+     "required": true
+    },
+    {
+     "key": "where",
+     "label": "Going to",
+     "type": "chips",
+     "options": [
+      "Pharmacy",
+      "GP",
+      "Urgent care",
+      "Emergency",
+      "Telehealth"
+     ],
+     "default": "GP"
+    }
+   ],
+   "prompt": "Symptoms: {symptoms}; going to {where}. A quote with a short local-language script (English underneath, line by line) covering onset, severity, allergies and the profile's current medication, a table (Doctor may ask | Meaning | Your answer), bullets on what to bring, and a callout listing red-flag symptoms that mean go to emergency care now.",
+   "shape": "quote, table, bullets, callout",
+   "button": "Script it",
+   "loading": "Translating…"
+  },
+  {
+   "id": "meds",
+   "title": "Find my medication",
+   "subtitle": "Same drug, different name",
+   "emoji": "💊",
+   "inputs": [
+    {
+     "key": "med",
+     "label": "Medication",
+     "type": "text",
+     "placeholder": "Tylenol 500mg, Ventolin",
+     "required": true
+    }
+   ],
+   "prompt": "For {med} in the profile's country: a table (Your medication | Local equivalent names | Prescription needed? | Typical pack | Notes), steps to get a repeat prescription transferred, bullets on pharmacy etiquette and the out-of-hours pharmacy system, and a callout to confirm dose and active ingredient with the pharmacist.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Find it",
+   "loading": "Looking up…"
+  },
+  {
+   "id": "provider",
+   "title": "Who should I see?",
+   "subtitle": "Right specialist, right path",
+   "emoji": "🔎",
+   "inputs": [
+    {
+     "key": "issue",
+     "label": "Issue",
+     "type": "text",
+     "placeholder": "back pain for 3 weeks",
+     "required": true
+    },
+    {
+     "key": "needs",
+     "label": "Need",
+     "type": "chips",
+     "options": [
+      "English-speaking",
+      "Female doctor",
+      "Evening hours",
+      "Accepts my insurance"
+     ],
+     "multi": true
+    }
+   ],
+   "prompt": "For '{issue}' with needs {needs} in the profile's country: text explaining the usual pathway (self-refer vs GP first), cards for the provider types to consider (meta = referral needed · cost expectation), steps to find one that meets the needs, and a callout on when this shouldn't wait.",
+   "shape": "text, cards, steps, callout",
+   "button": "Guide me",
+   "loading": "Navigating…"
+  },
+  {
+   "id": "insurance",
+   "title": "Decode my policy",
+   "subtitle": "What's covered, what's not",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the policy summary or benefits page",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Read the insurance document: kv (insurer, plan type, deductible / excess, co-pay, waiting periods, emergency-abroad cover), a table (Situation | Covered? | Your cost | How to claim), a checklist of documents to keep for claims, and a callout on the gaps that matter for the profile's conditions.",
+   "shape": "kv, table, checklist, callout",
+   "button": "Decode",
+   "loading": "Reading…"
+  }
+ ],
+ "disclaimer": "General information, not medical advice; in an emergency call the local emergency number."
+}

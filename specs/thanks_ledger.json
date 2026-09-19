@@ -1,0 +1,181 @@
+{
+ "id": "thanks_ledger",
+ "name": "Thanks Ledger",
+ "tagline": "A gratitude journal that notices more than you do",
+ "category": "Lifestyle",
+ "colors": [
+  "#F9A825",
+  "#8D6E63",
+  "#43A047"
+ ],
+ "icon": "star",
+ "about": "Thanks Ledger turns a messy day into three specific things worth keeping, spots what keeps showing up across your entries, and writes the thank-you notes you've been meaning to send.",
+ "persona": "You are a warm, unsentimental gratitude coach: you favour small, specific, sensory details over big abstractions and never scold anyone for a bad day.",
+ "onboarding": {
+  "title": "Notice what's already good",
+  "subtitle": "Tell us a bit about your days so the prompts fit.",
+  "bullets": [
+   "Three specifics from any day",
+   "Patterns across your entries",
+   "Thank-you notes worth sending"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "time",
+   "label": "You journal at",
+   "type": "chips",
+   "options": [
+    "Morning",
+    "Lunch",
+    "Evening",
+    "Whenever"
+   ]
+  },
+  {
+   "key": "people",
+   "label": "People who matter",
+   "type": "text",
+   "placeholder": "Sam, Mum, my team"
+  }
+ ],
+ "tools": [
+  {
+   "id": "tonight",
+   "title": "Tonight's three",
+   "subtitle": "Turn your day into three keepers",
+   "emoji": "✨",
+   "inputs": [
+    {
+     "key": "day",
+     "label": "How was today",
+     "type": "longtext",
+     "placeholder": "dull meeting, nice coffee from Priya, rain on the walk home…",
+     "required": true
+    },
+    {
+     "key": "mood",
+     "label": "Mood right now",
+     "type": "chips",
+     "options": [
+      "Good",
+      "Flat",
+      "Rough"
+     ],
+     "default": "Flat"
+    }
+   ],
+   "prompt": "From this day: {day} (mood: {mood}) draw out 3 gratitude entries as cards (title = the specific thing, meta = who or what made it happen), each 1–2 sentences naming a sensory detail. Then a quote with a one-line entry to copy into the journal, and if the mood is Rough, a callout that acknowledges the hard part before the gratitude.",
+   "shape": "cards, quote, callout",
+   "button": "Find my three",
+   "loading": "Sifting the day…"
+  },
+  {
+   "id": "thankyou",
+   "title": "Write a thank-you",
+   "subtitle": "A note someone will keep",
+   "emoji": "💌",
+   "inputs": [
+    {
+     "key": "to",
+     "label": "To",
+     "type": "text",
+     "placeholder": "my old teacher Mr Ade",
+     "required": true
+    },
+    {
+     "key": "why",
+     "label": "What they did",
+     "type": "longtext",
+     "placeholder": "wrote me a reference and checked in after",
+     "required": true
+    },
+    {
+     "key": "format",
+     "label": "Format",
+     "type": "chips",
+     "options": [
+      "Text message",
+      "Handwritten card",
+      "Email",
+      "Voice-note script"
+     ],
+     "default": "Text message"
+    }
+   ],
+   "prompt": "Write a thank-you to {to} for this: {why}, as a {format}. Quote with the full message (specific, no clichés, the right length for the format), bullets with 3 details from the story that could be added, and a kv (Best moment to send, Follow-up in a month).",
+   "shape": "quote, bullets, kv",
+   "button": "Write it",
+   "loading": "Choosing the words…"
+  },
+  {
+   "id": "rewind",
+   "title": "Weekly rewind",
+   "subtitle": "Paste entries → what keeps showing up",
+   "emoji": "🔁",
+   "inputs": [
+    {
+     "key": "entries",
+     "label": "This week's entries",
+     "type": "longtext",
+     "placeholder": "Mon: quiet morning, Sam's text… Tue: …",
+     "required": true
+    }
+   ],
+   "prompt": "Read these entries: {entries}. Table (Theme | Times it appeared | Example), bullets on who and what shows up most, a text section on one thing that's clearly working and worth doing on purpose, and a quote with a single sentence to open next week's first entry.",
+   "shape": "table, bullets, text, quote",
+   "button": "Rewind",
+   "loading": "Reading back…"
+  },
+  {
+   "id": "savour",
+   "title": "Savour it",
+   "subtitle": "Stretch a good moment",
+   "emoji": "🍯",
+   "inputs": [
+    {
+     "key": "moment",
+     "label": "The moment",
+     "type": "text",
+     "placeholder": "Sunday breakfast with the kids",
+     "required": true
+    }
+   ],
+   "prompt": "Guide a 3-minute savouring practice for {moment}: steps (notice, name, share, anchor) with exactly what to do at each, bullets on how to bring the moment back on a grey day, and a callout on why savouring beats chasing the next thing.",
+   "shape": "steps, bullets, callout",
+   "button": "Savour",
+   "loading": "Slowing down…"
+  },
+  {
+   "id": "jar",
+   "title": "30-day prompt jar",
+   "subtitle": "A month of prompts",
+   "emoji": "🫙",
+   "inputs": [
+    {
+     "key": "flavour",
+     "label": "Flavour",
+     "type": "chips",
+     "options": [
+      "Everyday",
+      "Relationships",
+      "Body & health",
+      "Work",
+      "Tough season"
+     ],
+     "default": "Everyday"
+    }
+   ],
+   "prompt": "Write 30 gratitude prompts with the '{flavour}' flavour as a table (Day | Prompt | Twist for a bad day). Keep prompts specific and answerable in one sentence, no two alike. End with bullets on how to use the jar when journaling feels forced.",
+   "shape": "table, bullets",
+   "button": "Fill the jar",
+   "loading": "Writing prompts…"
+  }
+ ],
+ "disclaimer": "A wellbeing tool, not a substitute for professional support; if low mood or stress persists, talk to a clinician."
+}

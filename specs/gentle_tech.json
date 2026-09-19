@@ -1,0 +1,199 @@
+{
+ "id": "gentle_tech",
+ "name": "Gentle Tech",
+ "tagline": "Plain-English help with your phone, tablet and TV",
+ "category": "Tools",
+ "colors": [
+  "#1565C0",
+  "#FB8C00",
+  "#43A047"
+ ],
+ "icon": "bulb",
+ "about": "Gentle Tech explains what's on your screen, walks you through phone and tablet tasks one tap at a time, and checks suspicious messages before you reply.",
+ "persona": "You are a patient, unhurried tech helper for older adults: no jargon, one step at a time, never condescending, and you always say exactly what to tap and where it is on the screen.",
+ "onboarding": {
+  "title": "Technology, explained kindly",
+  "subtitle": "Tell us which devices you use so every answer matches your screen.",
+  "bullets": [
+   "Step-by-step, one tap at a time",
+   "Photo of your screen → what it means",
+   "Scam and phishing checks"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "phone",
+   "label": "Phone",
+   "type": "chips",
+   "options": [
+    "iPhone",
+    "Android (Samsung)",
+    "Android (other)",
+    "Basic phone"
+   ]
+  },
+  {
+   "key": "other",
+   "label": "Other devices",
+   "type": "chips",
+   "options": [
+    "iPad/tablet",
+    "Windows PC",
+    "Mac",
+    "Smart TV",
+    "Smart speaker"
+   ],
+   "multi": true
+  },
+  {
+   "key": "comfort",
+   "label": "Comfort with tech",
+   "type": "chips",
+   "options": [
+    "Just starting",
+    "Getting there",
+    "Fairly confident"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "screen",
+   "title": "What is this screen?",
+   "subtitle": "Photo → plain-English explanation",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the screen",
+     "type": "photo",
+     "placeholder": "Take a picture of the phone, tablet or TV screen",
+     "required": true
+    },
+    {
+     "key": "worry",
+     "label": "What's worrying you",
+     "type": "text",
+     "placeholder": "it keeps asking me to update"
+    }
+   ],
+   "prompt": "Look at the screen in the photo. The user says: {worry}. First a text section explaining in plain English what this screen is and whether it is normal, then a kv (What it is | Is it safe to tap | What happens if I ignore it | Who sent it), then steps for exactly what to press, naming each button and where it sits on the screen. Finish with a callout if anything on the screen looks like a scam or a paid trap.",
+   "shape": "text, kv, steps, callout",
+   "button": "Explain",
+   "loading": "Reading the screen…"
+  },
+  {
+   "id": "howto",
+   "title": "Show me how",
+   "subtitle": "Any task, one tap at a time",
+   "emoji": "👆",
+   "inputs": [
+    {
+     "key": "task",
+     "label": "What do you want to do?",
+     "type": "text",
+     "placeholder": "send a photo to my daughter on WhatsApp",
+     "required": true
+    }
+   ],
+   "prompt": "Write instructions to {task} for the profile's device and comfort level. Steps only, one tap per step, each naming the exact button, its icon shape or colour and where it is on the screen; keep to 12 steps or fewer. Then bullets titled 'If it doesn't look like that' covering the 3 most common variations, and a quote with a one-line reminder to write on a sticky note.",
+   "shape": "steps, bullets, quote",
+   "button": "Show me",
+   "loading": "Writing the steps…"
+  },
+  {
+   "id": "scam",
+   "title": "Is this a scam?",
+   "subtitle": "Paste a message, email or pop-up",
+   "emoji": "🛡️",
+   "inputs": [
+    {
+     "key": "message",
+     "label": "The message",
+     "type": "longtext",
+     "placeholder": "Your parcel could not be delivered, pay £1.99 at…",
+     "required": true
+    },
+    {
+     "key": "via",
+     "label": "It arrived by",
+     "type": "chips",
+     "options": [
+      "Text message",
+      "Email",
+      "Phone call",
+      "Pop-up on screen",
+      "Social media"
+     ],
+     "default": "Text message"
+    }
+   ],
+   "prompt": "Assess this {via}: {message}. Give a kv (Verdict: Scam / Suspicious / Probably genuine | Confidence | Who it pretends to be | What they want), bullets of the specific warning signs found in the text, steps for what to do right now (do not tap, delete, report, check the real company via its official number), and a callout on what to do if the user already clicked or paid.",
+   "shape": "kv, bullets, steps, callout",
+   "button": "Check it",
+   "loading": "Checking…"
+  },
+  {
+   "id": "jargon",
+   "title": "Decode the jargon",
+   "subtitle": "Cloud? Wi-Fi? Two-factor?",
+   "emoji": "📖",
+   "inputs": [
+    {
+     "key": "term",
+     "label": "Word or phrase",
+     "type": "text",
+     "placeholder": "the cloud",
+     "required": true
+    }
+   ],
+   "prompt": "Explain '{term}' for an older adult who is new to technology: a text section with a one-paragraph explanation using an everyday comparison, a kv (Do I need it | Does it cost money | Is it safe | Where I'll see it), and bullets of 3 related words they will probably meet next, each in one sentence.",
+   "shape": "text, kv, bullets",
+   "button": "Explain",
+   "loading": "Translating…"
+  },
+  {
+   "id": "setup",
+   "title": "Set up a new device",
+   "subtitle": "Big text, easy eyes, safe",
+   "emoji": "⚙️",
+   "inputs": [
+    {
+     "key": "device",
+     "label": "Device",
+     "type": "chips",
+     "options": [
+      "New phone",
+      "New tablet",
+      "Smart TV",
+      "Smart speaker",
+      "Laptop"
+     ],
+     "default": "New phone"
+    },
+    {
+     "key": "needs",
+     "label": "Make it easier to",
+     "type": "chips",
+     "options": [
+      "See (bigger text)",
+      "Hear (louder, captions)",
+      "Tap (steadier touch)",
+      "Remember (fewer passwords)"
+     ],
+     "multi": true
+    }
+   ],
+   "prompt": "A set-up plan for a {device} tuned for: {needs}. A checklist of settings to switch on in the order to do them (each with the menu path for the profile's device), a table (Setting | What it does | Where to find it), and a callout on the 3 things to never share (PIN, one-time codes, remote-access apps).",
+   "shape": "checklist, table, callout",
+   "button": "Plan set-up",
+   "loading": "Preparing…"
+  }
+ ],
+ "disclaimer": "Never share PINs, passwords or one-time codes with anyone who contacts you; if money has been taken, call your bank on the number printed on your card."
+}

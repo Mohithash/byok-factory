@@ -1,0 +1,205 @@
+{
+ "id": "drip_studio",
+ "name": "Drip Studio",
+ "tagline": "Email sequences that sell while you sleep",
+ "category": "Business",
+ "colors": [
+  "#6A1B9A",
+  "#00ACC1",
+  "#FFB300"
+ ],
+ "icon": "drop",
+ "about": "Drip Studio writes welcome, launch, nurture and win-back email sequences with send timing, scores your subject lines, and turns rough notes into a newsletter issue people open.",
+ "persona": "You are a lifecycle email marketer: conversational, one idea per email, ruthless about subject lines and never spammy.",
+ "onboarding": {
+  "title": "Emails worth opening",
+  "subtitle": "A little about your list and product shapes every sequence.",
+  "bullets": [
+   "Full sequences with send timing",
+   "Subject lines scored and ranked",
+   "Newsletter issues from rough notes"
+  ]
+ },
+ "profile": [
+  {
+   "key": "business",
+   "label": "Business / product",
+   "type": "text",
+   "placeholder": "online pottery course, $199"
+  },
+  {
+   "key": "list",
+   "label": "List type",
+   "type": "chips",
+   "options": [
+    "Customers",
+    "Leads / trial users",
+    "Newsletter subscribers",
+    "Mixed"
+   ]
+  },
+  {
+   "key": "voice",
+   "label": "Voice notes",
+   "type": "text",
+   "placeholder": "warm, first person, no exclamation marks"
+  },
+  {
+   "key": "esp",
+   "label": "Email tool",
+   "type": "chips",
+   "options": [
+    "Mailchimp",
+    "Klaviyo",
+    "Kit",
+    "HubSpot",
+    "Brevo",
+    "Other"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "welcome",
+   "title": "Welcome sequence",
+   "subtitle": "5 emails for new subscribers",
+   "emoji": "👋",
+   "inputs": [
+    {
+     "key": "magnet",
+     "label": "What they signed up for",
+     "type": "text",
+     "placeholder": "free glazing cheat sheet",
+     "required": true
+    },
+    {
+     "key": "goal",
+     "label": "Sequence goal",
+     "type": "text",
+     "placeholder": "book a discovery call"
+    }
+   ],
+   "prompt": "Write a 5-email welcome sequence for someone who signed up for {magnet}, with the goal: {goal}, in the profile voice. A table (Email | Send day | Subject | Preview text | Goal), then each email as a quote (subject line as the first line, body 120–180 words, one CTA), and a callout on what to segment on after email 3.",
+   "shape": "table, quote, callout",
+   "button": "Write sequence",
+   "loading": "Warming the list…"
+  },
+  {
+   "id": "launch",
+   "title": "Launch campaign",
+   "subtitle": "Open-cart to close-cart emails",
+   "emoji": "🚀",
+   "inputs": [
+    {
+     "key": "offer",
+     "label": "What you're launching",
+     "type": "text",
+     "placeholder": "spring cohort, $199, 30 seats",
+     "required": true
+    },
+    {
+     "key": "days",
+     "label": "Cart open for (days)",
+     "type": "number",
+     "placeholder": "7"
+    },
+    {
+     "key": "bonus",
+     "label": "Bonuses / deadline hook",
+     "type": "text",
+     "placeholder": "early-bird $50 off until Tuesday"
+    }
+   ],
+   "prompt": "Plan a launch email campaign for {offer} with the cart open {days} days and bonuses: {bonus}. A table (Day | Email | Angle | Subject | Segment), quotes for the three key emails in full (open-cart, mid-launch objection-buster, final hours), bullets of objections to address across the sequence, and a callout on send frequency and unsubscribe risk.",
+   "shape": "table, quote, bullets, callout",
+   "button": "Plan launch",
+   "loading": "Opening the cart…"
+  },
+  {
+   "id": "subjects",
+   "title": "Subject line lab",
+   "subtitle": "Score and improve subject lines",
+   "emoji": "✉️",
+   "inputs": [
+    {
+     "key": "subjects",
+     "label": "Your subject lines (one per line)",
+     "type": "longtext",
+     "placeholder": "Your cheat sheet is inside\nQuick question…",
+     "required": true
+    },
+    {
+     "key": "about",
+     "label": "What the email is about",
+     "type": "text",
+     "placeholder": "announcing the new course"
+    }
+   ],
+   "prompt": "Score these subject lines for an email about {about}: {subjects}. A table (Subject | Score /10 | Chars | Curiosity | Clarity | Spam risk), then 10 improved alternatives as bullets grouped by style (curiosity, benefit, question, urgency, personal), and a kv of matching preview text for the top 3.",
+   "shape": "table, bullets, kv",
+   "button": "Score them",
+   "loading": "Testing inboxes…"
+  },
+  {
+   "id": "newsletter",
+   "title": "Newsletter issue",
+   "subtitle": "Rough notes → finished issue",
+   "emoji": "📰",
+   "inputs": [
+    {
+     "key": "notes",
+     "label": "This issue's notes",
+     "type": "longtext",
+     "placeholder": "launched glaze course; tip: wedge clay longer; reader question about kilns…",
+     "required": true
+    },
+    {
+     "key": "length",
+     "label": "Length",
+     "type": "chips",
+     "options": [
+      "Short (300 words)",
+      "Standard (600)",
+      "Long (1000)"
+     ],
+     "default": "Standard (600)"
+    }
+   ],
+   "prompt": "Turn these notes into a {length} newsletter issue in the profile voice: {notes}. kv (subject line, preview text, one-line summary), then the full issue as text with a short intro, 2–4 headed sections and a sign-off, bullets of 3 alternative subject lines, and a callout on the one link to make the primary CTA.",
+   "shape": "kv, text, bullets, callout",
+   "button": "Write issue",
+   "loading": "Typing the issue…"
+  },
+  {
+   "id": "winback",
+   "title": "Win-back sequence",
+   "subtitle": "Emails for people who went quiet",
+   "emoji": "🔁",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Who went quiet",
+     "type": "chips",
+     "options": [
+      "Lapsed customers",
+      "Cold subscribers",
+      "Abandoned trials",
+      "Abandoned carts"
+     ],
+     "default": "Cold subscribers"
+    },
+    {
+     "key": "months",
+     "label": "Inactive for (months)",
+     "type": "number",
+     "placeholder": "6"
+    }
+   ],
+   "prompt": "Write a 3-email win-back sequence for {who} inactive for {months} months, in the profile voice. A table (Email | Send gap | Subject | Offer or hook), each email as a quote (≤120 words), a callout on when to sunset non-openers to protect deliverability, and bullets on what to measure.",
+   "shape": "table, quote, callout, bullets",
+   "button": "Win them back",
+   "loading": "Knocking gently…"
+  }
+ ],
+ "disclaimer": "Follow consent and anti-spam law in your market (e.g. GDPR, CAN-SPAM, PECR): only email people who opted in and always include a working unsubscribe link."
+}

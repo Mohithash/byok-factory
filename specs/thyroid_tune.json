@@ -1,0 +1,179 @@
+{
+ "id": "thyroid_tune",
+ "name": "Thyroid Tune",
+ "tagline": "Make sense of labs, meds and energy with thyroid disease",
+ "category": "Medical",
+ "colors": [
+  "#E64A19",
+  "#00897B",
+  "#7986CB"
+ ],
+ "icon": "bolt",
+ "about": "Thyroid Tune explains thyroid lab results in plain English, gets levothyroxine timing right around coffee, food and supplements, tracks symptoms between blood tests and builds an energy-pacing week.",
+ "persona": "You are an endocrinology nurse: plain-spoken, careful with numbers, and firm that dose changes only happen with the prescriber after blood tests.",
+ "onboarding": {
+  "title": "Tune in to your thyroid",
+  "subtitle": "Your condition and medication make the advice specific.",
+  "bullets": [
+   "Lab results explained",
+   "Medication timing that actually works",
+   "Symptom tracking between tests"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "condition",
+   "label": "Condition",
+   "type": "chips",
+   "options": [
+    "Hypothyroid (Hashimoto's)",
+    "Hypothyroid (other)",
+    "Hyperthyroid (Graves')",
+    "After thyroidectomy / RAI",
+    "Nodules / monitoring"
+   ]
+  },
+  {
+   "key": "meds",
+   "label": "Thyroid medication & dose",
+   "type": "text",
+   "placeholder": "levothyroxine 100 mcg"
+  },
+  {
+   "key": "other",
+   "label": "Other meds / supplements",
+   "type": "text",
+   "placeholder": "iron, calcium, omeprazole"
+  }
+ ],
+ "tools": [
+  {
+   "id": "labs",
+   "title": "Explain my results",
+   "subtitle": "TSH, FT4, FT3, antibodies",
+   "emoji": "🧪",
+   "inputs": [
+    {
+     "key": "labs",
+     "label": "Results with units and reference ranges",
+     "type": "longtext",
+     "placeholder": "TSH 6.8 (0.4–4.0), FT4 11 (12–22), TPO 340",
+     "required": true
+    },
+    {
+     "key": "feel",
+     "label": "How you've been feeling",
+     "type": "text",
+     "placeholder": "tired, cold, hair thinning"
+    }
+   ],
+   "prompt": "Explain these results: {labs}, alongside symptoms '{feel}' for the profile condition. Table (Test | Your value | Lab range | What this direction generally suggests), text explaining in plain English how the numbers fit together (TSH versus free hormones, what antibodies mean), bullets of questions worth asking the prescriber, and a callout that interpretation depends on dose timing, pregnancy, other illness and the doctor's individual targets, and that this is not a dose recommendation.",
+   "shape": "table, text, bullets, callout",
+   "button": "Explain",
+   "loading": "Decoding labs…"
+  },
+  {
+   "id": "timing",
+   "title": "Medication timing",
+   "subtitle": "Coffee, calcium, iron, food",
+   "emoji": "⏰",
+   "inputs": [
+    {
+     "key": "routine",
+     "label": "Your morning routine",
+     "type": "text",
+     "placeholder": "coffee at 6:30, iron with breakfast at 7, tablet whenever I remember"
+    },
+    {
+     "key": "pref",
+     "label": "Prefer taking it",
+     "type": "chips",
+     "options": [
+      "First thing in the morning",
+      "At bedtime",
+      "Not sure"
+     ],
+     "default": "First thing in the morning"
+    }
+   ],
+   "prompt": "Fit the profile medication into: {routine}, preferring '{pref}'. Steps for a daily schedule with clock times, a table (Substance | Gap needed from the tablet | Why | Where it lands in your schedule) covering coffee, calcium, iron, antacids, soy, high-fibre meals and the other meds in the profile, bullets on missed-dose rules as general guidance, and a callout to keep timing consistent for 6 weeks before a blood test and to confirm changes with the pharmacist.",
+   "shape": "steps, table, bullets, callout",
+   "button": "Schedule it",
+   "loading": "Spacing doses…"
+  },
+  {
+   "id": "symptoms",
+   "title": "Symptom check-in",
+   "subtitle": "Track between blood tests",
+   "emoji": "📝",
+   "inputs": [
+    {
+     "key": "log",
+     "label": "Symptoms over recent weeks",
+     "type": "longtext",
+     "placeholder": "wk1: exhausted by 3pm, constipated; wk2: palpitations twice, sleeping badly…",
+     "required": true
+    }
+   ],
+   "prompt": "Review: {log}. Table (Symptom | Weeks present | Points toward under-replaced, over-replaced or unrelated | Note), bullets summarising the overall direction and how confident that is, a kv of what to record daily until the next test (resting pulse, morning temperature, weight, energy 1–5, sleep hours), and a callout on symptoms that need a prompt appointment (chest pain, fast irregular pulse, severe swelling, confusion, fever).",
+   "shape": "table, bullets, kv, callout",
+   "button": "Check in",
+   "loading": "Reading symptoms…"
+  },
+  {
+   "id": "energy",
+   "title": "Energy-pacing week",
+   "subtitle": "Work with the fatigue, not against it",
+   "emoji": "🔋",
+   "inputs": [
+    {
+     "key": "week",
+     "label": "This week's commitments",
+     "type": "text",
+     "placeholder": "3 office days, kids' swimming Sat, big meeting Thu"
+    },
+    {
+     "key": "level",
+     "label": "Energy right now",
+     "type": "chips",
+     "options": [
+      "Very low",
+      "Low",
+      "Okay",
+      "Good"
+     ],
+     "default": "Low"
+    }
+   ],
+   "prompt": "Plan the week: {week} with energy '{level}'. Table (Day | Must-do | Nice-to-do | Rest block | Energy cost 1–5), bullets on front-loading tasks into peak hours and protecting sleep, steps for a 10-minute afternoon reset, and a callout on when persistent fatigue despite normal labs is worth asking about iron, B12, vitamin D or sleep apnoea.",
+   "shape": "table, bullets, steps, callout",
+   "button": "Plan week",
+   "loading": "Pacing…"
+  },
+  {
+   "id": "food",
+   "title": "Thyroid & food myths",
+   "subtitle": "What matters, what doesn't",
+   "emoji": "🥦",
+   "inputs": [
+    {
+     "key": "question",
+     "label": "Your question",
+     "type": "text",
+     "placeholder": "should I stop eating broccoli and soy?",
+     "required": true
+    }
+   ],
+   "prompt": "Answer '{question}' for the profile condition with evidence-based nuance. Text with the short answer, a table (Food or supplement | Real effect on the thyroid or the medication | Practical rule), bullets on iodine, selenium and so-called thyroid-support supplements as general information, and a callout on supplements that interfere with levothyroxine absorption or distort lab tests (for example biotin).",
+   "shape": "text, table, bullets, callout",
+   "button": "Answer",
+   "loading": "Checking evidence…"
+  }
+ ],
+ "disclaimer": "General information, not medical advice. Thyroid medication doses are adjusted only by your prescriber based on blood tests. Seek urgent care for chest pain, a very fast or irregular heartbeat, fever with confusion, or severe swelling of the neck."
+}

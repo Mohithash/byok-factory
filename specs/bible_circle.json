@@ -1,0 +1,193 @@
+{
+ "id": "bible_circle",
+ "name": "Circle Guide",
+ "tagline": "Lead a Bible study that people come back to",
+ "category": "Books & Reference",
+ "colors": [
+  "#4527A0",
+  "#26A69A",
+  "#FFB74D"
+ ],
+ "icon": "chat",
+ "about": "Circle Guide writes ready-to-run small-group Bible studies — icebreaker, observation, interpretation and application questions, background notes and a leader's script — for any passage, tradition and group.",
+ "persona": "You are an experienced small-group ministry trainer: text-faithful, aware of Catholic, Orthodox, mainline and evangelical readings, allergic to leading questions, and focused on getting the group talking rather than the leader lecturing.",
+ "onboarding": {
+  "title": "Prepare in 10 minutes, not 2 hours",
+  "subtitle": "Tell us about your group so every study fits the room.",
+  "bullets": [
+   "Complete study guides per passage",
+   "Leader scripts and timings",
+   "Background notes and tough questions"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "tradition",
+   "label": "Tradition",
+   "type": "chips",
+   "options": [
+    "Catholic",
+    "Orthodox",
+    "Anglican / Episcopal",
+    "Mainline Protestant",
+    "Evangelical",
+    "Pentecostal",
+    "Non-denominational"
+   ],
+   "default": "Non-denominational"
+  },
+  {
+   "key": "group",
+   "label": "Group",
+   "type": "chips",
+   "options": [
+    "Youth",
+    "Young adults",
+    "Adults",
+    "Women",
+    "Men",
+    "Seniors",
+    "Mixed"
+   ],
+   "default": "Mixed"
+  },
+  {
+   "key": "size",
+   "label": "Usual group size",
+   "type": "number",
+   "placeholder": "8"
+  }
+ ],
+ "tools": [
+  {
+   "id": "study",
+   "title": "Build a study",
+   "subtitle": "Passage → complete guide",
+   "emoji": "📖",
+   "inputs": [
+    {
+     "key": "passage",
+     "label": "Passage",
+     "type": "text",
+     "placeholder": "Luke 15:11-32, Philippians 2:1-11",
+     "required": true
+    },
+    {
+     "key": "minutes",
+     "label": "Minutes",
+     "type": "number",
+     "placeholder": "60"
+    },
+    {
+     "key": "theme",
+     "label": "Series theme (optional)",
+     "type": "text",
+     "placeholder": "Parables, Advent, Identity"
+    }
+   ],
+   "prompt": "Write a {minutes}-minute small-group study on {passage} (series theme: {theme}) for the profile's group and tradition. Sections: kv (big idea in one sentence, background in two lines, translation notes), steps with timings (welcome, icebreaker, read aloud, observation, interpretation, application, prayer), a table (Question | Type: observe/interpret/apply | If silence, try…), and a callout on a common misreading to steer away from.",
+   "shape": "kv, steps, table, callout",
+   "button": "Build study",
+   "loading": "Preparing the room…"
+  },
+  {
+   "id": "background",
+   "title": "Background notes",
+   "subtitle": "History, culture, words",
+   "emoji": "🏺",
+   "inputs": [
+    {
+     "key": "passage",
+     "label": "Passage",
+     "type": "text",
+     "placeholder": "1 Corinthians 11, Ruth 1",
+     "required": true
+    }
+   ],
+   "prompt": "Give background for {passage}. Sections: text on author, audience and historical setting, kv (genre, date range, place in the book's structure), a table (Word or phrase | Original language | Nuance | Why it matters), bullets on cultural details a modern reader would miss, and a callout on where traditions read this passage differently, stated neutrally.",
+   "shape": "text, kv, table, bullets, callout",
+   "button": "Get notes",
+   "loading": "Digging in…"
+  },
+  {
+   "id": "sermon",
+   "title": "Sermon → discussion",
+   "subtitle": "Turn Sunday's message into questions",
+   "emoji": "🎧",
+   "inputs": [
+    {
+     "key": "notes",
+     "label": "Your sermon notes",
+     "type": "longtext",
+     "placeholder": "Pastor spoke on Matthew 6 — worry, birds of the air, seek first…",
+     "required": true
+    },
+    {
+     "key": "tone",
+     "label": "Group tone",
+     "type": "chips",
+     "options": [
+      "Reflective",
+      "Practical",
+      "Lively debate"
+     ],
+     "default": "Practical"
+    }
+   ],
+   "prompt": "Turn these sermon notes into a {tone} discussion: {notes}. Sections: bullets recapping the message in 3 lines, a table (Question | Purpose | Passage to reread), steps for a 40-minute flow, and a quote with a closing prayer or blessing the leader can read.",
+   "shape": "bullets, table, steps, quote",
+   "button": "Make questions",
+   "loading": "Listening back…"
+  },
+  {
+   "id": "hard",
+   "title": "Handle a hard question",
+   "subtitle": "When someone asks the tough one",
+   "emoji": "🤔",
+   "inputs": [
+    {
+     "key": "question",
+     "label": "The question",
+     "type": "text",
+     "placeholder": "Why does God allow suffering? Is this passage anti-women?",
+     "required": true
+    }
+   ],
+   "prompt": "A group member asks: {question}. Prepare the leader: text on how to receive the question without shutting it down, a table (Response | Tradition or school it reflects | Key passages), bullets of what not to say, and a quote with a 3-sentence answer the leader could give that is honest about mystery and invites the group in.",
+   "shape": "text, table, bullets, quote",
+   "button": "Prepare me",
+   "loading": "Thinking carefully…"
+  },
+  {
+   "id": "plan",
+   "title": "Plan a series",
+   "subtitle": "Weeks of studies that build",
+   "emoji": "🗓️",
+   "inputs": [
+    {
+     "key": "book",
+     "label": "Book or theme",
+     "type": "text",
+     "placeholder": "Gospel of Mark, the Psalms, Fruit of the Spirit",
+     "required": true
+    },
+    {
+     "key": "weeks",
+     "label": "Weeks",
+     "type": "number",
+     "placeholder": "8"
+    }
+   ],
+   "prompt": "Plan a {weeks}-week series on {book} for the profile's group. Sections: a table (Week | Passage | Big idea | Application focus), a checklist of prep per week, bullets on keeping newcomers included mid-series, and a callout on pacing (what to skip if a week runs long).",
+   "shape": "table, checklist, bullets, callout",
+   "button": "Plan series",
+   "loading": "Mapping the weeks…"
+  }
+ ],
+ "disclaimer": "Study material reflects broad Christian scholarship; check with your church leadership where your tradition's teaching is specific."
+}

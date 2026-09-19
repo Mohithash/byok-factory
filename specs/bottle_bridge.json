@@ -1,0 +1,203 @@
+{
+ "id": "bottle_bridge",
+ "name": "Bottle Bridge",
+ "tagline": "Bottles, formula and combi-feeding, done right",
+ "category": "Parenting",
+ "colors": [
+  "#00897B",
+  "#FF7043",
+  "#FFF176"
+ ],
+ "icon": "cup",
+ "about": "Bottle Bridge fixes bottle refusal, teaches paced bottle feeding to any carer, plans combination feeding without losing supply, decodes a formula tin from a photo and troubleshoots fussy, windy or gulping bottle feeds.",
+ "persona": "You are a practical infant-feeding nurse: precise about millilitres, teat flows and prep rules, and equally supportive of formula, combination and bottle-fed expressed milk.",
+ "onboarding": {
+  "title": "Every bottle, sorted",
+  "subtitle": "Tell us how your baby is fed and what you're moving towards.",
+  "bullets": [
+   "Bottle-refusal fixes",
+   "Combination feeding plans",
+   "Formula decoded from a photo"
+  ]
+ },
+ "profile": [
+  {
+   "key": "baby",
+   "label": "Baby's name & age",
+   "type": "text",
+   "placeholder": "Kai, 4 months",
+   "required": true
+  },
+  {
+   "key": "milk",
+   "label": "In the bottle",
+   "type": "chips",
+   "options": [
+    "Expressed milk",
+    "Formula",
+    "Both"
+   ]
+  },
+  {
+   "key": "goal",
+   "label": "Goal",
+   "type": "chips",
+   "options": [
+    "Baby takes a bottle at all",
+    "Combine breast and bottle",
+    "Move fully to formula",
+    "Smoother bottle feeds"
+   ]
+  },
+  {
+   "key": "bottles",
+   "label": "Bottles & teats you own",
+   "type": "text",
+   "placeholder": "MAM anti-colic, size 1 teats"
+  }
+ ],
+ "tools": [
+  {
+   "id": "refuse",
+   "title": "Bottle refusal",
+   "subtitle": "Baby won't take the bottle",
+   "emoji": "🙅",
+   "inputs": [
+    {
+     "key": "tried",
+     "label": "What you've tried",
+     "type": "text",
+     "placeholder": "3 teats, partner offering, warm milk",
+     "required": true
+    },
+    {
+     "key": "who",
+     "label": "Who's offering",
+     "type": "chips",
+     "options": [
+      "Me (breastfeeding parent)",
+      "Partner",
+      "Grandparent / carer"
+     ],
+     "default": "Partner"
+    }
+   ],
+   "prompt": "Fix bottle refusal for the profile; tried: {tried}; offering: {who}. Steps for a 7-day gradual introduction (timing, who, position, teat flow, temperature, milk type), a table (Tactic | Why it works | When to try), bullets on what not to do (forcing, starving into it), and a callout on when to involve a feeding specialist.",
+   "shape": "steps, table, bullets, callout",
+   "button": "Get a plan",
+   "loading": "Warming the bottle…"
+  },
+  {
+   "id": "paced",
+   "title": "Paced bottle feeding",
+   "subtitle": "Slow, responsive bottles",
+   "emoji": "🍼",
+   "inputs": [
+    {
+     "key": "carer",
+     "label": "Teach it to",
+     "type": "chips",
+     "options": [
+      "Me",
+      "Partner",
+      "Nursery / nanny",
+      "Grandparents"
+     ],
+     "default": "Grandparents"
+    }
+   ],
+   "prompt": "Explain paced bottle feeding for {carer} with the profile's bottles: steps with positions, bottle angle, pauses and cues, a quote with a 4-sentence script they can read from a fridge note, bullets of fullness cues to stop at, and a callout on teat flow rates by age and why faster is not better.",
+   "shape": "steps, quote, bullets, callout",
+   "button": "Teach me",
+   "loading": "Tilting…"
+  },
+  {
+   "id": "combi",
+   "title": "Combination feeding plan",
+   "subtitle": "Swap feeds for bottles, keep supply",
+   "emoji": "🔀",
+   "inputs": [
+    {
+     "key": "swap",
+     "label": "Feeds to move to bottle per day",
+     "type": "number",
+     "placeholder": "2"
+    },
+    {
+     "key": "why",
+     "label": "Reason",
+     "type": "chips",
+     "options": [
+      "Back to work",
+      "Partner wants to feed",
+      "Sleep / rest",
+      "Moving to formula over time"
+     ],
+     "default": "Back to work"
+    },
+    {
+     "key": "notes",
+     "label": "Notes",
+     "type": "text",
+     "placeholder": "keep morning and bedtime breastfeeds"
+    }
+   ],
+   "prompt": "Plan combination feeding for the profile: move {swap} feeds a day to the bottle because '{why}', notes: {notes}. A table (Time | Breast / bottle | Amount | Who | Supply note) for a full day, steps for introducing one swapped feed at a time over 2 weeks, bullets on keeping supply steady (which feeds protect it most, expressing if needed) and avoiding engorgement, and a callout on signs baby is not getting enough during the switch.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Plan it",
+   "loading": "Bridging feeds…"
+  },
+  {
+   "id": "tin",
+   "title": "Decode a formula tin",
+   "subtitle": "Photo → prep, amounts, safety",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the formula tin or label",
+     "type": "photo",
+     "placeholder": "Include the scoop table if you can",
+     "required": true
+    }
+   ],
+   "prompt": "Read the formula label: a kv (type, stage / age, scoop size, water per scoop, prep temperature notes), a table (Baby age | Feeds per day | ml per feed) for the profile's age, steps for safe preparation and cooling, and a callout on what to never do (microwaving, reusing leftovers, wrong scoop counts, switching stages early).",
+   "shape": "kv, table, steps, callout",
+   "button": "Decode",
+   "loading": "Reading the tin…"
+  },
+  {
+   "id": "fussy",
+   "title": "Fussy bottle feeds",
+   "subtitle": "Gulping, wind, spit-up, tiny feeds",
+   "emoji": "🌪️",
+   "inputs": [
+    {
+     "key": "issue",
+     "label": "What's happening",
+     "type": "chips",
+     "options": [
+      "Gulps and splutters",
+      "Very windy",
+      "Spits up a lot",
+      "Takes tiny amounts",
+      "Falls asleep mid-feed",
+      "Fights the bottle then drinks"
+     ],
+     "default": "Very windy"
+    },
+    {
+     "key": "details",
+     "label": "Details",
+     "type": "text",
+     "placeholder": "size 2 teat, 120 ml every 3 hours, lots of hiccups"
+    }
+   ],
+   "prompt": "Troubleshoot '{issue}' with details: {details} for the profile. A table (Possible cause | Sign | Change to make), steps for the next feed (teat, angle, pace, winding breaks with technique), bullets on the difference between normal posseting and concerning vomiting, and a callout on reflux, allergy or dehydration signs that need a doctor.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Troubleshoot",
+   "loading": "Winding…"
+  }
+ ],
+ "disclaimer": "General parenting information, not medical advice. For concerns about your baby's health, feeding, breathing or weight, contact your midwife, health visitor or paediatrician — and call emergency services if a baby is struggling to breathe, is floppy, has a fever under 3 months old or cannot be woken."
+}

@@ -1,0 +1,203 @@
+{
+ "id": "creator_reach",
+ "name": "Creator Reach",
+ "tagline": "Influencer outreach that gets replies and results",
+ "category": "Business",
+ "colors": [
+  "#E91E63",
+  "#7C4DFF",
+  "#00BFA5"
+ ],
+ "icon": "star",
+ "about": "Creator Reach helps you shortlist the right creators, write outreach that gets replies, brief campaigns clearly, structure fair deals and vet a profile from a screenshot.",
+ "persona": "You are an influencer-marketing manager: respectful of creators' time, clear about deliverables, allergic to vanity metrics and undisclosed ads.",
+ "onboarding": {
+  "title": "Partner with creators, properly",
+  "subtitle": "Tell us your brand and budget so outreach and briefs fit.",
+  "bullets": [
+   "Outreach messages that get replies",
+   "Creator briefs and fair deal terms",
+   "Vet any profile from a screenshot"
+  ]
+ },
+ "profile": [
+  {
+   "key": "brand",
+   "label": "Brand & product",
+   "type": "text",
+   "placeholder": "Nimbus — sleep tea, sold online"
+  },
+  {
+   "key": "platform",
+   "label": "Main platforms",
+   "type": "chips",
+   "options": [
+    "Instagram",
+    "TikTok",
+    "YouTube",
+    "Podcasts",
+    "Newsletters",
+    "Twitch"
+   ],
+   "multi": true
+  },
+  {
+   "key": "budget",
+   "label": "Budget per creator",
+   "type": "chips",
+   "options": [
+    "Gifting only",
+    "$100–500",
+    "$500–2k",
+    "$2k–10k",
+    "$10k+"
+   ]
+  },
+  {
+   "key": "goal",
+   "label": "Campaign goal",
+   "type": "text",
+   "placeholder": "UGC for ads + 200 first orders"
+  }
+ ],
+ "tools": [
+  {
+   "id": "shortlist",
+   "title": "Sourcing plan",
+   "subtitle": "Who to look for and how to find them",
+   "emoji": "🔭",
+   "inputs": [
+    {
+     "key": "niche",
+     "label": "Creator niche",
+     "type": "text",
+     "placeholder": "wellness, cosy home, sleep",
+     "required": true
+    },
+    {
+     "key": "count",
+     "label": "How many creators",
+     "type": "number",
+     "placeholder": "10"
+    }
+   ],
+   "prompt": "Build a creator sourcing plan for the profile brand in the niche '{niche}', aiming for {count} partners. A table (Creator archetype | Follower band | Why they fit | Where to find them | Search terms), a checklist of red flags to screen out (bought followers, mismatched audience, past controversies), a kv of target metrics (engagement rate, audience location, saves and shares, comment quality), and bullets on hashtags and communities to browse.",
+   "shape": "table, checklist, kv, bullets",
+   "button": "Build plan",
+   "loading": "Scouting creators…"
+  },
+  {
+   "id": "pitch",
+   "title": "Outreach message",
+   "subtitle": "DM or email that gets a reply",
+   "emoji": "💌",
+   "inputs": [
+    {
+     "key": "creator",
+     "label": "Creator name / handle",
+     "type": "text",
+     "placeholder": "@cosyclara",
+     "required": true
+    },
+    {
+     "key": "why",
+     "label": "Why them specifically",
+     "type": "text",
+     "placeholder": "her 'wind-down routine' series",
+     "required": true
+    },
+    {
+     "key": "channel",
+     "label": "Channel",
+     "type": "chips",
+     "options": [
+      "Instagram DM",
+      "Email",
+      "TikTok DM",
+      "LinkedIn"
+     ],
+     "default": "Email"
+    }
+   ],
+   "prompt": "Write outreach to {creator} via {channel} for the profile brand, referencing: {why}. A quote with the first message (≤120 words for a DM, ≤180 for email: a specific compliment, a clear ask, what's in it for them, one easy next step), a second quote with a 2-line follow-up for 5 days later, a table (Line | Purpose) explaining each part, and a callout on what not to say (no 'exposure' offers, no vague budgets).",
+   "shape": "quote, table, callout",
+   "button": "Write outreach",
+   "loading": "Sliding into DMs…"
+  },
+  {
+   "id": "brief",
+   "title": "Campaign brief",
+   "subtitle": "One page the creator can follow",
+   "emoji": "📝",
+   "inputs": [
+    {
+     "key": "deliverables",
+     "label": "Deliverables",
+     "type": "text",
+     "placeholder": "1 Reel + 3 Stories + 6 months usage rights",
+     "required": true
+    },
+    {
+     "key": "dates",
+     "label": "Timeline",
+     "type": "text",
+     "placeholder": "post between 3–10 Nov"
+    },
+    {
+     "key": "musts",
+     "label": "Must-include / must-avoid",
+     "type": "text",
+     "placeholder": "show the tin; no health claims"
+    }
+   ],
+   "prompt": "Write a creator campaign brief for the profile brand: deliverables {deliverables}, timeline {dates}, requirements: {musts}. kv (campaign name, objective, key message, hashtags and handles, disclosure wording, deadline), bullets of 5 content angles that stay authentic to the creator, a table (Deliverable | Specs | Due | Approval step), a checklist for the creator before posting, and a callout on disclosure rules (#ad, paid-partnership label).",
+   "shape": "kv, bullets, table, checklist, callout",
+   "button": "Write brief",
+   "loading": "Briefing creator…"
+  },
+  {
+   "id": "deal",
+   "title": "Deal terms",
+   "subtitle": "Rates, rights and a simple term sheet",
+   "emoji": "🤝",
+   "inputs": [
+    {
+     "key": "stats",
+     "label": "Creator stats",
+     "type": "text",
+     "placeholder": "48k followers, 5% ER, 30k avg views",
+     "required": true
+    },
+    {
+     "key": "ask",
+     "label": "What you want",
+     "type": "text",
+     "placeholder": "1 Reel, 2 Stories, whitelisting 3 months"
+    }
+   ],
+   "prompt": "Structure a deal for a creator with {stats} for: {ask}, within the profile budget. A table (Component | Fair rate range | Notes) covering content fee, usage rights, whitelisting, exclusivity and performance bonus, kv (total range, payment terms, revisions, kill fee), a quote with a plain-English term sheet the creator can accept by reply, and a callout on negotiation levers.",
+   "shape": "table, kv, quote, callout",
+   "button": "Structure deal",
+   "loading": "Crunching rates…"
+  },
+  {
+   "id": "vet",
+   "title": "Vet a profile",
+   "subtitle": "Screenshot → fit and red flags",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Screenshot of the creator's profile or stats",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Assess this creator profile screenshot for the profile brand. kv (estimated follower band, engagement signals, content style, audience guess, brand fit /10), a table (Signal | What I see | Green or red flag), bullets of questions to ask them before committing, and a callout with the fit verdict and a suggested offer tier.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Vet profile",
+   "loading": "Reading the grid…"
+  }
+ ],
+ "disclaimer": "Sponsored content must be clearly disclosed under advertising rules in your market (e.g. FTC, ASA); use written agreements and never buy fake engagement."
+}

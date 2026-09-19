@@ -1,0 +1,194 @@
+{
+ "id": "values_compass",
+ "name": "Values Compass",
+ "tagline": "Know what matters, then act like it",
+ "category": "Health & Fitness",
+ "colors": [
+  "#2E7D32",
+  "#F57C00",
+  "#1565C0"
+ ],
+ "icon": "pin",
+ "about": "Values Compass uses acceptance-and-commitment tools to clarify what you actually value, spot when you're moving away from it, plan small committed actions and unhook from the thoughts that stop you.",
+ "persona": "You are an ACT-informed coach: curious rather than corrective, focused on workable action over feeling better, and honest that values are chosen directions, not destinations.",
+ "onboarding": {
+  "title": "Which way is your life pointing?",
+  "subtitle": "A quick sketch of your life areas helps.",
+  "bullets": [
+   "Values clarification that's specific",
+   "Toward vs away moves",
+   "Unhook from sticky thoughts"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "areas",
+   "label": "Areas that matter most",
+   "type": "chips",
+   "options": [
+    "Relationships",
+    "Work",
+    "Health",
+    "Learning",
+    "Creativity",
+    "Community",
+    "Spirituality",
+    "Play"
+   ],
+   "multi": true
+  },
+  {
+   "key": "stuck",
+   "label": "Where you feel stuck",
+   "type": "text",
+   "placeholder": "I keep saying I'll call my brother"
+  }
+ ],
+ "tools": [
+  {
+   "id": "clarify",
+   "title": "Clarify my values",
+   "subtitle": "From stories, not slogans",
+   "emoji": "🧭",
+   "inputs": [
+    {
+     "key": "moments",
+     "label": "Two moments you felt most alive, and one you felt ashamed of",
+     "type": "longtext",
+     "placeholder": "building the treehouse with Dad; the night we talked till 4; skipping Mum's birthday for work",
+     "required": true
+    }
+   ],
+   "prompt": "Draw values from these moments: {moments}. Table (Value | Evidence from the stories | How it shows up when honoured | How it shows up when ignored), bullets with the top 3 values written as verbs ('being present with…'), a kv (Value most neglected, Smallest next action for it, Person to tell), and a callout on the difference between a value and a goal.",
+   "shape": "table, bullets, kv, callout",
+   "button": "Clarify",
+   "loading": "Reading the stories…"
+  },
+  {
+   "id": "moves",
+   "title": "Toward or away",
+   "subtitle": "Audit a day against your values",
+   "emoji": "↔️",
+   "inputs": [
+    {
+     "key": "day",
+     "label": "Yesterday, roughly",
+     "type": "longtext",
+     "placeholder": "scrolled till 1am, cancelled on Jo, good workout, bit my tongue at work",
+     "required": true
+    }
+   ],
+   "prompt": "Classify yesterday: {day}. Table (Action | Toward or away move | Value involved | What the away move was avoiding), bullets on the pattern in the away moves, steps for one swap tomorrow that turns an away move into a toward move, and a quote with a non-judgemental sentence to say when noticing an away move.",
+   "shape": "table, bullets, steps, quote",
+   "button": "Audit",
+   "loading": "Plotting the moves…"
+  },
+  {
+   "id": "commit",
+   "title": "Committed action",
+   "subtitle": "A week of tiny value-driven steps",
+   "emoji": "✅",
+   "inputs": [
+    {
+     "key": "value",
+     "label": "Value to act on",
+     "type": "chips",
+     "options": [
+      "Connection",
+      "Health",
+      "Growth",
+      "Creativity",
+      "Contribution",
+      "Honesty",
+      "Adventure"
+     ],
+     "default": "Connection"
+    },
+    {
+     "key": "size",
+     "label": "Step size",
+     "type": "chips",
+     "options": [
+      "Tiny (2 min)",
+      "Small (15 min)",
+      "Real (1 hour)"
+     ],
+     "default": "Small (15 min)"
+    }
+   ],
+   "prompt": "Plan a week of committed actions for the value '{value}' at the '{size}' size, aimed at the profile's stuck area: checklist of 7 actions (one per day, each specific enough to know whether it happened), a table (Action | Likely obstacle | If-then plan), and a callout on what to do when you miss a day.",
+   "shape": "checklist, table, callout",
+   "button": "Plan the week",
+   "loading": "Setting course…"
+  },
+  {
+   "id": "unhook",
+   "title": "Unhook a thought",
+   "subtitle": "Defusion for a sticky story",
+   "emoji": "🪝",
+   "inputs": [
+    {
+     "key": "thought",
+     "label": "The thought",
+     "type": "text",
+     "placeholder": "I'm too old to change careers",
+     "required": true
+    },
+    {
+     "key": "hook",
+     "label": "How it hooks you",
+     "type": "chips",
+     "options": [
+      "Stops me acting",
+      "Makes me argue with it",
+      "Makes me avoid people",
+      "Keeps me up at night"
+     ],
+     "default": "Stops me acting"
+    }
+   ],
+   "prompt": "The thought: '{thought}' — it {hook}. Steps through 4 defusion exercises (naming the story, thanking the mind, silly voice, leaves on a stream) with the exact words for this thought, a callout that the goal is workability not truth, bullets on how to act on the value while the thought is still there, and a quote with the thought rewritten as 'I'm having the thought that…'.",
+   "shape": "steps, callout, bullets, quote",
+   "button": "Unhook",
+   "loading": "Loosening the hook…"
+  },
+  {
+   "id": "willing",
+   "title": "Willingness plan",
+   "subtitle": "Do the hard thing with the feeling",
+   "emoji": "🌊",
+   "inputs": [
+    {
+     "key": "action",
+     "label": "The thing you're avoiding",
+     "type": "text",
+     "placeholder": "asking for a raise",
+     "required": true
+    },
+    {
+     "key": "feeling",
+     "label": "Feeling that shows up",
+     "type": "chips",
+     "options": [
+      "Anxiety",
+      "Shame",
+      "Sadness",
+      "Boredom",
+      "Anger"
+     ],
+     "default": "Anxiety"
+    }
+   ],
+   "prompt": "Build a willingness plan for '{action}' when {feeling} shows up: kv (Value served, Feeling expected 0–10, Room to make for it, First physical step), steps to do the action while carrying the feeling (before, during, after), bullets on what struggling with the feeling looks like versus willingness, and a callout on when avoidance is actually the wise choice.",
+   "shape": "kv, steps, bullets, callout",
+   "button": "Make room",
+   "loading": "Opening up…"
+  }
+ ],
+ "disclaimer": "Not therapy or medical advice. If you're in crisis or thinking about harming yourself or someone else, contact local emergency services or a crisis line now."
+}

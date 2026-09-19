@@ -1,0 +1,209 @@
+{
+ "id": "grey_muzzle",
+ "name": "Grey Muzzle",
+ "tagline": "Comfort, mobility and joy for your senior dog",
+ "category": "Lifestyle",
+ "colors": [
+  "#546E7A",
+  "#FF8A65",
+  "#9CCC65"
+ ],
+ "icon": "heart",
+ "about": "Grey Muzzle helps you care for an ageing dog: home changes for stiff joints, senior-appropriate diet and exercise, routines for cognitive decline, symptom logs for the vet, and a gentle quality-of-life check when you need it.",
+ "persona": "You are a compassionate veterinary nurse who specialises in geriatric dogs: practical about mobility and pain, unhurried, honest about hard conversations, and never pushing either euthanasia or false hope.",
+ "onboarding": {
+  "title": "The golden years, done well",
+  "subtitle": "Tell us about your dog so advice fits their body and conditions.",
+  "bullets": [
+   "Home & mobility adaptations",
+   "Senior diet and gentle exercise",
+   "Cognitive-decline routines & vet prep"
+  ]
+ },
+ "profile": [
+  {
+   "key": "dog",
+   "label": "Dog name, breed & age",
+   "type": "text",
+   "placeholder": "Bella, Labrador, 12"
+  },
+  {
+   "key": "weight",
+   "label": "Weight (kg) & body shape",
+   "type": "text",
+   "placeholder": "31 kg, a bit overweight"
+  },
+  {
+   "key": "conditions",
+   "label": "Known conditions",
+   "type": "chips",
+   "options": [
+    "Arthritis",
+    "Heart",
+    "Kidney",
+    "Cognitive decline",
+    "Vision / hearing loss",
+    "Cancer",
+    "None diagnosed"
+   ],
+   "default": "None diagnosed",
+   "multi": true
+  },
+  {
+   "key": "meds",
+   "label": "Medications & supplements",
+   "type": "text",
+   "placeholder": "meloxicam, omega-3"
+  }
+ ],
+ "tools": [
+  {
+   "id": "home",
+   "title": "Make home senior-friendly",
+   "subtitle": "Floors, stairs, beds, ramps",
+   "emoji": "🏠",
+   "inputs": [
+    {
+     "key": "issues",
+     "label": "Struggles with",
+     "type": "chips",
+     "options": [
+      "Slipping on floors",
+      "Stairs",
+      "Getting in the car",
+      "Getting up from lying",
+      "Finding the way at night",
+      "Toilet accidents"
+     ],
+     "default": "Slipping on floors",
+     "multi": true
+    },
+    {
+     "key": "budget",
+     "label": "Budget",
+     "type": "chips",
+     "options": [
+      "Free fixes only",
+      "Under 100",
+      "Whatever helps"
+     ],
+     "default": "Under 100"
+    }
+   ],
+   "prompt": "Plan home adaptations for the profile dog who struggles with {issues} on a {budget} budget. Sections: a table (Problem | Fix | Cost tier | Why it works) covering rugs and runners, ramps, orthopaedic beds, raised bowls, night lights and harnesses, a checklist of changes in order of impact, steps for teaching a ramp or lifting harness safely, and a callout on toe grips and nail length.",
+   "shape": "table, checklist, steps, callout",
+   "button": "Plan changes",
+   "loading": "Laying out the rugs…"
+  },
+  {
+   "id": "move",
+   "title": "Gentle exercise plan",
+   "subtitle": "Keep muscle without pain",
+   "emoji": "🚶",
+   "inputs": [
+    {
+     "key": "mobility",
+     "label": "Mobility now",
+     "type": "chips",
+     "options": [
+      "Still bouncy",
+      "Slower but happy",
+      "Stiff after rest",
+      "Struggles on walks",
+      "Mostly resting"
+     ],
+     "default": "Stiff after rest"
+    },
+    {
+     "key": "mins",
+     "label": "Minutes you can give daily",
+     "type": "number",
+     "placeholder": "30"
+    }
+   ],
+   "prompt": "A weekly gentle-exercise plan for the profile dog ({mobility}) with {mins} minutes a day. Sections: a table (Day | Activity | Minutes | Intensity | Watch for), steps for 3 at-home strengthening or balance exercises (sit-to-stand, cavaletti with broom handles, weight shifting), bullets on sniff walks and mental exercise, and a callout on pain signs that mean stop and call the vet.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Plan week",
+   "loading": "Loosening up…"
+  },
+  {
+   "id": "diet",
+   "title": "Senior diet & weight",
+   "subtitle": "Portions, joints, kidneys",
+   "emoji": "🍲",
+   "inputs": [
+    {
+     "key": "food",
+     "label": "Current food & amount",
+     "type": "text",
+     "placeholder": "Royal Canin Adult, 2 cups a day",
+     "required": true
+    },
+    {
+     "key": "goal",
+     "label": "Goal",
+     "type": "chips",
+     "options": [
+      "Lose weight",
+      "Maintain",
+      "Gain / poor appetite",
+      "Support a condition"
+     ],
+     "default": "Maintain"
+    }
+   ],
+   "prompt": "Review the diet for the profile dog: {food}, goal {goal}, considering the profile conditions. Sections: kv (target weight, daily kcal estimate, protein guidance, portion in grams, treats allowance), a table (Change | Why | How to transition), bullets on appetite tricks for fussy seniors (warming, toppers, smaller meals), and a callout that kidney, heart or pancreatic conditions need a vet-prescribed diet.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Review diet",
+   "loading": "Weighing kibble…"
+  },
+  {
+   "id": "mind",
+   "title": "Cognitive-decline routine",
+   "subtitle": "Sundowning, pacing, night waking",
+   "emoji": "🌙",
+   "inputs": [
+    {
+     "key": "signs",
+     "label": "Signs",
+     "type": "chips",
+     "options": [
+      "Night pacing / waking",
+      "Staring at walls",
+      "Stuck in corners",
+      "Toilet accidents",
+      "Not recognising people",
+      "Anxiety at dusk",
+      "Less interest in play"
+     ],
+     "default": "Night pacing / waking",
+     "multi": true
+    }
+   ],
+   "prompt": "Build a daily routine for the profile dog showing {signs}. Sections: a table (Time | Activity | Purpose) for a predictable day with daylight exposure, feeding, sniff time and wind-down, bullets on environment tweaks (night lights, blocked corners, white noise), steps for 5-minute brain games that suit an older dog, and a callout on medical causes to rule out (pain, UTI, hearing loss) and treatments to ask the vet about.",
+   "shape": "table, bullets, steps, callout",
+   "button": "Build routine",
+   "loading": "Dimming the lights…"
+  },
+  {
+   "id": "qol",
+   "title": "Quality-of-life check",
+   "subtitle": "A gentle, honest assessment",
+   "emoji": "💛",
+   "inputs": [
+    {
+     "key": "week",
+     "label": "How has the last week been?",
+     "type": "longtext",
+     "placeholder": "eating well, two bad nights, wagged at the postie, needed help up twice",
+     "required": true
+    }
+   ],
+   "prompt": "Assess quality of life for the profile dog from: {week}. Sections: a table (Area | Score 0–10 | What I'm seeing) across hurt, hunger, hydration, hygiene, happiness, mobility and more-good-days-than-bad, text with a kind, honest interpretation that does not push any decision, a checklist of things to try or discuss with the vet this week, and a callout on how to know when it is time to talk about end-of-life options.",
+   "shape": "table, text, checklist, callout",
+   "button": "Assess",
+   "loading": "Taking a breath…"
+  }
+ ],
+ "disclaimer": "Supportive information for senior-dog care, not veterinary advice. Sudden collapse, breathing difficulty, bloat or uncontrolled pain are emergencies — contact a vet immediately."
+}

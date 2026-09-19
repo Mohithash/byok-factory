@@ -1,0 +1,176 @@
+{
+ "id": "bid_builder",
+ "name": "Bid Builder",
+ "tagline": "RFP responses that score, not just comply",
+ "category": "Business",
+ "colors": [
+  "#37474F",
+  "#0097A7",
+  "#F9A825"
+ ],
+ "icon": "book",
+ "about": "Bid Builder helps you decide which RFPs to chase, builds compliance matrices from tender text, drafts evaluator-friendly answers and sharpens win themes and cover letters.",
+ "persona": "You are a bid manager with a high win rate: disciplined about go/no-go, obsessed with the evaluator's scoring sheet, and clear that every claim needs evidence.",
+ "onboarding": {
+  "title": "Bid smarter, win more",
+  "subtitle": "Your strengths and past wins feed every answer.",
+  "bullets": [
+   "Go/no-go scorecards",
+   "Compliance matrices from RFP text",
+   "Answers written for evaluators"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "company",
+   "label": "Company & offering",
+   "type": "text",
+   "placeholder": "Meridian — facilities management for the public sector"
+  },
+  {
+   "key": "strengths",
+   "label": "Differentiators",
+   "type": "text",
+   "placeholder": "24h response SLA, ISO 14001, local workforce"
+  },
+  {
+   "key": "wins",
+   "label": "Reference wins",
+   "type": "text",
+   "placeholder": "3 county councils, 1 NHS trust"
+  }
+ ],
+ "tools": [
+  {
+   "id": "gono",
+   "title": "Go / no-go",
+   "subtitle": "Should you bid at all?",
+   "emoji": "⚖️",
+   "inputs": [
+    {
+     "key": "summary",
+     "label": "RFP summary",
+     "type": "longtext",
+     "placeholder": "£2m 3-year cleaning contract, 12 sites, incumbent 8 years, 3-week deadline",
+     "required": true
+    },
+    {
+     "key": "relationship",
+     "label": "Relationship with buyer",
+     "type": "text",
+     "placeholder": "none"
+    }
+   ],
+   "prompt": "Run a go/no-go on: {summary}; relationship with the buyer: {relationship}; using the profile's strengths and wins. Sections: a table (Criterion | Score 1–5 | Evidence) across fit, winnability, capacity, price competitiveness, incumbent strength and strategic value, kv (Total score | Recommendation | Estimated win probability | Cost to bid), bullets of conditions that would change the answer, and a callout on the one question to ask the buyer before deciding.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Decide",
+   "loading": "Weighing odds…"
+  },
+  {
+   "id": "matrix",
+   "title": "Compliance matrix",
+   "subtitle": "Requirements → tracker",
+   "emoji": "🗂️",
+   "inputs": [
+    {
+     "key": "rfp",
+     "label": "Paste the RFP requirements section",
+     "type": "longtext",
+     "placeholder": "paste the requirements / evaluation criteria",
+     "required": true
+    }
+   ],
+   "prompt": "Extract every requirement from: {rfp}. Sections: a table (Ref | Requirement | Type: mandatory/scored/info | Weight if stated | Owner | Evidence needed | Status), bullets of ambiguous requirements to clarify with the buyer, a checklist of submission documents, and a callout on the mandatory items most bidders miss.",
+   "shape": "table, bullets, checklist, callout",
+   "button": "Build matrix",
+   "loading": "Extracting…"
+  },
+  {
+   "id": "answer",
+   "title": "Answer a question",
+   "subtitle": "Evaluator-friendly response",
+   "emoji": "✍️",
+   "inputs": [
+    {
+     "key": "question",
+     "label": "RFP question",
+     "type": "longtext",
+     "placeholder": "Describe your approach to mobilisation and transition from the incumbent.",
+     "required": true
+    },
+    {
+     "key": "words",
+     "label": "Word limit",
+     "type": "number",
+     "placeholder": "500"
+    },
+    {
+     "key": "evidence",
+     "label": "Evidence to use",
+     "type": "text",
+     "placeholder": "took over 12 sites from an incumbent in 6 weeks with zero service gaps"
+    }
+   ],
+   "prompt": "Answer this RFP question in under {words} words: {question}, using evidence: {evidence} and the profile's strengths. Sections: a quote with the full answer (open with a direct claim, mirror the question's keywords, subheadings that match the scoring criteria), kv (Words used | Scoring criteria addressed | Evidence cited), bullets of the 3 phrases evaluators reward, and a callout on claims that need proof attached.",
+   "shape": "quote, kv, bullets, callout",
+   "button": "Draft answer",
+   "loading": "Writing for score…"
+  },
+  {
+   "id": "themes",
+   "title": "Win themes",
+   "subtitle": "Why you, in their words",
+   "emoji": "🏆",
+   "inputs": [
+    {
+     "key": "buyer",
+     "label": "What the buyer cares about",
+     "type": "longtext",
+     "placeholder": "budget cuts, sustainability targets, complaints about the incumbent's response times",
+     "required": true
+    },
+    {
+     "key": "rival",
+     "label": "Likely rivals",
+     "type": "text",
+     "placeholder": "incumbent + 2 nationals"
+    }
+   ],
+   "prompt": "Develop win themes for a buyer who cares about: {buyer}, against {rival}, using the profile's differentiators. Sections: cards for 3–4 win themes (meta = buyer hot button · proof), a table (Theme | Rival weakness it exploits | Where to place it in the bid), a quote with a one-sentence version of each theme for the executive summary, and a callout on ghosting competitors ethically.",
+   "shape": "cards, table, quote, callout",
+   "button": "Find themes",
+   "loading": "Sharpening edge…"
+  },
+  {
+   "id": "cover",
+   "title": "Cover letter",
+   "subtitle": "The executive summary they read first",
+   "emoji": "📨",
+   "inputs": [
+    {
+     "key": "buyer_name",
+     "label": "Buyer & contract",
+     "type": "text",
+     "placeholder": "Riverside Council — grounds maintenance 2027–2030",
+     "required": true
+    },
+    {
+     "key": "price_pos",
+     "label": "Price position",
+     "type": "text",
+     "placeholder": "8% under incumbent"
+    }
+   ],
+   "prompt": "Write the executive cover letter for {buyer_name} with price position: {price_pos}, using the profile's company, strengths and wins. Sections: a quote with the letter (under 300 words: their goals, our understanding, 3 win themes, commitment, signature), bullets of what to attach, and a callout on tone mistakes that make public-sector evaluators wince.",
+   "shape": "quote, bullets, callout",
+   "button": "Write letter",
+   "loading": "Sealing envelope…"
+  }
+ ],
+ "disclaimer": "Pricing and contract wording are drafts; have terms, liability and payment clauses reviewed by your legal and finance teams before sending."
+}

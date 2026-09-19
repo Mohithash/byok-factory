@@ -1,0 +1,191 @@
+{
+ "id": "blog_bench",
+ "name": "Blog Bench",
+ "tagline": "Posts people finish: hooks, outlines, edits, clusters",
+ "category": "Productivity",
+ "colors": [
+  "#00897B",
+  "#F4511E",
+  "#5E35B1"
+ ],
+ "icon": "bulb",
+ "about": "Blog Bench takes a blog post from idea to publish-ready: headline options, a search-aware outline, a line edit that keeps your voice, and a topic-cluster plan so posts build on each other.",
+ "persona": "You are a veteran blog editor: allergic to fluff intros, precise about promise and payoff, respectful of the writer's voice and the reader's time.",
+ "onboarding": {
+  "title": "Ship the post",
+  "subtitle": "Tell us about your blog so every suggestion sounds like you.",
+  "bullets": [
+   "Headlines without clickbait",
+   "Outlines where every section earns its place",
+   "Line edits that keep your voice"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "blog",
+   "label": "Blog & niche",
+   "type": "text",
+   "placeholder": "a blog about slow travel by train"
+  },
+  {
+   "key": "tone",
+   "label": "Tone",
+   "type": "chips",
+   "options": [
+    "Conversational",
+    "Expert",
+    "Funny",
+    "Literary"
+   ],
+   "default": "Conversational"
+  },
+  {
+   "key": "length",
+   "label": "Typical length (words)",
+   "type": "chips",
+   "options": [
+    "600",
+    "1200",
+    "2000+"
+   ],
+   "default": "1200"
+  }
+ ],
+ "tools": [
+  {
+   "id": "headline",
+   "title": "Headlines & hook",
+   "subtitle": "Titles that earn the click honestly",
+   "emoji": "🎣",
+   "inputs": [
+    {
+     "key": "idea",
+     "label": "Post idea",
+     "type": "text",
+     "placeholder": "how to pack for two weeks in one bag",
+     "required": true
+    },
+    {
+     "key": "keyword",
+     "label": "Target keyword",
+     "type": "text",
+     "placeholder": "one bag travel"
+    }
+   ],
+   "prompt": "For the idea '{idea}' targeting '{keyword}': produce a table (Headline | Angle | Promise | Chars) with 8 options and no clickbait, a quote with the best 2-sentence opening hook in the profile tone, and bullets on the search intent the keyword implies.",
+   "shape": "table, quote, bullets",
+   "button": "Write headlines",
+   "loading": "Baiting hooks…"
+  },
+  {
+   "id": "outline",
+   "title": "Outline a post",
+   "subtitle": "Sections with a reason to exist",
+   "emoji": "🧱",
+   "inputs": [
+    {
+     "key": "title",
+     "label": "Working title",
+     "type": "text",
+     "required": true
+    },
+    {
+     "key": "takeaway",
+     "label": "The one thing readers should take away",
+     "type": "text"
+    },
+    {
+     "key": "kind",
+     "label": "Post type",
+     "type": "chips",
+     "options": [
+      "How-to",
+      "Listicle",
+      "Opinion",
+      "Story",
+      "Comparison"
+     ],
+     "default": "How-to"
+    }
+   ],
+   "prompt": "Outline a {kind} post titled '{title}' whose takeaway is '{takeaway}', at the profile's typical length. Produce steps for the sections (each with a one-line purpose and a target word count), a kv (hook, proof to include, CTA, internal-link opportunities), and a callout on the section most likely to sag and how to cut it.",
+   "shape": "steps, kv, callout",
+   "button": "Outline",
+   "loading": "Framing…"
+  },
+  {
+   "id": "edit",
+   "title": "Line edit my draft",
+   "subtitle": "Tighter, same voice",
+   "emoji": "✂️",
+   "inputs": [
+    {
+     "key": "draft",
+     "label": "Draft",
+     "type": "longtext",
+     "placeholder": "Paste up to ~1500 words…",
+     "required": true
+    },
+    {
+     "key": "goal",
+     "label": "Priority",
+     "type": "chips",
+     "options": [
+      "Cut 20%",
+      "Clarity",
+      "Stronger intro",
+      "Readability"
+     ],
+     "default": "Clarity"
+    }
+   ],
+   "prompt": "Line-edit this draft with priority {goal}, preserving the profile tone: {draft}. Produce text with the edited version, a table (Original | Edited | Why) for the 6 most important changes, and bullets of habits to watch (filler phrases, passive voice, hedging).",
+   "shape": "text, table, bullets",
+   "button": "Edit",
+   "loading": "Sharpening…"
+  },
+  {
+   "id": "cluster",
+   "title": "Topic cluster plan",
+   "subtitle": "12 posts that link together",
+   "emoji": "🕸️",
+   "inputs": [
+    {
+     "key": "pillar",
+     "label": "Pillar topic",
+     "type": "text",
+     "placeholder": "overnight trains in Europe",
+     "required": true
+    }
+   ],
+   "prompt": "Plan a topic cluster around the pillar '{pillar}' for the profile blog. Produce a table (Post | Search intent | Links to | Priority) with the pillar plus 12 cluster posts, steps for the publishing order across 12 weeks, and a callout on how to tell whether the cluster is working.",
+   "shape": "table, steps, callout",
+   "button": "Plan cluster",
+   "loading": "Spinning web…"
+  },
+  {
+   "id": "publish",
+   "title": "Pre-publish check",
+   "subtitle": "Nothing embarrassing goes live",
+   "emoji": "🚀",
+   "inputs": [
+    {
+     "key": "post",
+     "label": "Final draft",
+     "type": "longtext",
+     "placeholder": "Paste the post…",
+     "required": true
+    }
+   ],
+   "prompt": "Run a pre-publish check on: {post}. Produce a checklist (title tag ≤ 60 chars, meta description, heading hierarchy, image alt text, links open, CTA present, one fact to verify), a kv (suggested meta description, slug, 3 tags), and a quote with a one-line social teaser.",
+   "shape": "checklist, kv, quote",
+   "button": "Check",
+   "loading": "Final pass…"
+  }
+ ]
+}

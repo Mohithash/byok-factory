@@ -1,0 +1,222 @@
+{
+ "id": "one_pan_wonder",
+ "name": "One Pan Wonder",
+ "tagline": "Sheet-pan, skillet and one-pot dinners, one wash-up",
+ "category": "Food & Drink",
+ "colors": [
+  "#3949AB",
+  "#FB8C00",
+  "#43A047"
+ ],
+ "icon": "star",
+ "about": "One Pan Wonder builds sheet-pan, skillet and one-pot dinners from what you have, staggers add-in times so nothing is raw or burnt, and keeps a weekly rotation with a single pan to wash.",
+ "persona": "You are a minimalist weeknight cook: one pan, high heat, honest timings; you tell people exactly when to add each thing.",
+ "onboarding": {
+  "title": "One pan. Done.",
+  "subtitle": "Which pans do you own? That decides the recipes.",
+  "bullets": [
+   "Sheet-pan dinners with staggered timings",
+   "One-pot pasta and grains that don't stick",
+   "A weekly rotation with one wash-up"
+  ]
+ },
+ "profile": [
+  {
+   "key": "pans",
+   "label": "Pans you own",
+   "type": "chips",
+   "options": [
+    "Sheet pan / tray",
+    "Large skillet",
+    "Dutch oven / casserole",
+    "Wok",
+    "Non-stick pot"
+   ],
+   "multi": true
+  },
+  {
+   "key": "heat",
+   "label": "Cooking on",
+   "type": "chips",
+   "options": [
+    "Gas",
+    "Induction",
+    "Electric",
+    "Oven only"
+   ]
+  },
+  {
+   "key": "people",
+   "label": "People",
+   "type": "number",
+   "placeholder": "2"
+  },
+  {
+   "key": "diet",
+   "label": "Diet / avoid",
+   "type": "text"
+  }
+ ],
+ "tools": [
+  {
+   "id": "sheet",
+   "title": "Sheet-pan tonight",
+   "subtitle": "Protein + veg, roasted right",
+   "emoji": "🔥",
+   "inputs": [
+    {
+     "key": "protein",
+     "label": "Protein",
+     "type": "text",
+     "placeholder": "chicken thighs",
+     "required": true
+    },
+    {
+     "key": "veg",
+     "label": "Veg on hand",
+     "type": "text",
+     "placeholder": "broccoli, sweet potato, red onion"
+    },
+    {
+     "key": "flavour",
+     "label": "Flavour",
+     "type": "chips",
+     "options": [
+      "Lemon & herb",
+      "Smoky BBQ",
+      "Harissa",
+      "Soy & ginger",
+      "Mediterranean"
+     ],
+     "default": "Lemon & herb"
+    }
+   ],
+   "prompt": "A sheet-pan dinner of {protein} with {veg} in {flavour} style for the profile's people. kv (oven temp, tray size, total minutes), a table (Ingredient | Cut size | Goes in at minute | Out at minute) so nothing is raw or burnt, steps for the method, and bullets on layout (don't crowd, cut sides down, oil then season).",
+   "shape": "kv, table, steps, bullets",
+   "button": "Build tray",
+   "loading": "Heating the oven…"
+  },
+  {
+   "id": "skillet",
+   "title": "Skillet formula",
+   "subtitle": "Stir-fry or sauté from scratch",
+   "emoji": "🍳",
+   "inputs": [
+    {
+     "key": "have",
+     "label": "What you've got",
+     "type": "longtext",
+     "placeholder": "prawns, half a courgette, garlic, noodles",
+     "required": true
+    },
+    {
+     "key": "style",
+     "label": "Style",
+     "type": "chips",
+     "options": [
+      "Stir-fry",
+      "Pan sauce",
+      "Hash",
+      "Curry-ish"
+     ],
+     "default": "Stir-fry"
+    }
+   ],
+   "prompt": "Build a {style} skillet dinner from {have} using the profile's pans and heat source: steps in strict pan order (what goes in first and for how many seconds or minutes), a kv for the sauce with exact spoons, and a callout on heat management (smoke point, don't crowd, rest the pan between batches).",
+   "shape": "steps, kv, callout",
+   "button": "Cook it",
+   "loading": "Oiling the pan…"
+  },
+  {
+   "id": "onepot",
+   "title": "One-pot pasta or grain",
+   "subtitle": "Everything in one pot, no draining",
+   "emoji": "🍝",
+   "inputs": [
+    {
+     "key": "base",
+     "label": "Base",
+     "type": "chips",
+     "options": [
+      "Pasta",
+      "Rice",
+      "Orzo",
+      "Couscous",
+      "Lentils"
+     ],
+     "default": "Pasta"
+    },
+    {
+     "key": "addins",
+     "label": "Add-ins",
+     "type": "text",
+     "placeholder": "cherry tomatoes, spinach, feta"
+    }
+   ],
+   "prompt": "A one-pot {base} dinner with {addins} for the profile's people: kv (liquid-to-base ratio in ml and g, pot size, simmer minutes), steps with stir points, a table (Add-in | When to add | Why), and a callout on stopping it sticking or turning gluey.",
+   "shape": "kv, steps, table, callout",
+   "button": "Make it",
+   "loading": "Filling the pot…"
+  },
+  {
+   "id": "rotation",
+   "title": "Weekly rotation",
+   "subtitle": "5 one-pan dinners, one shop",
+   "emoji": "📆",
+   "inputs": [
+    {
+     "key": "budget",
+     "label": "Budget feel",
+     "type": "chips",
+     "options": [
+      "Cheap",
+      "Medium",
+      "Treat"
+     ],
+     "default": "Medium"
+    },
+    {
+     "key": "prefs",
+     "label": "Preferences",
+     "type": "text",
+     "placeholder": "no fish, love spice"
+    }
+   ],
+   "prompt": "Plan 5 one-pan dinners ({budget}, prefs: {prefs}) using only the profile's pans and people count: cards per dinner (meta = pan · minutes · cost tier), a checklist shopping list, and bullets on ingredient overlap so nothing is wasted.",
+   "shape": "cards, checklist, bullets",
+   "button": "Plan week",
+   "loading": "Rotating pans…"
+  },
+  {
+   "id": "rescue",
+   "title": "Rescue the pan",
+   "subtitle": "Soggy, burnt or unevenly cooked",
+   "emoji": "🚑",
+   "inputs": [
+    {
+     "key": "issue",
+     "label": "What happened",
+     "type": "chips",
+     "options": [
+      "Soggy / steamed",
+      "Burnt bits, raw middle",
+      "Stuck to the pan",
+      "Dry and tough",
+      "Watery sauce"
+     ],
+     "default": "Soggy / steamed"
+    },
+    {
+     "key": "what",
+     "label": "What you did",
+     "type": "text",
+     "placeholder": "veg and chicken on one tray at 180 for 30"
+    }
+   ],
+   "prompt": "Diagnose '{issue}' for: {what}. Text explaining the cause, steps to save tonight's dinner, and a table (Mistake | Fix next time | Why it works).",
+   "shape": "text, steps, table",
+   "button": "Fix it",
+   "loading": "Scraping the pan…"
+  }
+ ]
+}

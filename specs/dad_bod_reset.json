@@ -1,0 +1,217 @@
+{
+ "id": "dad_bod_reset",
+ "name": "Dad Bod Reset",
+ "tagline": "Lose the belly without giving up the weekend",
+ "category": "Health & Fitness",
+ "colors": [
+  "#E65100",
+  "#263238",
+  "#43A047"
+ ],
+ "icon": "flame",
+ "about": "Dad Bod Reset is a realistic fat-loss plan for men over 40: short workouts, pub and barbecue survival, takeaway swaps and a waist-first progress tracker that ignores the scale's mood swings.",
+ "persona": "You are a no-nonsense coach for busy dads: realistic about beer, work travel and kids' schedules, focused on the waist tape and sustainable habits, never shaming.",
+ "onboarding": {
+  "title": "Belly first, ego later",
+  "subtitle": "Tell us your week and we'll fit the plan around it.",
+  "bullets": [
+   "8-week plans that survive real life",
+   "Pub, BBQ and takeaway survival",
+   "Waist-first progress tracking"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "waist",
+   "label": "Waist at navel (cm)",
+   "type": "number",
+   "placeholder": "104"
+  },
+  {
+   "key": "time",
+   "label": "Minutes per day for exercise",
+   "type": "chips",
+   "options": [
+    "10",
+    "20",
+    "30",
+    "45"
+   ],
+   "default": "20"
+  },
+  {
+   "key": "weakness",
+   "label": "Biggest weakness",
+   "type": "chips",
+   "options": [
+    "Beer",
+    "Late-night snacks",
+    "Takeaways",
+    "Portion size",
+    "Desk all day"
+   ],
+   "multi": true
+  }
+ ],
+ "tools": [
+  {
+   "id": "plan",
+   "title": "8-week reset",
+   "subtitle": "The whole plan, week by week",
+   "emoji": "📅",
+   "inputs": [
+    {
+     "key": "kit",
+     "label": "Equipment",
+     "type": "chips",
+     "options": [
+      "None",
+      "Dumbbells",
+      "Gym"
+     ],
+     "default": "None"
+    },
+    {
+     "key": "week",
+     "label": "Your typical week",
+     "type": "text",
+     "placeholder": "commute Mon–Fri, kids' football Sat morning, Sunday roast"
+    }
+   ],
+   "prompt": "Build an 8-week fat-loss reset for the profile with '{kit}' equipment around this week: {week}. Sections: a table (Week | Workouts | Food focus | Waist check), steps for the first workout in full, a checklist of the five non-negotiable habits, and a callout on expected waist loss per month and why scale weight will bounce.",
+   "shape": "table, steps, checklist, callout",
+   "button": "Start reset",
+   "loading": "Tightening belt…"
+  },
+  {
+   "id": "workout",
+   "title": "Today's workout",
+   "subtitle": "Short, sweaty, done",
+   "emoji": "⏱️",
+   "inputs": [
+    {
+     "key": "where",
+     "label": "Where",
+     "type": "chips",
+     "options": [
+      "Living room",
+      "Hotel room",
+      "Park",
+      "Gym"
+     ],
+     "default": "Living room"
+    },
+    {
+     "key": "energy",
+     "label": "Energy",
+     "type": "chips",
+     "options": [
+      "Knackered",
+      "Okay",
+      "Fired up"
+     ],
+     "default": "Okay"
+    }
+   ],
+   "prompt": "A workout for the profile's available minutes in the {where} with '{energy}' energy. Sections: steps (exercise · reps or seconds · rest) as a circuit with the number of rounds, bullets on form for the two hardest moves, and a quote with one line to say when you want to quit.",
+   "shape": "steps, bullets, quote",
+   "button": "Give me one",
+   "loading": "Warming up…"
+  },
+  {
+   "id": "pub",
+   "title": "Pub & BBQ survival",
+   "subtitle": "Enjoy it, don't undo the week",
+   "emoji": "🍺",
+   "inputs": [
+    {
+     "key": "event",
+     "label": "Event",
+     "type": "chips",
+     "options": [
+      "Pub night",
+      "BBQ",
+      "Wedding",
+      "Work trip",
+      "Match day"
+     ],
+     "default": "Pub night"
+    },
+    {
+     "key": "drinks",
+     "label": "Drinks you'd normally have",
+     "type": "number",
+     "placeholder": "6"
+    }
+   ],
+   "prompt": "Plan a {event} where the user would normally have {drinks} drinks. Sections: a kv of the plan (drinks cap, what to order, what to eat before, the exit time), a table (Usual choice | Calories | Swap | Calories) with 5 rows, bullets of tactics that don't look weird to mates, and a callout on the next-morning recovery routine.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Plan the night",
+   "loading": "Ordering wisely…"
+  },
+  {
+   "id": "takeaway",
+   "title": "Takeaway swap",
+   "subtitle": "Order smarter from the same menu",
+   "emoji": "🍕",
+   "inputs": [
+    {
+     "key": "cuisine",
+     "label": "Cuisine",
+     "type": "chips",
+     "options": [
+      "Indian",
+      "Chinese",
+      "Pizza",
+      "Kebab",
+      "Burgers",
+      "Fish & chips",
+      "Thai"
+     ],
+     "default": "Indian"
+    },
+    {
+     "key": "usual",
+     "label": "Usual order",
+     "type": "text",
+     "placeholder": "lamb bhuna, pilau rice, 2 naan, onion bhajis"
+    }
+   ],
+   "prompt": "The usual {cuisine} order is: {usual}. Sections: a table (Item | Approx. calories | Keep / swap / halve | Swap to), a kv with the new order and the calories saved, bullets on portion tricks (plate it, box half first), and a callout on doing this for the two biggest items only if the full swap feels like too much.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Fix my order",
+   "loading": "Reading the menu…"
+  },
+  {
+   "id": "progress",
+   "title": "Waist check-in",
+   "subtitle": "Paste your numbers",
+   "emoji": "📉",
+   "inputs": [
+    {
+     "key": "log",
+     "label": "Weekly waist and weight",
+     "type": "longtext",
+     "placeholder": "wk1 104cm 96kg; wk2 103 95.5; wk3 103 96.2; wk4 101.5 95",
+     "required": true
+    },
+    {
+     "key": "notes",
+     "label": "What happened",
+     "type": "text",
+     "placeholder": "stag do in week 3"
+    }
+   ],
+   "prompt": "Review this progress log: {log}; context: {notes}. Sections: a table (Week | Waist | Weight | Trend), text explaining what the waist trend means versus the weight noise, bullets of what is working, steps for the next 2 weeks, and a callout on when to change the plan versus stay the course.",
+   "shape": "table, text, bullets, steps, callout",
+   "button": "Review",
+   "loading": "Measuring up…"
+  }
+ ],
+ "disclaimer": "General information, not medical advice. See your doctor before a new exercise or diet plan if you have heart, blood-pressure or joint conditions, and about alcohol if cutting down feels hard."
+}

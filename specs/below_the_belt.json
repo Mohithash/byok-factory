@@ -1,0 +1,206 @@
+{
+ "id": "below_the_belt",
+ "name": "Below the Belt",
+ "tagline": "Prostate, bladder and pelvic floor, explained for men",
+ "category": "Health & Fitness",
+ "colors": [
+  "#1A237E",
+  "#26C6DA",
+  "#FF7043"
+ ],
+ "icon": "drop",
+ "about": "Below the Belt helps men make sense of prostate symptoms with a scored questionnaire, analyses a bladder diary, builds a male pelvic-floor programme for leaks and control, and prepares you for the PSA conversation.",
+ "persona": "You are a men's continence physiotherapist and urology nurse in one: matter-of-fact, unembarrassable, and clear about which symptoms need a doctor now.",
+ "onboarding": {
+  "title": "Sort out the stuff nobody talks about",
+  "subtitle": "A little context makes the advice specific.",
+  "bullets": [
+   "Prostate symptom score, explained",
+   "Bladder diary analysis",
+   "Male pelvic-floor training that works"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "age",
+   "label": "Age",
+   "type": "number",
+   "placeholder": "61"
+  },
+  {
+   "key": "situation",
+   "label": "Situation",
+   "type": "chips",
+   "options": [
+    "Just symptoms",
+    "Diagnosed enlarged prostate",
+    "After prostate surgery",
+    "Prostate cancer treatment",
+    "Prefer not to say"
+   ],
+   "default": "Just symptoms"
+  },
+  {
+   "key": "meds",
+   "label": "Relevant medicines",
+   "type": "text",
+   "placeholder": "tamsulosin"
+  }
+ ],
+ "tools": [
+  {
+   "id": "score",
+   "title": "Symptom score",
+   "subtitle": "Three questions, explained",
+   "emoji": "📊",
+   "inputs": [
+    {
+     "key": "stream",
+     "label": "Weak or interrupted stream",
+     "type": "chips",
+     "options": [
+      "Rarely",
+      "Sometimes",
+      "Most times"
+     ],
+     "default": "Sometimes"
+    },
+    {
+     "key": "night",
+     "label": "Times up at night",
+     "type": "chips",
+     "options": [
+      "0–1",
+      "2",
+      "3+"
+     ],
+     "default": "2"
+    },
+    {
+     "key": "urgency",
+     "label": "Urgency or leaking",
+     "type": "chips",
+     "options": [
+      "Rarely",
+      "Sometimes",
+      "Often"
+     ],
+     "default": "Sometimes"
+    }
+   ],
+   "prompt": "Interpret these lower-urinary-tract symptoms for the profile as general information: stream {stream}, up at night {night} times, urgency or leaking {urgency}. Sections: a table (Symptom | Your answer | Storage or voiding type | Common causes), text explaining what an IPSS-style score is and roughly where these answers would sit (mild / moderate / severe), bullets of what a GP would typically examine or test (urine dip, PSA discussion, flow test, prostate exam), and a callout on symptoms needing urgent care (unable to pass urine, blood in urine, fever with pain).",
+   "shape": "table, text, bullets, callout",
+   "button": "Score me",
+   "loading": "Adding up…"
+  },
+  {
+   "id": "diary",
+   "title": "Bladder diary analysis",
+   "subtitle": "Paste a day or three",
+   "emoji": "📓",
+   "inputs": [
+    {
+     "key": "diary",
+     "label": "Bladder diary",
+     "type": "longtext",
+     "placeholder": "07:00 350ml; 09:30 150ml urgent; coffee 08:00 and 10:30; 23:00 200ml; 02:30 250ml; 05:00 200ml",
+     "required": true
+    }
+   ],
+   "prompt": "Analyse this bladder diary: {diary}. Sections: a table (Time | Volume | Urgency | Drink before), a kv (daytime frequency, night-time frequency, largest and average volume, daytime versus night-time output, likely pattern such as overactive bladder, nocturnal polyuria or high fluid intake), bullets of habit changes to try (fluid timing, caffeine and alcohol, bladder-retraining intervals, evening legs up), and a callout on bringing this diary to the doctor and what else to record.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Analyse",
+   "loading": "Reading the diary…"
+  },
+  {
+   "id": "floor",
+   "title": "Pelvic floor for men",
+   "subtitle": "6 weeks to better control",
+   "emoji": "💪",
+   "inputs": [
+    {
+     "key": "goal",
+     "label": "Goal",
+     "type": "chips",
+     "options": [
+      "Dribbling after peeing",
+      "Leaks after prostate surgery",
+      "Better control and urgency",
+      "Erection firmness"
+     ],
+     "default": "Better control and urgency"
+    },
+    {
+     "key": "level",
+     "label": "Level",
+     "type": "chips",
+     "options": [
+      "Never done it",
+      "Some practice",
+      "Regular"
+     ],
+     "default": "Never done it"
+    }
+   ],
+   "prompt": "A 6-week male pelvic-floor programme for '{goal}' at '{level}'. Sections: steps for finding the right muscles (stop-the-flow and lift-the-testicles cues) without bearing down or clenching the buttocks, a table (Week | Long holds | Quick squeezes | Sets per day | Position), bullets on the knack (a squeeze before a cough, a lift or standing up) and the post-void dribble technique described plainly, and a callout on when to ask for a continence physiotherapist.",
+   "shape": "steps, table, bullets, callout",
+   "button": "Start training",
+   "loading": "Finding the floor…"
+  },
+  {
+   "id": "psa",
+   "title": "The PSA conversation",
+   "subtitle": "Go in with the right questions",
+   "emoji": "🩺",
+   "inputs": [
+    {
+     "key": "psa",
+     "label": "PSA result if you have one",
+     "type": "text",
+     "placeholder": "3.9 at 62"
+    },
+    {
+     "key": "family",
+     "label": "Family history",
+     "type": "text",
+     "placeholder": "father prostate cancer at 70"
+    }
+   ],
+   "prompt": "Prepare the profile for a PSA conversation with the doctor; result: {psa}; family history: {family}. Sections: text on what PSA measures and why it rises for reasons other than cancer (age, prostate size, infection, recent ejaculation or cycling), a table (Factor | Raises or lowers PSA | Relevant to you?), bullets of balanced questions (benefits and harms of testing, age-adjusted thresholds, repeat test, MRI before biopsy), and a callout that decisions about testing and next steps are personal and made with the doctor.",
+   "shape": "text, table, bullets, callout",
+   "button": "Prepare me",
+   "loading": "Weighing it up…"
+  },
+  {
+   "id": "check",
+   "title": "Monthly self-check",
+   "subtitle": "Know what's normal down there",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "found",
+     "label": "Found something?",
+     "type": "chips",
+     "options": [
+      "Just learning",
+      "A lump",
+      "Swelling",
+      "Pain or heaviness",
+      "Size change"
+     ],
+     "default": "Just learning"
+    }
+   ],
+   "prompt": "Guide a monthly testicular self-check; the user reports '{found}'. Sections: steps for the check (warm shower, one at a time, roll gently between fingers, know the epididymis at the back), bullets of what is normal (one hanging lower, the soft tube behind, small size differences), a table (Finding | Usually benign possibilities | Needs a doctor within days), and a callout that any new lump or swelling should be seen by a GP within a week and that most lumps are not cancer.",
+   "shape": "steps, bullets, table, callout",
+   "button": "Guide me",
+   "loading": "Being thorough…"
+  }
+ ],
+ "disclaimer": "General information, not medical advice. See a doctor promptly for blood in urine or semen, inability to pass urine, fever with urinary pain, a new testicular lump, or symptoms that are getting worse."
+}

@@ -1,0 +1,228 @@
+{
+ "id": "cookie_studio",
+ "name": "Cookie Studio",
+ "tagline": "Decorated cookies from icing to gift box",
+ "category": "Food & Drink",
+ "colors": [
+  "#1E88E5",
+  "#FF7043",
+  "#43A047"
+ ],
+ "icon": "gift",
+ "about": "Cookie Studio plans decorated cookie sets for any occasion, gives royal icing consistencies in seconds and grams, schedules decorating days for orders and diagnoses cratering, bleeding and spread from a photo.",
+ "persona": "You are a cookie decorator who runs a small order book: exact about icing consistency, drying times and food-safe colours, with realistic timelines.",
+ "onboarding": {
+  "title": "Sets that look as good as they taste",
+  "subtitle": "Tell us your setup so consistencies and timings match.",
+  "bullets": [
+   "Occasion sets with design cards",
+   "Royal icing by the second",
+   "Order timelines that hold"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "icing",
+   "label": "Icing",
+   "type": "chips",
+   "options": [
+    "Royal icing (meringue powder)",
+    "Royal icing (egg white)",
+    "Glaze",
+    "Buttercream"
+   ],
+   "default": "Royal icing (meringue powder)"
+  },
+  {
+   "key": "cutters",
+   "label": "Cutter collection",
+   "type": "chips",
+   "options": [
+    "Basic shapes",
+    "Themed sets",
+    "Custom / 3D printed"
+   ],
+   "default": "Basic shapes"
+  },
+  {
+   "key": "drying",
+   "label": "Drying setup",
+   "type": "text",
+   "placeholder": "dehydrator, humid kitchen"
+  }
+ ],
+ "tools": [
+  {
+   "id": "set",
+   "title": "Design a set",
+   "subtitle": "Occasion → cookie designs",
+   "emoji": "🍪",
+   "inputs": [
+    {
+     "key": "occasion",
+     "label": "Occasion",
+     "type": "text",
+     "placeholder": "teacher appreciation week",
+     "required": true
+    },
+    {
+     "key": "count",
+     "label": "Cookies in the set",
+     "type": "number",
+     "placeholder": "12"
+    },
+    {
+     "key": "colours",
+     "label": "Colours / must-include",
+     "type": "text",
+     "placeholder": "school colours navy and gold, an apple"
+    }
+   ],
+   "prompt": "Design a {count}-cookie decorated set for {occasion} with brief: {colours}. Cards per design (shape, icing techniques used, meta = difficulty · decorating minutes), a table (Design | Base colour | Detail colours | Consistencies needed | Dry time), a checklist of cutters and tools, and a callout on which designs to simplify for a beginner.",
+   "shape": "cards, table, checklist, callout",
+   "button": "Design set",
+   "loading": "Cutting shapes…"
+  },
+  {
+   "id": "icing",
+   "title": "Icing consistencies",
+   "subtitle": "Grams and seconds per job",
+   "emoji": "💧",
+   "inputs": [
+    {
+     "key": "job",
+     "label": "Job",
+     "type": "chips",
+     "options": [
+      "Outline",
+      "Flood",
+      "15-second all-in-one",
+      "Stiff details / flowers",
+      "Wet-on-wet",
+      "Lettering"
+     ],
+     "default": "15-second all-in-one"
+    },
+    {
+     "key": "grams",
+     "label": "Icing grams to prep",
+     "type": "number",
+     "placeholder": "300"
+    },
+    {
+     "key": "gels",
+     "label": "Colours to mix",
+     "type": "text",
+     "placeholder": "navy, gold, white"
+    }
+   ],
+   "prompt": "Prepare {grams} g of the profile icing for {job} in colours {gels}. Kv (target seconds count, water to add per 100 g, tip size, bag count), steps for mixing without air bubbles and testing consistency, a table (Colour | Gel drops | Rest time before use | Bleed risk) for each colour, and a callout on dark colours and butter bleed.",
+   "shape": "kv, steps, table, callout",
+   "button": "Prep icing",
+   "loading": "Counting seconds…"
+  },
+  {
+   "id": "order",
+   "title": "Schedule an order",
+   "subtitle": "Bake, flood, detail, pack",
+   "emoji": "📅",
+   "inputs": [
+    {
+     "key": "due",
+     "label": "Deliver by",
+     "type": "text",
+     "placeholder": "Friday 5pm",
+     "required": true
+    },
+    {
+     "key": "cookies",
+     "label": "Total cookies",
+     "type": "number",
+     "placeholder": "48"
+    },
+    {
+     "key": "designs",
+     "label": "Designs",
+     "type": "text",
+     "placeholder": "4 designs, two need wet-on-wet"
+    }
+   ],
+   "prompt": "Schedule {cookies} cookies across {designs} for delivery by {due}. Steps by day and hour (dough, bake, outline and flood, detail, dry using the profile drying setup, heat-seal and pack), a table (Day | Task | Hours | Icing batches), a checklist of packaging and labels, and a callout on the latest safe start time.",
+   "shape": "steps, table, checklist, callout",
+   "button": "Schedule",
+   "loading": "Booking days…"
+  },
+  {
+   "id": "diagnose",
+   "title": "Fix a fault",
+   "subtitle": "Photo of cratered, bled or spread cookies",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the cookies",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "what",
+     "label": "What you did",
+     "type": "text",
+     "placeholder": "flooded at 12 seconds, dried on the counter overnight"
+    }
+   ],
+   "prompt": "Diagnose the cookies in the attached photo, given: {what}. Text naming the top fault (craters, colour bleed, spread in the oven, butter bleed, cracked icing, dull finish), a table (Symptom | Cause | Fix), steps for a corrected process on the next batch, and bullets on what already looks good.",
+   "shape": "text, table, steps, bullets",
+   "button": "Diagnose",
+   "loading": "Zooming in…"
+  },
+  {
+   "id": "dough",
+   "title": "Dough that holds its shape",
+   "subtitle": "No-spread recipes per cutter",
+   "emoji": "🔲",
+   "inputs": [
+    {
+     "key": "flavour",
+     "label": "Flavour",
+     "type": "chips",
+     "options": [
+      "Vanilla sugar",
+      "Chocolate",
+      "Lemon",
+      "Gingerbread",
+      "Almond",
+      "Brown butter"
+     ],
+     "default": "Vanilla sugar"
+    },
+    {
+     "key": "cookies",
+     "label": "Cookies wanted",
+     "type": "number",
+     "placeholder": "24"
+    },
+    {
+     "key": "size",
+     "label": "Cutter size",
+     "type": "chips",
+     "options": [
+      "5 cm",
+      "7.5 cm",
+      "10 cm"
+     ],
+     "default": "7.5 cm"
+    }
+   ],
+   "prompt": "Give a no-spread {flavour} cut-out dough for {cookies} cookies at {size}. Table (Ingredient | Grams), steps for mixing, rolling to an even thickness, chilling and baking with temperature and minutes, a kv (thickness, yield check, bake-ahead freezer life), and a callout on why leaveners and creaming cause spread.",
+   "shape": "table, steps, kv, callout",
+   "button": "Get dough",
+   "loading": "Rolling even…"
+  }
+ ]
+}

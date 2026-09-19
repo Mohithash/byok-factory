@@ -1,0 +1,264 @@
+{
+ "id": "west_african_pot",
+ "name": "Jollof & Co",
+ "tagline": "West African cooking: jollof, soups, swallows, street food",
+ "category": "Food & Drink",
+ "colors": [
+  "#EF6C00",
+  "#1B5E20",
+  "#4E342E"
+ ],
+ "icon": "globe",
+ "about": "Jollof & Co teaches Nigerian, Ghanaian, Senegalese and wider West African home cooking: party jollof with the smoky bottom, soups paired with the right swallow, suya and street snacks, plantain at every ripeness and where to find the ingredients abroad.",
+ "persona": "You are a West African home cook (Nigerian, Ghanaian, Senegalese, Ivorian, Sierra Leonean) who cooks with real technique, respects each country's version without picking sides, and knows the African grocer as well as the supermarket.",
+ "onboarding": {
+  "title": "Cook the West African table",
+  "subtitle": "Tell us your tradition and heat level; recipes stay true to it.",
+  "bullets": [
+   "Party jollof that doesn't burn (unless you want it to)",
+   "Soups matched to swallows",
+   "Suya, puff-puff and plantain done right"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "tradition",
+   "label": "Tradition",
+   "type": "chips",
+   "options": [
+    "Nigerian",
+    "Ghanaian",
+    "Senegalese",
+    "Ivorian",
+    "Sierra Leonean",
+    "Cameroonian",
+    "Mixed / curious"
+   ],
+   "default": "Nigerian"
+  },
+  {
+   "key": "heat",
+   "label": "Heat",
+   "type": "chips",
+   "options": [
+    "Mild",
+    "Medium",
+    "Naija-hot"
+   ],
+   "default": "Medium"
+  },
+  {
+   "key": "diet",
+   "label": "Diet",
+   "type": "chips",
+   "options": [
+    "Anything",
+    "Halal",
+    "Pescatarian",
+    "Vegetarian",
+    "Vegan"
+   ],
+   "default": "Anything"
+  }
+ ],
+ "tools": [
+  {
+   "id": "jollof",
+   "title": "Jollof master",
+   "subtitle": "Party jollof, Ghanaian or thieboudienne",
+   "emoji": "🍚",
+   "inputs": [
+    {
+     "key": "style",
+     "label": "Style",
+     "type": "chips",
+     "options": [
+      "Nigerian party jollof",
+      "Ghanaian jollof",
+      "Senegalese thieboudienne",
+      "Smoky one-pot weeknight"
+     ],
+     "default": "Nigerian party jollof"
+    },
+    {
+     "key": "people",
+     "label": "People",
+     "type": "number",
+     "placeholder": "8"
+    },
+    {
+     "key": "rice",
+     "label": "Rice",
+     "type": "chips",
+     "options": [
+      "Long-grain parboiled",
+      "Basmati",
+      "Jasmine",
+      "Broken rice"
+     ],
+     "default": "Long-grain parboiled"
+    }
+   ],
+   "prompt": "Guide {style} for {people} people using {rice}, at the profile's heat. Sections: kv (rice grams, stew base ml, stock ml, oil ml, total minutes, pot to use), steps for the pepper base, frying the stew until the oil separates, the rice ratio, foil-and-lid steaming and the controlled smoky bottom, a table 'Troubleshooting' (Problem | Cause | Fix) for soggy, burnt-not-smoky, pale and undercooked rice, and a callout on the exact moment to stop stirring.",
+   "shape": "kv, steps, table, callout",
+   "button": "Cook jollof",
+   "loading": "Frying the stew…"
+  },
+  {
+   "id": "soup",
+   "title": "Soup & swallow",
+   "subtitle": "Match a soup to the right swallow",
+   "emoji": "🥘",
+   "inputs": [
+    {
+     "key": "soup",
+     "label": "Soup",
+     "type": "chips",
+     "options": [
+      "Egusi",
+      "Efo riro",
+      "Groundnut / maafe",
+      "Okra",
+      "Ogbono",
+      "Light soup",
+      "Palm-nut soup",
+      "Ndolé",
+      "Pepper soup",
+      "Banga"
+     ],
+     "default": "Egusi"
+    },
+    {
+     "key": "swallow",
+     "label": "Swallow",
+     "type": "chips",
+     "options": [
+      "Pounded yam",
+      "Eba / garri",
+      "Fufu",
+      "Amala",
+      "Semo",
+      "Banku",
+      "Kenkey",
+      "Tuwo",
+      "Rice instead"
+     ],
+     "default": "Eba / garri"
+    }
+   ],
+   "prompt": "Teach {soup} served with {swallow} for the profile's tradition, heat and diet. Sections: kv (serves, minutes, protein options including a vegetarian route), steps for the soup including the frying, thickening and 'when it's ready' cues, steps for the swallow with the water-to-flour ratio and stirring technique, a table 'Ingredients abroad' (Ingredient | Also called | Where to buy | Substitute), and bullets on freezing and reheating.",
+   "shape": "kv, steps, table, bullets",
+   "button": "Cook it",
+   "loading": "Stirring the pot…"
+  },
+  {
+   "id": "street",
+   "title": "Suya & street snacks",
+   "subtitle": "Suya, puff-puff, kelewele, akara, chin chin",
+   "emoji": "🍢",
+   "inputs": [
+    {
+     "key": "snack",
+     "label": "Snack",
+     "type": "chips",
+     "options": [
+      "Suya",
+      "Puff-puff",
+      "Kelewele",
+      "Akara",
+      "Chin chin",
+      "Boli (roasted plantain)",
+      "Meat pie",
+      "Yam chips"
+     ],
+     "default": "Suya"
+    },
+    {
+     "key": "people",
+     "label": "People",
+     "type": "number",
+     "placeholder": "6"
+    }
+   ],
+   "prompt": "Teach {snack} for {people} people at the profile's heat. Sections: a table 'Spice or batter' (Ingredient | Grams | Role) including a homemade yaji/suya spice if relevant, steps with oil temperatures, batch sizes and the visual cue for done, bullets of what to serve alongside (onion, tomato, pepper sauce, ginger drink), and a callout on hot-oil and grill safety and on cooling before storing.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Make it",
+   "loading": "Heating the oil…"
+  },
+  {
+   "id": "find",
+   "title": "Find the ingredients",
+   "subtitle": "Your list → where to buy and what to swap",
+   "emoji": "🛒",
+   "inputs": [
+    {
+     "key": "list",
+     "label": "Ingredients you need",
+     "type": "longtext",
+     "placeholder": "egusi seeds, crayfish, uziza leaves, palm oil, iru",
+     "required": true
+    },
+    {
+     "key": "where",
+     "label": "Where you can shop",
+     "type": "chips",
+     "options": [
+      "African grocer nearby",
+      "Supermarket only",
+      "Asian/Latin store nearby",
+      "Online"
+     ],
+     "default": "Supermarket only"
+    }
+   ],
+   "prompt": "For this list: {list}, shopping via {where}. Sections: a table 'Sourcing' (Item | Other names it's sold under | Best place to find it | Acceptable substitute | Not worth substituting?), a checklist shopping list reordered by shop, bullets on how to check quality (palm oil, dried fish, crayfish, fresh leaves), and a callout on storing the perishable ones once bought.",
+   "shape": "table, checklist, bullets, callout",
+   "button": "Find them",
+   "loading": "Checking aisles…"
+  },
+  {
+   "id": "plantain",
+   "title": "Plantain any ripeness",
+   "subtitle": "Green, yellow or black-spotted",
+   "emoji": "🍌",
+   "inputs": [
+    {
+     "key": "ripe",
+     "label": "Ripeness",
+     "type": "chips",
+     "options": [
+      "Green",
+      "Yellow",
+      "Yellow with black spots",
+      "Mostly black"
+     ],
+     "default": "Yellow with black spots"
+    },
+    {
+     "key": "method",
+     "label": "Method",
+     "type": "chips",
+     "options": [
+      "Fry (dodo)",
+      "Boil",
+      "Roast / boli",
+      "Air fryer",
+      "Chips",
+      "Porridge / mash"
+     ],
+     "default": "Fry (dodo)"
+    }
+   ],
+   "prompt": "Plantain that is {ripe}, cooked by {method}. Sections: cards for 3 dishes that suit this exact ripeness and method (meta = minutes · sweet or savoury), steps for the best one with oil temperature and the colour cue for done, kv (how to ripen faster, how to slow ripening, fridge or not, freezing), and bullets on what to pair it with from the profile's tradition.",
+   "shape": "cards, steps, kv, bullets",
+   "button": "Cook plantain",
+   "loading": "Slicing…"
+  }
+ ],
+ "disclaimer": "General cooking guidance, not food-safety or dietary advice: follow safe handling, storage and allergen practices, take care with hot oil, open flames, raw or undercooked foods and fermentation, and discard anything that smells or looks wrong."
+}

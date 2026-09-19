@@ -1,0 +1,209 @@
+{
+ "id": "joint_ease",
+ "name": "Joint Ease",
+ "tagline": "Live well with arthritis: move, adapt, manage flares",
+ "category": "Medical",
+ "colors": [
+  "#EF6C00",
+  "#00838F",
+  "#8D6E63"
+ ],
+ "icon": "dumbbell",
+ "about": "Joint Ease supports people with osteoarthritis or inflammatory arthritis with morning stiffness routines, joint-protection tricks for everyday tasks, flare-diary analysis, low-impact exercise plans and tough-day pacing.",
+ "persona": "You are an occupational therapist and physiotherapist in one: practical, encouraging, safety-first, and clear that disease-modifying treatment is the rheumatologist's domain.",
+ "onboarding": {
+  "title": "Keep moving, protect your joints",
+  "subtitle": "Tell us which joints and how bad the mornings are.",
+  "bullets": [
+   "Morning stiffness routines",
+   "Joint-protection for daily tasks",
+   "Flare tracking and low-impact plans"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "kind",
+   "label": "Type",
+   "type": "chips",
+   "options": [
+    "Osteoarthritis",
+    "Rheumatoid",
+    "Psoriatic",
+    "Ankylosing spondylitis",
+    "Not sure"
+   ]
+  },
+  {
+   "key": "joints",
+   "label": "Joints affected",
+   "type": "chips",
+   "options": [
+    "Hands",
+    "Wrists",
+    "Knees",
+    "Hips",
+    "Spine",
+    "Feet",
+    "Shoulders"
+   ],
+   "multi": true
+  },
+  {
+   "key": "stiff",
+   "label": "Morning stiffness",
+   "type": "chips",
+   "options": [
+    "Under 15 min",
+    "15–60 min",
+    "Over an hour"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "morning",
+   "title": "Morning unlock routine",
+   "subtitle": "Minutes to loosen up",
+   "emoji": "🌅",
+   "inputs": [
+    {
+     "key": "minutes",
+     "label": "Minutes available",
+     "type": "chips",
+     "options": [
+      "5",
+      "10",
+      "15"
+     ],
+     "default": "10"
+    },
+    {
+     "key": "worst",
+     "label": "Worst joints today",
+     "type": "text",
+     "placeholder": "right knee and both hands"
+    }
+   ],
+   "prompt": "A {minutes}-minute morning routine for the profile with worst joints today '{worst}'. Steps (movement · reps or seconds · cue) ordered from gentlest to fullest range, bullets on warm shower or heat-pack timing before moving, a kv of what to do in bed before standing, and a callout on the difference between stiffness that eases with movement and pain that stops you, and when to rest a hot swollen joint instead.",
+   "shape": "steps, bullets, kv, callout",
+   "button": "Loosen up",
+   "loading": "Warming joints…"
+  },
+  {
+   "id": "task",
+   "title": "Make a task easier",
+   "subtitle": "Jars, stairs, typing, cooking",
+   "emoji": "🧰",
+   "inputs": [
+    {
+     "key": "task",
+     "label": "The task",
+     "type": "text",
+     "placeholder": "opening jars and chopping vegetables",
+     "required": true
+    },
+    {
+     "key": "photo",
+     "label": "Photo of the setup (optional)",
+     "type": "photo"
+    }
+   ],
+   "prompt": "Make '{task}' easier for the profile joints, using the photo if provided. Table (Problem | Joint-protection principle | Technique change | Gadget that helps with a rough price), steps for the adapted technique, and a callout on when to ask for an occupational therapy referral and which gadgets are not worth the money.",
+   "shape": "table, steps, callout",
+   "button": "Adapt it",
+   "loading": "Rethinking the grip…"
+  },
+  {
+   "id": "flare",
+   "title": "Flare diary analysis",
+   "subtitle": "Find what sets it off",
+   "emoji": "📓",
+   "inputs": [
+    {
+     "key": "diary",
+     "label": "Recent weeks",
+     "type": "longtext",
+     "placeholder": "Mon: hands 6/10 after gardening; Wed: knees fine, rained; Fri: flare after poor sleep and a missed dose…",
+     "required": true
+    }
+   ],
+   "prompt": "Analyse: {diary}. Table (Date | Joints flagged | Pain 0–10 | Swelling | Likely factor), bullets on the top 2 patterns with the evidence and a confidence rating, steps for a flare-day plan (rest, ice or heat, pacing, medication as prescribed), and a callout on a joint that is hot, red and very painful, or fever with joint pain, needing same-day care.",
+   "shape": "table, bullets, steps, callout",
+   "button": "Analyse flares",
+   "loading": "Reading the diary…"
+  },
+  {
+   "id": "exercise",
+   "title": "Low-impact plan",
+   "subtitle": "4 weeks, joints included",
+   "emoji": "🏊",
+   "inputs": [
+    {
+     "key": "type",
+     "label": "Preferred",
+     "type": "chips",
+     "options": [
+      "Walking",
+      "Pool",
+      "Cycling",
+      "Chair-based",
+      "Tai chi / yoga",
+      "Gym machines"
+     ],
+     "default": "Walking"
+    },
+    {
+     "key": "goal",
+     "label": "Goal",
+     "type": "chips",
+     "options": [
+      "Less stiffness",
+      "Strength around joints",
+      "Weight",
+      "Fitness"
+     ],
+     "default": "Less stiffness"
+    }
+   ],
+   "prompt": "A 4-week {type} programme aiming for '{goal}' for the profile. Table (Week | Sessions | Duration | Strength moves | Progression), steps with form cues for the 3 key strengthening moves for the affected joints, bullets on the 2-hour pain rule and pacing, and a callout on stopping for sharp pain, swelling that lasts overnight, or chest symptoms.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Build plan",
+   "loading": "Lacing up…"
+  },
+  {
+   "id": "weather",
+   "title": "Tough-day pacing",
+   "subtitle": "Cold, wet, long hours on your feet",
+   "emoji": "🌧️",
+   "inputs": [
+    {
+     "key": "day",
+     "label": "Tomorrow",
+     "type": "text",
+     "placeholder": "cold and wet, 6 hours on my feet at the market, then driving 2h"
+    },
+    {
+     "key": "energy",
+     "label": "Energy",
+     "type": "chips",
+     "options": [
+      "Low",
+      "Medium",
+      "High"
+     ],
+     "default": "Medium"
+    }
+   ],
+   "prompt": "Plan tomorrow: {day} with {energy} energy. Table (Time | Activity | Joint-saving adjustment | Rest micro-break), a checklist of what to wear and carry (layers, supports, grip aids, heat packs), bullets on car and standing ergonomics, and a callout on pacing so the day after is not lost.",
+   "shape": "table, checklist, bullets, callout",
+   "button": "Plan the day",
+   "loading": "Checking forecast…"
+  }
+ ],
+ "disclaimer": "General information, not medical advice. Disease-modifying and pain medication decisions belong to your rheumatologist or GP. A single hot, red, very painful joint, or fever with joint pain, needs same-day medical care."
+}

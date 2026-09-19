@@ -1,0 +1,216 @@
+{
+ "id": "grand_days",
+ "name": "Grand Days",
+ "tagline": "Be the grandparent they run to",
+ "category": "Parenting",
+ "colors": [
+  "#D81B60",
+  "#FDD835",
+  "#039BE5"
+ ],
+ "icon": "heart",
+ "about": "Grand Days plans visits and video calls with grandchildren by age, decodes the games and slang they're into, prepares your home for babysitting, and gives you the words for tricky moments with their parents.",
+ "persona": "You are a warm, modern grandparenting coach: child-development-aware, respectful of the parents' rules, fun-first, and honest about energy and safety.",
+ "onboarding": {
+  "title": "Grandparenting, modern edition",
+  "subtitle": "Tell us about the grandchildren and how often you see them.",
+  "bullets": [
+   "Visit plans by age and energy",
+   "Video-call games for far-away kids",
+   "Slang, apps and games decoded"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "kids",
+   "label": "Grandchildren (names & ages)",
+   "type": "text",
+   "placeholder": "Leo 4, Amara 9, Josh 14",
+   "required": true
+  },
+  {
+   "key": "distance",
+   "label": "We see them",
+   "type": "chips",
+   "options": [
+    "Weekly or more",
+    "Monthly",
+    "A few times a year",
+    "Mostly by video"
+   ]
+  },
+  {
+   "key": "mobility",
+   "label": "My energy / mobility",
+   "type": "chips",
+   "options": [
+    "Up for anything",
+    "Steady pace",
+    "Sitting down mostly"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "visit",
+   "title": "Plan a visit",
+   "subtitle": "Hours of fun, minus the chaos",
+   "emoji": "🎈",
+   "inputs": [
+    {
+     "key": "hours",
+     "label": "Time together",
+     "type": "chips",
+     "options": [
+      "2 hours",
+      "Half day",
+      "Full day",
+      "Overnight"
+     ],
+     "default": "Half day"
+    },
+    {
+     "key": "where",
+     "label": "Where",
+     "type": "chips",
+     "options": [
+      "My home",
+      "Their home",
+      "Out and about"
+     ],
+     "default": "My home"
+    },
+    {
+     "key": "weather",
+     "label": "Weather / notes",
+     "type": "text",
+     "placeholder": "raining; Leo is off his nap"
+    }
+   ],
+   "prompt": "Plan a {hours} visit at {where} for the profile's grandchildren and energy level, notes: {weather}. A table (Time | Activity | For which child | Set-up needed), cards for 3 activities that work across the age gap (meta = minutes · mess level), a checklist of things to have in (snacks, spare clothes, a quiet-corner option), and a callout on rest breaks for the grown-up.",
+   "shape": "table, cards, checklist, callout",
+   "button": "Plan visit",
+   "loading": "Planning fun…"
+  },
+  {
+   "id": "call",
+   "title": "Video-call games",
+   "subtitle": "For grandkids far away",
+   "emoji": "📱",
+   "inputs": [
+    {
+     "key": "child",
+     "label": "Which child",
+     "type": "chips",
+     "options": [
+      "Youngest",
+      "Middle",
+      "Oldest",
+      "All together"
+     ],
+     "default": "Youngest"
+    },
+    {
+     "key": "length",
+     "label": "Call length",
+     "type": "chips",
+     "options": [
+      "5 minutes",
+      "15 minutes",
+      "30 minutes"
+     ],
+     "default": "15 minutes"
+    }
+   ],
+   "prompt": "Games for a {length} video call with the {child} from the profile: cards with 5 games that work through a screen for that age (meta = minutes · props needed), steps for the best one, bullets on keeping a child engaged on a call (show don't tell, let them lead, end before they drift), and a quote with a sign-off ritual to repeat every call.",
+   "shape": "cards, steps, bullets, quote",
+   "button": "Get games",
+   "loading": "Dialling…"
+  },
+  {
+   "id": "decode",
+   "title": "Decode kid culture",
+   "subtitle": "Games, apps, slang, trends",
+   "emoji": "🕹️",
+   "inputs": [
+    {
+     "key": "thing",
+     "label": "What are they into?",
+     "type": "text",
+     "placeholder": "Roblox, 'rizz', Skibidi",
+     "required": true
+    }
+   ],
+   "prompt": "Explain {thing} to a grandparent: a kv per item (What it is | Age it's aimed at | Is it safe or normal | A question to ask the child about it), bullets of 3 ways to join in without cringing, and a callout on when to mention a concern to the parents rather than the child.",
+   "shape": "kv, bullets, callout",
+   "button": "Explain",
+   "loading": "Asking the kids…"
+  },
+  {
+   "id": "parents",
+   "title": "Talk to their parents",
+   "subtitle": "Boundaries, rules, hurt feelings",
+   "emoji": "🤝",
+   "inputs": [
+    {
+     "key": "issue",
+     "label": "What's going on",
+     "type": "longtext",
+     "placeholder": "they don't want sweets given; I feel judged; want more visits",
+     "required": true
+    },
+    {
+     "key": "tone",
+     "label": "I want to be",
+     "type": "chips",
+     "options": [
+      "Gentle",
+      "Direct",
+      "Light-hearted"
+     ],
+     "default": "Gentle"
+    }
+   ],
+   "prompt": "Help with: {issue}, tone {tone}. A text section on what's likely going on for the parents, a quote with a script to open the conversation, bullets on what to avoid saying, and a kv (Their rule | Why it may matter to them | How I can support it) for each rule mentioned.",
+   "shape": "text, quote, bullets, kv",
+   "button": "Find the words",
+   "loading": "Choosing words…"
+  },
+  {
+   "id": "safe",
+   "title": "Babysitting-ready home",
+   "subtitle": "Older home, small visitors",
+   "emoji": "🏠",
+   "inputs": [
+    {
+     "key": "age",
+     "label": "Youngest visiting",
+     "type": "chips",
+     "options": [
+      "Baby",
+      "Toddler",
+      "4–7",
+      "8+"
+     ],
+     "default": "Toddler"
+    },
+    {
+     "key": "home",
+     "label": "Your home",
+     "type": "text",
+     "placeholder": "two-storey, open stairs, tablets in the bathroom cabinet"
+    }
+   ],
+   "prompt": "Prepare the home ({home}) for a visiting {age}: a checklist by room of hazards to fix before they arrive (medications, cords, stairs, hot drinks, pets, ponds), a kv (Emergency numbers to have written down | Allergies and bedtime to confirm with parents | Where the parents will be), and a callout on car seats and sleeping arrangements that must match the parents' instructions.",
+   "shape": "checklist, kv, callout",
+   "button": "Get ready",
+   "loading": "Child-proofing…"
+  }
+ ],
+ "disclaimer": "Safety and childcare guidance is general; always follow the parents' instructions and local safety rules, and call emergency services if a child is hurt."
+}

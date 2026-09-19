@@ -1,0 +1,196 @@
+{
+ "id": "family_table",
+ "name": "Family Table",
+ "tagline": "One weekly plan the whole family will eat",
+ "category": "Food & Drink",
+ "colors": [
+  "#C2185B",
+  "#00897B",
+  "#FBC02D"
+ ],
+ "icon": "home",
+ "about": "Family Table plans dinners around real schedules, ages and tastes — one dish everyone eats, with tweaks for toddlers, teens and fussy grown-ups, plus kitchen jobs for the kids.",
+ "persona": "You are a calm family-meal planner: you cook one dinner not three, respect kids' tastes without catering to them entirely, and give age-appropriate safety notes.",
+ "onboarding": {
+  "title": "Dinner, solved for everyone",
+  "subtitle": "Tell Family Table who's eating and what your evenings look like.",
+  "bullets": [
+   "Weekly plans around clubs and late shifts",
+   "One dish, adapted for every age",
+   "Kids' kitchen jobs by age"
+  ]
+ },
+ "profile": [
+  {
+   "key": "family",
+   "label": "Who's eating (names & ages)",
+   "type": "text",
+   "placeholder": "Sam 38, Priya 36, Leo 9, Ava 2"
+  },
+  {
+   "key": "nogo",
+   "label": "Hard no's & allergies",
+   "type": "text",
+   "placeholder": "no nuts, Leo hates sauce touching"
+  },
+  {
+   "key": "cook",
+   "label": "Weeknight cooking time",
+   "type": "chips",
+   "options": [
+    "15 min",
+    "30 min",
+    "45 min+"
+   ]
+  },
+  {
+   "key": "diet",
+   "label": "Diet",
+   "type": "chips",
+   "options": [
+    "Anything",
+    "Vegetarian",
+    "Pescatarian",
+    "Halal",
+    "Gluten-free"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "week",
+   "title": "Plan the week",
+   "subtitle": "Dinners around the calendar",
+   "emoji": "📅",
+   "inputs": [
+    {
+     "key": "schedule",
+     "label": "This week's evenings",
+     "type": "longtext",
+     "placeholder": "Mon football 6pm, Wed late shift, Fri takeaway-ish",
+     "required": true
+    },
+    {
+     "key": "use",
+     "label": "Use up / on offer",
+     "type": "text",
+     "placeholder": "half a cabbage, mince on offer"
+    }
+   ],
+   "prompt": "Plan 7 family dinners for the profile around: {schedule}, using {use}. Table (Day | Dinner | Prep | Cook time | Kid tweak), a checklist shopping list grouped by aisle, and bullets on which nights to double-cook so the busy ones are covered.",
+   "shape": "table, checklist, bullets",
+   "button": "Plan week",
+   "loading": "Setting the table…"
+  },
+  {
+   "id": "everyone",
+   "title": "One dish, everyone eats",
+   "subtitle": "Adapt tonight's dinner for all ages",
+   "emoji": "🍽️",
+   "inputs": [
+    {
+     "key": "dish",
+     "label": "Dinner you want to make",
+     "type": "text",
+     "placeholder": "chicken fajitas",
+     "required": true
+    },
+    {
+     "key": "issue",
+     "label": "Who objects and why",
+     "type": "text",
+     "placeholder": "Ava is 2, Leo won't eat peppers"
+    }
+   ],
+   "prompt": "Make {dish} work for the whole profile family given: {issue}. Steps for the base recipe, a table (Person | Their version | What changes) with a row for every family member, a callout on toddler food safety (salt, whole grapes, choking-size pieces) if a child under 4 is listed, and bullets of gentle ways to get a refused ingredient re-tried.",
+   "shape": "steps, table, callout, bullets",
+   "button": "Adapt it",
+   "loading": "Keeping the peace…"
+  },
+  {
+   "id": "jobs",
+   "title": "Kids' kitchen jobs",
+   "subtitle": "Age-appropriate tasks for tonight",
+   "emoji": "🧒",
+   "inputs": [
+    {
+     "key": "dish",
+     "label": "What you're cooking",
+     "type": "text",
+     "placeholder": "spaghetti bolognese",
+     "required": true
+    }
+   ],
+   "prompt": "For {dish}, assign kitchen jobs to each child in the profile by age: table (Child | Job | Why it's safe | Grown-up watches for), steps for the parent's cook order that fits those jobs in, and a callout on knife, hob and hot-pan rules by age.",
+   "shape": "table, steps, callout",
+   "button": "Assign jobs",
+   "loading": "Handing out aprons…"
+  },
+  {
+   "id": "stretch",
+   "title": "Stretch it",
+   "subtitle": "Unexpected guests or a second night",
+   "emoji": "➕",
+   "inputs": [
+    {
+     "key": "dish",
+     "label": "What's cooking",
+     "type": "text",
+     "placeholder": "lasagne for 4",
+     "required": true
+    },
+    {
+     "key": "more",
+     "label": "Extra people to feed",
+     "type": "number",
+     "placeholder": "3"
+    },
+    {
+     "key": "when",
+     "label": "When",
+     "type": "chips",
+     "options": [
+      "Tonight",
+      "Tomorrow too"
+     ],
+     "default": "Tonight"
+    }
+   ],
+   "prompt": "Stretch {dish} to feed {more} more people, {when}: kv (extra ingredients to add, pan size, adjusted cook time), bullets of cheap bulkers that don't change the dish, and cards of 2 next-day meals from the extra (meta = reheat minutes) if 'Tomorrow too' was chosen.",
+   "shape": "kv, bullets, cards",
+   "button": "Stretch it",
+   "loading": "Making room…"
+  },
+  {
+   "id": "rescue",
+   "title": "5pm panic",
+   "subtitle": "Nothing planned, everyone's hungry",
+   "emoji": "🚨",
+   "inputs": [
+    {
+     "key": "have",
+     "label": "What's in the house",
+     "type": "longtext",
+     "placeholder": "eggs, wraps, cheese, tinned tomatoes, frozen veg",
+     "required": true
+    },
+    {
+     "key": "mins",
+     "label": "Minutes until meltdown",
+     "type": "chips",
+     "options": [
+      "15",
+      "25",
+      "40"
+     ],
+     "default": "25"
+    }
+   ],
+   "prompt": "Everyone is hungry in {mins} minutes and the house has: {have}. Cards of 3 dinners doable in that time (meta = minutes · which family members will eat it), steps for the best one starting with what to put on first, and a quote with one sentence to say to the kids to buy time.",
+   "shape": "cards, steps, quote",
+   "button": "Save dinner",
+   "loading": "Deep breaths…"
+  }
+ ],
+ "disclaimer": "Food-safety and choking notes are general guidance; follow your paediatrician's advice for babies and toddlers."
+}

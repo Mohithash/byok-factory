@@ -1,0 +1,198 @@
+{
+ "id": "crisp_basket",
+ "name": "Crisp Basket",
+ "tagline": "Air-fryer times, conversions and dinners that crunch",
+ "category": "Food & Drink",
+ "colors": [
+  "#E65100",
+  "#37474F",
+  "#FFCA28"
+ ],
+ "icon": "spark",
+ "about": "Crisp Basket converts any oven recipe to your exact air fryer, gives times for frozen and fresh foods, plans multi-item baskets that finish together, and fixes smoke, sticking and soggy results.",
+ "persona": "You are an air-fryer obsessive who knows the difference between a 3.5 L basket and a dual-drawer, gives temperatures in the user's units, and always says when to shake.",
+ "onboarding": {
+  "title": "Crunch, not guesswork",
+  "subtitle": "Tell Crisp Basket about your machine so the times actually fit.",
+  "bullets": [
+   "Convert any oven recipe",
+   "Frozen-to-crispy timings",
+   "Multi-item baskets that finish together"
+  ]
+ },
+ "profile": [
+  {
+   "key": "type",
+   "label": "Air fryer type",
+   "type": "chips",
+   "options": [
+    "Basket",
+    "Dual drawer",
+    "Oven style",
+    "Paddle / stirrer"
+   ]
+  },
+  {
+   "key": "litres",
+   "label": "Capacity (litres)",
+   "type": "number",
+   "placeholder": "5.5"
+  },
+  {
+   "key": "units",
+   "label": "Temperature units",
+   "type": "chips",
+   "options": [
+    "°C",
+    "°F"
+   ]
+  },
+  {
+   "key": "diet",
+   "label": "Diet / avoid",
+   "type": "text"
+  }
+ ],
+ "tools": [
+  {
+   "id": "convert",
+   "title": "Convert a recipe",
+   "subtitle": "Oven → air fryer",
+   "emoji": "🔁",
+   "inputs": [
+    {
+     "key": "recipe",
+     "label": "Oven recipe or instructions",
+     "type": "longtext",
+     "placeholder": "roast potatoes: 200°C for 45 min, turning halfway",
+     "required": true
+    },
+    {
+     "key": "goal",
+     "label": "Aim",
+     "type": "chips",
+     "options": [
+      "Crispier",
+      "Same as oven",
+      "Faster"
+     ],
+     "default": "Crispier"
+    }
+   ],
+   "prompt": "Convert this oven recipe for the profile's air fryer with aim '{goal}': {recipe}. kv (temperature in the profile's units, total minutes, shake/turn points, batch size for the capacity), steps for the converted method, and a callout on what won't convert well (wet batters, high-sugar glazes, loose crumbs).",
+   "shape": "kv, steps, callout",
+   "button": "Convert",
+   "loading": "Preheating…"
+  },
+  {
+   "id": "frozen",
+   "title": "Cook this",
+   "subtitle": "Photo or name → settings",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the food or packet (optional)",
+     "type": "photo"
+    },
+    {
+     "key": "item",
+     "label": "Or type it",
+     "type": "text",
+     "placeholder": "frozen chicken kiev, 2 pieces"
+    }
+   ],
+   "prompt": "Give air-fryer settings for {item} (use the photo if provided, reading any packet instructions on it): kv (temp, minutes, preheat yes/no, shake at, done when), a table (Quantity | Minutes) for 1 piece / 2 pieces / full basket in the profile's capacity, and bullets on how to tell it's cooked through safely.",
+   "shape": "kv, table, bullets",
+   "button": "Get settings",
+   "loading": "Reading the packet…"
+  },
+  {
+   "id": "basket",
+   "title": "Basket plan",
+   "subtitle": "Several things, one dinner, done together",
+   "emoji": "🍗",
+   "inputs": [
+    {
+     "key": "items",
+     "label": "Everything you want to cook",
+     "type": "longtext",
+     "placeholder": "2 salmon fillets, asparagus, baby potatoes",
+     "required": true
+    },
+    {
+     "key": "time",
+     "label": "Eat at",
+     "type": "text",
+     "placeholder": "7pm"
+    }
+   ],
+   "prompt": "Plan cooking {items} in the profile's air fryer so everything is ready at {time}: table (Item | Temp | Minutes | Goes in at | Comes out at | Shake?), steps in clock order including preheat, and a callout on whether it needs two batches for the capacity and how to keep the first batch hot.",
+   "shape": "table, steps, callout",
+   "button": "Plan basket",
+   "loading": "Loading basket…"
+  },
+  {
+   "id": "week",
+   "title": "Air-fryer week",
+   "subtitle": "5 dinners, mostly one basket",
+   "emoji": "📆",
+   "inputs": [
+    {
+     "key": "style",
+     "label": "Style",
+     "type": "chips",
+     "options": [
+      "Family favourites",
+      "Healthy-ish",
+      "Budget",
+      "High protein"
+     ],
+     "default": "Family favourites"
+    },
+    {
+     "key": "people",
+     "label": "People",
+     "type": "number",
+     "placeholder": "2"
+    }
+   ],
+   "prompt": "Plan 5 {style} air-fryer dinners for {people} people in the profile's machine: cards per dinner (meta = minutes · temp · batches), a checklist shopping list, and bullets on which sides go in the basket alongside the main.",
+   "shape": "cards, checklist, bullets",
+   "button": "Plan week",
+   "loading": "Filling the basket…"
+  },
+  {
+   "id": "fix",
+   "title": "Fix it",
+   "subtitle": "Smoke, sticking, soggy or raw inside",
+   "emoji": "🛠️",
+   "inputs": [
+    {
+     "key": "problem",
+     "label": "Problem",
+     "type": "chips",
+     "options": [
+      "Smoking",
+      "Sticking",
+      "Soggy",
+      "Burnt outside, raw inside",
+      "Dry",
+      "Uneven"
+     ],
+     "default": "Soggy"
+    },
+    {
+     "key": "what",
+     "label": "What you cooked and how",
+     "type": "text",
+     "placeholder": "chips at 200 for 20 min, no oil"
+    }
+   ],
+   "prompt": "Diagnose '{problem}' for: {what}. Text explaining the cause in plain words, a table (Cause | Fix | Next time), and steps to rescue the current batch if it can be saved.",
+   "shape": "text, table, steps",
+   "button": "Diagnose",
+   "loading": "Sniffing the smoke…"
+  }
+ ]
+}

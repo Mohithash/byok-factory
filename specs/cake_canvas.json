@@ -1,0 +1,221 @@
+{
+ "id": "cake_canvas",
+ "name": "Cake Canvas",
+ "tagline": "Design, size and decorate cakes like a pro",
+ "category": "Food & Drink",
+ "colors": [
+  "#EC407A",
+  "#7E57C2",
+  "#FFD54F"
+ ],
+ "icon": "hat",
+ "about": "Cake Canvas turns an occasion into a full cake design brief, sizes tiers for your guest count, mixes exact buttercream colours and critiques your decorating from a photo.",
+ "persona": "You are a working cake decorator and pastry instructor: precise about grams, tier structure and food-safe practice, generous with beginner-friendly shortcuts.",
+ "onboarding": {
+  "title": "Every cake starts with a plan",
+  "subtitle": "Tell us your skill level and what you usually bake; we'll tailor designs and quantities.",
+  "bullets": [
+   "Designs matched to the occasion",
+   "Tier, serving and dowel math",
+   "Buttercream colour recipes"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "level",
+   "label": "Decorating level",
+   "type": "chips",
+   "options": [
+    "Beginner",
+    "Hobbyist",
+    "Semi-pro"
+   ],
+   "default": "Hobbyist"
+  },
+  {
+   "key": "frosting",
+   "label": "Go-to frosting",
+   "type": "chips",
+   "options": [
+    "American buttercream",
+    "Swiss meringue",
+    "Italian meringue",
+    "Ganache",
+    "Fondant"
+   ],
+   "default": "American buttercream"
+  },
+  {
+   "key": "tools",
+   "label": "Tools you own",
+   "type": "text",
+   "placeholder": "turntable, 1M tip, offset spatula"
+  }
+ ],
+ "tools": [
+  {
+   "id": "design",
+   "title": "Design my cake",
+   "subtitle": "Occasion → full concept",
+   "emoji": "🎂",
+   "inputs": [
+    {
+     "key": "occasion",
+     "label": "Occasion",
+     "type": "text",
+     "placeholder": "Nana's 80th birthday",
+     "required": true
+    },
+    {
+     "key": "theme",
+     "label": "Theme / colours / must-haves",
+     "type": "text",
+     "placeholder": "sage green and gold, loves roses"
+    },
+    {
+     "key": "style",
+     "label": "Style",
+     "type": "chips",
+     "options": [
+      "Rustic semi-naked",
+      "Smooth & sharp",
+      "Textured buttercream",
+      "Fondant sculpted",
+      "Vintage piped"
+     ],
+     "default": "Smooth & sharp"
+    }
+   ],
+   "prompt": "Design a {style} cake for {occasion} with brief: {theme}. Produce 3 concepts as cards (title, one-paragraph look, meta = difficulty · decorating hours), then for the strongest concept a kv (cake flavour, filling, frosting, colour palette as 3 named shades, toppers), a checklist of every decorating item to buy or prep, and a callout on what to simplify if time runs short.",
+   "shape": "cards, kv, checklist, callout",
+   "button": "Design it",
+   "loading": "Sketching…"
+  },
+  {
+   "id": "size",
+   "title": "Servings & pan math",
+   "subtitle": "Tiers, batter, dowels",
+   "emoji": "📐",
+   "inputs": [
+    {
+     "key": "guests",
+     "label": "Servings needed",
+     "type": "number",
+     "placeholder": "60"
+    },
+    {
+     "key": "shape",
+     "label": "Tin shape",
+     "type": "chips",
+     "options": [
+      "Round",
+      "Square",
+      "Sheet"
+     ],
+     "default": "Round"
+    },
+    {
+     "key": "tiers",
+     "label": "Tiers",
+     "type": "chips",
+     "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+     ],
+     "default": "2"
+    }
+   ],
+   "prompt": "Size a {shape} cake with {tiers} tiers to serve {guests} party-size portions. Table (Tier | Tin size | Height | Servings | Batter grams | Frosting grams), steps for stacking with dowel count and board sizes per tier, a kv of bake temperature and minutes per tin, and a callout on transport and fridge stability.",
+   "shape": "table, steps, kv, callout",
+   "button": "Calculate",
+   "loading": "Doing the sums…"
+  },
+  {
+   "id": "colour",
+   "title": "Mix a colour",
+   "subtitle": "Gel drops for any shade",
+   "emoji": "🎨",
+   "inputs": [
+    {
+     "key": "target",
+     "label": "Target colour",
+     "type": "text",
+     "placeholder": "dusty rose, like the bridesmaid dresses",
+     "required": true
+    },
+    {
+     "key": "grams",
+     "label": "Frosting grams to tint",
+     "type": "number",
+     "placeholder": "500"
+    },
+    {
+     "key": "gels",
+     "label": "Gel colours you have",
+     "type": "text",
+     "placeholder": "pink, ivory, brown, violet"
+    }
+   ],
+   "prompt": "Give a colour recipe for {target} in {grams} g of the profile frosting using only these gels: {gels}. Kv (drops or toothpicks per gel, in order), steps to mix and let the colour develop, a table (Shade | Adjustment | For lighter | For darker) covering 3 nearby shades, and a callout on colours that deepen overnight or bleed.",
+   "shape": "kv, steps, table, callout",
+   "button": "Mix it",
+   "loading": "Tinting…"
+  },
+  {
+   "id": "critique",
+   "title": "Critique my cake",
+   "subtitle": "Photo → what to fix next time",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of your decorated cake",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "goal",
+     "label": "What you were going for",
+     "type": "text",
+     "placeholder": "smooth sharp edges with a drip"
+    }
+   ],
+   "prompt": "Critique the decorated cake in the attached photo against the goal '{goal}'. Bullets of what is working, a table (Issue | Likely cause | Fix next time) for up to 5 issues you can actually see, steps for the single highest-impact technique to practise, and a quote with one encouraging line to send with a picture of the cake.",
+   "shape": "bullets, table, steps, quote",
+   "button": "Critique",
+   "loading": "Looking closely…"
+  },
+  {
+   "id": "timeline",
+   "title": "Bake-day timeline",
+   "subtitle": "Backwards plan from the deadline",
+   "emoji": "⏰",
+   "inputs": [
+    {
+     "key": "due",
+     "label": "Cake needed when",
+     "type": "text",
+     "placeholder": "Saturday 2pm",
+     "required": true
+    },
+    {
+     "key": "cake",
+     "label": "The cake",
+     "type": "text",
+     "placeholder": "2-tier vanilla with Swiss meringue and sugar flowers"
+    }
+   ],
+   "prompt": "Build a backwards timeline to deliver {cake} by {due}. Steps by day and hour (bake, cool, fill, crumb-coat, chill, final coat, decorate, deliver) with rest and chill times, a checklist of what can be made ahead and frozen, and a callout on fridge and room-temperature limits for the fillings involved.",
+   "shape": "steps, checklist, callout",
+   "button": "Plan it",
+   "loading": "Counting back…"
+  }
+ ]
+}

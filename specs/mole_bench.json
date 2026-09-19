@@ -1,0 +1,171 @@
+{
+ "id": "mole_bench",
+ "name": "Mole Bench",
+ "tagline": "Stoichiometry, solutions and reactions, worked cleanly",
+ "category": "Education",
+ "colors": [
+  "#00695C",
+  "#D81B60",
+  "#FDD835"
+ ],
+ "icon": "drop",
+ "about": "Mole Bench balances equations, runs stoichiometry and limiting-reagent problems, plans solution dilutions, names compounds and predicts reaction products, with the working shown at every line.",
+ "persona": "You are a general-chemistry teaching assistant: rigorous about moles, units and significant figures, allergic to hand-waving, and firm about lab safety.",
+ "onboarding": {
+  "title": "Moles first, panic never",
+  "subtitle": "Your course level sets the depth of the working.",
+  "bullets": [
+   "Balance & stoichiometry with working",
+   "Solution prep and dilution maths",
+   "Name, predict and classify reactions"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "level",
+   "label": "Course",
+   "type": "chips",
+   "options": [
+    "High school",
+    "IB / A-level",
+    "AP Chemistry",
+    "University gen chem"
+   ]
+  },
+  {
+   "key": "sigfig",
+   "label": "Significant figures",
+   "type": "chips",
+   "options": [
+    "Strict",
+    "Relaxed"
+   ],
+   "default": "Strict"
+  }
+ ],
+ "tools": [
+  {
+   "id": "stoich",
+   "title": "Balance & stoichiometry",
+   "subtitle": "Limiting reagent, yield, mass",
+   "emoji": "⚗️",
+   "inputs": [
+    {
+     "key": "reaction",
+     "label": "Reaction and amounts",
+     "type": "longtext",
+     "placeholder": "12.0 g Al reacts with 30.0 g Cl2; find the mass of AlCl3 and the limiting reagent",
+     "required": true
+    }
+   ],
+   "prompt": "For {reaction}: kv (balanced equation, molar masses used), steps converting grams → moles → mole ratio → product with units on every line, a table (Species | Given | Moles | Limiting? | Left over), and a callout on theoretical vs percentage yield and the significant figures to report.",
+   "shape": "kv, steps, table, callout",
+   "button": "Work it out",
+   "loading": "Counting moles…"
+  },
+  {
+   "id": "solution",
+   "title": "Solution prep",
+   "subtitle": "Molarity, dilution, making up to the line",
+   "emoji": "🧪",
+   "inputs": [
+    {
+     "key": "target",
+     "label": "What you need",
+     "type": "text",
+     "placeholder": "250 mL of 0.100 M NaOH",
+     "required": true
+    },
+    {
+     "key": "stock",
+     "label": "Starting from",
+     "type": "text",
+     "placeholder": "solid pellets / 2.00 M stock"
+    }
+   ],
+   "prompt": "Plan {target} starting from {stock}: kv (moles needed, mass or volume to measure, final concentration check), steps for making it up properly (glassware, order of addition, rinsing, to the line), a callout on safety for this specific reagent (acid into water, caustics, fumes), and bullets of the errors that most often ruin the concentration.",
+   "shape": "kv, steps, callout, bullets",
+   "button": "Plan prep",
+   "loading": "Measuring…"
+  },
+  {
+   "id": "name",
+   "title": "Name or write formula",
+   "subtitle": "IUPAC naming, both directions",
+   "emoji": "🏷️",
+   "inputs": [
+    {
+     "key": "compound",
+     "label": "Name or formula",
+     "type": "text",
+     "placeholder": "Fe2(SO4)3 or dinitrogen pentoxide",
+     "required": true
+    },
+    {
+     "key": "photo",
+     "label": "Or a photo of the formula / structure",
+     "type": "photo"
+    }
+   ],
+   "prompt": "For {compound} (or the photo): kv (systematic name, formula, compound class: ionic / molecular / acid / hydrate, oxidation state of each element), steps showing how the name is derived from the formula or vice versa, and a table (Related compound | Name) with 4 examples that practise the same rule.",
+   "shape": "kv, steps, table",
+   "button": "Name it",
+   "loading": "Looking it up…"
+  },
+  {
+   "id": "predict",
+   "title": "Predict the reaction",
+   "subtitle": "Products, type, what you'd see",
+   "emoji": "🔥",
+   "inputs": [
+    {
+     "key": "reactants",
+     "label": "Reactants and conditions",
+     "type": "text",
+     "placeholder": "zinc + copper(II) sulfate solution",
+     "required": true
+    }
+   ],
+   "prompt": "For {reactants}: kv (reaction type, balanced molecular equation, net ionic equation if aqueous, does it proceed and why), text describing what you would observe, a table (Driving force | Present? | Evidence) covering precipitate, gas, water, redox, and a callout on the hazards of actually running it.",
+   "shape": "kv, text, table, callout",
+   "button": "Predict",
+   "loading": "Mixing…"
+  },
+  {
+   "id": "practice",
+   "title": "Practice set",
+   "subtitle": "10 questions on one skill",
+   "emoji": "📝",
+   "inputs": [
+    {
+     "key": "skill",
+     "label": "Skill",
+     "type": "text",
+     "placeholder": "empirical formula from % composition",
+     "required": true
+    },
+    {
+     "key": "difficulty",
+     "label": "Difficulty",
+     "type": "chips",
+     "options": [
+      "Easy",
+      "Mixed",
+      "Exam-hard"
+     ],
+     "default": "Mixed"
+    }
+   ],
+   "prompt": "A 10-question {difficulty} set on {skill} at the profile level: table (No. | Question | Answer), steps with full working for the two hardest, and a callout on the mark-scheme wording examiners expect for this skill.",
+   "shape": "table, steps, callout",
+   "button": "Generate set",
+   "loading": "Writing…"
+  }
+ ],
+ "disclaimer": "Educational guidance only; follow your institution's safety rules and the reagent's SDS before any practical work, and never attempt reactions outside a supervised lab."
+}

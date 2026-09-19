@@ -1,0 +1,191 @@
+{
+ "id": "memoir_loom",
+ "name": "Memoir Loom",
+ "tagline": "Turn your memories into a memoir with scenes and shape",
+ "category": "Books & Reference",
+ "colors": [
+  "#6D4C41",
+  "#D4A373",
+  "#3E7C77"
+ ],
+ "icon": "book",
+ "about": "Memoir Loom helps first-time memoirists map a life into chapters, excavate memories with targeted prompts, turn raw recollection into scenes, and get honest editorial feedback on the pages.",
+ "persona": "You are a memoir editor and writing teacher: you prize scene over summary and truth over flattery, and you remind writers that the real people in their book have feelings and rights.",
+ "onboarding": {
+  "title": "Your life, in chapters",
+  "subtitle": "Tell us what the book is about and where you are with it.",
+  "bullets": [
+   "A chapter map from your eras",
+   "Memory prompts that surface detail",
+   "Summary → scene, with honest notes"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "thread",
+   "label": "What the memoir is about",
+   "type": "text",
+   "placeholder": "growing up above my parents' shop"
+  },
+  {
+   "key": "stage",
+   "label": "Stage",
+   "type": "chips",
+   "options": [
+    "Just thinking",
+    "Collecting memories",
+    "Drafting",
+    "Revising"
+   ]
+  },
+  {
+   "key": "audience",
+   "label": "Who it's for",
+   "type": "chips",
+   "options": [
+    "Family only",
+    "Publish someday",
+    "Just me"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "map",
+   "title": "Map my chapters",
+   "subtitle": "Eras → a shape",
+   "emoji": "🗺️",
+   "inputs": [
+    {
+     "key": "eras",
+     "label": "Your life in eras",
+     "type": "longtext",
+     "placeholder": "1980s: village childhood; 1994: moved to the city…",
+     "required": true
+    },
+    {
+     "key": "turning",
+     "label": "The turning point",
+     "type": "text",
+     "placeholder": "the year the shop closed"
+    }
+   ],
+   "prompt": "Map a memoir around the profile thread from these eras: {eras}, with turning point: {turning}. Produce a table (Chapter | Years | Central scene | What the reader learns), text on the narrative question that holds the book together, and a callout on what to leave out even though it happened.",
+   "shape": "table, text, callout",
+   "button": "Map chapters",
+   "loading": "Laying the warp…"
+  },
+  {
+   "id": "excavate",
+   "title": "Excavate a memory",
+   "subtitle": "Prompts for one era or photo",
+   "emoji": "⛏️",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "An old photo (optional)",
+     "type": "photo"
+    },
+    {
+     "key": "era",
+     "label": "Era or event",
+     "type": "text",
+     "placeholder": "the summer of 1997",
+     "required": true
+    },
+    {
+     "key": "sense",
+     "label": "Start from",
+     "type": "chips",
+     "options": [
+      "Smells",
+      "Objects",
+      "Voices",
+      "Places",
+      "Weather"
+     ],
+     "default": "Objects"
+    }
+   ],
+   "prompt": "Help excavate memories of {era}, starting from {sense}; if a photo is attached, first describe what is visible in it and ask about the people, objects and setting. Produce bullets of 8 specific questions that surface detail (no yes/no questions), steps for a 20-minute memory session (timer, free-write, list, circle the surprise), and a quote with an opening sentence the user can complete.",
+   "shape": "bullets, steps, quote",
+   "button": "Dig",
+   "loading": "Excavating…"
+  },
+  {
+   "id": "scene",
+   "title": "Memory → scene",
+   "subtitle": "Summary into a lived moment",
+   "emoji": "🎬",
+   "inputs": [
+    {
+     "key": "memory",
+     "label": "The memory as you'd tell it",
+     "type": "longtext",
+     "placeholder": "My father used to count the till every night…",
+     "required": true
+    }
+   ],
+   "prompt": "Turn this remembered summary into a scene: {memory}. Produce text with a 250-word draft in first person, past tense, with one line of dialogue and one sensory detail per paragraph, then a kv (point of view, time span of the scene, what it reveals about the narrator), and bullets listing every detail you invented for texture so the user can verify or cut them.",
+   "shape": "text, kv, bullets",
+   "button": "Write scene",
+   "loading": "Weaving…"
+  },
+  {
+   "id": "feedback",
+   "title": "Read my pages",
+   "subtitle": "Honest editorial notes",
+   "emoji": "📝",
+   "inputs": [
+    {
+     "key": "pages",
+     "label": "Pages",
+     "type": "longtext",
+     "placeholder": "Paste up to ~1500 words…",
+     "required": true
+    },
+    {
+     "key": "focus",
+     "label": "Focus on",
+     "type": "chips",
+     "options": [
+      "Voice",
+      "Scene vs summary",
+      "Structure",
+      "Honesty"
+     ],
+     "default": "Scene vs summary"
+    }
+   ],
+   "prompt": "Give editorial feedback on these memoir pages, focusing on {focus}: {pages}. Produce bullets 'What's working' with quoted fragments, a table (Passage | Problem | Fix), a quote with one sentence rewritten to show the fix, and a callout naming the strongest moment on the page.",
+   "shape": "bullets, table, quote, callout",
+   "button": "Give notes",
+   "loading": "Reading closely…"
+  },
+  {
+   "id": "people",
+   "title": "Writing about real people",
+   "subtitle": "Fairness and risk check",
+   "emoji": "⚖️",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Who and what you're writing",
+     "type": "text",
+     "placeholder": "my ex-husband's drinking, our divorce",
+     "required": true
+    }
+   ],
+   "prompt": "The user wants to write about: {who}, for the profile audience. Produce a checklist of fairness practices (show their side, composite or renaming options, what you saw vs. what you assume, a right-of-reply note), bullets on privacy and defamation risk areas in plain language, and a callout on when to consult a publishing lawyer.",
+   "shape": "checklist, bullets, callout",
+   "button": "Check",
+   "loading": "Weighing…"
+  }
+ ],
+ "disclaimer": "Notes on privacy and defamation are general guidance, not legal advice; consult a publishing lawyer before publishing about identifiable people."
+}

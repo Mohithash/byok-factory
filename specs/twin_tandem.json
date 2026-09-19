@@ -1,0 +1,196 @@
+{
+ "id": "twin_tandem",
+ "name": "Twin Tandem",
+ "tagline": "Two babies, one schedule, one sane parent",
+ "category": "Parenting",
+ "colors": [
+  "#E64A19",
+  "#00ACC1",
+  "#FDD835"
+ ],
+ "icon": "baby",
+ "about": "Twin Tandem builds synchronised feeding and sleep schedules for twins and triplets, coaches tandem feeding positions, decides which gear to double, plans solo outings and helps you raise two individuals, not a unit.",
+ "persona": "You are a multiples-specialist midwife who is also a parent of twins: brisk, systems-minded, pro-sync but flexible, and alert to prematurity and feeding-volume concerns.",
+ "onboarding": {
+  "title": "Double the babies, not the chaos",
+  "subtitle": "Tell us about your multiples and your household.",
+  "bullets": [
+   "Synced feed & sleep schedules",
+   "Tandem feeding positions",
+   "Gear: double or skip"
+  ]
+ },
+ "profile": [
+  {
+   "key": "babies",
+   "label": "Names & age (corrected if premature)",
+   "type": "text",
+   "placeholder": "Ivy & Rex, 8 weeks (born at 34 weeks)",
+   "required": true
+  },
+  {
+   "key": "type",
+   "label": "Multiples",
+   "type": "chips",
+   "options": [
+    "Twins",
+    "Triplets",
+    "Twins + older sibling"
+   ]
+  },
+  {
+   "key": "feeding",
+   "label": "Feeding",
+   "type": "chips",
+   "options": [
+    "Breast",
+    "Formula",
+    "Mixed",
+    "Pumping"
+   ]
+  },
+  {
+   "key": "hands",
+   "label": "Adults at home by day",
+   "type": "chips",
+   "options": [
+    "One",
+    "Two",
+    "Two + helper"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "sync",
+   "title": "Sync the schedule",
+   "subtitle": "Feed and sleep both together",
+   "emoji": "🔁",
+   "inputs": [
+    {
+     "key": "current",
+     "label": "Current rhythm",
+     "type": "text",
+     "placeholder": "A feeds every 3h, B every 2h and wakes A",
+     "required": true
+    },
+    {
+     "key": "goal",
+     "label": "Goal",
+     "type": "chips",
+     "options": [
+      "Feed together",
+      "Sleep together",
+      "Both",
+      "Stagger by 15 min"
+     ],
+     "default": "Both"
+    }
+   ],
+   "prompt": "Synchronise these babies — goal '{goal}' — from: {current}. A table (Time | Baby A | Baby B | Adult 1 | Adult 2 / helper) for a 24h day at the profile's age, steps for the first 3 days of gently nudging the laggard (wake-to-feed rule), bullets on when to stop forcing sync (illness, different weights), and a callout on prematurity-adjusted feeding volumes and never skipping a feed for the schedule's sake.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Sync them",
+   "loading": "Lining up…"
+  },
+  {
+   "id": "tandem",
+   "title": "Tandem feeding",
+   "subtitle": "Positions and setup for two",
+   "emoji": "🤱",
+   "inputs": [
+    {
+     "key": "mode",
+     "label": "Mode",
+     "type": "chips",
+     "options": [
+      "Tandem breastfeeding",
+      "Two bottles at once",
+      "One breast, one bottle",
+      "Solo bottle-feeding two"
+     ],
+     "default": "Tandem breastfeeding"
+    },
+    {
+     "key": "setup",
+     "label": "Your setup",
+     "type": "text",
+     "placeholder": "sofa, twin pillow, no helper until 6pm"
+    }
+   ],
+   "prompt": "Coach '{mode}' with setup: {setup}. Cards for 3 positions (meta = helper needed · difficulty), steps to get both babies latched or bottled without a helper, a checklist of the feeding station to set up before every feed, and a callout on wind, the choking risk of propped bottles, and swapping sides or breasts between feeds.",
+   "shape": "cards, steps, checklist, callout",
+   "button": "Show me",
+   "loading": "Arranging pillows…"
+  },
+  {
+   "id": "gear",
+   "title": "Double or skip?",
+   "subtitle": "What actually needs two",
+   "emoji": "🛒",
+   "inputs": [
+    {
+     "key": "item",
+     "label": "Items you're deciding on",
+     "type": "text",
+     "placeholder": "cots, bouncer, car seats, monitor",
+     "required": true
+    },
+    {
+     "key": "budget",
+     "label": "Budget",
+     "type": "number",
+     "placeholder": "800"
+    }
+   ],
+   "prompt": "For '{item}' with budget {budget}: a table (Item | Buy two / one / skip | Why | Cheaper route), bullets of twin-specific gear that earns its place (twin feeding pillow, double pram type by age), a kv of the true minimum kit for the first 3 months, and a callout on safety items never to buy second-hand.",
+   "shape": "table, bullets, kv, callout",
+   "button": "Decide",
+   "loading": "Doing the maths…"
+  },
+  {
+   "id": "outing",
+   "title": "Solo outing plan",
+   "subtitle": "Leave the house alone with two",
+   "emoji": "🚶",
+   "inputs": [
+    {
+     "key": "trip",
+     "label": "The outing",
+     "type": "text",
+     "placeholder": "GP appointment 20 min away by bus",
+     "required": true
+    },
+    {
+     "key": "hours",
+     "label": "Hours out",
+     "type": "number",
+     "placeholder": "3"
+    }
+   ],
+   "prompt": "Plan {trip} for {hours} hours solo with the profile's babies: steps timed backwards from leaving (feeds, changes, pram loading), a checklist of the bag with double quantities noted, a table (Scenario | Plan) for both crying at once, one needing a change, and feeding in public, and a quote with a one-line reply for 'are they twins?' questions.",
+   "shape": "steps, checklist, table, quote",
+   "button": "Plan it",
+   "loading": "Packing double…"
+  },
+  {
+   "id": "two",
+   "title": "Two individuals",
+   "subtitle": "Bonding, names and one-on-one",
+   "emoji": "👥",
+   "inputs": [
+    {
+     "key": "worry",
+     "label": "What's on your mind",
+     "type": "text",
+     "placeholder": "I feel closer to one of them and feel awful",
+     "required": true
+    }
+   ],
+   "prompt": "Respond to: {worry}. Text that normalises it honestly, bullets of daily practices (names not 'the twins', 10-minute solo slots, separate photos), a table (Age | Individuality practice | Why it matters), and a callout on parental burnout and how to find local multiples support groups.",
+   "shape": "text, bullets, table, callout",
+   "button": "Help me",
+   "loading": "Seeing both…"
+  }
+ ],
+ "disclaimer": "General parenting information, not medical advice. For concerns about your baby's health, feeding, breathing or weight, contact your midwife, health visitor or paediatrician — and call emergency services if a baby is struggling to breathe, is floppy, has a fever under 3 months old or cannot be woken."
+}

@@ -1,0 +1,209 @@
+{
+ "id": "der_die_das",
+ "name": "Der Die Das",
+ "tagline": "German genders, cases and word order that finally click",
+ "category": "Education",
+ "colors": [
+  "#37474F",
+  "#D32F2F",
+  "#FFB300"
+ ],
+ "icon": "bulb",
+ "about": "Der Die Das explains German noun genders with real rules, cracks cases in any sentence, fixes your word order and drills exactly what you keep getting wrong.",
+ "persona": "You are a precise, encouraging German grammar tutor who teaches rules with their reliability in percent, always gives the exception, and never says 'just memorise it' without a mnemonic.",
+ "onboarding": {
+  "title": "Stop guessing der, die or das",
+  "subtitle": "Tell us your level and what trips you up.",
+  "bullets": [
+   "Gender rules that actually predict",
+   "Case explanations for any sentence",
+   "Drills built from your mistakes"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "level",
+   "label": "Level",
+   "type": "chips",
+   "options": [
+    "A1",
+    "A2",
+    "B1",
+    "B2+"
+   ],
+   "default": "A2"
+  },
+  {
+   "key": "pain",
+   "label": "Trips me up",
+   "type": "chips",
+   "options": [
+    "Genders",
+    "Cases",
+    "Word order",
+    "Adjective endings",
+    "Separable verbs",
+    "Prepositions"
+   ],
+   "multi": true
+  },
+  {
+   "key": "goal",
+   "label": "Goal",
+   "type": "chips",
+   "options": [
+    "Exam (Goethe / telc)",
+    "Work in Germany",
+    "University",
+    "Family",
+    "Fun"
+   ],
+   "default": "Work in Germany"
+  }
+ ],
+ "tools": [
+  {
+   "id": "gender",
+   "title": "Gender detective",
+   "subtitle": "Why is it der, die or das?",
+   "emoji": "🕵️",
+   "inputs": [
+    {
+     "key": "nouns",
+     "label": "Nouns (one per line)",
+     "type": "longtext",
+     "placeholder": "Mädchen\nTisch\nFreiheit\nAuto",
+     "required": true
+    }
+   ],
+   "prompt": "For each noun in {nouns}: a table (Noun | Gender | Plural | Rule that predicts it | Reliability %). Then bullets explaining the 5 most useful gender rules touched by this list (suffix rules like -ung/-heit/-chen, semantic groups), and a callout on the nouns here that break every rule and need a mnemonic, with one for each.",
+   "shape": "table, bullets, callout",
+   "button": "Investigate",
+   "loading": "Consulting Duden…"
+  },
+  {
+   "id": "cases",
+   "title": "Case cracker",
+   "subtitle": "Every case in your sentence, explained",
+   "emoji": "🔎",
+   "inputs": [
+    {
+     "key": "sentence",
+     "label": "German sentence",
+     "type": "longtext",
+     "placeholder": "Ich habe dem Mann mit dem Hund ein Buch gegeben.",
+     "required": true
+    }
+   ],
+   "prompt": "Analyse '{sentence}'. Sections: a table (Word / phrase | Case | Why — verb, preposition or role | Correct?), text explaining the sentence structure in plain English, and a callout on the one rule from this sentence the profile's level most needs, with two fresh example sentences.",
+   "shape": "table, text, callout",
+   "button": "Crack it",
+   "loading": "Declining…"
+  },
+  {
+   "id": "fix",
+   "title": "Fix my German",
+   "subtitle": "Paste → corrected + explained",
+   "emoji": "✏️",
+   "inputs": [
+    {
+     "key": "text",
+     "label": "Your German",
+     "type": "longtext",
+     "placeholder": "Ich habe gestern gegangen zum Supermarkt weil ich brauche Milch.",
+     "required": true
+    },
+    {
+     "key": "register",
+     "label": "Register",
+     "type": "chips",
+     "options": [
+      "Text message",
+      "Email",
+      "Essay",
+      "Speaking"
+     ],
+     "default": "Email"
+    }
+   ],
+   "prompt": "Correct this {register}: {text}. Sections: a quote with the corrected text, a table (Original | Corrected | Rule broken | Priority for the profile's level), steps for the word-order rules involved (verb second, verb-final after weil/dass, past participle placement), and bullets of 3 higher-level phrasings the learner could use next time.",
+   "shape": "quote, table, steps, bullets",
+   "button": "Fix it",
+   "loading": "Correcting…"
+  },
+  {
+   "id": "verbs",
+   "title": "Verb workshop",
+   "subtitle": "Conjugate, separate, perfect",
+   "emoji": "⚙️",
+   "inputs": [
+    {
+     "key": "verb",
+     "label": "Verb",
+     "type": "text",
+     "placeholder": "anrufen",
+     "required": true
+    },
+    {
+     "key": "tense",
+     "label": "Tenses",
+     "type": "chips",
+     "options": [
+      "Präsens",
+      "Perfekt",
+      "Präteritum",
+      "Futur",
+      "Konjunktiv II"
+     ],
+     "default": "Präsens",
+     "multi": true
+    }
+   ],
+   "prompt": "Conjugate {verb} in {tense}. Sections: a table (Person | one column per requested tense), kv (Separable or inseparable, Auxiliary haben or sein, Case it governs, Preposition it takes), steps showing where the prefix or participle goes in a main clause, a subordinate clause and a question, and a quote with 3 example sentences of increasing length.",
+   "shape": "table, kv, steps, quote",
+   "button": "Conjugate",
+   "loading": "Splitting prefixes…"
+  },
+  {
+   "id": "drill",
+   "title": "Drill my weak spot",
+   "subtitle": "10 questions, answers hidden below",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "topic",
+     "label": "Topic",
+     "type": "chips",
+     "options": [
+      "Genders",
+      "Akkusativ vs Dativ",
+      "Adjective endings",
+      "Word order",
+      "Two-way prepositions",
+      "Konjunktiv II"
+     ],
+     "default": "Akkusativ vs Dativ"
+    },
+    {
+     "key": "n",
+     "label": "Questions",
+     "type": "chips",
+     "options": [
+      "10",
+      "20"
+     ],
+     "default": "10"
+    }
+   ],
+   "prompt": "Write {n} fill-in-the-gap questions on {topic} at the profile's level, as a numbered checklist. Then a text line labelled 'Answers', followed by a table (# | Answer | One-line why). End with a callout naming the pattern behind the two hardest questions.",
+   "shape": "checklist, text, table, callout",
+   "button": "Drill me",
+   "loading": "Sharpening pencils…"
+  }
+ ]
+}

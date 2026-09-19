@@ -1,0 +1,192 @@
+{
+ "id": "crust_craft",
+ "name": "Crust Craft",
+ "tagline": "Pies and tarts with crisp bottoms and clean slices",
+ "category": "Food & Drink",
+ "colors": [
+  "#C68E17",
+  "#8E24AA",
+  "#2E7D32"
+ ],
+ "icon": "sun",
+ "about": "Crust Craft picks the right pastry for the pie, calculates fruit-filling thickener for clean slices, plans lattice and decorative tops, and diagnoses soggy bottoms and shrinking shells from a photo.",
+ "persona": "You are a pie and tart baker: practical about butter, starch and oven heat, and firm that a crisp bottom is non-negotiable.",
+ "onboarding": {
+  "title": "Crisp bottom, clean slice",
+  "subtitle": "Tell us your tin and what you love to fill it with.",
+  "bullets": [
+   "Pastry matched to the filling",
+   "Thickener math for any fruit",
+   "Lattice and decoration plans"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "tin",
+   "label": "Usual tin",
+   "type": "text",
+   "placeholder": "23 cm ceramic dish, 24 cm loose-bottom tart"
+  },
+  {
+   "key": "fat",
+   "label": "Fat you bake with",
+   "type": "chips",
+   "options": [
+    "All butter",
+    "Butter + shortening",
+    "Lard + butter",
+    "Vegan block"
+   ],
+   "default": "All butter"
+  },
+  {
+   "key": "skill",
+   "label": "Skill",
+   "type": "chips",
+   "options": [
+    "First pie",
+    "Comfortable",
+    "Advanced"
+   ],
+   "default": "Comfortable"
+  }
+ ],
+ "tools": [
+  {
+   "id": "pastry",
+   "title": "Pick the pastry",
+   "subtitle": "Right dough for the filling",
+   "emoji": "🥧",
+   "inputs": [
+    {
+     "key": "filling",
+     "label": "Filling",
+     "type": "text",
+     "placeholder": "salted caramel apple",
+     "required": true
+    },
+    {
+     "key": "kind",
+     "label": "Kind",
+     "type": "chips",
+     "options": [
+      "Double-crust pie",
+      "Single-crust pie",
+      "Tart",
+      "Galette",
+      "Hand pies",
+      "Quiche"
+     ],
+     "default": "Double-crust pie"
+    }
+   ],
+   "prompt": "Choose the pastry for a {kind} filled with {filling} baked in the profile tin. Kv (pastry type and why, grams of flour/fat/liquid, chilling time, blind bake yes/no), steps for mixing, rolling and lining without shrinkage, a table (Stage | Temperature | Minutes | Sign it's done) for baking, and a callout on the moisture of this filling and how to keep the base crisp.",
+   "shape": "kv, steps, table, callout",
+   "button": "Choose pastry",
+   "loading": "Cutting in butter…"
+  },
+  {
+   "id": "thicken",
+   "title": "Thicken the filling",
+   "subtitle": "Starch grams per fruit and tin",
+   "emoji": "🍓",
+   "inputs": [
+    {
+     "key": "fruit",
+     "label": "Fruit and weight",
+     "type": "text",
+     "placeholder": "900 g frozen mixed berries",
+     "required": true
+    },
+    {
+     "key": "starch",
+     "label": "Thickener",
+     "type": "chips",
+     "options": [
+      "Cornflour",
+      "Tapioca",
+      "Flour",
+      "Instant modified starch",
+      "Arrowroot"
+     ],
+     "default": "Tapioca"
+    },
+    {
+     "key": "slice",
+     "label": "Slice preference",
+     "type": "chips",
+     "options": [
+      "Clean set slice",
+      "Soft and juicy"
+     ],
+     "default": "Clean set slice"
+    }
+   ],
+   "prompt": "Calculate thickener for {fruit} using {starch} for a {slice} in the profile tin. Kv (thickener grams, sugar grams, lemon juice ml, whether to macerate and drain), a table (Fruit | Juiciness | Grams of this thickener per 500 g) for this fruit plus 4 similar fruits, steps for combining, venting and cooling to set, and a callout on frozen versus fresh fruit adjustments.",
+   "shape": "kv, table, steps, callout",
+   "button": "Calculate",
+   "loading": "Weighing fruit…"
+  },
+  {
+   "id": "top",
+   "title": "Design the top",
+   "subtitle": "Lattice, cut-outs, braids",
+   "emoji": "🎨",
+   "inputs": [
+    {
+     "key": "style",
+     "label": "Style",
+     "type": "chips",
+     "options": [
+      "Classic lattice",
+      "Wide-strip lattice",
+      "Braided edge",
+      "Cut-out leaves",
+      "Crimped solid",
+      "Herringbone"
+     ],
+     "default": "Classic lattice"
+    },
+    {
+     "key": "occasion",
+     "label": "Occasion",
+     "type": "text",
+     "placeholder": "Thanksgiving, autumn theme"
+    }
+   ],
+   "prompt": "Plan a {style} top for {occasion} on the profile tin. Steps for cutting dimensions, weaving or arranging, chilling and egg-washing with a sugar finish, a checklist of tools and dough quantity for the top, bullets on 3 variations to personalise it, and a callout on avoiding a burnt lattice while the filling bubbles.",
+   "shape": "steps, checklist, bullets, callout",
+   "button": "Plan top",
+   "loading": "Weaving strips…"
+  },
+  {
+   "id": "diagnose",
+   "title": "Soggy? Shrunk? Cracked?",
+   "subtitle": "Photo of a slice or shell",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of your pie or tart",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "what",
+     "label": "What happened",
+     "type": "text",
+     "placeholder": "bottom pale and soft, edges shrank down"
+    }
+   ],
+   "prompt": "Diagnose the pastry in the attached photo, given: {what}. Text naming the main fault (soggy base, shrinkage, tough crust, cracked shell, leaked filling, overbrowned edge), a table (Symptom | Cause | Fix next time), steps for one technique change to test, and bullets on what went right.",
+   "shape": "text, table, steps, bullets",
+   "button": "Diagnose",
+   "loading": "Checking the base…"
+  }
+ ]
+}

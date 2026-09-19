@@ -1,0 +1,205 @@
+{
+ "id": "renter_decor",
+ "name": "Renter Decor",
+ "tagline": "Make a rental feel yours and get the deposit back",
+ "category": "House & Home",
+ "colors": [
+  "#6D4C41",
+  "#26A69A",
+  "#EC407A"
+ ],
+ "icon": "pin",
+ "about": "Renter Decor plans damage-free, removable upgrades for rented homes, checks what your lease allows, writes landlord permission requests and prepares you to reverse it all at move-out.",
+ "persona": "You are a renter-turned-designer who has personalised eleven rentals: creative with removable solutions, careful about leases, and always thinking about the reversal at move-out.",
+ "onboarding": {
+  "title": "Your place, without losing the deposit",
+  "subtitle": "Tell us about your rental and what you're allowed to do.",
+  "bullets": [
+   "Removable upgrades room by room",
+   "Lease-safe checks and landlord asks",
+   "Move-out reversal plans"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "allowed",
+   "label": "Lease allows",
+   "type": "chips",
+   "options": [
+    "Nothing beyond nails",
+    "Painting with approval",
+    "Small holes OK",
+    "Not sure"
+   ]
+  },
+  {
+   "key": "stay",
+   "label": "Staying",
+   "type": "chips",
+   "options": [
+    "Under 1 year",
+    "1–2 years",
+    "3+ years"
+   ]
+  },
+  {
+   "key": "walls",
+   "label": "Walls are",
+   "type": "chips",
+   "options": [
+    "Painted plaster",
+    "Painted drywall",
+    "Wallpaper",
+    "Textured",
+    "Brick / concrete"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "room",
+   "title": "Upgrade a room",
+   "subtitle": "Removable changes that make the difference",
+   "emoji": "🏠",
+   "inputs": [
+    {
+     "key": "room",
+     "label": "Room",
+     "type": "chips",
+     "options": [
+      "Living room",
+      "Bedroom",
+      "Kitchen",
+      "Bathroom",
+      "Hallway",
+      "Balcony"
+     ],
+     "default": "Living room"
+    },
+    {
+     "key": "budget",
+     "label": "Budget",
+     "type": "number",
+     "placeholder": "250"
+    },
+    {
+     "key": "ugly",
+     "label": "What you're stuck with",
+     "type": "text",
+     "placeholder": "beige walls, brown carpet, bare ceiling light"
+    }
+   ],
+   "prompt": "Plan removable upgrades for a {room} on a budget of {budget}, working around: {ugly}, within what the profile's lease allows and its wall type. Sections: cards for 6 upgrades (meta = cost band · install minutes · reversibility); a table (Upgrade | Method | Damage risk | Takes with you?); steps for the highest-impact one; and a callout on what to photograph before you start as deposit evidence.",
+   "shape": "cards, table, steps, callout",
+   "button": "Upgrade",
+   "loading": "Peeling backing…"
+  },
+  {
+   "id": "hang",
+   "title": "Hang it damage-free",
+   "subtitle": "Shelves, art, mirrors, curtains without holes",
+   "emoji": "🖼️",
+   "inputs": [
+    {
+     "key": "item",
+     "label": "What you want to hang",
+     "type": "text",
+     "placeholder": "60 × 80cm framed print, about 3kg",
+     "required": true
+    },
+    {
+     "key": "surface",
+     "label": "On",
+     "type": "chips",
+     "options": [
+      "Painted plaster",
+      "Painted drywall",
+      "Wallpaper",
+      "Tile",
+      "Glass",
+      "Textured"
+     ],
+     "default": "Painted plaster"
+    }
+   ],
+   "prompt": "Explain how to hang {item} on {surface} without damage, given the profile's lease. Sections: a table (Method | Max weight | Damage risk | Removal method | Cost); steps for the best method including surface prep and cure time; bullets on what fails (humidity, textured paint, heavy mirrors); and a callout on when a proper fixing plus filler at move-out is actually safer than adhesive.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Show me how",
+   "loading": "Testing adhesives…"
+  },
+  {
+   "id": "ask",
+   "title": "Ask the landlord",
+   "subtitle": "A permission request that gets a yes",
+   "emoji": "✉️",
+   "inputs": [
+    {
+     "key": "change",
+     "label": "What you want to do",
+     "type": "text",
+     "placeholder": "paint the bedroom sage green",
+     "required": true
+    },
+    {
+     "key": "offer",
+     "label": "What you'll offer",
+     "type": "text",
+     "placeholder": "repaint to original before leaving, professional finish"
+    }
+   ],
+   "prompt": "Write a permission request to the landlord or agent for: {change}, offering: {offer}, for someone on the profile's lease terms. Sections: a quote with the complete polite message (under 150 words) that names the benefit to the property; bullets on negotiation fallbacks if they say no; a checklist of what to get in writing; and a callout on not starting until written consent arrives.",
+   "shape": "quote, bullets, checklist, callout",
+   "button": "Draft request",
+   "loading": "Being persuasive…"
+  },
+  {
+   "id": "lease",
+   "title": "Can I do this?",
+   "subtitle": "Check a plan against typical lease rules",
+   "emoji": "📜",
+   "inputs": [
+    {
+     "key": "plan",
+     "label": "What you're planning",
+     "type": "longtext",
+     "placeholder": "peel-and-stick tiles over the kitchen splashback, swap the light fitting, curtain rail on the window frame",
+     "required": true
+    }
+   ],
+   "prompt": "Assess each part of this plan against typical rental rules and the profile's lease terms: {plan}. Sections: a table (Change | Usually fine / needs consent / avoid | Why | Safer alternative); bullets on changes commonly mistaken for reversible (peel-and-stick on unsealed walls, swapping electrics); a callout on electrical and gas work needing a qualified person and landlord consent; and a quote with a one-line question to ask the agent.",
+   "shape": "table, bullets, callout, quote",
+   "button": "Check plan",
+   "loading": "Reading the lease…"
+  },
+  {
+   "id": "moveout",
+   "title": "Move-out reversal",
+   "subtitle": "Undo everything and pass the inspection",
+   "emoji": "📦",
+   "inputs": [
+    {
+     "key": "changes",
+     "label": "Everything you changed",
+     "type": "longtext",
+     "placeholder": "peel-and-stick wallpaper in hall, adhesive hooks × 12, swapped the shower head, painted bedroom…",
+     "required": true
+    },
+    {
+     "key": "date",
+     "label": "Move-out date",
+     "type": "text"
+    }
+   ],
+   "prompt": "Plan reversing these changes before {date}: {changes}, for the profile's wall type. Sections: a table (Change | Reversal method | Time | Materials | Risk of marks); steps as a timeline working back from {date} including the final clean and photos; a checklist of deposit-protection items (inventory comparison, dated photos, meter readings); and a callout on what is cheaper to have fixed professionally than to attempt yourself.",
+   "shape": "table, steps, checklist, callout",
+   "button": "Plan reversal",
+   "loading": "Peeling it all off…"
+  }
+ ],
+ "disclaimer": "Always check your own lease and get landlord consent in writing; rules vary by country and contract. This is general guidance, not legal advice."
+}

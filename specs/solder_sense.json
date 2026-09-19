@@ -1,0 +1,193 @@
+{
+ "id": "solder_sense",
+ "name": "Solder Sense",
+ "tagline": "Read parts, size resistors, debug boards, build projects",
+ "category": "Education",
+ "colors": [
+  "#E65100",
+  "#1E88E5",
+  "#43A047"
+ ],
+ "icon": "wrench",
+ "about": "Solder Sense identifies components from a photo, analyses circuits with the maths shown, picks resistor and capacitor values for real parts, plans breadboard and microcontroller projects, and troubleshoots a board that won't work.",
+ "persona": "You are a patient electronics lab instructor: Ohm's law first, datasheet second, guesswork never; you are strict about mains voltage and anything that stores energy.",
+ "onboarding": {
+  "title": "From breadboard to working board",
+  "subtitle": "Your kit and experience shape the projects and safety notes.",
+  "bullets": [
+   "Component ID from a photo",
+   "Circuit maths with working",
+   "Debug a dead board step by step"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "level",
+   "label": "Experience",
+   "type": "chips",
+   "options": [
+    "Total beginner",
+    "Hobbyist",
+    "EE student",
+    "Professional"
+   ]
+  },
+  {
+   "key": "kit",
+   "label": "Kit",
+   "type": "chips",
+   "options": [
+    "Breadboard + parts",
+    "Arduino",
+    "ESP32 / Pi Pico",
+    "Raspberry Pi",
+    "Bench: scope + PSU"
+   ],
+   "multi": true
+  }
+ ],
+ "tools": [
+  {
+   "id": "identify",
+   "title": "Identify a component",
+   "subtitle": "Photo → part, value, pinout",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the part or board",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "marking",
+     "label": "Any marking or hint",
+     "type": "text",
+     "placeholder": "LM358 / bands: brown black red gold"
+    }
+   ],
+   "prompt": "Identify the component in the photo, hint: {marking}. kv (part type, value or part number, tolerance, package, polarity), a table (Pin | Name | Function) if it has a pinout, bullets on what it is typically used for, and a callout on handling: ESD, polarity, heat or voltage rating.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Identify",
+   "loading": "Reading bands…"
+  },
+  {
+   "id": "analyse",
+   "title": "Analyse a circuit",
+   "subtitle": "Describe or photograph → voltages and currents",
+   "emoji": "🔌",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo or schematic (optional)",
+     "type": "photo"
+    },
+    {
+     "key": "circuit",
+     "label": "Describe the circuit",
+     "type": "longtext",
+     "placeholder": "9 V battery, 220 Ω in series with a red LED, then 1 kΩ to ground"
+    }
+   ],
+   "prompt": "Analyse {circuit} (or the photo): steps applying Ohm's law, KVL / KCL, series-parallel reduction or Thevenin as needed, a table (Node or component | Voltage | Current | Power), kv (total resistance, supply current, hottest component), and a callout on any component running over its rating.",
+   "shape": "steps, table, kv, callout",
+   "button": "Analyse",
+   "loading": "Applying Ohm's law…"
+  },
+  {
+   "id": "size",
+   "title": "Size a part",
+   "subtitle": "LED resistor, divider, RC filter, fuse",
+   "emoji": "📏",
+   "inputs": [
+    {
+     "key": "what",
+     "label": "What to size",
+     "type": "chips",
+     "options": [
+      "LED current-limit resistor",
+      "Voltage divider",
+      "RC filter cutoff",
+      "Pull-up / pull-down",
+      "Decoupling caps",
+      "Fuse / wire gauge"
+     ],
+     "default": "LED current-limit resistor"
+    },
+    {
+     "key": "params",
+     "label": "Parameters",
+     "type": "text",
+     "placeholder": "5 V supply, 20 mA, Vf 2.0 V",
+     "required": true
+    }
+   ],
+   "prompt": "Size {what} for {params}: steps with the formula and substitution, kv (ideal value, nearest E12 / E24 standard value, power rating needed, resulting actual current / voltage / cutoff), a table (Standard value | Result | OK?) for the two nearest choices, and a callout on margins and tolerance.",
+   "shape": "steps, kv, table, callout",
+   "button": "Size it",
+   "loading": "Rounding to E24…"
+  },
+  {
+   "id": "project",
+   "title": "Plan a project",
+   "subtitle": "Parts list, wiring, code outline",
+   "emoji": "🛠️",
+   "inputs": [
+    {
+     "key": "idea",
+     "label": "Project idea",
+     "type": "longtext",
+     "placeholder": "soil moisture sensor that turns on a pump",
+     "required": true
+    },
+    {
+     "key": "board",
+     "label": "Board",
+     "type": "chips",
+     "options": [
+      "Arduino Uno",
+      "ESP32",
+      "Pi Pico",
+      "Raspberry Pi",
+      "No microcontroller"
+     ],
+     "default": "Arduino Uno"
+    }
+   ],
+   "prompt": "Plan {idea} on {board} for the profile: checklist (parts with values and quantities), table (Signal | Board pin | Component pin | Notes) for wiring, steps to build and test it in stages, a quote with a code outline in the board's usual language, and a callout on power (current budget, separate supply for motors, flyback diode).",
+   "shape": "checklist, table, steps, quote, callout",
+   "button": "Plan build",
+   "loading": "Laying out pins…"
+  },
+  {
+   "id": "debug",
+   "title": "It doesn't work",
+   "subtitle": "Systematic troubleshooting",
+   "emoji": "🩺",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the board (optional)",
+     "type": "photo"
+    },
+    {
+     "key": "symptom",
+     "label": "What's happening",
+     "type": "longtext",
+     "placeholder": "LED never lights; board gets warm; 5 V rail reads 3.1 V",
+     "required": true
+    }
+   ],
+   "prompt": "Troubleshoot: {symptom} (photo if given). Steps as a measure-and-decide sequence (what to probe, expected reading, what a wrong reading means), a table (Likely cause | Probability | Test | Fix) ordered by likelihood, and a callout on what to power off or discharge before touching anything.",
+   "shape": "steps, table, callout",
+   "button": "Diagnose",
+   "loading": "Probing…"
+  }
+ ],
+ "disclaimer": "Educational guidance only; never work on mains-powered or high-energy circuits without proper training, and disconnect power before touching a board."
+}

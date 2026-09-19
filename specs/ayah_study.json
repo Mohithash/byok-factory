@@ -1,0 +1,204 @@
+{
+ "id": "ayah_study",
+ "name": "Ayah Companion",
+ "tagline": "Study, reflect on and memorise the Qur'an at your pace",
+ "category": "Books & Reference",
+ "colors": [
+  "#1B5E20",
+  "#C9A227",
+  "#37474F"
+ ],
+ "icon": "moon",
+ "about": "Ayah Companion helps you study surahs with tafsir summaries and key Arabic words, build a realistic hifz schedule with revision built in, plan Ramadan reading and find ayat that speak to your day.",
+ "persona": "You are a patient Qur'an study companion: grounded in classical tafsir (Ibn Kathir, al-Tabari, al-Qurtubi) and clear about where scholars differ; you support Sunni and Shia learners, never issue fatwas and always point to a qualified teacher for rulings.",
+ "onboarding": {
+  "title": "Read with understanding",
+  "subtitle": "Your Arabic level and goal shape every study session.",
+  "bullets": [
+   "Surah study with tafsir summaries",
+   "Hifz plans with revision built in",
+   "Ramadan and daily reading rhythms"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "arabic",
+   "label": "Arabic",
+   "type": "chips",
+   "options": [
+    "None",
+    "Can read script",
+    "Basic understanding",
+    "Fluent"
+   ],
+   "default": "Can read script"
+  },
+  {
+   "key": "goal",
+   "label": "Main goal",
+   "type": "chips",
+   "options": [
+    "Understanding",
+    "Memorisation",
+    "Both"
+   ],
+   "default": "Understanding"
+  },
+  {
+   "key": "memorised",
+   "label": "Already memorised",
+   "type": "text",
+   "placeholder": "Juz Amma, Surah Yasin"
+  }
+ ],
+ "tools": [
+  {
+   "id": "surah",
+   "title": "Study a surah",
+   "subtitle": "Context, themes, tafsir highlights",
+   "emoji": "📖",
+   "inputs": [
+    {
+     "key": "surah",
+     "label": "Surah or ayah range",
+     "type": "text",
+     "placeholder": "Al-Kahf, or 2:255, or 93:1-11",
+     "required": true
+    }
+   ],
+   "prompt": "Study guide for {surah} at the profile's Arabic level. Sections: kv (name meaning, Makki/Madani, number of ayat, occasion of revelation if reported), text summarising the message and structure, a table (Ayah | Key Arabic word with transliteration | Meaning | Tafsir note), bullets of 3 lessons classical mufassirun draw, and a callout on any ayah where scholars' readings differ.",
+   "shape": "kv, text, table, bullets, callout",
+   "button": "Study",
+   "loading": "Opening the mushaf…"
+  },
+  {
+   "id": "hifz",
+   "title": "Hifz plan",
+   "subtitle": "Memorise with revision built in",
+   "emoji": "🧠",
+   "inputs": [
+    {
+     "key": "target",
+     "label": "Target",
+     "type": "text",
+     "placeholder": "Surah Al-Mulk, or Juz 30, or Surah Yasin",
+     "required": true
+    },
+    {
+     "key": "minutes",
+     "label": "Minutes per day",
+     "type": "number",
+     "placeholder": "20"
+    },
+    {
+     "key": "days",
+     "label": "Days per week",
+     "type": "chips",
+     "options": [
+      "5",
+      "6",
+      "7"
+     ],
+     "default": "6"
+    }
+   ],
+   "prompt": "Build a memorisation plan for {target} at {minutes} minutes/day, {days} days/week, accounting for what the profile has already memorised. Sections: a table (Week | New ayat | Revision of old | Checkpoint), steps for a single daily session (listen, repeat, link, recite from memory, revise), a checklist of weekly self-tests, and a callout on the most common reason hifz slips (skipping revision).",
+   "shape": "table, steps, checklist, callout",
+   "button": "Plan hifz",
+   "loading": "Pacing the lines…"
+  },
+  {
+   "id": "tajweed",
+   "title": "Tajweed check",
+   "subtitle": "Rules present in the ayat you recite",
+   "emoji": "🎙️",
+   "inputs": [
+    {
+     "key": "ayah",
+     "label": "Ayah or surah",
+     "type": "text",
+     "placeholder": "Al-Fatiha, or 112:1-4",
+     "required": true
+    },
+    {
+     "key": "focus",
+     "label": "Focus",
+     "type": "chips",
+     "options": [
+      "Makharij (letter points)",
+      "Madd (lengthening)",
+      "Ghunnah & noon rules",
+      "Qalqalah",
+      "All rules present"
+     ],
+     "default": "All rules present"
+    }
+   ],
+   "prompt": "For {ayah}, list the tajweed rules present with focus '{focus}'. Sections: a table (Word with transliteration | Rule | How to perform it | Common mistake), steps for a 10-minute practice drill, and a callout reminding that recitation is learned by ear from a teacher and this is a written aid only.",
+   "shape": "table, steps, callout",
+   "button": "Check rules",
+   "loading": "Listening closely…"
+  },
+  {
+   "id": "theme",
+   "title": "Ayat on a theme",
+   "subtitle": "Find what the Qur'an says about…",
+   "emoji": "🔎",
+   "inputs": [
+    {
+     "key": "theme",
+     "label": "Theme",
+     "type": "text",
+     "placeholder": "patience, parents, wealth, grief, justice",
+     "required": true
+    },
+    {
+     "key": "count",
+     "label": "How many ayat",
+     "type": "number",
+     "placeholder": "6"
+    }
+   ],
+   "prompt": "Find {count} ayat about '{theme}'. Sections: cards, one per ayah (title = surah:ayah, meta = surah name · Makki/Madani), each with a translation and one line of tafsir context; bullets connecting them into a single thread; and a quote with the one ayah most suited to write down and reflect on today.",
+   "shape": "cards, bullets, quote",
+   "button": "Find ayat",
+   "loading": "Searching the pages…"
+  },
+  {
+   "id": "ramadan",
+   "title": "Ramadan reading plan",
+   "subtitle": "Finish the Qur'an, or study deeply",
+   "emoji": "🌙",
+   "inputs": [
+    {
+     "key": "aim",
+     "label": "Aim",
+     "type": "chips",
+     "options": [
+      "Complete one khatm",
+      "Complete two khatm",
+      "Study 5 surahs deeply",
+      "Half the Qur'an with tafsir"
+     ],
+     "default": "Complete one khatm"
+    },
+    {
+     "key": "schedule",
+     "label": "Your Ramadan schedule",
+     "type": "text",
+     "placeholder": "work 9-5, taraweeh at the masjid"
+    }
+   ],
+   "prompt": "Plan Ramadan reading for aim '{aim}' around: {schedule}. Sections: a table (Day | Portion | When (Fajr / after work / after taraweeh) | Minutes), a checklist of setup (mushaf or app, tafsir source, tracker), bullets on catching up after a missed day without burnout, and a callout on prioritising quality of reflection over pace.",
+   "shape": "table, checklist, bullets, callout",
+   "button": "Plan Ramadan",
+   "loading": "Counting the juz…"
+  }
+ ],
+ "disclaimer": "Study notes summarise classical and contemporary scholarship; for rulings on worship or practice, consult a qualified scholar."
+}

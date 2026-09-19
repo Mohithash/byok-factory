@@ -1,0 +1,249 @@
+{
+ "id": "stable_mate",
+ "name": "Stable Mate",
+ "tagline": "Feed, rug, condition and care for your horse",
+ "category": "Lifestyle",
+ "colors": [
+  "#4E342E",
+  "#2E7D32",
+  "#B8860B"
+ ],
+ "icon": "hat",
+ "about": "Stable Mate builds forage-first feed rations by weight and workload, picks the right rug for tonight's weather, plans fitness for your discipline, and triages colic, lameness and wounds with clear call-the-vet rules.",
+ "persona": "You are a seasoned yard manager with equine-nutrition and first-aid training: forage-first, weigh-tape practical, calm in a crisis and never afraid to say 'that's a vet call'.",
+ "onboarding": {
+  "title": "Know your horse",
+  "subtitle": "Weight, workload and turnout drive every ration and rug we suggest.",
+  "bullets": [
+   "Rations by weight and work",
+   "Rug picker for tonight's weather",
+   "Colic & lameness triage"
+  ]
+ },
+ "profile": [
+  {
+   "key": "horse",
+   "label": "Horse name, breed & age",
+   "type": "text",
+   "placeholder": "Bramble, Connemara, 12"
+  },
+  {
+   "key": "weight",
+   "label": "Weight (kg) & body condition /9",
+   "type": "text",
+   "placeholder": "480 kg, BCS 6"
+  },
+  {
+   "key": "work",
+   "label": "Workload",
+   "type": "chips",
+   "options": [
+    "Retired / light hacking",
+    "Light (3 rides/week)",
+    "Medium (schooling, low-level comp)",
+    "Hard (eventing / hunting)"
+   ]
+  },
+  {
+   "key": "living",
+   "label": "Living",
+   "type": "chips",
+   "options": [
+    "Full turnout",
+    "Part stabled",
+    "Fully stabled",
+    "Track system"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "ration",
+   "title": "Feed ration",
+   "subtitle": "Forage-first, by weight and work",
+   "emoji": "🌾",
+   "inputs": [
+    {
+     "key": "forage",
+     "label": "Forage available",
+     "type": "text",
+     "placeholder": "meadow hay, haylage, grass 24/7",
+     "required": true
+    },
+    {
+     "key": "goal",
+     "label": "Goal",
+     "type": "chips",
+     "options": [
+      "Maintain",
+      "Lose weight",
+      "Gain weight / topline",
+      "More energy"
+     ],
+     "default": "Maintain"
+    },
+    {
+     "key": "feeds",
+     "label": "Hard feed you use",
+     "type": "text",
+     "placeholder": "balancer, sugar beet"
+    }
+   ],
+   "prompt": "Build a daily ration for the profile horse from {forage}, goal {goal}, using {feeds} where sensible. Sections: kv (target forage kg/day as % bodyweight dry matter, hard feed kg/day, water), a table (Feed | Kg per day | Split over | Why), a callout on laminitis risk and starch limits, and bullets on how to change feed safely over 10–14 days.",
+   "shape": "kv, table, callout, bullets",
+   "button": "Build ration",
+   "loading": "Weighing haynets…"
+  },
+  {
+   "id": "rug",
+   "title": "Rug for tonight",
+   "subtitle": "Weather → rug weight",
+   "emoji": "🧥",
+   "inputs": [
+    {
+     "key": "weather",
+     "label": "Tonight's forecast",
+     "type": "text",
+     "placeholder": "4°C, rain, windy",
+     "required": true
+    },
+    {
+     "key": "clip",
+     "label": "Clip",
+     "type": "chips",
+     "options": [
+      "Unclipped",
+      "Bib / trace clip",
+      "Hunter clip",
+      "Full clip"
+     ],
+     "default": "Unclipped"
+    },
+    {
+     "key": "where",
+     "label": "Tonight",
+     "type": "chips",
+     "options": [
+      "Out",
+      "In",
+      "Out with shelter"
+     ],
+     "default": "Out"
+    }
+   ],
+   "prompt": "Choose rugging for the profile horse: {weather}, {clip}, {where}. Sections: a callout with the recommended rug (none / 0 g / 100 g / 200 g / 300 g, neck or not) and why, a table (Temp range | Unclipped | Clipped | Notes) for planning the week, bullets on checking for sweating, rubs and slipping, and a quote with a one-line rule of thumb.",
+   "shape": "callout, table, bullets, quote",
+   "button": "Pick rug",
+   "loading": "Checking the sky…"
+  },
+  {
+   "id": "fitness",
+   "title": "Fitness plan",
+   "subtitle": "6 weeks toward a goal",
+   "emoji": "🏇",
+   "inputs": [
+    {
+     "key": "discipline",
+     "label": "Discipline",
+     "type": "chips",
+     "options": [
+      "Hacking / pleasure",
+      "Dressage",
+      "Show jumping",
+      "Eventing",
+      "Endurance",
+      "Rehab / back into work"
+     ],
+     "default": "Hacking / pleasure"
+    },
+    {
+     "key": "goal",
+     "label": "Goal & date",
+     "type": "text",
+     "placeholder": "80 cm one-day event in 8 weeks",
+     "required": true
+    },
+    {
+     "key": "days",
+     "label": "Ride days/week",
+     "type": "chips",
+     "options": [
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "default": "4"
+    }
+   ],
+   "prompt": "A 6-week {discipline} conditioning plan for the profile horse toward {goal} with {days} ride days per week. Sections: a table (Week | Day | Session | Duration | Intensity), text explaining the purpose of each session type (walk hacking, hill work, interval canter, schooling), a checklist for pre-ride checks (legs, shoes, tack fit, girth), and a callout on signs of overwork (heat, filling, sour attitude).",
+   "shape": "table, text, checklist, callout",
+   "button": "Plan",
+   "loading": "Tacking up…"
+  },
+  {
+   "id": "triage",
+   "title": "Colic, lameness or wound",
+   "subtitle": "What to do right now",
+   "emoji": "🚑",
+   "inputs": [
+    {
+     "key": "issue",
+     "label": "What's wrong",
+     "type": "chips",
+     "options": [
+      "Colic signs",
+      "Lameness",
+      "Wound / cut",
+      "Choke",
+      "Eye problem",
+      "Off food / dull"
+     ],
+     "default": "Colic signs"
+    },
+    {
+     "key": "details",
+     "label": "Describe it",
+     "type": "longtext",
+     "placeholder": "pawing, looking at flank, hasn't passed droppings since morning",
+     "required": true
+    }
+   ],
+   "prompt": "Triage {issue} for the profile horse: {details}. Sections: a callout with the verdict (call the vet NOW / vet today / monitor and recheck in 2 hours) with the deciding reasons, steps for what to do while waiting (walk or don't, remove feed, cold hose, check gut sounds, temperature, pulse and respiration), a table (Vital | Normal range | How to check), and a quote with exactly what to tell the vet on the phone.",
+   "shape": "callout, steps, table, quote",
+   "button": "Triage",
+   "loading": "Checking vitals…"
+  },
+  {
+   "id": "year",
+   "title": "Yard calendar",
+   "subtitle": "Vaccines, teeth, worming, farrier",
+   "emoji": "📅",
+   "inputs": [
+    {
+     "key": "last",
+     "label": "Last done",
+     "type": "text",
+     "placeholder": "flu vacc March, teeth Jan, farrier 6 weeks ago"
+    },
+    {
+     "key": "season",
+     "label": "Season starting",
+     "type": "chips",
+     "options": [
+      "Spring",
+      "Summer",
+      "Autumn",
+      "Winter"
+     ],
+     "default": "Spring"
+    }
+   ],
+   "prompt": "Build a 12-month routine-care calendar for the profile horse from {last}, starting in {season}. Sections: a table (Month | Task | Interval | Notes) for vaccinations, dentistry, worm egg counts, farrier, saddle check and rug care, a checklist for the current season (mud fever, sweet itch, grass flush and laminitis, ice), and a callout on worm-egg-count testing versus blanket worming.",
+   "shape": "table, checklist, callout",
+   "button": "Build calendar",
+   "loading": "Flipping pages…"
+  }
+ ],
+ "disclaimer": "General equine-care information, not veterinary advice. Colic, choke, deep wounds and non-weight-bearing lameness are emergencies — call your vet immediately."
+}

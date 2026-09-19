@@ -1,0 +1,184 @@
+{
+ "id": "kidney_keeper",
+ "name": "Kidney Keeper",
+ "tagline": "Eat and live well with chronic kidney disease",
+ "category": "Medical",
+ "colors": [
+  "#AD1457",
+  "#00695C",
+  "#FFB74D"
+ ],
+ "icon": "scale",
+ "about": "Kidney Keeper helps people with CKD read their eGFR and blood results, plan meals that respect potassium, phosphorus, sodium and protein limits, check labels from a photo and manage fluids on hot days and sick days.",
+ "persona": "You are a renal dietitian: precise about numbers, realistic about food people actually like, and clear that limits differ by stage and are set by the renal team.",
+ "onboarding": {
+  "title": "Protect what your kidneys do",
+  "subtitle": "Your stage and limits make every plan safe.",
+  "bullets": [
+   "eGFR and results explained",
+   "Meals within your mineral limits",
+   "Label and fluid checks"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "stage",
+   "label": "CKD stage",
+   "type": "chips",
+   "options": [
+    "1–2",
+    "3a",
+    "3b",
+    "4",
+    "5 / dialysis",
+    "Transplant"
+   ]
+  },
+  {
+   "key": "limits",
+   "label": "Limits from your team",
+   "type": "chips",
+   "options": [
+    "Potassium",
+    "Phosphorus",
+    "Sodium",
+    "Protein",
+    "Fluids",
+    "None yet"
+   ],
+   "multi": true
+  },
+  {
+   "key": "other",
+   "label": "Other conditions / meds",
+   "type": "text",
+   "placeholder": "diabetes, ramipril"
+  }
+ ],
+ "tools": [
+  {
+   "id": "results",
+   "title": "Explain my results",
+   "subtitle": "eGFR, creatinine, potassium, ACR",
+   "emoji": "🧪",
+   "inputs": [
+    {
+     "key": "labs",
+     "label": "Results with dates",
+     "type": "longtext",
+     "placeholder": "eGFR 42 (was 48 last year), creatinine 145, K 5.1, ACR 45",
+     "required": true
+    }
+   ],
+   "prompt": "Explain: {labs} for the profile stage. Table (Test | Your value | Typical range | What the direction generally means), text on the eGFR trend and what rate of change tends to concern renal teams, bullets of questions to ask at the next review, and a callout listing potassium values and symptoms (muscle weakness, palpitations, sudden swelling or breathlessness) that need same-day advice.",
+   "shape": "table, text, bullets, callout",
+   "button": "Explain",
+   "loading": "Reading results…"
+  },
+  {
+   "id": "meal",
+   "title": "Plan kidney-safe meals",
+   "subtitle": "3 days within your limits",
+   "emoji": "🍽️",
+   "inputs": [
+    {
+     "key": "diet",
+     "label": "Diet",
+     "type": "chips",
+     "options": [
+      "Anything",
+      "Vegetarian",
+      "Vegan",
+      "Halal",
+      "South Asian",
+      "East Asian"
+     ],
+     "default": "Anything"
+    },
+    {
+     "key": "likes",
+     "label": "Likes / dislikes",
+     "type": "text",
+     "placeholder": "love potatoes and tomatoes, no fish"
+    }
+   ],
+   "prompt": "Build a 3-day plan for '{diet}' with '{likes}' respecting the profile limits and stage. Table (Day | Breakfast | Lunch | Dinner | Snack | Est. potassium mg | Est. phosphorus mg | Est. sodium mg), steps for leaching or double-boiling high-potassium vegetables where relevant, a checklist shopping list, and a callout that individual limits come from the renal dietitian and that protein needs differ on dialysis.",
+   "shape": "table, steps, checklist, callout",
+   "button": "Plan meals",
+   "loading": "Balancing minerals…"
+  },
+  {
+   "id": "label",
+   "title": "Label check",
+   "subtitle": "Photo → hidden phosphates & salt",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Ingredients and nutrition label",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Read the label. kv (sodium mg, potassium mg if listed, phosphorus mg if listed, protein g per serving), a table of flagged ingredients (Ingredient | Why it matters for kidneys, e.g. phosphate additives ending in -phos or potassium chloride salt substitutes | Concern low/med/high), a text verdict, and bullets of 2 safer alternatives.",
+   "shape": "kv, table, text, bullets",
+   "button": "Check label",
+   "loading": "Hunting phosphates…"
+  },
+  {
+   "id": "fluid",
+   "title": "Fluid & sick-day plan",
+   "subtitle": "Hot days, travel, illness",
+   "emoji": "💧",
+   "inputs": [
+    {
+     "key": "situation",
+     "label": "Situation",
+     "type": "chips",
+     "options": [
+      "Hot weather",
+      "Travel day",
+      "Vomiting or diarrhoea",
+      "Normal day"
+     ],
+     "default": "Hot weather"
+    },
+    {
+     "key": "allowance",
+     "label": "Daily fluid allowance if you have one",
+     "type": "text",
+     "placeholder": "1.5 L"
+    }
+   ],
+   "prompt": "Plan fluids for '{situation}' with allowance '{allowance}' for the profile. Table (Time | Drink | ml | Running total), bullets on thirst control (ice chips, sour sweets, mouth care) and foods that count as fluid, a kv of sick-day rules commonly advised for ACE inhibitors, ARBs, diuretics, metformin and NSAIDs as general information, and a callout on dehydration signs and when to call the renal team.",
+   "shape": "table, bullets, kv, callout",
+   "button": "Plan fluids",
+   "loading": "Measuring…"
+  },
+  {
+   "id": "swap",
+   "title": "Food swap finder",
+   "subtitle": "A kidney-friendlier version",
+   "emoji": "🔁",
+   "inputs": [
+    {
+     "key": "food",
+     "label": "Food or dish",
+     "type": "text",
+     "placeholder": "banana on porridge, cheese toastie",
+     "required": true
+    }
+   ],
+   "prompt": "For '{food}' and the profile limits: table (Item | Concern | Swap | What you lose or gain), cards for 2 kidney-friendlier versions of the dish (meta = potassium · phosphorus · sodium rating low/med/high), and a callout on portion size mattering more than blanket bans.",
+   "shape": "table, cards, callout",
+   "button": "Find swaps",
+   "loading": "Swapping…"
+  }
+ ],
+ "disclaimer": "General information for people with kidney disease, not medical advice. Mineral, protein and fluid limits are set by your renal team and change with your stage and results. Sudden breathlessness, chest pain, severe weakness or very low urine output needs urgent care."
+}

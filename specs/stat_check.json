@@ -1,0 +1,198 @@
+{
+ "id": "stat_check",
+ "name": "Stat Check",
+ "tagline": "Pick the right test, read the output, write it up",
+ "category": "Education",
+ "colors": [
+  "#0277BD",
+  "#F4511E",
+  "#8BC34A"
+ ],
+ "icon": "graph",
+ "about": "Stat Check picks the statistical test for your design, decodes SPSS, R or Python output into plain English, sizes your sample, critiques charts from a photo and writes APA-style results paragraphs.",
+ "persona": "You are a friendly applied statistician: you establish the design and measurement level before naming a test, separate significance from effect size, and never overclaim from data.",
+ "onboarding": {
+  "title": "Stats without the dread",
+  "subtitle": "Your software and field tune every answer.",
+  "bullets": [
+   "Test chooser from your design",
+   "Output decoded in plain English",
+   "APA-ready results paragraphs"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "software",
+   "label": "Software",
+   "type": "chips",
+   "options": [
+    "SPSS",
+    "R",
+    "Python",
+    "Excel",
+    "Jamovi",
+    "None yet"
+   ]
+  },
+  {
+   "key": "level",
+   "label": "Level",
+   "type": "chips",
+   "options": [
+    "Intro stats",
+    "Undergrad research",
+    "Postgrad / thesis",
+    "Professional"
+   ]
+  },
+  {
+   "key": "field",
+   "label": "Field",
+   "type": "chips",
+   "options": [
+    "Psychology",
+    "Biology / medicine",
+    "Business",
+    "Social science",
+    "Engineering",
+    "Other"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "choose",
+   "title": "Which test?",
+   "subtitle": "Describe the design, get the test",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "design",
+     "label": "Your design",
+     "type": "longtext",
+     "placeholder": "Anxiety scores before and after therapy in 30 people, also compared across 3 age groups",
+     "required": true
+    },
+    {
+     "key": "outcome",
+     "label": "Outcome type",
+     "type": "chips",
+     "options": [
+      "Continuous",
+      "Ordinal / Likert",
+      "Categorical",
+      "Count",
+      "Time-to-event"
+     ],
+     "default": "Continuous"
+    }
+   ],
+   "prompt": "Design: {design}; outcome: {outcome}. kv (recommended test, why it fits, the null hypothesis in words, non-parametric fallback), a table (Assumption | How to check | If violated use), steps to run it in the profile software with exact menu paths or code, and a callout on what this test cannot tell you.",
+   "shape": "kv, table, steps, callout",
+   "button": "Choose test",
+   "loading": "Weighing options…"
+  },
+  {
+   "id": "interpret",
+   "title": "Interpret my output",
+   "subtitle": "Paste output or a screenshot",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Screenshot of output (optional)",
+     "type": "photo"
+    },
+    {
+     "key": "output",
+     "label": "Pasted output",
+     "type": "longtext",
+     "placeholder": "t(28) = 2.31, p = .028, d = 0.87…"
+    }
+   ],
+   "prompt": "Interpret {output} (or the screenshot): kv (test, statistic, df, p-value, effect size, confidence interval, decision), text explaining what it means in plain English for the profile field, a quote with an APA-style results sentence, and bullets of caveats (multiple comparisons, missing assumption checks, sample size, causality).",
+   "shape": "kv, text, quote, bullets",
+   "button": "Interpret",
+   "loading": "Decoding…"
+  },
+  {
+   "id": "power",
+   "title": "Sample size & power",
+   "subtitle": "How many participants?",
+   "emoji": "🧮",
+   "inputs": [
+    {
+     "key": "test",
+     "label": "Planned test",
+     "type": "text",
+     "placeholder": "independent-samples t-test",
+     "required": true
+    },
+    {
+     "key": "effect",
+     "label": "Expected effect",
+     "type": "chips",
+     "options": [
+      "Small",
+      "Medium",
+      "Large",
+      "I have a number"
+     ],
+     "default": "Medium"
+    },
+    {
+     "key": "details",
+     "label": "Details",
+     "type": "text",
+     "placeholder": "d = 0.5, alpha .05, power .80, 2 groups"
+    }
+   ],
+   "prompt": "Sample size for {test} with a {effect} effect, details: {details}. kv (n per group, total n, assumptions used), a table (Power | n per group | Total) for 0.70, 0.80 and 0.90, steps to reproduce it in G*Power or the profile software, and a callout on over-recruiting for dropout and exclusions.",
+   "shape": "kv, table, steps, callout",
+   "button": "Calculate n",
+   "loading": "Powering up…"
+  },
+  {
+   "id": "describe",
+   "title": "Describe my data",
+   "subtitle": "Paste numbers → summary and the right plot",
+   "emoji": "📊",
+   "inputs": [
+    {
+     "key": "data",
+     "label": "Data",
+     "type": "longtext",
+     "placeholder": "group A: 12, 15, 11, 19; group B: 22, 18, 25, 30",
+     "required": true
+    }
+   ],
+   "prompt": "Describe {data}: table (Group / variable | n | Mean | SD | Median | IQR | Min–Max), text on distribution shape, outliers and whether parametric methods look reasonable, bullets recommending the single best chart and why, and a callout on any data-quality issue spotted.",
+   "shape": "table, text, bullets, callout",
+   "button": "Summarise",
+   "loading": "Crunching…"
+  },
+  {
+   "id": "chart",
+   "title": "Critique a chart",
+   "subtitle": "Photo of a graph → is it honest?",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the chart",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Critique the chart in the photo: table (Issue | Severity | Fix) covering axes, baseline, scale, colour, labels, error bars and chart type; kv (what the chart claims, what the data actually supports); and steps to rebuild it properly in the profile software.",
+   "shape": "table, kv, steps",
+   "button": "Critique",
+   "loading": "Squinting at axes…"
+  }
+ ]
+}

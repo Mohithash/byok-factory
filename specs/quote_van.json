@@ -1,0 +1,213 @@
+{
+ "id": "quote_van",
+ "name": "Quote Van",
+ "tagline": "Job quotes tradespeople can send from the driveway",
+ "category": "Business",
+ "colors": [
+  "#F57F17",
+  "#37474F",
+  "#0097A7"
+ ],
+ "icon": "wrench",
+ "about": "Quote Van turns a job description or photo into a priced quote for plumbers, electricians, decorators and builders, and handles variations, deposits and payment terms.",
+ "persona": "You are an estimator who has run a trades business: fair on labour, realistic on materials and access, and precise about what is excluded.",
+ "onboarding": {
+  "title": "Quote it right the first time",
+  "subtitle": "Your trade and rates power every estimate.",
+  "bullets": [
+   "Quotes from a description or photo",
+   "Variations and extras priced fast",
+   "Deposits, terms and sign-off text"
+  ]
+ },
+ "profile": [
+  {
+   "key": "trade",
+   "label": "Trade",
+   "type": "text",
+   "placeholder": "plumber & heating"
+  },
+  {
+   "key": "rate",
+   "label": "Hourly rate",
+   "type": "number",
+   "placeholder": "65"
+  },
+  {
+   "key": "markup",
+   "label": "Materials markup %",
+   "type": "number",
+   "placeholder": "20"
+  },
+  {
+   "key": "currency",
+   "label": "Currency",
+   "type": "chips",
+   "options": [
+    "USD",
+    "EUR",
+    "GBP",
+    "INR",
+    "AUD",
+    "CAD"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "quote",
+   "title": "Build a quote",
+   "subtitle": "Description → itemised, ready-to-send quote",
+   "emoji": "🧾",
+   "inputs": [
+    {
+     "key": "job",
+     "label": "Job description",
+     "type": "longtext",
+     "placeholder": "replace kitchen mixer tap, isolate, supply tap, dispose of old",
+     "required": true
+    },
+    {
+     "key": "client",
+     "label": "Client & address",
+     "type": "text",
+     "placeholder": "Mrs Patel, 14 Elm Rd"
+    },
+    {
+     "key": "access",
+     "label": "Access / conditions",
+     "type": "chips",
+     "options": [
+      "Easy",
+      "Awkward",
+      "Occupied home",
+      "Site / commercial"
+     ],
+     "default": "Easy"
+    }
+   ],
+   "prompt": "Estimate the job: {job} for {client}, access {access}, using the profile rate and markup. Table (Item | Qty | Unit | Unit price | Line total) split into Labour and Materials, kv (subtotal, contingency, tax note, total, validity in days), a quote with the clean quote text to send including exclusions and assumptions, and a callout on risks to price in or exclude.",
+   "shape": "table, kv, quote, callout",
+   "button": "Build quote",
+   "loading": "Pricing the job…"
+  },
+  {
+   "id": "photo",
+   "title": "Estimate from a photo",
+   "subtitle": "Snap the job, get a range",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the job",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "ask",
+     "label": "What the customer wants",
+     "type": "text",
+     "placeholder": "fix the leak and retile this corner"
+    }
+   ],
+   "prompt": "From the photo and the request '{ask}', identify the work needed as bullets, then a table (Task | Hours | Materials | Est. cost) using the profile rate, a callout on what cannot be judged from a photo and needs a site visit, and a quote with a short message to the customer giving a price range.",
+   "shape": "bullets, table, callout, quote",
+   "button": "Estimate",
+   "loading": "Eyeing the job…"
+  },
+  {
+   "id": "variation",
+   "title": "Price a variation",
+   "subtitle": "They changed their mind mid-job",
+   "emoji": "🔧",
+   "inputs": [
+    {
+     "key": "original",
+     "label": "Original job",
+     "type": "text",
+     "placeholder": "bathroom refit, quoted 4,800",
+     "required": true
+    },
+    {
+     "key": "change",
+     "label": "What changed",
+     "type": "longtext",
+     "placeholder": "they now want underfloor heating and a second shower head",
+     "required": true
+    }
+   ],
+   "prompt": "Price the variation to '{original}': {change}. Table (Extra | Labour | Materials | Total), kv (new contract total, extra days, when the extra payment is due), a quote with a variation-order note for the customer to sign off, and a callout on why not to start the extra work until it is agreed.",
+   "shape": "table, kv, quote, callout",
+   "button": "Price change",
+   "loading": "Adding it up…"
+  },
+  {
+   "id": "terms",
+   "title": "Deposits & terms",
+   "subtitle": "Stage payments and plain-English T&Cs",
+   "emoji": "🤝",
+   "inputs": [
+    {
+     "key": "total",
+     "label": "Job total",
+     "type": "number",
+     "placeholder": "4800"
+    },
+    {
+     "key": "days",
+     "label": "Job length (days)",
+     "type": "number",
+     "placeholder": "6"
+    },
+    {
+     "key": "type",
+     "label": "Customer",
+     "type": "chips",
+     "options": [
+      "Homeowner",
+      "Landlord",
+      "Business",
+      "Main contractor"
+     ],
+     "default": "Homeowner"
+    }
+   ],
+   "prompt": "Set payment terms for a {total} job over {days} days for a {type}: kv (deposit %, stage payments with their triggers, final payment due, late-payment note), a quote with plain-English terms and conditions under 200 words, a checklist of things to get in writing before starting, and a callout on materials-upfront and cancellation basics.",
+   "shape": "kv, quote, checklist, callout",
+   "button": "Set terms",
+   "loading": "Drafting terms…"
+  },
+  {
+   "id": "followup",
+   "title": "Chase a quote",
+   "subtitle": "Turn a sent quote into a booked job",
+   "emoji": "📲",
+   "inputs": [
+    {
+     "key": "job",
+     "label": "Job quoted",
+     "type": "text",
+     "placeholder": "boiler swap, quoted 2 weeks ago",
+     "required": true
+    },
+    {
+     "key": "stage",
+     "label": "Situation",
+     "type": "chips",
+     "options": [
+      "No reply yet",
+      "Said it's too expensive",
+      "Comparing quotes",
+      "Went quiet after yes"
+     ],
+     "default": "No reply yet"
+    }
+   ],
+   "prompt": "Follow up the quote for '{job}', situation: {stage}. A quote with a 60-word text message and a second version as a short email, bullets on what to offer to close (timing, scope trim, payment options, not price cuts), and a callout on when to walk away.",
+   "shape": "quote, bullets, callout",
+   "button": "Write follow-up",
+   "loading": "Nudging…"
+  }
+ ],
+ "disclaimer": "Estimates are guidance, not a substitute for a site survey; contract and consumer-notice rules vary by region."
+}

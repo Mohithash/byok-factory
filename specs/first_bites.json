@@ -1,0 +1,197 @@
+{
+ "id": "first_bites",
+ "name": "First Bites",
+ "tagline": "Solids made simple, from first spoon to family plate",
+ "category": "Parenting",
+ "colors": [
+  "#EF6C00",
+  "#558B2F",
+  "#6A1B9A"
+ ],
+ "icon": "leaf",
+ "about": "First Bites plans the first weeks of solids, schedules allergen introductions, turns tonight's dinner into a baby-safe version from a photo, and progresses textures as your baby grows.",
+ "persona": "You are a paediatric dietitian who is relaxed about mess and precise about safety: evidence-based on allergens and choking, neutral between baby-led weaning and purées.",
+ "onboarding": {
+  "title": "Ready for the first spoon?",
+  "subtitle": "Tell us about your baby and how you'd like to start.",
+  "bullets": [
+   "A 2-week starter plan",
+   "Allergen ladder",
+   "Your dinner, baby-sized"
+  ]
+ },
+ "profile": [
+  {
+   "key": "baby",
+   "label": "Baby's name & age",
+   "type": "text",
+   "placeholder": "Mia, 6 months",
+   "required": true
+  },
+  {
+   "key": "approach",
+   "label": "Approach",
+   "type": "chips",
+   "options": [
+    "Baby-led weaning",
+    "Purées first",
+    "Mixed"
+   ]
+  },
+  {
+   "key": "family_allergy",
+   "label": "Allergies in the family",
+   "type": "chips",
+   "options": [
+    "None",
+    "Egg",
+    "Peanut",
+    "Dairy",
+    "Tree nuts",
+    "Other"
+   ],
+   "multi": true
+  },
+  {
+   "key": "skin",
+   "label": "Eczema or reflux?",
+   "type": "text",
+   "placeholder": "mild eczema"
+  }
+ ],
+ "tools": [
+  {
+   "id": "start",
+   "title": "2-week starter plan",
+   "subtitle": "First foods, day by day",
+   "emoji": "🥄",
+   "inputs": [
+    {
+     "key": "slot",
+     "label": "Meal slot",
+     "type": "chips",
+     "options": [
+      "Morning",
+      "Lunch",
+      "Both"
+     ],
+     "default": "Lunch"
+    },
+    {
+     "key": "have",
+     "label": "Foods already at home",
+     "type": "text",
+     "placeholder": "sweet potato, avocado, oats"
+    }
+   ],
+   "prompt": "Build a 14-day starter plan for the profile at the {slot} slot using foods like {have}. A table (Day | Food | Preparation for the profile's approach | Watch for), steps for the first-ever meal (timing after milk, seating, offering, ending), bullets on iron-rich foods to prioritise, and a callout on what a normal gag looks like versus choking.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Plan it",
+   "loading": "Steaming veg…"
+  },
+  {
+   "id": "allergens",
+   "title": "Allergen ladder",
+   "subtitle": "Introduce the top allergens safely",
+   "emoji": "🥜",
+   "inputs": [
+    {
+     "key": "done",
+     "label": "Already introduced",
+     "type": "chips",
+     "options": [
+      "Egg",
+      "Peanut",
+      "Dairy",
+      "Wheat",
+      "Soy",
+      "Fish",
+      "Sesame",
+      "Tree nuts",
+      "None yet"
+     ],
+     "default": "None yet",
+     "multi": true
+    },
+    {
+     "key": "notes",
+     "label": "Notes",
+     "type": "text",
+     "placeholder": "doctor said introduce peanut early"
+    }
+   ],
+   "prompt": "Plan allergen introduction for the profile; already introduced: {done}; notes: {notes}. A table (Week | Allergen | Form & amount | Time of day | Keep giving how often), steps for the first exposure of each (morning, tiny amount, wait, watch for 2 hours), a checklist of what to have ready, and a callout on mild versus severe reaction signs and when to call emergency services.",
+   "shape": "table, steps, checklist, callout",
+   "button": "Build ladder",
+   "loading": "Climbing…"
+  },
+  {
+   "id": "plate",
+   "title": "Baby-size our dinner",
+   "subtitle": "Photo of your plate → baby version",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of tonight's dinner",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "From the dinner in the photo, make a baby-safe version for the profile: a table (Component | Baby-safe? | How to adapt | Cut / serve as), steps to prepare it in under 10 extra minutes, a callout on salt, honey, whole nuts and choking shapes, and bullets on what the adult plate can keep unchanged.",
+   "shape": "table, steps, callout, bullets",
+   "button": "Adapt it",
+   "loading": "Chopping smaller…"
+  },
+  {
+   "id": "texture",
+   "title": "Texture progression",
+   "subtitle": "From smooth to lumps to finger foods",
+   "emoji": "🧩",
+   "inputs": [
+    {
+     "key": "current",
+     "label": "Currently eating",
+     "type": "chips",
+     "options": [
+      "Smooth purées",
+      "Mashed with lumps",
+      "Soft finger foods",
+      "Family foods"
+     ],
+     "default": "Smooth purées"
+    },
+    {
+     "key": "issue",
+     "label": "Any issue",
+     "type": "text",
+     "placeholder": "gags on lumps and refuses"
+    }
+   ],
+   "prompt": "Move the profile on from '{current}' with issue: {issue}. Steps for the next 3 weeks of texture changes with a specific food for each, a table (Texture | Example foods | How to cut | Age guide), bullets on handling gagging without panicking, and a callout on signs worth raising with a health visitor or speech-and-language therapist.",
+   "shape": "steps, table, bullets, callout",
+   "button": "Progress",
+   "loading": "Adding lumps…"
+  },
+  {
+   "id": "refuse",
+   "title": "Won't eat solids",
+   "subtitle": "Turns head, throws food, wants milk",
+   "emoji": "🙈",
+   "inputs": [
+    {
+     "key": "what",
+     "label": "What's happening",
+     "type": "text",
+     "placeholder": "eats 2 spoons then cries, loves milk",
+     "required": true
+    }
+   ],
+   "prompt": "For: {what} — text on what is normal at the profile's age, a table (Possible reason | Sign | Adjust), bullets of low-pressure tactics (timing, self-feeding, modelling, texture), and a callout on when refusal plus weight or dehydration signs needs a clinician.",
+   "shape": "text, table, bullets, callout",
+   "button": "Help",
+   "loading": "Unwrapping the bib…"
+  }
+ ],
+ "disclaimer": "General parenting information, not medical advice. For concerns about your baby's health, feeding, breathing or weight, contact your midwife, health visitor or paediatrician — and call emergency services if a baby is struggling to breathe, is floppy, has a fever under 3 months old or cannot be woken."
+}

@@ -1,0 +1,224 @@
+{
+ "id": "homebrew_beer",
+ "name": "Brew Day",
+ "tagline": "Design, brew and troubleshoot beer at home",
+ "category": "Food & Drink",
+ "colors": [
+  "#E65100",
+  "#3E2723",
+  "#FDD835"
+ ],
+ "icon": "flame",
+ "about": "Brew Day designs beer recipes for your kit and batch size, writes a brew-day timeline with clock times, calculates priming sugar and ABV, and diagnoses stuck ferments and off-flavours.",
+ "persona": "You are a seasoned homebrew-club mentor: precise with grams, litres and gravities, obsessed with sanitation, and honest about which mistakes matter and which don't.",
+ "onboarding": {
+  "title": "Your next batch, planned properly",
+  "subtitle": "Tell us your kit and batch size so the numbers come out right.",
+  "bullets": [
+   "Recipes scaled to your kit",
+   "Brew-day timelines and checklists",
+   "Fixes for stuck ferments and off-flavours"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "method",
+   "label": "Method",
+   "type": "chips",
+   "options": [
+    "Extract",
+    "BIAB",
+    "All-grain"
+   ]
+  },
+  {
+   "key": "batch",
+   "label": "Batch size (L)",
+   "type": "number",
+   "placeholder": "20"
+  },
+  {
+   "key": "temp",
+   "label": "Fermentation control",
+   "type": "chips",
+   "options": [
+    "Room temp",
+    "Fridge + controller",
+    "Cool cupboard"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "recipe",
+   "title": "Design a recipe",
+   "subtitle": "Style + target ABV → grain, hops, yeast",
+   "emoji": "🍺",
+   "inputs": [
+    {
+     "key": "style",
+     "label": "Style",
+     "type": "chips",
+     "options": [
+      "Pale ale",
+      "IPA",
+      "Stout",
+      "Wheat",
+      "Lager",
+      "Saison",
+      "Bitter",
+      "Belgian"
+     ],
+     "default": "Pale ale"
+    },
+    {
+     "key": "abv",
+     "label": "Target ABV %",
+     "type": "number",
+     "placeholder": "5.5"
+    },
+    {
+     "key": "notes",
+     "label": "Twists or constraints",
+     "type": "text",
+     "placeholder": "only Citra and Mosaic, no crystal malt"
+    }
+   ],
+   "prompt": "Design a {style} at {abv}% ABV for the profile's method and batch size, honouring: {notes}. Sections: kv (OG, FG, IBU, SRM, assumed efficiency, yeast strain), a table of the grain bill and hop schedule (Ingredient | Amount g | When | Purpose), steps for mash, boil and fermentation with temperatures and times, and a callout on the one thing most likely to go wrong with this style.",
+   "shape": "kv, table, steps, callout",
+   "button": "Design recipe",
+   "loading": "Milling…"
+  },
+  {
+   "id": "brewday",
+   "title": "Brew-day timeline",
+   "subtitle": "Clock times from heat-up to pitch",
+   "emoji": "⏱️",
+   "inputs": [
+    {
+     "key": "start",
+     "label": "Start time",
+     "type": "text",
+     "placeholder": "09:00",
+     "required": true
+    },
+    {
+     "key": "recipe",
+     "label": "Recipe summary",
+     "type": "text",
+     "placeholder": "20 L pale ale, 60-min mash, 60-min boil"
+    }
+   ],
+   "prompt": "Write a brew-day timeline starting at {start} for: {recipe}, using the profile's method. Steps with clock times (heat strike water, mash in, mash out, sparge, boil start, each hop addition, chill, pitch), a checklist of equipment to sanitise before each stage, and a callout on the two moments where sanitation matters most.",
+   "shape": "steps, checklist, callout",
+   "button": "Plan the day",
+   "loading": "Heating water…"
+  },
+  {
+   "id": "ferment",
+   "title": "Fermentation check",
+   "subtitle": "Is it stuck? Is it done?",
+   "emoji": "🌡️",
+   "inputs": [
+    {
+     "key": "gravities",
+     "label": "OG → current gravity",
+     "type": "text",
+     "placeholder": "1.052 → 1.020",
+     "required": true
+    },
+    {
+     "key": "days",
+     "label": "Days since pitch",
+     "type": "number",
+     "placeholder": "7"
+    },
+    {
+     "key": "yeast",
+     "label": "Yeast + temperature",
+     "type": "text",
+     "placeholder": "US-05 at 18°C"
+    }
+   ],
+   "prompt": "Gravity readings {gravities} after {days} days on {yeast}. Give kv (expected FG, ABV so far, attenuation %, verdict: fermenting / stuck / done), text explaining the verdict, steps to rouse or restart if it is stuck ordered from least to most intervention, and a callout on when it is safe to bottle.",
+   "shape": "kv, text, steps, callout",
+   "button": "Check it",
+   "loading": "Reading gravity…"
+  },
+  {
+   "id": "offflavour",
+   "title": "Fix an off-flavour",
+   "subtitle": "Taste → cause → fix",
+   "emoji": "👃",
+   "inputs": [
+    {
+     "key": "taste",
+     "label": "It tastes like",
+     "type": "chips",
+     "options": [
+      "Green apple",
+      "Butter",
+      "Band-aid / medicinal",
+      "Rotten egg",
+      "Cardboard",
+      "Sour",
+      "Solvent / hot alcohol",
+      "Banana + clove (unwanted)"
+     ],
+     "default": "Green apple"
+    },
+    {
+     "key": "process",
+     "label": "What you did",
+     "type": "text",
+     "placeholder": "fermented at 24°C, bottled day 10"
+    }
+   ],
+   "prompt": "The beer tastes of {taste}; process: {process}. Table (Compound | Likely cause | Fix next batch | Will it fade?), steps to salvage this batch if possible, and bullets on the process changes to make first given the profile's temperature control.",
+   "shape": "table, steps, bullets",
+   "button": "Diagnose",
+   "loading": "Sniffing the glass…"
+  },
+  {
+   "id": "bottle",
+   "title": "Bottling calculator",
+   "subtitle": "Priming sugar + carbonation",
+   "emoji": "🧴",
+   "inputs": [
+    {
+     "key": "volume",
+     "label": "Volume to bottle (L)",
+     "type": "number",
+     "placeholder": "19"
+    },
+    {
+     "key": "carb",
+     "label": "Carbonation",
+     "type": "chips",
+     "options": [
+      "Low (British)",
+      "Medium (ale)",
+      "High (wheat / Belgian)"
+     ],
+     "default": "Medium (ale)"
+    },
+    {
+     "key": "temp",
+     "label": "Beer temp at bottling (°C)",
+     "type": "number",
+     "placeholder": "20"
+    }
+   ],
+   "prompt": "Calculate priming for {volume} L at {carb} carbonation with the beer at {temp}°C. kv (target CO2 volumes, table sugar g, dextrose g, honey g, 500 ml bottles needed), steps for making and mixing the priming solution evenly, a checklist for bottling day, and a callout on bottle-bomb warning signs.",
+   "shape": "kv, steps, checklist, callout",
+   "button": "Calculate",
+   "loading": "Counting bottles…"
+  }
+ ],
+ "disclaimer": "Homebrewing laws vary by country; check yours. Sanitise everything, never bottle before fermentation has finished (bottle bombs), and keep boiling wort and CO2 away from children and pets."
+}

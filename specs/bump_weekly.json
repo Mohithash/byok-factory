@@ -1,0 +1,188 @@
+{
+ "id": "bump_weekly",
+ "name": "Bump Weekly",
+ "tagline": "Your pregnancy, one week at a time",
+ "category": "Medical",
+ "colors": [
+  "#8E24AA",
+  "#26A69A",
+  "#FFB300"
+ ],
+ "icon": "calendar",
+ "about": "Bump Weekly explains what's happening to you and the baby each week, checks whether a symptom is normal or needs a call, answers 'is this safe?' questions and preps you for every appointment.",
+ "persona": "You are a calm, evidence-based midwife: reassuring but honest, clear about red flags, and never judgemental about food, work or worries.",
+ "onboarding": {
+  "title": "Congratulations — let's get organised",
+  "subtitle": "Your due date and history shape every answer.",
+  "bullets": [
+   "Week-by-week body & baby guide",
+   "Normal-or-call symptom checker",
+   "Appointment question lists"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "due",
+   "label": "Due date",
+   "type": "text",
+   "placeholder": "14 March"
+  },
+  {
+   "key": "pregnancy",
+   "label": "This pregnancy",
+   "type": "chips",
+   "options": [
+    "First",
+    "Second+",
+    "Twins/multiples",
+    "IVF"
+   ]
+  },
+  {
+   "key": "history",
+   "label": "Conditions / history",
+   "type": "text",
+   "placeholder": "asthma, previous C-section"
+  }
+ ],
+ "tools": [
+  {
+   "id": "week",
+   "title": "This week",
+   "subtitle": "Body, baby, to-dos",
+   "emoji": "🗓️",
+   "inputs": [
+    {
+     "key": "today",
+     "label": "Today's date",
+     "type": "text",
+     "placeholder": "19 September",
+     "required": true
+    }
+   ],
+   "prompt": "Work out the current week from the profile's due date and today's date {today}. Sections: kv (week, trimester, baby size comparison, key development this week), text on what the user's body is doing this week and the common symptoms, a checklist of to-dos this week (appointments, tests, decisions, paperwork), and a callout on symptoms that should be reported to a midwife at this stage.",
+   "shape": "kv, text, checklist, callout",
+   "button": "Show my week",
+   "loading": "Counting weeks…"
+  },
+  {
+   "id": "safe",
+   "title": "Is this safe?",
+   "subtitle": "Food, meds, activities, beauty",
+   "emoji": "✅",
+   "inputs": [
+    {
+     "key": "thing",
+     "label": "What are you asking about",
+     "type": "text",
+     "placeholder": "sushi, hair dye, ibuprofen, hot yoga",
+     "required": true
+    },
+    {
+     "key": "photo",
+     "label": "Photo of the label or menu (optional)",
+     "type": "photo"
+    }
+   ],
+   "prompt": "Assess {thing} in pregnancy (use the photo of the label or menu if provided) for the profile's stage and history. Sections: a callout with the verdict (Generally fine / Fine with limits / Avoid / Ask your clinician) and a one-line reason, bullets on safer alternatives or how to make it safer, and a kv of the specific limits (amount, frequency, trimester notes). Say clearly when to check with a pharmacist or midwife.",
+   "shape": "callout, bullets, kv",
+   "button": "Check it",
+   "loading": "Checking…"
+  },
+  {
+   "id": "symptom",
+   "title": "Normal or call?",
+   "subtitle": "Aches, spotting, headaches, swelling",
+   "emoji": "🩺",
+   "inputs": [
+    {
+     "key": "symptom",
+     "label": "What's going on",
+     "type": "longtext",
+     "placeholder": "mild cramping since this morning, no bleeding",
+     "required": true
+    },
+    {
+     "key": "urgency",
+     "label": "How bad",
+     "type": "chips",
+     "options": [
+      "Mild",
+      "Moderate",
+      "Severe"
+     ],
+     "default": "Mild"
+    }
+   ],
+   "prompt": "The user reports: {symptom} (severity: {urgency}) at the profile's stage. Sections: a callout with a triage level (Self-care & monitor / Call the midwife today / Go in now), text explaining the likely benign causes at this stage, bullets on self-care that helps, and a checklist of red flags that would change the level. Never diagnose; be clear that reduced movements, bleeding, severe headache, vision changes or sudden swelling always mean call.",
+   "shape": "callout, text, bullets, checklist",
+   "button": "Check symptom",
+   "loading": "Reviewing…"
+  },
+  {
+   "id": "appt",
+   "title": "Appointment prep",
+   "subtitle": "Questions for your midwife or OB",
+   "emoji": "📋",
+   "inputs": [
+    {
+     "key": "type",
+     "label": "Appointment",
+     "type": "chips",
+     "options": [
+      "Booking / first visit",
+      "Scan",
+      "Routine check",
+      "Glucose test",
+      "Birth planning",
+      "Specialist"
+     ],
+     "default": "Routine check"
+    },
+    {
+     "key": "worries",
+     "label": "On your mind",
+     "type": "text",
+     "placeholder": "worried about weight gain, want to ask about VBAC"
+    }
+   ],
+   "prompt": "Prepare the user for a {type} appointment with concerns: {worries}. Sections: bullets of 8 prioritised questions to ask, a kv of what typically happens at this visit (tests, measurements, decisions), a checklist of what to bring and log beforehand (BP readings, symptoms, medications), and a quote with a one-sentence opener for raising the biggest worry.",
+   "shape": "bullets, kv, checklist, quote",
+   "button": "Prep me",
+   "loading": "Writing questions…"
+  },
+  {
+   "id": "relief",
+   "title": "Symptom relief",
+   "subtitle": "Nausea, heartburn, back pain, insomnia",
+   "emoji": "🌿",
+   "inputs": [
+    {
+     "key": "issue",
+     "label": "Bothering you",
+     "type": "chips",
+     "options": [
+      "Nausea",
+      "Heartburn",
+      "Back / pelvic pain",
+      "Insomnia",
+      "Constipation",
+      "Leg cramps",
+      "Fatigue"
+     ],
+     "default": "Nausea"
+    }
+   ],
+   "prompt": "Build a relief plan for {issue} at the profile's stage. Sections: steps to try today in order (cheapest and safest first), a table (Remedy | How | Evidence | Watch-outs) of 5 options including which over-the-counter options are usually considered pregnancy-compatible and must be confirmed with a pharmacist, and a callout on when the symptom needs a clinician.",
+   "shape": "steps, table, callout",
+   "button": "Help me",
+   "loading": "Finding relief…"
+  }
+ ],
+ "disclaimer": "General pregnancy information, not medical advice. Always follow your midwife or doctor. Seek urgent care for bleeding, severe pain, severe headache or vision changes, fever, fluid loss or reduced baby movements."
+}

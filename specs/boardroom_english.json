@@ -1,0 +1,200 @@
+{
+ "id": "boardroom_english",
+ "name": "Boardroom English",
+ "tagline": "Sound fluent and professional in every meeting",
+ "category": "Education",
+ "colors": [
+  "#1A237E",
+  "#C9A227",
+  "#546E7A"
+ ],
+ "icon": "bag",
+ "about": "Boardroom English helps non-native professionals rewrite blunt or translated sentences, master meeting language, decode idioms and hedging, and rehearse presentations.",
+ "persona": "You are a business-English coach for international professionals: precise about register and tone, never condescending, always giving the natural phrase a native colleague would use.",
+ "onboarding": {
+  "title": "English that sounds like you belong",
+  "subtitle": "Tell us your first language and industry so the fixes target your real habits.",
+  "bullets": [
+   "Rewrite sentences in the right register",
+   "Meeting and negotiation phrases",
+   "Decode idioms and polite hedging"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "native",
+   "label": "First language",
+   "type": "text",
+   "placeholder": "Portuguese"
+  },
+  {
+   "key": "industry",
+   "label": "Industry & role",
+   "type": "text",
+   "placeholder": "fintech, product manager"
+  },
+  {
+   "key": "variant",
+   "label": "English you work in",
+   "type": "chips",
+   "options": [
+    "US",
+    "UK",
+    "International"
+   ],
+   "default": "International"
+  }
+ ],
+ "tools": [
+  {
+   "id": "rewrite",
+   "title": "Say it professionally",
+   "subtitle": "Blunt or translated → natural",
+   "emoji": "✍️",
+   "inputs": [
+    {
+     "key": "sentence",
+     "label": "What you want to say",
+     "type": "longtext",
+     "placeholder": "I don't agree with this plan, it will not work",
+     "required": true
+    },
+    {
+     "key": "to",
+     "label": "To whom",
+     "type": "chips",
+     "options": [
+      "Boss",
+      "Peer",
+      "Client",
+      "Report",
+      "Whole team"
+     ],
+     "default": "Peer"
+    }
+   ],
+   "prompt": "Rewrite '{sentence}' for a {to} in the profile's English variant. Sections: cards with 3 versions (Direct, Diplomatic, Very formal; meta = when to use it), a table (Your phrasing | Why it may sound off | Natural alternative), and a callout on the single tone rule to remember for this relationship.",
+   "shape": "cards, table, callout",
+   "button": "Rewrite",
+   "loading": "Polishing…"
+  },
+  {
+   "id": "meeting",
+   "title": "Meeting phrasebook",
+   "subtitle": "Interrupt, disagree, push back politely",
+   "emoji": "🗓️",
+   "inputs": [
+    {
+     "key": "type",
+     "label": "Meeting",
+     "type": "chips",
+     "options": [
+      "Status update",
+      "Brainstorm",
+      "Negotiation",
+      "Performance review",
+      "Client pitch",
+      "1:1 with boss"
+     ],
+     "default": "Status update"
+    },
+    {
+     "key": "goal",
+     "label": "Your goal",
+     "type": "text",
+     "placeholder": "get the deadline moved by two weeks"
+    }
+   ],
+   "prompt": "Prepare phrases for a {type} where my goal is: {goal}. Sections: a table (Moment | Phrase | Softer version) covering opening, interrupting, disagreeing, asking for clarification, pushing back and closing; a quote with a 3-sentence opening statement of my goal; and a checklist of things to do before the meeting (pre-read, numbers, an ally).",
+   "shape": "table, quote, checklist",
+   "button": "Prepare me",
+   "loading": "Prepping…"
+  },
+  {
+   "id": "decode",
+   "title": "What did they mean?",
+   "subtitle": "Idioms, hedging, corporate-speak",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "said",
+     "label": "What they said or wrote",
+     "type": "longtext",
+     "placeholder": "Let's take this offline, I'm not sure we're aligned on the ask",
+     "required": true
+    },
+    {
+     "key": "context",
+     "label": "Context",
+     "type": "text",
+     "placeholder": "Slack from my manager after a demo"
+    }
+   ],
+   "prompt": "Decode '{said}' (context: {context}). Sections: text with the plain-English meaning and how serious or urgent it really is, kv (Literal meaning, Real meaning, Emotion behind it, Action expected of you), and a quote with a good reply that matches their register.",
+   "shape": "text, kv, quote",
+   "button": "Decode",
+   "loading": "Translating…"
+  },
+  {
+   "id": "present",
+   "title": "Presentation rehearsal",
+   "subtitle": "Script, signposts, likely questions",
+   "emoji": "🎤",
+   "inputs": [
+    {
+     "key": "topic",
+     "label": "What you're presenting",
+     "type": "longtext",
+     "placeholder": "Q3 roadmap to leadership: 3 priorities, need headcount",
+     "required": true
+    },
+    {
+     "key": "minutes",
+     "label": "Minutes",
+     "type": "number",
+     "placeholder": "10"
+    }
+   ],
+   "prompt": "Build a {minutes}-minute presentation script for: {topic}. Sections: steps (one per segment with timing, signpost phrase and key sentence), bullets of 6 words in this script that speakers of the profile's first language typically mispronounce or stress wrongly, with tips, and a table of 5 likely tough questions (Question | Buying-time phrase | Answer outline).",
+   "shape": "steps, bullets, table",
+   "button": "Rehearse",
+   "loading": "Setting the stage…"
+  },
+  {
+   "id": "smalltalk",
+   "title": "Small talk & networking",
+   "subtitle": "Before the meeting starts",
+   "emoji": "☕",
+   "inputs": [
+    {
+     "key": "setting",
+     "label": "Setting",
+     "type": "chips",
+     "options": [
+      "Before a call starts",
+      "Conference",
+      "Team lunch",
+      "Client dinner",
+      "Elevator"
+     ],
+     "default": "Before a call starts"
+    },
+    {
+     "key": "who",
+     "label": "Who with",
+     "type": "text",
+     "placeholder": "American VP I've met once"
+    }
+   ],
+   "prompt": "Coach small talk for {setting} with {who}. Sections: bullets of 6 safe openers and 4 follow-up questions for this setting, a table (Topic | Safe in US | Safe in UK | Avoid) for the profile's variant, a quote with a graceful exit line, and a callout on the one small-talk habit from the profile's first language that can land badly in English.",
+   "shape": "bullets, table, quote, callout",
+   "button": "Coach me",
+   "loading": "Warming up…"
+  }
+ ]
+}

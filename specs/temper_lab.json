@@ -1,0 +1,230 @@
+{
+ "id": "temper_lab",
+ "name": "Temper Lab",
+ "tagline": "Glossy, snappy chocolate every time",
+ "category": "Food & Drink",
+ "colors": [
+  "#3E2723",
+  "#C9A227",
+  "#E64A19"
+ ],
+ "icon": "flame",
+ "about": "Temper Lab walks you through tempering by seed, tabling or microwave with exact temperatures per chocolate, formulates ganache and bonbon fillings, and diagnoses bloom and streaks from a photo.",
+ "persona": "You are a chocolatier and confectionery teacher: exact about temperatures, water content and shelf life, calm about failures because chocolate can always be remelted.",
+ "onboarding": {
+  "title": "Chocolate, under control",
+  "subtitle": "Tell us what you work with so temperatures and quantities match.",
+  "bullets": [
+   "Tempering curves for your chocolate",
+   "Ganache & bonbon formulas",
+   "Bloom and streak diagnosis"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "chocolate",
+   "label": "Usual chocolate",
+   "type": "chips",
+   "options": [
+    "Dark 70%",
+    "Dark 55%",
+    "Milk",
+    "White",
+    "Ruby",
+    "Compound"
+   ],
+   "default": "Dark 70%"
+  },
+  {
+   "key": "method",
+   "label": "Preferred method",
+   "type": "chips",
+   "options": [
+    "Seeding",
+    "Tabling",
+    "Microwave",
+    "Tempering machine"
+   ],
+   "default": "Seeding"
+  },
+  {
+   "key": "kit",
+   "label": "Kit you have",
+   "type": "text",
+   "placeholder": "thermometer, polycarbonate moulds, heat gun"
+  }
+ ],
+ "tools": [
+  {
+   "id": "temper",
+   "title": "Temper it",
+   "subtitle": "Step-by-step with temperatures",
+   "emoji": "🌡️",
+   "inputs": [
+    {
+     "key": "grams",
+     "label": "Grams to temper",
+     "type": "number",
+     "placeholder": "400"
+    },
+    {
+     "key": "type",
+     "label": "Chocolate",
+     "type": "chips",
+     "options": [
+      "Dark",
+      "Milk",
+      "White",
+      "Ruby"
+     ],
+     "default": "Dark"
+    },
+    {
+     "key": "room",
+     "label": "Room temperature / humidity",
+     "type": "text",
+     "placeholder": "24°C, humid kitchen"
+    }
+   ],
+   "prompt": "Guide tempering {grams} g of {type} chocolate using the profile method in a room at {room}. Kv (melt temp, cool-to temp, working temp, seed percentage if seeding), numbered steps with timing and the test-strip check, a table (Symptom | Meaning | Fix) for streaks, dull finish and thick chocolate, and a callout on keeping the batch in temper while working.",
+   "shape": "kv, steps, table, callout",
+   "button": "Temper",
+   "loading": "Warming up…"
+  },
+  {
+   "id": "ganache",
+   "title": "Ganache formulator",
+   "subtitle": "Ratios for any use",
+   "emoji": "🍫",
+   "inputs": [
+    {
+     "key": "use",
+     "label": "For",
+     "type": "chips",
+     "options": [
+      "Bonbon filling",
+      "Truffles",
+      "Drip",
+      "Glaze",
+      "Whipped",
+      "Tart filling"
+     ],
+     "default": "Bonbon filling"
+    },
+    {
+     "key": "total",
+     "label": "Total grams needed",
+     "type": "number",
+     "placeholder": "300"
+    },
+    {
+     "key": "flavour",
+     "label": "Flavour infusion",
+     "type": "text",
+     "placeholder": "earl grey, passion fruit purée"
+    }
+   ],
+   "prompt": "Formulate a ganache for {use}, {total} g total, flavoured with {flavour}, using the profile chocolate. Table (Ingredient | Grams | Percent) with cream, chocolate, sugar, butter and any purée adjusted for water content, steps for emulsifying at the right temperatures, a kv (set time, shelf life, storage temp, water activity note), and a callout on how the flavouring changes the ratio.",
+   "shape": "table, steps, kv, callout",
+   "button": "Formulate",
+   "loading": "Emulsifying…"
+  },
+  {
+   "id": "bonbons",
+   "title": "Bonbon session",
+   "subtitle": "Plan a mould from shell to seal",
+   "emoji": "🧊",
+   "inputs": [
+    {
+     "key": "cavities",
+     "label": "Cavities to fill",
+     "type": "number",
+     "placeholder": "42"
+    },
+    {
+     "key": "fillings",
+     "label": "Fillings planned",
+     "type": "text",
+     "placeholder": "salted caramel, raspberry ganache"
+    },
+    {
+     "key": "finish",
+     "label": "Shell finish",
+     "type": "chips",
+     "options": [
+      "Plain",
+      "Cocoa butter splatter",
+      "Airbrushed",
+      "Gold dust"
+     ],
+     "default": "Plain"
+    }
+   ],
+   "prompt": "Plan a bonbon session for {cavities} cavities with fillings {fillings} and a {finish} shell finish. Checklist of prep in order (moulds polished, colours warmed, fillings made ahead), steps with timings for shelling, filling to the right height, crystallising and capping, a table (Filling | Grams needed | Pipe temp | Rest time), and a callout on demoulding faults and how to avoid them.",
+   "shape": "checklist, steps, table, callout",
+   "button": "Plan session",
+   "loading": "Polishing moulds…"
+  },
+  {
+   "id": "diagnose",
+   "title": "What went wrong?",
+   "subtitle": "Photo of bloom, streaks or cracks",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the chocolate",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "what",
+     "label": "What you did",
+     "type": "text",
+     "placeholder": "seeded at 45°C, worked at 31°C, fridge 20 min"
+    }
+   ],
+   "prompt": "Diagnose the chocolate in the attached photo given this process: {what}. Text naming the fault (fat bloom, sugar bloom, untempered, thermal shock, mould marks), bullets of the evidence you can see, a table (Cause | Why it happened | Prevent next time), and steps to rescue the batch if it can be remelted.",
+   "shape": "text, bullets, table, steps",
+   "button": "Diagnose",
+   "loading": "Inspecting…"
+  },
+  {
+   "id": "pair",
+   "title": "Flavour pairings",
+   "subtitle": "What goes with this chocolate",
+   "emoji": "🍊",
+   "inputs": [
+    {
+     "key": "base",
+     "label": "Chocolate",
+     "type": "chips",
+     "options": [
+      "Dark 70%+",
+      "Dark 55–65%",
+      "Milk",
+      "White",
+      "Ruby"
+     ],
+     "default": "Dark 70%+"
+    },
+    {
+     "key": "have",
+     "label": "Ingredients on hand",
+     "type": "text",
+     "placeholder": "cardamom, hazelnuts, orange, sea salt"
+    }
+   ],
+   "prompt": "Suggest pairings for {base} using what's on hand: {have}. Cards for 5 combinations (meta = classic or adventurous · bonbon, bar or dessert), a kv of dosage guidance per ingredient (percent of ganache or grams per 100 g), and bullets on pairings to avoid and why.",
+   "shape": "cards, kv, bullets",
+   "button": "Pair it",
+   "loading": "Tasting…"
+  }
+ ],
+ "disclaimer": "Shelf-life, storage and temperature guidance is general; when in doubt refrigerate sooner, discard anything doubtful, and follow local food-safety advice."
+}

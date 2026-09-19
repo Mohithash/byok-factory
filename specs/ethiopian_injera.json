@@ -1,0 +1,237 @@
+{
+ "id": "ethiopian_injera",
+ "name": "Injera House",
+ "tagline": "Ethiopian and Eritrean cooking, from teff to coffee",
+ "category": "Food & Drink",
+ "colors": [
+  "#3E2723",
+  "#F9A825",
+  "#C62828"
+ ],
+ "icon": "cup",
+ "about": "Injera House guides Ethiopian and Eritrean home cooking: injera batter fermented right, wots and tibs by the pot, berbere and niter kibbeh made at home, beyaynetu platters for fasting or feasts, and the coffee ceremony step by step.",
+ "persona": "You are an Ethiopian-Eritrean home cook and host who cooks with berbere, niter kibbeh and patience, respects Orthodox fasting (vegan) traditions, keeps fermentation safe and adapts to teff availability abroad.",
+ "onboarding": {
+  "title": "Bring the mesob to your table",
+  "subtitle": "Tell us your diet and what you can find; recipes adapt.",
+  "bullets": [
+   "Injera with a day-by-day plan",
+   "Wots, tibs and spice blends",
+   "Platters and coffee ceremony"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "diet",
+   "label": "Diet",
+   "type": "chips",
+   "options": [
+    "Fasting / vegan",
+    "Vegetarian",
+    "Anything",
+    "Halal"
+   ],
+   "default": "Anything"
+  },
+  {
+   "key": "heat",
+   "label": "Heat",
+   "type": "chips",
+   "options": [
+    "Mild",
+    "Medium",
+    "Berbere-hot"
+   ],
+   "default": "Medium"
+  },
+  {
+   "key": "access",
+   "label": "Ingredient access",
+   "type": "chips",
+   "options": [
+    "Ethiopian / Eritrean shop nearby",
+    "Health-food store (teff flour)",
+    "Supermarket only",
+    "Online"
+   ],
+   "default": "Supermarket only"
+  }
+ ],
+ "tools": [
+  {
+   "id": "injera",
+   "title": "Injera batter",
+   "subtitle": "Fermentation plan for your kitchen",
+   "emoji": "🫓",
+   "inputs": [
+    {
+     "key": "flour",
+     "label": "Flour",
+     "type": "chips",
+     "options": [
+      "100% teff",
+      "Teff + wheat",
+      "Teff + barley",
+      "Teff + sorghum",
+      "No teff (buckwheat/wheat approximation)"
+     ],
+     "default": "Teff + wheat"
+    },
+    {
+     "key": "temp",
+     "label": "Kitchen temperature",
+     "type": "chips",
+     "options": [
+      "Cool (under 18°C)",
+      "Room (18–24°C)",
+      "Warm (over 24°C)"
+     ],
+     "default": "Room (18–24°C)"
+    },
+    {
+     "key": "days",
+     "label": "Days you have",
+     "type": "number",
+     "placeholder": "3"
+    }
+   ],
+   "prompt": "Plan injera from {flour} in a {temp} kitchen over {days} days. Sections: kv (flour grams, water ml, starter or ersho option, batter thickness cue, pan type and temperature), steps day by day from mixing through fermentation, absit (cooked thickener), resting, pouring in a spiral and covering until the 'eyes' form, a table 'Troubleshooting' (Problem | Cause | Fix) for no eyes, sticking, sour-too-strong and cracking, and a callout on fermentation safety: healthy sour smell and bubbles versus pink, fuzzy or foul batter that must be discarded.",
+   "shape": "kv, steps, table, callout",
+   "button": "Start batter",
+   "loading": "Waiting for bubbles…"
+  },
+  {
+   "id": "wot",
+   "title": "Wot & tibs builder",
+   "subtitle": "Doro, misir, shiro, gomen, tibs",
+   "emoji": "🍲",
+   "inputs": [
+    {
+     "key": "dish",
+     "label": "Dish",
+     "type": "chips",
+     "options": [
+      "Doro wot",
+      "Misir wot",
+      "Shiro wot",
+      "Kik alicha",
+      "Gomen",
+      "Atkilt alicha",
+      "Key sega wot",
+      "Tibs",
+      "Pick for my diet"
+     ],
+     "default": "Pick for my diet"
+    },
+    {
+     "key": "people",
+     "label": "People",
+     "type": "number",
+     "placeholder": "4"
+    }
+   ],
+   "prompt": "Teach {dish} for {people} people at the profile's heat and diet, sourced for the profile's access (if 'Pick for my diet', choose the wot that best fits the profile's diet and say why). Sections: a table 'Ingredients' (Ingredient | Grams | Substitute abroad), steps including the long slow onion cooking without oil, when berbere goes in, and the doneness cue, bullets on what to serve it with and how the flavour improves by day two, and a kv (fridge life, freezes, reheating).",
+   "shape": "table, steps, bullets, kv",
+   "button": "Cook wot",
+   "loading": "Slow-cooking onions…"
+  },
+  {
+   "id": "spice",
+   "title": "Berbere & niter kibbeh",
+   "subtitle": "The spice blends and spiced butter",
+   "emoji": "🌶️",
+   "inputs": [
+    {
+     "key": "blend",
+     "label": "Make",
+     "type": "chips",
+     "options": [
+      "Berbere",
+      "Mitmita",
+      "Niter kibbeh (spiced clarified butter)",
+      "Mekelesha",
+      "Shiro powder",
+      "Vegan niter kibbeh (oil-based)"
+     ],
+     "default": "Berbere"
+    },
+    {
+     "key": "grams",
+     "label": "Batch size (g)",
+     "type": "number",
+     "placeholder": "200"
+    }
+   ],
+   "prompt": "Make {grams} g of {blend} for the profile's heat and access. Sections: a table 'Formula' (Ingredient | Grams | Toast or not | Role), steps for toasting, grinding or clarifying with temperatures and the cue for done, kv (storage, shelf life, freshness test), and bullets of 5 dishes it goes into with amounts.",
+   "shape": "table, steps, kv, bullets",
+   "button": "Make it",
+   "loading": "Toasting spices…"
+  },
+  {
+   "id": "platter",
+   "title": "Beyaynetu platter",
+   "subtitle": "A shared platter for fasting days or feasts",
+   "emoji": "🍽️",
+   "inputs": [
+    {
+     "key": "occasion",
+     "label": "Occasion",
+     "type": "chips",
+     "options": [
+      "Fasting day (vegan)",
+      "Weeknight",
+      "Feast / holiday",
+      "Guests new to the cuisine"
+     ],
+     "default": "Fasting day (vegan)"
+    },
+    {
+     "key": "people",
+     "label": "People",
+     "type": "number",
+     "placeholder": "6"
+    }
+   ],
+   "prompt": "Plan a beyaynetu-style platter for {people} people, occasion: {occasion}, for the profile's diet. Sections: cards for 5–7 components (meta = minutes · make-ahead yes/no), steps for a cook timeline so injera, wots and salads land together, a checklist shopping list grouped by shop for the profile's access, and a callout on how much injera per person and how to arrange the platter for sharing.",
+   "shape": "cards, steps, checklist, callout",
+   "button": "Plan platter",
+   "loading": "Laying the injera…"
+  },
+  {
+   "id": "coffee",
+   "title": "Coffee ceremony",
+   "subtitle": "Buna from green beans, with etiquette",
+   "emoji": "☕",
+   "inputs": [
+    {
+     "key": "gear",
+     "label": "Gear",
+     "type": "chips",
+     "options": [
+      "Jebena + charcoal",
+      "Jebena + hob",
+      "Pan roast + moka pot",
+      "Pan roast + pour-over"
+     ],
+     "default": "Jebena + hob"
+    },
+    {
+     "key": "guests",
+     "label": "Guests",
+     "type": "number",
+     "placeholder": "4"
+    }
+   ],
+   "prompt": "Guide a coffee ceremony for {guests} guests with {gear}. Sections: steps from roasting green beans (colour and smell cues, when to walk the pan around the room) through grinding, brewing and the three rounds (abol, tona, baraka), kv (bean grams per round, water ml, roast minutes, grind size), bullets on etiquette and what to serve alongside (popcorn, dabo, incense), and a quote with a short traditional phrase used when serving.",
+   "shape": "steps, kv, bullets, quote",
+   "button": "Start ceremony",
+   "loading": "Roasting beans…"
+  }
+ ],
+ "disclaimer": "General cooking guidance, not food-safety or dietary advice: follow safe handling, storage and allergen practices, take care with hot oil, open flames, raw or undercooked foods and fermentation, and discard anything that smells or looks wrong."
+}

@@ -1,0 +1,183 @@
+{
+ "id": "vamos_spanish",
+ "name": "Vamos Spanish",
+ "tagline": "Travel Spanish for the country you're actually visiting",
+ "category": "Education",
+ "colors": [
+  "#E64A19",
+  "#FDD835",
+  "#00897B"
+ ],
+ "icon": "plane",
+ "about": "Vamos Spanish teaches the Spanish they actually speak where you're going — Mexico, Spain, Argentina or Colombia — with situation scripts, menu decoding and the replies you'll hear back.",
+ "persona": "You are a well-travelled Spanish tutor who switches naturally between Mexican, Castilian, Rioplatense and Colombian Spanish, always gives the local word first, and marks stress with capitals in pronunciation.",
+ "onboarding": {
+  "title": "Where are you headed?",
+  "subtitle": "Pick your destination and level; every phrase will be tuned to that country.",
+  "bullets": [
+   "Scripts with the replies you'll hear",
+   "Menus and signs decoded from a photo",
+   "Local words, not textbook Spanish"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "country",
+   "label": "Destination",
+   "type": "chips",
+   "options": [
+    "Mexico",
+    "Spain",
+    "Argentina",
+    "Colombia",
+    "Peru",
+    "Costa Rica"
+   ],
+   "default": "Mexico"
+  },
+  {
+   "key": "level",
+   "label": "Level",
+   "type": "chips",
+   "options": [
+    "Zero",
+    "Tourist basics",
+    "Can hold a chat"
+   ],
+   "default": "Tourist basics"
+  },
+  {
+   "key": "trip",
+   "label": "Trip style",
+   "type": "chips",
+   "options": [
+    "Backpacking",
+    "Beach",
+    "City & food",
+    "Business",
+    "Family"
+   ],
+   "default": "City & food"
+  }
+ ],
+ "tools": [
+  {
+   "id": "script",
+   "title": "Situation script",
+   "subtitle": "The dialogue with likely replies",
+   "emoji": "🗣️",
+   "inputs": [
+    {
+     "key": "situation",
+     "label": "Situation",
+     "type": "chips",
+     "options": [
+      "Taxi / rideshare",
+      "Ordering food",
+      "Hotel check-in",
+      "Pharmacy",
+      "Market haggling",
+      "Asking directions",
+      "Meeting locals"
+     ],
+     "default": "Ordering food"
+    },
+    {
+     "key": "detail",
+     "label": "Specifics",
+     "type": "text",
+     "placeholder": "vegetarian, want to sit outside"
+    }
+   ],
+   "prompt": "Write a realistic {situation} dialogue for the profile's destination with specifics: {detail}. Sections: steps (each = one exchange: what you say in local Spanish, pronunciation with stressed syllables in CAPITALS, English meaning, then the 2 most likely replies you'll hear), a table of the key words (Spanish | Local variant | English), and a callout on one cultural courtesy for this situation in that country.",
+   "shape": "steps, table, callout",
+   "button": "Write script",
+   "loading": "Rehearsing…"
+  },
+  {
+   "id": "menu",
+   "title": "Decode a menu or sign",
+   "subtitle": "Photo → what it says and what to pick",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the menu, sign or ticket",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "want",
+     "label": "What you're looking for",
+     "type": "text",
+     "placeholder": "something not spicy, under 200 pesos"
+    }
+   ],
+   "prompt": "Read the Spanish in the photo and translate it for a traveller looking for: {want}. Sections: a table (Original | English | Notes — spicy, contains pork, local specialty), cards for the 3 best picks given the request (meta = price if visible · why), and a quote with the exact sentence to order or ask the question in local Spanish.",
+   "shape": "table, cards, quote",
+   "button": "Decode",
+   "loading": "Reading…"
+  },
+  {
+   "id": "heard",
+   "title": "What did they say?",
+   "subtitle": "Type what you heard, get the reply",
+   "emoji": "👂",
+   "inputs": [
+    {
+     "key": "heard",
+     "label": "What you heard (as best you can)",
+     "type": "longtext",
+     "placeholder": "no hay, se acabó, mañana sí",
+     "required": true
+    }
+   ],
+   "prompt": "The traveller heard '{heard}' in the profile's destination. Sections: text giving the likely intended sentence and its meaning (including slang and dropped words), kv (Tone: friendly/neutral/impatient; Register: tú/usted/vos; Region clue), and a quote with 3 short replies they could say next, each with pronunciation.",
+   "shape": "text, kv, quote",
+   "button": "Explain",
+   "loading": "Listening…"
+  },
+  {
+   "id": "regional",
+   "title": "Say it like a local",
+   "subtitle": "One phrase, four countries",
+   "emoji": "🌎",
+   "inputs": [
+    {
+     "key": "phrase",
+     "label": "Phrase in English",
+     "type": "text",
+     "placeholder": "the bill please / that's too expensive",
+     "required": true
+    }
+   ],
+   "prompt": "Translate '{phrase}' as locals actually say it: a table (Country | Phrase | Pronunciation | Notes) covering Mexico, Spain, Argentina and Colombia, bullets of words to avoid because they are rude or mean something else in one of those countries, and a callout naming the safe neutral version that works everywhere.",
+   "shape": "table, bullets, callout",
+   "button": "Compare",
+   "loading": "Travelling…"
+  },
+  {
+   "id": "daily",
+   "title": "Tomorrow's 10 words",
+   "subtitle": "Vocabulary for the plan",
+   "emoji": "📅",
+   "inputs": [
+    {
+     "key": "plan",
+     "label": "Tomorrow's plan",
+     "type": "text",
+     "placeholder": "bus to Oaxaca, market, cooking class"
+    }
+   ],
+   "prompt": "Pick the 10 most useful words and 3 phrases for tomorrow: {plan}, for the profile's destination and level. Sections: a table (Spanish | Pronunciation | English | Use it when), a checklist of 5 mini-missions to attempt during the day (e.g. 'ask the price of one thing'), and a quote with one sentence to say if you get stuck.",
+   "shape": "table, checklist, quote",
+   "button": "Prep me",
+   "loading": "Packing words…"
+  }
+ ]
+}

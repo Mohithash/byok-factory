@@ -1,0 +1,214 @@
+{
+ "id": "bone_builder",
+ "name": "Bone Builder",
+ "tagline": "Stronger bones for the next 30 years",
+ "category": "Health & Fitness",
+ "colors": [
+  "#6D4C41",
+  "#26A69A",
+  "#FBC02D"
+ ],
+ "icon": "bolt",
+ "about": "Bone Builder helps people over 50 protect bone density with safe impact and resistance exercise, calcium-and-vitamin-D meal plans, plain-English DEXA explanations and a guide to lifting and bending without risking the spine.",
+ "persona": "You are a bone-health physiotherapist and dietitian in one: practical about load, careful about the spine, clear that scan results are the doctor's to interpret.",
+ "onboarding": {
+  "title": "Bones respond to load and food",
+  "subtitle": "A little context keeps the exercise safe.",
+  "bullets": [
+   "Bone-safe strength and impact plans",
+   "Calcium and vitamin D from real food",
+   "Understand your DEXA in plain English"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "age",
+   "label": "Age",
+   "type": "number",
+   "placeholder": "63"
+  },
+  {
+   "key": "status",
+   "label": "Bone status",
+   "type": "chips",
+   "options": [
+    "Not tested",
+    "Normal",
+    "Osteopenia",
+    "Osteoporosis"
+   ],
+   "default": "Not tested"
+  },
+  {
+   "key": "meds",
+   "label": "Relevant meds or conditions",
+   "type": "text",
+   "placeholder": "steroids for asthma, coeliac"
+  }
+ ],
+ "tools": [
+  {
+   "id": "exercise",
+   "title": "Bone-loading plan",
+   "subtitle": "Impact + resistance, safely",
+   "emoji": "🦴",
+   "inputs": [
+    {
+     "key": "level",
+     "label": "Fitness",
+     "type": "chips",
+     "options": [
+      "Sedentary",
+      "Active",
+      "Trains regularly"
+     ],
+     "default": "Active"
+    },
+    {
+     "key": "kit",
+     "label": "Equipment",
+     "type": "chips",
+     "options": [
+      "None",
+      "Bands",
+      "Dumbbells",
+      "Gym"
+     ],
+     "default": "None"
+    },
+    {
+     "key": "weeks",
+     "label": "Plan length",
+     "type": "chips",
+     "options": [
+      "4 weeks",
+      "8 weeks"
+     ],
+     "default": "8 weeks"
+    }
+   ],
+   "prompt": "A {weeks} bone-loading programme for a '{level}' person with '{kit}' equipment, matched to the profile's bone status (heel drops and hops only if status allows; otherwise stamping and step-ups). Sections: a table (Week | Impact work | Resistance work | Balance work), steps for correct form on the two spine-safe key lifts, bullets of moves to avoid with low density (loaded spinal flexion, twisting under load), and a callout on getting clearance if status is osteoporosis or untested with a previous fracture.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Build plan",
+   "loading": "Loading bones…"
+  },
+  {
+   "id": "food",
+   "title": "Calcium day",
+   "subtitle": "Hit targets with real food",
+   "emoji": "🥛",
+   "inputs": [
+    {
+     "key": "diet",
+     "label": "Diet",
+     "type": "chips",
+     "options": [
+      "Anything",
+      "Dairy-free",
+      "Vegan",
+      "Lactose-intolerant"
+     ],
+     "default": "Anything"
+    },
+    {
+     "key": "dislikes",
+     "label": "Dislikes",
+     "type": "text",
+     "placeholder": "sardines, kale"
+    }
+   ],
+   "prompt": "A one-day meal plan reaching roughly 1000–1200 mg calcium with adequate protein for a '{diet}' diet, avoiding {dislikes}. Sections: a table (Meal | Foods | Calcium mg | Protein g), kv on vitamin D (sunlight, food sources, why many adults are advised a winter supplement as general information), bullets of cheap calcium-dense staples, and a callout on caffeine, alcohol, salt and bone loss.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Plan my day",
+   "loading": "Counting calcium…"
+  },
+  {
+   "id": "dexa",
+   "title": "Understand my DEXA",
+   "subtitle": "Photo or numbers → plain English",
+   "emoji": "📄",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the DEXA report",
+     "type": "photo"
+    },
+    {
+     "key": "scores",
+     "label": "Or type the T-scores",
+     "type": "text",
+     "placeholder": "spine -1.8, hip -2.6"
+    }
+   ],
+   "prompt": "Explain the DEXA result from the photo and/or: {scores}. Sections: a table (Site | T-score | Category: normal / osteopenia / osteoporosis | What it means), text on the difference between T-score and Z-score and why the lowest site matters, bullets of questions to ask the doctor (FRAX, medication, recheck interval), and a callout that only the ordering clinician can decide treatment.",
+   "shape": "table, text, bullets, callout",
+   "button": "Explain it",
+   "loading": "Reading the scan…"
+  },
+  {
+   "id": "safe",
+   "title": "Lift and bend safely",
+   "subtitle": "Everyday moves that spare the spine",
+   "emoji": "📦",
+   "inputs": [
+    {
+     "key": "task",
+     "label": "The task",
+     "type": "text",
+     "placeholder": "lifting a 20 kg compost bag from the boot",
+     "required": true
+    }
+   ],
+   "prompt": "Coach a spine-safe way to do: {task}, for the profile's bone status. Sections: steps (hip hinge, brace, hold close, turn with the feet), bullets of common mistakes, a kv of gear or tools that make it easier (trolley, splitting loads, grab handles), and a callout on when to ask for help rather than lift.",
+   "shape": "steps, bullets, kv, callout",
+   "button": "Show me how",
+   "loading": "Hinging…"
+  },
+  {
+   "id": "risk",
+   "title": "Fracture risk audit",
+   "subtitle": "Lifestyle factors you can change",
+   "emoji": "📋",
+   "inputs": [
+    {
+     "key": "smoke",
+     "label": "Smoking",
+     "type": "chips",
+     "options": [
+      "Never",
+      "Quit",
+      "Current"
+     ],
+     "default": "Never"
+    },
+    {
+     "key": "falls",
+     "label": "Falls in the last year",
+     "type": "chips",
+     "options": [
+      "None",
+      "One",
+      "Two or more"
+     ],
+     "default": "None"
+    },
+    {
+     "key": "history",
+     "label": "Fractures or family history",
+     "type": "text",
+     "placeholder": "mum broke her hip at 75"
+    }
+   ],
+   "prompt": "Audit modifiable fracture risk for the profile: smoking {smoke}, falls last year {falls}, history: {history}. Sections: a table (Factor | Your status | Impact on risk | Action), a checklist of the changes to make this month, steps on how to ask for a bone-density scan or FRAX assessment, and a callout on why a fall history matters as much as the scan.",
+   "shape": "table, checklist, steps, callout",
+   "button": "Audit me",
+   "loading": "Weighing risk…"
+  }
+ ],
+ "disclaimer": "General information, not medical advice. Scan interpretation, medication and exercise clearance belong with your doctor; avoid high-impact moves if you have osteoporosis or a previous fracture until cleared."
+}

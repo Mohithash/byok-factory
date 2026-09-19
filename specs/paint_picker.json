@@ -1,0 +1,253 @@
+{
+ "id": "paint_picker",
+ "name": "Paint Picker",
+ "tagline": "The right colour, finish and litres for every wall",
+ "category": "House & Home",
+ "colors": [
+  "#AD1457",
+  "#00838F",
+  "#FFA000"
+ ],
+ "icon": "spark",
+ "about": "Paint Picker chooses paint colours that work in your room's light, explains undertones and finishes, calculates litres and coats, and plans the job from prep to cleanup.",
+ "persona": "You are a colour consultant and decorator with 20 years on ladders: precise about undertones, light and sheen, and honest that the sample pot is the only truth.",
+ "onboarding": {
+  "title": "Stop second-guessing the swatch",
+  "subtitle": "Your home's light and style shape every recommendation.",
+  "bullets": [
+   "Colours matched to your light",
+   "Litres and coats calculated",
+   "Prep-to-cleanup job plans"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "light",
+   "label": "Most rooms face",
+   "type": "chips",
+   "options": [
+    "North",
+    "South",
+    "East",
+    "West",
+    "Mixed / unsure"
+   ]
+  },
+  {
+   "key": "style",
+   "label": "Style",
+   "type": "chips",
+   "options": [
+    "Warm neutrals",
+    "Cool minimal",
+    "Bold colour",
+    "Heritage",
+    "Scandi white"
+   ]
+  },
+  {
+   "key": "brand",
+   "label": "Paint tier",
+   "type": "chips",
+   "options": [
+    "Any",
+    "Big-box own brand",
+    "Premium designer",
+    "Trade / contractor"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "choose",
+   "title": "Choose a colour",
+   "subtitle": "Room, light, fixed elements → shortlist",
+   "emoji": "🎨",
+   "inputs": [
+    {
+     "key": "room",
+     "label": "Room",
+     "type": "chips",
+     "options": [
+      "Living room",
+      "Bedroom",
+      "Kitchen",
+      "Bathroom",
+      "Hallway",
+      "Home office",
+      "Nursery",
+      "Front door"
+     ],
+     "default": "Living room"
+    },
+    {
+     "key": "mood",
+     "label": "Mood",
+     "type": "chips",
+     "options": [
+      "Calm",
+      "Cosy",
+      "Fresh",
+      "Dramatic",
+      "Bright & airy"
+     ],
+     "default": "Calm"
+    },
+    {
+     "key": "fixed",
+     "label": "Fixed elements",
+     "type": "text",
+     "placeholder": "oak floor, grey sofa, brass fittings"
+    }
+   ],
+   "prompt": "Shortlist wall colours for a {room} with a {mood} mood, working with {fixed}, in the profile's light direction and style. Sections: cards for 5 colours (descriptive name plus hex, meta = undertone · LRV estimate · finish); a table (Colour | Trim pairing | Ceiling | Works because); bullets on how each shifts between morning and evening light; and a callout on testing samples properly (A4 boards, two walls, three times of day).",
+   "shape": "cards, table, bullets, callout",
+   "button": "Shortlist",
+   "loading": "Eyeing swatches…"
+  },
+  {
+   "id": "photo",
+   "title": "Why does it look wrong?",
+   "subtitle": "Photo of the wall → diagnosis",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the painted wall or sample patches",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "expected",
+     "label": "What you expected",
+     "type": "text",
+     "placeholder": "warm white, it looks pink"
+    }
+   ],
+   "prompt": "Diagnose the colour in the photo, given the user expected: {expected}. Sections: text explaining what is happening (undertone, light bounce, sheen, adjacent colours); kv (likely undertone, what is amplifying it, keep or repaint?); bullets of 3 corrective colours described by undertone and depth; and a callout on cheap fixes before repainting (bulb colour temperature, trim, textiles).",
+   "shape": "text, kv, bullets, callout",
+   "button": "Diagnose",
+   "loading": "Reading undertones…"
+  },
+  {
+   "id": "litres",
+   "title": "How much paint?",
+   "subtitle": "Litres, coats and cost",
+   "emoji": "🪣",
+   "inputs": [
+    {
+     "key": "dims",
+     "label": "Room dimensions",
+     "type": "text",
+     "placeholder": "4m × 3.5m, ceiling 2.4m, 1 door, 2 windows",
+     "required": true
+    },
+    {
+     "key": "surface",
+     "label": "Painting",
+     "type": "chips",
+     "options": [
+      "Walls only",
+      "Walls + ceiling",
+      "Walls + ceiling + trim",
+      "Ceiling only",
+      "Trim & doors only"
+     ],
+     "default": "Walls only"
+    },
+    {
+     "key": "condition",
+     "label": "Current surface",
+     "type": "chips",
+     "options": [
+      "Similar colour",
+      "Dark to light",
+      "Fresh plaster",
+      "Patched / repaired"
+     ],
+     "default": "Similar colour"
+    }
+   ],
+   "prompt": "Calculate paint for a room of {dims}, painting {surface}, over a surface that is {condition}. Sections: kv (paintable area m², coats needed, litres per surface, tins to buy, primer needed?, estimated cost band for the profile's paint tier); a table (Surface | Area | Coats | Litres | Product type); steps for the order of surfaces; and a callout on coverage assumptions and buying 10% extra for touch-ups.",
+   "shape": "kv, table, steps, callout",
+   "button": "Calculate",
+   "loading": "Measuring walls…"
+  },
+  {
+   "id": "finish",
+   "title": "Which finish?",
+   "subtitle": "Matt, eggshell, satin, gloss and where",
+   "emoji": "✨",
+   "inputs": [
+    {
+     "key": "where",
+     "label": "Where",
+     "type": "chips",
+     "options": [
+      "Living room walls",
+      "Kitchen walls",
+      "Bathroom",
+      "Kids' room",
+      "Hallway / stairs",
+      "Woodwork & doors",
+      "Ceiling",
+      "Furniture"
+     ],
+     "default": "Kitchen walls"
+    },
+    {
+     "key": "concern",
+     "label": "Concern",
+     "type": "text",
+     "placeholder": "scuffs from kids, steam, showing plaster flaws"
+    }
+   ],
+   "prompt": "Recommend a paint finish for {where}, given this concern: {concern}. Sections: a table (Finish | Sheen % | Washability | Hides flaws | Verdict here); text with the recommendation and why; bullets on product types (acrylic, alkyd, water-based enamel, specialist kitchen and bathroom paints); and a callout on how sheen changes the colour's appearance.",
+   "shape": "table, text, bullets, callout",
+   "button": "Recommend",
+   "loading": "Comparing sheens…"
+  },
+  {
+   "id": "job",
+   "title": "Plan the job",
+   "subtitle": "Prep, order, drying times, cleanup",
+   "emoji": "🖌️",
+   "inputs": [
+    {
+     "key": "what",
+     "label": "What you're painting",
+     "type": "text",
+     "placeholder": "bedroom walls and ceiling, one feature wall dark green",
+     "required": true
+    },
+    {
+     "key": "skill",
+     "label": "Experience",
+     "type": "chips",
+     "options": [
+      "First time",
+      "Done a few rooms",
+      "Confident"
+     ],
+     "default": "Done a few rooms"
+    },
+    {
+     "key": "days",
+     "label": "Days available",
+     "type": "number",
+     "placeholder": "2"
+    }
+   ],
+   "prompt": "Plan painting {what} over {days} days for someone with '{skill}' experience. Sections: a checklist of tools and materials; steps by day with prep, cutting in, rolling, drying times between coats and cleanup; a table (Stage | Time | Tip | Common mistake); and a callout on ventilation, dust masks when sanding and testing for lead paint in older homes.",
+   "shape": "checklist, steps, table, callout",
+   "button": "Plan job",
+   "loading": "Taping edges…"
+  }
+ ],
+ "disclaimer": "Ventilate while painting and sanding and wear a mask for dust. Homes built before the 1980s may have lead paint; test before sanding. Quantities and costs are estimates; check the tin's coverage."
+}

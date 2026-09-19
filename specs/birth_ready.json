@@ -1,0 +1,198 @@
+{
+ "id": "birth_ready",
+ "name": "Birth Ready",
+ "tagline": "Labour, birth and the bag — prepared, not scared",
+ "category": "Parenting",
+ "colors": [
+  "#AD1457",
+  "#00897B",
+  "#F9A825"
+ ],
+ "icon": "heart",
+ "about": "Birth Ready writes your birth preferences, packs the hospital bag, coaches your birth partner, decodes contraction timing and builds a comfort toolkit for each stage of labour.",
+ "persona": "You are a warm, experienced antenatal educator and doula: practical, unbiased about birth choices, honest that plans change, and never fear-mongering.",
+ "onboarding": {
+  "title": "Get ready for the big day",
+  "subtitle": "Where and how you hope to give birth shapes the plan.",
+  "bullets": [
+   "Birth preferences in plain language",
+   "Partner cheat sheets",
+   "Contraction & when-to-go-in guidance"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "place",
+   "label": "Planned birth place",
+   "type": "chips",
+   "options": [
+    "Hospital",
+    "Birth centre",
+    "Home",
+    "Not sure"
+   ]
+  },
+  {
+   "key": "hopes",
+   "label": "Hoping for",
+   "type": "chips",
+   "options": [
+    "Unmedicated",
+    "Epidural",
+    "Water birth",
+    "Planned caesarean",
+    "VBAC",
+    "Open to anything"
+   ],
+   "multi": true
+  },
+  {
+   "key": "partner",
+   "label": "Birth partner",
+   "type": "text",
+   "placeholder": "Sam (husband)"
+  }
+ ],
+ "tools": [
+  {
+   "id": "plan",
+   "title": "Birth preferences",
+   "subtitle": "A one-page document for your team",
+   "emoji": "📝",
+   "inputs": [
+    {
+     "key": "wishes",
+     "label": "Your wishes and worries",
+     "type": "longtext",
+     "placeholder": "dim lights, delayed cord clamping, scared of forceps…",
+     "required": true
+    },
+    {
+     "key": "date",
+     "label": "Due date",
+     "type": "text",
+     "placeholder": "14 March"
+    }
+   ],
+   "prompt": "Draft a one-page birth preferences document for the profile from: {wishes} (due {date}). Sections: a quote containing the full document in first person with headings (Environment, Pain relief, Monitoring, Second stage, Third stage, Baby's first hour, If a caesarean is needed), then a checklist of preferences to confirm with the midwife before it's final, and a callout reminding that preferences are flexible and staff will explain any deviation.",
+   "shape": "quote, checklist, callout",
+   "button": "Draft it",
+   "loading": "Writing…"
+  },
+  {
+   "id": "bag",
+   "title": "Pack the bag",
+   "subtitle": "Hospital bag, split by who carries it",
+   "emoji": "🎒",
+   "inputs": [
+    {
+     "key": "season",
+     "label": "Season",
+     "type": "chips",
+     "options": [
+      "Summer",
+      "Winter",
+      "Mild"
+     ],
+     "default": "Mild"
+    },
+    {
+     "key": "stay",
+     "label": "Expected stay",
+     "type": "chips",
+     "options": [
+      "Day case / home birth",
+      "1–2 nights",
+      "3+ nights / caesarean"
+     ],
+     "default": "1–2 nights"
+    }
+   ],
+   "prompt": "Build a hospital bag list for a {stay} stay in {season}, at the profile's birth place. Sections: a checklist split into three labelled groups — Labour bag (for the room), Postnatal bag (for after) and Baby bag — with quantities, then a kv of documents and things to prepare at home (car seat fitted, maternity notes, snacks, phone numbers), and bullets of items people pack but never use.",
+   "shape": "checklist, kv, bullets",
+   "button": "Pack it",
+   "loading": "Packing…"
+  },
+  {
+   "id": "partner",
+   "title": "Partner cheat sheet",
+   "subtitle": "What to do in each stage",
+   "emoji": "🤝",
+   "inputs": [
+    {
+     "key": "stage",
+     "label": "Stage",
+     "type": "chips",
+     "options": [
+      "Early labour",
+      "Active labour",
+      "Transition",
+      "Pushing",
+      "First hours after"
+     ],
+     "default": "Active labour"
+    }
+   ],
+   "prompt": "Coach the profile's birth partner for {stage} of labour, matching the profile's hopes. Sections: steps for exactly what to do and say, a table (She says / does | It probably means | You do), a quote with 3 phrases that help and 3 to avoid, and a callout on when to call the midwife or press the buzzer.",
+   "shape": "steps, table, quote, callout",
+   "button": "Coach partner",
+   "loading": "Briefing…"
+  },
+  {
+   "id": "contractions",
+   "title": "Contraction check",
+   "subtitle": "Timing → what stage, when to go in",
+   "emoji": "⏱️",
+   "inputs": [
+    {
+     "key": "timing",
+     "label": "Your timings",
+     "type": "longtext",
+     "placeholder": "every 7 min, lasting 45s, for 1 hour; waters intact; manageable",
+     "required": true
+    },
+    {
+     "key": "distance",
+     "label": "Minutes to birth place",
+     "type": "text",
+     "placeholder": "25"
+    }
+   ],
+   "prompt": "Interpret these contraction timings: {timing}, with {distance} minutes to the birth place, given the profile. Sections: a callout with the likely stage and a clear Stay home / Call now / Go in now verdict using standard guidance (e.g. 3 in 10 minutes lasting 60s, waters breaking, bleeding, reduced movements, feeling pushy), bullets on what to do in the meantime, and a kv of what to tell the triage line (timings, waters colour, movements, history).",
+   "shape": "callout, bullets, kv",
+   "button": "Check timing",
+   "loading": "Timing…"
+  },
+  {
+   "id": "comfort",
+   "title": "Comfort toolkit",
+   "subtitle": "Positions, breathing, TENS, water",
+   "emoji": "🌊",
+   "inputs": [
+    {
+     "key": "wants",
+     "label": "Work with",
+     "type": "chips",
+     "options": [
+      "Positions & movement",
+      "Breathing",
+      "Water",
+      "TENS & massage",
+      "Everything"
+     ],
+     "default": "Everything"
+    }
+   ],
+   "prompt": "Build a comfort toolkit focused on {wants} for the profile's hopes and birth place. Sections: cards (technique, meta = stage it suits · needs kit?), steps to practise the top two at home this week, a table of pain-relief options (Option | Where available | Pros | Cons | Can still move?) so choices are informed, and a callout that changing your mind on the day is fine.",
+   "shape": "cards, steps, table, callout",
+   "button": "Build toolkit",
+   "loading": "Gathering…"
+  }
+ ],
+ "disclaimer": "Antenatal education, not medical advice. Your midwife or doctor's guidance overrides anything here; call your maternity unit if you are unsure whether to go in."
+}

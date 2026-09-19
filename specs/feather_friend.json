@@ -1,0 +1,218 @@
+{
+ "id": "feather_friend",
+ "name": "Feather Friend",
+ "tagline": "Tame, feed and enrich your parrot or budgie",
+ "category": "Lifestyle",
+ "colors": [
+  "#00ACC1",
+  "#FDD835",
+  "#8E24AA"
+ ],
+ "icon": "music",
+ "about": "Feather Friend converts seed junkies to healthy chop and pellets, builds step-up and taming plans, decodes screaming, biting and plucking, and audits your home for the fumes and hazards birds can't survive.",
+ "persona": "You are a force-free avian behaviour consultant: patient, science-based, firm about diet and air quality, and honest that a bird's trust is earned in tiny steps.",
+ "onboarding": {
+  "title": "Speak bird",
+  "subtitle": "Species and tameness shape every plan.",
+  "bullets": [
+   "Seed-to-pellet conversion plans",
+   "Step-by-step taming",
+   "Behaviour decoding & home safety"
+  ]
+ },
+ "profile": [
+  {
+   "key": "bird",
+   "label": "Species & name",
+   "type": "text",
+   "placeholder": "cockatiel, Mango"
+  },
+  {
+   "key": "age",
+   "label": "Age & history",
+   "type": "text",
+   "placeholder": "3 years, rehomed last month"
+  },
+  {
+   "key": "tame",
+   "label": "Tameness",
+   "type": "chips",
+   "options": [
+    "Won't come near",
+    "Takes treats",
+    "Steps up sometimes",
+    "Fully hands-on"
+   ]
+  },
+  {
+   "key": "diet",
+   "label": "Current diet",
+   "type": "chips",
+   "options": [
+    "Mostly seed",
+    "Seed + some veg",
+    "Pellets + chop",
+    "Not sure"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "convert",
+   "title": "Diet conversion",
+   "subtitle": "Seed → pellets and chop, without starving",
+   "emoji": "🥦",
+   "inputs": [
+    {
+     "key": "pellet",
+     "label": "Pellet brand you have",
+     "type": "text",
+     "placeholder": "Harrison's, Roudybush"
+    },
+    {
+     "key": "veg",
+     "label": "Veg you can buy",
+     "type": "text",
+     "placeholder": "kale, carrot, peppers, broccoli"
+    }
+   ],
+   "prompt": "Plan a 4-week diet conversion for the profile bird onto {pellet} plus chop made from {veg}. Sections: a table (Week | Morning | Afternoon | Evening | Seed allowed), steps for a chop recipe with portions, bullets of foods toxic to birds (avocado, chocolate, onion, xylitol and more), and a callout on weighing daily and the weight-loss limit that means stop and revert.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Plan conversion",
+   "loading": "Chopping veg…"
+  },
+  {
+   "id": "tame",
+   "title": "Taming plan",
+   "subtitle": "From cage-corner to step-up",
+   "emoji": "🤝",
+   "inputs": [
+    {
+     "key": "goal",
+     "label": "Next goal",
+     "type": "chips",
+     "options": [
+      "Eat from my hand",
+      "Step up",
+      "Come out of cage",
+      "Recall",
+      "Head scratches"
+     ],
+     "default": "Step up"
+    },
+    {
+     "key": "mins",
+     "label": "Minutes per session",
+     "type": "number",
+     "placeholder": "5"
+    }
+   ],
+   "prompt": "Build a taming plan toward '{goal}' with {mins}-minute sessions for the profile bird's tameness level. Sections: steps for the next 10 sessions (each with the exact behaviour to reward, distance and treat), a table (Body language | Meaning | Do this), a callout on never grabbing or towelling to 'tame', and a quote with the cue word and marker to use consistently.",
+   "shape": "steps, table, callout, quote",
+   "button": "Build plan",
+   "loading": "Warming treats…"
+  },
+  {
+   "id": "behave",
+   "title": "Screaming, biting, plucking",
+   "subtitle": "Find the function of the behaviour",
+   "emoji": "📣",
+   "inputs": [
+    {
+     "key": "issue",
+     "label": "Issue",
+     "type": "chips",
+     "options": [
+      "Screaming",
+      "Biting",
+      "Feather plucking",
+      "Hormonal / nesting",
+      "Fear of hands",
+      "Cage aggression"
+     ],
+     "default": "Screaming"
+    },
+    {
+     "key": "when",
+     "label": "When it happens",
+     "type": "longtext",
+     "placeholder": "screams when I leave the room, worse in the evening",
+     "required": true
+    }
+   ],
+   "prompt": "Analyse {issue} for the profile bird: {when}. Sections: text on the likely function (attention, fear, hormones, boredom, medical), a table (Antecedent | Behaviour | Consequence | Change to make), steps for a 2-week plan with what to reinforce instead, and a callout on when plucking or aggression needs an avian vet (sudden onset, skin damage, hormonal season).",
+   "shape": "text, table, steps, callout",
+   "button": "Analyse",
+   "loading": "Listening…"
+  },
+  {
+   "id": "enrich",
+   "title": "Foraging & toys",
+   "subtitle": "DIY enrichment from household stuff",
+   "emoji": "🧩",
+   "inputs": [
+    {
+     "key": "level",
+     "label": "Bird's foraging skill",
+     "type": "chips",
+     "options": [
+      "Beginner",
+      "Gets the easy ones",
+      "Toy destroyer"
+     ],
+     "default": "Beginner"
+    },
+    {
+     "key": "materials",
+     "label": "Materials on hand",
+     "type": "chips",
+     "options": [
+      "Paper / cardboard",
+      "Untreated wood",
+      "Sisal / paper rope",
+      "Stainless bowls",
+      "Bird-safe branches"
+     ],
+     "default": "Paper / cardboard",
+     "multi": true
+    }
+   ],
+   "prompt": "Design foraging enrichment for a {level} forager using {materials}. Sections: cards for 5 DIY toys or puzzles (meta = build minutes · difficulty), steps to build the best one, a table (Material | Safe? | Notes) flagging zinc, treated wood, cotton rope and dyes, and bullets on rotating toys to keep interest.",
+   "shape": "cards, steps, table, bullets",
+   "button": "Design toys",
+   "loading": "Shredding cardboard…"
+  },
+  {
+   "id": "audit",
+   "title": "Bird-safe home audit",
+   "subtitle": "Fumes, cookware, plants, windows",
+   "emoji": "🏡",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the bird's room or kitchen",
+     "type": "photo"
+    },
+    {
+     "key": "home",
+     "label": "Home has",
+     "type": "chips",
+     "options": [
+      "Non-stick cookware",
+      "Scented candles / air freshener",
+      "Open windows / ceiling fans",
+      "Other pets",
+      "Houseplants"
+     ],
+     "default": "Non-stick cookware",
+     "multi": true
+    }
+   ],
+   "prompt": "Audit the home for the profile bird given the photo and: {home}. Sections: a table (Hazard | Why it kills or harms birds | Fix), a checklist of safety changes ranked by urgency, a callout on PTFE non-stick fumes and what to do if a bird is exposed, and bullets listing safe houseplants.",
+   "shape": "table, checklist, callout, bullets",
+   "button": "Audit",
+   "loading": "Sniffing the air…"
+  }
+ ],
+ "disclaimer": "General avian-care information, not veterinary advice. Birds hide illness — a fluffed, tail-bobbing or bottom-of-cage bird needs an avian vet the same day."
+}

@@ -1,0 +1,169 @@
+{
+ "id": "homeward",
+ "name": "Homeward",
+ "tagline": "Move back home without the reverse culture shock",
+ "category": "Travel & Local",
+ "colors": [
+  "#5D4037",
+  "#43A047",
+  "#FFA726"
+ ],
+ "icon": "home",
+ "about": "Homeward guides the move back after years abroad — winding down life in the host country, re-entering the job market, bringing money and pensions home, re-adjusting kids and partners, and handling the reverse culture shock nobody warns you about.",
+ "persona": "You are a repatriation coach who has helped hundreds of returnees: practical about closing accounts and pensions, honest that going home is a real move, and warm about the identity shift.",
+ "onboarding": {
+  "title": "Going home is a move too",
+  "subtitle": "Tell us where you've been and where you're returning.",
+  "bullets": [
+   "Wind-down checklist abroad",
+   "Re-entry career and money",
+   "Reverse culture-shock support"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "host",
+   "label": "Country you're leaving",
+   "type": "text",
+   "placeholder": "Germany"
+  },
+  {
+   "key": "home",
+   "label": "Returning to",
+   "type": "text",
+   "placeholder": "Manchester, UK"
+  },
+  {
+   "key": "years",
+   "label": "Years abroad",
+   "type": "text",
+   "placeholder": "6"
+  }
+ ],
+ "tools": [
+  {
+   "id": "winddown",
+   "title": "Wind down abroad",
+   "subtitle": "Close, cancel, deregister, keep",
+   "emoji": "📦",
+   "inputs": [
+    {
+     "key": "date",
+     "label": "Leaving date",
+     "type": "text",
+     "placeholder": "30 June",
+     "required": true
+    },
+    {
+     "key": "have",
+     "label": "Things to close",
+     "type": "text",
+     "placeholder": "flat, bank, gym, car, health insurance"
+    }
+   ],
+   "prompt": "Leaving {date}; things to close: {have}. A checklist in date order counting back from departure (notice periods, deregistration, deposit return, tax exit, pension and insurance records, mail forwarding), a table (Item | Notice needed | Do by | Keep proof of), bullets of what to keep open on purpose, and a callout on the documents you will need years later and must obtain before leaving.",
+   "shape": "checklist, table, bullets, callout",
+   "button": "Plan wind-down",
+   "loading": "Closing up…"
+  },
+  {
+   "id": "career",
+   "title": "Re-entry career",
+   "subtitle": "Explain the years abroad",
+   "emoji": "💼",
+   "inputs": [
+    {
+     "key": "role",
+     "label": "Role abroad",
+     "type": "text",
+     "placeholder": "product manager, fintech",
+     "required": true
+    },
+    {
+     "key": "target",
+     "label": "Target back home",
+     "type": "text",
+     "placeholder": "similar role, hybrid"
+    }
+   ],
+   "prompt": "Role abroad {role}; target {target}. Text on how to frame international experience for the home market, a quote with a 3-sentence answer to 'why did you come back?', a table (Skill gained abroad | Home-market translation | Proof point), steps for the first 30 days of the search including credential and reference logistics, and a callout on salary-expectation resets.",
+   "shape": "text, quote, table, steps, callout",
+   "button": "Prepare",
+   "loading": "Translating…"
+  },
+  {
+   "id": "money",
+   "title": "Money & pensions",
+   "subtitle": "Bring it back cleanly",
+   "emoji": "🏦",
+   "inputs": [
+    {
+     "key": "assets",
+     "label": "What you have abroad",
+     "type": "text",
+     "placeholder": "pension pot, savings account, some ETFs",
+     "required": true
+    }
+   ],
+   "prompt": "Assets: {assets}. A table (Asset | Options: leave / transfer / cash out | Typical considerations | Paperwork), steps to sequence closures around residency and tax-year timing, a checklist of records to collect before leaving, and a callout on getting cross-border tax advice before moving large sums.",
+   "shape": "table, steps, checklist, callout",
+   "button": "Plan",
+   "loading": "Counting…"
+  },
+  {
+   "id": "shock",
+   "title": "Reverse culture shock",
+   "subtitle": "Why home feels foreign",
+   "emoji": "🔄",
+   "inputs": [
+    {
+     "key": "feeling",
+     "label": "What's hitting you",
+     "type": "chips",
+     "options": [
+      "Nobody asks about it",
+      "Everything feels small",
+      "Friends moved on",
+      "Missing the other place",
+      "Feeling like a foreigner at home"
+     ],
+     "multi": true
+    },
+    {
+     "key": "notes",
+     "label": "Anything else",
+     "type": "text"
+    }
+   ],
+   "prompt": "Feeling: {feeling}. Notes: {notes}. Text normalising reverse culture shock after the profile's years abroad, bullets on what helps in the first 3 months, a checklist of 6 actions for this week (including keeping ties to the host country), a quote with a short answer to 'how was it?' that invites real conversation, and a callout on when it's more than adjustment.",
+   "shape": "text, bullets, checklist, quote, callout",
+   "button": "Help",
+   "loading": "Listening…"
+  },
+  {
+   "id": "family",
+   "title": "Bring the family home",
+   "subtitle": "Kids and partners re-entering",
+   "emoji": "🏡",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Who and their concerns",
+     "type": "text",
+     "placeholder": "Aisha 13 – losing friends; partner – no job lined up",
+     "required": true
+    }
+   ],
+   "prompt": "Concerns: {who}. For each person a card (meta = biggest risk · timeframe) with what will be hard and what will help, steps for school re-enrolment or transfer where relevant, a quote with a family conversation opener about the move, and a callout on support to line up before arrival.",
+   "shape": "cards, steps, quote, callout",
+   "button": "Plan",
+   "loading": "Gathering…"
+  }
+ ],
+ "disclaimer": "General information, not legal, financial or mental-health advice; use a cross-border adviser for tax and pensions, and a professional if low mood persists."
+}

@@ -1,0 +1,172 @@
+{
+ "id": "sutta_path",
+ "name": "Sutta Path",
+ "tagline": "Buddhist texts explained, with practice to match",
+ "category": "Books & Reference",
+ "colors": [
+  "#B71C1C",
+  "#FFA000",
+  "#546E7A"
+ ],
+ "icon": "leaf",
+ "about": "Sutta Path opens the Pali Canon, Mahayana sutras and Zen koans with clear summaries, key terms and the meditation practices each text points to — without telling you what to believe.",
+ "persona": "You are a calm, well-read dharma study companion: precise about Pali and Sanskrit terms, honest about differences between Theravada, Mahayana and Vajrayana, and clear that meditation instructions here are introductory and not a substitute for a teacher.",
+ "onboarding": {
+  "title": "Study the words, then sit",
+  "subtitle": "Which tradition, and how much practice experience?",
+  "bullets": [
+   "Sutta and sutra summaries",
+   "Pali and Sanskrit terms decoded",
+   "Practice plans tied to the text"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "tradition",
+   "label": "Tradition",
+   "type": "chips",
+   "options": [
+    "Theravada",
+    "Zen",
+    "Tibetan / Vajrayana",
+    "Pure Land",
+    "Secular / mindfulness",
+    "Exploring"
+   ],
+   "default": "Exploring"
+  },
+  {
+   "key": "practice",
+   "label": "Practice experience",
+   "type": "chips",
+   "options": [
+    "None",
+    "Occasional",
+    "Daily sitter",
+    "Retreat experience"
+   ],
+   "default": "Occasional"
+  }
+ ],
+ "tools": [
+  {
+   "id": "sutta",
+   "title": "Study a text",
+   "subtitle": "Summary, terms, what to practise",
+   "emoji": "📿",
+   "inputs": [
+    {
+     "key": "text",
+     "label": "Sutta, sutra or koan",
+     "type": "text",
+     "placeholder": "Satipatthana Sutta, Heart Sutra, Dhammapada ch.1, Mu koan",
+     "required": true
+    }
+   ],
+   "prompt": "Study guide for {text} for the profile's tradition. Sections: kv (collection and reference, language, approximate date, setting or audience), steps summarising the teaching in its own order, a table (Term | Pali/Sanskrit | Plain gloss | Why it matters here), bullets on how Theravada, Mahayana and Zen readers weigh the text differently, and a callout naming the one practice the text most directly points to.",
+   "shape": "kv, steps, table, bullets, callout",
+   "button": "Study",
+   "loading": "Turning the pages…"
+  },
+  {
+   "id": "practice",
+   "title": "Practice from a text",
+   "subtitle": "Sit with what you just read",
+   "emoji": "🧘",
+   "inputs": [
+    {
+     "key": "text",
+     "label": "Text",
+     "type": "text",
+     "placeholder": "Anapanasati Sutta, Metta Sutta",
+     "required": true
+    },
+    {
+     "key": "minutes",
+     "label": "Minutes",
+     "type": "number",
+     "placeholder": "15"
+    }
+   ],
+   "prompt": "A {minutes}-minute meditation drawn faithfully from {text}, suited to the profile's practice experience. Sections: steps with minute markers (settling, the core instruction from the text, working with distraction, closing), a quote with the line from the text to hold in mind, bullets on what practitioners commonly get wrong with this instruction, and a callout advising to stop and seek a teacher or clinician if strong distress arises.",
+   "shape": "steps, quote, bullets, callout",
+   "button": "Guide me",
+   "loading": "Settling in…"
+  },
+  {
+   "id": "situation",
+   "title": "A teaching for this",
+   "subtitle": "Bring what's happening in your life",
+   "emoji": "🌊",
+   "inputs": [
+    {
+     "key": "situation",
+     "label": "What's going on",
+     "type": "longtext",
+     "placeholder": "my father is ill and I'm angry at my brother for not helping",
+     "required": true
+    }
+   ],
+   "prompt": "Respond to this situation with Buddhist teaching, gently and without preaching: {situation}. Sections: text naming what the tradition would notice here in its own terms (dukkha, tanha, metta, upekkha), cards of 3 relevant passages (meta = source · theme) each with a plain-language line, bullets of 3 small practices for this week, and a callout that difficult feelings deserve human support too.",
+   "shape": "text, cards, bullets, callout",
+   "button": "Reflect",
+   "loading": "Listening…"
+  },
+  {
+   "id": "terms",
+   "title": "Decode a term",
+   "subtitle": "Dukkha, sunyata, jhana, satori…",
+   "emoji": "🔤",
+   "inputs": [
+    {
+     "key": "term",
+     "label": "Term",
+     "type": "text",
+     "placeholder": "anatta, bodhicitta, samadhi, koan",
+     "required": true
+    }
+   ],
+   "prompt": "Explain '{term}' for the profile's tradition. Sections: text with the meaning in plain English, kv (Pali form, Sanskrit form, literal roots, first canonical appearance), a table (Tradition | How it uses the term | Nuance), bullets of common Western misunderstandings, and a quote with one canonical sentence that uses it.",
+   "shape": "text, kv, table, bullets, quote",
+   "button": "Explain",
+   "loading": "Tracing the word…"
+  },
+  {
+   "id": "course",
+   "title": "8-week study plan",
+   "subtitle": "A text a week, a practice a week",
+   "emoji": "📅",
+   "inputs": [
+    {
+     "key": "focus",
+     "label": "Focus",
+     "type": "chips",
+     "options": [
+      "Foundations (Four Noble Truths, Eightfold Path)",
+      "Mindfulness suttas",
+      "Mahayana sutras",
+      "Zen koans and teachings",
+      "Loving-kindness and compassion"
+     ],
+     "default": "Foundations (Four Noble Truths, Eightfold Path)"
+    },
+    {
+     "key": "minutes",
+     "label": "Minutes per day",
+     "type": "number",
+     "placeholder": "20"
+    }
+   ],
+   "prompt": "An 8-week self-study plan on '{focus}' at {minutes} minutes/day for the profile. Sections: a table (Week | Text | Key idea | Practice | Reflection question), a checklist of what to set up (translations to use, journal, sitting spot), bullets on keeping momentum, and a callout on when to find a sangha or teacher.",
+   "shape": "table, checklist, bullets, callout",
+   "button": "Plan course",
+   "loading": "Laying the path…"
+  }
+ ],
+ "disclaimer": "Summaries reflect scholarly and traditional readings and differ between schools; meditation guidance is introductory and not therapy — seek a teacher or clinician for difficult experiences."
+}

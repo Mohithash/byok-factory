@@ -1,0 +1,253 @@
+{
+ "id": "lumen_plan",
+ "name": "Lumen Plan",
+ "tagline": "Lighting that makes every room feel right",
+ "category": "House & Home",
+ "colors": [
+  "#F57F17",
+  "#283593",
+  "#FF7043"
+ ],
+ "icon": "bulb",
+ "about": "Lumen Plan designs layered lighting room by room: how many lumens, which colour temperature, where fixtures go, which bulbs to buy and how to fix a room that feels flat or harsh.",
+ "persona": "You are a residential lighting designer: you think in layers (ambient, task, accent), lumens and kelvins, and you can transform a room with lamps and bulbs before anyone touches a wire.",
+ "onboarding": {
+  "title": "See your home in a better light",
+  "subtitle": "Tell us about your rooms and what feels off.",
+  "bullets": [
+   "Lumen and kelvin targets per room",
+   "Fixture placement plans",
+   "Bulb shopping lists that match"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "home",
+   "label": "Home",
+   "type": "chips",
+   "options": [
+    "Flat",
+    "House",
+    "Studio",
+    "Rental"
+   ]
+  },
+  {
+   "key": "wiring",
+   "label": "Can change wiring",
+   "type": "chips",
+   "options": [
+    "Yes, with an electrician",
+    "Plug-in only",
+    "Not sure"
+   ]
+  },
+  {
+   "key": "smart",
+   "label": "Smart bulbs",
+   "type": "chips",
+   "options": [
+    "Yes, already use",
+    "Interested",
+    "No"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "room",
+   "title": "Light this room",
+   "subtitle": "Layers, lumens and kelvin",
+   "emoji": "💡",
+   "inputs": [
+    {
+     "key": "room",
+     "label": "Room",
+     "type": "chips",
+     "options": [
+      "Living room",
+      "Kitchen",
+      "Bedroom",
+      "Bathroom",
+      "Home office",
+      "Hallway",
+      "Dining",
+      "Kids' room"
+     ],
+     "default": "Living room"
+    },
+    {
+     "key": "dims",
+     "label": "Size & ceiling height",
+     "type": "text",
+     "placeholder": "4m × 5m, 2.4m ceiling",
+     "required": true
+    },
+    {
+     "key": "now",
+     "label": "What's there now",
+     "type": "text",
+     "placeholder": "one ceiling pendant, one floor lamp"
+    }
+   ],
+   "prompt": "Design lighting for a {room} of {dims} that currently has: {now}, within the profile's wiring limits. Sections: kv (target total lumens, ambient/task/accent split, recommended kelvin, CRI minimum, dimming?); a table (Layer | Fixture | Position | Lumens | Kelvin | Plug-in or wired); steps to implement cheapest-first; and a callout on the most common mistake in this room type.",
+   "shape": "kv, table, steps, callout",
+   "button": "Design it",
+   "loading": "Counting lumens…"
+  },
+  {
+   "id": "fix",
+   "title": "Why does it feel wrong?",
+   "subtitle": "Photo of the room at night → diagnosis",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the room with the lights on (evening)",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "feels",
+     "label": "It feels",
+     "type": "chips",
+     "options": [
+      "Flat / dull",
+      "Harsh / clinical",
+      "Too dim",
+      "Gloomy corners",
+      "Glare on screens",
+      "Too yellow",
+      "Too blue"
+     ],
+     "default": "Flat / dull"
+    }
+   ],
+   "prompt": "Diagnose why the room in the photo feels '{feels}'. Sections: text on what the photo shows about light sources, shadows and colour temperature; a table (Problem seen | Cause | Fix | Cost band); a checklist of changes ordered by cost, starting with bulb swaps; and a callout on the one lamp position that would change the room most.",
+   "shape": "text, table, checklist, callout",
+   "button": "Diagnose",
+   "loading": "Adjusting eyes…"
+  },
+  {
+   "id": "bulbs",
+   "title": "Which bulbs?",
+   "subtitle": "Decode fittings, lumens, kelvin, dimmable",
+   "emoji": "🔌",
+   "inputs": [
+    {
+     "key": "fitting",
+     "label": "Fitting or old bulb",
+     "type": "text",
+     "placeholder": "E27, 60W old incandescent, dimmable",
+     "required": true
+    },
+    {
+     "key": "use",
+     "label": "Used for",
+     "type": "chips",
+     "options": [
+      "Reading",
+      "Cooking",
+      "Relaxing",
+      "Makeup / mirror",
+      "Working",
+      "Hallway"
+     ],
+     "default": "Relaxing"
+    },
+    {
+     "key": "smartpref",
+     "label": "Smart?",
+     "type": "chips",
+     "options": [
+      "No",
+      "Yes",
+      "Don't mind"
+     ],
+     "default": "Don't mind"
+    }
+   ],
+   "prompt": "Recommend bulbs for {fitting} used for {use}, smart preference '{smartpref}'. Sections: kv (lumens, kelvin, CRI, beam angle, dimmable, wattage equivalent, shape); a table (Option | Lumens | Kelvin | Smart? | Price band | Best for); bullets on reading a bulb box; and a callout on dimmer compatibility and flicker.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Pick bulbs",
+   "loading": "Reading the box…"
+  },
+  {
+   "id": "scenes",
+   "title": "Evening scenes",
+   "subtitle": "Schedules for wake, work and wind-down",
+   "emoji": "🌙",
+   "inputs": [
+    {
+     "key": "lamps",
+     "label": "Your lamps & smart devices",
+     "type": "text",
+     "placeholder": "2 smart bulbs living room, bedside lamp on smart plug, kitchen strip",
+     "required": true
+    },
+    {
+     "key": "routine",
+     "label": "Your evening",
+     "type": "text",
+     "placeholder": "dinner 7, TV 8–10, bed 11"
+    }
+   ],
+   "prompt": "Create lighting scenes and a schedule using: {lamps}, around this routine: {routine}. Sections: a table (Scene | Time | Lights | Brightness % | Kelvin | Trigger); steps to set it up in a generic smart-home app or with plug-in timers if nothing is smart; bullets on circadian-friendly choices after sunset; and a callout on not relying on scenes for safety lighting on stairs.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Build scenes",
+   "loading": "Dimming gently…"
+  },
+  {
+   "id": "shop",
+   "title": "Lighting shopping list",
+   "subtitle": "Fixtures and bulbs for the whole home",
+   "emoji": "🛒",
+   "inputs": [
+    {
+     "key": "budget",
+     "label": "Budget",
+     "type": "number",
+     "placeholder": "400"
+    },
+    {
+     "key": "rooms",
+     "label": "Rooms to cover",
+     "type": "chips",
+     "options": [
+      "Living room",
+      "Kitchen",
+      "Bedroom",
+      "Bathroom",
+      "Home office",
+      "Hallway",
+      "Dining"
+     ],
+     "multi": true
+    },
+    {
+     "key": "look",
+     "label": "Look",
+     "type": "chips",
+     "options": [
+      "Minimal",
+      "Warm & cosy",
+      "Industrial",
+      "Mid-century",
+      "Whatever's cheapest"
+     ],
+     "default": "Warm & cosy"
+    }
+   ],
+   "prompt": "Build a lighting shopping list for {rooms} with a budget of {budget} and a {look} look, within the profile's wiring limits. Sections: a table (Room | Item | Type | Lumens/kelvin | Price band | Priority) totalling under budget; cards for 3 splurge-vs-save swaps (meta = saving); a checklist ordered by impact; and a callout on hardwired items that need an electrician.",
+   "shape": "table, cards, checklist, callout",
+   "button": "Make list",
+   "loading": "Browsing lamps…"
+  }
+ ],
+ "disclaimer": "Hardwired lighting and any electrical work may legally require a qualified electrician in your area. This is design guidance only, not electrical advice."
+}

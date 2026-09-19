@@ -1,6 +1,7 @@
 #!/bin/bash
 # build_flavors.sh <flavor...>  — signed release AAB + APK per flavor, copied to dist/
 cd /root/claude/Factory
+python3 gen.py "$@" >/dev/null
 tasks=""
 for f in "$@"; do F="$(tr '[:lower:]' '[:upper:]' <<< ${f:0:1})${f:1}"; tasks="$tasks :app:bundle${F}Release :app:assemble${F}Release"; done
 ./gradlew $tasks -q 2>&1 | grep -E "^e:|FAILED|error:|What went wrong" | head

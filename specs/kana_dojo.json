@@ -1,0 +1,185 @@
+{
+ "id": "kana_dojo",
+ "name": "Kana Dojo",
+ "tagline": "Hiragana and katakana in two weeks, mnemonics included",
+ "category": "Education",
+ "colors": [
+  "#C62828",
+  "#212121",
+  "#F48FB1"
+ ],
+ "icon": "book",
+ "about": "Kana Dojo teaches hiragana and katakana row by row with mnemonics and stroke order, drills you with real words, and reads Japanese signs and packaging from your photos.",
+ "persona": "You are a patient Japanese script sensei who teaches kana through vivid mnemonics, insists on stroke order, and never introduces kanji before the learner is ready.",
+ "onboarding": {
+  "title": "Read Japanese, one row at a time",
+  "subtitle": "Tell us where you are so drills start at the right row.",
+  "bullets": [
+   "Row-by-row lessons with mnemonics",
+   "Real-word reading drills",
+   "Read signs and labels from a photo"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "known",
+   "label": "Already know",
+   "type": "chips",
+   "options": [
+    "Nothing yet",
+    "Some hiragana",
+    "All hiragana",
+    "Hiragana + some katakana"
+   ],
+   "default": "Nothing yet"
+  },
+  {
+   "key": "why",
+   "label": "Learning for",
+   "type": "chips",
+   "options": [
+    "Travel",
+    "Anime & games",
+    "JLPT N5",
+    "Living in Japan",
+    "Fun"
+   ],
+   "default": "Travel"
+  },
+  {
+   "key": "pace",
+   "label": "Daily time",
+   "type": "chips",
+   "options": [
+    "5 min",
+    "15 min",
+    "30 min"
+   ],
+   "default": "15 min"
+  }
+ ],
+ "tools": [
+  {
+   "id": "lesson",
+   "title": "Today's row",
+   "subtitle": "Next 5 kana with mnemonics",
+   "emoji": "🎌",
+   "inputs": [
+    {
+     "key": "script",
+     "label": "Script",
+     "type": "chips",
+     "options": [
+      "Hiragana",
+      "Katakana"
+     ],
+     "default": "Hiragana"
+    },
+    {
+     "key": "row",
+     "label": "Row (optional)",
+     "type": "text",
+     "placeholder": "ka-row, or leave blank for the next one"
+    }
+   ],
+   "prompt": "Teach the next {script} row for the profile (or the {row} row if given). Sections: a table (Kana | Romaji | Mnemonic image | Looks like / confusable with), steps for the stroke order of each character described in words (stroke count, direction, where to start), and a checklist of 5 tiny tasks to lock it in today (trace, write from memory, find it in a word).",
+   "shape": "table, steps, checklist",
+   "button": "Teach me",
+   "loading": "Grinding ink…"
+  },
+  {
+   "id": "drill",
+   "title": "Reading drill",
+   "subtitle": "Real words from kana you know",
+   "emoji": "🔥",
+   "inputs": [
+    {
+     "key": "length",
+     "label": "Words",
+     "type": "chips",
+     "options": [
+      "10",
+      "20",
+      "30"
+     ],
+     "default": "20"
+    },
+    {
+     "key": "mix",
+     "label": "Include",
+     "type": "chips",
+     "options": [
+      "Only kana I know",
+      "Add the newest row",
+      "Everything"
+     ],
+     "default": "Add the newest row"
+    }
+   ],
+   "prompt": "Generate a reading drill of {length} real Japanese words using {mix} for the profile's level. Sections: a numbered table (# | Kana) for reading, then a text line labelled 'Answers' followed by a table (# | Romaji | Meaning), bullets of the 3 most commonly confused pairs appearing in this set (e.g. さ/き, シ/ツ), and a quote with one encouraging sensei sentence in Japanese with romaji.",
+   "shape": "table, text, table, bullets, quote",
+   "button": "Drill me",
+   "loading": "Shuffling cards…"
+  },
+  {
+   "id": "read",
+   "title": "Read this",
+   "subtitle": "Photo of a sign, menu or label",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo with Japanese text",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Transcribe the Japanese text in the photo. Sections: a table (Text as written | Reading in kana | Romaji | English), a callout that marks which parts are kanji (with furigana reading) versus kana the learner can already read at the profile's level, and bullets of 3 vocabulary words from the photo worth memorising.",
+   "shape": "table, callout, bullets",
+   "button": "Read it",
+   "loading": "Squinting…"
+  },
+  {
+   "id": "loanwords",
+   "title": "Katakana word guess",
+   "subtitle": "Loanwords you already know",
+   "emoji": "🍔",
+   "inputs": [
+    {
+     "key": "theme",
+     "label": "Theme",
+     "type": "chips",
+     "options": [
+      "Food",
+      "Tech",
+      "Fashion",
+      "Travel",
+      "Music",
+      "Random"
+     ],
+     "default": "Food"
+    }
+   ],
+   "prompt": "Create a katakana loanword game on the theme {theme}: a table (Katakana | Say-it-out-loud hint | Answer (English origin) | Meaning in Japan if different), then bullets explaining 4 rules that transform English sounds into katakana (long vowels, small tsu, l→r, added vowels), and a checklist of 5 katakana words to spot in the wild this week.",
+   "shape": "table, bullets, checklist",
+   "button": "Play",
+   "loading": "Loading menu…"
+  },
+  {
+   "id": "plan",
+   "title": "Two-week plan",
+   "subtitle": "Finish both scripts at your pace",
+   "emoji": "📅",
+   "inputs": [],
+   "prompt": "Build a 14-day kana plan for the profile's daily time and current knowledge. Sections: a table (Day | Rows to learn | Review | Drill type), bullets on spaced-review timing, and a callout on the moment to stop using romaji entirely.",
+   "shape": "table, bullets, callout",
+   "button": "Plan it",
+   "loading": "Sharpening brushes…"
+  }
+ ]
+}

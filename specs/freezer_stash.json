@@ -1,0 +1,174 @@
+{
+ "id": "freezer_stash",
+ "name": "Freezer Stash",
+ "tagline": "Cook double, freeze half, never waste dinner",
+ "category": "Food & Drink",
+ "colors": [
+  "#1565C0",
+  "#26C6DA",
+  "#7E57C2"
+ ],
+ "icon": "calendar",
+ "about": "Freezer Stash tells you what freezes well and how, plans double-and-freeze cooking sessions, inventories your freezer from a photo, and schedules safe defrosting so tonight's dinner is ready in time.",
+ "persona": "You are a freezer-cooking pro: label-obsessed, food-safety-strict, and unbothered by freezer burn because you know how to stop it.",
+ "onboarding": {
+  "title": "Your freezer, working for you",
+  "subtitle": "Tell Freezer Stash what you've got and who you feed.",
+  "bullets": [
+   "What freezes well (and what doesn't)",
+   "Inventory from a photo",
+   "Safe defrost timings for tonight"
+  ]
+ },
+ "profile": [
+  {
+   "key": "freezer",
+   "label": "Freezer",
+   "type": "chips",
+   "options": [
+    "Fridge-top drawer",
+    "Under-counter",
+    "Upright",
+    "Chest"
+   ]
+  },
+  {
+   "key": "people",
+   "label": "People you feed",
+   "type": "number",
+   "placeholder": "3"
+  },
+  {
+   "key": "containers",
+   "label": "Containers you use",
+   "type": "text",
+   "placeholder": "zip bags, 1 L tubs, foil trays"
+  },
+  {
+   "key": "diet",
+   "label": "Diet / avoid",
+   "type": "text"
+  }
+ ],
+ "tools": [
+  {
+   "id": "freeze",
+   "title": "Can I freeze this?",
+   "subtitle": "How, how long, how to bring it back",
+   "emoji": "❄️",
+   "inputs": [
+    {
+     "key": "dish",
+     "label": "Dish or ingredient",
+     "type": "text",
+     "placeholder": "cooked rice",
+     "required": true
+    }
+   ],
+   "prompt": "For {dish}: kv (freeze yes / no / with caveats, best container from the profile, portion size, freezer life, thaw method, reheat method and internal target), steps for freezing it properly (cool fast, freeze flat, label), and a callout on texture changes and food-safety limits for this item.",
+   "shape": "kv, steps, callout",
+   "button": "Check",
+   "loading": "Chilling…"
+  },
+  {
+   "id": "session",
+   "title": "Double-and-freeze session",
+   "subtitle": "Cook once, stock the freezer",
+   "emoji": "🍲",
+   "inputs": [
+    {
+     "key": "meals",
+     "label": "Freezer meals to make",
+     "type": "number",
+     "placeholder": "6"
+    },
+    {
+     "key": "hours",
+     "label": "Hours you have",
+     "type": "number",
+     "placeholder": "3"
+    },
+    {
+     "key": "prefs",
+     "label": "Preferences",
+     "type": "text",
+     "placeholder": "kids like pasta, one veggie"
+    }
+   ],
+   "prompt": "Plan a {hours}-hour session that produces {meals} freezer dinners for the profile's people, prefs: {prefs}. Table (Dish | Portions | Container | Freezer life | Reheat from frozen?), a checklist shopping list, steps for the session in time order so the oven and hob are never idle, and bullets on labelling and cooling before freezing.",
+   "shape": "table, checklist, steps, bullets",
+   "button": "Plan session",
+   "loading": "Stacking tubs…"
+  },
+  {
+   "id": "scan",
+   "title": "Inventory my freezer",
+   "subtitle": "Photo → what's in there",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of your open freezer",
+     "type": "photo",
+     "placeholder": "Pull drawers out if you can",
+     "required": true
+    }
+   ],
+   "prompt": "List every item visible in the photo as a table (Item | Est. qty | Likely age | Use by), then cards of 4 dinners this week built mostly from it (meta = thaw time · cook minutes), and a checklist of things to eat first before freezer burn wins.",
+   "shape": "table, cards, checklist",
+   "button": "Scan",
+   "loading": "Peering in…"
+  },
+  {
+   "id": "defrost",
+   "title": "Defrost for tonight",
+   "subtitle": "Safe timing that actually works",
+   "emoji": "⏱️",
+   "inputs": [
+    {
+     "key": "item",
+     "label": "What's frozen",
+     "type": "text",
+     "placeholder": "1 kg chicken thighs",
+     "required": true
+    },
+    {
+     "key": "eat",
+     "label": "Eating at",
+     "type": "text",
+     "placeholder": "7pm"
+    },
+    {
+     "key": "now",
+     "label": "It's now",
+     "type": "text",
+     "placeholder": "1pm"
+    }
+   ],
+   "prompt": "Defrost {item} to eat at {eat} when it's {now}: a table (Method | Time needed | Safe? | Notes) covering fridge, cold-water, microwave and cook-from-frozen, steps for the best option that makes tonight's deadline, and a callout on the counter-top defrost mistake and refreezing rules.",
+   "shape": "table, steps, callout",
+   "button": "Plan defrost",
+   "loading": "Melting…"
+  },
+  {
+   "id": "burn",
+   "title": "Freezer burn & fails",
+   "subtitle": "Rescue it or bin it",
+   "emoji": "🧊",
+   "inputs": [
+    {
+     "key": "what",
+     "label": "What's wrong",
+     "type": "text",
+     "placeholder": "grey patches on frozen mince from March",
+     "required": true
+    }
+   ],
+   "prompt": "Assess: {what}. Text verdict (safe to eat / safe but degraded / bin it), bullets on how to use a degraded item well (stews, sauces, stock), steps to prevent it next time, and a kv of maximum freezer times for common categories.",
+   "shape": "text, bullets, steps, kv",
+   "button": "Assess",
+   "loading": "Inspecting…"
+  }
+ ],
+ "disclaimer": "Freezing and defrosting guidance is general food-safety advice; when in doubt, throw it out."
+}

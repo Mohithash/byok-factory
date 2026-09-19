@@ -1,0 +1,239 @@
+{
+ "id": "korean_banchan",
+ "name": "Banchan Box",
+ "tagline": "Kimchi, banchan, jjigae and K-BBQ at home",
+ "category": "Food & Drink",
+ "colors": [
+  "#D32F2F",
+  "#0D47A1",
+  "#FFA000"
+ ],
+ "icon": "star",
+ "about": "Banchan Box is a Korean home-cooking companion: kimchi and quick pickles with fermentation timelines, banchan sets around any main, jjigae from the fridge, Korean BBQ nights without a restaurant, and a decoder for the Korean grocery aisle.",
+ "persona": "You are a Korean home cook and teacher who cooks by ratio and taste (gochugaru, gochujang, doenjang, fish sauce), respects family variation, keeps fermentation safe and adapts to Western kitchens.",
+ "onboarding": {
+  "title": "Korean cooking, weeknight-real",
+  "subtitle": "Tell us your heat level and pantry; every recipe scales to it.",
+  "bullets": [
+   "Kimchi with a fermentation timeline",
+   "Banchan sets around any main",
+   "Jjigae and K-BBQ without a restaurant"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "heat",
+   "label": "Heat",
+   "type": "chips",
+   "options": [
+    "Mild",
+    "Medium",
+    "Korean-hot"
+   ],
+   "default": "Medium"
+  },
+  {
+   "key": "diet",
+   "label": "Diet",
+   "type": "chips",
+   "options": [
+    "Anything",
+    "Pescatarian",
+    "Vegetarian",
+    "Vegan"
+   ],
+   "default": "Anything"
+  },
+  {
+   "key": "pantry",
+   "label": "Pantry",
+   "type": "chips",
+   "options": [
+    "Gochugaru",
+    "Gochujang",
+    "Doenjang",
+    "Soy sauce",
+    "Fish sauce",
+    "Sesame oil",
+    "Rice vinegar",
+    "Perilla oil"
+   ],
+   "default": "Soy sauce",
+   "multi": true
+  }
+ ],
+ "tools": [
+  {
+   "id": "kimchi",
+   "title": "Kimchi lab",
+   "subtitle": "Napa, radish, cucumber or vegan — with a timeline",
+   "emoji": "🥬",
+   "inputs": [
+    {
+     "key": "type",
+     "label": "Kimchi",
+     "type": "chips",
+     "options": [
+      "Baechu (napa cabbage)",
+      "Kkakdugi (radish cubes)",
+      "Oi sobagi (cucumber)",
+      "Chonggak (ponytail radish)",
+      "Baek (white, mild)",
+      "Vegan baechu",
+      "Geotjeori (fresh, unfermented)"
+     ],
+     "default": "Baechu (napa cabbage)"
+    },
+    {
+     "key": "kg",
+     "label": "Vegetable weight (kg)",
+     "type": "number",
+     "placeholder": "2"
+    }
+   ],
+   "prompt": "Guide {type} for {kg} kg of vegetable at the profile's heat, using the profile pantry. Sections: a table 'Ingredients' (Ingredient | Grams | Notes/substitute), steps for salting (with salt percentage and time), rinsing, paste, packing and burping, a kv 'Fermentation timeline' (day 0–1 fresh, day 2–4 lively, week 1+ sour, ideal temperature, fridge life), and a callout on safe fermentation: headspace, keeping vegetables submerged, what normal bubbling looks like versus mould or off smells that mean discard.",
+   "shape": "table, steps, kv, callout",
+   "button": "Start kimchi",
+   "loading": "Salting cabbage…"
+  },
+  {
+   "id": "banchan",
+   "title": "Banchan set",
+   "subtitle": "Side dishes that suit your main",
+   "emoji": "🍱",
+   "inputs": [
+    {
+     "key": "main",
+     "label": "Main dish",
+     "type": "text",
+     "placeholder": "grilled mackerel, bulgogi, doenjang jjigae",
+     "required": true
+    },
+    {
+     "key": "count",
+     "label": "How many banchan",
+     "type": "number",
+     "placeholder": "4"
+    },
+    {
+     "key": "time",
+     "label": "Time",
+     "type": "chips",
+     "options": [
+      "20 minutes",
+      "45 minutes",
+      "Batch for the week"
+     ],
+     "default": "45 minutes"
+    }
+   ],
+   "prompt": "Choose {count} banchan to go with {main}, cookable in '{time}', for the profile's diet. Sections: cards per banchan (meta = minutes · keeps N days in fridge), steps for the two that take the most technique, a checklist shopping list, and bullets on balancing the table (one fresh, one fermented, one seasoned vegetable, one protein) and serving temperatures.",
+   "shape": "cards, steps, checklist, bullets",
+   "button": "Set the table",
+   "loading": "Seasoning…"
+  },
+  {
+   "id": "jjigae",
+   "title": "Jjigae from the fridge",
+   "subtitle": "Stew or soup from what you have",
+   "emoji": "🍲",
+   "inputs": [
+    {
+     "key": "type",
+     "label": "Stew",
+     "type": "chips",
+     "options": [
+      "Kimchi jjigae",
+      "Sundubu jjigae",
+      "Doenjang jjigae",
+      "Budae jjigae",
+      "Galbitang",
+      "Miyeokguk",
+      "Yukgaejang",
+      "Pick for me"
+     ],
+     "default": "Pick for me"
+    },
+    {
+     "key": "fridge",
+     "label": "In the fridge",
+     "type": "text",
+     "placeholder": "old kimchi, tofu, pork belly, spring onion"
+    }
+   ],
+   "prompt": "Make {type} from {fridge} at the profile's heat (if 'Pick for me', choose the stew that best uses what is in the fridge). Sections: kv (stew chosen and why it fits the fridge, serves, minutes, key paste and grams), steps with the order of layering and when to add the paste versus the fish sauce, bullets on 3 ways to tweak it (richer, lighter, spicier), and a callout on the earthenware pot: heating from cold and not adding cold liquid to a hot pot.",
+   "shape": "kv, steps, bullets, callout",
+   "button": "Make jjigae",
+   "loading": "Bringing to a boil…"
+  },
+  {
+   "id": "bbq",
+   "title": "K-BBQ at home",
+   "subtitle": "Marinades, cuts and ssam for your gear",
+   "emoji": "🔥",
+   "inputs": [
+    {
+     "key": "guests",
+     "label": "Guests",
+     "type": "number",
+     "placeholder": "4"
+    },
+    {
+     "key": "gear",
+     "label": "Gear",
+     "type": "chips",
+     "options": [
+      "Tabletop grill",
+      "Cast-iron pan",
+      "Oven broiler",
+      "Air fryer",
+      "Outdoor grill"
+     ],
+     "default": "Cast-iron pan"
+    },
+    {
+     "key": "meat",
+     "label": "Proteins",
+     "type": "chips",
+     "options": [
+      "Pork belly (samgyeopsal)",
+      "Bulgogi beef",
+      "Galbi short rib",
+      "Chicken thigh (dak)",
+      "Mushroom / tofu"
+     ],
+     "default": "Bulgogi beef",
+     "multi": true
+    }
+   ],
+   "prompt": "Plan Korean BBQ for {guests} guests on {gear} with {meat}. Sections: a table 'Cuts & marinades' (Protein | Marinade ingredients with grams | Marinate time | Cook time and cue), steps for the evening from marinating to the last round, a checklist for the ssam table (lettuces, perilla, ssamjang, pickled onion, rice, soups) with quantities, and a callout on indoor smoke, grease fires and ventilation for the chosen gear.",
+   "shape": "table, steps, checklist, callout",
+   "button": "Plan BBQ",
+   "loading": "Firing the grill…"
+  },
+  {
+   "id": "decode",
+   "title": "Decode the Korean aisle",
+   "subtitle": "Photo of a product → what it is",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the product or label",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Identify the Korean product in the photo. Sections: kv (name in Korean and romanised, category, key ingredients, allergens such as wheat/soy/fish/shellfish, heat level if any, shelf life after opening), bullets on 4 dishes it goes into with amounts, a table 'Similar products' (Product | Difference | Can it substitute?), and a callout on anything a vegetarian or allergy-aware user should know.",
+   "shape": "kv, bullets, table, callout",
+   "button": "Decode",
+   "loading": "Reading hangul…"
+  }
+ ],
+ "disclaimer": "General cooking guidance, not food-safety or dietary advice: follow safe handling, storage and allergen practices, take care with hot oil, open flames, raw or undercooked foods and fermentation, and discard anything that smells or looks wrong."
+}

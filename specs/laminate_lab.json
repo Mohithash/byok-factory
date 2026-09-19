@@ -1,0 +1,200 @@
+{
+ "id": "laminate_lab",
+ "name": "Fold & Flake",
+ "tagline": "Croissants, puff and danish that actually flake",
+ "category": "Food & Drink",
+ "colors": [
+  "#EF6C00",
+  "#1E88E5",
+  "#8D6E63"
+ ],
+ "icon": "clock",
+ "about": "Fold & Flake schedules croissant, puff and danish bakes around your day, sizes butter blocks and folds for any quantity, and diagnoses leaked butter or dense layers from a photo.",
+ "persona": "You are a viennoiserie baker: obsessive about butter temperature, dough tension and timing, and honest about what a home fridge can and can't do.",
+ "onboarding": {
+  "title": "Layers on your schedule",
+  "subtitle": "Tell us about your kitchen and how much you bake.",
+  "bullets": [
+   "Bake schedules around real life",
+   "Butter block and fold math",
+   "Photo diagnosis of flat layers"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "pastry",
+   "label": "You mostly make",
+   "type": "chips",
+   "options": [
+    "Croissants",
+    "Puff pastry",
+    "Danish",
+    "Kouign-amann",
+    "Rough puff"
+   ],
+   "default": "Croissants"
+  },
+  {
+   "key": "kitchen",
+   "label": "Kitchen temperature",
+   "type": "text",
+   "placeholder": "22°C, warm afternoons"
+  },
+  {
+   "key": "butter",
+   "label": "Butter",
+   "type": "chips",
+   "options": [
+    "European 82%+",
+    "Standard 80%",
+    "Plant-based block"
+   ],
+   "default": "European 82%+"
+  }
+ ],
+ "tools": [
+  {
+   "id": "schedule",
+   "title": "Plan the bake",
+   "subtitle": "Backwards from when you want them",
+   "emoji": "🕒",
+   "inputs": [
+    {
+     "key": "ready",
+     "label": "Want them ready by",
+     "type": "text",
+     "placeholder": "Sunday 9am",
+     "required": true
+    },
+    {
+     "key": "style",
+     "label": "Schedule style",
+     "type": "chips",
+     "options": [
+      "Same day",
+      "Overnight proof",
+      "Two-day classic",
+      "Freeze shaped"
+     ],
+     "default": "Two-day classic"
+    },
+    {
+     "key": "count",
+     "label": "Pieces",
+     "type": "number",
+     "placeholder": "12"
+    }
+   ],
+   "prompt": "Plan a {style} schedule for {count} of the profile pastry, ready by {ready}. Steps with clock times for mixing, bulk, lock-in, each fold with fridge rests, shaping, proofing (temperature and target size) and baking, a table (Stage | Minutes | Dough temp target | Sign it's ready), and a callout on what to do if the kitchen is warmer than the profile says.",
+   "shape": "steps, table, callout",
+   "button": "Schedule",
+   "loading": "Chilling the dough…"
+  },
+  {
+   "id": "block",
+   "title": "Butter block & folds",
+   "subtitle": "Sizes and fold count for any batch",
+   "emoji": "📏",
+   "inputs": [
+    {
+     "key": "flour",
+     "label": "Flour grams",
+     "type": "number",
+     "placeholder": "500"
+    },
+    {
+     "key": "folds",
+     "label": "Fold pattern",
+     "type": "chips",
+     "options": [
+      "3 single",
+      "1 double + 1 single",
+      "2 double",
+      "4 single (puff)",
+      "6 single (puff)"
+     ],
+     "default": "1 double + 1 single"
+    },
+    {
+     "key": "goal",
+     "label": "Goal",
+     "type": "chips",
+     "options": [
+      "Open honeycomb",
+      "Tighter even crumb",
+      "Max height puff"
+     ],
+     "default": "Open honeycomb"
+    }
+   ],
+   "prompt": "Size the lamination for {flour} g flour of the profile pastry with a {folds} pattern aiming for {goal}. Give a kv (butter block grams, block dimensions in cm, dough sheet dimensions before lock-in, final layer count) and a table (Fold | Roll to cm | Rest minutes) with one row per fold. Then steps for making a pliable block without cracking, and a callout on the butter temperature window for the profile butter.",
+   "shape": "kv, table, steps, callout",
+   "button": "Size it",
+   "loading": "Rolling out…"
+  },
+  {
+   "id": "diagnose",
+   "title": "Why didn't it flake?",
+   "subtitle": "Photo of the cross-section",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of a cut pastry",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "what",
+     "label": "What happened",
+     "type": "text",
+     "placeholder": "butter leaked in the oven, bready inside"
+    }
+   ],
+   "prompt": "Diagnose the laminated pastry in the attached photo, given: {what}. Text naming the top fault (butter too cold or warm, underproofed, overproofed, layers fused, under-baked), bullets of visible evidence, a table (Symptom | Cause | Fix) for every issue you see, and steps for one focused change to make on the next batch.",
+   "shape": "text, bullets, table, steps",
+   "button": "Diagnose",
+   "loading": "Counting layers…"
+  },
+  {
+   "id": "shapes",
+   "title": "Shapes & fillings",
+   "subtitle": "Turn one dough into a box of pastries",
+   "emoji": "🥐",
+   "inputs": [
+    {
+     "key": "dough",
+     "label": "Dough",
+     "type": "chips",
+     "options": [
+      "Croissant",
+      "Danish",
+      "Puff"
+     ],
+     "default": "Croissant"
+    },
+    {
+     "key": "fillings",
+     "label": "Fillings on hand",
+     "type": "text",
+     "placeholder": "almond cream, ham and gruyère, apricot jam"
+    },
+    {
+     "key": "pieces",
+     "label": "Pieces",
+     "type": "number",
+     "placeholder": "10"
+    }
+   ],
+   "prompt": "Turn one batch of {dough} dough into {pieces} pieces using fillings {fillings}. Propose 4 shapes as cards (meta = filling · difficulty · grams of filling each), then steps with cutting dimensions for shaping the two trickiest. Finish with a kv of egg wash, proof and bake settings per shape, and a callout on fillings that leak or burn.",
+   "shape": "cards, steps, kv, callout",
+   "button": "Shape it",
+   "loading": "Cutting triangles…"
+  }
+ ]
+}

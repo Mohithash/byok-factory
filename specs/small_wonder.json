@@ -1,0 +1,220 @@
+{
+ "id": "small_wonder",
+ "name": "Small Wonder",
+ "tagline": "Make a tiny flat live large",
+ "category": "House & Home",
+ "colors": [
+  "#3949AB",
+  "#FF7043",
+  "#26C6DA"
+ ],
+ "icon": "star",
+ "about": "Small Wonder zones studios and tiny flats, checks whether furniture fits to the centimetre, finds storage you are not using and makes hosting possible in 30 square metres.",
+ "persona": "You are a small-space living specialist who has lived in studios in Tokyo and Paris: obsessed with centimetres, vertical space and pieces that do two jobs, never suggesting you simply buy more.",
+ "onboarding": {
+  "title": "Live large in a small footprint",
+  "subtitle": "A few measurements make every suggestion fit.",
+  "bullets": [
+   "Zone one room into many",
+   "Furniture that fits to the cm",
+   "Storage where you didn't look"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "sqm",
+   "label": "Floor area (m²)",
+   "type": "number",
+   "placeholder": "32"
+  },
+  {
+   "key": "type",
+   "label": "Home type",
+   "type": "chips",
+   "options": [
+    "Studio",
+    "1-bed flat",
+    "Bedsit / room",
+    "Tiny house",
+    "Van / boat"
+   ]
+  },
+  {
+   "key": "people",
+   "label": "Who lives here",
+   "type": "chips",
+   "options": [
+    "Just me",
+    "Couple",
+    "Me + kid",
+    "Me + pet",
+    "Flatmate"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "zones",
+   "title": "Zone my space",
+   "subtitle": "Separate sleep, work and eat in one room",
+   "emoji": "🗺️",
+   "inputs": [
+    {
+     "key": "dims",
+     "label": "Room shape & dimensions",
+     "type": "text",
+     "placeholder": "5.8m × 4.1m, window on short wall, kitchenette in corner",
+     "required": true
+    },
+    {
+     "key": "needs",
+     "label": "Zones you need",
+     "type": "chips",
+     "options": [
+      "Sleep",
+      "Work",
+      "Eat",
+      "Lounge",
+      "Exercise",
+      "Hobby / making"
+     ],
+     "multi": true
+    }
+   ],
+   "prompt": "Divide a room of {dims} into zones for: {needs}, for the profile's home and household. Sections: steps assigning each zone to a position with approximate dimensions and the reason (light, plumbing, privacy); a table (Zone | Divider method | Cost band | Reversible?); bullets on keeping sightlines open; and a callout on the one zone that should be visible from the door.",
+   "shape": "steps, table, bullets, callout",
+   "button": "Zone it",
+   "loading": "Drawing lines…"
+  },
+  {
+   "id": "fit",
+   "title": "Will it fit?",
+   "subtitle": "Check a piece against your space and stairs",
+   "emoji": "📏",
+   "inputs": [
+    {
+     "key": "item",
+     "label": "Item & its dimensions",
+     "type": "text",
+     "placeholder": "sofa bed 190 × 95cm, opens to 190 × 140",
+     "required": true
+    },
+    {
+     "key": "spot",
+     "label": "Where it would go",
+     "type": "text",
+     "placeholder": "under the window, 210cm wall, radiator at 40cm height"
+    },
+    {
+     "key": "route",
+     "label": "Route in",
+     "type": "text",
+     "placeholder": "3rd floor no lift, stair turn ~100cm wide"
+    }
+   ],
+   "prompt": "Check whether {item} fits at {spot} and can be delivered via {route}. Sections: kv (fits in place?, clearance to open and walk past in cm, fits through the route?, verdict); a table (Check | Requirement | Your measurement | Pass/Fail); bullets of 3 alternative pieces or sizes if anything fails; and a callout on what to measure again before ordering.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Check fit",
+   "loading": "Measuring twice…"
+  },
+  {
+   "id": "dual",
+   "title": "Dual-purpose furniture",
+   "subtitle": "Pieces that do two jobs",
+   "emoji": "🔁",
+   "inputs": [
+    {
+     "key": "need",
+     "label": "I need to add",
+     "type": "chips",
+     "options": [
+      "A bed",
+      "A desk",
+      "Dining for 2–4",
+      "Guest sleeping",
+      "Storage",
+      "Seating"
+     ],
+     "default": "A desk"
+    },
+    {
+     "key": "budget",
+     "label": "Budget",
+     "type": "number",
+     "placeholder": "300"
+    },
+    {
+     "key": "look",
+     "label": "Look",
+     "type": "chips",
+     "options": [
+      "Minimal",
+      "Warm wood",
+      "Industrial",
+      "Colourful",
+      "Whatever's cheapest"
+     ],
+     "default": "Minimal"
+    }
+   ],
+   "prompt": "Suggest dual-purpose furniture to add {need} to the profile's space with a budget of {budget} and a {look} look. Sections: cards for 5 options (meta = footprint cm · price band · second job); a table (Option | Footprint | Folded/expanded size | Weight | Assembly effort); bullets on second-hand search terms; and a callout on what to check before buying fold-away pieces (mechanism, mattress depth, wall anchoring).",
+   "shape": "cards, table, bullets, callout",
+   "button": "Suggest pieces",
+   "loading": "Unfolding ideas…"
+  },
+  {
+   "id": "vertical",
+   "title": "Storage I'm not using",
+   "subtitle": "Photo → walls, doors, ceiling, under-bed",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of a wall or corner you want to use better",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Look at the photo and find every unused storage opportunity: walls, above and behind doors, under furniture, ceiling and corners. Sections: a table (Spot | What it can hold | Solution | Drill-free option | Cost band); a checklist of installs ordered from easiest to hardest; steps for the highest-value install with exact heights; and a callout on weight limits, wall type and anchoring tall pieces.",
+   "shape": "table, checklist, steps, callout",
+   "button": "Find storage",
+   "loading": "Scanning surfaces…"
+  },
+  {
+   "id": "guests",
+   "title": "Host in a tiny flat",
+   "subtitle": "Dinner or overnight guests without panic",
+   "emoji": "🎉",
+   "inputs": [
+    {
+     "key": "event",
+     "label": "Occasion",
+     "type": "chips",
+     "options": [
+      "Dinner for 4",
+      "Drinks for 8",
+      "One overnight guest",
+      "Two overnight guests",
+      "Kids' visit"
+     ],
+     "default": "Dinner for 4"
+    },
+    {
+     "key": "worry",
+     "label": "What worries you",
+     "type": "text",
+     "placeholder": "only 2 chairs, nowhere for coats"
+    }
+   ],
+   "prompt": "Plan hosting '{event}' in the profile's space given this worry: {worry}. Sections: steps to transform the room in the 60 minutes before guests arrive; a table (Problem | Fix | Borrow, buy or improvise); a checklist for resetting the room afterwards; and a quote with a relaxed one-liner to say when guests comment on the size.",
+   "shape": "steps, table, checklist, quote",
+   "button": "Plan hosting",
+   "loading": "Making room…"
+  }
+ ]
+}

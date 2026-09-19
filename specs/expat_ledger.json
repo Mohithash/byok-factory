@@ -1,0 +1,203 @@
+{
+ "id": "expat_ledger",
+ "name": "Expat Ledger",
+ "tagline": "Money across borders, without losing it in between",
+ "category": "Finance",
+ "colors": [
+  "#1B5E20",
+  "#FBC02D",
+  "#3949AB"
+ ],
+ "icon": "coin",
+ "about": "Expat Ledger decodes salary offers abroad into real take-home and cost of living, plans transfers between countries, sets up banking on arrival, and explains tax-residency basics in plain language.",
+ "persona": "You are a cross-border personal-finance adviser: numbers-first, currency-aware, explicit about assumptions and about when a tax professional in each country is needed.",
+ "onboarding": {
+  "title": "Know what your money is worth abroad",
+  "subtitle": "Home and host country set the currencies and rules.",
+  "bullets": [
+   "Offer → real take-home",
+   "Cost-of-living comparisons",
+   "Transfers, banking and tax basics"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "home",
+   "label": "Home country & currency",
+   "type": "text",
+   "placeholder": "India, INR"
+  },
+  {
+   "key": "host",
+   "label": "Host country & city",
+   "type": "text",
+   "placeholder": "Amsterdam, Netherlands"
+  },
+  {
+   "key": "family",
+   "label": "Household",
+   "type": "chips",
+   "options": [
+    "Just me",
+    "Couple",
+    "Family with kids"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "offer",
+   "title": "Decode an offer",
+   "subtitle": "Gross → net → what's left",
+   "emoji": "📄",
+   "inputs": [
+    {
+     "key": "salary",
+     "label": "Gross salary per year",
+     "type": "number",
+     "placeholder": "75000"
+    },
+    {
+     "key": "extras",
+     "label": "Extras",
+     "type": "text",
+     "placeholder": "relocation 5k, pension 5%, tax ruling"
+    },
+    {
+     "key": "current",
+     "label": "Current salary at home",
+     "type": "text",
+     "placeholder": "2,400,000 INR"
+    }
+   ],
+   "prompt": "Offer {salary} gross with extras {extras}; current pay {current}. kv (estimated net per month with the tax assumptions stated, value of employer benefits, effective hourly rate), a table (Cost | Host city estimate | Home city estimate | Difference), a text verdict on real purchasing-power change for the household, and a callout on what to ask HR before signing.",
+   "shape": "kv, table, text, callout",
+   "button": "Decode offer",
+   "loading": "Converting…"
+  },
+  {
+   "id": "col",
+   "title": "Cost of living",
+   "subtitle": "Rent to groceries, honestly",
+   "emoji": "🏙️",
+   "inputs": [
+    {
+     "key": "lifestyle",
+     "label": "Lifestyle",
+     "type": "chips",
+     "options": [
+      "Frugal",
+      "Comfortable",
+      "Generous"
+     ],
+     "default": "Comfortable"
+    },
+    {
+     "key": "must",
+     "label": "Must-haves",
+     "type": "text",
+     "placeholder": "gym, car, weekly eating out"
+    }
+   ],
+   "prompt": "A monthly budget for the profile's household in the host city, lifestyle {lifestyle}, must-haves {must}: a table (Category | Monthly estimate | Notes), kv (total, rent share %, suggested savings rate), bullets on the 5 costs that surprise newcomers, and a callout that estimates are ranges to verify locally.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Estimate",
+   "loading": "Pricing…"
+  },
+  {
+   "id": "transfer",
+   "title": "Move money home",
+   "subtitle": "Cheapest route, right timing",
+   "emoji": "💸",
+   "inputs": [
+    {
+     "key": "amount",
+     "label": "Amount per transfer",
+     "type": "number",
+     "placeholder": "2000"
+    },
+    {
+     "key": "freq",
+     "label": "Frequency",
+     "type": "chips",
+     "options": [
+      "One-off",
+      "Monthly",
+      "Quarterly"
+     ],
+     "default": "Monthly"
+    },
+    {
+     "key": "for",
+     "label": "Purpose",
+     "type": "chips",
+     "options": [
+      "Family support",
+      "Savings",
+      "Loan repayment",
+      "Property",
+      "Investments"
+     ],
+     "default": "Family support"
+    }
+   ],
+   "prompt": "Sending {amount} {freq} for {for} from host to home currency: a table (Route type | Typical fee | FX margin | Speed | Best for), steps to set up recurring transfers safely, a callout on reporting thresholds and paperwork both countries commonly require, and bullets on timing strategies.",
+   "shape": "table, steps, callout, bullets",
+   "button": "Compare",
+   "loading": "Routing…"
+  },
+  {
+   "id": "bank",
+   "title": "Banking setup",
+   "subtitle": "Open accounts without a local history",
+   "emoji": "🏦",
+   "inputs": [
+    {
+     "key": "stage",
+     "label": "Stage",
+     "type": "chips",
+     "options": [
+      "Before arrival",
+      "First week",
+      "Been here months, still stuck"
+     ],
+     "default": "First week"
+    }
+   ],
+   "prompt": "For {stage} in the host country: a checklist of what banks usually require (ID, address proof, tax number, residence status), a table (Account type | Good for | Watch-outs), steps to build a local credit and payment history from zero, and a callout on keeping home accounts open and telling them you've moved.",
+   "shape": "checklist, table, steps, callout",
+   "button": "Set up",
+   "loading": "Opening…"
+  },
+  {
+   "id": "tax",
+   "title": "Tax residency basics",
+   "subtitle": "Where do I actually owe tax?",
+   "emoji": "🧾",
+   "inputs": [
+    {
+     "key": "days",
+     "label": "Days in each country this year",
+     "type": "text",
+     "placeholder": "180 host, 120 home, 65 travelling"
+    },
+    {
+     "key": "income",
+     "label": "Income sources",
+     "type": "text",
+     "placeholder": "salary in host country, rental income at home"
+    }
+   ],
+   "prompt": "Days: {days}; income: {income}. Text explaining in plain English how residency is typically determined (day counts, ties, treaties), a table (Income | Likely taxed where | Typical relief), a checklist of records to keep, and a callout that this is general and a cross-border tax adviser is needed for the actual filing.",
+   "shape": "text, table, checklist, callout",
+   "button": "Explain",
+   "loading": "Tallying…"
+  }
+ ],
+ "disclaimer": "General information, not financial or tax advice; confirm anything with money at stake with a qualified adviser in both countries."
+}

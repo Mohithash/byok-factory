@@ -1,0 +1,218 @@
+{
+ "id": "reno_ledger",
+ "name": "Reno Ledger",
+ "tagline": "Renovation budgets that survive contact with reality",
+ "category": "House & Home",
+ "colors": [
+  "#37474F",
+  "#F9A825",
+  "#00897B"
+ ],
+ "icon": "coin",
+ "about": "Reno Ledger builds line-item renovation budgets with realistic contingencies, compares contractor quotes side by side, phases work to your cash flow and tracks overspend before it sinks the project.",
+ "persona": "You are a seasoned renovation project manager and quantity surveyor: unsentimental about numbers, clear about what typically blows budgets, and always separating labour from materials.",
+ "onboarding": {
+  "title": "Know what it will really cost",
+  "subtitle": "Your location and property help calibrate every estimate.",
+  "bullets": [
+   "Line-item budgets with contingency",
+   "Quote comparisons that expose gaps",
+   "Phasing to your cash flow"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "location",
+   "label": "Country / region",
+   "type": "text",
+   "placeholder": "UK, Midlands"
+  },
+  {
+   "key": "property",
+   "label": "Property",
+   "type": "chips",
+   "options": [
+    "Flat",
+    "Terraced house",
+    "Semi / detached",
+    "Period property",
+    "New build"
+   ]
+  },
+  {
+   "key": "currency",
+   "label": "Currency",
+   "type": "chips",
+   "options": [
+    "GBP",
+    "USD",
+    "EUR",
+    "AUD",
+    "INR",
+    "CAD"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "budget",
+   "title": "Build a budget",
+   "subtitle": "Line items plus contingency",
+   "emoji": "🧾",
+   "inputs": [
+    {
+     "key": "project",
+     "label": "The project",
+     "type": "longtext",
+     "placeholder": "kitchen: new units, worktop, tiling, move the sink 1m, new lighting…",
+     "required": true
+    },
+    {
+     "key": "total",
+     "label": "Total you can spend",
+     "type": "number",
+     "placeholder": "15000"
+    },
+    {
+     "key": "labour",
+     "label": "Labour",
+     "type": "chips",
+     "options": [
+      "Full trades",
+      "Some DIY",
+      "Mostly DIY"
+     ],
+     "default": "Full trades"
+    }
+   ],
+   "prompt": "Build a renovation budget for: {project}, with a ceiling of {total} in the profile's currency and region, labour approach '{labour}'. Sections: a table (Line item | Materials | Labour | Subtotal | Low–high range) totalling under the ceiling with a contingency line of 10–20%; kv (materials total, labour total, contingency, fees & permits, VAT/tax note, headroom); bullets on the 5 items most likely to overrun and why; and a callout that these are indicative ranges to validate with local quotes.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Build budget",
+   "loading": "Crunching numbers…"
+  },
+  {
+   "id": "quotes",
+   "title": "Compare quotes",
+   "subtitle": "Paste 2–3 quotes, find the gaps",
+   "emoji": "📊",
+   "inputs": [
+    {
+     "key": "quotes",
+     "label": "Paste the quotes",
+     "type": "longtext",
+     "placeholder": "Quote A: 12,400 incl. units, excl. electrics… Quote B: 9,800…",
+     "required": true
+    },
+    {
+     "key": "scope",
+     "label": "What you asked for",
+     "type": "text",
+     "placeholder": "full kitchen fit including electrics and plastering"
+    }
+   ],
+   "prompt": "Compare these contractor quotes: {quotes}, against the requested scope: {scope}. Sections: a table (Item | Quote A | Quote B | Quote C | Notes) with a normalised like-for-like total per quote; bullets of exclusions, vague lines and missing items per quote; a checklist of clarifying questions to send each contractor; and a callout on red flags (large deposits, no written scope, cash-only).",
+   "shape": "table, bullets, checklist, callout",
+   "button": "Compare",
+   "loading": "Reading fine print…"
+  },
+  {
+   "id": "phase",
+   "title": "Phase the work",
+   "subtitle": "Order jobs to your cash flow",
+   "emoji": "📅",
+   "inputs": [
+    {
+     "key": "jobs",
+     "label": "Jobs to do",
+     "type": "longtext",
+     "placeholder": "rewire, bathroom, kitchen, redecorate hall, new boiler",
+     "required": true
+    },
+    {
+     "key": "monthly",
+     "label": "Available per month",
+     "type": "number",
+     "placeholder": "1200"
+    },
+    {
+     "key": "deadline",
+     "label": "Any deadline",
+     "type": "text",
+     "placeholder": "baby due in March"
+    }
+   ],
+   "prompt": "Phase these jobs: {jobs}, with {monthly} available per month in the profile's currency and this deadline: {deadline}. Sections: a table (Phase | Jobs | Est. cost | Months to fund | Start month | Why this order) respecting dependencies (first-fix before finishes, messy before clean); steps on what to do while saving for the next phase; bullets on work to combine to avoid paying twice; and a callout on which phases need permits, sign-off or a specialist.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Phase it",
+   "loading": "Sequencing…"
+  },
+  {
+   "id": "track",
+   "title": "Am I over budget?",
+   "subtitle": "Paste spend so far vs plan",
+   "emoji": "📉",
+   "inputs": [
+    {
+     "key": "spend",
+     "label": "Budget vs actual so far",
+     "type": "longtext",
+     "placeholder": "units budget 4,000 actual 4,600; tiling budget 1,200 actual 900; electrics not started…",
+     "required": true
+    },
+    {
+     "key": "left",
+     "label": "Weeks of work left",
+     "type": "number",
+     "placeholder": "5"
+    }
+   ],
+   "prompt": "Review renovation spend: {spend}, with {left} weeks of work remaining. Sections: kv (planned total, committed so far, forecast at completion, variance, contingency remaining); a table (Line | Budget | Actual | Variance | Status) with the lines that moved most first; bullets of 5 ways to claw money back without hurting the result; and a callout on the decisions to make this week to stay in control.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Check spend",
+   "loading": "Reconciling…"
+  },
+  {
+   "id": "worth",
+   "title": "Is it worth it?",
+   "subtitle": "Cost vs value added vs living with it",
+   "emoji": "🏷️",
+   "inputs": [
+    {
+     "key": "job",
+     "label": "The job",
+     "type": "text",
+     "placeholder": "loft conversion with en-suite",
+     "required": true
+    },
+    {
+     "key": "cost",
+     "label": "Estimated cost",
+     "type": "number",
+     "placeholder": "45000"
+    },
+    {
+     "key": "horizon",
+     "label": "You plan to",
+     "type": "chips",
+     "options": [
+      "Sell within 2 years",
+      "Stay 5+ years",
+      "Rent it out",
+      "Not sure"
+     ],
+     "default": "Stay 5+ years"
+    }
+   ],
+   "prompt": "Assess whether {job} costing {cost} in the profile's currency is worth it if you plan to '{horizon}' in the profile's property type. Sections: text with a candid verdict; kv (typical value-added range, payback logic, disruption weeks, cheaper alternative); a table (Option | Cost | Value/benefit | Disruption) for 3 alternatives including doing nothing; and a callout that this is general information, not financial or valuation advice.",
+   "shape": "text, kv, table, callout",
+   "button": "Assess",
+   "loading": "Weighing it up…"
+  }
+ ],
+ "disclaimer": "Cost figures are indicative ranges, not quotes; prices vary widely by region, spec and contractor. Nothing here is financial, legal or valuation advice; confirm with local professionals before committing money."
+}

@@ -1,0 +1,167 @@
+{
+ "id": "stoic_evening",
+ "name": "Stoic Evening",
+ "tagline": "Ancient journaling for modern nerves",
+ "category": "Lifestyle",
+ "colors": [
+  "#263238",
+  "#BF360C",
+  "#CFD8DC"
+ ],
+ "icon": "moon",
+ "about": "Stoic Evening runs the classic Stoic practices as a daily journal: a morning premeditation, an evening review of what you controlled, a control sorter for any worry, and voluntary-discomfort challenges that build calm.",
+ "persona": "You are a Stoic mentor in the spirit of Epictetus and Marcus Aurelius but in plain English: direct, kind, allergic to fatalism; you separate what is up to us from what isn't and never use Stoicism to excuse injustice or suppress feeling.",
+ "onboarding": {
+  "title": "What's up to you today?",
+  "subtitle": "Tell us what you're facing so the practice is specific.",
+  "bullets": [
+   "Morning premeditation, evening review",
+   "Sort any worry by control",
+   "Weekly discomfort challenges"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "season",
+   "label": "What this season of life is about",
+   "type": "text",
+   "placeholder": "new job, ageing parents"
+  },
+  {
+   "key": "tradition",
+   "label": "Voice you prefer",
+   "type": "chips",
+   "options": [
+    "Marcus (private, gentle)",
+    "Epictetus (blunt)",
+    "Seneca (letters)",
+    "Mixed"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "morning",
+   "title": "Morning premeditation",
+   "subtitle": "Prepare for the day's people and problems",
+   "emoji": "🌄",
+   "inputs": [
+    {
+     "key": "today",
+     "label": "Today holds",
+     "type": "text",
+     "placeholder": "budget meeting, dentist, dinner with in-laws"
+    }
+   ],
+   "prompt": "Write a morning premeditation for a day holding: {today}, in the profile's preferred voice. Text of 3–4 short paragraphs anticipating the difficult people and setbacks without dread, a kv (Up to me today, Not up to me today, Virtue to practise, Likely temptation), and a quote with one line to carry into the first hard moment.",
+   "shape": "text, kv, quote",
+   "button": "Prepare me",
+   "loading": "Sharpening…"
+  },
+  {
+   "id": "evening",
+   "title": "Evening review",
+   "subtitle": "Three questions, honestly",
+   "emoji": "🌙",
+   "inputs": [
+    {
+     "key": "day",
+     "label": "How the day went",
+     "type": "longtext",
+     "placeholder": "snapped at Sam, handled the meeting okay, avoided the email again",
+     "required": true
+    }
+   ],
+   "prompt": "Run the Stoic evening review on: {day}. Kv (What I did well, Where I fell short, What I left undone), a table (Moment | What was in my control | What I did | What I'd do again), bullets with 2 amends or follow-ups for tomorrow, and a quote with a short line of self-forgiveness in the profile's voice.",
+   "shape": "kv, table, bullets, quote",
+   "button": "Review my day",
+   "loading": "Weighing the day…"
+  },
+  {
+   "id": "control",
+   "title": "Sort a worry",
+   "subtitle": "Dichotomy of control, applied",
+   "emoji": "⚖️",
+   "inputs": [
+    {
+     "key": "worry",
+     "label": "What's worrying you",
+     "type": "longtext",
+     "placeholder": "my presentation might bomb and I'll lose the promotion",
+     "required": true
+    }
+   ],
+   "prompt": "Apply the dichotomy of control to: {worry}. Table (Element | Fully mine, partly mine or not mine | What I can do about it), text with a two-paragraph reframe that keeps the effort and drops the outcome-anxiety, steps for the next 24 hours on the fully-mine parts, and a callout on what to say to yourself if the feared outcome happens anyway.",
+   "shape": "table, text, steps, callout",
+   "button": "Sort it",
+   "loading": "Dividing…"
+  },
+  {
+   "id": "discomfort",
+   "title": "Discomfort challenge",
+   "subtitle": "Voluntary hardship, safely",
+   "emoji": "🧗",
+   "inputs": [
+    {
+     "key": "area",
+     "label": "Area",
+     "type": "chips",
+     "options": [
+      "Comfort",
+      "Attention",
+      "Money",
+      "Social",
+      "Physical"
+     ],
+     "default": "Comfort"
+    },
+    {
+     "key": "intensity",
+     "label": "Intensity",
+     "type": "chips",
+     "options": [
+      "Gentle",
+      "Medium",
+      "Bold"
+     ],
+     "default": "Gentle"
+    }
+   ],
+   "prompt": "Set a week of {intensity} voluntary-discomfort practices in the {area} area: table (Day | Practice | Duration | Reflection question), a callout on safety limits and who should skip physical or fasting practices, and bullets on what to notice by the end of the week.",
+   "shape": "table, callout, bullets",
+   "button": "Set challenge",
+   "loading": "Testing resolve…"
+  },
+  {
+   "id": "passage",
+   "title": "Decode a passage",
+   "subtitle": "Paste a line, get it for today",
+   "emoji": "📜",
+   "inputs": [
+    {
+     "key": "passage",
+     "label": "The passage",
+     "type": "longtext",
+     "placeholder": "You have power over your mind, not outside events…",
+     "required": true
+    },
+    {
+     "key": "situation",
+     "label": "Your situation",
+     "type": "text",
+     "placeholder": "being ghosted by a friend"
+    }
+   ],
+   "prompt": "Interpret this passage: {passage}, for the situation: {situation}. Text with what the author most likely meant in context (2 paragraphs), bullets with 3 concrete applications to the situation, a callout on a common misreading of the line, and a quote with a modern one-sentence rewrite.",
+   "shape": "text, bullets, callout, quote",
+   "button": "Decode",
+   "loading": "Consulting…"
+  }
+ ],
+ "disclaimer": "A wellbeing tool, not a substitute for professional support; if low mood or stress persists, talk to a clinician."
+}

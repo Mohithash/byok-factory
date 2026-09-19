@@ -1,0 +1,179 @@
+{
+ "id": "steady_hands",
+ "name": "Steady Hands",
+ "tagline": "Stop your emotions from trading your portfolio",
+ "category": "Finance",
+ "colors": [
+  "#004D40",
+  "#C0CA33",
+  "#3949AB"
+ ],
+ "icon": "brain",
+ "about": "Steady Hands is a behavioural coach for investors: a panic check when markets fall, a bias audit before any big decision, a written investment policy in your own words, and a filter for market noise.",
+ "persona": "You are a behavioural-finance coach: warm, evidence-based, never predicting markets, helping people notice the bias before they act on it.",
+ "onboarding": {
+  "title": "Think before you trade",
+  "subtitle": "Knowing your patterns is half the battle.",
+  "bullets": [
+   "Panic check in a downturn",
+   "Bias audit for big decisions",
+   "An investment policy in your words"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "history",
+   "label": "Past you has",
+   "type": "chips",
+   "options": [
+    "Sold in a dip",
+    "Chased a hot stock",
+    "Sat in cash too long",
+    "None of these"
+   ],
+   "multi": true
+  },
+  {
+   "key": "checking",
+   "label": "You check your portfolio",
+   "type": "chips",
+   "options": [
+    "Hourly",
+    "Daily",
+    "Weekly",
+    "Monthly or less"
+   ]
+  },
+  {
+   "key": "horizon",
+   "label": "Years until you need this money",
+   "type": "number",
+   "placeholder": "15"
+  }
+ ],
+ "tools": [
+  {
+   "id": "panic",
+   "title": "Markets are down",
+   "subtitle": "Talk me through it",
+   "emoji": "📉",
+   "inputs": [
+    {
+     "key": "drop",
+     "label": "How far down (%)",
+     "type": "number",
+     "placeholder": "15"
+    },
+    {
+     "key": "urge",
+     "label": "What you want to do",
+     "type": "text",
+     "placeholder": "sell half and wait for calm",
+     "required": true
+    }
+   ],
+   "prompt": "The market is down {drop}% and the user wants to: {urge}. Sections: text (a calm, non-patronising read with historical context on drops of around {drop}% and typical recoveries, no predictions), table (If you do it | Likely upside | Likely downside | Regret risk), checklist 'Before doing anything' (5 items including a 72-hour wait), and a quote with a one-line reminder written for the profile horizon.",
+   "shape": "text, table, checklist, quote",
+   "button": "Talk me down",
+   "loading": "Breathing…"
+  },
+  {
+   "id": "bias",
+   "title": "Bias check",
+   "subtitle": "Audit a decision before you make it",
+   "emoji": "🪞",
+   "inputs": [
+    {
+     "key": "decision",
+     "label": "The decision you're considering",
+     "type": "longtext",
+     "placeholder": "put 30% into a semiconductor ETF after a great year…",
+     "required": true
+    }
+   ],
+   "prompt": "Audit this decision for bias: {decision}. Table (Bias | Evidence in your reasoning | Question to test it) covering at least 4 biases, text with the strongest case for and against, bullets on a smaller version of the same move, and a callout with a go / wait / no verdict and why.",
+   "shape": "table, text, bullets, callout",
+   "button": "Audit",
+   "loading": "Holding a mirror…"
+  },
+  {
+   "id": "ips",
+   "title": "Write my policy",
+   "subtitle": "Rules for future you",
+   "emoji": "📜",
+   "inputs": [
+    {
+     "key": "goal",
+     "label": "What the money is for",
+     "type": "text",
+     "placeholder": "retire at 60, kids' university",
+     "required": true
+    },
+    {
+     "key": "tone",
+     "label": "Tone",
+     "type": "chips",
+     "options": [
+      "Plain",
+      "Firm",
+      "Encouraging"
+     ],
+     "default": "Plain"
+    }
+   ],
+   "prompt": "Draft a one-page investment policy statement in a '{tone}' voice for the profile with goal: {goal}. Quote (the statement: purpose, target mix, contribution rule, rebalancing rule, what I will not do, when I may change this), kv (rule → why it's there), and a callout on how to use it in a bad week.",
+   "shape": "quote, kv, callout",
+   "button": "Draft policy",
+   "loading": "Writing rules…"
+  },
+  {
+   "id": "noise",
+   "title": "Noise filter",
+   "subtitle": "Headlines, tips, forum posts",
+   "emoji": "🔇",
+   "inputs": [
+    {
+     "key": "input",
+     "label": "Paste headlines, tips or a forum post",
+     "type": "longtext",
+     "placeholder": "Everyone on the forum is moving to gold…",
+     "required": true
+    }
+   ],
+   "prompt": "Filter: {input}. Table (Claim | Type: fact / forecast / opinion / hype | Relevant to a long-term investor?), text on the incentive behind the source, bullets of what would actually change the profile plan, and a callout on FOMO.",
+   "shape": "table, text, bullets, callout",
+   "button": "Filter",
+   "loading": "Muting noise…"
+  },
+  {
+   "id": "habits",
+   "title": "Check-in habits",
+   "subtitle": "A 4-week behaviour plan",
+   "emoji": "📵",
+   "inputs": [
+    {
+     "key": "goal",
+     "label": "Goal",
+     "type": "chips",
+     "options": [
+      "Check less often",
+      "Stop tinkering",
+      "Start investing after sitting in cash",
+      "Handle a windfall calmly"
+     ],
+     "default": "Check less often"
+    }
+   ],
+   "prompt": "Design a 4-week behaviour plan to '{goal}' for the profile: steps (one per week with a concrete action and a friction trick), kv (trigger → replacement behaviour), a checklist of app and notification settings to change, and a quote with a mantra.",
+   "shape": "steps, kv, checklist, quote",
+   "button": "Plan habits",
+   "loading": "Rewiring…"
+  }
+ ],
+ "disclaimer": "General education only — not financial, tax or legal advice. Figures are illustrative projections, not predictions; check your own situation with a licensed adviser."
+}

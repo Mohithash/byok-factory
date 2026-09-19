@@ -1,0 +1,203 @@
+{
+ "id": "parsha_table",
+ "name": "Parsha Table",
+ "tagline": "This week's Torah portion, ready for your Shabbat table",
+ "category": "Books & Reference",
+ "colors": [
+  "#1A237E",
+  "#FBC02D",
+  "#6D4C41"
+ ],
+ "icon": "book",
+ "about": "Parsha Table walks you through the weekly Torah portion with a clear summary, classic commentary highlights, discussion questions for the Shabbat table and a short d'var Torah you can actually deliver.",
+ "persona": "You are a warm, learned Torah study partner (chavruta): text-first, comfortable with Rashi, Ramban and modern readings alike, respectful across Orthodox, Conservative, Reform and secular approaches; you present interpretations, not rulings.",
+ "onboarding": {
+  "title": "Learn the parsha, share the table",
+  "subtitle": "Tell us your background so the learning meets you where you are.",
+  "bullets": [
+   "Weekly portion summaries",
+   "Rashi-to-modern commentary",
+   "D'var Torah drafts and table questions"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "background",
+   "label": "Background",
+   "type": "chips",
+   "options": [
+    "Just starting",
+    "Some Hebrew school",
+    "Regular learner",
+    "Yeshiva / advanced"
+   ],
+   "default": "Some Hebrew school"
+  },
+  {
+   "key": "community",
+   "label": "Community",
+   "type": "chips",
+   "options": [
+    "Orthodox",
+    "Conservative",
+    "Reform",
+    "Reconstructionist",
+    "Secular / cultural",
+    "Prefer not to say"
+   ]
+  },
+  {
+   "key": "hebrew",
+   "label": "Hebrew",
+   "type": "chips",
+   "options": [
+    "None",
+    "Can read",
+    "Comfortable"
+   ],
+   "default": "Can read"
+  }
+ ],
+ "tools": [
+  {
+   "id": "summary",
+   "title": "This week's parsha",
+   "subtitle": "Summary, themes, aliyot",
+   "emoji": "📜",
+   "inputs": [
+    {
+     "key": "parsha",
+     "label": "Parsha name",
+     "type": "text",
+     "placeholder": "Bereishit, Lech Lecha, Mishpatim…",
+     "required": true
+    }
+   ],
+   "prompt": "Teach parashat {parsha} at the profile's background. Sections: kv (book, chapters, number of aliyot, haftarah), steps summarising the narrative aliyah by aliyah (one step per aliyah), bullets of 3 major themes, and a callout on one famous difficulty in the text that commentators wrestle with.",
+   "shape": "kv, steps, bullets, callout",
+   "button": "Learn it",
+   "loading": "Opening the scroll…"
+  },
+  {
+   "id": "commentary",
+   "title": "Commentary on a verse",
+   "subtitle": "Rashi, Ramban, Ibn Ezra and more",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "verse",
+     "label": "Verse",
+     "type": "text",
+     "placeholder": "Bereishit 1:1, Shemot 3:14",
+     "required": true
+    },
+    {
+     "key": "voices",
+     "label": "Voices",
+     "type": "chips",
+     "options": [
+      "Rashi",
+      "Ramban",
+      "Ibn Ezra",
+      "Sforno",
+      "Midrash",
+      "Chassidic",
+      "Modern academic"
+     ],
+     "multi": true
+    }
+   ],
+   "prompt": "On {verse}, present the readings of {voices}, showing Hebrew key words with transliteration only if the profile can read Hebrew. Sections: a table (Commentator | Question they ask | Their answer | Source), text on how the readings differ and why, and a quote with the verse itself in translation.",
+   "shape": "table, text, quote",
+   "button": "Show readings",
+   "loading": "Gathering voices…"
+  },
+  {
+   "id": "dvar",
+   "title": "Write a d'var Torah",
+   "subtitle": "3 minutes, one idea, one takeaway",
+   "emoji": "🎤",
+   "inputs": [
+    {
+     "key": "parsha",
+     "label": "Parsha",
+     "type": "text",
+     "placeholder": "Vayeira",
+     "required": true
+    },
+    {
+     "key": "occasion",
+     "label": "Occasion",
+     "type": "text",
+     "placeholder": "Friday night dinner, bar mitzvah, shul kiddush"
+    },
+    {
+     "key": "minutes",
+     "label": "Minutes",
+     "type": "number",
+     "placeholder": "3"
+    }
+   ],
+   "prompt": "Draft a {minutes}-minute d'var Torah on parashat {parsha} for {occasion}, in the profile's community register. Sections: quote containing the full spoken text (opening hook, one textual question, one commentary, one takeaway), bullets of 2 alternative angles, and a callout on delivery (pace, where to pause, how to end).",
+   "shape": "quote, bullets, callout",
+   "button": "Draft it",
+   "loading": "Finding the vort…"
+  },
+  {
+   "id": "table",
+   "title": "Shabbat table questions",
+   "subtitle": "Get everyone talking, all ages",
+   "emoji": "🕯️",
+   "inputs": [
+    {
+     "key": "parsha",
+     "label": "Parsha",
+     "type": "text",
+     "placeholder": "Noach",
+     "required": true
+    },
+    {
+     "key": "ages",
+     "label": "Who's at the table",
+     "type": "chips",
+     "options": [
+      "Young kids",
+      "Teens",
+      "Adults",
+      "Mixed"
+     ],
+     "default": "Mixed"
+    }
+   ],
+   "prompt": "Discussion questions on parashat {parsha} for {ages}. Sections: a table (Question | Age level | Text it points to | A possible direction), a checklist of 3 quick activities for the table (for kids if present), and a callout with one 'hard question' adults might enjoy arguing about.",
+   "shape": "table, checklist, callout",
+   "button": "Get questions",
+   "loading": "Setting the table…"
+  },
+  {
+   "id": "haftarah",
+   "title": "Haftarah connection",
+   "subtitle": "Why this prophet, this week",
+   "emoji": "🔗",
+   "inputs": [
+    {
+     "key": "parsha",
+     "label": "Parsha",
+     "type": "text",
+     "placeholder": "Beshalach",
+     "required": true
+    }
+   ],
+   "prompt": "Explain the haftarah for parashat {parsha}: kv (prophet, chapters, differences between Ashkenazi and Sephardi rites), text on the thematic link to the parsha, bullets of 3 verses worth noticing, and a callout on when a special haftarah overrides it (e.g. Shabbat Shuva, Rosh Chodesh).",
+   "shape": "kv, text, bullets, callout",
+   "button": "Connect",
+   "loading": "Finding the link…"
+  }
+ ],
+ "disclaimer": "Torah interpretations vary between communities; for questions of halacha or practice, ask your own rabbi."
+}

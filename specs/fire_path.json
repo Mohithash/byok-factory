@@ -1,0 +1,191 @@
+{
+ "id": "fire_path",
+ "name": "FIRE Path",
+ "tagline": "Your number, your date, and the levers that move it",
+ "category": "Finance",
+ "colors": [
+  "#E65100",
+  "#37474F",
+  "#FDD835"
+ ],
+ "icon": "flame",
+ "about": "FIRE Path calculates your financial-independence number and date, models lean, coast and barista variants, stress-tests your withdrawal rate and shows exactly which lever shortens the wait.",
+ "persona": "You are a calm FIRE-community veteran: numbers-first, honest about assumptions, allergic to hype, and clear that early retirement is optional, not mandatory.",
+ "onboarding": {
+  "title": "Find your FI date",
+  "subtitle": "Your numbers make every projection personal.",
+  "bullets": [
+   "FI number and date",
+   "Lean, coast, barista scenarios",
+   "Withdrawal stress tests"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "age",
+   "label": "Age",
+   "type": "number",
+   "placeholder": "32"
+  },
+  {
+   "key": "spend",
+   "label": "Annual spending",
+   "type": "number",
+   "placeholder": "40000"
+  },
+  {
+   "key": "invested",
+   "label": "Currently invested",
+   "type": "number",
+   "placeholder": "85000"
+  }
+ ],
+ "tools": [
+  {
+   "id": "number",
+   "title": "My FI number",
+   "subtitle": "How much, and when",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "save",
+     "label": "Monthly savings",
+     "type": "number",
+     "placeholder": "2000"
+    },
+    {
+     "key": "swr",
+     "label": "Withdrawal rate %",
+     "type": "number",
+     "placeholder": "4"
+    },
+    {
+     "key": "ret",
+     "label": "Real return % (after inflation)",
+     "type": "number",
+     "placeholder": "5"
+    }
+   ],
+   "prompt": "Using the profile (age, spending, invested) plus {save}/month, a {swr}% withdrawal rate and {ret}% real return: kv (FI number, years to FI, FI age, current progress %). Table (Year | Age | Portfolio | % of FI number) with one row per year until FI, capped at 40 rows. Bullets on the three assumptions that matter most, and a callout that this is a projection, not a promise.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Calculate",
+   "loading": "Running the numbers…"
+  },
+  {
+   "id": "levers",
+   "title": "Pull a lever",
+   "subtitle": "What one change does to the date",
+   "emoji": "🎚️",
+   "inputs": [
+    {
+     "key": "lever",
+     "label": "Change",
+     "type": "chips",
+     "options": [
+      "Spend 10% less",
+      "Earn 10% more",
+      "Save 500 more/month",
+      "Return 1% lower",
+      "Withdraw 3.5% instead of 4%"
+     ],
+     "default": "Spend 10% less"
+    },
+    {
+     "key": "save",
+     "label": "Current monthly savings",
+     "type": "number",
+     "placeholder": "2000"
+    }
+   ],
+   "prompt": "Baseline: the profile plus {save}/month at 5% real return and a 4% withdrawal rate. Apply '{lever}' and compare: table (Metric | Baseline | With lever | Change) with rows FI number, years to FI, FI age. Then text on why this lever has the effect it does, bullets on 3 practical ways to actually pull it, and a callout on the hidden cost of the lever.",
+   "shape": "table, text, bullets, callout",
+   "button": "Compare",
+   "loading": "Pulling levers…"
+  },
+  {
+   "id": "flavours",
+   "title": "Lean, coast or barista?",
+   "subtitle": "Four paths to the same freedom",
+   "emoji": "🛤️",
+   "inputs": [
+    {
+     "key": "save",
+     "label": "Monthly savings",
+     "type": "number",
+     "placeholder": "2000"
+    },
+    {
+     "key": "job",
+     "label": "Work you'd enjoy part-time",
+     "type": "text",
+     "placeholder": "teaching, freelance design"
+    }
+   ],
+   "prompt": "Model four paths from the profile with {save}/month: cards for Lean FI, Regular FI, Coast FI (stop saving now, let it grow to 65) and Barista FI (part-time {job} covering half of spending), meta = FI age · portfolio needed. Then a table (Path | Portfolio needed | Age reached | Trade-off), and a callout on which path fits someone who would enjoy {job}.",
+   "shape": "cards, table, callout",
+   "button": "Model paths",
+   "loading": "Mapping routes…"
+  },
+  {
+   "id": "stress",
+   "title": "Stress test my plan",
+   "subtitle": "Bad first years, inflation, long life",
+   "emoji": "🌩️",
+   "inputs": [
+    {
+     "key": "portfolio",
+     "label": "Portfolio at retirement",
+     "type": "number",
+     "placeholder": "1000000"
+    },
+    {
+     "key": "swr",
+     "label": "Withdrawal rate %",
+     "type": "number",
+     "placeholder": "4"
+    },
+    {
+     "key": "years",
+     "label": "Retirement length (years)",
+     "type": "number",
+     "placeholder": "50"
+    }
+   ],
+   "prompt": "Stress-test withdrawing {swr}% from {portfolio} over {years} years. Table (Scenario | Description | Likely outcome | Adjustment) for: bad first 5 years, high-inflation decade, average markets, great start. Then bullets 'Guardrails' (spending rules that adapt), kv (a safer starting rate for {years} years → why), and a callout explaining sequence-of-returns risk in one paragraph.",
+   "shape": "table, bullets, kv, callout",
+   "button": "Stress test",
+   "loading": "Simulating storms…"
+  },
+  {
+   "id": "omy",
+   "title": "One more year?",
+   "subtitle": "Hesitating at the finish line",
+   "emoji": "🚪",
+   "inputs": [
+    {
+     "key": "gap",
+     "label": "Months to planned FI",
+     "type": "number",
+     "placeholder": "18"
+    },
+    {
+     "key": "worry",
+     "label": "What's making you hesitate",
+     "type": "text",
+     "placeholder": "healthcare costs, boredom",
+     "required": true
+    }
+   ],
+   "prompt": "The user is {gap} months from planned FI and worried about: {worry}. Sections: text (an honest read on whether each worry is a money problem or a life-design problem), table (Worry | Money fix | Non-money fix), checklist 'Before you hand in notice', and a quote with a one-sentence decision rule for one-more-year syndrome.",
+   "shape": "text, table, checklist, quote",
+   "button": "Help me decide",
+   "loading": "Weighing it up…"
+  }
+ ],
+ "disclaimer": "General education only — not financial, tax or legal advice. Figures are illustrative projections, not predictions; check your own situation with a licensed adviser."
+}

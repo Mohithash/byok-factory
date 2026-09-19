@@ -1,0 +1,164 @@
+{
+ "id": "gene_cell",
+ "name": "Gene & Cell",
+ "tagline": "Biology from Punnett squares to pathways, exam-ready",
+ "category": "Education",
+ "colors": [
+  "#2E7D32",
+  "#7B1FA2",
+  "#FF8F00"
+ ],
+ "icon": "leaf",
+ "about": "Gene & Cell solves genetics crosses, walks cell and metabolic pathways stage by stage, identifies microscope slides from a photo, builds compare-and-contrast tables and plans long-answer exam questions.",
+ "persona": "You are a biology teacher who insists on precise terminology, structures every process as ordered stages, and always links structure to function.",
+ "onboarding": {
+  "title": "Structure, function, evidence",
+  "subtitle": "Your level and focus set the depth and vocabulary.",
+  "bullets": [
+   "Genetics crosses with ratios",
+   "Pathways stage by stage",
+   "Slide ID from a photo"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "level",
+   "label": "Level",
+   "type": "chips",
+   "options": [
+    "GCSE / middle school",
+    "A-level / IB",
+    "AP Biology",
+    "University"
+   ]
+  },
+  {
+   "key": "focus",
+   "label": "Focus",
+   "type": "chips",
+   "options": [
+    "Genetics",
+    "Cell biology",
+    "Physiology",
+    "Ecology",
+    "Biochemistry",
+    "Evolution"
+   ],
+   "multi": true
+  }
+ ],
+ "tools": [
+  {
+   "id": "cross",
+   "title": "Genetics cross",
+   "subtitle": "Punnett, dihybrid, pedigree, chi-square",
+   "emoji": "🧬",
+   "inputs": [
+    {
+     "key": "cross",
+     "label": "Cross or pedigree",
+     "type": "longtext",
+     "placeholder": "TtRr × Ttrr; T tall, R round. Observed: 140 tall round, 45 tall wrinkled…",
+     "required": true
+    }
+   ],
+   "prompt": "Solve {cross}: kv (gametes from each parent, type of cross, inheritance pattern), a table laid out as the Punnett grid (gametes as rows and columns), a second table (Genotype | Phenotype | Ratio | Probability), steps for a chi-square test if observed counts are given, and a callout on the assumption that could break the ratio (linkage, epistasis, lethal alleles).",
+   "shape": "kv, table, steps, callout",
+   "button": "Solve cross",
+   "loading": "Filling the grid…"
+  },
+  {
+   "id": "pathway",
+   "title": "Pathway walkthrough",
+   "subtitle": "Mitosis, Krebs, translation…",
+   "emoji": "🔬",
+   "inputs": [
+    {
+     "key": "process",
+     "label": "Process",
+     "type": "text",
+     "placeholder": "light-dependent reactions of photosynthesis",
+     "required": true
+    }
+   ],
+   "prompt": "Walk through {process} at the profile level: table (Stage | Where | Inputs | Outputs | Key enzymes or molecules), steps in order stating what changes at each, kv (overall equation, net yield, control points), and a callout on the mark-scheme phrases required for full credit.",
+   "shape": "table, steps, kv, callout",
+   "button": "Walk through",
+   "loading": "Sequencing…"
+  },
+  {
+   "id": "slide",
+   "title": "Identify a slide",
+   "subtitle": "Photo of a micrograph or specimen",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the slide or specimen",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "hint",
+     "label": "Any hint",
+     "type": "text",
+     "placeholder": "H&E stain, ×400"
+    }
+   ],
+   "prompt": "Identify what is in the photo, hint: {hint}. kv (tissue / organism / cell type, estimated magnification, stain if visible), a table (Labelled feature | What it is | Function), bullets of features that distinguish it from look-alikes, and a callout on confidence and what would confirm the identification.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Identify",
+   "loading": "Focusing…"
+  },
+  {
+   "id": "compare",
+   "title": "Compare & contrast",
+   "subtitle": "Two things, one clean table",
+   "emoji": "⚖️",
+   "inputs": [
+    {
+     "key": "a",
+     "label": "First",
+     "type": "text",
+     "placeholder": "mitosis",
+     "required": true
+    },
+    {
+     "key": "b",
+     "label": "Second",
+     "type": "text",
+     "placeholder": "meiosis",
+     "required": true
+    }
+   ],
+   "prompt": "Compare {a} and {b} at the profile level: table (Feature | {a} | {b}), bullets of similarities, a quote with a one-line memory hook, and a callout on how the exam usually asks this and how to score full marks.",
+   "shape": "table, bullets, quote, callout",
+   "button": "Compare",
+   "loading": "Lining up…"
+  },
+  {
+   "id": "essay",
+   "title": "Plan a long answer",
+   "subtitle": "6–10 mark questions",
+   "emoji": "📝",
+   "inputs": [
+    {
+     "key": "q",
+     "label": "Question",
+     "type": "text",
+     "placeholder": "Explain how the alveoli are adapted for gas exchange (6 marks)",
+     "required": true
+    }
+   ],
+   "prompt": "Plan an answer to {q}: kv (command word, what is being tested, marks available), a checklist of mark points in the order to write them, a quote with a model opening sentence, and bullets of the common ways students lose marks on this question.",
+   "shape": "kv, checklist, quote, bullets",
+   "button": "Plan answer",
+   "loading": "Outlining…"
+  }
+ ]
+}

@@ -1,0 +1,183 @@
+{
+ "id": "bullet_spread",
+ "name": "Bullet Spread",
+ "tagline": "Set up and migrate your bullet journal in minutes",
+ "category": "Productivity",
+ "colors": [
+  "#5D4037",
+  "#FFB300",
+  "#546E7A"
+ ],
+ "icon": "note",
+ "about": "Bullet Spread is a companion for analogue bullet journaling: it rapid-logs brain dumps, lays out monthly spreads for your notebook, digitises a photographed page and runs your migration review.",
+ "persona": "You are a seasoned bullet-journal keeper: signifiers over decoration, migration as reflection, and layouts measured in dot-grid squares.",
+ "onboarding": {
+  "title": "Open the notebook",
+  "subtitle": "Tell us your notebook and style so layouts fit the page.",
+  "bullets": [
+   "Rapid-log any brain dump",
+   "Monthly spreads sized to your page",
+   "Migration reviews that drop dead tasks"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "style",
+   "label": "Style",
+   "type": "chips",
+   "options": [
+    "Minimalist",
+    "Artsy spreads",
+    "Functional",
+    "Digital BuJo"
+   ]
+  },
+  {
+   "key": "notebook",
+   "label": "Notebook",
+   "type": "chips",
+   "options": [
+    "A5 dotted",
+    "A6 pocket",
+    "B5",
+    "Tablet"
+   ]
+  },
+  {
+   "key": "collections",
+   "label": "Collections you keep",
+   "type": "text",
+   "placeholder": "books read, habit tracker, gratitude"
+  }
+ ],
+ "tools": [
+  {
+   "id": "rapid",
+   "title": "Rapid-log a brain dump",
+   "subtitle": "Mess → tasks, events, notes",
+   "emoji": "⚡",
+   "inputs": [
+    {
+     "key": "dump",
+     "label": "Brain dump",
+     "type": "longtext",
+     "placeholder": "call dentist, mum's birthday 14th, idea for blog…",
+     "required": true
+    }
+   ],
+   "prompt": "Rapid-log this dump: {dump}. Produce a table (Entry | Signifier (• task / ○ event / – note) | Priority (*) | Goes in (daily / monthly / future log / collection)), then a checklist of today's tasks in priority order, and bullets naming any entries that should become a new collection.",
+   "shape": "table, checklist, bullets",
+   "button": "Rapid log",
+   "loading": "Bulleting…"
+  },
+  {
+   "id": "monthly",
+   "title": "Monthly setup",
+   "subtitle": "Log + calendar + tracker",
+   "emoji": "📅",
+   "inputs": [
+    {
+     "key": "month",
+     "label": "Month",
+     "type": "text",
+     "placeholder": "October",
+     "required": true
+    },
+    {
+     "key": "goals",
+     "label": "This month's goals",
+     "type": "text",
+     "placeholder": "finish draft, run 3x/week"
+    },
+    {
+     "key": "tracker",
+     "label": "Tracker rows",
+     "type": "chips",
+     "options": [
+      "3",
+      "5",
+      "8"
+     ],
+     "default": "5"
+    }
+   ],
+   "prompt": "Set up {month} with goals: {goals} and a {tracker}-row habit tracker. Produce steps for drawing the monthly log for the profile notebook (page layout, columns, grid counts in squares), a table (Habit | Why | Minimum daily) with exactly {tracker} rows, and bullets of 3 spreads to add this month tied to the goals.",
+   "shape": "steps, table, bullets",
+   "button": "Set up month",
+   "loading": "Ruling pages…"
+  },
+  {
+   "id": "snap",
+   "title": "Snap a page",
+   "subtitle": "Photo → digital log",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of a journal page",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Transcribe the handwritten page into a table (Entry | Type (task / event / note) | Done? | Date if written), then a checklist of the still-open tasks, and bullets on anything the handwriting made ambiguous so the user can confirm.",
+   "shape": "table, checklist, bullets",
+   "button": "Digitise",
+   "loading": "Reading ink…"
+  },
+  {
+   "id": "migrate",
+   "title": "Migration review",
+   "subtitle": "Decide what moves forward",
+   "emoji": "➡️",
+   "inputs": [
+    {
+     "key": "open",
+     "label": "Open tasks from last month",
+     "type": "longtext",
+     "placeholder": "Paste them one per line…",
+     "required": true
+    }
+   ],
+   "prompt": "Review these unfinished tasks for migration: {open}. Produce a table (Task | Verdict (migrate / schedule / drop) | Reason | New home), a callout on tasks migrated more than twice that should be dropped or broken down, and a quote with a one-line reflection to write at the top of the new month.",
+   "shape": "table, callout, quote",
+   "button": "Migrate",
+   "loading": "Sorting bullets…"
+  },
+  {
+   "id": "collection",
+   "title": "Design a collection",
+   "subtitle": "A spread for any theme",
+   "emoji": "🎨",
+   "inputs": [
+    {
+     "key": "theme",
+     "label": "Collection",
+     "type": "text",
+     "placeholder": "books to read in 2026",
+     "required": true
+    },
+    {
+     "key": "layout",
+     "label": "Layout",
+     "type": "chips",
+     "options": [
+      "List",
+      "Grid",
+      "Tracker",
+      "Mind map"
+     ],
+     "default": "List"
+    }
+   ],
+   "prompt": "Design a '{theme}' collection as a {layout} for the profile notebook and style. Produce steps to draw it (measurements in dot-grid squares), a kv (title, key/legend, page count, where to index it), and bullets of 5 example entries to seed it.",
+   "shape": "steps, kv, bullets",
+   "button": "Design spread",
+   "loading": "Sketching…"
+  }
+ ]
+}

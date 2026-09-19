@@ -1,0 +1,183 @@
+{
+ "id": "windfall_plan",
+ "name": "Windfall Plan",
+ "tagline": "A bonus, inheritance or payout, handled without regret",
+ "category": "Finance",
+ "colors": [
+  "#F57F17",
+  "#1A237E",
+  "#26A69A"
+ ],
+ "icon": "gift",
+ "about": "Windfall Plan gives sudden money a plan: a priority waterfall, a 90-day do-nothing-rash checklist, lump-sum versus phased investing, questions for an adviser, and scripts for family who ask.",
+ "persona": "You are a level-headed planner for sudden money: unhurried, general about tax, protective against pressure, and clear that big irreversible moves can wait.",
+ "onboarding": {
+  "title": "Slow down, then decide",
+  "subtitle": "Tell us about the money and what matters to you.",
+  "bullets": [
+   "Priority waterfall for the money",
+   "Lump sum vs phased",
+   "Scripts for tricky conversations"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "amount",
+   "label": "Windfall amount",
+   "type": "number",
+   "placeholder": "60000"
+  },
+  {
+   "key": "source",
+   "label": "Source",
+   "type": "chips",
+   "options": [
+    "Bonus",
+    "Inheritance",
+    "Property sale",
+    "Settlement",
+    "Business exit",
+    "Lottery / prize",
+    "Other"
+   ]
+  },
+  {
+   "key": "country",
+   "label": "Country",
+   "type": "text",
+   "placeholder": "Ireland"
+  }
+ ],
+ "tools": [
+  {
+   "id": "waterfall",
+   "title": "Where should it go?",
+   "subtitle": "Debts, buffer, goals, fun",
+   "emoji": "🌊",
+   "inputs": [
+    {
+     "key": "debts",
+     "label": "Debts (balance, APR)",
+     "type": "text",
+     "placeholder": "car loan 6,000 @ 8%"
+    },
+    {
+     "key": "efund",
+     "label": "Emergency fund now (months)",
+     "type": "number",
+     "placeholder": "1"
+    },
+    {
+     "key": "goals",
+     "label": "Goals",
+     "type": "text",
+     "placeholder": "house deposit in 3 years, retirement"
+    }
+   ],
+   "prompt": "Allocate the profile windfall given debts: {debts}, emergency fund of {efund} months, goals: {goals}. Table (Priority | Use | Amount | Why | When), kv (amount to leave untouched for 90 days, amount for something enjoyable), text on the reasoning, and a callout on the tax questions that need an adviser in the profile country.",
+   "shape": "table, kv, text, callout",
+   "button": "Allocate",
+   "loading": "Sorting priorities…"
+  },
+  {
+   "id": "freeze",
+   "title": "The 90-day freeze",
+   "subtitle": "Do nothing rash, on purpose",
+   "emoji": "🧊",
+   "inputs": [],
+   "prompt": "For the profile windfall and source, produce a 90-day do-nothing-rash plan: checklist 'Week 1' (park it safely, tell no one yet, paperwork), steps for months 1–3, bullets of pressures to expect and how to answer them, and a callout separating decisions that are safe to make now from ones to delay.",
+   "shape": "checklist, steps, bullets, callout",
+   "button": "Start freeze",
+   "loading": "Cooling down…"
+  },
+  {
+   "id": "invest",
+   "title": "Lump sum or phased?",
+   "subtitle": "All in, or in stages",
+   "emoji": "🪜",
+   "inputs": [
+    {
+     "key": "invest",
+     "label": "Amount to invest",
+     "type": "number",
+     "placeholder": "40000"
+    },
+    {
+     "key": "nerves",
+     "label": "If it dropped 20% next month you'd feel",
+     "type": "chips",
+     "options": [
+      "Fine",
+      "Uncomfortable",
+      "Sick"
+     ],
+     "default": "Uncomfortable"
+    }
+   ],
+   "prompt": "Should {invest} go in at once or in phases, given the user would feel '{nerves}' after a 20% drop? Table (Approach | How | Historical edge | Regret if wrong), kv (suggested approach → schedule), steps for the chosen schedule, and a callout that returns are uncertain and this is education, not advice.",
+   "shape": "table, kv, steps, callout",
+   "button": "Decide",
+   "loading": "Weighing…"
+  },
+  {
+   "id": "adviser",
+   "title": "Find & question an adviser",
+   "subtitle": "Who to hire, what to ask",
+   "emoji": "🧑‍💼",
+   "inputs": [
+    {
+     "key": "need",
+     "label": "You need help with",
+     "type": "chips",
+     "options": [
+      "Tax on the windfall",
+      "Investing it",
+      "Estate / inheritance",
+      "All of it"
+     ],
+     "default": "All of it"
+    }
+   ],
+   "prompt": "Prepare the user to hire help with '{need}' in the profile country: table (Adviser type | Regulated by (general) | How they charge | Good for), a checklist of questions for the first meeting including fee disclosure, bullets 'Red flags', and a quote with the sentence to say when pressured to sign.",
+   "shape": "table, checklist, bullets, quote",
+   "button": "Prepare me",
+   "loading": "Vetting…"
+  },
+  {
+   "id": "family",
+   "title": "When family asks",
+   "subtitle": "Scripts for money requests",
+   "emoji": "👥",
+   "inputs": [
+    {
+     "key": "ask",
+     "label": "The request",
+     "type": "text",
+     "placeholder": "brother wants 10k for his startup",
+     "required": true
+    },
+    {
+     "key": "answer",
+     "label": "You want to say",
+     "type": "chips",
+     "options": [
+      "No",
+      "Not now",
+      "Yes, with conditions"
+     ],
+     "default": "Not now"
+    }
+   ],
+   "prompt": "Someone asked: {ask}. The user wants to say '{answer}'. Quote (the exact script, kind and clear), bullets on holding the boundary in follow-ups, kv (if you do give money → how to structure it safely), and a callout on lending versus giving.",
+   "shape": "quote, bullets, kv, callout",
+   "button": "Write script",
+   "loading": "Choosing words…"
+  }
+ ],
+ "disclaimer": "General education only — not financial, tax or legal advice. Figures are illustrative projections, not predictions; check your own situation with a licensed adviser."
+}

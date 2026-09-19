@@ -1,0 +1,184 @@
+{
+ "id": "fourth_tri",
+ "name": "Fourth Trimester",
+ "tagline": "Recovery for the parent, not just the baby",
+ "category": "Medical",
+ "colors": [
+  "#5C6BC0",
+  "#EC407A",
+  "#66BB6A"
+ ],
+ "icon": "sun",
+ "about": "Fourth Trimester guides your own recovery after birth: healing by birth type, bleeding and pain checks, mood check-ins, scripts to ask for help, and a plan for the six-week check.",
+ "persona": "You are a postnatal midwife and perinatal mental-health nurse in one: gentle, unhurried, frank about what's normal, and quick to name red flags.",
+ "onboarding": {
+  "title": "You just did something huge",
+  "subtitle": "Tell us how you gave birth so recovery advice fits.",
+  "bullets": [
+   "Healing plans by birth type",
+   "Bleeding, pain & mood checks",
+   "Scripts for asking for help"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "birth",
+   "label": "Birth",
+   "type": "chips",
+   "options": [
+    "Vaginal",
+    "Vaginal with stitches",
+    "Assisted (forceps / ventouse)",
+    "Planned caesarean",
+    "Emergency caesarean"
+   ]
+  },
+  {
+   "key": "born",
+   "label": "Baby born on",
+   "type": "text",
+   "placeholder": "2 September"
+  },
+  {
+   "key": "feeding",
+   "label": "Feeding",
+   "type": "chips",
+   "options": [
+    "Breast",
+    "Bottle",
+    "Mixed"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "heal",
+   "title": "Recovery this week",
+   "subtitle": "What's healing, what to do",
+   "emoji": "🩹",
+   "inputs": [
+    {
+     "key": "today",
+     "label": "Today's date",
+     "type": "text",
+     "placeholder": "19 September",
+     "required": true
+    },
+    {
+     "key": "how",
+     "label": "How you're feeling",
+     "type": "text",
+     "placeholder": "sore, tired, stitches sting"
+    }
+   ],
+   "prompt": "Work out days or weeks postpartum from the profile's birth date and today {today}; the user feels: {how}. Sections: kv (stage, what is healing now, what bleeding usually looks like this week, sensible activity level), a checklist of daily care for the profile's birth type (wound or perineum care, pain-relief timing, bowel and bladder, rest), bullets on what to gently avoid, and a callout on red flags (heavy bleeding or clots, fever, wound changes, calf pain, chest pain, severe headache).",
+   "shape": "kv, checklist, bullets, callout",
+   "button": "Show my week",
+   "loading": "Checking in…"
+  },
+  {
+   "id": "check",
+   "title": "Is this normal?",
+   "subtitle": "Bleeding, pain, wound, breasts, bladder",
+   "emoji": "🔎",
+   "inputs": [
+    {
+     "key": "symptom",
+     "label": "What's happening",
+     "type": "longtext",
+     "placeholder": "bleeding got heavier again on day 10, bright red",
+     "required": true
+    }
+   ],
+   "prompt": "Assess: {symptom} for the profile's birth type and timing. Sections: a callout with a level (Normal & monitor / Call midwife or GP today / Urgent care now) and a one-line reason, text on the likely explanations, bullets of what helps now, and a checklist of changes that should trigger an immediate call. Never diagnose; always err toward calling when unsure.",
+   "shape": "callout, text, bullets, checklist",
+   "button": "Check",
+   "loading": "Reviewing…"
+  },
+  {
+   "id": "mood",
+   "title": "Mood check-in",
+   "subtitle": "Baby blues, anxiety, or more",
+   "emoji": "💛",
+   "inputs": [
+    {
+     "key": "feelings",
+     "label": "How the last few days have felt",
+     "type": "longtext",
+     "placeholder": "crying a lot, can't sleep even when baby sleeps, don't feel bonded",
+     "required": true
+    },
+    {
+     "key": "sleep",
+     "label": "Sleep in 24h",
+     "type": "chips",
+     "options": [
+      "Under 3h",
+      "3–5h",
+      "5h+"
+     ],
+     "default": "3–5h"
+    }
+   ],
+   "prompt": "Reflect on: {feelings}, with {sleep} of sleep. Sections: text that validates without minimising and distinguishes baby blues, postnatal depression or anxiety, and birth trauma in general terms, bullets of small things that help in the next 48 hours, a quote with one sentence the user can say to a partner or friend to ask for support, and a callout on when to contact a GP, midwife or crisis line today, including intrusive thoughts, thoughts of harming self or baby, or not sleeping at all.",
+   "shape": "text, bullets, quote, callout",
+   "button": "Check in",
+   "loading": "Listening…"
+  },
+  {
+   "id": "help",
+   "title": "Ask for help",
+   "subtitle": "Scripts for partner, family, visitors, work",
+   "emoji": "🗣️",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Who",
+     "type": "chips",
+     "options": [
+      "Partner",
+      "Parents / in-laws",
+      "Friends",
+      "Employer",
+      "Visitors"
+     ],
+     "default": "Partner"
+    },
+    {
+     "key": "need",
+     "label": "What you need",
+     "type": "text",
+     "placeholder": "someone to take the baby 6–8am so I can sleep"
+    }
+   ],
+   "prompt": "Write scripts to ask {who} for: {need}. Sections: a quote with a kind, direct message (text or spoken) followed by a firmer version to use if the first is brushed off, bullets of specific tasks to delegate this week, and a callout on setting visitor boundaries without guilt.",
+   "shape": "quote, bullets, callout",
+   "button": "Write scripts",
+   "loading": "Drafting…"
+  },
+  {
+   "id": "sixweek",
+   "title": "Six-week check prep",
+   "subtitle": "Questions, contraception, exercise, sex",
+   "emoji": "📋",
+   "inputs": [
+    {
+     "key": "concerns",
+     "label": "Your concerns",
+     "type": "text",
+     "placeholder": "leaking when I sneeze, sex sounds terrifying, want to run again"
+    }
+   ],
+   "prompt": "Prepare the user for the 6–8 week postnatal check with concerns: {concerns}. Sections: bullets of 8 prioritised questions, a table (Topic | Ask about | Why it matters) covering wound, bleeding, pelvic floor, mood, contraception, feeding, return to exercise and sex, a checklist of things to note beforehand, and a callout on what should not wait for the check.",
+   "shape": "bullets, table, checklist, callout",
+   "button": "Prep me",
+   "loading": "Preparing…"
+  }
+ ],
+ "disclaimer": "General postnatal information, not medical advice. Contact your midwife, GP or emergency services for heavy bleeding, fever, chest pain, calf pain, severe headache, or any thoughts of harming yourself or your baby."
+}

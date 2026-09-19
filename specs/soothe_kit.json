@@ -1,0 +1,193 @@
+{
+ "id": "soothe_kit",
+ "name": "Soothe Kit",
+ "tagline": "Why they're crying and what to try next",
+ "category": "Parenting",
+ "colors": [
+  "#6D4C41",
+  "#80CBC4",
+  "#FFCCBC"
+ ],
+ "icon": "spark",
+ "about": "Soothe Kit helps you decode a newborn's crying, walks you through settling techniques step by step, plans for the evening witching hour, survives colic and keeps the parents' own limits in view.",
+ "persona": "You are a newborn-care specialist — an experienced night nanny with paediatric-nurse training: calm, methodical, never dismissive of exhaustion, and explicit about red flags and never shaking a baby.",
+ "onboarding": {
+  "title": "Crying is a signal — we'll help you read it",
+  "subtitle": "Tell us about your baby and the crying pattern.",
+  "bullets": [
+   "Decode the cry",
+   "Step-by-step settling",
+   "Witching-hour & colic plans"
+  ]
+ },
+ "profile": [
+  {
+   "key": "baby",
+   "label": "Baby's name & age in weeks",
+   "type": "text",
+   "placeholder": "Sam, 5 weeks",
+   "required": true
+  },
+  {
+   "key": "feeding",
+   "label": "Feeding",
+   "type": "chips",
+   "options": [
+    "Breast",
+    "Formula",
+    "Mixed"
+   ]
+  },
+  {
+   "key": "worst",
+   "label": "Worst time",
+   "type": "chips",
+   "options": [
+    "Evenings",
+    "Nights",
+    "After feeds",
+    "All day"
+   ]
+  },
+  {
+   "key": "works",
+   "label": "What sometimes works",
+   "type": "text",
+   "placeholder": "car rides, hairdryer noise"
+  }
+ ],
+ "tools": [
+  {
+   "id": "decode",
+   "title": "Decode this cry",
+   "subtitle": "Describe it, get likely causes",
+   "emoji": "🔊",
+   "inputs": [
+    {
+     "key": "cry",
+     "label": "Describe the crying",
+     "type": "text",
+     "placeholder": "rhythmic, starts 30 min after a feed, draws knees up",
+     "required": true
+    },
+    {
+     "key": "last",
+     "label": "Last fed / slept / changed",
+     "type": "text",
+     "placeholder": "fed 40 min ago, napped 20 min"
+    }
+   ],
+   "prompt": "Crying: {cry}; last: {last}. A table (Likely cause | Evidence in your description | Try this first) ranked most to least likely, steps for a check sequence (hunger, wind, nappy, temperature, overstimulation, discomfort such as a hair tourniquet), and a callout listing crying features that need urgent medical assessment (high-pitched, inconsolable for hours, with fever, vomiting or floppiness).",
+   "shape": "table, steps, callout",
+   "button": "Decode",
+   "loading": "Listening…"
+  },
+  {
+   "id": "settle",
+   "title": "Settling sequence",
+   "subtitle": "The 5 S's and beyond, in order",
+   "emoji": "🤫",
+   "inputs": [
+    {
+     "key": "tried",
+     "label": "Already tried",
+     "type": "chips",
+     "options": [
+      "Swaddle",
+      "Side / stomach hold",
+      "Shush",
+      "Swing",
+      "Suck",
+      "Feed",
+      "Fresh air",
+      "Bath"
+     ],
+     "multi": true
+    },
+    {
+     "key": "minutes",
+     "label": "Minutes crying so far",
+     "type": "number",
+     "placeholder": "20"
+    }
+   ],
+   "prompt": "Baby has cried for {minutes} minutes; already tried: {tried}. Steps for the next 15 minutes of settling in order (how to do each and how long to give it), a kv of technique details (swaddle tightness, shush volume, swing amplitude, hold positions), and a callout on when to put baby down safely and step away, and never shaking a baby.",
+   "shape": "steps, kv, callout",
+   "button": "Walk me through",
+   "loading": "Shushing…"
+  },
+  {
+   "id": "witching",
+   "title": "Witching-hour plan",
+   "subtitle": "5pm–10pm survival",
+   "emoji": "🌆",
+   "inputs": [
+    {
+     "key": "evening",
+     "label": "Typical evening",
+     "type": "text",
+     "placeholder": "starts 6pm, screams till 9, partner home at 7",
+     "required": true
+    }
+   ],
+   "prompt": "Plan the evening: {evening}. A table (Time | Baby | Adult on duty | Other adult), bullets of front-loading tactics (earlier nap, dim early, feed before the peak, baby-wearing), a checklist to set up at 4pm, and a callout on when evening crying is beyond typical and worth discussing with a doctor.",
+   "shape": "table, bullets, checklist, callout",
+   "button": "Plan evening",
+   "loading": "Dimming lights…"
+  },
+  {
+   "id": "colic",
+   "title": "Colic survival",
+   "subtitle": "Weeks of it — a plan for the family",
+   "emoji": "🌀",
+   "inputs": [
+    {
+     "key": "pattern",
+     "label": "Pattern",
+     "type": "text",
+     "placeholder": "3+ hours, 4 nights a week, since week 3",
+     "required": true
+    },
+    {
+     "key": "suspects",
+     "label": "Suspected factors",
+     "type": "chips",
+     "options": [
+      "Reflux",
+      "Wind",
+      "Dairy in my diet",
+      "Formula type",
+      "Overstimulation",
+      "Nothing obvious"
+     ],
+     "default": "Nothing obvious",
+     "multi": true
+    }
+   ],
+   "prompt": "For crying pattern {pattern} with suspected factors {suspects}: text on what colic is and when it usually peaks and ends, a table (Factor | Evidence for / against | Reasonable trial | How long), steps for a 1-week trial of one change only, bullets for the family's own survival (shifts, ear defenders, asking for help), and a callout on symptoms that mean it is not colic and needs a doctor.",
+   "shape": "text, table, steps, bullets, callout",
+   "button": "Make plan",
+   "loading": "Rocking gently…"
+  },
+  {
+   "id": "limits",
+   "title": "I'm at my limit",
+   "subtitle": "Right now, tonight",
+   "emoji": "🛑",
+   "inputs": [
+    {
+     "key": "state",
+     "label": "How you're feeling",
+     "type": "text",
+     "placeholder": "haven't slept in 3 nights, I shouted at the baby",
+     "required": true
+    }
+   ],
+   "prompt": "Respond to: {state}. A quote with 3 short sentences to hear right now, steps for the next 10 minutes (baby safe in the cot, step out, breathe, call someone), a kv of who to call (partner, friend, health visitor or midwife, a local crisis or parent helpline and how to find the number), and a callout on postnatal depression and anxiety signs for any parent.",
+   "shape": "quote, steps, kv, callout",
+   "button": "Help me now",
+   "loading": "Here with you…"
+  }
+ ],
+ "disclaimer": "General parenting information, not medical advice. For concerns about your baby's health, feeding, breathing or weight, contact your midwife, health visitor or paediatrician — and call emergency services if a baby is struggling to breathe, is floppy, has a fever under 3 months old or cannot be woken. If you feel you might hurt your baby or yourself, put the baby down safely in the cot, leave the room and call someone now."
+}

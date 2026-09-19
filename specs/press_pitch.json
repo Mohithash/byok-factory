@@ -1,0 +1,189 @@
+{
+ "id": "press_pitch",
+ "name": "Press Pitch",
+ "tagline": "Press releases and media pitches journalists open",
+ "category": "Business",
+ "colors": [
+  "#B71C1C",
+  "#263238",
+  "#FFA000"
+ ],
+ "icon": "note",
+ "about": "Press Pitch finds the story in ordinary company news, writes AP-style press releases, personalised journalist pitches, founder bios and calm crisis statements.",
+ "persona": "You are a PR lead who used to be a journalist: you know what makes news, write tight, and never pitch without an angle.",
+ "onboarding": {
+  "title": "Get the story told",
+  "subtitle": "Tell us who you are and what you do; we'll find the angle.",
+  "bullets": [
+   "Press releases in AP style",
+   "Personalised pitches per outlet",
+   "Crisis and statement drafting"
+  ]
+ },
+ "profile": [
+  {
+   "key": "company",
+   "label": "Company",
+   "type": "text",
+   "placeholder": "Beacon — bike-light startup, Bristol"
+  },
+  {
+   "key": "spokesperson",
+   "label": "Spokesperson & title",
+   "type": "text",
+   "placeholder": "Ana Ruiz, CEO"
+  },
+  {
+   "key": "stage",
+   "label": "Stage",
+   "type": "chips",
+   "options": [
+    "Pre-launch",
+    "Launched",
+    "Growing",
+    "Established"
+   ]
+  },
+  {
+   "key": "beat",
+   "label": "Outlets you care about",
+   "type": "text",
+   "placeholder": "local press, cycling media, TechCrunch"
+  }
+ ],
+ "tools": [
+  {
+   "id": "angle",
+   "title": "Find the angle",
+   "subtitle": "Boring news → a story",
+   "emoji": "🔦",
+   "inputs": [
+    {
+     "key": "news",
+     "label": "What happened",
+     "type": "longtext",
+     "placeholder": "we hired our 10th employee and moved office",
+     "required": true
+    }
+   ],
+   "prompt": "Find newsworthy angles in: {news}, for the profile company. Cards for 5 angles (title = headline, meta = outlet type · news value: timeliness / trend / data / human / local), a table (Angle | Hook | Who cares | Proof needed), and a callout naming the strongest angle and the data or quote it still needs.",
+   "shape": "cards, table, callout",
+   "button": "Find angles",
+   "loading": "Hunting the story…"
+  },
+  {
+   "id": "release",
+   "title": "Press release",
+   "subtitle": "AP-style, ready to send",
+   "emoji": "📰",
+   "inputs": [
+    {
+     "key": "headline",
+     "label": "Working headline / announcement",
+     "type": "text",
+     "placeholder": "Beacon raises £1.2m to make night cycling safer",
+     "required": true
+    },
+    {
+     "key": "facts",
+     "label": "Key facts (numbers, names, dates)",
+     "type": "longtext",
+     "placeholder": "£1.2m seed led by…; 12k units sold; launching in Germany in March",
+     "required": true
+    },
+    {
+     "key": "quote",
+     "label": "Quote hints",
+     "type": "text",
+     "placeholder": "CEO on why safety, investor on why now"
+    }
+   ],
+   "prompt": "Write a press release for '{headline}' using these facts: {facts} and quote hints: {quote}, for the profile company. A text section with the full release: dateline, headline ≤12 words, subhead, 4–6 paragraphs in inverted pyramid, two quotes, boilerplate and media contact; a kv (headline, subhead, 3 alternate headlines); and a checklist of assets to attach (photos, logo, fact sheet).",
+   "shape": "text, kv, checklist",
+   "button": "Write release",
+   "loading": "Setting type…"
+  },
+  {
+   "id": "pitch",
+   "title": "Pitch a journalist",
+   "subtitle": "Short, personal, no attachments",
+   "emoji": "✉️",
+   "inputs": [
+    {
+     "key": "journalist",
+     "label": "Journalist / outlet",
+     "type": "text",
+     "placeholder": "Sam Lee, Cycling Weekly",
+     "required": true
+    },
+    {
+     "key": "recent",
+     "label": "Something they wrote recently",
+     "type": "text",
+     "placeholder": "piece on e-bike theft last week"
+    },
+    {
+     "key": "story",
+     "label": "Your story in one line",
+     "type": "text",
+     "placeholder": "new lock alarm cut thefts 40% in a trial",
+     "required": true
+    }
+   ],
+   "prompt": "Write a pitch email to {journalist}, who recently covered: {recent}, pitching: {story}, from the profile spokesperson. A quote with the email (subject ≤8 words, body ≤150 words referencing their work, the hook, why now, and what you can offer: data, interview, exclusive, images), a second quote with a 3-line follow-up for 4 days later, and bullets on send timing and subject-line do's and don'ts.",
+   "shape": "quote, bullets",
+   "button": "Write pitch",
+   "loading": "Finding the hook…"
+  },
+  {
+   "id": "bio",
+   "title": "Bios & boilerplate",
+   "subtitle": "Founder bio, boilerplate, speaker intro",
+   "emoji": "🪪",
+   "inputs": [
+    {
+     "key": "facts",
+     "label": "Career and company facts",
+     "type": "longtext",
+     "placeholder": "ex-Dyson engineer; started Beacon 2022; TEDx talk 2024",
+     "required": true
+    }
+   ],
+   "prompt": "From: {facts}, write for the profile company and spokesperson: a kv with a 25-word bio, a 75-word bio and a 150-word bio; a quote with the 60-word company boilerplate for press releases; a second quote with a 40-word speaker introduction to be read aloud; and bullets of 5 credibility facts to weave into interviews.",
+   "shape": "kv, quote, bullets",
+   "button": "Write bios",
+   "loading": "Polishing the bio…"
+  },
+  {
+   "id": "crisis",
+   "title": "Statement & crisis lines",
+   "subtitle": "Say the right thing when it's bad",
+   "emoji": "🚨",
+   "inputs": [
+    {
+     "key": "situation",
+     "label": "What happened",
+     "type": "longtext",
+     "placeholder": "a batch of lights failed in rain; 3 complaints on social",
+     "required": true
+    },
+    {
+     "key": "severity",
+     "label": "Severity",
+     "type": "chips",
+     "options": [
+      "Minor",
+      "Serious",
+      "Safety-related"
+     ],
+     "default": "Serious"
+    }
+   ],
+   "prompt": "Draft a response for a {severity} situation: {situation}, for the profile company. A quote with a holding statement (≤80 words: empathy, facts known, action, next update time), a second quote with a fuller statement for later, a table of likely questions (Question | Answer line | Don't say), steps for the first 24 hours, and a callout on when to involve legal or a regulator.",
+   "shape": "quote, table, steps, callout",
+   "button": "Draft statement",
+   "loading": "Staying calm…"
+  }
+ ],
+ "disclaimer": "For safety-related incidents, legal disputes or regulated announcements, have legal counsel review statements before publication."
+}

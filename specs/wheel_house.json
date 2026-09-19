@@ -1,0 +1,202 @@
+{
+ "id": "wheel_house",
+ "name": "Wheel House",
+ "tagline": "Bigger cage, calmer hamster, happier nights",
+ "category": "Lifestyle",
+ "colors": [
+  "#FB8C00",
+  "#5D4037",
+  "#FFD54F"
+ ],
+ "icon": "moon",
+ "about": "Wheel House audits your cage against modern welfare minimums from a photo, tames Syrians and dwarfs at their pace, checks food mixes and fresh foods, and decodes bar-biting, monkey-barring and wet-tail signs.",
+ "persona": "You are a modern hamster-welfare keeper: firm about floor space, deep bedding and big wheels, gentle about taming, and clear that hamsters are nocturnal solitary animals, not toys.",
+ "onboarding": {
+  "title": "Give them the space they need",
+  "subtitle": "Species and cage size change every recommendation.",
+  "bullets": [
+   "Cage audits with sizes that matter",
+   "Taming at their pace",
+   "Behaviour & wet-tail checks"
+  ]
+ },
+ "profile": [
+  {
+   "key": "species",
+   "label": "Species",
+   "type": "chips",
+   "options": [
+    "Syrian",
+    "Campbell's dwarf",
+    "Winter white",
+    "Roborovski",
+    "Chinese"
+   ]
+  },
+  {
+   "key": "hammy",
+   "label": "Name & age",
+   "type": "text",
+   "placeholder": "Peanut, 8 months"
+  },
+  {
+   "key": "cage",
+   "label": "Cage size (cm) & type",
+   "type": "text",
+   "placeholder": "100×50 glass tank, 25 cm bedding"
+  },
+  {
+   "key": "wheel",
+   "label": "Wheel diameter",
+   "type": "chips",
+   "options": [
+    "Under 20 cm",
+    "20–25 cm",
+    "28 cm+",
+    "None"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "audit",
+   "title": "Audit my cage",
+   "subtitle": "Photo → welfare score and fixes",
+   "emoji": "📐",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the cage",
+     "type": "photo",
+     "placeholder": "Whole cage from above or front",
+     "required": true
+    },
+    {
+     "key": "budget",
+     "label": "Budget for upgrades",
+     "type": "number",
+     "placeholder": "50"
+    }
+   ],
+   "prompt": "Audit the cage in the photo for the profile species with a {budget} budget. Sections: a table (Element | What I see | Minimum / ideal | Verdict) covering floor area, bedding depth, wheel size, hides, sand bath, sprays and chews, water and bar spacing, a checklist of upgrades ranked by welfare impact within budget, a callout on the most urgent problem, and bullets of cheap DIY options (bin cages, cardboard multi-chamber hides).",
+   "shape": "table, checklist, callout, bullets",
+   "button": "Audit",
+   "loading": "Measuring bedding…"
+  },
+  {
+   "id": "tame",
+   "title": "Taming plan",
+   "subtitle": "Hand-taming without the grabbing",
+   "emoji": "🤲",
+   "inputs": [
+    {
+     "key": "stage",
+     "label": "Currently",
+     "type": "chips",
+     "options": [
+      "Hides / runs away",
+      "Takes treats through bars",
+      "Takes treats from hand",
+      "Climbs on hand",
+      "Bites"
+     ],
+     "default": "Hides / runs away"
+    },
+    {
+     "key": "time",
+     "label": "When you can do sessions",
+     "type": "chips",
+     "options": [
+      "Evening",
+      "Late night",
+      "Morning"
+     ],
+     "default": "Evening"
+    }
+   ],
+   "prompt": "Taming plan for the profile species that currently {stage}, with sessions in the {time}. Sections: steps for 14 days of sessions (each under 5 minutes, with an exact goal and treat), a table (Sign | Meaning | Response) for freezing, ear position, chattering and biting, a callout on species differences (Syrian vs dwarf vs Roborovski) and never waking a sleeping hamster, and a quote with a one-line reminder about patience.",
+   "shape": "steps, table, callout, quote",
+   "button": "Start taming",
+   "loading": "Cupping gently…"
+  },
+  {
+   "id": "food",
+   "title": "Check my food mix",
+   "subtitle": "Is this mix any good? Plus safe fresh foods",
+   "emoji": "🌾",
+   "inputs": [
+    {
+     "key": "mix",
+     "label": "Mix brand or ingredients",
+     "type": "text",
+     "placeholder": "Kaytee Fiesta",
+     "required": true
+    },
+    {
+     "key": "fresh",
+     "label": "Fresh foods you give",
+     "type": "text",
+     "placeholder": "carrot, cucumber, apple"
+    }
+   ],
+   "prompt": "Evaluate {mix} for the profile species and the fresh foods {fresh}. Sections: kv (protein %, fat %, fibre %, sugar concern, verdict), a table (Fresh food | Safe? | Portion | How often) including the user's foods plus 8 common ones, bullets of foods to avoid (citrus, onion, sugary treats, and diabetes-prone dwarf caveats), and a callout on scatter-feeding amounts per day and hoarding.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Check mix",
+   "loading": "Sorting seeds…"
+  },
+  {
+   "id": "decode",
+   "title": "Why is my hamster…",
+   "subtitle": "Bar biting, monkey barring, escaping",
+   "emoji": "🧐",
+   "inputs": [
+    {
+     "key": "behaviour",
+     "label": "What's happening",
+     "type": "longtext",
+     "placeholder": "chews the bars every night for hours and climbs upside down",
+     "required": true
+    }
+   ],
+   "prompt": "Explain for the profile species: {behaviour}. Sections: text on the most likely cause (boredom, cage too small, stress, habit, illness), a table (Cause | Evidence | Fix), steps for a 1-week change plan with what to add or change, and a callout on behaviours that suggest pain or illness.",
+   "shape": "text, table, steps, callout",
+   "button": "Explain",
+   "loading": "Waiting for dusk…"
+  },
+  {
+   "id": "sick",
+   "title": "Is my hamster ill?",
+   "subtitle": "Wet tail, lumps, lethargy — what to do",
+   "emoji": "🩺",
+   "inputs": [
+    {
+     "key": "signs",
+     "label": "Signs",
+     "type": "chips",
+     "options": [
+      "Wet / dirty bottom",
+      "Not eating",
+      "Lethargic",
+      "Lump or swelling",
+      "Sneezing / wheezing",
+      "Hair loss",
+      "Overgrown teeth"
+     ],
+     "default": "Not eating",
+     "multi": true
+    },
+    {
+     "key": "since",
+     "label": "Since when",
+     "type": "text",
+     "placeholder": "yesterday evening"
+    }
+   ],
+   "prompt": "The profile hamster shows {signs} since {since}. Sections: a callout with an urgency verdict (emergency vet now / vet within 24h / monitor) and reasons, a table (Sign | Likely causes | Home care allowed? | Vet?), steps for supportive care until the vet (warmth, hydration, clean cage, quiet), and a quote with what to say when phoning a small-animal vet.",
+   "shape": "callout, table, steps, quote",
+   "button": "Check",
+   "loading": "Checking gently…"
+  }
+ ],
+ "disclaimer": "General hamster-care information, not veterinary advice. Wet tail, not eating for a day or laboured breathing are emergencies — call a vet."
+}

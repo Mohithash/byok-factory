@@ -1,0 +1,179 @@
+{
+ "id": "renewal_radar",
+ "name": "Renewal Radar",
+ "tagline": "Spot churn early, renew on time, expand naturally",
+ "category": "Business",
+ "colors": [
+  "#AD1457",
+  "#00838F",
+  "#7CB342"
+ ],
+ "icon": "heart",
+ "about": "Renewal Radar is a customer success manager's toolkit: health scores from messy notes, 30/60/90 onboarding plans, renewal playbooks and save plans for accounts going quiet.",
+ "persona": "You are a seasoned customer success lead: proactive, outcome-obsessed, calm under escalation; you measure success in the customer's metrics, not logins.",
+ "onboarding": {
+  "title": "Keep customers, grow customers",
+  "subtitle": "Your product and renewal cycle shape the playbooks.",
+  "bullets": [
+   "Health scores from messy notes",
+   "Onboarding plans that drive adoption",
+   "Renewal and save playbooks"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "product",
+   "label": "Your product",
+   "type": "text",
+   "placeholder": "B2B payroll platform"
+  },
+  {
+   "key": "motion",
+   "label": "Motion",
+   "type": "chips",
+   "options": [
+    "High-touch",
+    "Tech-touch",
+    "Hybrid"
+   ],
+   "default": "Hybrid"
+  },
+  {
+   "key": "term",
+   "label": "Typical contract",
+   "type": "chips",
+   "options": [
+    "Monthly",
+    "Annual",
+    "Multi-year"
+   ],
+   "default": "Annual"
+  }
+ ],
+ "tools": [
+  {
+   "id": "health",
+   "title": "Health check",
+   "subtitle": "Notes + usage → score",
+   "emoji": "🩺",
+   "inputs": [
+    {
+     "key": "notes",
+     "label": "Account notes & usage",
+     "type": "longtext",
+     "placeholder": "logins down 30%, champion left, NPS 7, 2 P1 tickets last month, exec sponsor engaged",
+     "required": true
+    }
+   ],
+   "prompt": "Score this customer's health from: {notes}. Sections: kv (Health score /100 | Trend | Renewal risk | Expansion signal | Primary driver), a table (Dimension | Evidence | Score | Action), a checklist of actions for this week, and a callout on what would move the score by 20 points fastest.",
+   "shape": "kv, table, checklist, callout",
+   "button": "Score health",
+   "loading": "Taking pulse…"
+  },
+  {
+   "id": "onboard",
+   "title": "Onboarding plan",
+   "subtitle": "30/60/90 to first value",
+   "emoji": "🚀",
+   "inputs": [
+    {
+     "key": "customer",
+     "label": "Customer & goal",
+     "type": "text",
+     "placeholder": "Bravo Logistics, 300 employees, payroll live before April",
+     "required": true
+    },
+    {
+     "key": "blockers",
+     "label": "Known blockers",
+     "type": "text",
+     "placeholder": "data migration from legacy system"
+    }
+   ],
+   "prompt": "Write a 30/60/90-day onboarding plan for {customer} with blockers: {blockers}, matching the profile's motion. Sections: kv (First-value milestone | Target date | Success metric | Exec sponsor cadence), a table (Day | Milestone | Customer owner | Our owner | Done when), a checklist of kickoff-call items, and a callout on the #1 reason onboardings like this stall.",
+   "shape": "kv, table, checklist, callout",
+   "button": "Plan onboarding",
+   "loading": "Rolling out…"
+  },
+  {
+   "id": "renewal",
+   "title": "Renewal playbook",
+   "subtitle": "Start 120 days out",
+   "emoji": "🔁",
+   "inputs": [
+    {
+     "key": "account",
+     "label": "Account & renewal date",
+     "type": "text",
+     "placeholder": "Delta Health, renews 30 Nov, $60k ARR",
+     "required": true
+    },
+    {
+     "key": "mood",
+     "label": "Relationship",
+     "type": "chips",
+     "options": [
+      "Delighted",
+      "Fine",
+      "Lukewarm",
+      "Frustrated"
+     ],
+     "default": "Fine"
+    }
+   ],
+   "prompt": "Build a renewal playbook for {account}; the relationship is {mood}. Sections: steps by week counting down from 120 days (who to contact, what to send, what to confirm), a table (Risk | Likelihood | Mitigation), a quote with the renewal-conversation opener, and a callout on price-increase timing and how to justify it with value delivered.",
+   "shape": "steps, table, quote, callout",
+   "button": "Build playbook",
+   "loading": "Counting down…"
+  },
+  {
+   "id": "save",
+   "title": "Save plan",
+   "subtitle": "They said they might leave",
+   "emoji": "🛟",
+   "inputs": [
+    {
+     "key": "why",
+     "label": "What they said / what happened",
+     "type": "longtext",
+     "placeholder": "moving to a cheaper competitor, felt ignored after the outage",
+     "required": true
+    },
+    {
+     "key": "value_amt",
+     "label": "Account value",
+     "type": "text",
+     "placeholder": "$45k ARR"
+    }
+   ],
+   "prompt": "Build a save plan for a {value_amt} account where: {why}. Sections: kv (Save probability | Root cause | What they need to hear | Decision maker), steps for the next 10 days with owners, a table (Offer lever | Cost to us | Use if…), a quote with the apology-plus-plan message from the CSM, and a callout on when to gracefully let them go.",
+   "shape": "kv, steps, table, quote, callout",
+   "button": "Build save plan",
+   "loading": "Throwing lifeline…"
+  },
+  {
+   "id": "expand",
+   "title": "Expansion signals",
+   "subtitle": "Find the upsell in the notes",
+   "emoji": "📈",
+   "inputs": [
+    {
+     "key": "notes",
+     "label": "Recent call notes / tickets",
+     "type": "longtext",
+     "placeholder": "asked if we support contractors; opening an office in Spain; CFO joined the last call",
+     "required": true
+    }
+   ],
+   "prompt": "Find expansion opportunities in: {notes} for the profile's product. Sections: a table (Signal | Opportunity | Est. uplift | Who to involve), bullets of questions to validate each opportunity on the next call, a quote with a soft, value-led introduction of the best one, and a callout on why not to pitch expansion during an open escalation.",
+   "shape": "table, bullets, quote, callout",
+   "button": "Find upsell",
+   "loading": "Reading signals…"
+  }
+ ]
+}

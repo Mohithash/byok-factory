@@ -1,0 +1,170 @@
+{
+ "id": "proposal_press",
+ "name": "Proposal Press",
+ "tagline": "Proposals that read like the client wrote them",
+ "category": "Business",
+ "colors": [
+  "#1B5E20",
+  "#5D4037",
+  "#FDD835"
+ ],
+ "icon": "note",
+ "about": "Proposal Press turns discovery notes into client-centred proposals, executive summaries, pricing options and scopes of work, then reviews your draft like a sceptical procurement lead.",
+ "persona": "You are a proposal strategist: client-first, plain-English, precise about scope and assumptions; you write for the executive who reads only page one.",
+ "onboarding": {
+  "title": "Write proposals that win",
+  "subtitle": "Your offer and style shape every draft.",
+  "bullets": [
+   "Executive summaries that lead with outcomes",
+   "Good/better/best pricing tables",
+   "Scope, assumptions and a procurement-style review"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "company",
+   "label": "Your company & offer",
+   "type": "text",
+   "placeholder": "Northwind — managed IT services for law firms"
+  },
+  {
+   "key": "style",
+   "label": "Proposal style",
+   "type": "chips",
+   "options": [
+    "Formal",
+    "Conversational",
+    "Startup-crisp"
+   ],
+   "default": "Formal"
+  },
+  {
+   "key": "currency",
+   "label": "Currency",
+   "type": "text",
+   "placeholder": "USD"
+  }
+ ],
+ "tools": [
+  {
+   "id": "draft",
+   "title": "Draft a proposal",
+   "subtitle": "Notes → full structure",
+   "emoji": "📄",
+   "inputs": [
+    {
+     "key": "notes",
+     "label": "Discovery notes",
+     "type": "longtext",
+     "placeholder": "client: 40-lawyer firm, pain: outages, wants 24/7 support, budget ~$8k/mo",
+     "required": true
+    },
+    {
+     "key": "client",
+     "label": "Client name",
+     "type": "text",
+     "placeholder": "Harper & Lowe LLP",
+     "required": true
+    }
+   ],
+   "prompt": "Draft a proposal for {client} from these notes: {notes}, in the profile's style and currency. Sections: text executive summary (under 150 words, leading with the client's outcome), steps for the proposed approach in phases with durations, a table (Deliverable | Description | Timeline | Owner), kv (Investment | Term | Payment schedule | Valid until), and a callout of assumptions and exclusions.",
+   "shape": "text, steps, table, kv, callout",
+   "button": "Draft proposal",
+   "loading": "Pressing pages…"
+  },
+  {
+   "id": "exec",
+   "title": "Executive summary",
+   "subtitle": "Page one, rewritten",
+   "emoji": "🏆",
+   "inputs": [
+    {
+     "key": "draft",
+     "label": "Current summary or key points",
+     "type": "longtext",
+     "placeholder": "paste your existing summary",
+     "required": true
+    },
+    {
+     "key": "goal",
+     "label": "Client's stated goal",
+     "type": "text",
+     "placeholder": "reduce downtime by 80%"
+    }
+   ],
+   "prompt": "Rewrite this executive summary: {draft} so it leads with the client goal '{goal}'. Sections: a quote with the new summary (4 short paragraphs: situation, cost of inaction, our approach, expected outcome), bullets listing every phrase you removed and why, and a callout on the one number to put in bold.",
+   "shape": "quote, bullets, callout",
+   "button": "Rewrite",
+   "loading": "Cutting fluff…"
+  },
+  {
+   "id": "pricing",
+   "title": "Pricing options",
+   "subtitle": "Good / better / best",
+   "emoji": "💰",
+   "inputs": [
+    {
+     "key": "base",
+     "label": "Base offer & price",
+     "type": "text",
+     "placeholder": "core support package at $6,000/month",
+     "required": true
+    },
+    {
+     "key": "addons",
+     "label": "Possible add-ons",
+     "type": "text",
+     "placeholder": "security monitoring, backup, training"
+    }
+   ],
+   "prompt": "Design three pricing tiers around {base} with add-ons {addons}, in the profile's currency. Sections: a table (Feature | Essential | Professional | Premium) with prices in the header row, kv per tier (Best for | Price anchor logic | Margin note), bullets on presenting the middle tier as the default, and a callout on discounts to never offer.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Build tiers",
+   "loading": "Anchoring…"
+  },
+  {
+   "id": "scope",
+   "title": "Scope of work",
+   "subtitle": "Tight scope, no scope creep",
+   "emoji": "📐",
+   "inputs": [
+    {
+     "key": "work",
+     "label": "What you'll deliver",
+     "type": "longtext",
+     "placeholder": "migrate 40 mailboxes, set up helpdesk, monthly reviews",
+     "required": true
+    }
+   ],
+   "prompt": "Write a scope of work for: {work}. Sections: bullets 'In scope' and 'Out of scope' as two lists, a table (Milestone | Acceptance criteria | Due), a checklist of client responsibilities, and a callout on change-request handling and how extra work is priced.",
+   "shape": "bullets, table, checklist, callout",
+   "button": "Write scope",
+   "loading": "Drawing lines…"
+  },
+  {
+   "id": "review",
+   "title": "Procurement review",
+   "subtitle": "Paste a draft, get torn apart kindly",
+   "emoji": "🔎",
+   "inputs": [
+    {
+     "key": "proposal",
+     "label": "Proposal text",
+     "type": "longtext",
+     "placeholder": "paste the proposal",
+     "required": true
+    }
+   ],
+   "prompt": "Review this proposal as a sceptical procurement lead: {proposal}. Sections: kv (Overall score /10 | Clarity | Client focus | Risk exposure | Price justification), a table (Issue | Where | Fix), bullets of the 3 questions procurement will ask, and a callout on the sentence most likely to lose the deal.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Review",
+   "loading": "Playing procurement…"
+  }
+ ],
+ "disclaimer": "Pricing and contract wording are drafts; have terms, liability and payment clauses reviewed by your legal and finance teams before sending."
+}

@@ -1,0 +1,242 @@
+{
+ "id": "scoop_lab",
+ "name": "Scoop Lab",
+ "tagline": "Ice cream and sorbet that scoop straight from the freezer",
+ "category": "Food & Drink",
+ "colors": [
+  "#00ACC1",
+  "#F06292",
+  "#FFEB3B"
+ ],
+ "icon": "cup",
+ "about": "Scoop Lab balances ice cream, gelato and sorbet bases for your machine (or no machine), formulates flavours from sugar and fat targets, and fixes icy, grainy or rock-hard batches.",
+ "persona": "You are an ice-cream maker who thinks in solids, sugars and overrun: exact, playful, and clear about what a home freezer can achieve.",
+ "onboarding": {
+  "title": "Scoopable, every time",
+  "subtitle": "Tell us your machine and freezer so every base is balanced for it.",
+  "bullets": [
+   "Balanced bases for your machine",
+   "Flavour formulation with sugar math",
+   "Icy and grainy fixes"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "machine",
+   "label": "Machine",
+   "type": "chips",
+   "options": [
+    "Compressor",
+    "Freezer-bowl",
+    "Pint spinner",
+    "No machine"
+   ],
+   "default": "Freezer-bowl"
+  },
+  {
+   "key": "freezer",
+   "label": "Freezer temp",
+   "type": "text",
+   "placeholder": "-18°C, frost-free"
+  },
+  {
+   "key": "diet",
+   "label": "Constraints",
+   "type": "chips",
+   "options": [
+    "None",
+    "Dairy-free",
+    "Egg-free",
+    "Low sugar"
+   ],
+   "default": "None"
+  }
+ ],
+ "tools": [
+  {
+   "id": "base",
+   "title": "Balance a base",
+   "subtitle": "Fat, sugar, solids for your machine",
+   "emoji": "🧪",
+   "inputs": [
+    {
+     "key": "type",
+     "label": "Type",
+     "type": "chips",
+     "options": [
+      "Custard ice cream",
+      "Philadelphia-style",
+      "Gelato",
+      "Sorbet",
+      "Sherbet",
+      "Frozen yogurt"
+     ],
+     "default": "Gelato"
+    },
+    {
+     "key": "litres",
+     "label": "Base litres",
+     "type": "number",
+     "placeholder": "1"
+    },
+    {
+     "key": "flavour",
+     "label": "Flavour",
+     "type": "text",
+     "placeholder": "pistachio"
+    }
+   ],
+   "prompt": "Balance a {type} base of {litres} litre(s) flavoured with {flavour} for the profile machine and freezer. Table (Ingredient | Grams | Contribution) with fat %, sugar %, total solids % and any stabiliser, steps for cooking or blending, ageing hours, churning to the right consistency and hardening, a kv (target overrun, serving temperature, freezer life), and a callout on why scoopability depends on the sugar mix.",
+   "shape": "table, steps, kv, callout",
+   "button": "Balance it",
+   "loading": "Balancing solids…"
+  },
+  {
+   "id": "flavour",
+   "title": "Formulate a flavour",
+   "subtitle": "Mix-ins, ripples and infusions",
+   "emoji": "🍨",
+   "inputs": [
+    {
+     "key": "idea",
+     "label": "Flavour idea",
+     "type": "text",
+     "placeholder": "brown butter, miso and caramel swirl",
+     "required": true
+    },
+    {
+     "key": "base",
+     "label": "Base",
+     "type": "chips",
+     "options": [
+      "Dairy custard",
+      "Dairy no-egg",
+      "Coconut",
+      "Oat",
+      "Sorbet"
+     ],
+     "default": "Dairy custard"
+    },
+    {
+     "key": "litres",
+     "label": "Batch litres",
+     "type": "number",
+     "placeholder": "1"
+    }
+   ],
+   "prompt": "Formulate the flavour additions for {idea} to go into {litres} litre(s) of an already balanced {base} base (do not re-balance the base). Cards for each addition (infusion, ripple, mix-in; meta = grams · when added), a table (Addition | Ingredient | Grams | Sugar or fat adjustment to the base) for each, steps for infusing, cooling and layering so ripples stay soft, and a callout on mix-ins that freeze rock-hard or bleed.",
+   "shape": "cards, table, steps, callout",
+   "button": "Formulate",
+   "loading": "Swirling…"
+  },
+  {
+   "id": "nomachine",
+   "title": "No-machine methods",
+   "subtitle": "Freezer-and-fork, no-churn, pint spinner",
+   "emoji": "❄️",
+   "inputs": [
+    {
+     "key": "method",
+     "label": "Method",
+     "type": "chips",
+     "options": [
+      "No-churn condensed milk",
+      "Freezer-and-fork",
+      "Bag, ice & salt",
+      "Pint spinner",
+      "Granita"
+     ],
+     "default": "No-churn condensed milk"
+    },
+    {
+     "key": "flavour",
+     "label": "Flavour",
+     "type": "text",
+     "placeholder": "strawberry"
+    }
+   ],
+   "prompt": "Give a {method} recipe for {flavour} suited to the profile freezer. Table (Ingredient | Grams), steps with timings including every stir or spin, a kv (freeze hours, texture to expect, how long it stays scoopable), and bullets on the 3 tweaks that most improve texture without a machine.",
+   "shape": "table, steps, kv, bullets",
+   "button": "Get method",
+   "loading": "Chilling…"
+  },
+  {
+   "id": "fix",
+   "title": "Fix a batch",
+   "subtitle": "Icy, grainy, gummy, rock-hard",
+   "emoji": "🧊",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the scoop (optional)",
+     "type": "photo"
+    },
+    {
+     "key": "problem",
+     "label": "Problem",
+     "type": "chips",
+     "options": [
+      "Icy crystals",
+      "Grainy / sandy",
+      "Rock hard",
+      "Gummy / chewy",
+      "Melts too fast",
+      "Buttery flecks"
+     ],
+     "default": "Icy crystals"
+    },
+    {
+     "key": "recipe",
+     "label": "Recipe and process",
+     "type": "text",
+     "placeholder": "2 cups cream, 1 cup milk, 150 g sugar, churned 25 min"
+    }
+   ],
+   "prompt": "Diagnose a batch with the problem '{problem}' made as: {recipe}, using the attached photo if provided. Text on the cause in terms of sugar, fat, solids, churn or freezer, a table (Cause | Evidence | Fix with grams or minutes), steps to rescue this batch (re-melt and re-churn, add invert sugar, temper before serving), and a callout on freezer placement and lids.",
+   "shape": "text, table, steps, callout",
+   "button": "Diagnose",
+   "loading": "Scooping…"
+  },
+  {
+   "id": "sundae",
+   "title": "Sundae & party",
+   "subtitle": "Sauces, toppings, quantities for a crowd",
+   "emoji": "🎉",
+   "inputs": [
+    {
+     "key": "guests",
+     "label": "Guests",
+     "type": "number",
+     "placeholder": "12"
+    },
+    {
+     "key": "flavours",
+     "label": "Flavours you'll have",
+     "type": "text",
+     "placeholder": "vanilla, chocolate, mango sorbet"
+    },
+    {
+     "key": "occasion",
+     "label": "Occasion",
+     "type": "chips",
+     "options": [
+      "Kids party",
+      "Dinner party",
+      "Summer BBQ"
+     ],
+     "default": "Kids party"
+    }
+   ],
+   "prompt": "Plan a sundae bar for {guests} guests at a {occasion} with flavours {flavours}. Table (Item | Quantity | Make ahead | Est. cost), cards for 3 sauces (meta = minutes · keeps), a checklist for service (pre-scoop timing, bowls, cooler with dry ice or ice packs), and a callout on keeping ice cream at serving temperature outdoors plus safe dry-ice handling (gloves, ventilation, never a sealed container).",
+   "shape": "table, cards, checklist, callout",
+   "button": "Plan bar",
+   "loading": "Stacking cones…"
+  }
+ ],
+ "disclaimer": "Shelf-life, storage and temperature guidance is general; when in doubt refrigerate sooner, discard anything doubtful, and follow local food-safety advice."
+}

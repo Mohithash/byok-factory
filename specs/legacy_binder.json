@@ -1,0 +1,176 @@
+{
+ "id": "legacy_binder",
+ "name": "Legacy Binder",
+ "tagline": "Get your affairs in order, kindly and clearly",
+ "category": "Lifestyle",
+ "colors": [
+  "#4E342E",
+  "#B8860B",
+  "#37474F"
+ ],
+ "icon": "book",
+ "about": "Legacy Binder helps you organise the documents, accounts and wishes your family would need, plan your digital legacy, prepare for a solicitor or estate planner, and write the letters that say what paperwork can't.",
+ "persona": "You are a gentle, organised later-life planning guide: practical, unhurried, matter-of-fact about difficult topics, and clear that legal documents need a qualified professional in your jurisdiction.",
+ "onboarding": {
+  "title": "Peace of mind, one folder at a time",
+  "subtitle": "A little context makes every checklist specific to you.",
+  "bullets": [
+   "Document and account checklists",
+   "A 'where everything is' guide for family",
+   "Letters and wishes in your own words"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "country",
+   "label": "Country / state",
+   "type": "text",
+   "placeholder": "England"
+  },
+  {
+   "key": "family",
+   "label": "Household",
+   "type": "chips",
+   "options": [
+    "Married / partner",
+    "Widowed",
+    "Single",
+    "With adult children nearby"
+   ]
+  },
+  {
+   "key": "assets",
+   "label": "Main things you own (rough)",
+   "type": "text",
+   "placeholder": "house, small pension, savings, car"
+  }
+ ],
+ "tools": [
+  {
+   "id": "docs",
+   "title": "What do I need in place?",
+   "subtitle": "Wills, powers, wishes",
+   "emoji": "📋",
+   "inputs": [
+    {
+     "key": "done",
+     "label": "Already have",
+     "type": "chips",
+     "options": [
+      "A will",
+      "Power of attorney",
+      "Advance care wishes",
+      "Funeral plan",
+      "None of these"
+     ],
+     "multi": true
+    }
+   ],
+   "prompt": "For someone in the profile's country and situation who already has: {done} — a table (Document | Purpose | Typically who prepares it | Priority), a checklist of what's missing in the order to tackle it, steps for the first missing item, and a callout that requirements differ by jurisdiction and a qualified professional should prepare or check legal documents.",
+   "shape": "table, checklist, steps, callout",
+   "button": "Show me",
+   "loading": "Checking…"
+  },
+  {
+   "id": "where",
+   "title": "Where everything is",
+   "subtitle": "A guide for your family",
+   "emoji": "🗂️",
+   "inputs": [
+    {
+     "key": "stuff",
+     "label": "Describe what you have and where",
+     "type": "longtext",
+     "placeholder": "bank at Nationwide, house deeds in the bureau, pension with Aviva, car log book in the glovebox…",
+     "required": true
+    }
+   ],
+   "prompt": "Organise this into a family guide: {stuff}. A table (Item | Where it is | Who to contact | Reference or account type, never full passwords), a checklist of gaps the user should fill in, and a kv (Where this guide will be kept | Who has been told | Date to review). Add a callout on keeping passwords out of this document and using a password manager's emergency access instead.",
+   "shape": "table, checklist, kv, callout",
+   "button": "Organise",
+   "loading": "Filing…"
+  },
+  {
+   "id": "digital",
+   "title": "Digital legacy",
+   "subtitle": "Accounts, photos, subscriptions",
+   "emoji": "💻",
+   "inputs": [
+    {
+     "key": "accounts",
+     "label": "Online accounts & devices",
+     "type": "longtext",
+     "placeholder": "Gmail, Facebook, Amazon Prime, iPhone with all the photos, Netflix, online banking",
+     "required": true
+    }
+   ],
+   "prompt": "Plan a digital legacy for: {accounts}. A table (Account | What happens by default | Legacy setting to switch on | Who should have access), steps to back up photos and important files so family can reach them, a checklist of subscriptions to note for cancelling, and a callout on the legal and privacy side of sharing account access.",
+   "shape": "table, steps, checklist, callout",
+   "button": "Plan it",
+   "loading": "Sorting accounts…"
+  },
+  {
+   "id": "letter",
+   "title": "Letter to my family",
+   "subtitle": "What paperwork can't say",
+   "emoji": "💌",
+   "inputs": [
+    {
+     "key": "kind",
+     "label": "Kind of letter",
+     "type": "chips",
+     "options": [
+      "Life lessons",
+      "Wishes for a send-off",
+      "Thank-you to someone",
+      "Family history to pass on",
+      "For a grandchild to open later"
+     ],
+     "default": "Life lessons"
+    },
+    {
+     "key": "notes",
+     "label": "Rough thoughts",
+     "type": "longtext",
+     "placeholder": "raised in Leeds; met Joan at the dance hall; proudest of the allotment…",
+     "required": true
+    }
+   ],
+   "prompt": "Draft a '{kind}' letter in the user's voice from: {notes}. A quote with the full letter (300–450 words, warm, specific, no clichés), bullets of 5 questions that might unlock more memories to add, and a kv (Where to keep it | Who to tell it exists | When to revisit it).",
+   "shape": "quote, bullets, kv",
+   "button": "Draft letter",
+   "loading": "Writing…"
+  },
+  {
+   "id": "solicitor",
+   "title": "Prepare for the solicitor",
+   "subtitle": "Questions, papers, costs",
+   "emoji": "⚖️",
+   "inputs": [
+    {
+     "key": "about",
+     "label": "Appointment is about",
+     "type": "chips",
+     "options": [
+      "Will",
+      "Power of attorney",
+      "Trust / property",
+      "Probate for someone else",
+      "Not sure"
+     ],
+     "default": "Will"
+    }
+   ],
+   "prompt": "Prepare for a {about} appointment in the profile's country: a checklist of documents and information to bring (assets, debts, beneficiaries, executors), bullets of the 8 questions to ask (including fees, timescales, what happens if circumstances change), a kv (Typical cost range | Typical timescale | Cheaper alternatives and their risks), and a callout on avoiding unregulated will-writers and pressure sales.",
+   "shape": "checklist, bullets, kv, callout",
+   "button": "Prepare",
+   "loading": "Gathering…"
+  }
+ ],
+ "disclaimer": "General information only, not legal or financial advice. Laws differ by country and state; have wills, powers of attorney and similar documents prepared or checked by a qualified professional."
+}

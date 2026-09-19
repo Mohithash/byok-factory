@@ -1,0 +1,174 @@
+{
+ "id": "error_bars",
+ "name": "Error Bars",
+ "tagline": "Lab reports with proper uncertainty, fits and discussion",
+ "category": "Education",
+ "colors": [
+  "#5D4037",
+  "#26A69A",
+  "#EF5350"
+ ],
+ "icon": "note",
+ "about": "Error Bars propagates uncertainties, fits your data with a slope and its error, marks your graph from a photo, critiques your method for systematic errors and drafts the discussion section markers actually reward.",
+ "persona": "You are a lab-report demonstrator: you treat every number as measurement ± uncertainty, insist on units and significant figures, and reward honest discussion of limitations over spin.",
+ "onboarding": {
+  "title": "Every number has an uncertainty",
+  "subtitle": "Your subject and level set the uncertainty conventions.",
+  "bullets": [
+   "Uncertainty propagation, shown",
+   "Data fits with slope ± error",
+   "Discussion sections that score"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "subject",
+   "label": "Subject",
+   "type": "chips",
+   "options": [
+    "Physics",
+    "Chemistry",
+    "Biology",
+    "Engineering",
+    "Psychology / social"
+   ]
+  },
+  {
+   "key": "level",
+   "label": "Level",
+   "type": "chips",
+   "options": [
+    "High school",
+    "IB / A-level",
+    "Undergrad year 1–2",
+    "Undergrad year 3+ / Masters"
+   ]
+  },
+  {
+   "key": "convention",
+   "label": "Uncertainty convention",
+   "type": "chips",
+   "options": [
+    "Absolute ±",
+    "Percentage %",
+    "Standard error",
+    "As taught"
+   ],
+   "default": "As taught"
+  }
+ ],
+ "tools": [
+  {
+   "id": "propagate",
+   "title": "Propagate uncertainty",
+   "subtitle": "Formula + measurements → result ± error",
+   "emoji": "🎲",
+   "inputs": [
+    {
+     "key": "formula",
+     "label": "Formula",
+     "type": "text",
+     "placeholder": "g = 4π²L / T²",
+     "required": true
+    },
+    {
+     "key": "values",
+     "label": "Measurements with uncertainties",
+     "type": "longtext",
+     "placeholder": "L = 0.850 ± 0.002 m, T = 1.85 ± 0.02 s",
+     "required": true
+    }
+   ],
+   "prompt": "For {formula} with {values}: steps for the propagation (partial derivatives or fractional-uncertainty rules, shown explicitly in the profile convention), kv (result, absolute uncertainty, percentage uncertainty, correctly rounded final value with units), a table (Variable | Contribution to uncertainty | % of total), and a callout on which measurement to improve first.",
+   "shape": "steps, kv, table, callout",
+   "button": "Propagate",
+   "loading": "In quadrature…"
+  },
+  {
+   "id": "fit",
+   "title": "Fit my data",
+   "subtitle": "x, y → slope, intercept, uncertainties",
+   "emoji": "📈",
+   "inputs": [
+    {
+     "key": "data",
+     "label": "Data (x, y, optional ±)",
+     "type": "longtext",
+     "placeholder": "0.1, 0.42; 0.2, 0.81; 0.3, 1.25; 0.4, 1.60",
+     "required": true
+    },
+    {
+     "key": "model",
+     "label": "Expected relationship",
+     "type": "text",
+     "placeholder": "y = kx, k should equal g/2"
+    }
+   ],
+   "prompt": "Fit {data} to {model}: kv (slope ± uncertainty, intercept ± uncertainty, R², what the slope physically means), steps for the least-squares calculation or the max/min gradient method as appropriate to the profile level, a table (x | y | Fitted y | Residual), text comparing the result with the expected value, and a callout on outliers and whether the intercept should be forced through zero.",
+   "shape": "kv, steps, table, text, callout",
+   "button": "Fit it",
+   "loading": "Drawing best fit…"
+  },
+  {
+   "id": "graph",
+   "title": "Check my graph",
+   "subtitle": "Photo → what a marker would say",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of your graph",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Mark the graph in the photo against lab-report criteria: checklist (title, axis labels with units, scale choice, plotted points, error bars, line of best fit, gradient working, significant figures), a table (Issue | Marks lost | Fix), and a quote with the caption it should have.",
+   "shape": "checklist, table, quote",
+   "button": "Mark it",
+   "loading": "Checking axes…"
+  },
+  {
+   "id": "method",
+   "title": "Sources of error",
+   "subtitle": "Random vs systematic, with fixes",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "method",
+     "label": "Your method",
+     "type": "longtext",
+     "placeholder": "measured the pendulum period by timing 10 swings with a phone stopwatch",
+     "required": true
+    }
+   ],
+   "prompt": "For the method {method}: table (Error source | Random or systematic | Effect on result | Reduce it by), bullets separating genuine limitations from the 'human error' clichés markers dislike, and a callout on the single improvement with the largest effect on precision.",
+   "shape": "table, bullets, callout",
+   "button": "Find errors",
+   "loading": "Auditing…"
+  },
+  {
+   "id": "discuss",
+   "title": "Draft the discussion",
+   "subtitle": "Results → conclusion and evaluation",
+   "emoji": "📝",
+   "inputs": [
+    {
+     "key": "results",
+     "label": "Your results and expected values",
+     "type": "longtext",
+     "placeholder": "g = 9.6 ± 0.3 m/s², expected 9.81; graph linear with a small intercept",
+     "required": true
+    }
+   ],
+   "prompt": "Draft a discussion for {results} at the profile level: text stating precisely whether the result agrees with the expected value within uncertainty, a quote with a model conclusion paragraph, bullets for the evaluation (limitations, improvements, further work), and a checklist of what the marking scheme expects in a discussion section.",
+   "shape": "text, quote, bullets, checklist",
+   "button": "Draft it",
+   "loading": "Weighing evidence…"
+  }
+ ]
+}

@@ -1,0 +1,185 @@
+{
+ "id": "free_body",
+ "name": "Free Body",
+ "tagline": "Physics problems solved the way examiners mark them",
+ "category": "Education",
+ "colors": [
+  "#1A237E",
+  "#FF6F00",
+  "#00ACC1"
+ ],
+ "icon": "bolt",
+ "about": "Free Body works physics problems from a photo or text with the diagram, the governing principle and unit checks laid out the way exam markers want, then drills the concept that tripped you.",
+ "persona": "You are a physics tutor who always starts with a diagram and the governing principle, keeps units through every line and sanity-checks magnitudes; you teach the method, not just the number.",
+ "onboarding": {
+  "title": "Draw it, then solve it",
+  "subtitle": "Your course level and maths background shape every solution.",
+  "bullets": [
+   "Photo → diagram + worked solution",
+   "Unit and magnitude sanity checks",
+   "Concept drills on your weak spots"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "level",
+   "label": "Course",
+   "type": "chips",
+   "options": [
+    "High school",
+    "IB / A-level",
+    "AP Physics",
+    "University intro",
+    "Upper-level"
+   ]
+  },
+  {
+   "key": "calc",
+   "label": "Maths used",
+   "type": "chips",
+   "options": [
+    "Algebra-based",
+    "Calculus-based"
+   ]
+  },
+  {
+   "key": "topics",
+   "label": "Current topics",
+   "type": "text",
+   "placeholder": "projectiles, Newton's laws"
+  }
+ ],
+ "tools": [
+  {
+   "id": "solve",
+   "title": "Solve a problem",
+   "subtitle": "Photo or typed, diagram first",
+   "emoji": "📐",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the problem",
+     "type": "photo"
+    },
+    {
+     "key": "problem",
+     "label": "Or type it",
+     "type": "longtext",
+     "placeholder": "A 2 kg block on a 30° incline, μ = 0.2, pushed with 15 N…"
+    },
+    {
+     "key": "mode",
+     "label": "Mode",
+     "type": "chips",
+     "options": [
+      "Full solution",
+      "Hint ladder",
+      "Check my answer"
+     ],
+     "default": "Full solution"
+    }
+   ],
+   "prompt": "Problem: {problem} (or the photo). Mode: {mode}. Start with a text section describing the diagram to draw (axes, every force or vector, labels). Then kv (known quantities, unknowns, principle used). Then steps: each step states the equation in symbols, then substitutes with units, ending in a kv (final answer with units, significant figures, magnitude sanity check). In 'Hint ladder' mode give 4 escalating hints as steps and no final answer. Finish with a callout on the trap most students fall into on this problem type.",
+   "shape": "text, kv, steps, callout",
+   "button": "Solve",
+   "loading": "Drawing the diagram…"
+  },
+  {
+   "id": "fbd",
+   "title": "Free-body diagram",
+   "subtitle": "Every force named and directed",
+   "emoji": "➡️",
+   "inputs": [
+    {
+     "key": "object",
+     "label": "Object",
+     "type": "text",
+     "placeholder": "a box dragged up a rough slope by a rope",
+     "required": true
+    },
+    {
+     "key": "situation",
+     "label": "Motion / situation",
+     "type": "text",
+     "placeholder": "accelerating at 2 m/s² up the slope"
+    }
+   ],
+   "prompt": "For {object} in situation: {situation}. Table (Force | Acts on | Direction | Newton-pair partner | Magnitude expression). Then steps to choose axes, resolve each force and write ΣF = ma per axis. Bullets of forces students wrongly add (e.g. 'centrifugal', 'force of motion'), and a callout on why the chosen axes make the algebra easiest.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Draw forces",
+   "loading": "Resolving…"
+  },
+  {
+   "id": "units",
+   "title": "Units & dimensions",
+   "subtitle": "Is this equation even possible?",
+   "emoji": "⚖️",
+   "inputs": [
+    {
+     "key": "expr",
+     "label": "Equation or answer",
+     "type": "text",
+     "placeholder": "T = 2π√(L/g)",
+     "required": true
+    }
+   ],
+   "prompt": "Check {expr}: kv (each symbol → dimensions in M, L, T and other base units), steps working out the dimensions of each side, a text verdict on whether it is dimensionally consistent and what a mismatch would mean, and bullets on what dimensional analysis cannot catch (dimensionless constants, wrong signs).",
+   "shape": "kv, steps, text, bullets",
+   "button": "Check units",
+   "loading": "Counting metres…"
+  },
+  {
+   "id": "cheatsheet",
+   "title": "Topic cheat sheet",
+   "subtitle": "Formulas, when they apply, their limits",
+   "emoji": "📋",
+   "inputs": [
+    {
+     "key": "topic",
+     "label": "Topic",
+     "type": "text",
+     "placeholder": "circular motion",
+     "required": true
+    }
+   ],
+   "prompt": "One-page cheat sheet for {topic} at the profile level: table (Formula | Symbols | Applies when | Common misuse), kv (key constants with SI values), bullets of 3 classic problem archetypes with the first step for each, and a quote with a one-line intuition for the whole topic.",
+   "shape": "table, kv, bullets, quote",
+   "button": "Build sheet",
+   "loading": "Condensing…"
+  },
+  {
+   "id": "drill",
+   "title": "Misconception drill",
+   "subtitle": "Concept questions, no calculator",
+   "emoji": "🧠",
+   "inputs": [
+    {
+     "key": "topic",
+     "label": "Topic",
+     "type": "text",
+     "placeholder": "Newton's third law",
+     "required": true
+    },
+    {
+     "key": "n",
+     "label": "Questions",
+     "type": "chips",
+     "options": [
+      "5",
+      "10"
+     ],
+     "default": "5"
+    }
+   ],
+   "prompt": "{n} conceptual multiple-choice questions on {topic} for the profile level, each with a tempting wrong option built on a known misconception: cards (question with 4 lettered options, meta = misconception targeted), then a table (No. | Answer | Why the tempting option is wrong), and a callout on the single mental model that fixes most of them.",
+   "shape": "cards, table, callout",
+   "button": "Drill me",
+   "loading": "Setting traps…"
+  }
+ ]
+}

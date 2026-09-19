@@ -1,0 +1,220 @@
+{
+ "id": "zero_proof",
+ "name": "Zero Proof",
+ "tagline": "Alcohol-free drinks that don't feel like a compromise",
+ "category": "Food & Drink",
+ "colors": [
+  "#1E88E5",
+  "#00ACC1",
+  "#FF7043"
+ ],
+ "icon": "moon",
+ "about": "Zero Proof helps sober-curious and alcohol-free drinkers find non-alcoholic beers, wines and spirits that match what they liked, make shrubs and syrups from scratch, plan dry parties, and handle 'why aren't you drinking?' with grace.",
+ "persona": "You are a zero-proof bar director: encyclopaedic on NA beers, dealcoholised wines and botanical spirits, never judgemental about anyone's reasons, and honest about which products are worth the money.",
+ "onboarding": {
+  "title": "Drink well without alcohol",
+  "subtitle": "Tell us what you used to enjoy so recommendations fit.",
+  "bullets": [
+   "NA picks matched to your old favourites",
+   "Shrubs, syrups and house drinks",
+   "Dry parties and bar scripts"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "liked",
+   "label": "You liked",
+   "type": "chips",
+   "options": [
+    "IPA / craft beer",
+    "Lager",
+    "Red wine",
+    "White / sparkling",
+    "Gin & tonic",
+    "Whisky",
+    "Cocktails",
+    "Never drank"
+   ],
+   "multi": true
+  },
+  {
+   "key": "why",
+   "label": "Approach",
+   "type": "chips",
+   "options": [
+    "Fully alcohol-free",
+    "Cutting down",
+    "Pregnancy",
+    "Driving / training",
+    "Prefer not to say"
+   ]
+  },
+  {
+   "key": "budget",
+   "label": "Budget per bottle",
+   "type": "chips",
+   "options": [
+    "Under 5",
+    "5–15",
+    "15–30",
+    "Any"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "match",
+   "title": "Find my match",
+   "subtitle": "NA versions of what you liked",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "want",
+     "label": "Tonight I want",
+     "type": "chips",
+     "options": [
+      "A beer",
+      "A wine",
+      "A spirit & mixer",
+      "A sipping drink",
+      "A sparkling toast"
+     ],
+     "default": "A beer"
+    },
+    {
+     "key": "occasion",
+     "label": "Occasion / notes",
+     "type": "text",
+     "placeholder": "Friday night curry, want something hoppy"
+    }
+   ],
+   "prompt": "Recommend zero-proof options for '{want}' with notes: {occasion}, matched to the profile's past favourites and budget. Cards (product style with example product types, meta = closest to · price tier · 0.0% or ≤0.5%), text on what to expect versus the alcoholic version, and bullets on where these are usually stocked.",
+   "shape": "cards, text, bullets",
+   "button": "Find matches",
+   "loading": "Reading labels…"
+  },
+  {
+   "id": "label",
+   "title": "Decode an NA label",
+   "subtitle": "Photo → ABV, sugar, what it's like",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the bottle or can label",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Read the label. kv (product type, stated ABV, dealcoholised or brewed low, sugar g per 100 ml, calories, key botanicals or hops), text on how it will taste and what to mix it with, a callout on whether it suits the profile's approach (0.0% versus 0.5%), and bullets on 2 similar alternatives.",
+   "shape": "kv, text, callout, bullets",
+   "button": "Decode",
+   "loading": "Reading…"
+  },
+  {
+   "id": "house",
+   "title": "House drink",
+   "subtitle": "Shrubs, syrups, spritzes from scratch",
+   "emoji": "🍋",
+   "inputs": [
+    {
+     "key": "have",
+     "label": "What's in the kitchen",
+     "type": "text",
+     "placeholder": "apples, apple cider vinegar, rosemary, soda water",
+     "required": true
+    },
+    {
+     "key": "style",
+     "label": "Style",
+     "type": "chips",
+     "options": [
+      "Spritz",
+      "Sour",
+      "Highball",
+      "Warm / winter",
+      "Dessert"
+     ],
+     "default": "Spritz"
+    }
+   ],
+   "prompt": "Create 3 {style} zero-proof drinks from {have} as cards (meta = minutes · makes N · sweetness). Then steps for one shrub or syrup base with grams and ml that keeps 2 weeks in the fridge, and bullets on adding bitterness, tannin or heat so it drinks like a grown-up drink.",
+   "shape": "cards, steps, bullets",
+   "button": "Create",
+   "loading": "Muddling…"
+  },
+  {
+   "id": "party",
+   "title": "Dry party plan",
+   "subtitle": "Quantities, a menu and a bar layout",
+   "emoji": "🎉",
+   "inputs": [
+    {
+     "key": "guests",
+     "label": "Guests",
+     "type": "number",
+     "placeholder": "20"
+    },
+    {
+     "key": "hours",
+     "label": "Hours",
+     "type": "number",
+     "placeholder": "4"
+    },
+    {
+     "key": "vibe",
+     "label": "Vibe",
+     "type": "text",
+     "placeholder": "summer garden, some guests will drink"
+    }
+   ],
+   "prompt": "Plan a zero-proof bar for {guests} guests over {hours} hours ({vibe}) within the profile's budget. Table (Drink | Batch size | Servings | Est. cost), a checklist of glassware, ice, garnishes and signage, steps for batching the day before, and a callout on presenting NA drinks so they are never the sad option.",
+   "shape": "table, checklist, steps, callout",
+   "button": "Plan party",
+   "loading": "Chilling glasses…"
+  },
+  {
+   "id": "script",
+   "title": "What to say",
+   "subtitle": "Bars, weddings, the pushy friend",
+   "emoji": "💬",
+   "inputs": [
+    {
+     "key": "scene",
+     "label": "Scene",
+     "type": "chips",
+     "options": [
+      "Ordering at a bar",
+      "Work drinks",
+      "Wedding toast",
+      "A friend who keeps pushing",
+      "Family dinner",
+      "First date"
+     ],
+     "default": "Ordering at a bar"
+    },
+    {
+     "key": "tone",
+     "label": "Tone",
+     "type": "chips",
+     "options": [
+      "Light and funny",
+      "Direct",
+      "Private, no explanation"
+     ],
+     "default": "Light and funny"
+    }
+   ],
+   "prompt": "For '{scene}' in a {tone} tone, write a quote with exactly what to say (2 alternatives). Then bullets on what to order or bring so you have a good drink in hand, and a callout on your right not to explain.",
+   "shape": "quote, bullets, callout",
+   "button": "Give me lines",
+   "loading": "Rehearsing…"
+  }
+ ],
+ "disclaimer": "Most 'alcohol-free' drinks contain up to 0.5% ABV and some closely mimic alcohol. If you are in recovery, pregnant or on medication, check with your clinician or support programme. Not medical advice."
+}

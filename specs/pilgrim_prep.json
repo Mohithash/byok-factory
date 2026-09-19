@@ -1,0 +1,191 @@
+{
+ "id": "pilgrim_prep",
+ "name": "Pilgrim Prep",
+ "tagline": "Plan a pilgrimage: rites, packing, body and budget",
+ "category": "Lifestyle",
+ "colors": [
+  "#5D4037",
+  "#0097A7",
+  "#FFB300"
+ ],
+ "icon": "plane",
+ "about": "Pilgrim Prep helps you prepare for Hajj or Umrah, the Camino de Santiago, Char Dham, Kumbh Mela, Shikoku's 88 temples, Lourdes, Bodh Gaya and more — the sequence of rites, packing, physical training and a realistic budget.",
+ "persona": "You are an experienced pilgrimage guide and logistics planner: reverent about the rites, blunt about heat, crowds and blisters, and clear that rulings on ritual belong to the pilgrim's own religious authority.",
+ "onboarding": {
+  "title": "Arrive ready in body and heart",
+  "subtitle": "Tell us about the journey and your fitness.",
+  "bullets": [
+   "Step-by-step rites and route",
+   "Packing and training checklists",
+   "Budgets and crowd strategies"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "pilgrimage",
+   "label": "Pilgrimage",
+   "type": "text",
+   "placeholder": "Umrah in Ramadan, Camino Francés from Sarria, Char Dham by road"
+  },
+  {
+   "key": "fitness",
+   "label": "Fitness",
+   "type": "chips",
+   "options": [
+    "Low",
+    "Moderate",
+    "Good",
+    "Athlete"
+   ],
+   "default": "Moderate"
+  },
+  {
+   "key": "health",
+   "label": "Health notes",
+   "type": "text",
+   "placeholder": "knee issue, diabetes, travelling with an elderly parent"
+  }
+ ],
+ "tools": [
+  {
+   "id": "rites",
+   "title": "The rites in order",
+   "subtitle": "What happens, when, and why",
+   "emoji": "🕋",
+   "inputs": [
+    {
+     "key": "journey",
+     "label": "Pilgrimage",
+     "type": "text",
+     "placeholder": "Umrah, Hajj, Camino, Char Dham, Shikoku",
+     "required": true
+    },
+    {
+     "key": "day",
+     "label": "Cover",
+     "type": "chips",
+     "options": [
+      "Whole journey overview",
+      "Day 1 arrival",
+      "The core rite(s)",
+      "Departure & completion"
+     ],
+     "default": "Whole journey overview"
+    }
+   ],
+   "prompt": "Lay out {journey} for the scope '{day}'. Sections: steps in order (each with the action, where, approximate duration, and what to say or carry if customary), kv (dress or ihram rules, prohibitions during the rite, timing windows), bullets of common mistakes first-timers make, and a callout that any question of validity or making up a missed rite must go to the pilgrim's religious authority or guide.",
+   "shape": "steps, kv, bullets, callout",
+   "button": "Show rites",
+   "loading": "Walking it through…"
+  },
+  {
+   "id": "pack",
+   "title": "Packing list",
+   "subtitle": "By climate, rite and body",
+   "emoji": "🎒",
+   "inputs": [
+    {
+     "key": "days",
+     "label": "Days away",
+     "type": "number",
+     "placeholder": "12"
+    },
+    {
+     "key": "season",
+     "label": "Season",
+     "type": "chips",
+     "options": [
+      "Hot",
+      "Cold",
+      "Rainy",
+      "Mixed"
+     ],
+     "default": "Hot"
+    }
+   ],
+   "prompt": "Packing list for the profile's pilgrimage, {days} days, {season} season, with the profile's health notes considered. Sections: a checklist grouped by category (documents, ritual items, clothing, footwear, medical, tech, comfort), a table (Item | Why | Skip if…), bullets on what to buy locally instead, and a callout on items that are prohibited or frowned upon at the site.",
+   "shape": "checklist, table, bullets, callout",
+   "button": "Build list",
+   "loading": "Packing light…"
+  },
+  {
+   "id": "train",
+   "title": "Body prep plan",
+   "subtitle": "Weeks of walking, heat and stairs",
+   "emoji": "🚶",
+   "inputs": [
+    {
+     "key": "weeks",
+     "label": "Weeks until departure",
+     "type": "number",
+     "placeholder": "8"
+    },
+    {
+     "key": "demands",
+     "label": "Physical demands",
+     "type": "text",
+     "placeholder": "20 km walking days, lots of standing, high altitude"
+    }
+   ],
+   "prompt": "A {weeks}-week physical preparation plan for the profile's fitness level and health notes, for demands: {demands}. Sections: a table (Week | Walking or stairs sessions | Duration | Pack weight | Recovery), steps for footwear break-in and blister prevention, bullets on heat, altitude and hydration adaptation, and a callout listing symptoms that mean see a doctor before or during the journey.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Plan training",
+   "loading": "Lacing up…"
+  },
+  {
+   "id": "budget",
+   "title": "Budget & bookings",
+   "subtitle": "Costs, timing, what to book first",
+   "emoji": "💰",
+   "inputs": [
+    {
+     "key": "style",
+     "label": "Style",
+     "type": "chips",
+     "options": [
+      "Budget",
+      "Mid-range",
+      "Comfort",
+      "Group package"
+     ],
+     "default": "Mid-range"
+    },
+    {
+     "key": "people",
+     "label": "Travellers",
+     "type": "number",
+     "placeholder": "2"
+    }
+   ],
+   "prompt": "A {style} budget for the profile's pilgrimage for {people} travellers. Sections: a table (Item | Estimated cost per person | Notes) covering transport, permits or visas, lodging, food, offerings or donations, guides, gear and contingency; steps for booking order with lead times; kv (best season for crowds vs cost, visa or permit lead time, insurance); and a callout on common scams or overcharging at that site.",
+   "shape": "table, steps, kv, callout",
+   "button": "Estimate",
+   "loading": "Adding it up…"
+  },
+  {
+   "id": "crowds",
+   "title": "Crowd & safety plan",
+   "subtitle": "Stay together, stay calm, stay hydrated",
+   "emoji": "🧭",
+   "inputs": [
+    {
+     "key": "concern",
+     "label": "Your concern",
+     "type": "text",
+     "placeholder": "getting separated from my mother, heatstroke, pickpockets, altitude",
+     "required": true
+    }
+   ],
+   "prompt": "Safety plan for the profile's pilgrimage addressing: {concern}. Sections: steps for prevention and for what to do if it happens, a checklist of daily habits (meeting points, water, ID copies, phone plan), kv (typical emergency numbers or help desks for the site, medical stations, peak-crowd times to avoid), and a callout on warning signs that require immediate help.",
+   "shape": "steps, checklist, kv, callout",
+   "button": "Plan safety",
+   "loading": "Mapping exits…"
+  }
+ ],
+ "disclaimer": "Travel and health guidance is general; consult a doctor about fitness and vaccinations, and your religious authority about ritual questions."
+}

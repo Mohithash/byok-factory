@@ -1,0 +1,171 @@
+{
+ "id": "retire_gap",
+ "name": "Retire Gap",
+ "tagline": "See what retirement needs vs what you're on track for",
+ "category": "Finance",
+ "colors": [
+  "#4527A0",
+  "#26A69A",
+  "#FFA000"
+ ],
+ "icon": "sun",
+ "about": "Retire Gap turns your current savings into a plain answer, on track or not, then builds a catch-up plan for your age, explains account types for your country in general terms, and reads your pension statement from a photo.",
+ "persona": "You are a straight-talking retirement planner: realistic, gentle with people who started late, general about tax and account rules, and always encouraging the next small step.",
+ "onboarding": {
+  "title": "Am I on track?",
+  "subtitle": "A few numbers give you an honest answer.",
+  "bullets": [
+   "Gap analysis in real money",
+   "Catch-up plans by age",
+   "Statements decoded"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "age",
+   "label": "Age",
+   "type": "number",
+   "placeholder": "45"
+  },
+  {
+   "key": "retire_age",
+   "label": "Target retirement age",
+   "type": "number",
+   "placeholder": "67"
+  },
+  {
+   "key": "country",
+   "label": "Country",
+   "type": "text",
+   "placeholder": "Australia"
+  }
+ ],
+ "tools": [
+  {
+   "id": "gap",
+   "title": "My gap",
+   "subtitle": "Target pot vs projected pot",
+   "emoji": "📏",
+   "inputs": [
+    {
+     "key": "saved",
+     "label": "Retirement savings so far",
+     "type": "number",
+     "placeholder": "120000"
+    },
+    {
+     "key": "monthly",
+     "label": "Saving per month",
+     "type": "number",
+     "placeholder": "600"
+    },
+    {
+     "key": "income",
+     "label": "Retirement income wanted per year (today's money)",
+     "type": "number",
+     "placeholder": "45000"
+    }
+   ],
+   "prompt": "Profile age and target age, {saved} saved, {monthly}/month, wanting {income}/year. Assume 5% real return before retirement and a 4% withdrawal rate (state both). kv (target pot, projected pot at retirement, gap, projected income, on-track verdict). Table (Age | Projected pot | Target pot | Gap) at 5-year steps to the target age. Bullets on what a state or public pension in the profile country might add (general terms only), and a callout on the single change that closes the most gap.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Check my gap",
+   "loading": "Measuring…"
+  },
+  {
+   "id": "catchup",
+   "title": "Catch-up plan",
+   "subtitle": "Close the gap by your target age",
+   "emoji": "🏃",
+   "inputs": [
+    {
+     "key": "gap",
+     "label": "Gap to close",
+     "type": "number",
+     "placeholder": "250000"
+    },
+    {
+     "key": "appetite",
+     "label": "How aggressive",
+     "type": "chips",
+     "options": [
+      "Gentle",
+      "Moderate",
+      "All in"
+     ],
+     "default": "Moderate"
+    }
+   ],
+   "prompt": "Close a {gap} gap by the profile target age at a '{appetite}' pace. Table (Lever | Monthly effect | Total effect by target age | Effort) covering extra contributions, retiring later, spending less in retirement, employer matching, side income and asset mix. Then steps for the first 90 days, and a callout on the trade-offs of working longer versus saving harder.",
+   "shape": "table, steps, callout",
+   "button": "Build plan",
+   "loading": "Catching up…"
+  },
+  {
+   "id": "accounts",
+   "title": "Account types explained",
+   "subtitle": "Which account, in what order",
+   "emoji": "🗂️",
+   "inputs": [
+    {
+     "key": "q",
+     "label": "Question",
+     "type": "chips",
+     "options": [
+      "Which account first?",
+      "Tax now vs tax later?",
+      "Employer plan basics",
+      "Self-employed options"
+     ],
+     "default": "Which account first?"
+    }
+   ],
+   "prompt": "For the profile country, answer '{q}' in general terms: text (the principle), table (Account type | Tax treatment (general) | Best for | Watch-out), bullets on the order most people fund accounts in, and a callout to verify current limits and rules with an official source or adviser.",
+   "shape": "text, table, bullets, callout",
+   "button": "Explain",
+   "loading": "Sorting accounts…"
+  },
+  {
+   "id": "statement",
+   "title": "Read my statement",
+   "subtitle": "Photo → what it says and what to ask",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of your pension / retirement statement",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Read the statement: kv (provider, balance, contributions this period, employer contribution, fees, fund or allocation, projected value if shown). Text on what stands out, bullets of 3 questions to ask the provider, and a callout on any fee or allocation that looks worth checking.",
+   "shape": "kv, text, bullets, callout",
+   "button": "Read it",
+   "loading": "Squinting…"
+  },
+  {
+   "id": "income",
+   "title": "Retirement income map",
+   "subtitle": "Every source, when it starts",
+   "emoji": "🗺️",
+   "inputs": [
+    {
+     "key": "sources",
+     "label": "Expected income sources",
+     "type": "text",
+     "placeholder": "state pension, workplace pension, rental flat",
+     "required": true
+    }
+   ],
+   "prompt": "Map retirement income for the profile from: {sources}. Table (Source | Starts at age | Est. monthly | Reliability | Inflation-linked?), text on the gap between guaranteed income and likely spending, bullets on ways to fill it, and a callout on the years between the target retirement age and any state pension starting.",
+   "shape": "table, text, bullets, callout",
+   "button": "Map it",
+   "loading": "Charting…"
+  }
+ ],
+ "disclaimer": "General education only — not financial, tax or legal advice. Figures are illustrative projections, not predictions; check your own situation with a licensed adviser."
+}

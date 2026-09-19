@@ -1,0 +1,229 @@
+{
+ "id": "coop_keeper",
+ "name": "Coop Keeper",
+ "tagline": "Healthy hens, safe coops, more eggs",
+ "category": "Lifestyle",
+ "colors": [
+  "#C62828",
+  "#F9A825",
+  "#795548"
+ ],
+ "icon": "home",
+ "about": "Coop Keeper helps backyard chicken keepers triage flock health, predator-proof the coop from a photo, work out why the eggs stopped, feed by age, and integrate new birds without the bloodshed.",
+ "persona": "You are a practical smallholder with a long-running backyard flock: unsentimental about predators and biosecurity, kind to the birds, and plain-spoken about when a hen needs a vet.",
+ "onboarding": {
+  "title": "Meet the flock",
+  "subtitle": "Flock size, breeds and climate shape the advice.",
+  "bullets": [
+   "Flock health triage",
+   "Coop & predator audits",
+   "Egg-drop detective"
+  ]
+ },
+ "profile": [
+  {
+   "key": "flock",
+   "label": "Flock",
+   "type": "text",
+   "placeholder": "6 hens: 2 Sussex, 3 hybrids, 1 Orpington"
+  },
+  {
+   "key": "purpose",
+   "label": "Kept for",
+   "type": "chips",
+   "options": [
+    "Eggs",
+    "Pets",
+    "Eggs + meat",
+    "Breeding / showing"
+   ]
+  },
+  {
+   "key": "climate",
+   "label": "Climate & season",
+   "type": "text",
+   "placeholder": "UK, wet winters"
+  },
+  {
+   "key": "setup",
+   "label": "Setup",
+   "type": "chips",
+   "options": [
+    "Fixed coop + run",
+    "Free range",
+    "Chicken tractor / mobile",
+    "Garden roaming"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "health",
+   "title": "Sick hen check",
+   "subtitle": "Symptoms → likely causes and next steps",
+   "emoji": "🩺",
+   "inputs": [
+    {
+     "key": "signs",
+     "label": "Signs",
+     "type": "chips",
+     "options": [
+      "Lethargic / fluffed",
+      "Not laying",
+      "Pale comb",
+      "Diarrhoea",
+      "Limping",
+      "Sneezing / rattling",
+      "Feather loss",
+      "Swollen abdomen",
+      "Head shaking"
+     ],
+     "default": "Lethargic / fluffed",
+     "multi": true
+    },
+    {
+     "key": "details",
+     "label": "Details",
+     "type": "text",
+     "placeholder": "3-year-old Sussex, standing hunched since yesterday"
+    }
+   ],
+   "prompt": "Triage a hen from the profile flock with {signs}: {details}. Sections: a callout with urgency (isolate and vet today / treat at home and monitor / emergency), a table (Possible cause | Key signs | Contagious? | Action), steps for a hands-on check (crop, vent, keel, feet, mites) and isolation, and bullets of notifiable-disease signs (avian influenza, Newcastle disease) and who to report them to.",
+   "shape": "callout, table, steps, bullets",
+   "button": "Triage",
+   "loading": "Checking the vent…"
+  },
+  {
+   "id": "coop",
+   "title": "Coop & predator audit",
+   "subtitle": "Photo → weak spots and fixes",
+   "emoji": "🦊",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the coop / run",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "predators",
+     "label": "Predators around",
+     "type": "chips",
+     "options": [
+      "Fox",
+      "Rats",
+      "Raccoon",
+      "Hawks / birds of prey",
+      "Dogs",
+      "Mink / weasel",
+      "Snakes"
+     ],
+     "default": "Fox",
+     "multi": true
+    }
+   ],
+   "prompt": "Audit the coop in the photo against {predators}. Sections: a table (Element | Weakness seen | Fix | Cost tier) covering mesh gauge, dig-in aprons, latches, roof, ventilation versus draughts, roost spacing and nest boxes, a checklist of fixes in priority order, and a callout on the one thing that matters most for the listed predators (e.g. locking up at dusk).",
+   "shape": "table, checklist, callout",
+   "button": "Audit coop",
+   "loading": "Testing the latches…"
+  },
+  {
+   "id": "eggs",
+   "title": "Why no eggs?",
+   "subtitle": "Egg-drop detective",
+   "emoji": "🥚",
+   "inputs": [
+    {
+     "key": "change",
+     "label": "What changed",
+     "type": "chips",
+     "options": [
+      "Nothing obvious",
+      "Days got shorter",
+      "New birds added",
+      "Moulting",
+      "Heatwave",
+      "Feed changed",
+      "Predator scare",
+      "Just started free ranging"
+     ],
+     "default": "Nothing obvious",
+     "multi": true
+    },
+    {
+     "key": "weeks",
+     "label": "Weeks since laying dropped",
+     "type": "number",
+     "placeholder": "3"
+    }
+   ],
+   "prompt": "The profile flock's laying dropped {weeks} weeks ago; changes: {change}. Sections: text ranking the likely causes (daylight, moult, age, hidden nests, stress, illness, egg-eating, feed), a table (Cause | How to confirm | Fix | Time to recover), steps for a 7-day investigation, and a callout on when a non-layer with a swollen abdomen needs a vet (peritonitis, egg binding).",
+   "shape": "text, table, steps, callout",
+   "button": "Investigate",
+   "loading": "Checking nests…"
+  },
+  {
+   "id": "feed",
+   "title": "Feed & treats",
+   "subtitle": "Ration by age and purpose",
+   "emoji": "🌽",
+   "inputs": [
+    {
+     "key": "stage",
+     "label": "Birds' stage",
+     "type": "chips",
+     "options": [
+      "Chicks 0–8 weeks",
+      "Growers 8–18 weeks",
+      "Laying hens",
+      "Mixed ages",
+      "Moulting"
+     ],
+     "default": "Laying hens"
+    },
+    {
+     "key": "scraps",
+     "label": "Kitchen scraps you give",
+     "type": "text",
+     "placeholder": "veg peelings, bread, pasta"
+    }
+   ],
+   "prompt": "Feeding plan for the profile flock at stage {stage}, currently giving scraps: {scraps}. Sections: kv (feed type and protein %, grams per bird per day, grit, oyster shell, water), a table (Scrap / treat | Safe? | Max amount | Notes) covering the user's scraps plus common ones, bullets of foods that are toxic or illegal to feed in some countries (catering-waste rules), and a callout on the 10% treat rule.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Plan feed",
+   "loading": "Filling the hopper…"
+  },
+  {
+   "id": "intro",
+   "title": "Add new birds",
+   "subtitle": "Integration without the bloodshed",
+   "emoji": "🐣",
+   "inputs": [
+    {
+     "key": "newbirds",
+     "label": "New birds",
+     "type": "text",
+     "placeholder": "3 point-of-lay hybrids",
+     "required": true
+    },
+    {
+     "key": "space",
+     "label": "Spare space",
+     "type": "chips",
+     "options": [
+      "Separate coop / run",
+      "Divided run",
+      "Dog crate in the run",
+      "None"
+     ],
+     "default": "Divided run"
+    }
+   ],
+   "prompt": "Plan integrating {newbirds} into the profile flock with {space} for quarantine and see-but-don't-touch. Sections: steps over 3–4 weeks (quarantine, visual intro, supervised mixing at dusk, full merge), a checklist for the quarantine period (mites, lice, worms, respiratory signs), a table (Behaviour | Normal pecking order or bullying? | Intervene?), and a callout on when to separate a bird for injuries.",
+   "shape": "steps, checklist, table, callout",
+   "button": "Plan intro",
+   "loading": "Opening the gate…"
+  }
+ ],
+ "disclaimer": "General poultry-keeping information, not veterinary advice; follow your country's rules on feeding kitchen scraps and reporting notifiable diseases."
+}

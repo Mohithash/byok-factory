@@ -1,0 +1,176 @@
+{
+ "id": "big_o_buddy",
+ "name": "Big-O Buddy",
+ "tagline": "Algorithms and data structures, traced and explained",
+ "category": "Education",
+ "colors": [
+  "#212121",
+  "#00E5FF",
+  "#FFD600"
+ ],
+ "icon": "clock",
+ "about": "Big-O Buddy analyses the complexity of pasted code line by line, traces algorithms on your own input, helps pick the right data structure, turns recursion into dynamic programming and runs whiteboard-style drills.",
+ "persona": "You are a CS teaching assistant who traces code on concrete inputs before generalising, justifies every Big-O bound line by line, and prefers invariants to hand-waving.",
+ "onboarding": {
+  "title": "See the algorithm run",
+  "subtitle": "Your course and language keep the examples familiar.",
+  "bullets": [
+   "Line-by-line complexity analysis",
+   "Trace tables on your own input",
+   "Data-structure picker & DP setup"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "lang",
+   "label": "Language",
+   "type": "chips",
+   "options": [
+    "Python",
+    "Java",
+    "C++",
+    "JavaScript",
+    "Pseudocode"
+   ]
+  },
+  {
+   "key": "course",
+   "label": "Course",
+   "type": "chips",
+   "options": [
+    "Intro DS&A",
+    "Algorithms (2nd year)",
+    "Interview prep",
+    "Self-taught"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "complexity",
+   "title": "Analyse complexity",
+   "subtitle": "Paste code → time & space",
+   "emoji": "⏱️",
+   "inputs": [
+    {
+     "key": "code",
+     "label": "Code",
+     "type": "longtext",
+     "placeholder": "def f(arr):\n    for i in range(len(arr)):\n        for j in range(i, len(arr)):\n            …",
+     "required": true
+    }
+   ],
+   "prompt": "Analyse {code}: table (Line or block | Operation | Runs how many times | Cost), kv (time complexity best / average / worst, space complexity, dominant term and why), steps summing the costs, a callout on hidden costs (slicing, string concatenation, library calls, recursion depth), and bullets on one way to improve it.",
+   "shape": "table, kv, steps, callout, bullets",
+   "button": "Analyse",
+   "loading": "Counting loops…"
+  },
+  {
+   "id": "trace",
+   "title": "Trace an algorithm",
+   "subtitle": "Watch it run on your input",
+   "emoji": "🎞️",
+   "inputs": [
+    {
+     "key": "algo",
+     "label": "Algorithm",
+     "type": "text",
+     "placeholder": "merge sort / Dijkstra / binary search",
+     "required": true
+    },
+    {
+     "key": "input",
+     "label": "Input",
+     "type": "text",
+     "placeholder": "[5, 2, 9, 1, 7]",
+     "required": true
+    }
+   ],
+   "prompt": "Trace {algo} on {input}: table with one row per step (Step | State of key variables or structure | Action | Comparisons so far), text on the invariant that holds at every step, kv (final output, total operations for this input), and a callout on the edge case (empty, single element, duplicates, negative weights) that breaks naive versions.",
+   "shape": "table, text, kv, callout",
+   "button": "Trace it",
+   "loading": "Stepping through…"
+  },
+  {
+   "id": "pick",
+   "title": "Pick a data structure",
+   "subtitle": "Operations → the right structure",
+   "emoji": "🧰",
+   "inputs": [
+    {
+     "key": "needs",
+     "label": "What you need to do",
+     "type": "longtext",
+     "placeholder": "insert often, find the minimum fast, delete arbitrary items occasionally, about 1M items",
+     "required": true
+    }
+   ],
+   "prompt": "Needs: {needs}. table (Structure | Insert | Lookup | Delete | Min / max | Memory | Notes) for the 4 best candidates, kv (recommendation, why, the profile-language built-in to use), and a callout on when the recommendation flips.",
+   "shape": "table, kv, callout",
+   "button": "Recommend",
+   "loading": "Comparing…"
+  },
+  {
+   "id": "dp",
+   "title": "Recursion → DP",
+   "subtitle": "Subproblems, table, base cases",
+   "emoji": "🧩",
+   "inputs": [
+    {
+     "key": "problem",
+     "label": "Problem",
+     "type": "longtext",
+     "placeholder": "minimum coins to make amount n with coins [1, 5, 10, 25]",
+     "required": true
+    }
+   ],
+   "prompt": "For {problem}: kv (state definition, recurrence, base cases, where the answer lives), steps from brute-force recursion → memoisation → bottom-up table, a table showing a small example DP table filled in, a quote with the profile-language implementation, and a callout on time / space and the classic off-by-one.",
+   "shape": "kv, steps, table, quote, callout",
+   "button": "Build DP",
+   "loading": "Filling the table…"
+  },
+  {
+   "id": "whiteboard",
+   "title": "Whiteboard drill",
+   "subtitle": "Interview-style, with a rubric",
+   "emoji": "🧑‍🏫",
+   "inputs": [
+    {
+     "key": "topic",
+     "label": "Topic",
+     "type": "chips",
+     "options": [
+      "Arrays & strings",
+      "Hashing",
+      "Trees",
+      "Graphs",
+      "Sorting & searching",
+      "Dynamic programming",
+      "Heaps"
+     ],
+     "default": "Arrays & strings"
+    },
+    {
+     "key": "difficulty",
+     "label": "Difficulty",
+     "type": "chips",
+     "options": [
+      "Easy",
+      "Medium",
+      "Hard"
+     ],
+     "default": "Medium"
+    }
+   ],
+   "prompt": "A {difficulty} whiteboard problem on {topic} for the profile: text (problem statement with two examples), bullets (clarifying questions a strong candidate asks), steps (approach from brute force to optimal with complexities), a quote with the profile-language reference solution, and a checklist rubric an interviewer would tick.",
+   "shape": "text, bullets, steps, quote, checklist",
+   "button": "Give me one",
+   "loading": "Uncapping marker…"
+  }
+ ]
+}

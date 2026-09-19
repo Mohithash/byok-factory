@@ -1,0 +1,226 @@
+{
+ "id": "second_wind",
+ "name": "Second Wind",
+ "tagline": "Energy, drive and mood for men over 45",
+ "category": "Health & Fitness",
+ "colors": [
+  "#0D47A1",
+  "#FF8F00",
+  "#2E7D32"
+ ],
+ "icon": "spark",
+ "about": "Second Wind is a lifestyle-first guide for men who feel flat in midlife: an energy audit, a plain-English guide to testosterone testing, libido and performance factors you can change, and a 4-week plan to get your drive back.",
+ "persona": "You are a men's health coach with a GP's caution: frank about sex, sleep and alcohol, sceptical of clinics selling testosterone, and clear that persistent symptoms deserve a proper check.",
+ "onboarding": {
+  "title": "Get your drive back",
+  "subtitle": "Honest answers give you a better plan.",
+  "bullets": [
+   "Energy audit: sleep, drink, stress, movement",
+   "Testosterone testing explained, hype removed",
+   "A 4-week plan to feel like yourself"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "age",
+   "label": "Age",
+   "type": "number",
+   "placeholder": "49"
+  },
+  {
+   "key": "main",
+   "label": "Main complaint",
+   "type": "chips",
+   "options": [
+    "Tired all the time",
+    "Low motivation",
+    "Low libido",
+    "Irritable or flat mood",
+    "Belly gain",
+    "All of it"
+   ],
+   "default": "Tired all the time"
+  },
+  {
+   "key": "context",
+   "label": "What's going on in life",
+   "type": "text",
+   "placeholder": "new job, toddler at home, drinking most nights"
+  }
+ ],
+ "tools": [
+  {
+   "id": "audit",
+   "title": "Energy audit",
+   "subtitle": "Where the energy is leaking",
+   "emoji": "🔋",
+   "inputs": [
+    {
+     "key": "sleep",
+     "label": "Sleep per night",
+     "type": "chips",
+     "options": [
+      "Under 6h",
+      "6–7h",
+      "7–8h",
+      "8h+"
+     ],
+     "default": "6–7h"
+    },
+    {
+     "key": "drinks",
+     "label": "Drinks per week",
+     "type": "chips",
+     "options": [
+      "0",
+      "1–7",
+      "8–14",
+      "15+"
+     ],
+     "default": "8–14"
+    },
+    {
+     "key": "move",
+     "label": "Weekly exercise",
+     "type": "chips",
+     "options": [
+      "None",
+      "Light",
+      "Moderate",
+      "Hard"
+     ],
+     "default": "Light"
+    }
+   ],
+   "prompt": "Audit the profile's energy: sleep {sleep}, {drinks} drinks per week, exercise {move}, plus the life context in the profile. Sections: a table (Factor | Your status | Effect on energy, mood and testosterone | Fix), bullets ranking the three changes with the biggest likely payoff, steps for the first week, and a callout on symptoms that deserve blood tests rather than lifestyle tweaks (unexplained weight change, breathlessness, low mood lasting weeks).",
+   "shape": "table, bullets, steps, callout",
+   "button": "Audit me",
+   "loading": "Checking the tank…"
+  },
+  {
+   "id": "testo",
+   "title": "Should I get tested?",
+   "subtitle": "Testosterone, without the hype",
+   "emoji": "🧪",
+   "inputs": [
+    {
+     "key": "symptoms",
+     "label": "Your symptoms",
+     "type": "longtext",
+     "placeholder": "no morning erections, tired, gym progress stalled, moody",
+     "required": true
+    }
+   ],
+   "prompt": "As general information, weigh whether these symptoms warrant a testosterone check: {symptoms}. Sections: text on what low testosterone does and does not typically cause and how often the same symptoms have other causes (sleep, alcohol, depression, thyroid, sleep apnoea), a kv of how testing works (morning sample, repeat test, what else is usually checked), bullets of questions to ask the doctor, and a callout warning about clinics that prescribe on a single test and the risks of treatment without proper assessment.",
+   "shape": "text, kv, bullets, callout",
+   "button": "Weigh it up",
+   "loading": "Reading the science…"
+  },
+  {
+   "id": "bedroom",
+   "title": "Libido & performance",
+   "subtitle": "Lifestyle-first, no pills pushed",
+   "emoji": "🛏️",
+   "inputs": [
+    {
+     "key": "issue",
+     "label": "Issue",
+     "type": "chips",
+     "options": [
+      "Low desire",
+      "Erections less reliable",
+      "Finishing too fast",
+      "Performance anxiety",
+      "Mismatch with partner"
+     ],
+     "default": "Erections less reliable"
+    },
+    {
+     "key": "since",
+     "label": "Since when, and pattern",
+     "type": "text",
+     "placeholder": "6 months, fine in the morning"
+    }
+   ],
+   "prompt": "For '{issue}' with pattern: {since}, give lifestyle-first general information. Sections: text on the most common causes in midlife men and what the pattern suggests (for example, intact morning erections usually point away from a physical cause), a table (Factor | How it affects this | What to change), steps for a 4-week plan, and a callout that erection problems can be an early sign of heart or blood-vessel disease and are worth a GP visit.",
+   "shape": "text, table, steps, callout",
+   "button": "Help me out",
+   "loading": "Speaking plainly…"
+  },
+  {
+   "id": "plan",
+   "title": "4-week second wind",
+   "subtitle": "Movement, sleep, drink, mood",
+   "emoji": "📅",
+   "inputs": [
+    {
+     "key": "time",
+     "label": "Time per day",
+     "type": "chips",
+     "options": [
+      "15 min",
+      "30 min",
+      "45 min"
+     ],
+     "default": "30 min"
+    },
+    {
+     "key": "kit",
+     "label": "Equipment",
+     "type": "chips",
+     "options": [
+      "None",
+      "Dumbbells",
+      "Gym"
+     ],
+     "default": "None"
+    }
+   ],
+   "prompt": "Write a 4-week plan for the profile's main complaint with {time} a day and '{kit}' equipment. Sections: a table (Week | Movement | Sleep rule | Alcohol rule | One mood habit), steps for a daily non-negotiable routine, a checklist of the weekly wins to tick, and a quote with one line to say to yourself on the flat days.",
+   "shape": "table, steps, checklist, quote",
+   "button": "Build plan",
+   "loading": "Finding the wind…"
+  },
+  {
+   "id": "partner",
+   "title": "Talk to my partner",
+   "subtitle": "Words for a hard conversation",
+   "emoji": "💬",
+   "inputs": [
+    {
+     "key": "about",
+     "label": "About",
+     "type": "chips",
+     "options": [
+      "Low libido",
+      "Feeling flat",
+      "Wanting to cut down drinking",
+      "Needing time to exercise"
+     ],
+     "default": "Low libido"
+    },
+    {
+     "key": "tone",
+     "label": "Tone",
+     "type": "chips",
+     "options": [
+      "Light",
+      "Serious",
+      "Apologetic"
+     ],
+     "default": "Serious"
+    }
+   ],
+   "prompt": "Write a {tone} conversation opener for talking to a partner about '{about}'. Sections: a quote with the opening two or three sentences, bullets of what to say if they react with worry, blame or relief, a kv of the asks (what you need from them, what you will do), and a callout on not having this conversation after drinking or in bed.",
+   "shape": "quote, bullets, kv, callout",
+   "button": "Write opener",
+   "loading": "Choosing words…"
+  }
+ ],
+ "disclaimer": "General information, not medical advice. Persistent tiredness, low mood or erection problems deserve a doctor's assessment; never start hormone treatment without proper testing and medical supervision."
+}

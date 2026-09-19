@@ -1,0 +1,168 @@
+{
+ "id": "brag_doc",
+ "name": "Brag Doc",
+ "tagline": "A work journal that writes your review for you",
+ "category": "Business",
+ "colors": [
+  "#AD1457",
+  "#00838F",
+  "#FFB300"
+ ],
+ "icon": "star",
+ "about": "Brag Doc keeps a running log of your wins with impact and evidence, then turns it into self-reviews, promotion cases and 1:1 talking points when you need them.",
+ "persona": "You are a career-savvy engineering manager and writing coach: impact over activity, numbers over adjectives, honest about gaps.",
+ "onboarding": {
+  "title": "Remember what you did",
+  "subtitle": "Your role and goals become the frame every entry is measured against.",
+  "bullets": [
+   "Weekly notes → impact entries",
+   "Self-reviews drafted from your log",
+   "Promotion cases with evidence gaps"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "role",
+   "label": "Role & level",
+   "type": "text",
+   "placeholder": "senior product designer"
+  },
+  {
+   "key": "goals",
+   "label": "This year's goals",
+   "type": "text",
+   "placeholder": "lead a launch, mentor 2 juniors"
+  },
+  {
+   "key": "cycle",
+   "label": "Review cycle",
+   "type": "chips",
+   "options": [
+    "Quarterly",
+    "Half-yearly",
+    "Annual"
+   ],
+   "default": "Half-yearly"
+  }
+ ],
+ "tools": [
+  {
+   "id": "log",
+   "title": "Log this week",
+   "subtitle": "Messy notes → brag entries",
+   "emoji": "🏆",
+   "inputs": [
+    {
+     "key": "week",
+     "label": "What you did this week",
+     "type": "longtext",
+     "placeholder": "shipped the filters, fixed the flaky test, helped Ana with…",
+     "required": true
+    }
+   ],
+   "prompt": "Convert into brag-doc entries: {week}. Produce a table (Entry | Impact | Evidence to save | Goal it serves | Category (delivery / quality / people / influence)), a callout on anything that reads as activity rather than impact and how to reframe it, and bullets of 2 questions to answer next week to strengthen the evidence.",
+   "shape": "table, callout, bullets",
+   "button": "Log wins",
+   "loading": "Polishing…"
+  },
+  {
+   "id": "impact",
+   "title": "Rewrite for impact",
+   "subtitle": "Adjectives → numbers",
+   "emoji": "🔢",
+   "inputs": [
+    {
+     "key": "entry",
+     "label": "Entry",
+     "type": "longtext",
+     "placeholder": "Improved the onboarding flow",
+     "required": true
+    }
+   ],
+   "prompt": "Rewrite this entry as an impact statement: {entry}. Produce cards with 3 versions (meta = self-review / promo packet / résumé), bullets of the metrics or quotes to go and collect if they're missing, and a quote with the strongest single line.",
+   "shape": "cards, bullets, quote",
+   "button": "Rewrite",
+   "loading": "Quantifying…"
+  },
+  {
+   "id": "review",
+   "title": "Self-review draft",
+   "subtitle": "Cycle log → the form",
+   "emoji": "📝",
+   "inputs": [
+    {
+     "key": "entries",
+     "label": "Brag entries for the cycle",
+     "type": "longtext",
+     "placeholder": "Paste them…",
+     "required": true
+    },
+    {
+     "key": "format",
+     "label": "Format",
+     "type": "chips",
+     "options": [
+      "Narrative",
+      "Bullets per competency",
+      "STAR"
+     ],
+     "default": "Narrative"
+    }
+   ],
+   "prompt": "Draft a {format} self-review for the profile's review cycle from: {entries}. Produce text with the review (≤ 400 words, mapped to the profile goals), a table (Goal | Evidence | Rating you'd give | Gap), and a callout on one weakness to name proactively with the growth plan for it.",
+   "shape": "text, table, callout",
+   "button": "Draft review",
+   "loading": "Composing…"
+  },
+  {
+   "id": "promo",
+   "title": "Promotion case",
+   "subtitle": "Make the level argument",
+   "emoji": "📈",
+   "inputs": [
+    {
+     "key": "target",
+     "label": "Target level or title",
+     "type": "text",
+     "placeholder": "staff designer",
+     "required": true
+    },
+    {
+     "key": "entries",
+     "label": "Best entries",
+     "type": "longtext",
+     "placeholder": "Paste the strongest 8–10…",
+     "required": true
+    }
+   ],
+   "prompt": "Build a promotion case for {target} from: {entries}. Produce a kv (one-sentence thesis, scope expected at target, scope demonstrated), a table (Expectation at {target} | Evidence | Strength (strong / partial / missing)), steps for the next 90 days to close the missing rows, and a quote with the opening paragraph of the packet.",
+   "shape": "kv, table, steps, quote",
+   "button": "Build case",
+   "loading": "Making the case…"
+  },
+  {
+   "id": "oneone",
+   "title": "1:1 talking points",
+   "subtitle": "Turn wins into a conversation",
+   "emoji": "💬",
+   "inputs": [
+    {
+     "key": "topic",
+     "label": "What you want to raise",
+     "type": "text",
+     "placeholder": "more ownership of the design system",
+     "required": true
+    }
+   ],
+   "prompt": "Prepare 1:1 talking points to raise '{topic}' with a manager, drawing on the profile goals. Produce bullets of 3 wins to mention first, a quote with the exact ask in two sentences, a table (Likely pushback | Response), and a checklist for the follow-up email.",
+   "shape": "bullets, quote, table, checklist",
+   "button": "Prep 1:1",
+   "loading": "Rehearsing…"
+  }
+ ]
+}

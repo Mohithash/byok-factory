@@ -1,0 +1,177 @@
+{
+ "id": "ledger_light",
+ "name": "Ledger Light",
+ "tagline": "Bookkeeping you can actually keep up with",
+ "category": "Finance",
+ "colors": [
+  "#1B5E20",
+  "#8E24AA",
+  "#FDD835"
+ ],
+ "icon": "note",
+ "about": "Ledger Light categorises bank transactions, walks you through month-end close, explains your P&L in plain English and sets up a chart of accounts that fits your business.",
+ "persona": "You are a friendly bookkeeper for owner-operators: tidy, consistent, allergic to 'miscellaneous', and always clear when something needs an accountant.",
+ "onboarding": {
+  "title": "Books that close in an hour",
+  "subtitle": "Your set-up shapes the categories and the close routine.",
+  "bullets": [
+   "Categorise a bank export in seconds",
+   "Month-end close checklist",
+   "P&L explained like a human"
+  ]
+ },
+ "profile": [
+  {
+   "key": "biz",
+   "label": "Business",
+   "type": "text",
+   "placeholder": "mobile dog groomer, sole trader"
+  },
+  {
+   "key": "structure",
+   "label": "Structure",
+   "type": "chips",
+   "options": [
+    "Sole trader",
+    "Partnership",
+    "Ltd / LLC",
+    "Non-profit"
+   ]
+  },
+  {
+   "key": "software",
+   "label": "Books kept in",
+   "type": "chips",
+   "options": [
+    "Spreadsheet",
+    "Xero",
+    "QuickBooks",
+    "Wave",
+    "FreshBooks",
+    "Other"
+   ]
+  },
+  {
+   "key": "vat",
+   "label": "Sales tax / VAT registered?",
+   "type": "chips",
+   "options": [
+    "Yes",
+    "No",
+    "Not sure"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "categorise",
+   "title": "Categorise transactions",
+   "subtitle": "Paste bank lines → coded and totalled",
+   "emoji": "🗂️",
+   "inputs": [
+    {
+     "key": "txns",
+     "label": "Paste bank lines",
+     "type": "longtext",
+     "placeholder": "03/09 AMAZON MKTPLACE -42.10; 04/09 STRIPE PAYOUT +1,240.55; 05/09 SHELL -61.00…",
+     "required": true
+    }
+   ],
+   "prompt": "Categorise these transactions: {txns}. Table (Date | Description | Amount | Category | Tax treatment | Needs receipt?), bullets of lines that look personal or ambiguous with the question to ask about each, a kv of totals per category, and a callout on anything that looks like a duplicate or a transfer rather than income.",
+   "shape": "table, bullets, kv, callout",
+   "button": "Categorise",
+   "loading": "Sorting lines…"
+  },
+  {
+   "id": "close",
+   "title": "Month-end close",
+   "subtitle": "The routine, in order",
+   "emoji": "✅",
+   "inputs": [
+    {
+     "key": "month",
+     "label": "Month to close",
+     "type": "chips",
+     "options": [
+      "Last month",
+      "This month"
+     ],
+     "default": "Last month"
+    },
+    {
+     "key": "notes",
+     "label": "Anything unusual",
+     "type": "text",
+     "placeholder": "bought a van, received a grant"
+    }
+   ],
+   "prompt": "Build a month-end close for {month} with notes: {notes}, tailored to the profile software and structure. A checklist in order (bank reconciliation, receivables, payables, accruals, fixed assets, payroll, sales tax), steps for the two trickiest items given the notes, a kv of the reports to run at the end, and a callout on the mistakes that create year-end pain.",
+   "shape": "checklist, steps, kv, callout",
+   "button": "Start close",
+   "loading": "Tying out…"
+  },
+  {
+   "id": "explain",
+   "title": "Explain my P&L",
+   "subtitle": "What the numbers actually say",
+   "emoji": "💬",
+   "inputs": [
+    {
+     "key": "pnl",
+     "label": "Paste your P&L or its key lines",
+     "type": "longtext",
+     "placeholder": "Revenue 18,400; COGS 6,100; wages 5,200; rent 1,500; marketing 900; net 2,300…",
+     "required": true
+    }
+   ],
+   "prompt": "Explain this P&L in plain English: {pnl}. kv (gross margin %, net margin %, largest cost as % of revenue, break-even revenue), a text section of 5 sentences on what the numbers say about the business, bullets of 3 questions to ask yourself, and a callout on any line that looks mis-categorised or missing.",
+   "shape": "kv, text, bullets, callout",
+   "button": "Explain",
+   "loading": "Reading the lines…"
+  },
+  {
+   "id": "coa",
+   "title": "Chart of accounts",
+   "subtitle": "Accounts that fit your trade",
+   "emoji": "🏗️",
+   "inputs": [
+    {
+     "key": "detail",
+     "label": "How detailed",
+     "type": "text",
+     "placeholder": "simple, I just need tax time to be easy"
+    }
+   ],
+   "prompt": "Design a chart of accounts for the profile business, detail level: {detail}. Table (Code | Account | Type | Use it for), bullets of accounts people in this trade forget, and a callout on keeping owner's drawings and loans out of expenses.",
+   "shape": "table, bullets, callout",
+   "button": "Design accounts",
+   "loading": "Numbering…"
+  },
+  {
+   "id": "mismatch",
+   "title": "Fix a mismatch",
+   "subtitle": "Bank and books disagree",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "diff",
+     "label": "The difference",
+     "type": "text",
+     "placeholder": "bank says 4,210.55, books say 4,180.55",
+     "required": true
+    },
+    {
+     "key": "clues",
+     "label": "What you've checked",
+     "type": "longtext",
+     "placeholder": "all invoices posted, one refund pending"
+    }
+   ],
+   "prompt": "Reconciliation difference: {diff}. Already checked: {clues}. Steps to find it (transposition, timing, bank fees, duplicates, refunds) ordered by likelihood, a table (Cause | Test | Typical sign), and a callout on when to post an adjustment versus keep looking.",
+   "shape": "steps, table, callout",
+   "button": "Find it",
+   "loading": "Hunting pennies…"
+  }
+ ],
+ "disclaimer": "General bookkeeping guidance, not accounting, tax or legal advice; confirm treatments with a qualified accountant."
+}

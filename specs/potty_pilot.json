@@ -1,0 +1,216 @@
+{
+ "id": "potty_pilot",
+ "name": "Potty Pilot",
+ "tagline": "From readiness to dry nights, one clear plan",
+ "category": "Parenting",
+ "colors": [
+  "#0288D1",
+  "#FFEB3B",
+  "#66BB6A"
+ ],
+ "icon": "sun",
+ "about": "Potty Pilot checks readiness, runs a 3-day intensive or gentle 3-week training plan, troubleshoots accidents and regressions, tackles poo withholding and night dryness, and writes the handover note for nursery.",
+ "persona": "You are a relaxed, experienced potty-training coach: no shame, no pressure, evidence-based on readiness and constipation, and honest about when to stop and try again later.",
+ "onboarding": {
+  "title": "Ready when they are",
+  "subtitle": "Tell us about your child and your household.",
+  "bullets": [
+   "Readiness check",
+   "3-day or gentle plan",
+   "Accidents & night plan"
+  ]
+ },
+ "profile": [
+  {
+   "key": "child",
+   "label": "Child's name & age",
+   "type": "text",
+   "placeholder": "Ravi, 2y 8m",
+   "required": true
+  },
+  {
+   "key": "setup",
+   "label": "Setup",
+   "type": "chips",
+   "options": [
+    "Potty",
+    "Toilet seat + step",
+    "Both"
+   ]
+  },
+  {
+   "key": "childcare",
+   "label": "Childcare",
+   "type": "chips",
+   "options": [
+    "Home all week",
+    "Nursery / daycare",
+    "Childminder / nanny",
+    "Grandparents"
+   ]
+  },
+  {
+   "key": "bowel",
+   "label": "Bowel habits",
+   "type": "text",
+   "placeholder": "regular, once a day after breakfast"
+  }
+ ],
+ "tools": [
+  {
+   "id": "ready",
+   "title": "Readiness check",
+   "subtitle": "Are we there yet?",
+   "emoji": "✅",
+   "inputs": [
+    {
+     "key": "signs",
+     "label": "Signs you see",
+     "type": "chips",
+     "options": [
+      "Dry 2 hours",
+      "Tells me after",
+      "Tells me before",
+      "Hides to poo",
+      "Pulls pants down",
+      "Interested in the toilet",
+      "Hates wet nappies",
+      "None yet"
+     ],
+     "multi": true
+    },
+    {
+     "key": "notes",
+     "label": "Notes",
+     "type": "text",
+     "placeholder": "just started a new nursery"
+    }
+   ],
+   "prompt": "Readiness assessment for the profile with signs: {signs} and notes: {notes}. A checklist of readiness signs with the ones seen ticked, a text verdict (go now / wait 4–6 weeks / build skills first) with reasoning, steps to build the missing skills, and a callout on life events that make it worth waiting.",
+   "shape": "checklist, text, steps, callout",
+   "button": "Check",
+   "loading": "Checking signs…"
+  },
+  {
+   "id": "plan",
+   "title": "Training plan",
+   "subtitle": "3-day intensive or 3-week gentle",
+   "emoji": "🗓️",
+   "inputs": [
+    {
+     "key": "style",
+     "label": "Style",
+     "type": "chips",
+     "options": [
+      "3-day intensive (at home)",
+      "Gentle 3 weeks",
+      "Nursery-led"
+     ],
+     "default": "3-day intensive (at home)"
+    },
+    {
+     "key": "start",
+     "label": "Start date",
+     "type": "text",
+     "placeholder": "Saturday"
+    }
+   ],
+   "prompt": "Write a '{style}' potty-training plan for the profile starting {start}. A table (Day | Clothing | Prompts & timing | Rewards | Expect), steps for the first morning hour by hour, a checklist of supplies (a potty per floor, wipes, cleaning kit, 10+ pairs of pants, drinks), a quote with the exact prompting phrase to use, and a callout on the signs to pause the attempt.",
+   "shape": "table, steps, checklist, quote, callout",
+   "button": "Write plan",
+   "loading": "Packing the bag…"
+  },
+  {
+   "id": "accidents",
+   "title": "Accidents & regression",
+   "subtitle": "Was dry, now isn't",
+   "emoji": "💧",
+   "inputs": [
+    {
+     "key": "what",
+     "label": "What's happening",
+     "type": "text",
+     "placeholder": "dry for 3 weeks, now 4 accidents a day since baby sister arrived",
+     "required": true
+    },
+    {
+     "key": "days",
+     "label": "Days this has been going on",
+     "type": "number",
+     "placeholder": "5"
+    }
+   ],
+   "prompt": "Troubleshoot: {what} ({days} days). A table (Possible cause | Sign | Response), steps for the next 7 days (reset routine, prompts, zero pressure), a quote with a calm accident script, bullets on what makes regression worse, and a callout on urine-infection or constipation signs that need a doctor.",
+   "shape": "table, steps, quote, bullets, callout",
+   "button": "Troubleshoot",
+   "loading": "Mopping up…"
+  },
+  {
+   "id": "poo",
+   "title": "Poo withholding",
+   "subtitle": "Wees on the potty, poos in a nappy",
+   "emoji": "🚽",
+   "inputs": [
+    {
+     "key": "pattern",
+     "label": "Pattern",
+     "type": "chips",
+     "options": [
+      "Asks for a nappy to poo",
+      "Holds for days",
+      "Poos in pants after leaving the toilet",
+      "Scared of the toilet"
+     ],
+     "default": "Asks for a nappy to poo"
+    },
+    {
+     "key": "diet",
+     "label": "Diet & fluids",
+     "type": "text",
+     "placeholder": "not much water, loves cheese"
+    }
+   ],
+   "prompt": "Plan for '{pattern}' with diet: {diet}. Text on why withholding happens and why it must never be forced, steps for a gradual bridge (nappy on while sitting on the potty, in the bathroom, cut a hole, then off), bullets on softening stools through fibre, fluids and footstool posture, and a callout on constipation signs where a doctor should assess before continuing.",
+   "shape": "text, steps, bullets, callout",
+   "button": "Make a bridge",
+   "loading": "Building the bridge…"
+  },
+  {
+   "id": "night",
+   "title": "Dry nights & nursery note",
+   "subtitle": "Night plan + carer handover",
+   "emoji": "🌙",
+   "inputs": [
+    {
+     "key": "status",
+     "label": "Night status",
+     "type": "chips",
+     "options": [
+      "Still in night nappies",
+      "Dry nappy some mornings",
+      "Dry most mornings",
+      "Trying pants at night"
+     ],
+     "default": "Dry nappy some mornings"
+    },
+    {
+     "key": "note",
+     "label": "Also write a note for",
+     "type": "chips",
+     "options": [
+      "Nursery",
+      "Childminder",
+      "Grandparents",
+      "No note needed"
+     ],
+     "default": "Nursery"
+    }
+   ],
+   "prompt": "Night plan for status '{status}': a kv (readiness signs, bed protection, fluid timing, lifting — yes or no and why, ages where night wetness is still normal), steps for the first week of night pants, and a callout on when bedwetting past age 5–7 should be discussed with a doctor. Then, unless '{note}' is 'No note needed', a quote with a 6-sentence handover note for {note} covering the child's words for wee and poo, routine, prompts and how to handle accidents.",
+   "shape": "kv, steps, callout, quote",
+   "button": "Plan & write",
+   "loading": "Drying up…"
+  }
+ ],
+ "disclaimer": "General parenting information, not medical advice. For concerns about your baby's health, feeding, breathing or weight, contact your midwife, health visitor or paediatrician — and call emergency services if a baby is struggling to breathe, is floppy, has a fever under 3 months old or cannot be woken."
+}

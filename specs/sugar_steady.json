@@ -1,0 +1,199 @@
+{
+ "id": "sugar_steady",
+ "name": "Steady Sugar",
+ "tagline": "Steadier blood sugar, day after day",
+ "category": "Medical",
+ "colors": [
+  "#00796B",
+  "#F9A825",
+  "#5C6BC0"
+ ],
+ "icon": "drop",
+ "about": "Steady Sugar helps people with type 2 diabetes or prediabetes read their glucose log for patterns, estimate carbs from a plate photo, time meals and walks, and handle sick days calmly.",
+ "persona": "You are a diabetes educator: calm, numbers-literate, never judgemental; you explain what a pattern might mean and always defer medication and insulin changes to the care team.",
+ "onboarding": {
+  "title": "Know your numbers, keep them steady",
+  "subtitle": "A few details make every answer fit you.",
+  "bullets": [
+   "Glucose log pattern finder",
+   "Carbs from a plate photo",
+   "Sick-day and hypo plans"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "type",
+   "label": "Living with",
+   "type": "chips",
+   "options": [
+    "Type 2",
+    "Prediabetes",
+    "Gestational",
+    "Type 1"
+   ]
+  },
+  {
+   "key": "meds",
+   "label": "Treatment",
+   "type": "chips",
+   "options": [
+    "Diet & exercise only",
+    "Tablets",
+    "Insulin",
+    "Tablets + insulin"
+   ]
+  },
+  {
+   "key": "units",
+   "label": "Glucose units",
+   "type": "chips",
+   "options": [
+    "mmol/L",
+    "mg/dL"
+   ],
+   "default": "mmol/L"
+  }
+ ],
+ "tools": [
+  {
+   "id": "log",
+   "title": "Read my glucose log",
+   "subtitle": "Paste readings → patterns",
+   "emoji": "📈",
+   "inputs": [
+    {
+     "key": "readings",
+     "label": "Readings with times",
+     "type": "longtext",
+     "placeholder": "Mon 07:00 fasting 7.8; 13:00 after lunch 11.2; Tue 07:00 8.1…",
+     "required": true
+    },
+    {
+     "key": "context",
+     "label": "Anything unusual this week",
+     "type": "text",
+     "placeholder": "stressful week, skipped walks"
+    }
+   ],
+   "prompt": "Analyse these readings in the profile units: {readings}. Context: {context}. Produce a table (Slot | Average | Range | Days above target), bullets naming the 3 clearest patterns (e.g. dawn rise, post-lunch spikes) with the evidence for each, steps for one small experiment to run over the next 7 days, and a callout stating the general target ranges used and that dose changes are for the care team.",
+   "shape": "table, bullets, steps, callout",
+   "button": "Find patterns",
+   "loading": "Reading numbers…"
+  },
+  {
+   "id": "plate",
+   "title": "Carbs on my plate",
+   "subtitle": "Photo → carb estimate",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of your meal",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "size",
+     "label": "Portion looks",
+     "type": "chips",
+     "options": [
+      "Small",
+      "Medium",
+      "Large"
+     ],
+     "default": "Medium"
+    }
+   ],
+   "prompt": "Estimate the carbohydrate content of the meal in the photo, treating the portion as {size}. Table (Food | Est. portion | Carbs g | Glycaemic impact low/med/high), a kv with total carbs, estimated fibre and a likely glucose effect summary, and bullets with 3 swaps that would lower the spike without changing the meal much. Callout: photo estimates can be off by 20–30%, so check against the pack or a scale when it matters.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Estimate carbs",
+   "loading": "Counting carbs…"
+  },
+  {
+   "id": "sick",
+   "title": "Sick-day plan",
+   "subtitle": "Fever, vomiting, can't eat",
+   "emoji": "🤒",
+   "inputs": [
+    {
+     "key": "illness",
+     "label": "What's going on",
+     "type": "chips",
+     "options": [
+      "Cold/flu",
+      "Vomiting",
+      "Diarrhoea",
+      "Can't eat",
+      "Infection"
+     ],
+     "default": "Cold/flu"
+    },
+    {
+     "key": "current",
+     "label": "Latest reading & how you feel",
+     "type": "text",
+     "placeholder": "14.2 and shaky"
+    }
+   ],
+   "prompt": "Build a sick-day plan for {illness} with current status '{current}' for this profile. Steps for the next 24 hours (fluids per hour, testing frequency, what to eat or drink if not eating normally), a checklist of things to keep beside the bed, a kv of general sick-day rules for the treatment type in the profile (never stop insulin, when tablets are usually paused, ketone checks), and a callout listing the signs that mean call the doctor or emergency services now (ketones, persistent vomiting, very high or very low readings, drowsiness).",
+   "shape": "steps, checklist, kv, callout",
+   "button": "Make plan",
+   "loading": "Planning care…"
+  },
+  {
+   "id": "move",
+   "title": "Move & eat timing",
+   "subtitle": "Fit walks and meals to your day",
+   "emoji": "🚶",
+   "inputs": [
+    {
+     "key": "day",
+     "label": "Today's schedule",
+     "type": "text",
+     "placeholder": "desk 9–5, gym at 6, dinner 8"
+    },
+    {
+     "key": "goal",
+     "label": "Focus",
+     "type": "chips",
+     "options": [
+      "Flatten after-meal spikes",
+      "Morning fasting number",
+      "Weight",
+      "Energy"
+     ],
+     "default": "Flatten after-meal spikes"
+    }
+   ],
+   "prompt": "Given today: {day} and the focus '{goal}', build a table (Time | Meal or movement | Why it helps | Watch-out) covering the whole day, then bullets on how to sequence food at each meal (veg and protein before carbs, 10-minute walk after), and a callout on hypo risk with exercise for the treatment type in the profile and what to carry.",
+   "shape": "table, bullets, callout",
+   "button": "Plan my day",
+   "loading": "Timing it…"
+  },
+  {
+   "id": "shop",
+   "title": "Diabetes-friendly swaps",
+   "subtitle": "Your usual list, upgraded",
+   "emoji": "🛒",
+   "inputs": [
+    {
+     "key": "list",
+     "label": "Your usual shopping list",
+     "type": "longtext",
+     "placeholder": "white bread, orange juice, crisps, pasta, yoghurt…",
+     "required": true
+    }
+   ],
+   "prompt": "For the list: {list}, produce a table (Item | Keep, swap or reduce | Better alternative | Why). Then cards for 3 quick meals built from the better alternatives (meta = minutes · carbs g), and bullets on reading labels for total carbohydrate versus sugars.",
+   "shape": "table, cards, bullets",
+   "button": "Upgrade list",
+   "loading": "Scanning aisles…"
+  }
+ ],
+ "disclaimer": "General information for people living with diabetes, not medical advice. Never change insulin or tablet doses without your care team. Treat suspected hypoglycaemia immediately and call emergency services for confusion, fainting or ketones."
+}

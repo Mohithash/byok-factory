@@ -1,0 +1,175 @@
+{
+ "id": "pipeline_pulse",
+ "name": "Pipeline Pulse",
+ "tagline": "Honest deal reviews and forecasts you can defend",
+ "category": "Business",
+ "colors": [
+  "#00796B",
+  "#C62828",
+  "#FBC02D"
+ ],
+ "icon": "graph",
+ "about": "Pipeline Pulse inspects your deals for real qualification gaps, sorts your forecast into commit, best case and pipeline, revives stalled opportunities and preps you for the weekly forecast call.",
+ "persona": "You are a no-nonsense sales manager and forecast coach: evidence over optimism, specific next actions, allergic to happy ears.",
+ "onboarding": {
+  "title": "Know which deals are real",
+  "subtitle": "Your quota and cycle set the bar for every review.",
+  "bullets": [
+   "Deal inspection against your method",
+   "Forecast categorisation",
+   "Stalled-deal revival plans"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "quota",
+   "label": "Quarterly quota",
+   "type": "number",
+   "placeholder": "300000"
+  },
+  {
+   "key": "cycle",
+   "label": "Average cycle",
+   "type": "chips",
+   "options": [
+    "2–4 weeks",
+    "1–2 months",
+    "3–4 months",
+    "6+ months"
+   ],
+   "default": "1–2 months"
+  },
+  {
+   "key": "method",
+   "label": "Method",
+   "type": "chips",
+   "options": [
+    "MEDDPICC",
+    "BANT",
+    "SPICED",
+    "None yet"
+   ],
+   "default": "MEDDPICC"
+  }
+ ],
+ "tools": [
+  {
+   "id": "review",
+   "title": "Review my pipeline",
+   "subtitle": "Paste deals, get a ranked view",
+   "emoji": "📊",
+   "inputs": [
+    {
+     "key": "deals",
+     "label": "Your open deals",
+     "type": "longtext",
+     "placeholder": "Acme $80k, proposal sent, close 30 Sep; Globex $40k, discovery, no champion…",
+     "required": true
+    }
+   ],
+   "prompt": "Review these deals against the profile's quota and method: {deals}. Sections: a table (Deal | Value | Stage | Forecast category: Commit/Best case/Pipeline | Biggest gap | Next action | Close date realistic? yes/no), kv (Total pipeline | Weighted | Commit | Coverage ratio vs quota | Gap to quota), bullets of the 3 deals to spend Monday on, and a callout on deals to push out or disqualify.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Review pipeline",
+   "loading": "Checking pulse…"
+  },
+  {
+   "id": "inspect",
+   "title": "Inspect a deal",
+   "subtitle": "Full qualification audit",
+   "emoji": "🔬",
+   "inputs": [
+    {
+     "key": "deal",
+     "label": "Everything you know",
+     "type": "longtext",
+     "placeholder": "value, stage, champion, competition, timeline, paper process…",
+     "required": true
+    }
+   ],
+   "prompt": "Inspect this deal using the profile's method: {deal}. Sections: a table (Criterion | Evidence | Score 0–3 | How to close the gap), kv (Overall score | True stage | Realistic close date | Win probability), a checklist of the next 5 actions in order, and a quote with the one question to ask the champion this week.",
+   "shape": "table, kv, checklist, quote",
+   "button": "Inspect deal",
+   "loading": "Under microscope…"
+  },
+  {
+   "id": "stalled",
+   "title": "Revive a stalled deal",
+   "subtitle": "Silent for weeks",
+   "emoji": "🧊",
+   "inputs": [
+    {
+     "key": "deal_name",
+     "label": "Deal & last contact",
+     "type": "text",
+     "placeholder": "Initech, $25k, last reply 5 weeks ago after pricing",
+     "required": true
+    },
+    {
+     "key": "history",
+     "label": "What's happened",
+     "type": "text",
+     "placeholder": "champion went quiet after we sent the quote"
+    }
+   ],
+   "prompt": "Revive {deal_name}; history: {history}. Sections: kv (Likely reason for silence | Chance of revival | Best channel), 3 quote sections with re-engagement messages (value-add, pattern-interrupt, direct-ask), steps for a 3-week revival cadence, and a callout on when to mark it closed-lost and move on.",
+   "shape": "kv, quote, steps, callout",
+   "button": "Revive",
+   "loading": "Defrosting…"
+  },
+  {
+   "id": "forecast",
+   "title": "Forecast call prep",
+   "subtitle": "Defend your number",
+   "emoji": "🎙️",
+   "inputs": [
+    {
+     "key": "commit",
+     "label": "Deals you're committing",
+     "type": "longtext",
+     "placeholder": "Acme $80k, Delta $45k",
+     "required": true
+    },
+    {
+     "key": "closed",
+     "label": "Closed so far this quarter",
+     "type": "number",
+     "placeholder": "120000"
+    }
+   ],
+   "prompt": "Prepare a forecast call: committing {commit}, closed so far {closed}, against the profile's quota. Sections: kv (Closed | Commit | Best case | Forecast total | Attainment % | Risk-adjusted forecast), a table (Deal | Value | Why it's in commit | What could slip it | Plan B), bullets of the questions your manager will ask with crisp answers, and a quote with a 30-second opening statement for the call.",
+   "shape": "kv, table, bullets, quote",
+   "button": "Prep call",
+   "loading": "Crunching numbers…"
+  },
+  {
+   "id": "weekly",
+   "title": "Weekly selling plan",
+   "subtitle": "Where the hours go",
+   "emoji": "📅",
+   "inputs": [
+    {
+     "key": "focus",
+     "label": "This week's priorities",
+     "type": "text",
+     "placeholder": "2 closes, 5 new discovery calls"
+    },
+    {
+     "key": "hours",
+     "label": "Selling hours available",
+     "type": "number",
+     "placeholder": "25"
+    }
+   ],
+   "prompt": "Plan the selling week with {hours} hours and priorities: {focus}, for the profile's quota. Sections: a table (Day | Block | Activity | Deal or target | Outcome), kv (Hours on closing | Hours prospecting | Hours on admin | Meetings to book), a checklist for the Friday review, and a callout on the activity to cut first if the week goes sideways.",
+   "shape": "table, kv, checklist, callout",
+   "button": "Plan week",
+   "loading": "Blocking time…"
+  }
+ ],
+ "disclaimer": "ROI, cost and forecast figures are illustrative estimates from the numbers you enter, not financial advice; validate every assumption with real data and your finance team."
+}

@@ -1,0 +1,202 @@
+{
+ "id": "cavy_corner",
+ "name": "Cavy Corner",
+ "tagline": "Vitamin C, cage space and the language of wheeks",
+ "category": "Lifestyle",
+ "colors": [
+  "#E64A19",
+  "#8BC34A",
+  "#FFC107"
+ ],
+ "icon": "leaf",
+ "about": "Cavy Corner plans vitamin-C-rich veg menus, sizes C&C cages for your herd, bonds pairs and trios, translates wheeks and rumbles, and runs weekly weigh-ins and health checks.",
+ "persona": "You are a guinea-pig rescue foster with years of herd experience: veg-obsessed, firm that pigs need company and floor space, and quick to say 'that's a vet visit' for a pig off its food.",
+ "onboarding": {
+  "title": "Wheek wheek!",
+  "subtitle": "Tell us about your herd so menus and cage sizes are right.",
+  "bullets": [
+   "Vitamin-C veg planners",
+   "C&C cage calculator",
+   "Bonding & weekly health checks"
+  ]
+ },
+ "profile": [
+  {
+   "key": "pigs",
+   "label": "Pigs (names, ages, sexes)",
+   "type": "text",
+   "placeholder": "Biscuit 2y F, Pickle 1y F"
+  },
+  {
+   "key": "cage",
+   "label": "Cage size",
+   "type": "text",
+   "placeholder": "2×4 C&C grids"
+  },
+  {
+   "key": "where",
+   "label": "Live",
+   "type": "chips",
+   "options": [
+    "Indoors",
+    "Shed / outbuilding",
+    "Outdoor hutch"
+   ]
+  },
+  {
+   "key": "health",
+   "label": "Known issues",
+   "type": "text",
+   "placeholder": "Biscuit has a heart murmur"
+  }
+ ],
+ "tools": [
+  {
+   "id": "veg",
+   "title": "Weekly veg menu",
+   "subtitle": "Vitamin C without bladder stones",
+   "emoji": "🥕",
+   "inputs": [
+    {
+     "key": "shop",
+     "label": "Veg you can buy",
+     "type": "text",
+     "placeholder": "peppers, coriander, romaine, cucumber",
+     "required": true
+    },
+    {
+     "key": "issues",
+     "label": "Watch out for",
+     "type": "chips",
+     "options": [
+      "Nothing",
+      "Bladder stones / sludge",
+      "Overweight",
+      "Diarrhoea-prone",
+      "Older pig"
+     ],
+     "default": "Nothing"
+    }
+   ],
+   "prompt": "Build a 7-day veg menu for the profile pigs from {shop}, considering {issues}. Sections: a table (Day | Veg per pig | Vitamin C mg est. | Calcium note), kv (daily veg grams per pig, hay, pellet grams, water, vitamin C target mg/day), bullets of veg to limit or avoid (iceberg, daily high-calcium greens, fruit, onion family), and a callout on introducing new veg slowly.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Plan menu",
+   "loading": "Rustling the bag…"
+  },
+  {
+   "id": "cage",
+   "title": "Cage calculator",
+   "subtitle": "Right-size a C&C for your herd",
+   "emoji": "📏",
+   "inputs": [
+    {
+     "key": "count",
+     "label": "Number of pigs",
+     "type": "number",
+     "placeholder": "2"
+    },
+    {
+     "key": "sexes",
+     "label": "Sexes",
+     "type": "chips",
+     "options": [
+      "All females",
+      "All males",
+      "Neutered male + females"
+     ],
+     "default": "All females"
+    },
+    {
+     "key": "space",
+     "label": "Space available",
+     "type": "chips",
+     "options": [
+      "Tight",
+      "Average",
+      "Plenty"
+     ],
+     "default": "Average"
+    }
+   ],
+   "prompt": "Size a cage for {count} guinea pigs ({sexes}) with {space} space. Sections: kv (minimum and recommended floor area in cm² and C&C grids, extra for males, height, lofts), a table (Zone | Item | Quantity | Notes) for hides, hay area, kitchen, fleece versus bedding, a checklist for the build and a cleaning routine, and a callout on whether the profile's current cage meets the minimum.",
+   "shape": "kv, table, checklist, callout",
+   "button": "Size cage",
+   "loading": "Counting grids…"
+  },
+  {
+   "id": "bond",
+   "title": "Bond pigs",
+   "subtitle": "Intro a new pig or fix a fallout",
+   "emoji": "🤝",
+   "inputs": [
+    {
+     "key": "newpig",
+     "label": "New pig or situation",
+     "type": "text",
+     "placeholder": "adopting a 6-month female",
+     "required": true
+    },
+    {
+     "key": "stage",
+     "label": "Stage",
+     "type": "chips",
+     "options": [
+      "Not met yet",
+      "First neutral-space intro",
+      "Living together, bickering",
+      "Fight with injury"
+     ],
+     "default": "Not met yet"
+    }
+   ],
+   "prompt": "Plan bonding for the profile pigs with {newpig}, at stage '{stage}'. Sections: steps for a neutral-space introduction with duration and what to bring (piles of veg, no single-entrance hides), a table (Behaviour | Normal dominance or fight? | Do this) for rumble-strutting, chasing, teeth chattering, mounting and lunging, a callout on when to split them with a towel and quarantine rules, and bullets on setting up the shared cage after success.",
+   "shape": "steps, table, callout, bullets",
+   "button": "Plan bonding",
+   "loading": "Piling up the veg…"
+  },
+  {
+   "id": "sounds",
+   "title": "What did that mean?",
+   "subtitle": "Wheeks, rumbles, popcorns and teeth chatter",
+   "emoji": "🔊",
+   "inputs": [
+    {
+     "key": "what",
+     "label": "Sound or behaviour",
+     "type": "longtext",
+     "placeholder": "low rumbling and swaying at the other pig every evening",
+     "required": true
+    }
+   ],
+   "prompt": "Translate for the profile pigs: {what}. Sections: text with the meaning and context, a table (Sound / behaviour | Meaning | Mood | Your response) with the described one plus 6 common ones, and a callout on sounds that suggest pain or illness (teeth grinding, hooting breath, squeaking when peeing).",
+   "shape": "text, table, callout",
+   "button": "Translate",
+   "loading": "Hearing wheeks…"
+  },
+  {
+   "id": "check",
+   "title": "Weekly health check",
+   "subtitle": "Weigh, feel, look — and when to worry",
+   "emoji": "⚖️",
+   "inputs": [
+    {
+     "key": "weights",
+     "label": "This week's weights (g)",
+     "type": "text",
+     "placeholder": "Biscuit 1040, Pickle 985"
+    },
+    {
+     "key": "noticed",
+     "label": "Anything noticed",
+     "type": "text",
+     "placeholder": "Pickle's eye looks a bit crusty"
+    }
+   ],
+   "prompt": "Run a weekly health check for the profile pigs with weights {weights} and notes: {noticed}. Sections: a table (Pig | Weight | Change vs typical | Verdict), a checklist for a hands-on check (eyes, nose, teeth, feet and bumblefoot, nails, skin and mites, bottom, lumps), a callout on urgent signs (50 g+ loss in a week, not eating, hooting breath, no poop), and bullets on syringe-feeding recovery food until the vet if needed.",
+   "shape": "table, checklist, callout, bullets",
+   "button": "Check",
+   "loading": "Finding the scales…"
+  }
+ ],
+ "disclaimer": "General guinea-pig care information, not veterinary advice. A guinea pig that stops eating or loses weight fast needs an exotics vet the same day."
+}

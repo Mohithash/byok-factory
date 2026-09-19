@@ -1,0 +1,203 @@
+{
+ "id": "cold_reach",
+ "name": "Cold Reach",
+ "tagline": "Outreach that gets replies, not unsubscribes",
+ "category": "Business",
+ "colors": [
+  "#1565C0",
+  "#FF6F00",
+  "#00897B"
+ ],
+ "icon": "bolt",
+ "about": "Cold Reach writes multi-touch outreach sequences across email, LinkedIn and phone, personalises each touch from what you actually know about the prospect, and tells you what to say when they reply.",
+ "persona": "You are a top-performing SDR coach: concise, specific, allergic to buzzwords and fake personalisation; every message leads with the prospect's problem, not the product.",
+ "onboarding": {
+  "title": "Book more first meetings",
+  "subtitle": "Tell us what you sell and who buys it; every message will be built around that.",
+  "bullets": [
+   "Multi-touch sequences in minutes",
+   "Real personalisation from profile details",
+   "Reply handling for every response"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "product",
+   "label": "What you sell",
+   "type": "text",
+   "placeholder": "expense management software for mid-size finance teams"
+  },
+  {
+   "key": "icp",
+   "label": "Who buys it",
+   "type": "text",
+   "placeholder": "CFOs and controllers at 200–2,000 employee companies"
+  },
+  {
+   "key": "tone",
+   "label": "Tone",
+   "type": "chips",
+   "options": [
+    "Direct",
+    "Friendly",
+    "Consultative",
+    "Playful"
+   ],
+   "default": "Direct"
+  }
+ ],
+ "tools": [
+  {
+   "id": "sequence",
+   "title": "Build a sequence",
+   "subtitle": "Email + LinkedIn + call touches",
+   "emoji": "📨",
+   "inputs": [
+    {
+     "key": "persona",
+     "label": "Prospect persona",
+     "type": "text",
+     "placeholder": "VP Finance at a Series C fintech",
+     "required": true
+    },
+    {
+     "key": "length",
+     "label": "Touches",
+     "type": "chips",
+     "options": [
+      "4",
+      "6",
+      "8"
+     ],
+     "default": "6"
+    },
+    {
+     "key": "channels",
+     "label": "Channels",
+     "type": "chips",
+     "options": [
+      "Email only",
+      "Email + LinkedIn",
+      "Email + LinkedIn + phone"
+     ],
+     "default": "Email + LinkedIn"
+    }
+   ],
+   "prompt": "Write a {length}-touch cold outreach sequence for {persona} using {channels}, selling the profile's product in the profile's tone. Sections: a table (Day | Channel | Goal | Hook) laying out the cadence, then one quote section per touch with the full copy (subject line under 5 words for emails, under 300 characters for LinkedIn notes, a 20-second opener for calls), and a callout naming the single most common mistake to avoid with this persona.",
+   "shape": "table, quote, callout",
+   "button": "Build sequence",
+   "loading": "Warming up…"
+  },
+  {
+   "id": "personalise",
+   "title": "Personalise from profile",
+   "subtitle": "Paste a LinkedIn profile or bio",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "bio",
+     "label": "Profile / bio / recent post",
+     "type": "longtext",
+     "placeholder": "Head of RevOps at Acme. Posted last week about forecasting pain…",
+     "required": true
+    },
+    {
+     "key": "touch",
+     "label": "Message type",
+     "type": "chips",
+     "options": [
+      "Cold email",
+      "LinkedIn connect note",
+      "LinkedIn InMail",
+      "Voicemail"
+     ],
+     "default": "Cold email"
+    }
+   ],
+   "prompt": "From this prospect info: {bio} — write a {touch} that references two specific, non-creepy details and ties them to the profile's product. Sections: bullets listing the details you chose and why, a quote with the final message (under 90 words for email, under 300 characters for a connect note, under 30 seconds spoken for voicemail), and kv (Hook used | Ask | Best send time).",
+   "shape": "bullets, quote, kv",
+   "button": "Personalise",
+   "loading": "Doing homework…"
+  },
+  {
+   "id": "subject",
+   "title": "Subject line lab",
+   "subtitle": "10 lines, ranked",
+   "emoji": "🧪",
+   "inputs": [
+    {
+     "key": "email",
+     "label": "Email body",
+     "type": "longtext",
+     "placeholder": "paste the email you plan to send",
+     "required": true
+    },
+    {
+     "key": "style",
+     "label": "Style",
+     "type": "chips",
+     "options": [
+      "Curiosity",
+      "Pain-led",
+      "Referral",
+      "Question",
+      "Mix"
+     ],
+     "default": "Mix"
+    }
+   ],
+   "prompt": "For this email: {email} — generate 10 subject lines in the {style} style as a table (Subject | Angle | Predicted open tier: High/Med/Low | Spam-word risk). Then bullets with the 3 preview-text lines that pair best with the top subject, and a callout on words and formatting that trigger spam filters.",
+   "shape": "table, bullets, callout",
+   "button": "Rank subjects",
+   "loading": "Testing lines…"
+  },
+  {
+   "id": "reply",
+   "title": "They replied — now what?",
+   "subtitle": "Turn any reply into a next step",
+   "emoji": "💬",
+   "inputs": [
+    {
+     "key": "reply_text",
+     "label": "Their reply",
+     "type": "longtext",
+     "placeholder": "Thanks but we're all set with our current vendor.",
+     "required": true
+    },
+    {
+     "key": "context",
+     "label": "Context",
+     "type": "text",
+     "placeholder": "3rd touch, they opened twice"
+    }
+   ],
+   "prompt": "The prospect replied: {reply_text} (context: {context}). Classify the reply in kv (Type | Real meaning | Win probability), then write 2 response options as quote sections (one short and low-pressure, one that reframes with a question), and steps for what to do if they go silent again.",
+   "shape": "kv, quote, steps",
+   "button": "Draft reply",
+   "loading": "Reading the room…"
+  },
+  {
+   "id": "breakup",
+   "title": "Break-up email",
+   "subtitle": "The last touch that gets replies",
+   "emoji": "👋",
+   "inputs": [
+    {
+     "key": "thread",
+     "label": "What you've sent so far",
+     "type": "text",
+     "placeholder": "4 emails about invoice automation, no reply"
+    }
+   ],
+   "prompt": "Write a break-up email closing a sequence where {thread}. Sections: a quote with the email (under 60 words, no guilt-tripping, one clear door left open), bullets with 3 alternative closing lines for different personas, and a callout on when to actually re-engage (timing and trigger events).",
+   "shape": "quote, bullets, callout",
+   "button": "Write it",
+   "loading": "Saying goodbye…"
+  }
+ ]
+}

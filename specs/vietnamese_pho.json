@@ -1,0 +1,235 @@
+{
+ "id": "vietnamese_pho",
+ "name": "Pho & Bánh",
+ "tagline": "Vietnamese home cooking: broths, bánh mì, rolls and bowls",
+ "category": "Food & Drink",
+ "colors": [
+  "#00838F",
+  "#F4511E",
+  "#8BC34A"
+ ],
+ "icon": "pin",
+ "about": "Pho & Bánh guides Vietnamese home cooking: pho broth at three time budgets, bánh mì with proper pickles, fresh rolls with nước chấm, bún and cơm tấm plates, and a decoder for the herb plate and pantry.",
+ "persona": "You are a Vietnamese home cook who knows northern, central and southern differences, cooks with fish sauce, lime, herbs and char, is precise about broth clarity and pickles, and adapts to what is sold outside Vietnam.",
+ "onboarding": {
+  "title": "Vietnamese food, made at home",
+  "subtitle": "Tell us your diet and herb access; recipes adapt.",
+  "bullets": [
+   "Pho broth: 30 minutes to all day",
+   "Bánh mì with real đồ chua",
+   "Fresh rolls, bún bowls and herbs decoded"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "diet",
+   "label": "Diet",
+   "type": "chips",
+   "options": [
+    "Anything",
+    "Pescatarian",
+    "Vegetarian",
+    "Vegan"
+   ],
+   "default": "Anything"
+  },
+  {
+   "key": "fishsauce",
+   "label": "Fish sauce",
+   "type": "chips",
+   "options": [
+    "Yes, love it",
+    "Mild use",
+    "No (use alternatives)"
+   ],
+   "default": "Yes, love it"
+  },
+  {
+   "key": "herbs",
+   "label": "Herb access",
+   "type": "chips",
+   "options": [
+    "Asian grocer nearby",
+    "Supermarket basics",
+    "Grow my own",
+    "Hard to find"
+   ],
+   "default": "Supermarket basics"
+  }
+ ],
+ "tools": [
+  {
+   "id": "pho",
+   "title": "Pho broth",
+   "subtitle": "Beef, chicken or vegan at your time budget",
+   "emoji": "🍜",
+   "inputs": [
+    {
+     "key": "type",
+     "label": "Pho",
+     "type": "chips",
+     "options": [
+      "Phở bò (beef)",
+      "Phở gà (chicken)",
+      "Phở chay (vegan)"
+     ],
+     "default": "Phở bò (beef)"
+    },
+    {
+     "key": "time",
+     "label": "Time budget",
+     "type": "chips",
+     "options": [
+      "30-minute weeknight",
+      "Pressure cooker (90 min)",
+      "Stovetop (6 hours)"
+     ],
+     "default": "Pressure cooker (90 min)"
+    },
+    {
+     "key": "bowls",
+     "label": "Bowls",
+     "type": "number",
+     "placeholder": "6"
+    }
+   ],
+   "prompt": "Make {type} for {bowls} bowls with a '{time}' method, for the profile's diet and fish-sauce preference. Sections: a table 'Broth' (Ingredient | Grams or ml | Role), steps including parboiling bones, charring onion and ginger, the spice sachet, skimming for clarity and final seasoning, kv (noodle grams per bowl, broth ml per bowl, meat slicing thickness), bullets for the topping plate adapted to the profile's herb access, and a callout on cooling and storing broth safely.",
+   "shape": "table, steps, kv, bullets, callout",
+   "button": "Start the broth",
+   "loading": "Charring ginger…"
+  },
+  {
+   "id": "banhmi",
+   "title": "Bánh mì builder",
+   "subtitle": "Pickles, protein, bread and layering",
+   "emoji": "🥖",
+   "inputs": [
+    {
+     "key": "protein",
+     "label": "Protein",
+     "type": "chips",
+     "options": [
+      "Lemongrass pork",
+      "Grilled chicken",
+      "Xíu mại meatballs",
+      "Cold cuts & pâté",
+      "Lemongrass tofu",
+      "Fried egg (ốp la)",
+      "Sardine (cá mòi)"
+     ],
+     "default": "Lemongrass pork"
+    },
+    {
+     "key": "bread",
+     "label": "Bread",
+     "type": "chips",
+     "options": [
+      "Vietnamese baguette",
+      "French baguette",
+      "Supermarket sub roll",
+      "Bake my own"
+     ],
+     "default": "Supermarket sub roll"
+    },
+    {
+     "key": "count",
+     "label": "Sandwiches",
+     "type": "number",
+     "placeholder": "4"
+    }
+   ],
+   "prompt": "Build {count} bánh mì with {protein} on {bread}. Sections: kv (đồ chua pickle ratio: carrot and daikon grams, vinegar, sugar, salt, minimum pickling time), steps for the protein marinade and cooking, warming the bread and the layering order that keeps it crisp, cards for 3 variations using the same pickles (meta = minutes · heat), and a checklist shopping list.",
+   "shape": "kv, steps, cards, checklist",
+   "button": "Build it",
+   "loading": "Toasting the roll…"
+  },
+  {
+   "id": "rolls",
+   "title": "Fresh rolls & dipping sauces",
+   "subtitle": "Gỏi cuốn with nước chấm and peanut sauce",
+   "emoji": "🥢",
+   "inputs": [
+    {
+     "key": "filling",
+     "label": "Filling",
+     "type": "chips",
+     "options": [
+      "Prawn & pork (classic)",
+      "Grilled pork",
+      "Tofu & mushroom",
+      "Chicken",
+      "Vegetable only"
+     ],
+     "default": "Prawn & pork (classic)"
+    },
+    {
+     "key": "rolls",
+     "label": "Rolls",
+     "type": "number",
+     "placeholder": "12"
+    }
+   ],
+   "prompt": "Teach {rolls} gỏi cuốn with {filling} for the profile's diet and fish-sauce preference. Sections: steps for prep, the wrapper dip time and the rolling technique with the tension cue, kv (nước chấm ratio in tablespoons and peanut hoisin sauce ratio), bullets on the herb plate adapted to the profile's access, and a table 'Troubleshooting' (Problem | Cause | Fix) for tearing, sticking, gummy wrappers and rolls that fall apart.",
+   "shape": "steps, kv, bullets, table",
+   "button": "Roll them",
+   "loading": "Softening wrappers…"
+  },
+  {
+   "id": "bowl",
+   "title": "Bún bowl or rice plate",
+   "subtitle": "Bún thịt nướng, bún chả, cơm tấm",
+   "emoji": "🍚",
+   "inputs": [
+    {
+     "key": "dish",
+     "label": "Dish",
+     "type": "chips",
+     "options": [
+      "Bún thịt nướng",
+      "Bún chả (Hanoi)",
+      "Cơm tấm sườn",
+      "Bún bò Huế (quick)",
+      "Bún riêu (quick)",
+      "Vegan bún"
+     ],
+     "default": "Bún thịt nướng"
+    },
+    {
+     "key": "protein",
+     "label": "Protein you have",
+     "type": "text",
+     "placeholder": "pork shoulder, chicken thighs, tofu",
+     "required": true
+    }
+   ],
+   "prompt": "Make {dish} using {protein} for the profile's diet and fish-sauce preference. Sections: kv (marinade ingredients in tablespoons or grams, marinate time, cook method and minutes), steps from marinating to assembling the bowl or plate, a table 'Components' (Component | Amount per serving | Make-ahead?) covering noodles or broken rice, pickles, herbs, sauce and crispy shallots, and bullets on grilling or pan alternatives.",
+   "shape": "kv, steps, table, bullets",
+   "button": "Make it",
+   "loading": "Marinating…"
+  },
+  {
+   "id": "herbs",
+   "title": "Decode herbs & pantry",
+   "subtitle": "Photo → which herb or sauce and how to use it",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the herb bunch or product",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Identify the Vietnamese herb or pantry product in the photo. Sections: kv (Vietnamese name, English name, flavour, which dishes it belongs to, raw or cooked, storage and shelf life), bullets on how much to use and what to pair it with, a table 'If you can't find it' (Substitute | How close | Notes), and a callout on look-alikes to avoid confusing and any allergens (fish, shellfish, peanuts, wheat) in the product.",
+   "shape": "kv, bullets, table, callout",
+   "button": "Identify",
+   "loading": "Sniffing leaves…"
+  }
+ ],
+ "disclaimer": "General cooking guidance, not food-safety or dietary advice: follow safe handling, storage and allergen practices, take care with hot oil, open flames, raw or undercooked foods and fermentation, and discard anything that smells or looks wrong."
+}

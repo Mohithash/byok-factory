@@ -1,0 +1,230 @@
+{
+ "id": "japanese_washoku",
+ "name": "Washoku Home",
+ "tagline": "Dashi, bento, ramen and sushi in a home kitchen",
+ "category": "Food & Drink",
+ "colors": [
+  "#B0413E",
+  "#263238",
+  "#7CB342"
+ ],
+ "icon": "drop",
+ "about": "Washoku Home makes everyday Japanese cooking approachable: dashi and miso soup, weeknight ramen bowls, safe sushi at home, next-day bento from leftovers and a label decoder for the Japanese grocery aisle.",
+ "persona": "You are a Japanese home-cooking teacher rooted in washoku principles (seasonality, dashi, balance of five tastes) who gives grams and millilitres, is honest about what a home kitchen can and cannot do, and takes raw-fish safety seriously.",
+ "onboarding": {
+  "title": "Everyday Japanese cooking, simplified",
+  "subtitle": "Tell us what's in your pantry and your gear; recipes adapt to it.",
+  "bullets": [
+   "Dashi and miso soup that tastes like Japan",
+   "Weeknight ramen and bento",
+   "Safe, realistic sushi at home"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "pantry",
+   "label": "Pantry",
+   "type": "chips",
+   "options": [
+    "Soy sauce",
+    "Mirin",
+    "Sake",
+    "Miso",
+    "Kombu",
+    "Katsuobushi",
+    "Rice vinegar",
+    "Dashi powder",
+    "Sesame oil"
+   ],
+   "default": "Soy sauce",
+   "multi": true
+  },
+  {
+   "key": "rice",
+   "label": "Rice gear",
+   "type": "chips",
+   "options": [
+    "Rice cooker",
+    "Pot on hob",
+    "Donabe",
+    "Instant Pot"
+   ],
+   "default": "Pot on hob"
+  },
+  {
+   "key": "diet",
+   "label": "Diet",
+   "type": "chips",
+   "options": [
+    "Anything",
+    "Pescatarian",
+    "Vegetarian",
+    "Vegan",
+    "Gluten-free"
+   ],
+   "default": "Anything"
+  }
+ ],
+ "tools": [
+  {
+   "id": "dashi",
+   "title": "Dashi & miso soup",
+   "subtitle": "The base of everything, then 3 soups",
+   "emoji": "🍲",
+   "inputs": [
+    {
+     "key": "dashi",
+     "label": "Dashi",
+     "type": "chips",
+     "options": [
+      "Kombu + katsuobushi",
+      "Kombu only (vegan)",
+      "Shiitake + kombu",
+      "Niboshi",
+      "Dashi powder"
+     ],
+     "default": "Kombu + katsuobushi"
+    },
+    {
+     "key": "fridge",
+     "label": "In the fridge",
+     "type": "text",
+     "placeholder": "tofu, spring onion, half a daikon"
+    }
+   ],
+   "prompt": "Teach {dashi} dashi, then miso soup using {fridge}, adapted to the profile's pantry. Sections: kv (water ml, kombu grams, katsuobushi or alternative grams, temperature ceiling, steep minutes, keeps for), steps for the dashi with the 'do not boil kombu' cue and the moment to pull it, cards for 3 miso soup variations from the fridge items (meta = miso type · minutes), and bullets on storing dashi and reusing spent kombu.",
+   "shape": "kv, steps, cards, bullets",
+   "button": "Make dashi",
+   "loading": "Steeping kombu…"
+  },
+  {
+   "id": "sushi",
+   "title": "Sushi at home",
+   "subtitle": "Rice, vinegar mix, and what fish is safe",
+   "emoji": "🍣",
+   "inputs": [
+    {
+     "key": "style",
+     "label": "Style",
+     "type": "chips",
+     "options": [
+      "Temaki hand-roll party",
+      "Maki rolls",
+      "Nigiri",
+      "Chirashi bowl",
+      "Onigiri (no raw fish)"
+     ],
+     "default": "Temaki hand-roll party"
+    },
+    {
+     "key": "people",
+     "label": "People",
+     "type": "number",
+     "placeholder": "4"
+    },
+    {
+     "key": "fish",
+     "label": "Fish or fillings available",
+     "type": "text",
+     "placeholder": "supermarket salmon, tinned tuna, cucumber, avocado"
+    }
+   ],
+   "prompt": "Plan {style} for {people} people with: {fish}. Sections: kv (rice grams, water ml, sushi-zu vinegar/sugar/salt in grams, cooling method), steps for rice and assembly using the profile's rice gear, a table 'Fillings' (Item | Safe raw? Yes/No/Only if labelled sashimi-grade or previously frozen | Prep | Cut), and a callout on raw-fish safety: freezing for parasites, sourcing, time out of the fridge, and who should avoid raw fish.",
+   "shape": "kv, steps, table, callout",
+   "button": "Plan sushi",
+   "loading": "Fanning the rice…"
+  },
+  {
+   "id": "ramen",
+   "title": "Ramen bowl builder",
+   "subtitle": "Weeknight or weekend project",
+   "emoji": "🍜",
+   "inputs": [
+    {
+     "key": "broth",
+     "label": "Broth",
+     "type": "chips",
+     "options": [
+      "Shoyu",
+      "Shio",
+      "Miso",
+      "Tonkotsu",
+      "Vegan shiitake-kombu",
+      "Tantanmen"
+     ],
+     "default": "Miso"
+    },
+    {
+     "key": "time",
+     "label": "Time",
+     "type": "chips",
+     "options": [
+      "30-minute weeknight",
+      "2-hour weekend",
+      "All-day project"
+     ],
+     "default": "30-minute weeknight"
+    }
+   ],
+   "prompt": "Build a {broth} ramen in the '{time}' format for the profile's diet and pantry. Sections: a table 'Components' (Component | How to make it | Make-ahead? | Store for), steps for the assembly order and timing so noodles never sit, bullets of 5 toppings ranked by effort-to-payoff, and a callout on ajitama (marinated egg) timing and on where a shortcut is fine versus where it shows.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Build bowl",
+   "loading": "Slurp-testing…"
+  },
+  {
+   "id": "label",
+   "title": "Decode a Japanese label",
+   "subtitle": "Photo → what it is and how to use it",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the product label",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Read the Japanese product label in the photo. Sections: kv (product name in romaji and English, category, key ingredients, common allergens present such as wheat/soy/fish/sesame, shelf life after opening), bullets on how it is used in Japanese cooking with amounts per serving, a table 'Compared to' (Similar product | Difference | Swap ratio), and a callout if it contains alcohol, MSG, gluten or fish that a vegetarian or allergy-aware user should know about.",
+   "shape": "kv, bullets, table, callout",
+   "button": "Decode",
+   "loading": "Reading kanji…"
+  },
+  {
+   "id": "bento",
+   "title": "Bento from leftovers",
+   "subtitle": "Tomorrow's box from tonight's dinner",
+   "emoji": "🍱",
+   "inputs": [
+    {
+     "key": "leftovers",
+     "label": "Tonight's leftovers",
+     "type": "text",
+     "placeholder": "grilled salmon, rice, edamame",
+     "required": true
+    },
+    {
+     "key": "style",
+     "label": "Style",
+     "type": "chips",
+     "options": [
+      "Classic 3:2:1 (rice:veg:protein)",
+      "Onigiri box",
+      "Noodle box",
+      "Kids' simple kyaraben"
+     ],
+     "default": "Classic 3:2:1 (rice:veg:protein)"
+    }
+   ],
+   "prompt": "Turn {leftovers} into a {style} bento. Sections: cards for 3 bento layouts (meta = minutes tomorrow morning · needs reheating yes/no), steps for assembly in the order that keeps rice from steaming the box, a checklist of what to prep tonight versus pack in the morning, and a callout on food safety for a box eaten cold at noon (cooling, acid, no mayo in heat).",
+   "shape": "cards, steps, checklist, callout",
+   "button": "Pack it",
+   "loading": "Arranging…"
+  }
+ ],
+ "disclaimer": "General cooking guidance, not food-safety or dietary advice: follow safe handling, storage and allergen practices, take care with hot oil, open flames, raw or undercooked foods and fermentation, and discard anything that smells or looks wrong."
+}

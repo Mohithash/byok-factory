@@ -1,0 +1,214 @@
+{
+ "id": "price_ladder",
+ "name": "Price Ladder",
+ "tagline": "Raise prices, add tiers, keep customers",
+ "category": "Business",
+ "colors": [
+  "#4A148C",
+  "#00BFA5",
+  "#FF6F00"
+ ],
+ "icon": "scale",
+ "about": "Price Ladder builds good-better-best tiers, proves what a discount really costs, scripts price increases and reads competitor pricing from a screenshot.",
+ "persona": "You are a pricing strategist for small firms: you think in margins and willingness-to-pay, distrust discounting reflexes, and write increase letters customers accept.",
+ "onboarding": {
+  "title": "Stop leaving money on the table",
+  "subtitle": "Your margin and market set the guardrails.",
+  "bullets": [
+   "Good / better / best tiers",
+   "Discount & increase maths",
+   "Price-rise letters that land"
+  ]
+ },
+ "profile": [
+  {
+   "key": "offer",
+   "label": "What you sell",
+   "type": "text",
+   "placeholder": "monthly lawn-care plans / handmade leather bags"
+  },
+  {
+   "key": "model",
+   "label": "Model",
+   "type": "chips",
+   "options": [
+    "One-off products",
+    "Services by the hour",
+    "Packages",
+    "Subscriptions"
+   ]
+  },
+  {
+   "key": "margin",
+   "label": "Gross margin %",
+   "type": "number",
+   "placeholder": "45"
+  },
+  {
+   "key": "currency",
+   "label": "Currency",
+   "type": "chips",
+   "options": [
+    "USD",
+    "EUR",
+    "GBP",
+    "INR",
+    "AUD",
+    "CAD"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "tiers",
+   "title": "Build tiers",
+   "subtitle": "Good, better, best around your core offer",
+   "emoji": "🪜",
+   "inputs": [
+    {
+     "key": "core",
+     "label": "Core offer & price",
+     "type": "text",
+     "placeholder": "basic lawn cut, 40 per visit",
+     "required": true
+    },
+    {
+     "key": "extras",
+     "label": "Things you could add or remove",
+     "type": "text",
+     "placeholder": "edging, fertiliser, priority scheduling, same-day"
+    }
+   ],
+   "prompt": "Design good-better-best tiers around {core} using: {extras}. Cards for each tier (name, what's in, meta = price · target customer), a table (Feature | Good | Better | Best) with ticks, bullets explaining the anchoring and the decoy, and a callout on the one feature to keep out of the cheapest tier.",
+   "shape": "cards, table, bullets, callout",
+   "button": "Build tiers",
+   "loading": "Stacking tiers…"
+  },
+  {
+   "id": "discount",
+   "title": "What a discount costs",
+   "subtitle": "Extra units needed to break even",
+   "emoji": "📉",
+   "inputs": [
+    {
+     "key": "discount",
+     "label": "Discount %",
+     "type": "number",
+     "placeholder": "20"
+    },
+    {
+     "key": "price",
+     "label": "Price",
+     "type": "number",
+     "placeholder": "120"
+    },
+    {
+     "key": "volume",
+     "label": "Units sold per month now",
+     "type": "number",
+     "placeholder": "80"
+    }
+   ],
+   "prompt": "At price {price}, {volume} units per month and the profile margin, model a {discount}% discount: kv (margin before, margin after, extra units needed to earn the same profit, % volume lift required), a table (Discount % | Units needed | Realistic?) for 5%, 10%, 15%, 20% and 30%, bullets of alternatives to a blanket discount (bundles, bonuses, terms), and a callout on when a discount is genuinely worth it.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Run the maths",
+   "loading": "Crunching…"
+  },
+  {
+   "id": "increase",
+   "title": "Announce a price rise",
+   "subtitle": "The letter, the footer, the phone line",
+   "emoji": "📨",
+   "inputs": [
+    {
+     "key": "pct",
+     "label": "Increase %",
+     "type": "number",
+     "placeholder": "8"
+    },
+    {
+     "key": "when",
+     "label": "Effective date",
+     "type": "text",
+     "placeholder": "1 January"
+    },
+    {
+     "key": "tone",
+     "label": "Tone",
+     "type": "chips",
+     "options": [
+      "Warm",
+      "Straight",
+      "Premium"
+     ],
+     "default": "Warm"
+    }
+   ],
+   "prompt": "Write a {tone} price-increase notice for a {pct}% rise effective {when} for the profile offer. A quote with the full email (subject, reason, what stays the same, date, thank-you), a kv with an invoice-footer line, an SMS version and a phone opener, bullets on handling the 3 most common pushbacks, and a callout on grandfathering and notice periods.",
+   "shape": "quote, kv, bullets, callout",
+   "button": "Write notice",
+   "loading": "Choosing words…"
+  },
+  {
+   "id": "compare",
+   "title": "Read competitor pricing",
+   "subtitle": "Screenshot → their tiers vs yours",
+   "emoji": "🔭",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Screenshot of a competitor's pricing page or shelf tag",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "mine",
+     "label": "Your current price",
+     "type": "text",
+     "placeholder": "95/month"
+    }
+   ],
+   "prompt": "From the screenshot, extract the competitor's pricing as a table (Tier or product | Price | What's included | Notes), compare against my price {mine} in a kv (positioning, gap %, apparent value differences), bullets on how to differentiate without matching, and a callout on any claim in the screenshot worth checking.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Compare",
+   "loading": "Reading the page…"
+  },
+  {
+   "id": "custom",
+   "title": "Price a custom job",
+   "subtitle": "Floor, target and stretch for bespoke work",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "job",
+     "label": "Describe the job",
+     "type": "longtext",
+     "placeholder": "logo + 3 social templates for a bakery, 2 rounds of revisions",
+     "required": true
+    },
+    {
+     "key": "hours",
+     "label": "Estimated hours",
+     "type": "number",
+     "placeholder": "14"
+    },
+    {
+     "key": "basis",
+     "label": "Price by",
+     "type": "chips",
+     "options": [
+      "Hourly",
+      "Value",
+      "Package"
+     ],
+     "default": "Value"
+    }
+   ],
+   "prompt": "Price this custom job by {basis}: {job}, estimated {hours} hours, for the profile margin and model. kv (floor price, target price, stretch price, with the reasoning for each), a table of 3 options (Option | Included | Price | Turnaround), a quote with a 3-sentence line to present the price, and a callout on scope-creep clauses to include.",
+   "shape": "kv, table, quote, callout",
+   "button": "Price the job",
+   "loading": "Weighing value…"
+  }
+ ],
+ "disclaimer": "Pricing guidance is general business information, not financial or legal advice; check consumer-notice rules for your region."
+}

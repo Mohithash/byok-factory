@@ -1,0 +1,182 @@
+{
+ "id": "conceive_kit",
+ "name": "Conceive Kit",
+ "tagline": "Trying for a baby, with a plan and less panic",
+ "category": "Health & Fitness",
+ "colors": [
+  "#2E7D32",
+  "#F48FB1",
+  "#FDD835"
+ ],
+ "icon": "star",
+ "about": "Conceive Kit turns trying to conceive into a calm plan: preconception checklists for both of you, timing for this cycle, an honest two-week-wait companion, sperm-health basics and when-to-get-help guidance.",
+ "persona": "You are a reproductive health nurse and coach: warm, science-first, inclusive of all couples and solo parents, and honest that most healthy couples take up to a year.",
+ "onboarding": {
+  "title": "Let's make a plan",
+  "subtitle": "A little context keeps the advice realistic.",
+  "bullets": [
+   "Preconception checklists for both",
+   "Cycle timing without obsession",
+   "Two-week-wait sanity"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "age",
+   "label": "Your age",
+   "type": "number",
+   "placeholder": "33"
+  },
+  {
+   "key": "trying",
+   "label": "Trying since",
+   "type": "text",
+   "placeholder": "March"
+  },
+  {
+   "key": "situation",
+   "label": "Situation",
+   "type": "chips",
+   "options": [
+    "Partner with sperm",
+    "Donor / solo",
+    "Same-sex couple",
+    "Known fertility issue"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "prep",
+   "title": "Preconception checklist",
+   "subtitle": "3 months out, for both",
+   "emoji": "✅",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "For",
+     "type": "chips",
+     "options": [
+      "Me",
+      "Partner",
+      "Both"
+     ],
+     "default": "Both"
+    },
+    {
+     "key": "health",
+     "label": "Health notes",
+     "type": "text",
+     "placeholder": "on sertraline, vegan, partner smokes"
+    }
+   ],
+   "prompt": "Build a 3-month preconception checklist for {who} with health notes: {health}, for the profile. Sections: a checklist of medical to-dos (folic acid 400 mcg or higher-dose if indicated, vaccines, medication review, cervical screening, dental), a second checklist of lifestyle to-dos per person (alcohol, smoking, caffeine limits, sleep, heat exposure for sperm), a table (Supplement | Who | Dose, general | Why), and a callout on medications that must not be stopped without a doctor.",
+   "shape": "checklist, table, callout",
+   "button": "Build checklist",
+   "loading": "Preparing…"
+  },
+  {
+   "id": "timing",
+   "title": "This cycle's timing",
+   "subtitle": "When to try, without a spreadsheet",
+   "emoji": "📅",
+   "inputs": [
+    {
+     "key": "lmp",
+     "label": "First day of last period",
+     "type": "text",
+     "placeholder": "1 September",
+     "required": true
+    },
+    {
+     "key": "length",
+     "label": "Usual cycle length",
+     "type": "number",
+     "placeholder": "28"
+    },
+    {
+     "key": "style",
+     "label": "Approach",
+     "type": "chips",
+     "options": [
+      "Every 1–2 days in the window",
+      "Every other day",
+      "Just tell me the best 3 days"
+     ],
+     "default": "Every 1–2 days in the window"
+    }
+   ],
+   "prompt": "From last period {lmp} and a {length}-day cycle, with approach {style}. Sections: kv (estimated ovulation date, fertile window dates, best 3 days, earliest sensible test date), a table (Date | Fertility | Try? | Notes), bullets on what raises odds (sperm-friendly lubricant, not saving up, OPK timing) and what doesn't (positions, legs up), and a callout that irregular cycles need sign-based tracking instead of calendar maths.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Calculate",
+   "loading": "Counting days…"
+  },
+  {
+   "id": "tww",
+   "title": "Two-week wait",
+   "subtitle": "Symptom-spotting, honestly",
+   "emoji": "⏳",
+   "inputs": [
+    {
+     "key": "dpo",
+     "label": "Days past ovulation",
+     "type": "number",
+     "placeholder": "8"
+    },
+    {
+     "key": "feeling",
+     "label": "What you're noticing / feeling",
+     "type": "longtext",
+     "placeholder": "sore boobs, cramping, googling everything"
+    }
+   ],
+   "prompt": "Support the two-week wait at {dpo} days past ovulation with: {feeling}. Sections: text that is honest that progesterone causes identical symptoms whether or not pregnant, kv (earliest reliable test day, what hCG does day by day in general terms, when a faint line is meaningful), a checklist of things to do instead of symptom-spotting, and a quote with a kind message to self for today.",
+   "shape": "text, kv, checklist, quote",
+   "button": "Get me through",
+   "loading": "Waiting with you…"
+  },
+  {
+   "id": "help",
+   "title": "When to get help",
+   "subtitle": "Timelines, tests, first appointment",
+   "emoji": "🩺",
+   "inputs": [
+    {
+     "key": "story",
+     "label": "Your story",
+     "type": "longtext",
+     "placeholder": "trying 9 months, cycles 35–45 days, partner is 41",
+     "required": true
+    }
+   ],
+   "prompt": "Assess: {story} for the profile. Sections: a callout with the standard guidance for when to seek help (12 months under 35, 6 months at 35 and over, sooner with known issues or irregular cycles) applied to this case, a table (Test | Who | What it checks | When in cycle) covering day-3 hormones, AMH, mid-luteal progesterone, semen analysis, tubal checks and thyroid, bullets of 8 questions for the first appointment, and steps to get the referral (what the GP needs, what to bring).",
+   "shape": "callout, table, bullets, steps",
+   "button": "Assess",
+   "loading": "Reviewing…"
+  },
+  {
+   "id": "sperm",
+   "title": "Sperm health basics",
+   "subtitle": "For the partner or donor conversation",
+   "emoji": "🧬",
+   "inputs": [
+    {
+     "key": "habits",
+     "label": "Their habits",
+     "type": "text",
+     "placeholder": "cycling 10h a week, hot tubs, 4 beers a night, vapes"
+    }
+   ],
+   "prompt": "Give sperm-health guidance for: {habits}. Sections: a table (Habit | Effect on sperm, with evidence strength | Change | Time to see effect, roughly 3 months), a checklist of the top 6 changes ranked, kv on what a semen analysis measures and general reference ranges, and a callout that supplements are not a substitute for a semen analysis if it has been a while.",
+   "shape": "table, checklist, kv, callout",
+   "button": "Advise",
+   "loading": "Reviewing…"
+  }
+ ],
+ "disclaimer": "General fertility information, not medical advice. Do not start or stop medications without your doctor; see a GP or fertility specialist for personal assessment and testing."
+}

@@ -1,0 +1,171 @@
+{
+ "id": "voice_vault",
+ "name": "Voice Vault",
+ "tagline": "Define your brand voice and keep everyone on it",
+ "category": "Business",
+ "colors": [
+  "#37474F",
+  "#FF7043",
+  "#7E57C2"
+ ],
+ "icon": "mic",
+ "about": "Voice Vault extracts a brand voice from your best writing, produces a shareable one-page voice guide, rewrites any text on-brand and scores drafts before they ship.",
+ "persona": "You are a brand voice strategist and editor: precise about tone, rhythm and word choice; you show examples, not adjectives.",
+ "onboarding": {
+  "title": "Sound like you, everywhere",
+  "subtitle": "Describe your brand, then paste writing you're proud of.",
+  "bullets": [
+   "Voice extracted from real samples",
+   "Rewrite anything on-brand",
+   "Score drafts before they ship"
+  ]
+ },
+ "profile": [
+  {
+   "key": "brand",
+   "label": "Brand",
+   "type": "text",
+   "placeholder": "Lumen — smart desk lamps"
+  },
+  {
+   "key": "traits",
+   "label": "3 voice words",
+   "type": "text",
+   "placeholder": "warm, precise, a little playful"
+  },
+  {
+   "key": "avoid",
+   "label": "Never say",
+   "type": "text",
+   "placeholder": "synergy, 'game-changing', exclamation marks"
+  },
+  {
+   "key": "formality",
+   "label": "Formality",
+   "type": "chips",
+   "options": [
+    "Casual",
+    "Conversational",
+    "Professional",
+    "Formal"
+   ],
+   "default": "Conversational"
+  }
+ ],
+ "tools": [
+  {
+   "id": "extract",
+   "title": "Extract my voice",
+   "subtitle": "Paste samples → voice profile",
+   "emoji": "🧬",
+   "inputs": [
+    {
+     "key": "samples",
+     "label": "Writing you're proud of",
+     "type": "longtext",
+     "placeholder": "Paste 2–3 pieces: an email, a post, a page…",
+     "required": true
+    }
+   ],
+   "prompt": "Analyse these samples and extract the brand voice: {samples}. kv (voice in one sentence, 3 defining traits, sentence-length pattern, favourite devices, punctuation habits, person and tense), a table (Trait | We do | We don't | Example from the samples), bullets of signature words and phrases, and a callout on the biggest inconsistency found.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Extract voice",
+   "loading": "Listening closely…"
+  },
+  {
+   "id": "guide",
+   "title": "Voice guide",
+   "subtitle": "A one-page guide for the team",
+   "emoji": "📘",
+   "inputs": [
+    {
+     "key": "audience",
+     "label": "Who will use it",
+     "type": "chips",
+     "options": [
+      "Whole team",
+      "Freelance writers",
+      "Support agents",
+      "Agency"
+     ],
+     "default": "Whole team"
+    }
+   ],
+   "prompt": "Write a one-page brand voice guide for the profile brand aimed at {audience}. Sections: text (the voice in a paragraph), a table (Trait | Sounds like | Not like), a second table of tone shifts by situation (Situation | Tone dial | Example line) covering welcome, error, complaint, launch and legal, a checklist writers run before publishing, and a quote with 3 example sentences that nail the voice.",
+   "shape": "text, table, checklist, quote",
+   "button": "Write guide",
+   "loading": "Binding the guide…"
+  },
+  {
+   "id": "rewrite",
+   "title": "Rewrite on-brand",
+   "subtitle": "Any text → your voice",
+   "emoji": "✍️",
+   "inputs": [
+    {
+     "key": "text",
+     "label": "Text to rewrite",
+     "type": "longtext",
+     "placeholder": "Paste the draft…",
+     "required": true
+    },
+    {
+     "key": "context",
+     "label": "Where it'll appear",
+     "type": "chips",
+     "options": [
+      "Website",
+      "Email",
+      "Social post",
+      "Support reply",
+      "Ad",
+      "Internal"
+     ],
+     "default": "Website"
+    }
+   ],
+   "prompt": "Rewrite this for {context} in the profile brand voice, keeping the meaning and staying within 10% of the length: {text}. A quote with the rewritten text, a table (Original phrase | Rewritten | Why), and bullets on 3 further cuts if it needs to be shorter.",
+   "shape": "quote, table, bullets",
+   "button": "Rewrite",
+   "loading": "Tuning the voice…"
+  },
+  {
+   "id": "score",
+   "title": "Score a draft",
+   "subtitle": "How on-brand is it?",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "draft",
+     "label": "Draft to score",
+     "type": "longtext",
+     "placeholder": "Paste the draft…",
+     "required": true
+    }
+   ],
+   "prompt": "Score this draft against the profile brand voice: {draft}. kv (overall score /100, tone match, vocabulary match, rhythm match, banned words found), a table of flagged lines (Line | Problem | Fix), a checklist of edits to make, and a callout on whether it's ready to ship.",
+   "shape": "kv, table, checklist, callout",
+   "button": "Score it",
+   "loading": "Judging the vibe…"
+  },
+  {
+   "id": "tone",
+   "title": "Tone dial",
+   "subtitle": "Same message, five tones",
+   "emoji": "🎚️",
+   "inputs": [
+    {
+     "key": "message",
+     "label": "Message to deliver",
+     "type": "text",
+     "placeholder": "we're raising prices 10% in March",
+     "required": true
+    }
+   ],
+   "prompt": "Deliver the message '{message}' in the profile voice at five dials: cards for Sorry-but-firm, Neutral, Warm, Upbeat and Playful (body = the full 40–80 word message, meta = when to use it), a table (Tone | Opening line | Risk), and a callout on which tone fits both the message and the brand.",
+   "shape": "cards, table, callout",
+   "button": "Turn the dial",
+   "loading": "Adjusting tone…"
+  }
+ ]
+}

@@ -1,0 +1,185 @@
+{
+ "id": "second_act",
+ "name": "Second Act",
+ "tagline": "Design a retirement you'll actually enjoy",
+ "category": "Lifestyle",
+ "colors": [
+  "#EF6C00",
+  "#5D4037",
+  "#00ACC1"
+ ],
+ "icon": "sun",
+ "about": "Second Act helps new and soon-to-be retirees build a weekly rhythm, find hobbies and purpose, plan the trips and projects on the list, and handle the identity shift that nobody warns you about.",
+ "persona": "You are a warm retirement-transition coach: practical, curious, allergic to clichés, focused on structure, connection and meaning rather than money.",
+ "onboarding": {
+  "title": "Your time, your terms",
+  "subtitle": "Tell us where you are in the transition and what lights you up.",
+  "bullets": [
+   "A weekly rhythm that fits you",
+   "Hobbies and purpose matched to you",
+   "Trips, projects and milestones planned"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "stage",
+   "label": "Stage",
+   "type": "chips",
+   "options": [
+    "Retiring within a year",
+    "Just retired",
+    "A few years in",
+    "Semi-retired"
+   ]
+  },
+  {
+   "key": "energy",
+   "label": "Energy",
+   "type": "chips",
+   "options": [
+    "Low",
+    "Medium",
+    "High"
+   ]
+  },
+  {
+   "key": "interests",
+   "label": "Things you've always enjoyed",
+   "type": "text",
+   "placeholder": "gardening, crosswords, old cars, church choir"
+  }
+ ],
+ "tools": [
+  {
+   "id": "week",
+   "title": "Design my week",
+   "subtitle": "Structure without a boss",
+   "emoji": "🗓️",
+   "inputs": [
+    {
+     "key": "style",
+     "label": "I want a week that is",
+     "type": "chips",
+     "options": [
+      "Gently structured",
+      "Busy and social",
+      "Quiet and creative",
+      "Half work, half play"
+     ],
+     "default": "Gently structured"
+    },
+    {
+     "key": "fixed",
+     "label": "Fixed commitments",
+     "type": "text",
+     "placeholder": "grandkids Tuesdays, physio Thursday 10am"
+    }
+   ],
+   "prompt": "Design a weekly rhythm for the profile, style: {style}, around fixed commitments: {fixed}. A table (Day | Morning | Afternoon | Evening) with anchors rather than minute-by-minute schedules, bullets on the 3 anchors that matter most (movement, people, purpose), and a callout on protecting unstructured time.",
+   "shape": "table, bullets, callout",
+   "button": "Design it",
+   "loading": "Shaping the week…"
+  },
+  {
+   "id": "hobby",
+   "title": "Find a new hobby",
+   "subtitle": "Matched to hands, budget and energy",
+   "emoji": "🎨",
+   "inputs": [
+    {
+     "key": "kind",
+     "label": "I'd like something",
+     "type": "chips",
+     "options": [
+      "Creative",
+      "Outdoors",
+      "Learning",
+      "Social",
+      "Making money on the side",
+      "Physical"
+     ],
+     "default": "Creative"
+    },
+    {
+     "key": "budget",
+     "label": "Budget to start",
+     "type": "number",
+     "placeholder": "50"
+    }
+   ],
+   "prompt": "Suggest 5 {kind} hobbies for the profile with a start budget of {budget}: cards (meta = cost to start · solo or social · energy needed), each with why it suits the profile's interests. Then steps to try the best-fit one in the next 7 days, and bullets of where to find local groups or beginner classes (types of venues, not specific addresses).",
+   "shape": "cards, steps, bullets",
+   "button": "Suggest",
+   "loading": "Browsing ideas…"
+  },
+  {
+   "id": "purpose",
+   "title": "Purpose after work",
+   "subtitle": "Volunteering, mentoring, projects",
+   "emoji": "🌱",
+   "inputs": [
+    {
+     "key": "skills",
+     "label": "What you were good at",
+     "type": "longtext",
+     "placeholder": "35 years in nursing; organising people; fixing things",
+     "required": true
+    }
+   ],
+   "prompt": "From: {skills} — propose 4 ways to contribute as cards (meta = hours per week · commitment length), covering one volunteering role, one mentoring or teaching idea, one community project and one light paid option. Then a kv (First call to make | What to say | What to ask), and a quote with a one-sentence 'what I do now' answer for parties.",
+   "shape": "cards, kv, quote",
+   "button": "Find purpose",
+   "loading": "Thinking…"
+  },
+  {
+   "id": "bucket",
+   "title": "Plan a big one",
+   "subtitle": "Trip, project or milestone",
+   "emoji": "🧭",
+   "inputs": [
+    {
+     "key": "dream",
+     "label": "What is it?",
+     "type": "text",
+     "placeholder": "see the Northern Lights",
+     "required": true
+    },
+    {
+     "key": "when",
+     "label": "When",
+     "type": "text",
+     "placeholder": "next winter"
+    }
+   ],
+   "prompt": "Turn '{dream}' by {when} into a plan for the profile's energy level: steps in order with rough dates working back from {when}, a table (Item | Estimated cost | Book by), a checklist of health, mobility and insurance preparation, and a callout on the one thing people regret not booking early.",
+   "shape": "steps, table, checklist, callout",
+   "button": "Plan it",
+   "loading": "Mapping it out…"
+  },
+  {
+   "id": "identity",
+   "title": "Who am I now?",
+   "subtitle": "The shift nobody warns you about",
+   "emoji": "💬",
+   "inputs": [
+    {
+     "key": "feeling",
+     "label": "How it's going",
+     "type": "longtext",
+     "placeholder": "I feel useless on Monday mornings; my partner is fed up with me being underfoot",
+     "required": true
+    }
+   ],
+   "prompt": "Respond to: {feeling}. A text section that names the transition honestly and normalises it, bullets of 4 small experiments to try this week, a quote with a script for a conversation with a partner or friend about the change, and a callout on signs that low mood has become more than adjustment and it's worth talking to a GP.",
+   "shape": "text, bullets, quote, callout",
+   "button": "Talk it through",
+   "loading": "Listening…"
+  }
+ ],
+ "disclaimer": "Second Act offers lifestyle ideas, not financial, medical or mental-health advice; talk to a professional for those."
+}

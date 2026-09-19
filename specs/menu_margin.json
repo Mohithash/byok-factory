@@ -1,0 +1,199 @@
+{
+ "id": "menu_margin",
+ "name": "Menu Margins",
+ "tagline": "Know what every dish really earns",
+ "category": "Business",
+ "colors": [
+  "#B71C1C",
+  "#FFC107",
+  "#33691E"
+ ],
+ "icon": "flame",
+ "about": "Menu Margins costs every dish from its recipe, sorts your menu into stars and dogs, reprices for your target food cost and rewrites descriptions that sell.",
+ "persona": "You are a restaurant consultant who has run kitchens: obsessed with food-cost percentage, plate-count data and menu psychology, and honest when a dish should be cut.",
+ "onboarding": {
+  "title": "Price the menu, not the guesswork",
+  "subtitle": "A few numbers about your place make the maths accurate.",
+  "bullets": [
+   "Plate cost & margin per dish",
+   "Star / plowhorse / puzzle / dog matrix",
+   "Descriptions and layouts that sell"
+  ]
+ },
+ "profile": [
+  {
+   "key": "venue",
+   "label": "Venue",
+   "type": "text",
+   "placeholder": "40-cover bistro, dinner only"
+  },
+  {
+   "key": "target",
+   "label": "Target food cost %",
+   "type": "number",
+   "placeholder": "30"
+  },
+  {
+   "key": "cuisine",
+   "label": "Cuisine",
+   "type": "chips",
+   "options": [
+    "Café",
+    "Bistro",
+    "Pizza",
+    "Asian",
+    "Indian",
+    "Bar food",
+    "Fine dining",
+    "Other"
+   ]
+  },
+  {
+   "key": "currency",
+   "label": "Currency",
+   "type": "chips",
+   "options": [
+    "USD",
+    "EUR",
+    "GBP",
+    "INR",
+    "AUD",
+    "CAD"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "cost",
+   "title": "Cost a dish",
+   "subtitle": "Recipe + prices → plate cost and margin",
+   "emoji": "🧾",
+   "inputs": [
+    {
+     "key": "dish",
+     "label": "Dish",
+     "type": "text",
+     "placeholder": "chicken parmigiana",
+     "required": true
+    },
+    {
+     "key": "recipe",
+     "label": "Recipe with quantities & purchase prices",
+     "type": "longtext",
+     "placeholder": "250g chicken breast (7.20/kg), 80g mozzarella (8/kg), 120g passata…",
+     "required": true
+    },
+    {
+     "key": "price",
+     "label": "Current menu price",
+     "type": "number",
+     "placeholder": "16"
+    }
+   ],
+   "prompt": "Cost {dish} at menu price {price} from: {recipe}. Table (Ingredient | Qty | Unit cost | Line cost) including a 5% waste and garnish allowance, kv (plate cost, food cost %, gross profit per plate, price needed to hit the profile target), bullets of 3 ways to cut the plate cost without guests noticing, and a callout if the food cost is over 35%.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Cost it",
+   "loading": "Weighing portions…"
+  },
+  {
+   "id": "matrix",
+   "title": "Menu engineering",
+   "subtitle": "Stars, plowhorses, puzzles, dogs",
+   "emoji": "⭐",
+   "inputs": [
+    {
+     "key": "sales",
+     "label": "Dishes with price, plate cost and units sold",
+     "type": "longtext",
+     "placeholder": "Burger 14 / 4.10 / 220; Risotto 15 / 3.80 / 60; Sea bass 24 / 11 / 45…",
+     "required": true
+    }
+   ],
+   "prompt": "Menu-engineer these dishes: {sales}. Compute contribution margin and popularity for each, then a table (Dish | Price | Margin | Units | Class) using Star / Plowhorse / Puzzle / Dog, a kv stating the margin and popularity thresholds you used, cards with one action per class (meta = expected effect), and a callout on the two changes to make first.",
+   "shape": "table, kv, cards, callout",
+   "button": "Classify",
+   "loading": "Sorting the menu…"
+  },
+  {
+   "id": "reprice",
+   "title": "Reprice the menu",
+   "subtitle": "New prices with the psychology built in",
+   "emoji": "💷",
+   "inputs": [
+    {
+     "key": "menu",
+     "label": "Menu items with prices and plate costs",
+     "type": "longtext",
+     "placeholder": "Margherita 11 (cost 2.40), Diavola 13 (cost 3.30)…",
+     "required": true
+    },
+    {
+     "key": "goal",
+     "label": "Goal",
+     "type": "chips",
+     "options": [
+      "Hit target food cost",
+      "Absorb supplier increases",
+      "Premium repositioning",
+      "Value push"
+     ],
+     "default": "Hit target food cost"
+    }
+   ],
+   "prompt": "Reprice this menu for '{goal}': {menu}. Table (Item | Now | Suggested | Food cost % after | Why) using charm-pricing and anchor logic, bullets on which items to raise, hold or cut, a quote with a 2-sentence note to staff explaining the changes to guests, and a callout on how to phase the increases.",
+   "shape": "table, bullets, quote, callout",
+   "button": "Reprice",
+   "loading": "Recalculating…"
+  },
+  {
+   "id": "photo",
+   "title": "Critique my menu",
+   "subtitle": "Photo of the menu → layout and copy fixes",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of your printed menu or board",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Critique the menu in the photo: bullets on layout, eye-flow, price formatting and description quality, a table (Item | Issue | Rewrite) with rewritten descriptions for up to 6 items, steps to re-lay-out the page for higher average spend, and a callout on any allergen or legal labelling gaps to check.",
+   "shape": "bullets, table, steps, callout",
+   "button": "Critique",
+   "loading": "Reading the menu…"
+  },
+  {
+   "id": "special",
+   "title": "Price a special",
+   "subtitle": "Tonight's dish, priced and pitched",
+   "emoji": "🍽️",
+   "inputs": [
+    {
+     "key": "special",
+     "label": "Tonight's special",
+     "type": "text",
+     "placeholder": "pan-seared duck breast with cherry jus",
+     "required": true
+    },
+    {
+     "key": "cost",
+     "label": "Plate cost",
+     "type": "number",
+     "placeholder": "7.40"
+    },
+    {
+     "key": "covers",
+     "label": "Expected covers",
+     "type": "number",
+     "placeholder": "35"
+    }
+   ],
+   "prompt": "For the special '{special}' at plate cost {cost} and {covers} covers: kv (suggested price, food cost %, gross profit per plate, total GP if sold out), a quote with a 25-word server upsell line, bullets of 3 pairing add-ons with their margins, and a callout on the minimum plates to sell before prep cost is covered.",
+   "shape": "kv, quote, bullets, callout",
+   "button": "Price it",
+   "loading": "Plating…"
+  }
+ ],
+ "disclaimer": "Business guidance only, not financial advice; verify allergen and labelling requirements against local regulations."
+}

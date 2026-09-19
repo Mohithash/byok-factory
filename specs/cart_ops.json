@@ -1,0 +1,196 @@
+{
+ "id": "cart_ops",
+ "name": "Cart Ops",
+ "tagline": "Run your online store like a pro ops team",
+ "category": "Business",
+ "colors": [
+  "#E65100",
+  "#1E88E5",
+  "#43A047"
+ ],
+ "icon": "cart",
+ "about": "Cart Ops works the back end of an online store: SKU unit economics, shipping and returns policies, abandoned-cart sequences, product-page critiques and stock-out playbooks.",
+ "persona": "You are a DTC e-commerce operator who has scaled stores: contribution-margin first, conversion-obsessed, and practical about carriers, packaging and returns.",
+ "onboarding": {
+  "title": "Profit per order, not just orders",
+  "subtitle": "Platform and product type shape the advice.",
+  "bullets": [
+   "Unit economics per SKU",
+   "Shipping & returns policies",
+   "Abandoned-cart email sequences"
+  ]
+ },
+ "profile": [
+  {
+   "key": "store",
+   "label": "Store",
+   "type": "text",
+   "placeholder": "skincare, 40 SKUs"
+  },
+  {
+   "key": "platform",
+   "label": "Platform",
+   "type": "chips",
+   "options": [
+    "Shopify",
+    "WooCommerce",
+    "Amazon",
+    "Etsy",
+    "BigCommerce",
+    "Other"
+   ]
+  },
+  {
+   "key": "aov",
+   "label": "Average order value",
+   "type": "number",
+   "placeholder": "54"
+  },
+  {
+   "key": "ships",
+   "label": "Ships to",
+   "type": "chips",
+   "options": [
+    "Domestic only",
+    "Domestic + a few countries",
+    "Worldwide"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "unit",
+   "title": "SKU unit economics",
+   "subtitle": "What each product earns after everything",
+   "emoji": "🧮",
+   "inputs": [
+    {
+     "key": "sku",
+     "label": "SKU numbers",
+     "type": "longtext",
+     "placeholder": "Face oil 30ml: price 38, COGS 9.20, packaging 1.10, shipping 4.50, payment fees 3%, CAC ~11…",
+     "required": true
+    }
+   ],
+   "prompt": "Compute unit economics for: {sku}. Table (SKU | Price | Landed COGS | Fulfilment | Fees | CAC | Contribution margin | CM %), kv (blended CM %, break-even CAC, orders per month needed to cover any fixed costs mentioned), bullets of the 3 biggest margin leaks, and a callout on any SKU that loses money after CAC.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Calculate",
+   "loading": "Summing pennies…"
+  },
+  {
+   "id": "shipping",
+   "title": "Shipping & returns policy",
+   "subtitle": "Thresholds, who pays, the page copy",
+   "emoji": "📦",
+   "inputs": [
+    {
+     "key": "free",
+     "label": "Free shipping?",
+     "type": "chips",
+     "options": [
+      "Never",
+      "Over a threshold",
+      "Always"
+     ],
+     "default": "Over a threshold"
+    },
+    {
+     "key": "threshold",
+     "label": "Threshold",
+     "type": "number",
+     "placeholder": "60"
+    },
+    {
+     "key": "returns",
+     "label": "Returns window",
+     "type": "chips",
+     "options": [
+      "14 days",
+      "30 days",
+      "60 days",
+      "Final sale"
+     ],
+     "default": "30 days"
+    }
+   ],
+   "prompt": "Design shipping and returns for the profile store: free shipping {free} at {threshold}, returns window {returns}. kv (recommended threshold vs the profile AOV, expected AOV lift, cost per order at the threshold), a quote with customer-facing policy text (one paragraph for shipping, one for returns), a table (Scenario | Who pays | Refund type | Notes) for damaged, changed-mind, wrong-item and late-delivery cases, and a callout on legal minimums to check for the ship-to regions.",
+   "shape": "kv, quote, table, callout",
+   "button": "Write policy",
+   "loading": "Boxing it up…"
+  },
+  {
+   "id": "abandon",
+   "title": "Abandoned-cart sequence",
+   "subtitle": "Three emails that bring them back",
+   "emoji": "🛒",
+   "inputs": [
+    {
+     "key": "product",
+     "label": "Typical cart",
+     "type": "text",
+     "placeholder": "vitamin C serum + cleanser"
+    },
+    {
+     "key": "incentive",
+     "label": "Incentive",
+     "type": "chips",
+     "options": [
+      "None",
+      "Free shipping",
+      "10% off",
+      "Gift with purchase"
+     ],
+     "default": "None"
+    }
+   ],
+   "prompt": "Write a 3-email abandoned-cart sequence for a cart like '{product}' with incentive: {incentive}. Table (Email | Send after | Subject line | Goal), then a quote with the full copy of all three emails, each under 120 words and clearly numbered, bullets with SMS and push variants, and a callout on frequency caps and unsubscribe hygiene.",
+   "shape": "table, quote, bullets, callout",
+   "button": "Write sequence",
+   "loading": "Nudging carts…"
+  },
+  {
+   "id": "page",
+   "title": "Critique a product page",
+   "subtitle": "Screenshot → conversion fixes",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Screenshot of the product page",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Critique the product-page screenshot for conversion: table (Element | Now | Fix | Priority) covering title, price display, images, trust signals, CTA, shipping info and reviews, a quote with a rewritten title and the first 2 lines of description, a checklist of quick wins under 30 minutes, and a callout on any claim that may need substantiation.",
+   "shape": "table, quote, checklist, callout",
+   "button": "Critique page",
+   "loading": "Scrolling…"
+  },
+  {
+   "id": "stockout",
+   "title": "Stock-out playbook",
+   "subtitle": "Keep selling when the shelf is empty",
+   "emoji": "🚫",
+   "inputs": [
+    {
+     "key": "item",
+     "label": "Item out of stock",
+     "type": "text",
+     "placeholder": "best-selling cleanser",
+     "required": true
+    },
+    {
+     "key": "eta",
+     "label": "Restock ETA",
+     "type": "text",
+     "placeholder": "3 weeks, maybe longer"
+    }
+   ],
+   "prompt": "Handle a stock-out of {item} with ETA {eta}: steps for the product page (back-in-stock capture, pre-order, substitute), a quote with the customer email for open orders, bullets of substitute-offer tactics, and a kv of the metrics to watch (lost sessions, waitlist size, refund rate).",
+   "shape": "steps, quote, bullets, kv",
+   "button": "Make a plan",
+   "loading": "Planning…"
+  }
+ ],
+ "disclaimer": "General e-commerce guidance, not legal advice; consumer and distance-selling rules vary by region."
+}

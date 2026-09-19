@@ -1,0 +1,183 @@
+{
+ "id": "ivf_companion",
+ "name": "IVF Companion",
+ "tagline": "Your cycle, your protocol, one calm place",
+ "category": "Medical",
+ "colors": [
+  "#00838F",
+  "#8E24AA",
+  "#FF8A65"
+ ],
+ "icon": "pill",
+ "about": "IVF Companion explains each stage of fertility treatment, turns your clinic protocol into a day-by-day schedule, checks side effects, preps transfer day and decodes scan, embryo and hCG results.",
+ "persona": "You are a fertility nurse specialist: organised, warm, precise about protocols but always deferring to the user's clinic, and mindful of how emotionally hard treatment is.",
+ "onboarding": {
+  "title": "One step at a time",
+  "subtitle": "Your treatment type shapes the schedule and advice.",
+  "bullets": [
+   "Protocol → daily schedule",
+   "Side-effect checks",
+   "Transfer & results support"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "treatment",
+   "label": "Treatment",
+   "type": "chips",
+   "options": [
+    "IVF",
+    "ICSI",
+    "IUI",
+    "Frozen embryo transfer",
+    "Egg freezing",
+    "Donor cycle"
+   ]
+  },
+  {
+   "key": "cycle",
+   "label": "Cycle number",
+   "type": "chips",
+   "options": [
+    "1st",
+    "2nd",
+    "3rd+"
+   ]
+  },
+  {
+   "key": "notes",
+   "label": "Diagnosis / notes",
+   "type": "text",
+   "placeholder": "low AMH, endometriosis, male factor"
+  }
+ ],
+ "tools": [
+  {
+   "id": "schedule",
+   "title": "Build my schedule",
+   "subtitle": "Paste the protocol",
+   "emoji": "💉",
+   "inputs": [
+    {
+     "key": "protocol",
+     "label": "Clinic protocol / instructions",
+     "type": "longtext",
+     "placeholder": "Gonal-F 225 from day 2, Cetrotide from day 6, scan day 8, trigger when 3 follicles over 17mm…",
+     "required": true
+    },
+    {
+     "key": "start",
+     "label": "Start date",
+     "type": "text",
+     "placeholder": "3 October"
+    }
+   ],
+   "prompt": "Turn this protocol into a schedule starting {start}: {protocol}. Sections: a table (Date | Day | Medication & dose | Time | Appointment or test | Notes), a checklist of supplies and storage (fridge items, sharps bin, pen needles, swabs), steps for injection technique and site rotation, and a callout that the clinic's written instructions override this and to call the clinic if anything conflicts.",
+   "shape": "table, checklist, steps, callout",
+   "button": "Build schedule",
+   "loading": "Organising…"
+  },
+  {
+   "id": "explain",
+   "title": "Explain this stage",
+   "subtitle": "What's happening and why",
+   "emoji": "📖",
+   "inputs": [
+    {
+     "key": "stage",
+     "label": "Stage",
+     "type": "chips",
+     "options": [
+      "Down-regulation",
+      "Stimulation",
+      "Monitoring scans",
+      "Trigger",
+      "Egg collection",
+      "Fertilisation & embryo updates",
+      "Transfer",
+      "Luteal support",
+      "Two-week wait"
+     ],
+     "default": "Stimulation"
+    }
+   ],
+   "prompt": "Explain {stage} for the profile's treatment and cycle number. Sections: text on what happens and why, kv (typical duration, what the clinic measures, what good looks like in general terms, common feelings), bullets of practical tips, and a callout on what to phone the clinic about at this stage.",
+   "shape": "text, kv, bullets, callout",
+   "button": "Explain",
+   "loading": "Explaining…"
+  },
+  {
+   "id": "side",
+   "title": "Side-effect check",
+   "subtitle": "Bloating, pain, headaches, mood",
+   "emoji": "🌡️",
+   "inputs": [
+    {
+     "key": "symptom",
+     "label": "What you're feeling",
+     "type": "longtext",
+     "placeholder": "very bloated 3 days after collection, hard to breathe lying flat, weight up 2kg",
+     "required": true
+    }
+   ],
+   "prompt": "Assess: {symptom} for the profile's treatment. Sections: a callout with a level (Expected, self-care / Call the clinic today / Emergency now), text on the likely cause, bullets of what helps, and a checklist of OHSS and other red flags (rapid weight gain, breathlessness, severe pain, low urine output, calf swelling).",
+   "shape": "callout, text, bullets, checklist",
+   "button": "Check",
+   "loading": "Reviewing…"
+  },
+  {
+   "id": "transfer",
+   "title": "Transfer day prep",
+   "subtitle": "What to do, what not to worry about",
+   "emoji": "🌱",
+   "inputs": [
+    {
+     "key": "date",
+     "label": "Transfer date",
+     "type": "text",
+     "placeholder": "17 October"
+    },
+    {
+     "key": "type",
+     "label": "Embryo",
+     "type": "chips",
+     "options": [
+      "Fresh",
+      "Frozen",
+      "Not sure"
+     ],
+     "default": "Frozen"
+    }
+   ],
+   "prompt": "Prepare for a {type} embryo transfer on {date} for the profile. Sections: a checklist for the 48h before (medications, bladder timing, what to wear, what to bring), kv (what happens in the room, how long, what you'll be told), bullets of evidence-based do's and don'ts afterwards (normal activity is fine; bed rest is not needed), and a quote with a grounding phrase for the procedure.",
+   "shape": "checklist, kv, bullets, quote",
+   "button": "Prep me",
+   "loading": "Preparing…"
+  },
+  {
+   "id": "results",
+   "title": "Decode results",
+   "subtitle": "Scans, embryo grades, beta hCG",
+   "emoji": "🔬",
+   "inputs": [
+    {
+     "key": "results",
+     "label": "What the clinic said",
+     "type": "longtext",
+     "placeholder": "8 eggs, 6 mature, 4 fertilised, day 5: one 4AA, one 3BB",
+     "required": true
+    }
+   ],
+   "prompt": "Explain in plain English: {results} for the profile. Sections: a table (Item | Your number or grade | What it means | Typical range), text on what this suggests for next steps without promising outcomes, bullets of questions to ask the embryologist or nurse, and a callout that grades and numbers are imperfect predictors and the clinic makes the decisions.",
+   "shape": "table, text, bullets, callout",
+   "button": "Decode",
+   "loading": "Interpreting…"
+  }
+ ],
+ "disclaimer": "General information to support your treatment, not medical advice. Your clinic's written protocol and instructions always take precedence; call your clinic for any concern and emergency services for severe symptoms."
+}

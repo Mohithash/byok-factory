@@ -1,0 +1,190 @@
+{
+ "id": "big_sibling",
+ "name": "Big Sibling",
+ "tagline": "Get your toddler ready for the new baby",
+ "category": "Parenting",
+ "colors": [
+  "#F9A825",
+  "#00897B",
+  "#EC407A"
+ ],
+ "icon": "gift",
+ "about": "Big Sibling prepares a toddler for a new baby with a week-by-week timeline, plans the birth days and the first meeting, handles jealousy and regression, and protects one-on-one time once the baby is home.",
+ "persona": "You are a family therapist who specialises in sibling arrivals: practical, warm, honest that some regression is normal, and focused on the older child's sense of security.",
+ "onboarding": {
+  "title": "Two kids, one secure toddler",
+  "subtitle": "Tell us about your older child and when the baby is due.",
+  "bullets": [
+   "Week-by-week prep timeline",
+   "First-meeting plan",
+   "Jealousy & regression fixes"
+  ]
+ },
+ "profile": [
+  {
+   "key": "child",
+   "label": "Older child's name & age",
+   "type": "text",
+   "placeholder": "Ellie, 2 years 10 months",
+   "required": true
+  },
+  {
+   "key": "due",
+   "label": "Baby due date / arrival",
+   "type": "text",
+   "placeholder": "12 Nov"
+  },
+  {
+   "key": "changes",
+   "label": "Changes coming",
+   "type": "chips",
+   "options": [
+    "Moving out of the cot",
+    "Starting nursery",
+    "Potty training",
+    "Moving room",
+    "None"
+   ],
+   "multi": true
+  },
+  {
+   "key": "help",
+   "label": "Help during the birth",
+   "type": "chips",
+   "options": [
+    "Grandparents",
+    "Friend",
+    "Partner staying home",
+    "Unsure"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "timeline",
+   "title": "Prep timeline",
+   "subtitle": "What to do each week before the due date",
+   "emoji": "📅",
+   "inputs": [
+    {
+     "key": "weeks",
+     "label": "Weeks until due date",
+     "type": "number",
+     "placeholder": "8"
+    },
+    {
+     "key": "notes",
+     "label": "Notes",
+     "type": "text",
+     "placeholder": "she keeps asking if the baby will take her toys"
+    }
+   ],
+   "prompt": "Build a {weeks}-week preparation timeline for the profile, notes: {notes}. A table (Week | Do | Say | Avoid), bullets of books and play ideas for this age, steps for making any big change (cot, room, nursery) at least 6 weeks before or well after the birth, and a callout on what a toddler of this age can and cannot understand about 'a baby is coming'.",
+   "shape": "table, bullets, steps, callout",
+   "button": "Build timeline",
+   "loading": "Counting weeks…"
+  },
+  {
+   "id": "birthday",
+   "title": "Birth-day plan",
+   "subtitle": "Who has the toddler, what they hear",
+   "emoji": "🏥",
+   "inputs": [
+    {
+     "key": "birth",
+     "label": "Birth type",
+     "type": "chips",
+     "options": [
+      "Hospital, unknown timing",
+      "Planned c-section / induction",
+      "Home birth"
+     ],
+     "default": "Hospital, unknown timing"
+    },
+    {
+     "key": "carers",
+     "label": "Who can step in",
+     "type": "text",
+     "placeholder": "my mum (40 min away), neighbour for emergencies"
+    }
+   ],
+   "prompt": "Plan the toddler's care for a '{birth}' with helpers: {carers}. Steps for the go-bag and handover, a table (Scenario: 3am / daytime / long stay | Who | What the toddler is told | Comfort items), a quote with age-appropriate words for 'Mummy is going to have the baby', and a checklist for the carer's fridge door.",
+   "shape": "steps, table, quote, checklist",
+   "button": "Plan it",
+   "loading": "Packing the go-bag…"
+  },
+  {
+   "id": "meet",
+   "title": "First meeting",
+   "subtitle": "Introducing the baby",
+   "emoji": "🍼",
+   "inputs": [
+    {
+     "key": "where",
+     "label": "Where",
+     "type": "chips",
+     "options": [
+      "Hospital",
+      "At home",
+      "Grandparents' house"
+     ],
+     "default": "At home"
+    }
+   ],
+   "prompt": "Script the first meeting {where}: steps (who holds the baby when the toddler walks in, the gift 'from the baby', a first job), a quote with what to say in the first minute, bullets of photos and rituals for the day, and a callout on visitors and protecting the toddler's nap.",
+   "shape": "steps, quote, bullets, callout",
+   "button": "Script it",
+   "loading": "Setting the scene…"
+  },
+  {
+   "id": "jealous",
+   "title": "Jealousy & regression",
+   "subtitle": "Hitting the baby, wanting a bottle",
+   "emoji": "😤",
+   "inputs": [
+    {
+     "key": "what",
+     "label": "What's happening",
+     "type": "text",
+     "placeholder": "asks to go back in nappies and pinched the baby twice",
+     "required": true
+    },
+    {
+     "key": "weeks_home",
+     "label": "Weeks since baby came home",
+     "type": "number",
+     "placeholder": "3"
+    }
+   ],
+   "prompt": "For: {what} ({weeks_home} weeks in): a table (Behaviour | What it's communicating | Respond), a quote with the limit-plus-love script for aggression toward the baby, steps for a 2-week plan of predictable one-on-one time, bullets on regression to allow versus gently steer, and a callout on safety supervision around a newborn.",
+   "shape": "table, quote, steps, bullets, callout",
+   "button": "Help",
+   "loading": "Holding both…"
+  },
+  {
+   "id": "special",
+   "title": "Special time rituals",
+   "subtitle": "10 minutes a day that fixes most things",
+   "emoji": "⭐",
+   "inputs": [
+    {
+     "key": "minutes",
+     "label": "Minutes available daily",
+     "type": "number",
+     "placeholder": "10"
+    },
+    {
+     "key": "likes",
+     "label": "What the older child loves",
+     "type": "text",
+     "placeholder": "trains, puddles, baking"
+    }
+   ],
+   "prompt": "Design daily 'special time' of {minutes} minutes around {likes}: cards for 7 ritual ideas (meta = minutes · baby asleep or awake), a kv of rules (child leads, phone away, name it), bullets on involving the toddler as a helper without it becoming a chore, and a quote with a 2-line closing phrase for the ritual.",
+   "shape": "cards, kv, bullets, quote",
+   "button": "Design",
+   "loading": "Making it special…"
+  }
+ ],
+ "disclaimer": "General parenting guidance, not a clinical assessment. If a child's behaviour is causing injury, regressing sharply, or you feel unable to cope, speak to your GP, health visitor or paediatrician."
+}

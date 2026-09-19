@@ -1,0 +1,191 @@
+{
+ "id": "lipid_lens",
+ "name": "Lipid Lens",
+ "tagline": "Cholesterol numbers explained, and a plan to move them",
+ "category": "Medical",
+ "colors": [
+  "#558B2F",
+  "#6A1B9A",
+  "#FF8F00"
+ ],
+ "icon": "graph",
+ "about": "Lipid Lens explains your cholesterol panel, scans labels for saturated fat, builds 12-week eating and movement plans, and helps you prepare for the statin conversation with your doctor.",
+ "persona": "You are a preventive-cardiology dietitian: numbers-savvy, non-judgemental, evidence-first, and clear that medication decisions rest with the prescriber.",
+ "onboarding": {
+  "title": "See what your numbers mean",
+  "subtitle": "Your results and history make the plan personal.",
+  "bullets": [
+   "Lipid panel explained",
+   "Label scans for saturated fat",
+   "12-week eating and movement plans"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "panel",
+   "label": "Latest results",
+   "type": "text",
+   "placeholder": "Total 6.2, LDL 4.1, HDL 1.2, TG 1.8 mmol/L"
+  },
+  {
+   "key": "risk",
+   "label": "Also relevant",
+   "type": "chips",
+   "options": [
+    "Family history",
+    "Diabetes",
+    "High blood pressure",
+    "Smoker / ex-smoker",
+    "Overweight",
+    "None of these"
+   ],
+   "multi": true
+  },
+  {
+   "key": "statin",
+   "label": "Statin",
+   "type": "chips",
+   "options": [
+    "Not on one",
+    "Taking one",
+    "Deciding"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "panel",
+   "title": "Explain my panel",
+   "subtitle": "LDL, HDL, triglycerides, ratios",
+   "emoji": "🔬",
+   "inputs": [
+    {
+     "key": "units",
+     "label": "Units",
+     "type": "chips",
+     "options": [
+      "mmol/L",
+      "mg/dL"
+     ],
+     "default": "mmol/L"
+    },
+    {
+     "key": "new",
+     "label": "New results (if different from profile)",
+     "type": "text"
+    }
+   ],
+   "prompt": "Explain the profile results, or {new} if given, in {units}. Table (Marker | Your value | Commonly used target | Direction to move), text on what each marker does in plain English, a kv of derived numbers (non-HDL cholesterol, total/HDL ratio) and what they add, bullets of 3 questions for the doctor, and a callout that targets depend on overall cardiovascular risk which only the clinician can score.",
+   "shape": "table, text, kv, bullets, callout",
+   "button": "Explain",
+   "loading": "Reading the panel…"
+  },
+  {
+   "id": "label",
+   "title": "Saturated-fat label scan",
+   "subtitle": "Photo → verdict",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Nutrition label photo",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Read the label: kv (saturated fat per serving and per 100 g, trans fat, fibre, sugars, servings per pack, traffic-light rating high/medium/low), a text verdict on whether it fits a cholesterol-lowering pattern and how often, and bullets of 3 swaps in the same category with lower saturated fat.",
+   "shape": "kv, text, bullets",
+   "button": "Scan label",
+   "loading": "Reading fats…"
+  },
+  {
+   "id": "plan",
+   "title": "12-week plan",
+   "subtitle": "Food and movement that move LDL",
+   "emoji": "📅",
+   "inputs": [
+    {
+     "key": "diet",
+     "label": "Diet",
+     "type": "chips",
+     "options": [
+      "Anything",
+      "Vegetarian",
+      "Vegan",
+      "Mediterranean",
+      "Halal"
+     ],
+     "default": "Mediterranean"
+    },
+    {
+     "key": "habits",
+     "label": "Current habits",
+     "type": "text",
+     "placeholder": "cheese daily, walks 2×/week, takeaway Fridays"
+    },
+    {
+     "key": "minutes",
+     "label": "Minutes per week you can exercise",
+     "type": "number",
+     "placeholder": "150"
+    }
+   ],
+   "prompt": "Build a 12-week plan for '{diet}' starting from the habits '{habits}' with {minutes} minutes of exercise per week. Table (Weeks | Food changes | Movement | Expected direction of LDL and triglycerides), cards for 5 go-to meals (meta = minutes · sat fat g · fibre g), a checklist of pantry additions (oats, beans, nuts, plant sterols, oily fish or alternatives), and a callout on when to re-test and that diet alone typically shifts LDL by a modest percentage.",
+   "shape": "table, cards, checklist, callout",
+   "button": "Build plan",
+   "loading": "Planning weeks…"
+  },
+  {
+   "id": "statin",
+   "title": "The statin conversation",
+   "subtitle": "Weigh it up with your doctor",
+   "emoji": "💊",
+   "inputs": [
+    {
+     "key": "concerns",
+     "label": "Your concerns or questions",
+     "type": "text",
+     "placeholder": "worried about muscle aches, my dad took them",
+     "required": true
+    }
+   ],
+   "prompt": "Prepare for a statin discussion given the concerns '{concerns}' and the profile risk factors. Table (Concern | What the evidence generally says | Question to ask), bullets on what a risk calculator uses and what a 10-year percentage risk means, a quote with 3 sentences the user can say to open the conversation, and a callout that the decision belongs with the prescriber and that unexplained muscle pain or dark urine on a statin needs prompt review.",
+   "shape": "table, bullets, quote, callout",
+   "button": "Prepare",
+   "loading": "Weighing options…"
+  },
+  {
+   "id": "eatout",
+   "title": "Eating out",
+   "subtitle": "Order well anywhere",
+   "emoji": "🍽️",
+   "inputs": [
+    {
+     "key": "cuisine",
+     "label": "Cuisine",
+     "type": "chips",
+     "options": [
+      "Indian",
+      "Italian",
+      "Chinese",
+      "Pub / burger",
+      "Mexican",
+      "Sushi",
+      "Fast food"
+     ],
+     "default": "Italian"
+    }
+   ],
+   "prompt": "For {cuisine} restaurants, produce a table (Dish | Saturated-fat verdict | Better order | Ask for), bullets on portion and sauce tactics, and a quote with what to say when ordering.",
+   "shape": "table, bullets, quote",
+   "button": "Order smart",
+   "loading": "Reading the menu…"
+  }
+ ],
+ "disclaimer": "General information, not medical advice. Cholesterol targets and medication decisions depend on your overall risk and belong to your clinician. Chest pain, breathlessness, or pain spreading to the arm or jaw is an emergency."
+}

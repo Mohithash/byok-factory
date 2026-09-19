@@ -1,0 +1,212 @@
+{
+ "id": "airway_ally",
+ "name": "Airway Ally",
+ "tagline": "Asthma control, inhaler technique and trigger tracking",
+ "category": "Medical",
+ "colors": [
+  "#0288D1",
+  "#26A69A",
+  "#FFCA28"
+ ],
+ "icon": "shield",
+ "about": "Airway Ally helps people with asthma draft a written action plan to review with their clinician, perfect inhaler technique, find triggers in a symptom diary and prepare for exercise, travel and pollen season.",
+ "persona": "You are an asthma nurse educator: practical, calm, obsessed with inhaler technique, and clear that any action plan or dose timing must be confirmed by the prescriber.",
+ "onboarding": {
+  "title": "Breathe with a plan",
+  "subtitle": "Your inhalers and triggers shape every answer.",
+  "bullets": [
+   "Action-plan draft to review with your doctor",
+   "Inhaler technique coaching",
+   "Trigger detective for your diary"
+  ]
+ },
+ "profile": [
+  {
+   "key": "preventer",
+   "label": "Preventer inhaler (optional)",
+   "type": "text",
+   "placeholder": "beclometasone 200, 2 puffs twice daily"
+  },
+  {
+   "key": "reliever",
+   "label": "Reliever inhaler",
+   "type": "text",
+   "placeholder": "salbutamol"
+  },
+  {
+   "key": "best_pef",
+   "label": "Personal best peak flow (L/min)",
+   "type": "number",
+   "placeholder": "450"
+  },
+  {
+   "key": "triggers",
+   "label": "Known triggers",
+   "type": "chips",
+   "options": [
+    "Pollen",
+    "Dust",
+    "Pets",
+    "Cold air",
+    "Exercise",
+    "Colds",
+    "Smoke",
+    "Stress"
+   ],
+   "multi": true
+  }
+ ],
+ "tools": [
+  {
+   "id": "plan",
+   "title": "Draft my action plan",
+   "subtitle": "Green / amber / red zones",
+   "emoji": "🚦",
+   "inputs": [
+    {
+     "key": "control",
+     "label": "Recent control",
+     "type": "chips",
+     "options": [
+      "Well controlled",
+      "Some night symptoms",
+      "Using reliever most days",
+      "Recent attack"
+     ],
+     "default": "Well controlled"
+    },
+    {
+     "key": "recent",
+     "label": "Recent peak flows or symptoms",
+     "type": "text",
+     "placeholder": "380–420 mornings, wheezy after running"
+    }
+   ],
+   "prompt": "Draft a personal asthma action plan around the profile inhalers and personal best, with recent control '{control}' and notes '{recent}'. Table (Zone | Peak flow as % of best and L/min | Symptoms | What to do), a checklist of items to confirm with the clinician before this is used (doses, when to start oral steroids, who to call), a quote with a 2-line summary the user could keep in a wallet, and a callout on emergency signs (reliever not lasting 4 hours, unable to speak in sentences, blue lips) and calling emergency services.",
+   "shape": "table, checklist, quote, callout",
+   "button": "Draft plan",
+   "loading": "Setting zones…"
+  },
+  {
+   "id": "inhaler",
+   "title": "Inhaler technique",
+   "subtitle": "Step-by-step for your device",
+   "emoji": "💨",
+   "inputs": [
+    {
+     "key": "device",
+     "label": "Device",
+     "type": "chips",
+     "options": [
+      "Pressurised MDI",
+      "MDI with spacer",
+      "Dry powder (Turbohaler)",
+      "Dry powder (Accuhaler / Ellipta)",
+      "Soft mist",
+      "Not sure"
+     ],
+     "default": "MDI with spacer"
+    },
+    {
+     "key": "problem",
+     "label": "What goes wrong",
+     "type": "text",
+     "placeholder": "I taste it in my mouth and cough after"
+    }
+   ],
+   "prompt": "Coach correct technique for a {device} given the problem '{problem}'. Steps (each one action with timing in seconds), a table (Common error | What it does to the dose | Fix), bullets on cleaning, priming and counting doses on the device, and a callout on rinsing after steroid inhalers and asking a pharmacist to watch the technique.",
+   "shape": "steps, table, bullets, callout",
+   "button": "Coach me",
+   "loading": "Shake and breathe…"
+  },
+  {
+   "id": "triggers",
+   "title": "Trigger detective",
+   "subtitle": "Paste your symptom diary",
+   "emoji": "🔎",
+   "inputs": [
+    {
+     "key": "diary",
+     "label": "Diary",
+     "type": "longtext",
+     "placeholder": "Mon: woke wheezy, windy day, high pollen; Tue: fine; Wed: cat visit → tight chest 20 min later…",
+     "required": true
+    }
+   ],
+   "prompt": "Analyse the diary: {diary}. Table (Suspected trigger | Episodes linked | Timing pattern | Confidence), bullets on the two most likely triggers with a plain-English explanation, steps for a 2-week avoidance test of the top suspect, and a callout that patterns are hypotheses to raise with the clinician and that worsening control (night waking, reliever more than twice a week) needs a review.",
+   "shape": "table, bullets, steps, callout",
+   "button": "Find triggers",
+   "loading": "Sniffing out clues…"
+  },
+  {
+   "id": "exercise",
+   "title": "Exercise with asthma",
+   "subtitle": "Warm-up, timing, sport picks",
+   "emoji": "🏃",
+   "inputs": [
+    {
+     "key": "sport",
+     "label": "Activity",
+     "type": "chips",
+     "options": [
+      "Running",
+      "Cycling",
+      "Swimming",
+      "Football / team sport",
+      "Gym",
+      "Hiking in the cold"
+     ],
+     "default": "Running"
+    },
+    {
+     "key": "when",
+     "label": "Symptoms usually",
+     "type": "chips",
+     "options": [
+      "During",
+      "5–10 min after",
+      "Only in cold air",
+      "Rarely"
+     ],
+     "default": "During"
+    }
+   ],
+   "prompt": "Plan {sport} for someone whose symptoms appear '{when}'. Steps for a 15-minute graded warm-up and a cool-down, a kv (reliever timing before exercise as general guidance, what to carry, stop signs), bullets on conditions that make it worse (cold, dry air, high pollen, pollution) and how to adapt, and a callout on when exercise symptoms mean the preventer plan needs review.",
+   "shape": "steps, kv, bullets, callout",
+   "button": "Plan session",
+   "loading": "Warming up…"
+  },
+  {
+   "id": "season",
+   "title": "Season & travel prep",
+   "subtitle": "Pollen, colds, cold snaps, flights",
+   "emoji": "🧳",
+   "inputs": [
+    {
+     "key": "event",
+     "label": "Coming up",
+     "type": "chips",
+     "options": [
+      "Pollen season",
+      "Winter colds",
+      "Flight / holiday",
+      "Moving house",
+      "New pet"
+     ],
+     "default": "Pollen season"
+    },
+    {
+     "key": "details",
+     "label": "Details",
+     "type": "text",
+     "placeholder": "2 weeks in Greece in July"
+    }
+   ],
+   "prompt": "Prepare for '{event}' with details '{details}' for this profile. A checklist of things to do 2 weeks before, 2 days before and on the day, a table (Risk | Why it matters for asthma | Mitigation), bullets on medication supply, prescriptions and where to keep inhalers, and a callout on knowing the local emergency number and how to say 'asthma attack' in the local language if travelling.",
+   "shape": "checklist, table, bullets, callout",
+   "button": "Prepare",
+   "loading": "Packing inhalers…"
+  }
+ ],
+ "disclaimer": "General information for people with asthma, not medical advice. Any action plan or dose timing here must be confirmed by your prescriber. If your reliever is not helping, you cannot speak in full sentences or lips look blue, call emergency services now."
+}

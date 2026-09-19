@@ -1,0 +1,198 @@
+{
+ "id": "healthspan_lab",
+ "name": "Healthspan Lab",
+ "tagline": "Track the markers that predict how well you age",
+ "category": "Health & Fitness",
+ "colors": [
+  "#1B5E20",
+  "#0091EA",
+  "#FFC400"
+ ],
+ "icon": "graph",
+ "about": "Healthspan Lab turns longevity science into weekly habits: at-home tests for chair-rise, walking pace and waist ratio, a scored weekly audit across six pillars, and plans for zone 2, connection and sleep.",
+ "persona": "You are a longevity-minded lifestyle coach: evidence-first, sceptical of hype and supplements, focused on the boring habits with the biggest payoff.",
+ "onboarding": {
+  "title": "Add life to your years",
+  "subtitle": "A baseline makes progress visible.",
+  "bullets": [
+   "At-home tests with age norms",
+   "Weekly habit score across 6 pillars",
+   "Zone 2 and connection plans"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "age",
+   "label": "Age",
+   "type": "number",
+   "placeholder": "55"
+  },
+  {
+   "key": "sex",
+   "label": "Sex (for test norms)",
+   "type": "chips",
+   "options": [
+    "Male",
+    "Female",
+    "Prefer not to say"
+   ],
+   "default": "Male"
+  },
+  {
+   "key": "focus",
+   "label": "Biggest gap",
+   "type": "chips",
+   "options": [
+    "Fitness",
+    "Strength",
+    "Sleep",
+    "Nutrition",
+    "Connection",
+    "Not sure"
+   ],
+   "default": "Not sure"
+  }
+ ],
+ "tools": [
+  {
+   "id": "baseline",
+   "title": "Baseline tests",
+   "subtitle": "Three at-home markers, scored",
+   "emoji": "📏",
+   "inputs": [
+    {
+     "key": "chair",
+     "label": "Sit-to-stands in 30 seconds",
+     "type": "number",
+     "placeholder": "14"
+    },
+    {
+     "key": "walk",
+     "label": "Time for a 400 m walk (seconds)",
+     "type": "number",
+     "placeholder": "240"
+    },
+    {
+     "key": "waist",
+     "label": "Waist / height (cm)",
+     "type": "text",
+     "placeholder": "96 / 178"
+    }
+   ],
+   "prompt": "Score these markers for the profile's age and sex: {chair} sit-to-stands in 30 seconds, 400 m walk in {walk} seconds, waist and height {waist}. Sections: a table (Marker | Your result | Age-typical range | Rating | What it predicts), bullets on the single marker to improve first, steps for retesting in 8 weeks under the same conditions, and a callout that norms are population averages, not diagnoses.",
+   "shape": "table, bullets, steps, callout",
+   "button": "Score baseline",
+   "loading": "Crunching norms…"
+  },
+  {
+   "id": "audit",
+   "title": "Score my week",
+   "subtitle": "Six pillars, one number",
+   "emoji": "🧮",
+   "inputs": [
+    {
+     "key": "week",
+     "label": "Last 7 days",
+     "type": "longtext",
+     "placeholder": "3 walks 30 min, 1 gym, avg sleep 6h, dinner with friends Sat, veg most days, 10 drinks",
+     "required": true
+    }
+   ],
+   "prompt": "Audit this week against six longevity pillars (aerobic, strength, sleep, nutrition, connection, alcohol and tobacco): {week}. Sections: a table (Pillar | What you did | Weekly target | Score /10), a kv with the overall score and the two easiest points to gain, steps for next week that fit the same schedule, and a callout on why consistency beats intensity.",
+   "shape": "table, kv, steps, callout",
+   "button": "Score it",
+   "loading": "Tallying pillars…"
+  },
+  {
+   "id": "zone2",
+   "title": "Zone 2 plan",
+   "subtitle": "Easy cardio that builds your engine",
+   "emoji": "🚶",
+   "inputs": [
+    {
+     "key": "mode",
+     "label": "Mode",
+     "type": "chips",
+     "options": [
+      "Walking",
+      "Cycling",
+      "Swimming",
+      "Rowing",
+      "Hiking"
+     ],
+     "default": "Walking"
+    },
+    {
+     "key": "current",
+     "label": "Current weekly cardio",
+     "type": "chips",
+     "options": [
+      "None",
+      "Under 1 hour",
+      "1–3 hours",
+      "3+ hours"
+     ],
+     "default": "Under 1 hour"
+    }
+   ],
+   "prompt": "A 6-week zone 2 progression for {mode} starting from '{current}' weekly cardio, for the profile's age. Sections: a table (Week | Sessions | Minutes each | Weekly total), kv explaining how to find zone 2 without a device (talk test, nasal breathing, perceived effort) and with one (a heart-rate range formula), bullets on fitting sessions into a working week, and a callout on chest pain, dizziness or unusual breathlessness.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Plan it",
+   "loading": "Setting pace…"
+  },
+  {
+   "id": "claim",
+   "title": "Is this worth it?",
+   "subtitle": "Check a longevity claim",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "claim",
+     "label": "The claim or product",
+     "type": "text",
+     "placeholder": "NMN supplements for ageing",
+     "required": true
+    }
+   ],
+   "prompt": "Assess '{claim}' honestly. Sections: text summarising what the evidence broadly shows in plain language and its strength (strong / mixed / weak / none), a kv of cost, effort and realistic payoff, bullets of the boring proven habits that deliver the same promised benefit, and a callout on discussing any supplement with a doctor or pharmacist, especially alongside existing medication.",
+   "shape": "text, kv, bullets, callout",
+   "button": "Check it",
+   "loading": "Reading the studies…"
+  },
+  {
+   "id": "social",
+   "title": "Connection plan",
+   "subtitle": "Loneliness ages you too",
+   "emoji": "🤝",
+   "inputs": [
+    {
+     "key": "style",
+     "label": "You are",
+     "type": "chips",
+     "options": [
+      "Introvert",
+      "Extrovert",
+      "Somewhere between"
+     ],
+     "default": "Somewhere between"
+    },
+    {
+     "key": "interests",
+     "label": "Interests",
+     "type": "text",
+     "placeholder": "cycling, history, cooking"
+    }
+   ],
+   "prompt": "For a '{style}' person interested in {interests}, design a month of social connection. Sections: cards for 4 concrete regular activities (meta = weekly time · cost), steps for the first week, a quote with one message to send to someone today, and bullets on keeping it going when motivation drops.",
+   "shape": "cards, steps, quote, bullets",
+   "button": "Plan month",
+   "loading": "Opening doors…"
+  }
+ ],
+ "disclaimer": "General information, not medical advice. At-home tests are rough screening tools; discuss results, new exercise and any supplement with your doctor."
+}

@@ -1,0 +1,246 @@
+{
+ "id": "clean_rota",
+ "name": "Clean Rota",
+ "tagline": "A cleaning schedule your household will actually keep",
+ "category": "House & Home",
+ "colors": [
+  "#00ACC1",
+  "#7CB342",
+  "#FFB300"
+ ],
+ "icon": "calendar",
+ "about": "Clean Rota builds weekly and monthly cleaning schedules sized to your home and energy, splits chores fairly between housemates, and plans deep cleans and 30-minute panic tidies.",
+ "persona": "You are a pragmatic professional housekeeper: efficient, allergic to perfectionism, precise about products and dwell times, and fair when splitting work between people.",
+ "onboarding": {
+  "title": "Clean enough, every week",
+  "subtitle": "Tell us about your home and who's cleaning it.",
+  "bullets": [
+   "Rotas sized to your home",
+   "Fair chore splits",
+   "Deep cleans and panic tidies"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "beds",
+   "label": "Bedrooms",
+   "type": "chips",
+   "options": [
+    "Studio",
+    "1",
+    "2",
+    "3",
+    "4+"
+   ]
+  },
+  {
+   "key": "who",
+   "label": "Who cleans",
+   "type": "chips",
+   "options": [
+    "Just me",
+    "Partner and me",
+    "Flatmates",
+    "Family with kids"
+   ]
+  },
+  {
+   "key": "extras",
+   "label": "Extras",
+   "type": "chips",
+   "options": [
+    "Pets",
+    "Allergies",
+    "Toddler",
+    "Hard water",
+    "Carpets"
+   ],
+   "multi": true
+  }
+ ],
+ "tools": [
+  {
+   "id": "rota",
+   "title": "Build my rota",
+   "subtitle": "Weekly + monthly schedule",
+   "emoji": "🗓️",
+   "inputs": [
+    {
+     "key": "minutes",
+     "label": "Minutes per day",
+     "type": "chips",
+     "options": [
+      "10",
+      "20",
+      "30",
+      "45"
+     ],
+     "default": "20"
+    },
+    {
+     "key": "days",
+     "label": "Days you'll clean",
+     "type": "chips",
+     "options": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat",
+      "Sun"
+     ],
+     "multi": true
+    },
+    {
+     "key": "priorities",
+     "label": "Must stay clean",
+     "type": "text",
+     "placeholder": "kitchen counters, bathroom, entryway"
+    }
+   ],
+   "prompt": "Build a cleaning rota for the profile's home at {minutes} minutes a day on {days}, prioritising: {priorities}. Sections: a table (Day | Tasks | Minutes | Room); a checklist of monthly tasks with the week each falls in; bullets on daily 2-minute habits that prevent the big jobs; and a callout on which tasks to drop first on a bad week.",
+   "shape": "table, checklist, bullets, callout",
+   "button": "Build rota",
+   "loading": "Scheduling…"
+  },
+  {
+   "id": "split",
+   "title": "Split the chores",
+   "subtitle": "Fair shares for housemates or family",
+   "emoji": "⚖️",
+   "inputs": [
+    {
+     "key": "people",
+     "label": "People & constraints",
+     "type": "longtext",
+     "placeholder": "Sam (works late, hates bathrooms), Jo (WFH, back pain), Ava age 9…",
+     "required": true
+    },
+    {
+     "key": "method",
+     "label": "Method",
+     "type": "chips",
+     "options": [
+      "Rotate weekly",
+      "Fixed owners",
+      "Points system",
+      "By room"
+     ],
+     "default": "Rotate weekly"
+    }
+   ],
+   "prompt": "Split the household cleaning among: {people}, using the '{method}' method. Sections: a table (Task | Frequency | Minutes | Week 1 | Week 2 | Week 3 | Week 4) with a fair minutes total per person; kv (minutes per person per week, the swap rule, what happens on a missed week); a quote with a friendly message to post in the house group chat; and a callout on age-appropriate tasks if a child is included.",
+   "shape": "table, kv, quote, callout",
+   "button": "Split fairly",
+   "loading": "Weighing chores…"
+  },
+  {
+   "id": "deep",
+   "title": "Deep-clean a room",
+   "subtitle": "Top-to-bottom method for one room",
+   "emoji": "🧽",
+   "inputs": [
+    {
+     "key": "room",
+     "label": "Room",
+     "type": "chips",
+     "options": [
+      "Kitchen",
+      "Bathroom",
+      "Bedroom",
+      "Living room",
+      "Oven",
+      "Fridge",
+      "Windows",
+      "Hallway"
+     ],
+     "default": "Kitchen"
+    },
+    {
+     "key": "time",
+     "label": "Time you have",
+     "type": "chips",
+     "options": [
+      "45 min",
+      "90 min",
+      "Half a day"
+     ],
+     "default": "90 min"
+    }
+   ],
+   "prompt": "Write a deep-clean method for the {room} in {time}, for the profile's home and extras. Sections: a checklist of supplies; steps in top-to-bottom, dry-to-wet order with minutes and dwell times per product; a table (Surface | Product | Dwell time | Tool); and a callout on products never to combine and where to ventilate.",
+   "shape": "checklist, steps, table, callout",
+   "button": "Deep clean",
+   "loading": "Rolling up sleeves…"
+  },
+  {
+   "id": "panic",
+   "title": "Guests in 30 minutes",
+   "subtitle": "The panic tidy, prioritised",
+   "emoji": "⏱️",
+   "inputs": [
+    {
+     "key": "minutes",
+     "label": "Minutes until they arrive",
+     "type": "number",
+     "placeholder": "30"
+    },
+    {
+     "key": "guest",
+     "label": "Who's coming",
+     "type": "chips",
+     "options": [
+      "Friends",
+      "Parents / in-laws",
+      "Landlord inspection",
+      "A date",
+      "Kids' playdate"
+     ],
+     "default": "Friends"
+    }
+   ],
+   "prompt": "Plan a panic clean of the profile's home with {minutes} minutes before {guest} arrive. Sections: steps ordered by what the guest sees first, each with a minute budget that totals {minutes}; bullets on things to hide and where; a callout on what to skip entirely; and a quote with a one-line text to send if you need 15 more minutes.",
+   "shape": "steps, bullets, callout, quote",
+   "button": "Go!",
+   "loading": "Hiding the laundry…"
+  },
+  {
+   "id": "products",
+   "title": "What product for this?",
+   "subtitle": "The right cleaner for the surface or mess",
+   "emoji": "🧴",
+   "inputs": [
+    {
+     "key": "mess",
+     "label": "The mess or surface",
+     "type": "text",
+     "placeholder": "limescale on a black tap",
+     "required": true
+    },
+    {
+     "key": "prefer",
+     "label": "Prefer",
+     "type": "chips",
+     "options": [
+      "Whatever works",
+      "Low-tox / homemade",
+      "Fragrance-free",
+      "Cheapest"
+     ],
+     "default": "Whatever works"
+    }
+   ],
+   "prompt": "Recommend how to clean: {mess}, preferring {prefer} products. Sections: kv (best product, homemade alternative with ratios, tool, dwell time, rinse?); steps for the method; bullets on what would damage this surface; and a callout on gloves, ventilation and product combinations to avoid.",
+   "shape": "kv, steps, bullets, callout",
+   "button": "Tell me",
+   "loading": "Checking labels…"
+  }
+ ],
+ "disclaimer": "Never mix cleaning products (especially bleach with ammonia, vinegar or other acids); ventilate, wear gloves and follow the label. General guidance, not safety advice."
+}

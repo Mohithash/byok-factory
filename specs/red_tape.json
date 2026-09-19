@@ -1,0 +1,184 @@
+{
+ "id": "red_tape",
+ "name": "Red Tape",
+ "tagline": "Register, enrol and get your local ID without the runaround",
+ "category": "Travel & Local",
+ "colors": [
+  "#B71C1C",
+  "#455A64",
+  "#FFA000"
+ ],
+ "icon": "note",
+ "about": "Red Tape maps the after-arrival admin of a new country — residence registration, tax numbers, health cover, bank, driving licence — into an ordered roadmap, explains forms field by field and scripts your office visits.",
+ "persona": "You are a seasoned relocation consultant who has done the first-month admin in dozens of countries: precise about order and dependencies, honest when rules vary by city.",
+ "onboarding": {
+  "title": "Your first month, in order",
+  "subtitle": "Tell us where you've landed and your status; the roadmap adapts.",
+  "bullets": [
+   "Ordered admin roadmap with dependencies",
+   "Forms explained field by field",
+   "Scripts for the counter"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "city",
+   "label": "City & country",
+   "type": "text",
+   "placeholder": "Munich, Germany"
+  },
+  {
+   "key": "status",
+   "label": "Status",
+   "type": "chips",
+   "options": [
+    "Employee",
+    "Student",
+    "Freelancer",
+    "Family member",
+    "Retiree"
+   ]
+  },
+  {
+   "key": "lang",
+   "label": "Local language level",
+   "type": "chips",
+   "options": [
+    "None",
+    "Basic",
+    "Conversational",
+    "Fluent"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "roadmap",
+   "title": "Admin roadmap",
+   "subtitle": "Everything to register, in the right order",
+   "emoji": "🗺️",
+   "inputs": [
+    {
+     "key": "arrived",
+     "label": "Arrival date",
+     "type": "text",
+     "placeholder": "3 March"
+    },
+    {
+     "key": "have",
+     "label": "Already sorted",
+     "type": "text",
+     "placeholder": "SIM card, temporary flat"
+    }
+   ],
+   "prompt": "Arrived {arrived}; already sorted: {have}. Build the after-arrival admin roadmap for the profile as a table (Step | Office / where | Needs first | Typical deadline | Bring), a checklist in dependency order, and a callout on the one deadline that carries fines if missed.",
+   "shape": "table, checklist, callout",
+   "button": "Map it",
+   "loading": "Ordering…"
+  },
+  {
+   "id": "form",
+   "title": "Explain this form",
+   "subtitle": "Photo → field by field",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the form",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "about",
+     "label": "What is it for",
+     "type": "text",
+     "placeholder": "residence registration"
+    }
+   ],
+   "prompt": "This form is for: {about}. Translate and explain it as a table (Field | Meaning | What to write | Notes), bullets of the fields people most often get wrong, and a callout on attachments, signatures and copies required.",
+   "shape": "table, bullets, callout",
+   "button": "Explain",
+   "loading": "Translating…"
+  },
+  {
+   "id": "visit",
+   "title": "Script my office visit",
+   "subtitle": "What to say at the counter",
+   "emoji": "🗣️",
+   "inputs": [
+    {
+     "key": "office",
+     "label": "Office & purpose",
+     "type": "text",
+     "placeholder": "town hall, register my address",
+     "required": true
+    },
+    {
+     "key": "worry",
+     "label": "What worries you",
+     "type": "text",
+     "placeholder": "they only speak the local language"
+    }
+   ],
+   "prompt": "For a visit to {office} (worry: {worry}) at the profile's language level: a checklist to bring, a quote with a short local-language opening line plus phonetic pronunciation and English meaning, a table (They may say | It means | You reply), and bullets on what to do if you're refused or sent elsewhere.",
+   "shape": "checklist, quote, table, bullets",
+   "button": "Script it",
+   "loading": "Rehearsing…"
+  },
+  {
+   "id": "licence",
+   "title": "Driving licence & car",
+   "subtitle": "Convert, insure, register",
+   "emoji": "🚗",
+   "inputs": [
+    {
+     "key": "licence",
+     "label": "Current licence",
+     "type": "text",
+     "placeholder": "UK, held 10 years"
+    },
+    {
+     "key": "car",
+     "label": "Plan",
+     "type": "chips",
+     "options": [
+      "Convert licence only",
+      "Buy a car",
+      "Bring my car",
+      "Just want to know"
+     ],
+     "default": "Convert licence only"
+    }
+   ],
+   "prompt": "Licence: {licence}; plan: {car}. kv (can you drive on the current licence now, for how long, exchange vs retest typical rule, insurance basics), steps to do it, a table of typical costs (Item | Cost range | One-off / yearly), and a callout on the common trap of missing the exchange window.",
+   "shape": "kv, steps, table, callout",
+   "button": "Explain",
+   "loading": "Checking…"
+  },
+  {
+   "id": "certify",
+   "title": "Translations & apostilles",
+   "subtitle": "Which documents need what",
+   "emoji": "📜",
+   "inputs": [
+    {
+     "key": "docs",
+     "label": "Documents you have",
+     "type": "longtext",
+     "placeholder": "birth certificate (India), degree, marriage certificate…",
+     "required": true
+    }
+   ],
+   "prompt": "For these documents used in the profile's country: {docs} — a table (Document | Apostille / legalisation needed? | Sworn translation needed? | Who can do it | Typical cost), steps in the correct order (legalise before translating, etc.), and a callout on validity windows for police certificates and civil documents.",
+   "shape": "table, steps, callout",
+   "button": "Sort it",
+   "loading": "Stamping…"
+  }
+ ],
+ "disclaimer": "General information only, not legal or immigration advice; rules change often — confirm with the official government source or a licensed immigration adviser."
+}

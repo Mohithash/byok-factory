@@ -1,0 +1,185 @@
+{
+ "id": "nursery_start",
+ "name": "Nursery Start",
+ "tagline": "Settle your baby or toddler into childcare, tear-free-ish",
+ "category": "Parenting",
+ "colors": [
+  "#00695C",
+  "#FF8A65",
+  "#FFD54F"
+ ],
+ "icon": "home",
+ "about": "Nursery Start helps you choose between nursery, childminder and nanny, plans the settling-in weeks, scripts the goodbye at drop-off, writes the key-worker handover sheet and decodes the illness policy and contract from a photo.",
+ "persona": "You are an early-years practitioner and attachment-informed parenting coach: practical, honest that settling takes weeks, and equally respectful of nursery, childminder and nanny choices.",
+ "onboarding": {
+  "title": "The first goodbye is the hardest",
+  "subtitle": "Tell us about your child and the childcare you're starting.",
+  "bullets": [
+   "Settling-in week plan",
+   "Goodbye scripts that work",
+   "Handover sheet & policy decoder"
+  ]
+ },
+ "profile": [
+  {
+   "key": "child",
+   "label": "Child's name & age",
+   "type": "text",
+   "placeholder": "Zoe, 11 months",
+   "required": true
+  },
+  {
+   "key": "setting",
+   "label": "Setting",
+   "type": "chips",
+   "options": [
+    "Nursery / daycare",
+    "Childminder",
+    "Nanny",
+    "Still deciding"
+   ]
+  },
+  {
+   "key": "start",
+   "label": "Start date & hours",
+   "type": "text",
+   "placeholder": "6 Jan, Mon–Wed 8–5"
+  },
+  {
+   "key": "temperament",
+   "label": "Temperament",
+   "type": "chips",
+   "options": [
+    "Clingy",
+    "Slow to warm",
+    "Goes to anyone",
+    "Depends on the day"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "choose",
+   "title": "Nursery, childminder or nanny?",
+   "subtitle": "Compare for your hours and budget",
+   "emoji": "🧭",
+   "inputs": [
+    {
+     "key": "hours",
+     "label": "Hours of care per week",
+     "type": "number",
+     "placeholder": "30"
+    },
+    {
+     "key": "budget",
+     "label": "Monthly budget",
+     "type": "number",
+     "placeholder": "1200"
+    },
+    {
+     "key": "priorities",
+     "label": "What matters most",
+     "type": "text",
+     "placeholder": "outdoor time, siblings together, flexibility"
+    }
+   ],
+   "prompt": "Compare childcare options for the profile needing {hours} hours a week on a {budget} monthly budget with priorities: {priorities}. A table (Option | Typical cost for these hours | Ratio & setting | Fits your priorities? | Watch-outs), cards for the 2 best fits (meta = flexibility · cost level), a checklist of questions to ask on a visit, and a callout on registration, inspection reports and references to check before signing.",
+   "shape": "table, cards, checklist, callout",
+   "button": "Compare",
+   "loading": "Weighing options…"
+  },
+  {
+   "id": "settle",
+   "title": "Settling-in plan",
+   "subtitle": "Gradual sessions that build trust",
+   "emoji": "📅",
+   "inputs": [
+    {
+     "key": "weeks",
+     "label": "Weeks before full days",
+     "type": "number",
+     "placeholder": "3"
+    },
+    {
+     "key": "sessions",
+     "label": "Settling sessions offered",
+     "type": "chips",
+     "options": [
+      "1–2 short visits",
+      "3–5 sessions",
+      "Flexible — I decide",
+      "None"
+     ],
+     "default": "3–5 sessions"
+    }
+   ],
+   "prompt": "Plan {weeks} weeks of settling-in for the profile with {sessions}. A table (Day | Length | Parent stays? | Goal | What to watch for), steps for each first (first feed there, first nap there, first full day), bullets on what typical settling looks like at this age (clinginess at pick-up, big evenings, first-term bugs), and a callout on signs the setting is not working versus normal adjustment.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Plan it",
+   "loading": "Easing in…"
+  },
+  {
+   "id": "goodbye",
+   "title": "Drop-off script",
+   "subtitle": "Short, warm, consistent",
+   "emoji": "👋",
+   "inputs": [
+    {
+     "key": "scene",
+     "label": "What happens now",
+     "type": "text",
+     "placeholder": "clings, screams, I sneak out when distracted",
+     "required": true
+    }
+   ],
+   "prompt": "Fix this drop-off: {scene}. A quote with the exact 3-sentence goodbye ritual to repeat every day (name the leaving, name the return, hand over), steps for the 10 minutes before and the 60 seconds of the goodbye, bullets on why sneaking out and lingering both backfire, and a callout on what to ask the key worker to text you afterwards.",
+   "shape": "quote, steps, bullets, callout",
+   "button": "Give me words",
+   "loading": "Practising goodbye…"
+  },
+  {
+   "id": "handover",
+   "title": "All-about-me sheet",
+   "subtitle": "What the key worker needs to know",
+   "emoji": "📝",
+   "inputs": [
+    {
+     "key": "routine",
+     "label": "Daily routine & comforts",
+     "type": "longtext",
+     "placeholder": "naps 12:30 with dummy and muslin; loves bananas; signs 'more'; scared of hand dryers",
+     "required": true
+    },
+    {
+     "key": "medical",
+     "label": "Allergies / medical",
+     "type": "text",
+     "placeholder": "none"
+    }
+   ],
+   "prompt": "Write an all-about-me handover for the profile from: {routine}; medical: {medical}. A quote with the one-page sheet (feeds, naps, words and signs, comforts, fears, how to settle, allergies, contacts) in the child's voice, a kv of items to pack labelled, and a checklist of what to agree with the setting in week one (nap rules, food, photos policy, medicine forms).",
+   "shape": "quote, kv, checklist",
+   "button": "Write sheet",
+   "loading": "Introducing them…"
+  },
+  {
+   "id": "policy",
+   "title": "Decode the policy",
+   "subtitle": "Photo of the contract or illness rules",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the illness policy, contract or fee sheet",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Read the document in the photo: a table (Clause | What it means in practice | Costs you money? | Ask about), a kv of key numbers (notice period, late-pickup fee, exclusion periods for common bugs, holiday charges, deposit), bullets of anything unusual compared with typical UK/US childcare terms, and a callout on questions to get answered in writing before signing.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Decode",
+   "loading": "Reading fine print…"
+  }
+ ],
+ "disclaimer": "General parenting guidance, not a clinical assessment. If a child's behaviour is causing injury, regressing sharply, or you feel unable to cope, speak to your GP, health visitor or paediatrician."
+}

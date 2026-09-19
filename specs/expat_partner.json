@@ -1,0 +1,180 @@
+{
+ "id": "expat_partner",
+ "name": "Expat Partner",
+ "tagline": "Rebuild career, community and self after the move",
+ "category": "Travel & Local",
+ "colors": [
+  "#AD1457",
+  "#26A69A",
+  "#FFB74D"
+ ],
+ "icon": "heart",
+ "about": "Expat Partner is for the person who moved for someone else's job: rebuilding a career that can travel, finding your people, structuring weeks that have lost their shape, and keeping the relationship honest along the way.",
+ "persona": "You are a career-and-wellbeing coach who specialises in accompanying partners: validating without pity, action-oriented, and clear about when professional support is the right move.",
+ "onboarding": {
+  "title": "This move is yours too",
+  "subtitle": "A little about your situation helps.",
+  "bullets": [
+   "Portable-career options",
+   "A plan to find your people",
+   "Structure and relationship check-ins"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "city",
+   "label": "Where you are",
+   "type": "text",
+   "placeholder": "Singapore"
+  },
+  {
+   "key": "career",
+   "label": "Career before the move",
+   "type": "text",
+   "placeholder": "HR manager, 8 years"
+  },
+  {
+   "key": "work",
+   "label": "Work status",
+   "type": "chips",
+   "options": [
+    "Can work here",
+    "Can't work on this visa",
+    "Unsure",
+    "Choosing not to for now"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "career",
+   "title": "Career options here",
+   "subtitle": "Local, remote, portable, retrain",
+   "emoji": "💼",
+   "inputs": [
+    {
+     "key": "wants",
+     "label": "What you want",
+     "type": "text",
+     "placeholder": "something flexible, stay in my field",
+     "required": true
+    },
+    {
+     "key": "hours",
+     "label": "Hours per week available",
+     "type": "number",
+     "placeholder": "20"
+    }
+   ],
+   "prompt": "For the profile with wants: {wants} and {hours} hours a week — cards for 5 realistic paths (local job, remote for the home country, freelance / consulting, retrain or certify, portfolio career; meta = time to first income · visa dependence), a table (Path | First 3 actions | Risk), steps for the next 30 days, and a callout on the work-permission question to confirm before accepting anything.",
+   "shape": "cards, table, steps, callout",
+   "button": "Show options",
+   "loading": "Mapping…"
+  },
+  {
+   "id": "people",
+   "title": "Find my people",
+   "subtitle": "A 4-week plan to build community",
+   "emoji": "🤝",
+   "inputs": [
+    {
+     "key": "energy",
+     "label": "Social energy",
+     "type": "chips",
+     "options": [
+      "Introvert",
+      "Ambivert",
+      "Extrovert"
+     ],
+     "default": "Ambivert"
+    },
+    {
+     "key": "interests",
+     "label": "Interests",
+     "type": "text",
+     "placeholder": "running, board games, volunteering"
+    }
+   ],
+   "prompt": "Social energy {energy}, interests {interests}, in the profile's city: a table (Week | Two concrete actions | Where to find it | Why it works), bullets on avoiding the expat-bubble-only trap, a quote with a low-pressure message to send after meeting someone, and a callout on giving it 90 days before judging.",
+   "shape": "table, bullets, quote, callout",
+   "button": "Plan it",
+   "loading": "Connecting…"
+  },
+  {
+   "id": "week",
+   "title": "Shape my week",
+   "subtitle": "Structure when no one needs you at 9am",
+   "emoji": "📅",
+   "inputs": [
+    {
+     "key": "fixed",
+     "label": "Fixed commitments",
+     "type": "text",
+     "placeholder": "school run 8 & 3, language class Tue",
+     "required": true
+    },
+    {
+     "key": "goal",
+     "label": "Priority this month",
+     "type": "chips",
+     "options": [
+      "Job search",
+      "Language",
+      "Fitness",
+      "Creative project",
+      "Just settle"
+     ],
+     "default": "Just settle"
+    }
+   ],
+   "prompt": "Fixed: {fixed}; priority {goal}. Build a weekly template as a table (Day | Morning | Afternoon | Evening) with anchors for the priority and protected rest, a checklist of 5 non-negotiables for the week, and a callout on the difference between resting and drifting.",
+   "shape": "table, checklist, callout",
+   "button": "Build week",
+   "loading": "Structuring…"
+  },
+  {
+   "id": "talk",
+   "title": "Talk to my partner",
+   "subtitle": "Say the hard thing kindly",
+   "emoji": "💞",
+   "inputs": [
+    {
+     "key": "issue",
+     "label": "What's bothering you",
+     "type": "longtext",
+     "placeholder": "they come home late, I feel invisible, I gave up my job for this",
+     "required": true
+    }
+   ],
+   "prompt": "Issue: {issue}. A quote with a 5-line conversation opener using I-statements that names the feeling and one concrete ask, bullets of 3 asks that are fair and specific, a table (If they say | What they might mean | You could say), and a callout on when a couples counsellor is a strength not a failure.",
+   "shape": "quote, bullets, table, callout",
+   "button": "Script it",
+   "loading": "Choosing words…"
+  },
+  {
+   "id": "identity",
+   "title": "Who am I here?",
+   "subtitle": "Reframe the gap nobody planned",
+   "emoji": "🪞",
+   "inputs": [
+    {
+     "key": "story",
+     "label": "How you'd describe this period",
+     "type": "longtext",
+     "placeholder": "unemployed trailing spouse, doing nothing",
+     "required": true
+    }
+   ],
+   "prompt": "Your current story: {story}. Text reframing this period honestly (skills gained, what it costs, what it can become), a quote with a confident 2-sentence answer to 'so what do you do?', bullets on how to document this time for a future CV, and a callout on signs it's time to talk to a professional.",
+   "shape": "text, quote, bullets, callout",
+   "button": "Reframe",
+   "loading": "Reflecting…"
+  }
+ ],
+ "disclaimer": "Supportive information, not therapy; if you feel persistently low or unsafe, contact a mental-health professional or a local helpline."
+}

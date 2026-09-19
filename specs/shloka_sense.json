@@ -1,0 +1,193 @@
+{
+ "id": "shloka_sense",
+ "name": "Shloka Sense",
+ "tagline": "The Gita and Upanishads, one verse at a time",
+ "category": "Books & Reference",
+ "colors": [
+  "#E65100",
+  "#FFD54F",
+  "#6A1B9A"
+ ],
+ "icon": "sun",
+ "about": "Shloka Sense explains verses from the Bhagavad Gita, Upanishads and other Hindu texts with Sanskrit key terms, classical commentaries and a practical reflection, and helps you chant, memorise and apply them.",
+ "persona": "You are a gentle Sanskrit-literate teacher of Hindu scripture: faithful to Shankara, Ramanuja and Madhva's distinct readings, respectful of every sampradaya, and clear that these are interpretations offered for study, not instructions to believe.",
+ "onboarding": {
+  "title": "Read the verse, live the verse",
+  "subtitle": "Tell us your familiarity and preferred texts.",
+  "bullets": [
+   "Verse-by-verse Gita and Upanishad study",
+   "Sanskrit terms made plain",
+   "Chanting and memorising support"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "level",
+   "label": "Familiarity",
+   "type": "chips",
+   "options": [
+    "New to the texts",
+    "Grew up with them",
+    "Studying seriously"
+   ],
+   "default": "Grew up with them"
+  },
+  {
+   "key": "texts",
+   "label": "Texts you read",
+   "type": "chips",
+   "options": [
+    "Bhagavad Gita",
+    "Upanishads",
+    "Ramayana",
+    "Yoga Sutras",
+    "Bhagavata Purana",
+    "Tamil Shaiva/Vaishnava hymns"
+   ],
+   "multi": true
+  },
+  {
+   "key": "sanskrit",
+   "label": "Sanskrit",
+   "type": "chips",
+   "options": [
+    "None",
+    "Can read Devanagari",
+    "Some grammar"
+   ],
+   "default": "None"
+  }
+ ],
+ "tools": [
+  {
+   "id": "verse",
+   "title": "Explain a verse",
+   "subtitle": "Sanskrit, meaning, commentaries",
+   "emoji": "🪔",
+   "inputs": [
+    {
+     "key": "verse",
+     "label": "Verse",
+     "type": "text",
+     "placeholder": "Gita 2:47, Isha Upanishad 1, Katha 1.2.23",
+     "required": true
+    }
+   ],
+   "prompt": "Explain {verse} at the profile's level. Sections: quote with the verse in IAST transliteration (add Devanagari only if the profile reads it) and a plain translation; kv of 4–5 key Sanskrit terms (term → literal meaning → sense here); a table (Commentator | Reading | What it emphasises) covering Shankara, Ramanuja and one modern voice; text on how the verse sits in its chapter; and a callout with one reflection question for today.",
+   "shape": "quote, kv, table, text, callout",
+   "button": "Explain",
+   "loading": "Unfolding the verse…"
+  },
+  {
+   "id": "chapter",
+   "title": "Chapter overview",
+   "subtitle": "Where you are in the Gita's arc",
+   "emoji": "🗺️",
+   "inputs": [
+    {
+     "key": "chapter",
+     "label": "Gita chapter",
+     "type": "chips",
+     "options": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18"
+     ],
+     "default": "2"
+    }
+   ],
+   "prompt": "Give an overview of Bhagavad Gita chapter {chapter}. Sections: kv (traditional title, yoga it teaches, verse count, Arjuna's question it answers), steps tracing the argument in 5–7 moves with verse ranges, bullets of 3 verses most often memorised, and a callout on how the chapter connects to the ones before and after.",
+   "shape": "kv, steps, bullets, callout",
+   "button": "Overview",
+   "loading": "Mapping the chapter…"
+  },
+  {
+   "id": "dilemma",
+   "title": "Bring a dilemma",
+   "subtitle": "What would the text say to this?",
+   "emoji": "⚖️",
+   "inputs": [
+    {
+     "key": "situation",
+     "label": "Your situation",
+     "type": "longtext",
+     "placeholder": "I'm torn between a safe job and a risky calling; my family disagrees",
+     "required": true
+    },
+    {
+     "key": "text",
+     "label": "Draw on",
+     "type": "chips",
+     "options": [
+      "Bhagavad Gita",
+      "Upanishads",
+      "Yoga Sutras",
+      "Ramayana episodes"
+     ],
+     "default": "Bhagavad Gita"
+    }
+   ],
+   "prompt": "Reflect on this situation through {text}: {situation}. Sections: text naming the underlying tension in the text's own vocabulary (dharma, svadharma, phala, etc.), cards of 3 relevant verses (meta = reference · theme) each with one line on why it fits, bullets of questions the text would ask back, and a callout stating clearly that the decision remains the user's and the text is a lens, not a verdict.",
+   "shape": "text, cards, bullets, callout",
+   "button": "Reflect",
+   "loading": "Sitting with it…"
+  },
+  {
+   "id": "chant",
+   "title": "Learn to chant",
+   "subtitle": "Meter, pauses, pronunciation",
+   "emoji": "🎵",
+   "inputs": [
+    {
+     "key": "verse",
+     "label": "Verse or hymn",
+     "type": "text",
+     "placeholder": "Gita 2:47, Gayatri, a Shanti mantra",
+     "required": true
+    },
+    {
+     "key": "days",
+     "label": "Days to learn",
+     "type": "number",
+     "placeholder": "7"
+    }
+   ],
+   "prompt": "Teach chanting of {verse} over {days} days for the profile's Sanskrit level. Sections: quote with the text split into padas (quarter-lines) in transliteration with syllable stress marked; kv (meter name, syllables per pada, where to breathe, tricky sounds); a table (Day | Goal | Practice minutes | Check); and a callout on pronunciation mistakes English speakers commonly make (retroflex ṭ/ḍ, long vowels, visarga).",
+   "shape": "quote, kv, table, callout",
+   "button": "Teach me",
+   "loading": "Finding the meter…"
+  },
+  {
+   "id": "daily",
+   "title": "Verse for today",
+   "subtitle": "A short morning reflection",
+   "emoji": "🌅",
+   "inputs": [],
+   "prompt": "Choose one verse from the profile's preferred texts suited to a morning reflection. Sections: quote (verse in transliteration and translation), text with a 4-sentence reflection, kv (one Sanskrit term to carry today → meaning), and a callout with a single practice for the day under 5 minutes.",
+   "shape": "quote, text, kv, callout",
+   "button": "Today's verse",
+   "loading": "Choosing a verse…"
+  }
+ ],
+ "disclaimer": "Readings follow classical and modern commentaries and differ between sampradayas; for guidance on practice, consult your own guru or community."
+}

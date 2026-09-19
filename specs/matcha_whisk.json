@@ -1,0 +1,217 @@
+{
+ "id": "matcha_whisk",
+ "name": "Whisk & Bowl",
+ "tagline": "Matcha, from grade to froth to latte",
+ "category": "Food & Drink",
+ "colors": [
+  "#33691E",
+  "#AED581",
+  "#455A64"
+ ],
+ "icon": "star",
+ "about": "Whisk & Bowl decodes matcha grades from a tin photo, coaches usucha and koicha technique, builds lattes and bakes, and plans caffeine so the afternoon bowl doesn't wreck your sleep.",
+ "persona": "You are a matcha specialist who trained in an Uji tea house and a modern café: precise about grams, water temperature and whisking, and relaxed about how people actually drink it.",
+ "onboarding": {
+  "title": "Get the froth every time",
+  "subtitle": "Your kit and taste shape the coaching.",
+  "bullets": [
+   "Grade decoder from a photo",
+   "Whisking technique, fixed",
+   "Lattes, bakes and caffeine plans"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "kit",
+   "label": "Kit",
+   "type": "chips",
+   "options": [
+    "Chasen + chawan",
+    "Electric frother",
+    "Shaker bottle",
+    "Just a spoon"
+   ]
+  },
+  {
+   "key": "taste",
+   "label": "You want",
+   "type": "chips",
+   "options": [
+    "Ceremonial, straight",
+    "Lattes",
+    "Both"
+   ]
+  },
+  {
+   "key": "sweet",
+   "label": "Sweetness",
+   "type": "chips",
+   "options": [
+    "None",
+    "A little",
+    "Sweet"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "grade",
+   "title": "Decode a tin",
+   "subtitle": "Photo → grade, origin, best use",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the tin, packet or the powder itself",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Read the photo. kv (brand or origin if visible, stated grade, likely real grade from colour and packaging, harvest if stated, price tier, best use), text on what the colour and texture tell you, bullets on whether it suits the profile's taste, and a callout on storage after opening.",
+   "shape": "kv, text, bullets, callout",
+   "button": "Decode",
+   "loading": "Reading the label…"
+  },
+  {
+   "id": "whisk",
+   "title": "Whisk technique",
+   "subtitle": "Usucha, koicha, or with your kit",
+   "emoji": "🍵",
+   "inputs": [
+    {
+     "key": "style",
+     "label": "Style",
+     "type": "chips",
+     "options": [
+      "Usucha (thin)",
+      "Koicha (thick)",
+      "Frother latte base",
+      "Shaker cold matcha"
+     ],
+     "default": "Usucha (thin)"
+    },
+    {
+     "key": "problem",
+     "label": "Problem",
+     "type": "chips",
+     "options": [
+      "Clumps",
+      "No froth",
+      "Bitter",
+      "Weak",
+      "Just learning"
+     ],
+     "default": "Just learning"
+    }
+   ],
+   "prompt": "Coach {style} for the profile's kit with problem '{problem}'. kv (grams, water ml, temperature °C, sift yes/no, whisk seconds), steps with the motion described precisely, a table (Symptom | Cause | Fix), and a quote with one cue to say to yourself while whisking.",
+   "shape": "kv, steps, table, quote",
+   "button": "Coach me",
+   "loading": "Sifting…"
+  },
+  {
+   "id": "latte",
+   "title": "Latte & drinks",
+   "subtitle": "Iced, hot, strawberry, hojicha swap",
+   "emoji": "🥛",
+   "inputs": [
+    {
+     "key": "milk",
+     "label": "Milk",
+     "type": "chips",
+     "options": [
+      "Oat",
+      "Whole",
+      "Almond",
+      "Soy",
+      "Coconut"
+     ],
+     "default": "Oat"
+    },
+    {
+     "key": "temp",
+     "label": "Serve",
+     "type": "chips",
+     "options": [
+      "Iced",
+      "Hot"
+     ],
+     "default": "Iced"
+    },
+    {
+     "key": "twist",
+     "label": "Twist",
+     "type": "text",
+     "placeholder": "strawberry, vanilla, no syrup"
+    }
+   ],
+   "prompt": "Build 3 {temp} matcha drinks with {milk} milk and twist '{twist}' at the profile's sweetness as cards (meta = matcha g · ml · caffeine mg est.). Then steps for the best one including how to avoid a bitter or clumpy base, and bullets on cheaper ways to get café texture with the profile's kit.",
+   "shape": "cards, steps, bullets",
+   "button": "Make drinks",
+   "loading": "Frothing…"
+  },
+  {
+   "id": "bake",
+   "title": "Bake with matcha",
+   "subtitle": "Cookies, cakes, mochi",
+   "emoji": "🍪",
+   "inputs": [
+    {
+     "key": "bake",
+     "label": "Bake",
+     "type": "chips",
+     "options": [
+      "Cookies",
+      "Pound cake",
+      "Mochi",
+      "Cheesecake",
+      "Pancakes",
+      "Ice cream"
+     ],
+     "default": "Cookies"
+    },
+    {
+     "key": "serves",
+     "label": "Servings",
+     "type": "number",
+     "placeholder": "12"
+    }
+   ],
+   "prompt": "Write a matcha {bake} recipe for {serves} servings. Sections: kv (matcha grams and which grade to use so it stays green and not bitter, prep and bake minutes), steps with grams and temperatures, and a callout on keeping the colour vivid.",
+   "shape": "kv, steps, callout",
+   "button": "Bake",
+   "loading": "Preheating…"
+  },
+  {
+   "id": "caffeine",
+   "title": "Caffeine plan",
+   "subtitle": "Bowls, lattes and sleep",
+   "emoji": "🌙",
+   "inputs": [
+    {
+     "key": "day",
+     "label": "Today's drinks",
+     "type": "text",
+     "placeholder": "1 usucha 7am, oat latte 2pm",
+     "required": true
+    },
+    {
+     "key": "bed",
+     "label": "Bedtime",
+     "type": "text",
+     "placeholder": "23:00"
+    }
+   ],
+   "prompt": "Today: {day}, bedtime {bed}. Table (Time | Drink | Caffeine mg est. | Still in system at bedtime est.), kv (total mg, last sensible matcha time for this bedtime), and bullets on L-theanine and swapping to hojicha or genmaicha later in the day.",
+   "shape": "table, kv, bullets",
+   "button": "Plan",
+   "loading": "Counting milligrams…"
+  }
+ ],
+ "disclaimer": "Caffeine figures are estimates and this is not medical advice; check with a clinician if pregnant, caffeine-sensitive or on medication."
+}

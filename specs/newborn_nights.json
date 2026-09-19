@@ -1,0 +1,184 @@
+{
+ "id": "newborn_nights",
+ "name": "Night Shift",
+ "tagline": "Survive newborn nights with a plan, not guesswork",
+ "category": "Parenting",
+ "colors": [
+  "#1A237E",
+  "#B39DDB",
+  "#FFAB91"
+ ],
+ "icon": "moon",
+ "about": "Night Shift gets families through the first four months of newborn sleep: wake-window schedules for today, a safe-sleep check of your cot from a photo, fair night-shift splits between carers and fixes for day–night confusion.",
+ "persona": "You are a calm newborn-sleep consultant and safe-sleep educator: evidence-based (AAP / Lullaby Trust guidance), realistic about newborn biology, and never promising a sleeping-through-the-night miracle.",
+ "onboarding": {
+  "title": "The nights get easier — with a plan",
+  "subtitle": "Tell us about your newborn and who's on duty.",
+  "bullets": [
+   "Wake windows for today",
+   "Safe-sleep check from a photo",
+   "Fair night shifts for two"
+  ]
+ },
+ "profile": [
+  {
+   "key": "baby",
+   "label": "Baby's name & age in weeks",
+   "type": "text",
+   "placeholder": "Leo, 6 weeks",
+   "required": true
+  },
+  {
+   "key": "feeding",
+   "label": "Feeding",
+   "type": "chips",
+   "options": [
+    "Breast",
+    "Formula",
+    "Mixed"
+   ]
+  },
+  {
+   "key": "carers",
+   "label": "Night carers",
+   "type": "chips",
+   "options": [
+    "One",
+    "Two",
+    "Two + helper"
+   ]
+  },
+  {
+   "key": "space",
+   "label": "Where baby sleeps",
+   "type": "text",
+   "placeholder": "bedside crib in our room"
+  }
+ ],
+ "tools": [
+  {
+   "id": "today",
+   "title": "Today's schedule",
+   "subtitle": "Wake windows + naps from wake-up time",
+   "emoji": "🌅",
+   "inputs": [
+    {
+     "key": "woke",
+     "label": "Baby woke at",
+     "type": "text",
+     "placeholder": "06:40",
+     "required": true
+    },
+    {
+     "key": "night",
+     "label": "How last night went",
+     "type": "text",
+     "placeholder": "fed at 1 and 4, hard to settle after 4"
+    }
+   ],
+   "prompt": "Baby woke at {woke}; last night: {night}. Build today's plan for the profile's age: a table (Time | Wake window / Nap | Feed | Notes) from wake-up to bedtime using age-appropriate wake windows in minutes, bullets of sleepy cues to watch for at this age, and a callout on what is normal at this age and what is not worth fighting.",
+   "shape": "table, bullets, callout",
+   "button": "Plan today",
+   "loading": "Counting windows…"
+  },
+  {
+   "id": "safe",
+   "title": "Safe-sleep check",
+   "subtitle": "Photo of the cot or bassinet",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of where baby sleeps",
+     "type": "photo",
+     "placeholder": "Cot, bassinet or bedside crib, exactly as it is right now",
+     "required": true
+    }
+   ],
+   "prompt": "Assess the sleep space in the photo against current safe-sleep guidance: a table (Item seen | Risk | Fix) covering mattress, bedding, toys, bumpers, sleep position, gaps and cords; a checklist of the ABCs (Alone, on Back, in a Cot) plus room temperature and smoke-free; and a callout on anything to change before tonight.",
+   "shape": "table, checklist, callout",
+   "button": "Check it",
+   "loading": "Looking closely…"
+  },
+  {
+   "id": "shifts",
+   "title": "Night-shift split",
+   "subtitle": "A fair plan for two tired adults",
+   "emoji": "🌙",
+   "inputs": [
+    {
+     "key": "constraints",
+     "label": "Constraints",
+     "type": "text",
+     "placeholder": "I'm breastfeeding, partner leaves for work at 7"
+    },
+    {
+     "key": "style",
+     "label": "Split style",
+     "type": "chips",
+     "options": [
+      "Halves",
+      "Alternate nights",
+      "First feed / second feed",
+      "Whoever's least broken"
+     ],
+     "default": "Halves"
+    }
+   ],
+   "prompt": "Design a night-shift plan for the profile using the '{style}' style with constraints: {constraints}. Produce a table (Time block | On duty | Off-duty person does | Feed method), bullets on protecting one 4–5 hour stretch for each adult across the week, a quote with a 2-sentence agreement both partners can say out loud, and a callout on when to renegotiate.",
+   "shape": "table, bullets, quote, callout",
+   "button": "Split the night",
+   "loading": "Negotiating…"
+  },
+  {
+   "id": "daynight",
+   "title": "Day–night confusion",
+   "subtitle": "Baby parties at 2am",
+   "emoji": "🔄",
+   "inputs": [
+    {
+     "key": "pattern",
+     "label": "What's happening",
+     "type": "text",
+     "placeholder": "sleeps 4-hour stretches all day, awake 11pm–3am",
+     "required": true
+    }
+   ],
+   "prompt": "Fix this day–night confusion: {pattern}. Explain the biology in 2 sentences of text, then steps for a 5-day reset (daylight, noise, feeding rhythm, capping daytime naps) with each step tied to a time of day, and a callout on what to expect on nights 1–3.",
+   "shape": "text, steps, callout",
+   "button": "Reset the clock",
+   "loading": "Opening curtains…"
+  },
+  {
+   "id": "settle",
+   "title": "Won't settle back",
+   "subtitle": "3am and wide awake after a feed",
+   "emoji": "😵‍💫",
+   "inputs": [
+    {
+     "key": "when",
+     "label": "When",
+     "type": "chips",
+     "options": [
+      "After a night feed",
+      "At bedtime",
+      "Every time I put them down",
+      "Random"
+     ],
+     "default": "After a night feed"
+    },
+    {
+     "key": "tried",
+     "label": "Already tried",
+     "type": "text",
+     "placeholder": "swaddle, shushing, rocking"
+    }
+   ],
+   "prompt": "Baby won't settle {when}; already tried: {tried}. Give steps to try in order tonight (each with how long to persist before moving on), a table (Possible cause | Sign | What helps) covering wind, hunger, temperature, overtiredness and reflux-type discomfort, and a callout listing symptoms that mean call a doctor or emergency services now.",
+   "shape": "steps, table, callout",
+   "button": "Help me settle",
+   "loading": "Shushing…"
+  }
+ ],
+ "disclaimer": "General parenting information, not medical advice. For concerns about your baby's health, feeding, breathing or weight, contact your midwife, health visitor or paediatrician — and call emergency services if a baby is struggling to breathe, is floppy, has a fever under 3 months old or cannot be woken."
+}

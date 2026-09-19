@@ -1,0 +1,183 @@
+{
+ "id": "compound_lab",
+ "name": "Compound Lab",
+ "tagline": "See what time does to money, in tables not slogans",
+ "category": "Finance",
+ "colors": [
+  "#6A1B9A",
+  "#00ACC1",
+  "#FF7043"
+ ],
+ "icon": "bulb",
+ "about": "Compound Lab makes compounding visible: year-by-year growth projections, the real cost of starting late, fees and inflation drag, lump sum versus monthly, and the Rule of 72 explained with your own numbers.",
+ "persona": "You are an enthusiastic maths teacher who happens to know personal finance; every claim comes with a worked table and every return is labelled illustrative.",
+ "onboarding": {
+  "title": "Watch the curve bend",
+  "subtitle": "Pick a default return and currency so every table speaks your language.",
+  "bullets": [
+   "Year-by-year projections",
+   "Cost of waiting, in real money",
+   "Fees and inflation made visible"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "ret",
+   "label": "Default annual return % (illustrative)",
+   "type": "number",
+   "placeholder": "7"
+  },
+  {
+   "key": "currency",
+   "label": "Currency",
+   "type": "text",
+   "placeholder": "EUR"
+  },
+  {
+   "key": "age",
+   "label": "Age",
+   "type": "number",
+   "placeholder": "28"
+  }
+ ],
+ "tools": [
+  {
+   "id": "project",
+   "title": "Project it",
+   "subtitle": "Start, monthly, years → table",
+   "emoji": "📈",
+   "inputs": [
+    {
+     "key": "start",
+     "label": "Starting amount",
+     "type": "number",
+     "placeholder": "5000"
+    },
+    {
+     "key": "monthly",
+     "label": "Monthly contribution",
+     "type": "number",
+     "placeholder": "250"
+    },
+    {
+     "key": "years",
+     "label": "Years",
+     "type": "number",
+     "placeholder": "30"
+    }
+   ],
+   "prompt": "Project {start} plus {monthly}/month for {years} years at the profile return in the profile currency. Table (Year | Contributed | Growth | Total) with every year for the first 15 then every 5 years, kv (total contributed, total growth, final value, growth as % of final), text on the year growth overtakes contributions, and a callout that this ignores tax and assumes a steady return.",
+   "shape": "table, kv, text, callout",
+   "button": "Project",
+   "loading": "Compounding…"
+  },
+  {
+   "id": "wait",
+   "title": "Cost of waiting",
+   "subtitle": "Start now vs start later",
+   "emoji": "⏳",
+   "inputs": [
+    {
+     "key": "monthly",
+     "label": "Monthly contribution",
+     "type": "number",
+     "placeholder": "300"
+    },
+    {
+     "key": "delay",
+     "label": "Years of delay",
+     "type": "number",
+     "placeholder": "5"
+    },
+    {
+     "key": "until",
+     "label": "Invest until age",
+     "type": "number",
+     "placeholder": "65"
+    }
+   ],
+   "prompt": "Compare investing {monthly}/month from the profile age until {until} versus starting {delay} years later, at the profile return. Table (Start age | Years investing | Total contributed | Final value), kv (cost of waiting in final value, cost per month of delay), bullets on why the early years matter most, and a quote with a one-line reminder to act.",
+   "shape": "table, kv, bullets, quote",
+   "button": "Compare",
+   "loading": "Watching clocks…"
+  },
+  {
+   "id": "drag",
+   "title": "Fees & inflation drag",
+   "subtitle": "Nominal vs real vs after-fees",
+   "emoji": "🪨",
+   "inputs": [
+    {
+     "key": "amount",
+     "label": "Amount",
+     "type": "number",
+     "placeholder": "50000"
+    },
+    {
+     "key": "fee",
+     "label": "Total annual fees %",
+     "type": "number",
+     "placeholder": "1.2"
+    },
+    {
+     "key": "inflation",
+     "label": "Inflation %",
+     "type": "number",
+     "placeholder": "3"
+    }
+   ],
+   "prompt": "Show {amount} over 10, 20 and 30 years at the profile return with overlays: table (Years | Nominal | After {fee}% fees | After fees and {inflation}% inflation). Then kv (what 1% of extra fees costs over 30 years, purchasing-power lost to inflation), text on real versus nominal returns, and a callout on the fee level that changes retirement outcomes.",
+   "shape": "table, kv, text, callout",
+   "button": "Show drag",
+   "loading": "Subtracting…"
+  },
+  {
+   "id": "lump",
+   "title": "Lump sum vs monthly",
+   "subtitle": "All at once or spread out?",
+   "emoji": "🧮",
+   "inputs": [
+    {
+     "key": "amount",
+     "label": "Amount available",
+     "type": "number",
+     "placeholder": "24000"
+    },
+    {
+     "key": "months",
+     "label": "Spread over months",
+     "type": "number",
+     "placeholder": "12"
+    }
+   ],
+   "prompt": "Compare investing {amount} at once versus {months} equal monthly instalments at the profile return. Table (Scenario | Rising market | Flat market | Falling market | Long-run average) with illustrative outcomes, text on what the evidence says about lump sum versus averaging in, bullets on when averaging is worth its cost, and a callout on the emotional side of the choice.",
+   "shape": "table, text, bullets, callout",
+   "button": "Compare",
+   "loading": "Splitting hairs…"
+  },
+  {
+   "id": "rule72",
+   "title": "Rule of 72 & friends",
+   "subtitle": "Mental maths for doubling",
+   "emoji": "✖️",
+   "inputs": [
+    {
+     "key": "rate",
+     "label": "Rate %",
+     "type": "number",
+     "placeholder": "7"
+    }
+   ],
+   "prompt": "Explain the Rule of 72 using {rate}%: kv (years to double, years to triple, years to 10x, rule-of-72 estimate vs exact), table (Rate % | Doubling years) for 2, 4, 6, 8, 10, 12, text on the Rules of 114 and 144, and a callout on applying the same rule to debt APRs.",
+   "shape": "kv, table, text, callout",
+   "button": "Explain",
+   "loading": "Doubling…"
+  }
+ ],
+ "disclaimer": "General education only — not financial, tax or legal advice. Figures are illustrative projections, not predictions; check your own situation with a licensed adviser."
+}

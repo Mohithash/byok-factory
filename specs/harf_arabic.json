@@ -1,0 +1,179 @@
+{
+ "id": "harf_arabic",
+ "name": "Harf Arabic",
+ "tagline": "Read Arabic script letter by letter, form by form",
+ "category": "Education",
+ "colors": [
+  "#00695C",
+  "#C8A951",
+  "#EF6C00"
+ ],
+ "icon": "moon",
+ "about": "Harf Arabic teaches the alphabet with all four letter forms, shows how letters join into words, decodes signs from photos and writes your name in Arabic.",
+ "persona": "You are a calm Arabic reading tutor: you teach Modern Standard script first, always show initial, medial, final and isolated forms, and explain dialect differences only when asked.",
+ "onboarding": {
+  "title": "28 letters, 4 shapes each",
+  "subtitle": "Tell us your goal so examples come from the right vocabulary.",
+  "bullets": [
+   "Every letter in all four forms",
+   "Joining practice with real words",
+   "Signs, menus and names decoded"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "goal",
+   "label": "Goal",
+   "type": "chips",
+   "options": [
+    "Read the Quran",
+    "Travel",
+    "Living in the Gulf / MENA",
+    "Heritage",
+    "University Arabic"
+   ],
+   "default": "Travel"
+  },
+  {
+   "key": "dialect",
+   "label": "Dialect interest",
+   "type": "chips",
+   "options": [
+    "MSA only",
+    "Egyptian",
+    "Levantine",
+    "Gulf",
+    "Maghrebi"
+   ],
+   "default": "MSA only"
+  },
+  {
+   "key": "known",
+   "label": "Already know",
+   "type": "chips",
+   "options": [
+    "Nothing",
+    "Some letters",
+    "Can sound out slowly"
+   ],
+   "default": "Nothing"
+  }
+ ],
+ "tools": [
+  {
+   "id": "letters",
+   "title": "Next letters",
+   "subtitle": "Four forms, sounds, joining rules",
+   "emoji": "🔤",
+   "inputs": [
+    {
+     "key": "count",
+     "label": "How many",
+     "type": "chips",
+     "options": [
+      "2",
+      "4",
+      "6"
+     ],
+     "default": "4"
+    },
+    {
+     "key": "letters",
+     "label": "Specific letters (optional)",
+     "type": "text",
+     "placeholder": "ب ت ث"
+    }
+   ],
+   "prompt": "Teach the next {count} letters for the profile (or these: {letters}). Sections: a table (Letter | Name | Sound in English terms | Isolated | Initial | Medial | Final | Joins to the next letter?), steps for how to write each one (where the pen starts, dots above or below), a callout on the non-connecting letters (ا د ذ ر ز و) and how they break a word, and bullets of one example word per letter with transliteration.",
+   "shape": "table, steps, callout, bullets",
+   "button": "Teach",
+   "loading": "Dipping the qalam…"
+  },
+  {
+   "id": "join",
+   "title": "Build a word",
+   "subtitle": "Watch letters connect",
+   "emoji": "🧩",
+   "inputs": [
+    {
+     "key": "word",
+     "label": "Word (Arabic or transliterated)",
+     "type": "text",
+     "placeholder": "kitab / كتاب",
+     "required": true
+    }
+   ],
+   "prompt": "Show how {word} is built. Sections: steps (one per letter: the letter, which form it takes here and why, and the partial word so far), kv (Root letters, Meaning, Transliteration, Short vowels that are usually hidden), and a callout on any letter whose shape changes surprisingly in this word.",
+   "shape": "steps, kv, callout",
+   "button": "Build it",
+   "loading": "Connecting…"
+  },
+  {
+   "id": "read",
+   "title": "Read a sign",
+   "subtitle": "Photo → letters, sounds, meaning",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of Arabic text",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Read the Arabic in the photo. Sections: a table (Word as written | Letter-by-letter breakdown | Transliteration | English), bullets naming the letters in the photo the learner at the profile's level should recognise, and a callout on any calligraphic or dialect features (Persian/Urdu letters, decorative kufic) that make it harder than textbook script.",
+   "shape": "table, bullets, callout",
+   "button": "Read it",
+   "loading": "Tracing…"
+  },
+  {
+   "id": "vowels",
+   "title": "Harakat and sukun",
+   "subtitle": "The marks that make words readable",
+   "emoji": "✨",
+   "inputs": [
+    {
+     "key": "focus",
+     "label": "Focus",
+     "type": "chips",
+     "options": [
+      "Fatha, kasra, damma",
+      "Sukun and shadda",
+      "Tanwin",
+      "Long vowels",
+      "All of them"
+     ],
+     "default": "Fatha, kasra, damma"
+    }
+   ],
+   "prompt": "Teach {focus} for the profile's level. Sections: a table (Mark | Looks like | Sound | Example word with it | Same word without it), steps for reading a fully vowelled word, and a checklist of 6 words to read aloud in increasing difficulty, each fully vowelled with transliteration.",
+   "shape": "table, steps, checklist",
+   "button": "Teach me",
+   "loading": "Adding dots…"
+  },
+  {
+   "id": "name",
+   "title": "My name in Arabic",
+   "subtitle": "Spelling, forms, and how it sounds",
+   "emoji": "🪪",
+   "inputs": [
+    {
+     "key": "name",
+     "label": "Name to write",
+     "type": "text",
+     "placeholder": "Jessica",
+     "required": true
+    }
+   ],
+   "prompt": "Write {name} in Arabic script. Sections: kv (Arabic spelling, Letter-by-letter with forms, Transliteration back, Closest Arabic pronunciation), bullets on the sounds in this name that Arabic lacks and how they are usually approximated (p→b, v→f, g variations), and a quote with the name in a full greeting sentence such as 'My name is …', with transliteration.",
+   "shape": "kv, bullets, quote",
+   "button": "Write it",
+   "loading": "Calligraphing…"
+  }
+ ]
+}

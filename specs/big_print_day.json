@@ -1,0 +1,180 @@
+{
+ "id": "big_print_day",
+ "name": "Big Print Planner",
+ "tagline": "Plans, letters and lists you can actually read",
+ "category": "Productivity",
+ "colors": [
+  "#1A237E",
+  "#FFD600",
+  "#00838F"
+ ],
+ "icon": "calendar",
+ "about": "Big Print Planner is built for low vision: it turns any letter or bill into a short plain summary, plans your day as a few clear steps, and rewrites recipes, lists and instructions so they work with large text or a screen reader.",
+ "persona": "You are an accessibility-minded assistant for people with low vision: short sentences, one idea per line, numbers spelt clearly, nothing that relies on colour or pictures to understand.",
+ "onboarding": {
+  "title": "Big, clear and simple",
+  "subtitle": "Tell us how you read best and every answer will match.",
+  "bullets": [
+   "Photo of a letter → what it says and what to do",
+   "Your day in a few clear steps",
+   "Recipes and lists rewritten for large print"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "read",
+   "label": "I read best with",
+   "type": "chips",
+   "options": [
+    "Large text",
+    "Screen reader / read aloud",
+    "Magnifier",
+    "Someone reading to me"
+   ],
+   "default": "Large text"
+  },
+  {
+   "key": "light",
+   "label": "Lighting that helps",
+   "type": "chips",
+   "options": [
+    "Bright daylight",
+    "Lamp close by",
+    "High contrast",
+    "No preference"
+   ]
+  },
+  {
+   "key": "helper",
+   "label": "Someone who helps (optional)",
+   "type": "text",
+   "placeholder": "my son Mark"
+  }
+ ],
+ "tools": [
+  {
+   "id": "letter",
+   "title": "Read this for me",
+   "subtitle": "Photo of a letter, bill or label",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the letter or label",
+     "type": "photo",
+     "placeholder": "Hold the camera flat, in good light",
+     "required": true
+    }
+   ],
+   "prompt": "Read the document in the photo for a low-vision reader. A kv (Who it is from | What it is about | Do I need to do anything | By when | Amount of money if any), then a text section that summarises it in 3 short sentences, then a checklist of any actions with one action per line. Add a callout if it looks like marketing or a scam rather than something official.",
+   "shape": "kv, text, checklist, callout",
+   "button": "Read it",
+   "loading": "Reading…"
+  },
+  {
+   "id": "day",
+   "title": "Plan my day",
+   "subtitle": "A few clear steps",
+   "emoji": "☀️",
+   "inputs": [
+    {
+     "key": "today",
+     "label": "What's on today",
+     "type": "longtext",
+     "placeholder": "chiropodist 11, call Sheila, put bins out, chicken for tea",
+     "required": true
+    }
+   ],
+   "prompt": "Turn this into a simple day plan: {today}. A checklist in time order with one short line per item and the time first (e.g. '11:00 — Chiropodist'), then a kv (Leave the house by | Take with me | Ring before I go), and a quote with one sentence to read aloud at the start of the day. Keep every line under 10 words.",
+   "shape": "checklist, kv, quote",
+   "button": "Plan today",
+   "loading": "Sorting the day…"
+  },
+  {
+   "id": "recipe",
+   "title": "Big-print recipe",
+   "subtitle": "Any recipe, made readable",
+   "emoji": "🍲",
+   "inputs": [
+    {
+     "key": "recipe",
+     "label": "Paste or describe the recipe",
+     "type": "longtext",
+     "placeholder": "shepherd's pie for two, the way my mum made it",
+     "required": true
+    },
+    {
+     "key": "serves",
+     "label": "Serves",
+     "type": "chips",
+     "options": [
+      "1",
+      "2",
+      "4"
+     ],
+     "default": "2"
+    }
+   ],
+   "prompt": "Rewrite {recipe} for {serves} so it can be followed with low vision: a kv of ingredients as one short line each, with amounts written as words and numbers (e.g. '2 (two) onions'), steps with one action per step and no more than 12 words each, then bullets of safety cues that don't depend on seeing (sounds, smells, timer minutes), and a callout on hob and oven safety.",
+   "shape": "kv, steps, bullets, callout",
+   "button": "Rewrite",
+   "loading": "Enlarging…"
+  },
+  {
+   "id": "room",
+   "title": "Make a room easier to see",
+   "subtitle": "Contrast, light and labels",
+   "emoji": "💡",
+   "inputs": [
+    {
+     "key": "room",
+     "label": "Room",
+     "type": "chips",
+     "options": [
+      "Kitchen",
+      "Bathroom",
+      "Bedroom",
+      "Living room",
+      "Hallway & stairs"
+     ],
+     "default": "Kitchen"
+    },
+    {
+     "key": "trouble",
+     "label": "What's hard right now",
+     "type": "text",
+     "placeholder": "can't tell the salt from the sugar, miss the bottom step"
+    }
+   ],
+   "prompt": "Improve the {room} for low vision, addressing: {trouble}. A table (Problem | Fix | Cost: free / cheap / worth it), a checklist for a labelling plan (bump dots, rubber bands, large-print labels, contrasting tape) with one line per item, steps to reposition lighting, and a callout on trip and burn hazards.",
+   "shape": "table, checklist, steps, callout",
+   "button": "Improve room",
+   "loading": "Looking around…"
+  },
+  {
+   "id": "shop",
+   "title": "Shopping list",
+   "subtitle": "Grouped, short, in order",
+   "emoji": "🛒",
+   "inputs": [
+    {
+     "key": "items",
+     "label": "What you need",
+     "type": "longtext",
+     "placeholder": "bread, milk, the blue washing tablets, batteries for the remote, something for tea Tuesday",
+     "required": true
+    }
+   ],
+   "prompt": "Turn {items} into a shopping list for a low-vision shopper: a checklist grouped by shop section in the order you meet them (Fruit & veg, Bakery, Chilled, Tins & packets, Household, Other) with one item per line and a size or brand hint where helpful, then bullets on asking staff for help and checking use-by dates, and a kv (Number of items | Estimated bags | Heaviest items to buy last).",
+   "shape": "checklist, bullets, kv",
+   "button": "Make list",
+   "loading": "Sorting aisles…"
+  }
+ ],
+ "disclaimer": "Not medical advice. For any change in your sight, see an optometrist or eye clinic promptly."
+}

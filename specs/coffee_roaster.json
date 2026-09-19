@@ -1,0 +1,173 @@
+{
+ "id": "coffee_roaster",
+ "name": "Roast Curve",
+ "tagline": "Roast green coffee at home, batch by batch",
+ "category": "Food & Drink",
+ "colors": [
+  "#5D4037",
+  "#FF6F00",
+  "#212121"
+ ],
+ "icon": "gear",
+ "about": "Roast Curve plans roast profiles for your roaster and beans, analyses your roast logs by first-crack timing, judges roast colour from a photo, and schedules resting so you brew at peak.",
+ "persona": "You are a small-batch roaster who teaches: you speak in charge temperature, development-time ratio and first crack, and you treat smoke and chaff as real hazards.",
+ "onboarding": {
+  "title": "Your roaster, your beans, a plan",
+  "subtitle": "Tell us the machine and batch size so the times make sense.",
+  "bullets": [
+   "Profiles for popper, air or drum roaster",
+   "Roast-log analysis",
+   "Colour check from a photo"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "roaster",
+   "label": "Roaster",
+   "type": "chips",
+   "options": [
+    "Popcorn popper",
+    "Air roaster (e.g. Fresh Roast)",
+    "Small drum (e.g. Gene, Kaleido)",
+    "Pan / oven",
+    "Behmor"
+   ]
+  },
+  {
+   "key": "batch",
+   "label": "Batch size (g)",
+   "type": "number",
+   "placeholder": "150"
+  },
+  {
+   "key": "like",
+   "label": "You like",
+   "type": "chips",
+   "options": [
+    "Light & fruity",
+    "Medium & sweet",
+    "Dark & bold"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "profile",
+   "title": "Plan a roast profile",
+   "subtitle": "Beans → target curve",
+   "emoji": "📈",
+   "inputs": [
+    {
+     "key": "beans",
+     "label": "Green beans",
+     "type": "text",
+     "placeholder": "Ethiopia Guji natural, high density",
+     "required": true
+    },
+    {
+     "key": "target",
+     "label": "Target",
+     "type": "chips",
+     "options": [
+      "Light (filter)",
+      "Medium (all-round)",
+      "Medium-dark (espresso)",
+      "Dark"
+     ],
+     "default": "Medium (all-round)"
+    }
+   ],
+   "prompt": "Plan a roast of {beans} to {target} for the profile's roaster and batch size. kv (charge temp or fan/heat setting, expected first-crack time, drop time, development-time ratio %, weight loss %), a table (Phase | Time window | Temp or setting | What to watch), steps for the roast including cooling, and a callout on the most common failure mode for this bean-roaster combination.",
+   "shape": "kv, table, steps, callout",
+   "button": "Plan roast",
+   "loading": "Charging the drum…"
+  },
+  {
+   "id": "log",
+   "title": "Analyse my roast log",
+   "subtitle": "Paste times and temps",
+   "emoji": "📓",
+   "inputs": [
+    {
+     "key": "log",
+     "label": "Roast log",
+     "type": "longtext",
+     "placeholder": "charge 200°C, turning point 1:10 @ 95°C, yellow 4:00, FC 8:30 @ 196°C, drop 10:15 @ 212°C, 14% loss",
+     "required": true
+    }
+   ],
+   "prompt": "Analyse: {log}. kv (DTR %, rate-of-rise trend, total time, verdict), bullets on what the numbers suggest about flavour (baked, scorched, underdeveloped, good), a table (Metric | Yours | Target for the profile's preference | Adjust by), and steps for the next roast changing one variable.",
+   "shape": "kv, bullets, table, steps",
+   "button": "Analyse",
+   "loading": "Reading the curve…"
+  },
+  {
+   "id": "colour",
+   "title": "Judge the roast",
+   "subtitle": "Photo of beans → level and defects",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of roasted beans on white paper",
+     "type": "photo",
+     "placeholder": "Even light, no shadows",
+     "required": true
+    }
+   ],
+   "prompt": "Judge the roasted beans in the photo. Give kv (roast level, Agtron range est., evenness, surface oil, defects seen such as tipping, scorching or quakers), a table (Observation | Cause | Fix next time), and bullets on how this level will brew best.",
+   "shape": "kv, table, bullets",
+   "button": "Judge",
+   "loading": "Squinting at beans…"
+  },
+  {
+   "id": "green",
+   "title": "Buy green beans",
+   "subtitle": "What to order next",
+   "emoji": "🛒",
+   "inputs": [
+    {
+     "key": "budget",
+     "label": "Budget",
+     "type": "number",
+     "placeholder": "40"
+    },
+    {
+     "key": "want",
+     "label": "Wanting",
+     "type": "text",
+     "placeholder": "something chocolatey for espresso, plus one washed Kenyan"
+    }
+   ],
+   "prompt": "Recommend green beans for {budget} with wish: {want}, for the profile's roaster and taste. Cards (origin · process · variety, meta = price tier · roast difficulty), bullets on reading a green-coffee listing (density, moisture, screen size, crop year), and a callout on storing greens.",
+   "shape": "cards, bullets, callout",
+   "button": "Recommend",
+   "loading": "Browsing lots…"
+  },
+  {
+   "id": "rest",
+   "title": "Rest & brew schedule",
+   "subtitle": "When each batch peaks",
+   "emoji": "☕",
+   "inputs": [
+    {
+     "key": "batches",
+     "label": "Batches roasted",
+     "type": "longtext",
+     "placeholder": "Mon: 150 g Guji light; Wed: 200 g Brazil medium-dark",
+     "required": true
+    }
+   ],
+   "prompt": "For {batches}, build a table (Batch | Roast level | Rest days before brewing | Peak window | Best brew method). Then steps for degassing and storage, and a callout on why fresh-off-the-roaster espresso tastes wrong.",
+   "shape": "table, steps, callout",
+   "button": "Schedule",
+   "loading": "Letting it breathe…"
+  }
+ ],
+ "disclaimer": "Roasting makes smoke, hot chaff and carbon monoxide. Roast with strong ventilation, never leave a roaster unattended, keep chaff away from heat, and keep an extinguisher nearby."
+}

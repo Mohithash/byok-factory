@@ -1,0 +1,203 @@
+{
+ "id": "kombucha_lab",
+ "name": "Booch Lab",
+ "tagline": "Kombucha and jun, batch after batch",
+ "category": "Food & Drink",
+ "colors": [
+  "#00897B",
+  "#F4511E",
+  "#FFD54F"
+ ],
+ "icon": "spark",
+ "about": "Booch Lab schedules first and second ferments for your kitchen temperature, designs flavours that actually carbonate, checks SCOBY health from a photo, and troubleshoots vinegar, flat bottles and mould.",
+ "persona": "You are a friendly kombucha brewer and food-safety nerd: you love flavour experiments but never gamble on a suspect batch.",
+ "onboarding": {
+  "title": "Brew the booch you actually want",
+  "subtitle": "Your vessel and kitchen temperature set every timeline.",
+  "bullets": [
+   "1F and 2F timelines for your kitchen",
+   "Flavour recipes that carbonate",
+   "SCOBY check from a photo"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "brew",
+   "label": "You brew",
+   "type": "chips",
+   "options": [
+    "Kombucha",
+    "Jun",
+    "Both"
+   ]
+  },
+  {
+   "key": "vessel",
+   "label": "Vessel size (L)",
+   "type": "number",
+   "placeholder": "4"
+  },
+  {
+   "key": "room",
+   "label": "Kitchen temp (°C)",
+   "type": "number",
+   "placeholder": "22"
+  }
+ ],
+ "tools": [
+  {
+   "id": "batch",
+   "title": "Plan a batch",
+   "subtitle": "Tea, sugar, starter and dates",
+   "emoji": "🫖",
+   "inputs": [
+    {
+     "key": "tea",
+     "label": "Tea base",
+     "type": "chips",
+     "options": [
+      "Black",
+      "Green",
+      "Oolong",
+      "Black + green mix",
+      "Jun (green + honey)"
+     ],
+     "default": "Black"
+    },
+    {
+     "key": "target",
+     "label": "Target taste",
+     "type": "chips",
+     "options": [
+      "Sweet",
+      "Balanced",
+      "Tart"
+     ],
+     "default": "Balanced"
+    },
+    {
+     "key": "start",
+     "label": "Start day",
+     "type": "text",
+     "placeholder": "Saturday"
+    }
+   ],
+   "prompt": "Plan a first ferment in the profile's vessel with a {tea} base aiming {target}, starting {start}, at the profile's kitchen temperature. kv (tea g, sugar g, water L, starter liquid ml, expected 1F days), steps from brewing the tea to covering the jar, a table (Day | What to check | What it should taste like), and a callout on the pH and taste cues that mean it is ready.",
+   "shape": "kv, steps, table, callout",
+   "button": "Plan batch",
+   "loading": "Steeping…"
+  },
+  {
+   "id": "flavour",
+   "title": "Second-ferment flavour",
+   "subtitle": "Fruit, herbs, fizz",
+   "emoji": "🍓",
+   "inputs": [
+    {
+     "key": "have",
+     "label": "Ingredients you have",
+     "type": "text",
+     "placeholder": "ginger, frozen mango, mint",
+     "required": true
+    },
+    {
+     "key": "fizz",
+     "label": "Fizz level",
+     "type": "chips",
+     "options": [
+      "Gentle",
+      "Lively",
+      "Champagne"
+     ],
+     "default": "Lively"
+    }
+   ],
+   "prompt": "Design 4 second-ferment flavours from {have} for {fizz} fizz as cards (meta = g or ml per 500 ml bottle · 2F days at the profile's temperature). Then steps for bottling (headspace, bottle type, burping schedule) and a callout on sugar sources that over-carbonate and how to avoid exploding bottles.",
+   "shape": "cards, steps, callout",
+   "button": "Flavour it",
+   "loading": "Adding the fruit…"
+  },
+  {
+   "id": "scoby",
+   "title": "Check my SCOBY",
+   "subtitle": "Photo → healthy, yeasty or mould",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the SCOBY or jar surface",
+     "type": "photo",
+     "placeholder": "Good light, from above",
+     "required": true
+    }
+   ],
+   "prompt": "Assess the photo. kv (verdict: healthy / yeast-heavy / suspect / mould — discard, confidence, key visual evidence), a table (Feature seen | Normal? | What it means), steps for what to do next (keep brewing, rebalance yeast, or discard and sanitise), and a callout that fuzzy or coloured mould has only one safe response: discard everything.",
+   "shape": "kv, table, steps, callout",
+   "button": "Check",
+   "loading": "Peering in…"
+  },
+  {
+   "id": "fix",
+   "title": "Troubleshoot",
+   "subtitle": "Vinegary, flat, slimy, fruit flies",
+   "emoji": "🔧",
+   "inputs": [
+    {
+     "key": "problem",
+     "label": "Problem",
+     "type": "chips",
+     "options": [
+      "Too vinegary",
+      "Too sweet / slow",
+      "Flat bottles",
+      "Over-carbonated",
+      "Stringy brown bits",
+      "Fruit flies",
+      "Off smell"
+     ],
+     "default": "Too vinegary"
+    },
+    {
+     "key": "details",
+     "label": "Details",
+     "type": "text",
+     "placeholder": "10 days, 26°C, second batch with this SCOBY"
+    }
+   ],
+   "prompt": "Problem: {problem}. Details: {details}. Explain the likely cause in text, then steps to fix this batch and the next, bullets on prevention tuned to the profile's temperature, and a callout if anything described means the batch must be discarded.",
+   "shape": "text, steps, bullets, callout",
+   "button": "Diagnose",
+   "loading": "Tasting a sample…"
+  },
+  {
+   "id": "hotel",
+   "title": "SCOBY hotel & pause",
+   "subtitle": "Holidays, breaks, sharing",
+   "emoji": "🏨",
+   "inputs": [
+    {
+     "key": "plan",
+     "label": "I want to",
+     "type": "chips",
+     "options": [
+      "Pause for 2–4 weeks",
+      "Pause for months",
+      "Split and share a SCOBY",
+      "Restart a neglected hotel"
+     ],
+     "default": "Pause for 2–4 weeks"
+    }
+   ],
+   "prompt": "For '{plan}' with the profile's vessel, give steps with quantities and timings. Then a checklist of what to check when you come back, and a callout on the signs the culture did not survive.",
+   "shape": "steps, checklist, callout",
+   "button": "Show me",
+   "loading": "Tucking it in…"
+  }
+ ],
+ "disclaimer": "Home ferments carry food-safety risk. Discard any batch with fuzzy mould, and check with a clinician before drinking kombucha if pregnant, immunocompromised or managing a health condition. Not medical advice."
+}

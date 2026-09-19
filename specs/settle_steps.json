@@ -1,0 +1,206 @@
+{
+ "id": "settle_steps",
+ "name": "Settle Steps",
+ "tagline": "Gentle sleep coaching from 4 months to 4 years",
+ "category": "Parenting",
+ "colors": [
+  "#4527A0",
+  "#26C6DA",
+  "#FFCC80"
+ ],
+ "icon": "star",
+ "about": "Settle Steps chooses a sleep-coaching method that matches your values, writes night-by-night plans, manages nap transitions and night weaning, and handles the move from cot to bed and 5am starts.",
+ "persona": "You are an experienced paediatric sleep coach: evidence-informed, respectful of how much crying parents can tolerate, precise about timings, and honest that consistency matters more than method.",
+ "onboarding": {
+  "title": "Nights you can plan for",
+  "subtitle": "Tell us your child's age, current sleep and how you feel about crying.",
+  "bullets": [
+   "Method matched to your values",
+   "Night-by-night plans",
+   "Nap & big-bed transitions"
+  ]
+ },
+ "profile": [
+  {
+   "key": "child",
+   "label": "Child's name & age",
+   "type": "text",
+   "placeholder": "Ada, 9 months",
+   "required": true
+  },
+  {
+   "key": "crying",
+   "label": "Comfort with crying",
+   "type": "chips",
+   "options": [
+    "None — fully responsive",
+    "Some fussing OK",
+    "Timed checks OK"
+   ]
+  },
+  {
+   "key": "now",
+   "label": "Current sleep",
+   "type": "text",
+   "placeholder": "feeds to sleep, wakes 3× a night, 2 naps"
+  },
+  {
+   "key": "space",
+   "label": "Sleeps in",
+   "type": "chips",
+   "options": [
+    "Own room",
+    "Our room, own cot",
+    "Co-sleeping"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "method",
+   "title": "Choose a method",
+   "subtitle": "Which approach fits our family",
+   "emoji": "🧭",
+   "inputs": [
+    {
+     "key": "goal",
+     "label": "Main goal",
+     "type": "text",
+     "placeholder": "fall asleep without feeding, one wake max",
+     "required": true
+    },
+    {
+     "key": "nights",
+     "label": "Nights we can commit",
+     "type": "number",
+     "placeholder": "10"
+    }
+   ],
+   "prompt": "Recommend a sleep-coaching approach for the profile with goal '{goal}' and {nights} committed nights. Cards for the 3 best-fitting methods (meta = typical nights to see change · crying level), a kv of prerequisites (bedtime, room, health, teething, developmental leaps to wait out), and a callout on why the profile's comfort-with-crying level rules some methods out.",
+   "shape": "cards, kv, callout",
+   "button": "Recommend",
+   "loading": "Weighing options…"
+  },
+  {
+   "id": "plan",
+   "title": "Night-by-night plan",
+   "subtitle": "Exactly what to do each night",
+   "emoji": "🌙",
+   "inputs": [
+    {
+     "key": "method",
+     "label": "Method",
+     "type": "chips",
+     "options": [
+      "Gradual retreat",
+      "Chair method",
+      "Pick up / put down",
+      "Timed checks",
+      "Fading bedtime"
+     ],
+     "default": "Gradual retreat"
+    },
+    {
+     "key": "bedtime",
+     "label": "Target bedtime",
+     "type": "text",
+     "placeholder": "19:00"
+    }
+   ],
+   "prompt": "Write a 10-night '{method}' plan for the profile with target bedtime {bedtime}: a table (Night | Bedtime routine | Where you are / what you do | Response to night wakes | Expect), steps for the bedtime routine with clock times, bullets on what both parents must agree on, and a callout on the night-3 protest peak and when to pause (illness, travel).",
+   "shape": "table, steps, bullets, callout",
+   "button": "Write plan",
+   "loading": "Dimming lights…"
+  },
+  {
+   "id": "naps",
+   "title": "Nap transition",
+   "subtitle": "Dropping 3→2, 2→1 or 1→0",
+   "emoji": "☀️",
+   "inputs": [
+    {
+     "key": "transition",
+     "label": "Transition",
+     "type": "chips",
+     "options": [
+      "3 to 2 naps",
+      "2 to 1 nap",
+      "1 to 0 naps",
+      "Not sure — help me tell"
+     ],
+     "default": "2 to 1 nap"
+    },
+    {
+     "key": "signs",
+     "label": "What you're seeing",
+     "type": "text",
+     "placeholder": "fights the afternoon nap, bedtime slipping to 9pm"
+    }
+   ],
+   "prompt": "Manage the '{transition}' transition given: {signs}. First a text verdict on whether it is time (with the signs that confirm it), then a table (Week | Wake-up | Nap 1 | Nap 2 | Bedtime) for a 3-week shift, bullets on surviving the overtired late-afternoon gap, and a callout on quiet time once naps end.",
+   "shape": "text, table, bullets, callout",
+   "button": "Plan transition",
+   "loading": "Shifting naps…"
+  },
+  {
+   "id": "nightwean",
+   "title": "Night weaning",
+   "subtitle": "Fewer night feeds, gently",
+   "emoji": "🍼",
+   "inputs": [
+    {
+     "key": "feeds",
+     "label": "Night feeds now",
+     "type": "number",
+     "placeholder": "3"
+    },
+    {
+     "key": "how",
+     "label": "Feeding",
+     "type": "chips",
+     "options": [
+      "Breast",
+      "Bottle",
+      "Both"
+     ],
+     "default": "Breast"
+    },
+    {
+     "key": "notes",
+     "label": "Notes",
+     "type": "text",
+     "placeholder": "partner can take some wakes"
+    }
+   ],
+   "prompt": "Plan gradual night weaning from {feeds} feeds ({how}) with notes: {notes}. Steps over 2 weeks reducing minutes or millilitres per feed with actual numbers, a table (Night | Feed 1 | Feed 2 | Feed 3 | Who settles), bullets on daytime calorie top-ups, and a callout on ages and weights where night feeds may still be needed and to check with a health professional first.",
+   "shape": "steps, table, bullets, callout",
+   "button": "Plan it",
+   "loading": "Tapering…"
+  },
+  {
+   "id": "bigbed",
+   "title": "Cot to bed / early waking",
+   "subtitle": "Toddler escapes and 5am starts",
+   "emoji": "🛏️",
+   "inputs": [
+    {
+     "key": "issue",
+     "label": "Issue",
+     "type": "chips",
+     "options": [
+      "Moving to a big bed",
+      "Climbing out of the cot",
+      "Waking before 6",
+      "Bedtime stalling"
+     ],
+     "default": "Waking before 6"
+    }
+   ],
+   "prompt": "Solve '{issue}' for the profile: steps for a 2-week plan (room setup, light, ok-to-wake cue, response script), a quote with the exact 2-sentence script to repeat every single time, bullets of common mistakes, and a callout on safety (bed rails, furniture anchoring, door or stair gate).",
+   "shape": "steps, quote, bullets, callout",
+   "button": "Fix it",
+   "loading": "Tucking in…"
+  }
+ ],
+ "disclaimer": "General parenting information, not medical advice. For concerns about your baby's health, feeding, breathing or weight, contact your midwife, health visitor or paediatrician — and call emergency services if a baby is struggling to breathe, is floppy, has a fever under 3 months old or cannot be woken."
+}

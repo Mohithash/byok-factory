@@ -1,0 +1,190 @@
+{
+ "id": "stall_day",
+ "name": "Stall Day",
+ "tagline": "Markets and fairs that actually pay for the pitch",
+ "category": "Business",
+ "colors": [
+  "#AD1457",
+  "#00897B",
+  "#FFA000"
+ ],
+ "icon": "pin",
+ "about": "Stall Day helps market traders and craft-fair vendors decide which events are worth it, plan stock and cash float, lay out a stall that stops people, and review each day's takings.",
+ "persona": "You are a veteran market trader: honest about pitch fees and weather, sharp on what sells at 10am versus 3pm, and generous with display tricks.",
+ "onboarding": {
+  "title": "Make the pitch fee back by noon",
+  "subtitle": "What you sell and your usual takings tune the plan.",
+  "bullets": [
+   "Go / no-go on any event",
+   "Stock & float plans",
+   "Stall layout from a photo"
+  ]
+ },
+ "profile": [
+  {
+   "key": "sells",
+   "label": "What you sell",
+   "type": "text",
+   "placeholder": "hand-poured candles and wax melts"
+  },
+  {
+   "key": "avg",
+   "label": "Average sale",
+   "type": "number",
+   "placeholder": "18"
+  },
+  {
+   "key": "typical",
+   "label": "Typical day's takings",
+   "type": "number",
+   "placeholder": "420"
+  },
+  {
+   "key": "currency",
+   "label": "Currency",
+   "type": "chips",
+   "options": [
+    "USD",
+    "EUR",
+    "GBP",
+    "INR",
+    "AUD",
+    "CAD"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "worth",
+   "title": "Is this event worth it?",
+   "subtitle": "Fees, footfall and a verdict",
+   "emoji": "🎪",
+   "inputs": [
+    {
+     "key": "event",
+     "label": "Event",
+     "type": "text",
+     "placeholder": "Christmas market, 2 days, 3,000 visitors a day",
+     "required": true
+    },
+    {
+     "key": "fee",
+     "label": "Pitch fee",
+     "type": "number",
+     "placeholder": "180"
+    },
+    {
+     "key": "costs",
+     "label": "Other costs",
+     "type": "text",
+     "placeholder": "fuel 30, parking 20, helper 80, table hire 15"
+    }
+   ],
+   "prompt": "Evaluate {event} at pitch fee {fee} with costs: {costs}, against the profile takings and average sale. kv (total cost, break-even sales, sales needed to make 2× the costs, conversion needed as % of visitors), a table (Scenario | Takings | Profit) for poor, typical and great days, bullets of questions to ask the organiser, and a callout with a go / maybe / skip verdict and why.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Judge it",
+   "loading": "Sizing the crowd…"
+  },
+  {
+   "id": "pack",
+   "title": "Pack list & float",
+   "subtitle": "What to bring and how much change",
+   "emoji": "🚗",
+   "inputs": [
+    {
+     "key": "event",
+     "label": "Event & hours",
+     "type": "text",
+     "placeholder": "Saturday farmers' market, 8am–2pm",
+     "required": true
+    },
+    {
+     "key": "weather",
+     "label": "Forecast",
+     "type": "chips",
+     "options": [
+      "Sunny",
+      "Cloudy",
+      "Rain",
+      "Cold",
+      "Windy"
+     ],
+     "default": "Cloudy"
+    },
+    {
+     "key": "target",
+     "label": "Target takings",
+     "type": "number",
+     "placeholder": "500"
+    }
+   ],
+   "prompt": "Plan stock and kit for {event}, forecast {weather}, target {target}. Table (Product | Units to bring | Price | Potential) sized to hit the target with 20% headroom, a checklist of kit (weights, cover, signage, card reader, float), kv (cash float amount and denomination breakdown), and a callout on weather-specific prep.",
+   "shape": "table, checklist, kv, callout",
+   "button": "Pack it",
+   "loading": "Loading the car…"
+  },
+  {
+   "id": "layout",
+   "title": "Stall layout check",
+   "subtitle": "Photo → what stops passers-by",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of your stall or table",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Critique the stall in the photo: bullets on what stops passers-by and what doesn't, a table (Zone | Now | Change | Why) covering height, hero product, price visibility, signage and reach, steps to re-set it in 15 minutes, and a quote with a 6-word sign for the front.",
+   "shape": "bullets, table, steps, quote",
+   "button": "Check layout",
+   "loading": "Standing back…"
+  },
+  {
+   "id": "review",
+   "title": "Review the day",
+   "subtitle": "Takings → lessons for next time",
+   "emoji": "🧾",
+   "inputs": [
+    {
+     "key": "day",
+     "label": "How it went",
+     "type": "longtext",
+     "placeholder": "took 380, 21 sales, dead 8–10, sold out of vanilla, nobody touched the gift sets, rain at 1",
+     "required": true
+    }
+   ],
+   "prompt": "Review the day: {day}, against the profile typical takings. kv (takings vs typical, average sale vs profile, sales per hour, profit after fees if given), bullets of what to change next time, a table (Product | Signal | Action) for sold-out, ignored and steady lines, and a callout on the one experiment to run at the next event.",
+   "shape": "kv, bullets, table, callout",
+   "button": "Review day",
+   "loading": "Counting the tin…"
+  },
+  {
+   "id": "pitch",
+   "title": "Talk to shoppers",
+   "subtitle": "Lines for the moments that sell",
+   "emoji": "🗣️",
+   "inputs": [
+    {
+     "key": "moment",
+     "label": "Moment",
+     "type": "chips",
+     "options": [
+      "Someone picks it up",
+      "Asks the price",
+      "Says 'just looking'",
+      "Wants a discount",
+      "Buys — upsell"
+     ],
+     "default": "Asks the price"
+    }
+   ],
+   "prompt": "Give me lines for when '{moment}' happens at a stall selling the profile products: a quote with 3 short things to say, bullets on body language and timing, and a callout on what not to say.",
+   "shape": "quote, bullets, callout",
+   "button": "Give me lines",
+   "loading": "Warming up…"
+  }
+ ],
+ "disclaimer": "General trading guidance, not financial or legal advice; check licence and food-hygiene rules for your event."
+}

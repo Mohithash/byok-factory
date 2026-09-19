@@ -1,0 +1,169 @@
+{
+ "id": "proof_point",
+ "name": "Proof Point",
+ "tagline": "Turn happy customers into case studies and proof",
+ "category": "Business",
+ "colors": [
+  "#0D47A1",
+  "#26A69A",
+  "#FF8F00"
+ ],
+ "icon": "shield",
+ "about": "Proof Point writes case studies from rough notes, mines raw feedback for quotable testimonials, prepares customer interviews and plans where social proof belongs across your marketing.",
+ "persona": "You are a B2B content marketer who specialises in customer stories: specific numbers, real quotes, no hype, and you always get permission.",
+ "onboarding": {
+  "title": "Let customers sell for you",
+  "subtitle": "Tell us what you sell so every story lands with the right buyer.",
+  "bullets": [
+   "Case studies from rough notes",
+   "Quotable lines from raw feedback",
+   "Interview questions that get gold"
+  ]
+ },
+ "profile": [
+  {
+   "key": "product",
+   "label": "Product / service",
+   "type": "text",
+   "placeholder": "Fieldly — scheduling app for cleaning companies"
+  },
+  {
+   "key": "buyer",
+   "label": "Typical buyer",
+   "type": "text",
+   "placeholder": "owner of a 5–30 person cleaning business"
+  },
+  {
+   "key": "outcomes",
+   "label": "Outcomes customers get",
+   "type": "text",
+   "placeholder": "fewer missed jobs, faster invoicing"
+  }
+ ],
+ "tools": [
+  {
+   "id": "casestudy",
+   "title": "Write a case study",
+   "subtitle": "Notes → full story",
+   "emoji": "📖",
+   "inputs": [
+    {
+     "key": "notes",
+     "label": "Customer facts & notes",
+     "type": "longtext",
+     "placeholder": "Sparkle Co, 12 staff; before: paper schedules, 5 missed jobs/wk; after 3 months: 0 missed, invoicing 2 days faster; quote: 'I got my Sundays back'",
+     "required": true
+    },
+    {
+     "key": "length",
+     "label": "Length",
+     "type": "chips",
+     "options": [
+      "One-pager (400 words)",
+      "Standard (800)",
+      "Long (1500)"
+     ],
+     "default": "Standard (800)"
+    }
+   ],
+   "prompt": "Write a {length} case study for the profile product from: {notes}. kv (headline with the key result, customer, industry, 3 stat callouts), text with the story in sections Challenge / Solution / Results / What's next, a quote with the pull-quote to feature, a table (Metric | Before | After | Change), and a callout on what to confirm with the customer before publishing.",
+   "shape": "kv, text, quote, table, callout",
+   "button": "Write story",
+   "loading": "Drafting the story…"
+  },
+  {
+   "id": "mine",
+   "title": "Mine for quotes",
+   "subtitle": "Raw feedback → usable testimonials",
+   "emoji": "⛏️",
+   "inputs": [
+    {
+     "key": "feedback",
+     "label": "Paste reviews, emails, survey answers, call notes",
+     "type": "longtext",
+     "placeholder": "…",
+     "required": true
+    }
+   ],
+   "prompt": "Extract testimonials from this raw feedback for the profile product: {feedback}. A table (Quote, lightly edited | Source | Theme | Where to use), bullets of 5 themes with how many mentions each, a quote with the single strongest ≤20-word testimonial, and a callout reminding to get written permission and keep edits faithful.",
+   "shape": "table, bullets, quote, callout",
+   "button": "Mine quotes",
+   "loading": "Sifting feedback…"
+  },
+  {
+   "id": "interview",
+   "title": "Interview questions",
+   "subtitle": "Get a story, not a rating",
+   "emoji": "🎤",
+   "inputs": [
+    {
+     "key": "customer",
+     "label": "Customer & context",
+     "type": "text",
+     "placeholder": "Sparkle Co, using us 6 months",
+     "required": true
+    },
+    {
+     "key": "format",
+     "label": "Format",
+     "type": "chips",
+     "options": [
+      "15-min call",
+      "Email questionnaire",
+      "Video testimonial"
+     ],
+     "default": "15-min call"
+    }
+   ],
+   "prompt": "Prepare a {format} testimonial interview with {customer} for the profile product. Steps in order (warm-up, before-state, decision, results with numbers, emotional payoff, would-you-recommend), each with the exact question and one follow-up probe; a checklist of logistics and permissions; and a quote with the invitation message to send them.",
+   "shape": "steps, checklist, quote",
+   "button": "Prepare interview",
+   "loading": "Writing questions…"
+  },
+  {
+   "id": "placement",
+   "title": "Proof placement plan",
+   "subtitle": "Where social proof goes",
+   "emoji": "🧭",
+   "inputs": [
+    {
+     "key": "assets",
+     "label": "Proof you have",
+     "type": "longtext",
+     "placeholder": "14 G2 reviews, 2 case studies, a logo wall of 8, one video",
+     "required": true
+    },
+    {
+     "key": "pages",
+     "label": "Key pages / channels",
+     "type": "text",
+     "placeholder": "home, pricing, demo page, sales deck"
+    }
+   ],
+   "prompt": "Plan where to place social proof across {pages} using these assets: {assets}, for the profile buyer. A table (Location | Proof type | Which asset | Objection it answers), bullets of gaps to fill next, cards for 3 new proof formats to create (meta = effort · impact), and a callout on keeping claims accurate and dated.",
+   "shape": "table, bullets, cards, callout",
+   "button": "Plan placement",
+   "loading": "Placing proof…"
+  },
+  {
+   "id": "snippets",
+   "title": "Proof snippets",
+   "subtitle": "Stats, logo lines and one-liners",
+   "emoji": "✨",
+   "inputs": [
+    {
+     "key": "context",
+     "label": "Where they'll appear",
+     "type": "text",
+     "placeholder": "pricing page, ad, cold email",
+     "required": true
+    }
+   ],
+   "prompt": "Write social-proof snippets for the profile product to use in {context}. A table (Snippet | Type: stat / quote / logo line / count | Chars | Needs verification?), a quote with a 2-sentence 'trusted by' line, and bullets on what evidence to keep on file for each claim.",
+   "shape": "table, quote, bullets",
+   "button": "Write snippets",
+   "loading": "Compressing proof…"
+  }
+ ],
+ "disclaimer": "Only publish testimonials and results that are genuine, typical or clearly qualified, and used with written permission; endorsement rules (e.g. FTC) apply."
+}

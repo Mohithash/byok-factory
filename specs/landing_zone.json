@@ -1,0 +1,171 @@
+{
+ "id": "landing_zone",
+ "name": "Landing Zone",
+ "tagline": "Landing page copy built to convert",
+ "category": "Business",
+ "colors": [
+  "#EF6C00",
+  "#3949AB",
+  "#00897B"
+ ],
+ "icon": "bulb",
+ "about": "Landing Zone writes complete landing pages section by section, generates hero variants, tears down your existing page from a screenshot and drafts the FAQ that closes the sale.",
+ "persona": "You are a conversion copywriter: clarity over cleverness, one page one goal, and every section has to earn its place.",
+ "onboarding": {
+  "title": "One page, one job: convert",
+  "subtitle": "Tell us the offer and the reader, and we'll write the page.",
+  "bullets": [
+   "Full pages, section by section",
+   "Hero headlines with variants",
+   "Screenshot teardowns"
+  ]
+ },
+ "profile": [
+  {
+   "key": "offer",
+   "label": "What the page sells",
+   "type": "text",
+   "placeholder": "4-week bootcamp for first-time managers, $499"
+  },
+  {
+   "key": "audience",
+   "label": "Who lands here",
+   "type": "text",
+   "placeholder": "new team leads in tech"
+  },
+  {
+   "key": "proof",
+   "label": "Proof you have",
+   "type": "text",
+   "placeholder": "1,200 alumni, 4.8★ reviews, featured in HR Weekly"
+  },
+  {
+   "key": "goal",
+   "label": "Page goal",
+   "type": "chips",
+   "options": [
+    "Buy",
+    "Book a demo",
+    "Sign up free",
+    "Download",
+    "Join waitlist"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "page",
+   "title": "Write the page",
+   "subtitle": "Hero to final CTA",
+   "emoji": "📄",
+   "inputs": [
+    {
+     "key": "length",
+     "label": "Page length",
+     "type": "chips",
+     "options": [
+      "Short (5 sections)",
+      "Standard (8)",
+      "Long-form (12)"
+     ],
+     "default": "Standard (8)"
+    },
+    {
+     "key": "objection",
+     "label": "Biggest objection",
+     "type": "text",
+     "placeholder": "too busy / is it worth $499"
+    }
+   ],
+   "prompt": "Write a {length} landing page for the profile offer that answers the objection '{objection}'. Cards per section in page order (title = section name, meta = purpose; body = the actual copy: headline, subhead, body, CTA where relevant), a table (Section | Goal | Word count | Visual suggestion), and a callout on the primary CTA wording to repeat throughout.",
+   "shape": "cards, table, callout",
+   "button": "Write page",
+   "loading": "Laying out sections…"
+  },
+  {
+   "id": "hero",
+   "title": "Hero variants",
+   "subtitle": "10 headline + subhead pairs",
+   "emoji": "🦸",
+   "inputs": [
+    {
+     "key": "style",
+     "label": "Style mix",
+     "type": "chips",
+     "options": [
+      "Benefit-led",
+      "Outcome / number",
+      "Question",
+      "Pain-first",
+      "Mixed"
+     ],
+     "default": "Mixed"
+    }
+   ],
+   "prompt": "Write 10 hero sections for the profile offer in a {style} style. A table (Headline ≤10 words | Subhead ≤25 words | CTA button | Angle), then a quote with the strongest hero written out in full including a one-line trust bar, and bullets on which 2 to A/B test first and why.",
+   "shape": "table, quote, bullets",
+   "button": "Generate heroes",
+   "loading": "Honing headlines…"
+  },
+  {
+   "id": "teardown",
+   "title": "Tear down my page",
+   "subtitle": "Screenshot → conversion fixes",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Screenshot of your landing page (full-page if possible)",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Tear down this landing page screenshot for conversion. kv (first-impression score /10, 5-second test: what / for whom / why, CTA visibility, trust signals present), a table (Section | Issue | Fix | Expected impact), a checklist of quick wins in priority order, and a quote rewriting the hero headline and subhead.",
+   "shape": "kv, table, checklist, quote",
+   "button": "Tear it down",
+   "loading": "Reading the fold…"
+  },
+  {
+   "id": "faq",
+   "title": "Objections → FAQ",
+   "subtitle": "The questions that block the sale",
+   "emoji": "🛡️",
+   "inputs": [
+    {
+     "key": "objections",
+     "label": "Objections you hear (blank = we'll infer)",
+     "type": "longtext",
+     "placeholder": "is there a refund? I don't have time; my boss won't pay"
+    }
+   ],
+   "prompt": "Write a sales-closing FAQ for the profile offer using these objections: {objections} (infer the common ones if none given). Cards (question as title, 40–80 word answer that reframes the objection; meta = objection type), a table (Objection | Root fear | Proof to add to the page), and a callout on the one guarantee or risk-reversal worth considering.",
+   "shape": "cards, table, callout",
+   "button": "Write FAQ",
+   "loading": "Handling objections…"
+  },
+  {
+   "id": "cta",
+   "title": "CTA & microcopy",
+   "subtitle": "Buttons, forms, thank-you page",
+   "emoji": "🖱️",
+   "inputs": [
+    {
+     "key": "form",
+     "label": "Form length",
+     "type": "chips",
+     "options": [
+      "Email only",
+      "Name + email",
+      "Full lead form",
+      "Checkout"
+     ],
+     "default": "Name + email"
+    }
+   ],
+   "prompt": "Write conversion microcopy for the profile page with a {form} form. A table (Element | Copy | Why) covering 5 CTA button variants, form labels and placeholders, a privacy reassurance line, error messages and a success message; a quote with the thank-you page copy (headline, next step, share line); and bullets on button placement and repetition.",
+   "shape": "table, quote, bullets",
+   "button": "Write microcopy",
+   "loading": "Polishing buttons…"
+  }
+ ]
+}

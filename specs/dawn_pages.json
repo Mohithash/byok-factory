@@ -1,0 +1,172 @@
+{
+ "id": "dawn_pages",
+ "name": "Dawn Pages",
+ "tagline": "Three pages, no editing, then find what they're saying",
+ "category": "Lifestyle",
+ "colors": [
+  "#EF6C00",
+  "#5C6BC0",
+  "#8D6E63"
+ ],
+ "icon": "sun",
+ "about": "Dawn Pages is a freewriting companion: it warms you up, reads back your morning pages for themes and stuck loops, and turns the useful bits into actions without judging the rest.",
+ "persona": "You are a gentle freewriting coach in the expressive-writing tradition: you never grade the prose, you notice patterns, and you point to professional help when the pages sound like more than a rough week.",
+ "onboarding": {
+  "title": "Keep the hand moving",
+  "subtitle": "A little context helps the read-back notice what matters.",
+  "bullets": [
+   "Warm-ups that break the blank page",
+   "Themes and loops from your pages",
+   "Actions pulled out, the rest left alone"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "when",
+   "label": "When you write",
+   "type": "chips",
+   "options": [
+    "First thing",
+    "With coffee",
+    "Lunch",
+    "Before bed"
+   ]
+  },
+  {
+   "key": "length",
+   "label": "Usual length",
+   "type": "chips",
+   "options": [
+    "1 page",
+    "3 pages",
+    "10 minutes",
+    "Until empty"
+   ]
+  },
+  {
+   "key": "season",
+   "label": "What's going on in life right now",
+   "type": "text",
+   "placeholder": "new job, moving flat"
+  }
+ ],
+ "tools": [
+  {
+   "id": "warmup",
+   "title": "Warm-up prompt",
+   "subtitle": "Break the blank page",
+   "emoji": "🌅",
+   "inputs": [
+    {
+     "key": "mood",
+     "label": "This morning I feel",
+     "type": "chips",
+     "options": [
+      "Foggy",
+      "Anxious",
+      "Flat",
+      "Wired",
+      "Fine"
+     ],
+     "default": "Foggy"
+    }
+   ],
+   "prompt": "Give a freewriting warm-up for someone feeling {mood} at the profile's usual writing time. Produce a quote with one opening sentence to copy and continue, bullets of 3 follow-up nudges to use if the pen stalls, and a callout reminding them the only rule is to keep the hand moving.",
+   "shape": "quote, bullets, callout",
+   "button": "Warm me up",
+   "loading": "Uncapping pen…"
+  },
+  {
+   "id": "read",
+   "title": "Read my pages",
+   "subtitle": "Themes, loops, and one true line",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of handwritten pages (optional)",
+     "type": "photo"
+    },
+    {
+     "key": "pages",
+     "label": "Today's pages",
+     "type": "longtext",
+     "placeholder": "Paste or dictate what you wrote…"
+    }
+   ],
+   "prompt": "Read these morning pages (from the photo or the text) without judging the writing: {pages}. Produce bullets 'Themes' (max 4, each with a short quoted fragment as evidence), a table (Loop | How often it appears | What it might be protecting), a quote with the single truest sentence from the pages, and a callout that gently flags if the pages suggest talking to someone, with no diagnosis.",
+   "shape": "bullets, table, quote, callout",
+   "button": "Read back",
+   "loading": "Listening…"
+  },
+  {
+   "id": "actions",
+   "title": "Pages → actions",
+   "subtitle": "Pull out the doable bits",
+   "emoji": "✅",
+   "inputs": [
+    {
+     "key": "pages",
+     "label": "Pages",
+     "type": "longtext",
+     "placeholder": "Paste the section with the to-dos and worries…",
+     "required": true
+    }
+   ],
+   "prompt": "From these pages: {pages}, extract only what is actionable. Produce a checklist of concrete tasks (each ≤ 10 words, with a suggested day), bullets 'Decisions waiting' phrased as questions, and a kv (one thing to let go of, one person to contact, one thing to celebrate).",
+   "shape": "checklist, bullets, kv",
+   "button": "Extract",
+   "loading": "Panning gold…"
+  },
+  {
+   "id": "month",
+   "title": "Month in pages",
+   "subtitle": "What 30 days of pages reveal",
+   "emoji": "📆",
+   "inputs": [
+    {
+     "key": "summary",
+     "label": "Snippets or your own summaries from the month",
+     "type": "longtext",
+     "placeholder": "Week 1: mostly work stress…",
+     "required": true
+    },
+    {
+     "key": "days",
+     "label": "Days written",
+     "type": "number",
+     "placeholder": "22"
+    }
+   ],
+   "prompt": "Review a month of freewriting ({days} days written) from: {summary}. Produce a table (Week | Dominant theme | Tone (1–5) | Shift), bullets 'Recurring wishes' that came up more than once, steps for one small experiment next month based on the wishes, and a callout on streak pressure: missed days are fine.",
+   "shape": "table, bullets, steps, callout",
+   "button": "Review month",
+   "loading": "Reading the month…"
+  },
+  {
+   "id": "stuck",
+   "title": "I can't write today",
+   "subtitle": "Resistance breaker",
+   "emoji": "🧱",
+   "inputs": [
+    {
+     "key": "why",
+     "label": "What's in the way",
+     "type": "text",
+     "placeholder": "everything I write sounds stupid",
+     "required": true
+    }
+   ],
+   "prompt": "The user says: {why}. Produce text with a two-sentence reframe, steps for a 5-minute micro-session (timer, first sentence, permission to be bad), and a quote with a sentence they can write ten times until something else arrives.",
+   "shape": "text, steps, quote",
+   "button": "Unstick me",
+   "loading": "Loosening…"
+  }
+ ],
+ "disclaimer": "Freewriting is a self-reflection practice, not therapy; if your pages keep circling hopelessness or self-harm, please talk to a mental-health professional or a crisis line."
+}

@@ -1,0 +1,186 @@
+{
+ "id": "between_sessions",
+ "name": "Between Sessions",
+ "tagline": "Get more from therapy in the days between",
+ "category": "Health & Fitness",
+ "colors": [
+  "#5C6BC0",
+  "#26A69A",
+  "#FF8A65"
+ ],
+ "icon": "book",
+ "about": "Between Sessions helps you prepare for and debrief therapy, build the exposure ladders and activity schedules your therapist assigned, and decode any worksheet you've been handed.",
+ "persona": "You are a psychologically literate homework buddy: you support the plan the user's therapist set, never replace it, and stay concrete and encouraging.",
+ "onboarding": {
+  "title": "Make the homework stick",
+  "subtitle": "Tell us about your therapy so the tools fit the approach.",
+  "bullets": [
+   "Session prep and debrief",
+   "Exposure ladders and activity plans",
+   "Worksheet decoder from a photo"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "approach",
+   "label": "Therapy type",
+   "type": "chips",
+   "options": [
+    "CBT",
+    "ACT",
+    "DBT",
+    "Psychodynamic",
+    "EMDR",
+    "Not sure"
+   ]
+  },
+  {
+   "key": "freq",
+   "label": "Sessions",
+   "type": "chips",
+   "options": [
+    "Weekly",
+    "Fortnightly",
+    "Monthly",
+    "Between therapists"
+   ]
+  },
+  {
+   "key": "focus",
+   "label": "Working on",
+   "type": "text",
+   "placeholder": "social anxiety, panic on trains"
+  }
+ ],
+ "tools": [
+  {
+   "id": "prep",
+   "title": "Prep my session",
+   "subtitle": "Don't waste the first ten minutes",
+   "emoji": "📝",
+   "inputs": [
+    {
+     "key": "since",
+     "label": "Since last session",
+     "type": "longtext",
+     "placeholder": "had a panic on Tuesday, avoided the party, slept badly…",
+     "required": true
+    },
+    {
+     "key": "avoid",
+     "label": "Thing I keep not saying",
+     "type": "text",
+     "placeholder": "the drinking"
+    }
+   ],
+   "prompt": "Prepare for the next session from: {since}, plus the thing I keep not saying: {avoid}. Bullets of 3–5 agenda items ordered by importance, a kv (Wins, Setbacks, Questions for my therapist, Homework status), a quote with one sentence to open the session with the hard topic, and a callout reminding me it's fine to read from notes.",
+   "shape": "bullets, kv, quote, callout",
+   "button": "Prep me",
+   "loading": "Gathering notes…"
+  },
+  {
+   "id": "debrief",
+   "title": "Debrief a session",
+   "subtitle": "Capture it before it fades",
+   "emoji": "🧠",
+   "inputs": [
+    {
+     "key": "notes",
+     "label": "What happened",
+     "type": "longtext",
+     "placeholder": "we talked about my dad, she suggested tracking avoidance…",
+     "required": true
+    }
+   ],
+   "prompt": "Debrief this session: {notes}. Kv (Key insight, Thing that landed hard, Homework agreed, Question for next time), a checklist of the homework broken into small tickable tasks with a suggested day for each, and bullets on what to notice this week.",
+   "shape": "kv, checklist, bullets",
+   "button": "Debrief",
+   "loading": "Writing it down…"
+  },
+  {
+   "id": "ladder",
+   "title": "Exposure ladder",
+   "subtitle": "Fear → ten rungs you can climb",
+   "emoji": "🪜",
+   "inputs": [
+    {
+     "key": "fear",
+     "label": "The fear",
+     "type": "text",
+     "placeholder": "riding the tube at rush hour",
+     "required": true
+    },
+    {
+     "key": "start",
+     "label": "Current comfort",
+     "type": "chips",
+     "options": [
+      "Can't think about it",
+      "Can imagine it",
+      "Can do a tiny version",
+      "Can do it with support"
+     ],
+     "default": "Can do a tiny version"
+    }
+   ],
+   "prompt": "Build a graded exposure ladder for {fear}, starting from '{start}'. Table (Rung | Situation | Predicted anxiety 0–100 | Safety behaviour to drop | Repeat until), steps for how to run a single exposure (before, during and after ratings), and a callout on when to pause and check with the therapist.",
+   "shape": "table, steps, callout",
+   "button": "Build ladder",
+   "loading": "Setting the rungs…"
+  },
+  {
+   "id": "activate",
+   "title": "Activity schedule",
+   "subtitle": "Behavioural activation for a flat week",
+   "emoji": "📅",
+   "inputs": [
+    {
+     "key": "enjoy",
+     "label": "Things I used to enjoy",
+     "type": "text",
+     "placeholder": "climbing, cooking for friends, drawing"
+    },
+    {
+     "key": "energy",
+     "label": "Energy right now",
+     "type": "chips",
+     "options": [
+      "Very low",
+      "Low",
+      "Some",
+      "Okay"
+     ],
+     "default": "Low"
+    }
+   ],
+   "prompt": "Plan a behavioural-activation week with energy '{energy}' from these former joys: {enjoy}. Table (Day | Activity | Minutes | Type: pleasure / mastery / connection | Predicted enjoyment 0–10), bullets on how to shrink each activity if the day is bad, and a callout on rating actual enjoyment afterwards to compare with the prediction.",
+   "shape": "table, bullets, callout",
+   "button": "Plan week",
+   "loading": "Scheduling…"
+  },
+  {
+   "id": "worksheet",
+   "title": "Decode a worksheet",
+   "subtitle": "Photo → what it wants from you",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the worksheet",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Explain the worksheet in the photo: text on what it's for and which approach it comes from, steps to fill it in with an example line for each field, a callout on common mistakes people make with it, and bullets of questions to ask the therapist if it doesn't fit.",
+   "shape": "text, steps, callout, bullets",
+   "button": "Explain it",
+   "loading": "Reading the sheet…"
+  }
+ ],
+ "disclaimer": "Not therapy or medical advice. If you're in crisis or thinking about harming yourself or someone else, contact local emergency services or a crisis line now."
+}

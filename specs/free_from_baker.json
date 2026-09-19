@@ -1,0 +1,239 @@
+{
+ "id": "free_from_baker",
+ "name": "Free-From Baker",
+ "tagline": "Gluten-free, vegan and egg-free bakes that work",
+ "category": "Food & Drink",
+ "colors": [
+  "#558B2F",
+  "#FB8C00",
+  "#0097A7"
+ ],
+ "icon": "leaf",
+ "about": "Free-From Baker converts any recipe to gluten-free, dairy-free, egg-free or vegan with the right binders and blends, builds custom flour blends, picks egg replacers by job and fixes gummy or crumbly results.",
+ "persona": "You are a free-from pastry developer: you think in the function of each ingredient (structure, leavening, moisture, fat) and never promise a swap is allergen-safe without checking labels.",
+ "onboarding": {
+  "title": "Bake around what you avoid",
+  "subtitle": "Tell us the constraints so every swap fits.",
+  "bullets": [
+   "Recipe conversion with binder math",
+   "Custom flour blends",
+   "Egg replacer by function"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "avoid",
+   "label": "Avoiding",
+   "type": "chips",
+   "options": [
+    "Gluten",
+    "Dairy",
+    "Eggs",
+    "Nuts",
+    "Soy",
+    "Refined sugar"
+   ],
+   "default": "Gluten",
+   "multi": true
+  },
+  {
+   "key": "why",
+   "label": "Reason",
+   "type": "chips",
+   "options": [
+    "Allergy / coeliac",
+    "Intolerance",
+    "Lifestyle / vegan",
+    "Baking for someone else"
+   ],
+   "default": "Intolerance"
+  },
+  {
+   "key": "flours",
+   "label": "Flours you keep",
+   "type": "text",
+   "placeholder": "rice, tapioca, oat, almond"
+  }
+ ],
+ "tools": [
+  {
+   "id": "convert",
+   "title": "Convert a recipe",
+   "subtitle": "Paste it, get the free-from version",
+   "emoji": "🔁",
+   "inputs": [
+    {
+     "key": "recipe",
+     "label": "Original recipe",
+     "type": "longtext",
+     "placeholder": "200 g plain flour, 2 eggs, 100 g butter…",
+     "required": true
+    },
+    {
+     "key": "goal",
+     "label": "Convert to",
+     "type": "chips",
+     "options": [
+      "Gluten-free",
+      "Vegan",
+      "Egg-free",
+      "Dairy-free",
+      "Gluten-free + vegan"
+     ],
+     "default": "Gluten-free"
+    },
+    {
+     "key": "notes",
+     "label": "Notes",
+     "type": "text",
+     "placeholder": "it's for a layer cake, needs to stack"
+    }
+   ],
+   "prompt": "Convert this recipe to {goal} (notes: {notes}) for the profile constraints: {recipe}. Table (Original ingredient | Replacement | Grams | Why) covering every changed line, steps for the method with changed mixing, rest and bake times, a kv (expected texture difference, rest time before baking, doneness cues), and a callout on which swap is the riskiest and a backup for it.",
+   "shape": "table, steps, kv, callout",
+   "button": "Convert",
+   "loading": "Swapping…"
+  },
+  {
+   "id": "blend",
+   "title": "Build a flour blend",
+   "subtitle": "A blend for cakes, cookies or pastry",
+   "emoji": "🌾",
+   "inputs": [
+    {
+     "key": "for",
+     "label": "Blend for",
+     "type": "chips",
+     "options": [
+      "Cakes & muffins",
+      "Cookies",
+      "Shortcrust pastry",
+      "Brownies",
+      "All-purpose"
+     ],
+     "default": "Cakes & muffins"
+    },
+    {
+     "key": "grams",
+     "label": "Batch grams",
+     "type": "number",
+     "placeholder": "1000"
+    },
+    {
+     "key": "have",
+     "label": "Flours & starches on hand",
+     "type": "text",
+     "placeholder": "white rice, sorghum, potato starch, tapioca, psyllium"
+    }
+   ],
+   "prompt": "Design a {for} gluten-free blend, {grams} g batch, from: {have}. Table (Flour or starch | Grams | Percent | Role), a kv (binder and grams per 100 g of blend, how to substitute for wheat flour by weight, storage life), bullets on how texture changes if a component is missing, and a callout on the profile's nut or other avoidances.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Blend it",
+   "loading": "Weighing starches…"
+  },
+  {
+   "id": "eggs",
+   "title": "Pick an egg replacer",
+   "subtitle": "By what the egg was doing",
+   "emoji": "🥚",
+   "inputs": [
+    {
+     "key": "recipe",
+     "label": "The bake",
+     "type": "text",
+     "placeholder": "chocolate chip cookies",
+     "required": true
+    },
+    {
+     "key": "eggs",
+     "label": "Eggs in the recipe",
+     "type": "number",
+     "placeholder": "2"
+    },
+    {
+     "key": "job",
+     "label": "Eggs mainly provide",
+     "type": "chips",
+     "options": [
+      "Binding",
+      "Leavening / lift",
+      "Moisture",
+      "Richness",
+      "Not sure"
+     ],
+     "default": "Not sure"
+    }
+   ],
+   "prompt": "Choose an egg replacer for {eggs} eggs in {recipe} where eggs mainly provide {job}. Table (Replacer | Amount for {eggs} eggs | Best for | Watch-outs) with 5 options ranked, steps to prepare and add the top choice, and a callout on bakes where no replacer works well and what to make instead.",
+   "shape": "table, steps, callout",
+   "button": "Pick replacer",
+   "loading": "Whisking flax…"
+  },
+  {
+   "id": "fix",
+   "title": "Fix a free-from fail",
+   "subtitle": "Gummy, crumbly, dense or dry",
+   "emoji": "🛠️",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the bake (optional)",
+     "type": "photo"
+    },
+    {
+     "key": "what",
+     "label": "What happened",
+     "type": "text",
+     "placeholder": "gummy centre, sunk in the middle",
+     "required": true
+    },
+    {
+     "key": "recipe",
+     "label": "Recipe used",
+     "type": "text",
+     "placeholder": "GF blend with xanthan, 3 eggs, oil"
+    }
+   ],
+   "prompt": "Diagnose this free-from bake: {what}, from recipe: {recipe}, using the attached photo if provided. Text naming the fault and the ingredient function that failed, a table (Symptom | Cause | Adjustment with grams or minutes), steps for the corrected next attempt, and bullets on what to keep.",
+   "shape": "text, table, steps, bullets",
+   "button": "Diagnose",
+   "loading": "Checking the crumb…"
+  },
+  {
+   "id": "classics",
+   "title": "Free-from classic",
+   "subtitle": "A reliable recipe for a favourite",
+   "emoji": "⭐",
+   "inputs": [
+    {
+     "key": "bake",
+     "label": "Bake you miss",
+     "type": "text",
+     "placeholder": "proper chocolate éclairs",
+     "required": true
+    },
+    {
+     "key": "time",
+     "label": "Time available",
+     "type": "chips",
+     "options": [
+      "Under 1 hour",
+      "Half a day",
+      "Weekend project"
+     ],
+     "default": "Half a day"
+    }
+   ],
+   "prompt": "Give a {time} recipe for {bake} that fits the profile constraints. Table (Ingredient | Grams | Free-from note), steps with temperatures and minutes, a kv (texture to expect versus the original, make-ahead and freezer notes, shelf life), and a callout on the one technique that makes or breaks this version.",
+   "shape": "table, steps, kv, callout",
+   "button": "Get recipe",
+   "loading": "Reinventing…"
+  }
+ ],
+ "disclaimer": "Substitution guidance is general information; for allergies or coeliac disease always check product labels and cross-contamination, and follow your clinician's advice."
+}

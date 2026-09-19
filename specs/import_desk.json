@@ -1,0 +1,209 @@
+{
+ "id": "import_desk",
+ "name": "Import Desk",
+ "tagline": "Land products from overseas without surprises",
+ "category": "Business",
+ "colors": [
+  "#01579B",
+  "#FF8F00",
+  "#6D4C41"
+ ],
+ "icon": "globe",
+ "about": "Import Desk calculates true landed cost, writes supplier RFQs, compares quotes, decodes Incoterms and lead times, and checks samples so first orders don't go wrong.",
+ "persona": "You are a sourcing manager who has imported for small brands: precise about landed cost, duties and MOQs, and cautious about samples, payment terms and freight surprises.",
+ "onboarding": {
+  "title": "Know the real cost before you order",
+  "subtitle": "Where you import to and how you ship set duties and freight.",
+  "bullets": [
+   "Landed cost per unit",
+   "Supplier RFQs and quote comparison",
+   "Sample and QC checklists"
+  ]
+ },
+ "profile": [
+  {
+   "key": "product",
+   "label": "Product line",
+   "type": "text",
+   "placeholder": "insulated water bottles"
+  },
+  {
+   "key": "dest",
+   "label": "Importing to",
+   "type": "chips",
+   "options": [
+    "USA",
+    "UK",
+    "EU",
+    "Canada",
+    "Australia",
+    "India",
+    "Other"
+   ]
+  },
+  {
+   "key": "mode",
+   "label": "Usual freight",
+   "type": "chips",
+   "options": [
+    "Air express",
+    "Air freight",
+    "Sea LCL",
+    "Sea FCL",
+    "Rail"
+   ]
+  },
+  {
+   "key": "currency",
+   "label": "Currency",
+   "type": "chips",
+   "options": [
+    "USD",
+    "EUR",
+    "GBP",
+    "INR",
+    "AUD",
+    "CAD"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "landed",
+   "title": "Landed cost",
+   "subtitle": "FOB price → cost on your shelf",
+   "emoji": "🚢",
+   "inputs": [
+    {
+     "key": "unit",
+     "label": "Unit price (FOB)",
+     "type": "number",
+     "placeholder": "4.20"
+    },
+    {
+     "key": "qty",
+     "label": "Quantity",
+     "type": "number",
+     "placeholder": "1000"
+    },
+    {
+     "key": "extras",
+     "label": "Freight, duty and fees you know",
+     "type": "longtext",
+     "placeholder": "freight quote 1,150; duty ~6.5%; broker 120; insurance 45",
+     "required": true
+    }
+   ],
+   "prompt": "Landed cost for {qty} units at {unit} FOB with: {extras}, destination per the profile. Table (Cost line | Total | Per unit) covering goods, freight, insurance, duty, import tax, brokerage, inland delivery and payment fees, kv (landed cost per unit, landed cost as % of FOB, minimum sell price at 50% margin), bullets of costs people forget, and a callout that duty rates depend on the HS code and must be confirmed.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Calculate",
+   "loading": "Loading the ship…"
+  },
+  {
+   "id": "rfq",
+   "title": "Write an RFQ",
+   "subtitle": "A request suppliers can quote properly",
+   "emoji": "📝",
+   "inputs": [
+    {
+     "key": "spec",
+     "label": "Product spec",
+     "type": "longtext",
+     "placeholder": "750ml double-wall stainless bottle, powder coat, laser logo, 2 colours",
+     "required": true
+    },
+    {
+     "key": "qty",
+     "label": "Quantity",
+     "type": "number",
+     "placeholder": "1000"
+    },
+    {
+     "key": "needs",
+     "label": "Must-haves",
+     "type": "text",
+     "placeholder": "BPA-free cert, sample first, 30% deposit"
+    }
+   ],
+   "prompt": "Write a request-for-quotation for {qty} units of: {spec}, must-haves: {needs}. A quote with the full RFQ email (spec as plain-text lines, packaging, labelling, certifications, sample request, payment terms, Incoterm, lead time, and a request for both FOB and EXW prices), a checklist of what a good reply includes, and a callout on red flags in supplier responses.",
+   "shape": "quote, checklist, callout",
+   "button": "Write RFQ",
+   "loading": "Drafting…"
+  },
+  {
+   "id": "compare",
+   "title": "Compare supplier quotes",
+   "subtitle": "True cost after freight and terms",
+   "emoji": "⚖️",
+   "inputs": [
+    {
+     "key": "quotes",
+     "label": "Paste the quotes",
+     "type": "longtext",
+     "placeholder": "A: 4.20 FOB, MOQ 1000, 35 days, 30/70; B: 3.90 EXW, MOQ 2000, 45 days, 50/50…",
+     "required": true
+    }
+   ],
+   "prompt": "Compare: {quotes}. Table (Supplier | Unit price | Incoterm | MOQ | Lead time | Terms | Est. landed per unit | Risk), a kv of the true comparison after freight and payment terms, bullets of negotiation asks per supplier, and a callout on the trade-off between MOQ and cash tied up.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Compare",
+   "loading": "Weighing quotes…"
+  },
+  {
+   "id": "incoterm",
+   "title": "Incoterms & timeline",
+   "subtitle": "Who pays what, and when it lands",
+   "emoji": "🗺️",
+   "inputs": [
+    {
+     "key": "term",
+     "label": "Incoterm",
+     "type": "chips",
+     "options": [
+      "EXW",
+      "FOB",
+      "CIF",
+      "DAP",
+      "DDP"
+     ],
+     "default": "FOB"
+    },
+    {
+     "key": "date",
+     "label": "Order date",
+     "type": "text",
+     "placeholder": "15 Oct"
+    }
+   ],
+   "prompt": "Explain {term} for the profile freight mode and destination: kv (who pays what, where risk passes, documents you need), a table (Stage | Who | Typical days | Watch-outs) from the purchase order on {date} to goods on your shelf with estimated dates, and a callout on what changes if you switch to DDP.",
+   "shape": "kv, table, callout",
+   "button": "Explain",
+   "loading": "Mapping the route…"
+  },
+  {
+   "id": "sample",
+   "title": "Check a sample",
+   "subtitle": "Photo vs spec before you approve",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the sample",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "spec",
+     "label": "What was specified",
+     "type": "text",
+     "placeholder": "matte black, 750ml, logo 40mm centred"
+    }
+   ],
+   "prompt": "Inspect the sample photo against the spec '{spec}': table (Check | Spec | Observed | Pass?), a checklist of hands-on tests to run before approving (fit, finish, function, packaging), bullets of what to write back to the supplier, and a callout on booking an AQL inspection before the full order ships.",
+   "shape": "table, checklist, bullets, callout",
+   "button": "Inspect",
+   "loading": "Looking closely…"
+  }
+ ],
+ "disclaimer": "General import guidance, not customs, tax or legal advice; confirm HS codes and duty rates with a licensed customs broker."
+}

@@ -1,0 +1,186 @@
+{
+ "id": "campus_abroad",
+ "name": "Campus Abroad",
+ "tagline": "Study abroad without the surprises",
+ "category": "Education",
+ "colors": [
+  "#6A1B9A",
+  "#43A047",
+  "#FF7043"
+ ],
+ "icon": "hat",
+ "about": "Campus Abroad helps international students land, settle and succeed — arrival admin, academic-culture decoding, emails to professors, semester budgets and the rules around working while studying.",
+ "persona": "You are an international student adviser: practical, encouraging, clear on academic integrity and precise about when a rule must be checked with the university's international office.",
+ "onboarding": {
+  "title": "Your semester, sorted",
+  "subtitle": "Tell us where you're studying and what; the advice adapts.",
+  "bullets": [
+   "Arrival & first-week checklists",
+   "Academic culture decoded",
+   "Emails, budgets and work rules"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "uni",
+   "label": "University & country",
+   "type": "text",
+   "placeholder": "University of Toronto, Canada"
+  },
+  {
+   "key": "course",
+   "label": "Programme",
+   "type": "text",
+   "placeholder": "MSc Data Science"
+  },
+  {
+   "key": "home",
+   "label": "Home country",
+   "type": "text",
+   "placeholder": "Nigeria"
+  }
+ ],
+ "tools": [
+  {
+   "id": "arrival",
+   "title": "Arrival week",
+   "subtitle": "Land, register, survive week one",
+   "emoji": "🛬",
+   "inputs": [
+    {
+     "key": "date",
+     "label": "Arrival date",
+     "type": "text",
+     "placeholder": "28 August"
+    },
+    {
+     "key": "housing",
+     "label": "Housing",
+     "type": "chips",
+     "options": [
+      "Uni halls",
+      "Private rental",
+      "Homestay",
+      "Not sorted yet"
+     ],
+     "default": "Uni halls"
+    }
+   ],
+   "prompt": "Arrival {date}, housing: {housing}. A checklist for the first 7 days for the profile (immigration check-in, student ID, bank, SIM, health cover, course registration), a table (Day | Task | Where | Bring), bullets of things students regret not doing in week one, and a callout on the deadline with the biggest consequence.",
+   "shape": "checklist, table, bullets, callout",
+   "button": "Plan week one",
+   "loading": "Landing…"
+  },
+  {
+   "id": "academic",
+   "title": "Academic culture",
+   "subtitle": "How classes, grading and integrity work",
+   "emoji": "🎓",
+   "inputs": [
+    {
+     "key": "topic",
+     "label": "Topic",
+     "type": "chips",
+     "options": [
+      "Seminars & participation",
+      "Essays & citations",
+      "Group work",
+      "Exams & grading",
+      "Office hours",
+      "Plagiarism rules"
+     ],
+     "default": "Essays & citations"
+    }
+   ],
+   "prompt": "Explain '{topic}' at the profile's university and country compared with the home country: a table (What's expected | Common home-country habit | Adjust to), steps for doing it well, a callout on integrity rules that carry serious penalties, and a quote with one sentence to say in class or to a tutor.",
+   "shape": "table, steps, callout, quote",
+   "button": "Explain",
+   "loading": "Decoding…"
+  },
+  {
+   "id": "email",
+   "title": "Email a professor",
+   "subtitle": "Extensions, questions, references",
+   "emoji": "✉️",
+   "inputs": [
+    {
+     "key": "purpose",
+     "label": "Purpose",
+     "type": "chips",
+     "options": [
+      "Ask a question",
+      "Request an extension",
+      "Ask for a reference",
+      "Explain an absence",
+      "Ask to join research"
+     ],
+     "default": "Request an extension"
+    },
+    {
+     "key": "details",
+     "label": "Details",
+     "type": "text",
+     "placeholder": "flu, deadline Friday, need 3 days"
+    }
+   ],
+   "prompt": "Write an email to {purpose} with details: {details}. A quote with the full email (subject line, polite but direct, the register expected in the profile's country), bullets on tone rules locals follow, and a callout on what evidence or forms may be needed.",
+   "shape": "quote, bullets, callout",
+   "button": "Draft email",
+   "loading": "Writing…"
+  },
+  {
+   "id": "budget",
+   "title": "Semester budget",
+   "subtitle": "Rent, food, fees, fun",
+   "emoji": "💰",
+   "inputs": [
+    {
+     "key": "income",
+     "label": "Money available per month",
+     "type": "number",
+     "placeholder": "1200"
+    },
+    {
+     "key": "costs",
+     "label": "Known costs",
+     "type": "text",
+     "placeholder": "rent 650, transit pass 90"
+    }
+   ],
+   "prompt": "Monthly money {income}; known costs: {costs}. Build a semester budget for the profile's city as a table (Category | Monthly estimate | Tips to cut), kv (monthly buffer, emergency-fund target, typical student discounts), bullets on student-specific savings, and a callout on proof-of-funds and money-transfer timing.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Budget it",
+   "loading": "Counting…"
+  },
+  {
+   "id": "work",
+   "title": "Working while studying",
+   "subtitle": "Hours, rules, finding a job",
+   "emoji": "💼",
+   "inputs": [
+    {
+     "key": "kind",
+     "label": "Looking for",
+     "type": "chips",
+     "options": [
+      "On-campus job",
+      "Part-time off-campus",
+      "Internship",
+      "Post-study work"
+     ],
+     "default": "Part-time off-campus"
+    }
+   ],
+   "prompt": "For {kind} on the profile's student status: kv (typical hour limits in term and holidays, what needs permission, tax or insurance number needed), steps to find and apply, a checklist of documents employers ask for, and a callout that limits vary by visa type and must be confirmed with the international office.",
+   "shape": "kv, steps, checklist, callout",
+   "button": "Explain",
+   "loading": "Checking…"
+  }
+ ],
+ "disclaimer": "General guidance, not legal or financial advice; confirm visa work limits and deadlines with your university's international office."
+}

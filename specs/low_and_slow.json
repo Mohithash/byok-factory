@@ -1,0 +1,204 @@
+{
+ "id": "low_and_slow",
+ "name": "Low & Slow",
+ "tagline": "Set it in the morning, eat well tonight",
+ "category": "Food & Drink",
+ "colors": [
+  "#795548",
+  "#D84315",
+  "#9CCC65"
+ ],
+ "icon": "clock",
+ "about": "Low & Slow builds dump-and-go slow-cooker dinners around how long you're out, converts oven and hob recipes, preps freezer bags for the month, and fixes watery, bland or mushy results.",
+ "persona": "You are a slow-cooker specialist who respects the food-safety rules (thaw first, fill half to three-quarters, never reheat in the pot) and knows exactly which cuts get better after 8 hours.",
+ "onboarding": {
+  "title": "Come home to dinner",
+  "subtitle": "Tell Low & Slow about your cooker and your days.",
+  "bullets": [
+   "Dump-and-go dinners timed to your day",
+   "Convert any recipe to the slow cooker",
+   "Freezer bags for a whole month"
+  ]
+ },
+ "profile": [
+  {
+   "key": "size",
+   "label": "Cooker size",
+   "type": "chips",
+   "options": [
+    "Small (1.5–3 L)",
+    "Medium (3.5–5 L)",
+    "Large (6 L+)"
+   ]
+  },
+  {
+   "key": "features",
+   "label": "Features",
+   "type": "chips",
+   "options": [
+    "Low / High only",
+    "Keep-warm",
+    "Timer / delay",
+    "Sauté function"
+   ],
+   "multi": true
+  },
+  {
+   "key": "people",
+   "label": "People you feed",
+   "type": "number",
+   "placeholder": "4"
+  },
+  {
+   "key": "diet",
+   "label": "Diet / avoid",
+   "type": "text"
+  }
+ ],
+ "tools": [
+  {
+   "id": "tonight",
+   "title": "Dump-and-go dinner",
+   "subtitle": "Ready when you're back",
+   "emoji": "🍲",
+   "inputs": [
+    {
+     "key": "hours",
+     "label": "Hours until you're home",
+     "type": "number",
+     "placeholder": "9"
+    },
+    {
+     "key": "protein",
+     "label": "Main ingredient",
+     "type": "text",
+     "placeholder": "chicken thighs",
+     "required": true
+    },
+    {
+     "key": "mood",
+     "label": "Mood",
+     "type": "text",
+     "placeholder": "something with rice"
+    }
+   ],
+   "prompt": "A slow-cooker dinner built on {protein} that is perfect after {hours} hours away, mood: {mood}, sized for the profile's cooker and people. kv (setting Low/High, hours, fill level, what to add at the end), a checklist of ingredients, steps for the 5-minute morning prep, and a callout on food safety: thaw meat first, keep-warm limits, and don't lift the lid.",
+   "shape": "kv, checklist, steps, callout",
+   "button": "Set it up",
+   "loading": "Simmering…"
+  },
+  {
+   "id": "convert",
+   "title": "Convert a recipe",
+   "subtitle": "Oven or hob → slow cooker",
+   "emoji": "🔁",
+   "inputs": [
+    {
+     "key": "recipe",
+     "label": "Recipe",
+     "type": "longtext",
+     "placeholder": "beef stew: brown, add 500ml stock, oven 160°C for 2h",
+     "required": true
+    }
+   ],
+   "prompt": "Convert to the profile's slow cooker: {recipe}. kv (Low hours / High hours, liquid to reduce to, when to add dairy, pasta or soft veg, thickening), steps for the converted method, and bullets on what to brown first and why it matters.",
+   "shape": "kv, steps, bullets",
+   "button": "Convert",
+   "loading": "Turning the dial…"
+  },
+  {
+   "id": "bags",
+   "title": "Freezer dump bags",
+   "subtitle": "Prep a month in an hour",
+   "emoji": "🧊",
+   "inputs": [
+    {
+     "key": "bags",
+     "label": "How many bags",
+     "type": "number",
+     "placeholder": "8"
+    },
+    {
+     "key": "focus",
+     "label": "Focus",
+     "type": "chips",
+     "options": [
+      "Budget",
+      "Family favourites",
+      "High protein",
+      "Veg-heavy"
+     ],
+     "default": "Family favourites"
+    }
+   ],
+   "prompt": "Design {bags} freezer-to-slow-cooker bags ({focus}) for the profile's people: table (Bag | Contents | Setting & hours | Add on the day | Serve with), a checklist shopping list with quantities totalled across all bags, steps for an efficient assembly session, and a callout on labelling, freezer life and always thawing overnight before cooking.",
+   "shape": "table, checklist, steps, callout",
+   "button": "Plan bags",
+   "loading": "Filling bags…"
+  },
+  {
+   "id": "fix",
+   "title": "Fix my pot",
+   "subtitle": "Watery, bland, mushy, tough",
+   "emoji": "🥄",
+   "inputs": [
+    {
+     "key": "problem",
+     "label": "Problem",
+     "type": "chips",
+     "options": [
+      "Watery",
+      "Bland",
+      "Mushy veg",
+      "Tough meat",
+      "Greasy",
+      "Burnt on the edge"
+     ],
+     "default": "Watery"
+    },
+    {
+     "key": "what",
+     "label": "What's in there",
+     "type": "text",
+     "placeholder": "chicken curry, 6h on high"
+    }
+   ],
+   "prompt": "Fix '{problem}' for: {what}. Steps to rescue it in the next 20 minutes, a table (Cause | Fix now | Next time), and a quote with the one rule that would have prevented it.",
+   "shape": "steps, table, quote",
+   "button": "Rescue",
+   "loading": "Stirring…"
+  },
+  {
+   "id": "timing",
+   "title": "Timing planner",
+   "subtitle": "Ready exactly when you need it",
+   "emoji": "⏰",
+   "inputs": [
+    {
+     "key": "dish",
+     "label": "Dish",
+     "type": "text",
+     "placeholder": "pulled pork, 2 kg shoulder",
+     "required": true
+    },
+    {
+     "key": "eat",
+     "label": "Eat at",
+     "type": "text",
+     "placeholder": "6:30pm"
+    },
+    {
+     "key": "leave",
+     "label": "You leave the house at",
+     "type": "text",
+     "placeholder": "8am"
+    }
+   ],
+   "prompt": "Plan {dish} to be ready at {eat} when you leave at {leave}, using the profile's cooker features: table (Time | Action | Setting), a callout on whether the gap is safe (maximum keep-warm time, delay-start risks with raw meat), and bullets of options if the gap is too long (High then keep-warm, timer plug, cook the night before and reheat on the hob).",
+   "shape": "table, callout, bullets",
+   "button": "Plan timing",
+   "loading": "Winding the clock…"
+  }
+ ],
+ "disclaimer": "Food-safety timings and temperatures are general guidance; use a thermometer for meat and when in doubt, throw it out."
+}

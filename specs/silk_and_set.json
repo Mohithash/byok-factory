@@ -1,0 +1,243 @@
+{
+ "id": "silk_and_set",
+ "name": "Silk & Set",
+ "tagline": "Custards, mousses and cheesecakes that set perfectly",
+ "category": "Food & Drink",
+ "colors": [
+  "#FFB300",
+  "#6D4C41",
+  "#00897B"
+ ],
+ "icon": "drop",
+ "about": "Silk & Set formulates custards, mousses, panna cotta and cheesecake with the right gelatin, egg and cream ratios, walks you through tempering and water baths, and diagnoses splits, cracks and weeping from a photo.",
+ "persona": "You are a pastry chef who specialises in set desserts: precise about bloom strength, egg ratios and temperatures, and honest about what refrigerators actually do overnight.",
+ "onboarding": {
+  "title": "Smooth, set, sliceable",
+  "subtitle": "Tell us your gelling agents and equipment so quantities match.",
+  "bullets": [
+   "Gelatin and egg ratio calculator",
+   "Temper and water-bath walkthroughs",
+   "Crack and split diagnosis"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "gel",
+   "label": "Gelling agent",
+   "type": "chips",
+   "options": [
+    "Sheet gelatin (gold)",
+    "Sheet gelatin (platinum)",
+    "Powdered gelatin",
+    "Agar",
+    "None (eggs only)"
+   ],
+   "default": "Powdered gelatin"
+  },
+  {
+   "key": "moulds",
+   "label": "Moulds and tins",
+   "type": "text",
+   "placeholder": "6 dariole moulds, 20 cm springform"
+  },
+  {
+   "key": "diet",
+   "label": "Constraints",
+   "type": "chips",
+   "options": [
+    "None",
+    "Vegetarian",
+    "Dairy-free",
+    "Low sugar"
+   ],
+   "default": "None"
+  }
+ ],
+ "tools": [
+  {
+   "id": "set",
+   "title": "Set calculator",
+   "subtitle": "Gelatin or eggs for the texture you want",
+   "emoji": "🧮",
+   "inputs": [
+    {
+     "key": "dessert",
+     "label": "Dessert",
+     "type": "chips",
+     "options": [
+      "Panna cotta",
+      "Mousse",
+      "Bavarois",
+      "Crème caramel",
+      "Crème brûlée",
+      "Fruit jelly",
+      "Posset"
+     ],
+     "default": "Panna cotta"
+    },
+    {
+     "key": "ml",
+     "label": "Liquid ml",
+     "type": "number",
+     "placeholder": "600"
+    },
+    {
+     "key": "texture",
+     "label": "Texture",
+     "type": "chips",
+     "options": [
+      "Just holds, wobbly",
+      "Firm slice",
+      "Airy spoonable"
+     ],
+     "default": "Just holds, wobbly"
+    }
+   ],
+   "prompt": "Calculate the set for {dessert} from {ml} ml of base to a '{texture}' texture using the profile gelling agent. Kv (grams or sheets of gelling agent, egg yolks or whole eggs if used, sugar grams, cream to milk split), a table (Texture | Gelatin % | Notes) for all three textures so the user can adjust, steps for blooming, dissolving and setting temperatures, and a callout on acids, fresh pineapple or kiwi and other set-breakers.",
+   "shape": "kv, table, steps, callout",
+   "button": "Calculate",
+   "loading": "Blooming…"
+  },
+  {
+   "id": "cheesecake",
+   "title": "Cheesecake planner",
+   "subtitle": "Baked, no-bake or Basque, sized to your tin",
+   "emoji": "🍰",
+   "inputs": [
+    {
+     "key": "style",
+     "label": "Style",
+     "type": "chips",
+     "options": [
+      "New York baked",
+      "Basque burnt",
+      "No-bake",
+      "Japanese cotton",
+      "Ricotta"
+     ],
+     "default": "New York baked"
+    },
+    {
+     "key": "tin",
+     "label": "Tin size",
+     "type": "text",
+     "placeholder": "20 cm springform"
+    },
+    {
+     "key": "flavour",
+     "label": "Flavour / topping",
+     "type": "text",
+     "placeholder": "speculoos, biscuit crumb"
+    }
+   ],
+   "prompt": "Plan a {style} cheesecake in a {tin} with flavour {flavour}. Table (Component | Ingredient | Grams) for base, filling and topping, steps including room-temperature ingredients, mixing speed, water bath or oven setting with temperature and minutes, the jiggle test, and cooling stages by hour, a kv (chill hours, slice yield, fridge life), and a callout on why cheesecakes crack and how to hide one.",
+   "shape": "table, steps, kv, callout",
+   "button": "Plan it",
+   "loading": "Softening cheese…"
+  },
+  {
+   "id": "temper",
+   "title": "Custard walkthrough",
+   "subtitle": "Temper eggs without scrambling",
+   "emoji": "🥚",
+   "inputs": [
+    {
+     "key": "custard",
+     "label": "Custard",
+     "type": "chips",
+     "options": [
+      "Crème anglaise",
+      "Pastry cream",
+      "Lemon curd",
+      "Zabaglione",
+      "Ice-cream base"
+     ],
+     "default": "Crème anglaise"
+    },
+    {
+     "key": "yolks",
+     "label": "Yolks available",
+     "type": "number",
+     "placeholder": "6"
+    },
+    {
+     "key": "flavour",
+     "label": "Flavour",
+     "type": "text",
+     "placeholder": "vanilla bean"
+    }
+   ],
+   "prompt": "Walk through {custard} scaled to {yolks} yolks with flavour {flavour}. Table (Ingredient | Grams or ml), steps with target temperatures and the spoon or nappe test, a kv (final temperature, strain yes/no, cooling method, fridge life), and a callout on rescue moves if it starts to curdle.",
+   "shape": "table, steps, kv, callout",
+   "button": "Walk me through",
+   "loading": "Stirring slowly…"
+  },
+  {
+   "id": "diagnose",
+   "title": "Split, cracked or weeping?",
+   "subtitle": "Photo → cause and rescue",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the dessert",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "what",
+     "label": "What you did",
+     "type": "text",
+     "placeholder": "baked 55 min at 170°C, straight to fridge"
+    }
+   ],
+   "prompt": "Diagnose the set dessert in the attached photo, given: {what}. Text naming the fault (crack, split, grainy, weeping, rubbery, didn't set, skin), a table (Symptom | Cause | Prevent next time), steps to rescue this batch if possible (re-whisk, re-melt, top with a coulis), and bullets on what is already good.",
+   "shape": "text, table, steps, bullets",
+   "button": "Diagnose",
+   "loading": "Testing the wobble…"
+  },
+  {
+   "id": "plate",
+   "title": "Plate it",
+   "subtitle": "Turn a set dessert into a plated course",
+   "emoji": "✨",
+   "inputs": [
+    {
+     "key": "dessert",
+     "label": "Your dessert",
+     "type": "text",
+     "placeholder": "vanilla panna cotta",
+     "required": true
+    },
+    {
+     "key": "pantry",
+     "label": "Things on hand",
+     "type": "text",
+     "placeholder": "strawberries, basil, honeycomb, digestive biscuits"
+    },
+    {
+     "key": "vibe",
+     "label": "Vibe",
+     "type": "chips",
+     "options": [
+      "Restaurant minimal",
+      "Rustic",
+      "Retro",
+      "Kids party"
+     ],
+     "default": "Restaurant minimal"
+    }
+   ],
+   "prompt": "Compose a {vibe} plated dessert around {dessert} using {pantry}. Cards for 3 plate ideas (components, meta = extra components · minutes), steps for building the strongest plate from base to garnish, a kv (textures covered, temperatures on the plate, colour contrast), and a quote with one sentence to describe the dish to guests.",
+   "shape": "cards, steps, kv, quote",
+   "button": "Plate it",
+   "loading": "Wiping the rim…"
+  }
+ ],
+ "disclaimer": "Storage and temperature guidance is general; refrigerate set desserts promptly, follow local food-safety advice, and take extra care with raw or lightly cooked egg for pregnant, elderly, very young or immunocompromised guests."
+}

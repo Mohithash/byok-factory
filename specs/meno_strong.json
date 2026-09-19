@@ -1,0 +1,195 @@
+{
+ "id": "meno_strong",
+ "name": "Meno Strong",
+ "tagline": "Muscle, bone and metabolism after 45",
+ "category": "Health & Fitness",
+ "colors": [
+  "#C2185B",
+  "#37474F",
+  "#FFB300"
+ ],
+ "icon": "dumbbell",
+ "about": "Meno Strong builds strength and bone-loading programmes, protein-first meal plans and joint-friendly cardio for the perimenopause years, then explains your DEXA and blood results in plain English.",
+ "persona": "You are a strength coach and sports dietitian who specialises in midlife women: evidence-led, anti-diet-culture, lifts-first, and clear that a doctor owns the medical decisions.",
+ "onboarding": {
+  "title": "Stronger through the transition",
+  "subtitle": "Your training history and limits shape the programme.",
+  "bullets": [
+   "Progressive strength & bone plans",
+   "Protein-first meal frameworks",
+   "Result decoders for DEXA & bloods"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "experience",
+   "label": "Lifting experience",
+   "type": "chips",
+   "options": [
+    "None",
+    "Some",
+    "Regular"
+   ]
+  },
+  {
+   "key": "kit",
+   "label": "Kit",
+   "type": "chips",
+   "options": [
+    "Bodyweight only",
+    "Dumbbells",
+    "Bands",
+    "Full gym"
+   ],
+   "multi": true
+  },
+  {
+   "key": "limits",
+   "label": "Joints / conditions",
+   "type": "text",
+   "placeholder": "knee arthritis, osteopenia, on HRT"
+  }
+ ],
+ "tools": [
+  {
+   "id": "program",
+   "title": "Strength block",
+   "subtitle": "4 weeks, progressive",
+   "emoji": "🏋️",
+   "inputs": [
+    {
+     "key": "days",
+     "label": "Days per week",
+     "type": "chips",
+     "options": [
+      "2",
+      "3",
+      "4"
+     ],
+     "default": "3"
+    },
+    {
+     "key": "minutes",
+     "label": "Minutes per session",
+     "type": "number",
+     "placeholder": "40"
+    }
+   ],
+   "prompt": "Write a 4-week strength block: {days} days per week, {minutes} minutes each, using the profile's kit, experience and limits. Sections: a table (Day | Exercise | Sets × reps | Load cue | Rest) for week 1, bullets on how weeks 2–4 progress, steps for perfect form on the two most important patterns (hip hinge and squat), and a callout on bone-loading impact work and what to skip with osteoporosis or prolapse until cleared.",
+   "shape": "table, bullets, steps, callout",
+   "button": "Build block",
+   "loading": "Loading plates…"
+  },
+  {
+   "id": "protein",
+   "title": "Protein-first day",
+   "subtitle": "Hit 1.2–1.6 g/kg without a spreadsheet",
+   "emoji": "🥚",
+   "inputs": [
+    {
+     "key": "weight",
+     "label": "Weight (kg)",
+     "type": "number",
+     "placeholder": "68"
+    },
+    {
+     "key": "diet",
+     "label": "Diet",
+     "type": "chips",
+     "options": [
+      "Anything",
+      "Vegetarian",
+      "Vegan",
+      "Pescatarian"
+     ],
+     "default": "Anything"
+    }
+   ],
+   "prompt": "Design a protein-first eating day for {weight} kg on a {diet} diet. Sections: kv (daily protein target range in grams, per-meal target, fibre and calcium targets), a table (Meal | Food | Protein g | Calcium source?) hitting the target across 4 eating occasions, bullets of 6 grab-and-go options with protein grams, and a callout on why protein plus resistance training beats calorie-cutting at this stage.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Plan my plates",
+   "loading": "Portioning…"
+  },
+  {
+   "id": "cardio",
+   "title": "Joint-friendly cardio",
+   "subtitle": "Zone 2 + short intervals, no injuries",
+   "emoji": "🚴",
+   "inputs": [
+    {
+     "key": "likes",
+     "label": "You like",
+     "type": "chips",
+     "options": [
+      "Walking",
+      "Cycling",
+      "Swimming",
+      "Rowing",
+      "Running",
+      "Dancing"
+     ],
+     "multi": true
+    },
+    {
+     "key": "weekly",
+     "label": "Time available per week",
+     "type": "text",
+     "placeholder": "3 × 30 min"
+    }
+   ],
+   "prompt": "Build a weekly cardio plan using {likes} within {weekly}, respecting the profile's limits. Sections: table (Session | Type: zone 2 / intervals / mobility | Minutes | Effort cue | Notes), bullets on why short intervals matter for insulin sensitivity and VO2max in midlife, steps for one safe interval session, and a callout on pelvic floor and joint warning signs.",
+   "shape": "table, bullets, steps, callout",
+   "button": "Plan cardio",
+   "loading": "Pacing…"
+  },
+  {
+   "id": "results",
+   "title": "Decode my results",
+   "subtitle": "DEXA, cholesterol, HbA1c, vitamin D",
+   "emoji": "📄",
+   "inputs": [
+    {
+     "key": "results",
+     "label": "Paste results",
+     "type": "longtext",
+     "placeholder": "DEXA spine T-score -1.8, hip -1.2; LDL 3.9; HbA1c 41; vit D 38",
+     "required": true
+    },
+    {
+     "key": "photo",
+     "label": "Photo of the report (optional)",
+     "type": "photo"
+    }
+   ],
+   "prompt": "Explain in plain English: {results} (or the report photo). Sections: a table (Marker | Your value | Typical range | What it suggests | Training or nutrition lever), text summarising the overall picture without diagnosing, bullets of 5 questions to ask the doctor, and a callout that interpretation and treatment (e.g. bone medication, statins) are the clinician's call.",
+   "shape": "table, text, bullets, callout",
+   "button": "Decode",
+   "loading": "Reading…"
+  },
+  {
+   "id": "changes",
+   "title": "Midlife body changes",
+   "subtitle": "Weight, belly, plateaus, without crash diets",
+   "emoji": "⚖️",
+   "inputs": [
+    {
+     "key": "story",
+     "label": "What's changed",
+     "type": "longtext",
+     "placeholder": "gained 5kg in 2 years, mostly belly, eating the same",
+     "required": true
+    }
+   ],
+   "prompt": "Respond to: {story} for the profile. Sections: text explaining what shifts hormonally and metabolically (muscle loss, fat redistribution, sleep, insulin sensitivity) in a non-shaming way, a checklist of the 6 highest-leverage habits ranked, a kv of realistic expectations (rate of change, what to measure instead of the scale), and a callout on when to get thyroid, HbA1c and sleep apnoea checked.",
+   "shape": "text, checklist, kv, callout",
+   "button": "Explain",
+   "loading": "Thinking…"
+  }
+ ],
+ "disclaimer": "Fitness and nutrition information, not medical advice. Get clearance from your doctor before a new programme if you have osteoporosis, heart disease, prolapse or a recent injury; stop and seek help for chest pain, dizziness or sharp pain."
+}

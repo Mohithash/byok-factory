@@ -1,0 +1,211 @@
+{
+ "id": "trail_rations",
+ "name": "Trail Rations",
+ "tagline": "Backpacking food by the gram, the calorie and the day",
+ "category": "Food & Drink",
+ "colors": [
+  "#00695C",
+  "#F57C00",
+  "#5D4037"
+ ],
+ "icon": "scale",
+ "about": "Trail Rations plans multi-day backpacking food by weight and calories, writes home-dehydrated meal recipes, builds resupply shopping lists from small-town shops and packs a bear-safe, day-by-day food kit.",
+ "persona": "You are a thru-hiker-turned-food-planner: obsessed with calories per gram, honest about stove fuel and water, and careful about food storage in the backcountry.",
+ "onboarding": {
+  "title": "Carry less, eat more",
+  "subtitle": "Your stove and appetite set the numbers.",
+  "bullets": [
+   "Calories-per-gram trip plans",
+   "Home-dehydrated meals that rehydrate well",
+   "Resupply and bear-safe packing"
+  ]
+ },
+ "profile": [
+  {
+   "key": "stove",
+   "label": "Stove",
+   "type": "chips",
+   "options": [
+    "Canister",
+    "Alcohol",
+    "No stove (cold soak)",
+    "Wood"
+   ]
+  },
+  {
+   "key": "kcal",
+   "label": "Daily calories you aim for",
+   "type": "number",
+   "placeholder": "3200"
+  },
+  {
+   "key": "diet",
+   "label": "Diet",
+   "type": "chips",
+   "options": [
+    "Anything",
+    "Vegetarian",
+    "Vegan",
+    "Gluten-free"
+   ]
+  },
+  {
+   "key": "avoid",
+   "label": "Hate / can't eat",
+   "type": "text"
+  }
+ ],
+ "tools": [
+  {
+   "id": "plan",
+   "title": "Trip food plan",
+   "subtitle": "Days × people → grams and calories",
+   "emoji": "🎒",
+   "inputs": [
+    {
+     "key": "days",
+     "label": "Days",
+     "type": "number",
+     "placeholder": "5"
+    },
+    {
+     "key": "people",
+     "label": "People",
+     "type": "number",
+     "placeholder": "2"
+    },
+    {
+     "key": "terrain",
+     "label": "Terrain & weather",
+     "type": "text",
+     "placeholder": "alpine, cold nights, 20 km/day"
+    }
+   ],
+   "prompt": "Plan food for {days} days and {people} people, terrain: {terrain}, hitting the profile's daily calories on the profile's stove. Table (Day | Breakfast | Snacks | Dinner | kcal | grams), a kv of totals (total grams, grams per person per day, average kcal/gram, fuel estimate), a checklist shopping list, and a callout on the water needed to rehydrate everything.",
+   "shape": "table, kv, checklist, callout",
+   "button": "Plan food",
+   "loading": "Weighing everything…"
+  },
+  {
+   "id": "dehydrate",
+   "title": "Dehydrate a meal",
+   "subtitle": "Home dehydrator or oven",
+   "emoji": "☀️",
+   "inputs": [
+    {
+     "key": "dish",
+     "label": "Dish to dehydrate",
+     "type": "text",
+     "placeholder": "chilli with rice",
+     "required": true
+    },
+    {
+     "key": "method",
+     "label": "Using",
+     "type": "chips",
+     "options": [
+      "Dehydrator",
+      "Oven on lowest",
+      "Buying dried components"
+     ],
+     "default": "Dehydrator"
+    }
+   ],
+   "prompt": "Turn {dish} into a trail meal via {method}: steps for cooking-then-drying (temperatures, hours, done test), a kv (dry weight per serving, kcal per serving, water to add, rehydrate minutes, cold-soak possible?), bullets on what NOT to dehydrate (fat, dairy, chunky meat), and a callout on storage and shelf life.",
+   "shape": "steps, kv, bullets, callout",
+   "button": "Dry it",
+   "loading": "Removing water…"
+  },
+  {
+   "id": "shop",
+   "title": "Supermarket resupply",
+   "subtitle": "Build 3 days from a small-town shop",
+   "emoji": "🏪",
+   "inputs": [
+    {
+     "key": "days",
+     "label": "Days to cover",
+     "type": "number",
+     "placeholder": "3"
+    },
+    {
+     "key": "shop",
+     "label": "Shop",
+     "type": "chips",
+     "options": [
+      "Petrol station",
+      "Small grocery",
+      "Big supermarket"
+     ],
+     "default": "Small grocery"
+    }
+   ],
+   "prompt": "A {days}-day resupply from a {shop} for the profile's stove, calories and diet: table (Item | Grams | kcal | kcal/g | Meals it covers), a checklist ordered by aisle, and bullets on repackaging to cut weight and rubbish.",
+   "shape": "table, checklist, bullets",
+   "button": "Resupply",
+   "loading": "Scanning shelves…"
+  },
+  {
+   "id": "pack",
+   "title": "Pack the food bag",
+   "subtitle": "Bear-safe, day-by-day, findable",
+   "emoji": "🐻",
+   "inputs": [
+    {
+     "key": "food",
+     "label": "All the food you're carrying",
+     "type": "longtext",
+     "placeholder": "6 dinners, 5 breakfasts, trail mix, bars…",
+     "required": true
+    },
+    {
+     "key": "storage",
+     "label": "Storage rule where you're going",
+     "type": "chips",
+     "options": [
+      "Bear canister",
+      "Bear hang",
+      "Ursack",
+      "No bears — just rodents"
+     ],
+     "default": "Bear hang"
+    }
+   ],
+   "prompt": "Pack {food} for '{storage}': steps for bagging by day and by meal, a kv (canister or hang volume needed, hang height and distance from trunk, what else must go in with the food), a checklist of smellables to store too (toothpaste, sunscreen, rubbish), and a callout on cooking distance from camp and never eating in the tent.",
+   "shape": "steps, kv, checklist, callout",
+   "button": "Pack it",
+   "loading": "Tying knots…"
+  },
+  {
+   "id": "water",
+   "title": "Water & fuel maths",
+   "subtitle": "How much to carry today",
+   "emoji": "💧",
+   "inputs": [
+    {
+     "key": "km",
+     "label": "Km today",
+     "type": "number",
+     "placeholder": "22"
+    },
+    {
+     "key": "temp",
+     "label": "Conditions",
+     "type": "text",
+     "placeholder": "hot, exposed, sources every 8 km"
+    },
+    {
+     "key": "hot",
+     "label": "Hot meals today",
+     "type": "number",
+     "placeholder": "2"
+    }
+   ],
+   "prompt": "For {km} km in {temp} with {hot} hot meals on the profile's stove: kv (litres to carry between sources, litres to cook with, fuel grams for the day, boil count), a table (Segment | Carry litres | Refill?), and a callout on treating every source and heat-exhaustion warning signs.",
+   "shape": "kv, table, callout",
+   "button": "Calculate",
+   "loading": "Counting litres…"
+  }
+ ],
+ "disclaimer": "Calorie, water and wildlife guidance is general; check local regulations and consult a professional for any medical condition."
+}

@@ -1,0 +1,179 @@
+{
+ "id": "line_a_day",
+ "name": "Line a Day",
+ "tagline": "One sentence a day becomes years you can read back",
+ "category": "Lifestyle",
+ "colors": [
+  "#00695C",
+  "#F06292",
+  "#FFD54F"
+ ],
+ "icon": "clock",
+ "about": "Line a Day helps you keep a one-line journal: it distils a messy day into a sentence worth keeping, compares this date across years, and turns a month of lines into a story.",
+ "persona": "You are a precise, warm editor of tiny sentences: concrete nouns, no clichés, the detail that will still mean something in five years.",
+ "onboarding": {
+  "title": "Just one line",
+  "subtitle": "Your voice and your people make the lines yours.",
+  "bullets": [
+   "Distil any day into one line",
+   "On-this-day across the years",
+   "A month of lines → a story"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "voice",
+   "label": "Voice",
+   "type": "chips",
+   "options": [
+    "Plain",
+    "Wry",
+    "Tender",
+    "Terse"
+   ],
+   "default": "Plain"
+  },
+  {
+   "key": "years",
+   "label": "Years you've kept this",
+   "type": "number",
+   "placeholder": "1"
+  },
+  {
+   "key": "people",
+   "label": "People who appear often",
+   "type": "text",
+   "placeholder": "Sam, the twins, Mum"
+  }
+ ],
+ "tools": [
+  {
+   "id": "distil",
+   "title": "Distil today",
+   "subtitle": "Messy day → one line",
+   "emoji": "✒️",
+   "inputs": [
+    {
+     "key": "day",
+     "label": "What happened today",
+     "type": "longtext",
+     "placeholder": "Rain, argued about the car, the twins built a fort…",
+     "required": true
+    },
+    {
+     "key": "keep",
+     "label": "Keep the…",
+     "type": "chips",
+     "options": [
+      "Feeling",
+      "Funny bit",
+      "Small detail",
+      "Milestone"
+     ],
+     "default": "Small detail"
+    }
+   ],
+   "prompt": "Distil this day into one-line journal entries in the profile voice, keeping the {keep}: {day}. Produce cards with 3 candidate lines (each ≤ 25 words, meta = what it preserves), a quote with the recommended line, and bullets on which concrete detail made it work.",
+   "shape": "cards, quote, bullets",
+   "button": "Distil",
+   "loading": "Boiling down…"
+  },
+  {
+   "id": "onthisday",
+   "title": "On this day",
+   "subtitle": "Compare years side by side",
+   "emoji": "🗓️",
+   "inputs": [
+    {
+     "key": "lines",
+     "label": "Past lines for this date",
+     "type": "longtext",
+     "placeholder": "2023: …\n2024: …\n2025: …",
+     "required": true
+    },
+    {
+     "key": "today",
+     "label": "Today's line",
+     "type": "text"
+    }
+   ],
+   "prompt": "Compare these entries for the same date: {lines} with today's line: {today}. Produce a table (Year | Line | What was changing), text with a short paragraph on the through-line across the years, and a quote with one question to answer in next year's entry.",
+   "shape": "table, text, quote",
+   "button": "Compare",
+   "loading": "Turning pages…"
+  },
+  {
+   "id": "month",
+   "title": "Month into a story",
+   "subtitle": "30 lines → 300 words",
+   "emoji": "📖",
+   "inputs": [
+    {
+     "key": "lines",
+     "label": "The month's lines",
+     "type": "longtext",
+     "placeholder": "1st: …\n2nd: …",
+     "required": true
+    }
+   ],
+   "prompt": "Turn these one-line entries into a 300-word month-in-review in the profile voice: {lines}. Produce text with the review in three short paragraphs, a kv (best day, hardest day, most-mentioned person, a word for the month), and bullets of 3 lines worth re-reading in a year.",
+   "shape": "text, kv, bullets",
+   "button": "Write review",
+   "loading": "Stitching lines…"
+  },
+  {
+   "id": "prompts",
+   "title": "When nothing happened",
+   "subtitle": "Prompts for quiet days",
+   "emoji": "🌱",
+   "inputs": [
+    {
+     "key": "kind",
+     "label": "Kind of day",
+     "type": "chips",
+     "options": [
+      "Ordinary",
+      "Sick day",
+      "Travel",
+      "Grief-tinged",
+      "Busy blur"
+     ],
+     "default": "Ordinary"
+    }
+   ],
+   "prompt": "Give prompts for a {kind} day when the user thinks there's nothing to write. Produce bullets of 6 specific prompts (a sense, an object, a person from the profile, a number, a sound, a small change), a quote with an example line answering one of them in the profile voice, and a callout on why boring days are the most valuable entries later.",
+   "shape": "bullets, quote, callout",
+   "button": "Prompt me",
+   "loading": "Noticing…"
+  },
+  {
+   "id": "catchup",
+   "title": "Catch up missed days",
+   "subtitle": "Backfill honestly",
+   "emoji": "⏪",
+   "inputs": [
+    {
+     "key": "missed",
+     "label": "Days missed",
+     "type": "number",
+     "placeholder": "5"
+    },
+    {
+     "key": "memory",
+     "label": "What you remember",
+     "type": "longtext",
+     "placeholder": "Weekend was camping, then a work crunch…"
+    }
+   ],
+   "prompt": "Help backfill {missed} missed days from: {memory}. Produce a table (Day | Line | Confidence (sure / roughly / placeholder)), a callout permitting placeholder entries like 'a day I don't remember', and bullets on a lighter routine so the gap doesn't recur.",
+   "shape": "table, callout, bullets",
+   "button": "Backfill",
+   "loading": "Rewinding…"
+  }
+ ]
+}

@@ -1,0 +1,171 @@
+{
+ "id": "account_atlas",
+ "name": "Account Atlas",
+ "tagline": "Strategic account plans that actually get used",
+ "category": "Business",
+ "colors": [
+  "#00695C",
+  "#3949AB",
+  "#F4511E"
+ ],
+ "icon": "globe",
+ "about": "Account Atlas builds one-page account plans, stakeholder maps, whitespace analyses and QBR agendas for the accounts that matter most, and tells you which ones deserve your hours.",
+ "persona": "You are a strategic account director: politically astute, numbers-aware, focused on multi-threading and expansion; you plan in quarters and speak in the customer's KPIs.",
+ "onboarding": {
+  "title": "Grow the accounts you already have",
+  "subtitle": "Tell us about your book of business.",
+  "bullets": [
+   "One-page account plans",
+   "Stakeholder & power maps",
+   "Whitespace and QBR prep"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "products",
+   "label": "Products you can sell",
+   "type": "text",
+   "placeholder": "CRM, marketing automation, analytics add-on"
+  },
+  {
+   "key": "segment",
+   "label": "Segment",
+   "type": "chips",
+   "options": [
+    "SMB",
+    "Mid-market",
+    "Enterprise",
+    "Strategic"
+   ],
+   "default": "Enterprise"
+  },
+  {
+   "key": "target",
+   "label": "Annual expansion target",
+   "type": "number",
+   "placeholder": "500000"
+  }
+ ],
+ "tools": [
+  {
+   "id": "plan",
+   "title": "Account plan",
+   "subtitle": "One page, one quarter",
+   "emoji": "🗺️",
+   "inputs": [
+    {
+     "key": "account",
+     "label": "Account",
+     "type": "text",
+     "placeholder": "Globex Corp — 3,000 employees, on our CRM since 2022",
+     "required": true
+    },
+    {
+     "key": "situation",
+     "label": "Current situation",
+     "type": "longtext",
+     "placeholder": "renewal in 9 months, champion moved teams, new CIO…",
+     "required": true
+    }
+   ],
+   "prompt": "Build a one-page account plan for {account}; situation: {situation}. Sections: kv (Current ARR | Expansion goal | Renewal date | Health | Executive sponsor), a table (Objective | Play | Owner | By when | Success metric) with 4 rows, bullets of the 3 biggest risks, and a checklist of actions for the next 30 days.",
+   "shape": "kv, table, bullets, checklist",
+   "button": "Build plan",
+   "loading": "Charting…"
+  },
+  {
+   "id": "stakeholders",
+   "title": "Stakeholder map",
+   "subtitle": "Who matters, who's missing",
+   "emoji": "👥",
+   "inputs": [
+    {
+     "key": "people",
+     "label": "People you know",
+     "type": "longtext",
+     "placeholder": "Jane (CIO, new, unknown stance), Raj (ops manager, champion), Lee (procurement, blocker)",
+     "required": true
+    }
+   ],
+   "prompt": "Map these stakeholders: {people}. Sections: a table (Name | Role | Influence H/M/L | Stance: champion/neutral/blocker/unknown | What they care about | Next touch), bullets naming the roles missing from the map that usually decide deals in the profile's segment, steps to multi-thread into the two most important gaps, and a callout on the relationship most at risk.",
+   "shape": "table, bullets, steps, callout",
+   "button": "Map it",
+   "loading": "Mapping power…"
+  },
+  {
+   "id": "whitespace",
+   "title": "Whitespace analysis",
+   "subtitle": "What else could they buy",
+   "emoji": "🧩",
+   "inputs": [
+    {
+     "key": "owns",
+     "label": "What they own today",
+     "type": "longtext",
+     "placeholder": "CRM for 200 seats in sales; marketing uses a competitor",
+     "required": true
+    },
+    {
+     "key": "signals",
+     "label": "Signals",
+     "type": "text",
+     "placeholder": "hiring 3 marketing ops roles, new EMEA office"
+    }
+   ],
+   "prompt": "Find expansion opportunities given they own: {owns}; signals: {signals}; sellable products from the profile. Sections: a table (Opportunity | Product | Est. value | Trigger | Confidence), cards for the top 3 plays (meta = timing · effort), and a quote with an opening line to the right stakeholder for the best play.",
+   "shape": "table, cards, quote",
+   "button": "Find whitespace",
+   "loading": "Scanning map…"
+  },
+  {
+   "id": "qbr",
+   "title": "QBR agenda",
+   "subtitle": "A business review they'll show up to",
+   "emoji": "📊",
+   "inputs": [
+    {
+     "key": "quarter",
+     "label": "Quarter & audience",
+     "type": "text",
+     "placeholder": "Q3 with the CIO and ops leads",
+     "required": true
+    },
+    {
+     "key": "results",
+     "label": "Results to share",
+     "type": "longtext",
+     "placeholder": "adoption 78%, 12% faster response times, 2 open tickets",
+     "required": true
+    }
+   ],
+   "prompt": "Design a QBR for {quarter} using results: {results}. Sections: steps for a 45-minute agenda with minute markers, a table (Slide | Headline | Data to show | Ask), bullets of 3 questions to ask the executive about next quarter, and a callout on the one expansion ask to land and how to phrase it.",
+   "shape": "steps, table, bullets, callout",
+   "button": "Build QBR",
+   "loading": "Prepping deck…"
+  },
+  {
+   "id": "prioritise",
+   "title": "Prioritise my book",
+   "subtitle": "Which accounts deserve the hours",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "accounts",
+     "label": "Your accounts",
+     "type": "longtext",
+     "placeholder": "Acme $120k renewal Jun, low usage; Globex $400k, growing; Initech $40k, new CIO…",
+     "required": true
+    }
+   ],
+   "prompt": "Rank these accounts for attention this quarter against the profile's expansion target: {accounts}. Sections: a table (Account | ARR | Expansion potential | Risk | Priority tier A/B/C | Hours per week), bullets explaining the tiering logic, kv (Total potential | Coverage of target | Gap to close), and a callout on the account to deliberately deprioritise.",
+   "shape": "table, bullets, kv, callout",
+   "button": "Rank accounts",
+   "loading": "Weighing book…"
+  }
+ ]
+}

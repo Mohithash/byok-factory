@@ -1,0 +1,182 @@
+{
+ "id": "visa_desk",
+ "name": "Visa Desk",
+ "tagline": "Every document, deadline and appointment in one place",
+ "category": "Travel & Local",
+ "colors": [
+  "#1A237E",
+  "#FFB300",
+  "#00897B"
+ ],
+ "icon": "plane",
+ "about": "Visa Desk turns confusing visa requirements into document checklists, back-planned timelines, appointment prep and plain-English explanations of official letters — for any country's visa or residence permit.",
+ "persona": "You are a meticulous immigration paralegal: organised, calm, and precise about what is general information versus what needs an official source or a licensed adviser.",
+ "onboarding": {
+  "title": "Get your paperwork in order",
+  "subtitle": "Tell us where you're going and on what visa; every checklist adapts.",
+  "bullets": [
+   "Document checklists per visa type",
+   "Timelines that work back from your deadline",
+   "Appointment & interview prep"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "from",
+   "label": "Citizenship / passport",
+   "type": "text",
+   "placeholder": "Indian"
+  },
+  {
+   "key": "to",
+   "label": "Destination country",
+   "type": "text",
+   "placeholder": "Germany"
+  },
+  {
+   "key": "purpose",
+   "label": "Purpose",
+   "type": "chips",
+   "options": [
+    "Work",
+    "Study",
+    "Family / partner",
+    "Digital nomad",
+    "Retirement",
+    "Investor",
+    "Long-stay tourist"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "checklist",
+   "title": "Document checklist",
+   "subtitle": "What to gather for your visa type",
+   "emoji": "📋",
+   "inputs": [
+    {
+     "key": "visa",
+     "label": "Visa / permit name",
+     "type": "text",
+     "placeholder": "Blue Card, Skilled Worker, F-1…",
+     "required": true
+    },
+    {
+     "key": "situation",
+     "label": "Your situation",
+     "type": "text",
+     "placeholder": "married, employer sponsoring, 2 kids"
+    }
+   ],
+   "prompt": "For the profile applying for {visa} with situation: {situation} — a checklist of documents typically required (each tagged original / certified copy / apostille / sworn translation), a table (Document | Where to get it | Typical lead time | Validity window), bullets of the 5 most common rejection reasons, and a callout to confirm the current list on the official consulate or immigration website.",
+   "shape": "checklist, table, bullets, callout",
+   "button": "Build checklist",
+   "loading": "Gathering…"
+  },
+  {
+   "id": "timeline",
+   "title": "Back-plan my timeline",
+   "subtitle": "From today to arrival",
+   "emoji": "🗓️",
+   "inputs": [
+    {
+     "key": "deadline",
+     "label": "Must arrive / start by",
+     "type": "text",
+     "placeholder": "1 September",
+     "required": true
+    },
+    {
+     "key": "done",
+     "label": "Already done",
+     "type": "text",
+     "placeholder": "passport valid, job offer signed"
+    }
+   ],
+   "prompt": "Deadline: {deadline}. Already done: {done}. Build a back-planned timeline for the profile as a table (Week | Task | Depends on | Buffer days), steps for the next 7 days, and a callout on the typical processing-time range for this purpose and which items (apostilles, police certificates, medicals) take longest.",
+   "shape": "table, steps, callout",
+   "button": "Plan timeline",
+   "loading": "Counting back…"
+  },
+  {
+   "id": "appt",
+   "title": "Appointment prep",
+   "subtitle": "Biometrics, consulate, interview",
+   "emoji": "🏛️",
+   "inputs": [
+    {
+     "key": "type",
+     "label": "Appointment",
+     "type": "chips",
+     "options": [
+      "Biometrics",
+      "Consulate submission",
+      "Visa interview",
+      "Residence permit office"
+     ],
+     "default": "Visa interview"
+    }
+   ],
+   "prompt": "Prepare the profile for a {type} appointment: a checklist of what to bring (documents, photo spec, fees and accepted payment), cards for the 6 most likely questions (meta = what they're really checking) each with a strong one-line answer, a quote with a 30-second summary of the purpose of stay, and a callout on what not to say or bring.",
+   "shape": "checklist, cards, quote, callout",
+   "button": "Prep me",
+   "loading": "Rehearsing…"
+  },
+  {
+   "id": "letter",
+   "title": "Decode a letter",
+   "subtitle": "Photo of an official letter → plain English",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the letter or email",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Read the letter: kv (sender, reference number, what it is, deadline, action required, consequence if ignored), text explaining it in plain English, steps to respond, and a callout on whether this looks urgent, routine, or like a scam pattern.",
+   "shape": "kv, text, steps, callout",
+   "button": "Decode",
+   "loading": "Reading…"
+  },
+  {
+   "id": "refusal",
+   "title": "Refusal or delay",
+   "subtitle": "What to do next",
+   "emoji": "⚠️",
+   "inputs": [
+    {
+     "key": "what",
+     "label": "What happened",
+     "type": "longtext",
+     "placeholder": "refused, letter says insufficient funds and missing bank statements…",
+     "required": true
+    },
+    {
+     "key": "goal",
+     "label": "I want to",
+     "type": "chips",
+     "options": [
+      "Appeal / review",
+      "Reapply",
+      "Understand it",
+      "Chase a delay"
+     ],
+     "default": "Understand it"
+    }
+   ],
+   "prompt": "Situation: {what}. Goal: {goal}. Text explaining in plain English what the stated reason usually means, a table (Option | Typical deadline | Effort | When it makes sense), steps for the chosen goal, and a callout on when a licensed immigration adviser or lawyer is worth the money.",
+   "shape": "text, table, steps, callout",
+   "button": "Advise",
+   "loading": "Reviewing…"
+  }
+ ],
+ "disclaimer": "General information only, not legal or immigration advice; rules change often — confirm with the official government source or a licensed immigration adviser."
+}

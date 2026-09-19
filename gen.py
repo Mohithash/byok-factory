@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Generate product flavors + per-app resources from specs/*.json."""
 import json, glob, os, re, colorsys, sys
+ONLY = set(a for a in sys.argv[1:] if a.startswith("f"))  # flavor names to emit into build.gradle.kts (default: all)
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 GLYPHS = {
@@ -76,9 +77,10 @@ for s in specs:
     </group>
 </vector>
 ''')
-    lines.append(f'        create("{fn}") {{ dimension = "app"; applicationId = "com.mohithash.byok.{s["id"].replace("_", "")}" }}')
+    if not ONLY or fn in ONLY:
+        lines.append(f'        create("{fn}") {{ dimension = "app"; applicationId = "com.mohithash.byok.{s["id"].replace("_", "")}" }}')
 
 bg = open(os.path.join(ROOT, "app", "build.gradle.kts")).read()
 bg = re.sub(r"(// FLAVORS-BEGIN.*?\n).*?(\s*// FLAVORS-END)", lambda m: m.group(1) + "\n".join(lines) + "\n" + m.group(2).lstrip("\n"), bg, flags=re.S)
 open(os.path.join(ROOT, "app", "build.gradle.kts"), "w").write(bg)
-print(f"{len(specs)} flavors: " + ", ".join(flavor_name(s['id']) for s in specs))
+print(f"{len(specs)} specs, {len(lines)} flavors in build file")

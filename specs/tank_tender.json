@@ -1,0 +1,204 @@
+{
+ "id": "tank_tender",
+ "name": "Tank Tender",
+ "tagline": "Cycle, stock and keep your aquarium crystal clear",
+ "category": "Lifestyle",
+ "colors": [
+  "#0097A7",
+  "#FF7043",
+  "#43A047"
+ ],
+ "icon": "drop",
+ "about": "Tank Tender walks new and seasoned fishkeepers through fishless cycling, reads water-test results, plans compatible stocking and diagnoses sick fish from a photo.",
+ "persona": "You are a patient aquarist with years of freshwater and marine experience: numbers-driven about water chemistry, allergic to overstocking, and clear that clean water fixes most problems.",
+ "onboarding": {
+  "title": "Know your water",
+  "subtitle": "Tell us about your tank so stocking and dosing advice fits its size.",
+  "bullets": [
+   "Fishless cycling guided day by day",
+   "Water-test results explained",
+   "Compatible stocking plans"
+  ]
+ },
+ "profile": [
+  {
+   "key": "litres",
+   "label": "Tank volume (litres)",
+   "type": "number",
+   "placeholder": "120"
+  },
+  {
+   "key": "type",
+   "label": "Tank type",
+   "type": "chips",
+   "options": [
+    "Freshwater tropical",
+    "Coldwater",
+    "Planted / aquascape",
+    "Marine reef",
+    "Marine fish-only",
+    "Shrimp / nano"
+   ]
+  },
+  {
+   "key": "stock",
+   "label": "Current livestock",
+   "type": "text",
+   "placeholder": "6 neon tetras, 1 bristlenose"
+  },
+  {
+   "key": "filter",
+   "label": "Filter & heater",
+   "type": "text",
+   "placeholder": "Fluval 207, 150W heater"
+  }
+ ],
+ "tools": [
+  {
+   "id": "cycle",
+   "title": "Cycle my tank",
+   "subtitle": "Fishless cycle plan with checkpoints",
+   "emoji": "🔄",
+   "inputs": [
+    {
+     "key": "method",
+     "label": "Ammonia source",
+     "type": "chips",
+     "options": [
+      "Bottled ammonia",
+      "Fish food",
+      "Bottled bacteria + ammonia",
+      "Already have fish (fish-in)"
+     ],
+     "default": "Bottled ammonia"
+    },
+    {
+     "key": "day",
+     "label": "Day of cycle",
+     "type": "chips",
+     "options": [
+      "Not started",
+      "Days 1–7",
+      "Days 8–21",
+      "Over 3 weeks, stuck"
+     ],
+     "default": "Not started"
+    }
+   ],
+   "prompt": "Guide a nitrogen cycle for the profile tank using {method}, currently at {day}. Sections: steps for what to do and test in each phase, a table (Phase | Ammonia | Nitrite | Nitrate | What it means | Action), a callout on what 'cycled' actually looks like and when it is safe to add fish, and bullets on why cycles stall.",
+   "shape": "steps, table, callout, bullets",
+   "button": "Guide me",
+   "loading": "Growing bacteria…"
+  },
+  {
+   "id": "test",
+   "title": "Read my water test",
+   "subtitle": "Enter results → verdict and fixes",
+   "emoji": "🧪",
+   "inputs": [
+    {
+     "key": "results",
+     "label": "Test results",
+     "type": "text",
+     "placeholder": "NH3 0.25, NO2 0, NO3 40, pH 7.8, temp 26",
+     "required": true
+    },
+    {
+     "key": "since",
+     "label": "Last water change",
+     "type": "chips",
+     "options": [
+      "Under 3 days",
+      "1 week",
+      "2 weeks",
+      "Longer"
+     ],
+     "default": "1 week"
+    }
+   ],
+   "prompt": "Interpret these results for the profile tank: {results}, last water change {since}. Sections: a table (Parameter | Your value | Safe range for this tank type | Verdict), a callout with the single most important action right now (water change percentage, stop feeding, etc.), steps to correct any problem over the next 3 days, and bullets on what to retest and when.",
+   "shape": "table, callout, steps, bullets",
+   "button": "Interpret",
+   "loading": "Reading the colours…"
+  },
+  {
+   "id": "stock",
+   "title": "Stocking planner",
+   "subtitle": "What fits with what you have",
+   "emoji": "🐟",
+   "inputs": [
+    {
+     "key": "want",
+     "label": "Fish you'd like to add",
+     "type": "text",
+     "placeholder": "a school of corydoras and a betta"
+    },
+    {
+     "key": "goal",
+     "label": "Priority",
+     "type": "chips",
+     "options": [
+      "Peaceful community",
+      "Colour & activity",
+      "Low maintenance",
+      "Breeding project"
+     ],
+     "default": "Peaceful community"
+    }
+   ],
+   "prompt": "Plan stocking for the profile tank, adding {want} with priority '{goal}'. Sections: a table (Species | Number | Adult size cm | Temp °C | pH | Compatible with current stock?), a callout on bioload and whether the tank is near full, bullets on the order to add fish in and quarantine, and cards for 3 alternative species if something requested won't work (meta = min tank litres · temperament).",
+   "shape": "table, callout, bullets, cards",
+   "button": "Plan stocking",
+   "loading": "Matching fish…"
+  },
+  {
+   "id": "sick",
+   "title": "Diagnose a fish",
+   "subtitle": "Photo + symptoms → likely disease",
+   "emoji": "🩺",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the fish",
+     "type": "photo",
+     "placeholder": "Close, well lit"
+    },
+    {
+     "key": "symptoms",
+     "label": "What you see",
+     "type": "longtext",
+     "placeholder": "white spots on fins, clamped, flashing on gravel",
+     "required": true
+    }
+   ],
+   "prompt": "Diagnose from the photo and symptoms: {symptoms}. Sections: cards for the 3 most likely conditions (meta = likelihood · contagious?), a table (Condition | Key sign | Treatment | Duration), steps for immediate action including water testing and quarantine, and a callout on medications that harm shrimp, scaleless fish or plants.",
+   "shape": "cards, table, steps, callout",
+   "button": "Diagnose",
+   "loading": "Looking closely…"
+  },
+  {
+   "id": "maint",
+   "title": "Maintenance schedule",
+   "subtitle": "Weekly routine for your setup",
+   "emoji": "🗓️",
+   "inputs": [
+    {
+     "key": "time",
+     "label": "Time you'll give it",
+     "type": "chips",
+     "options": [
+      "15 min/week",
+      "30 min/week",
+      "1 hour/week"
+     ],
+     "default": "30 min/week"
+    }
+   ],
+   "prompt": "Write a maintenance routine for the profile tank in {time}. Sections: a table (Task | Frequency | How long | Notes) covering water changes, substrate, filter media, glass, plants and testing, a checklist for the weekly session in order, and a callout on the one mistake that crashes cycles (over-cleaning filter media).",
+   "shape": "table, checklist, callout",
+   "button": "Build routine",
+   "loading": "Scheduling…"
+  }
+ ],
+ "disclaimer": "General fishkeeping guidance, not veterinary advice; medication doses depend on your exact product label — read it and consult an aquatic vet for valuable or unusual livestock."
+}

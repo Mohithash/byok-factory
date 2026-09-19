@@ -1,0 +1,197 @@
+{
+ "id": "still_minutes",
+ "name": "Still Minutes",
+ "tagline": "Meditation scripts written for you, not a crowd",
+ "category": "Health & Fitness",
+ "colors": [
+  "#455A64",
+  "#80CBC4",
+  "#FFAB91"
+ ],
+ "icon": "spark",
+ "about": "Still Minutes writes guided meditations for your exact time, goal and setting, fixes the classic problems (falling asleep, racing mind, boredom) and builds a four-week practice that grows with you.",
+ "persona": "You are a secular, plain-spoken meditation teacher: you write scripts that can be read aloud or recorded, avoid mysticism, and treat fidgeting and doubt as normal.",
+ "onboarding": {
+  "title": "A practice that fits your life",
+  "subtitle": "How much time do you actually have, and what gets in the way?",
+  "bullets": [
+   "Scripts for your exact minutes",
+   "Fixes for sleepy or racing minds",
+   "A 4-week progression"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "experience",
+   "label": "Experience",
+   "type": "chips",
+   "options": [
+    "Never tried",
+    "A few sessions",
+    "On and off",
+    "Daily-ish"
+   ]
+  },
+  {
+   "key": "minutes",
+   "label": "Realistic daily minutes",
+   "type": "chips",
+   "options": [
+    "3",
+    "5",
+    "10",
+    "20"
+   ]
+  },
+  {
+   "key": "obstacle",
+   "label": "Biggest obstacle",
+   "type": "chips",
+   "options": [
+    "Falling asleep",
+    "Racing thoughts",
+    "Boredom",
+    "No time",
+    "Discomfort"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "script",
+   "title": "Write a meditation",
+   "subtitle": "Read it or record it",
+   "emoji": "🎙️",
+   "inputs": [
+    {
+     "key": "style",
+     "label": "Style",
+     "type": "chips",
+     "options": [
+      "Breath",
+      "Body scan",
+      "Loving-kindness",
+      "Open awareness",
+      "Visualisation"
+     ],
+     "default": "Breath"
+    },
+    {
+     "key": "length",
+     "label": "Length",
+     "type": "chips",
+     "options": [
+      "3 min",
+      "5 min",
+      "10 min",
+      "20 min"
+     ],
+     "default": "5 min"
+    },
+    {
+     "key": "intent",
+     "label": "Today's intention",
+     "type": "text",
+     "placeholder": "calm before my exam"
+    }
+   ],
+   "prompt": "Write a {length} {style} meditation script for the intention '{intent}', matched to the profile's experience. Steps where each step is a spoken passage followed by a pause length in seconds so the total fits {length}, a callout addressing the profile's biggest obstacle when it shows up mid-practice, and a quote with the closing sentence.",
+   "shape": "steps, callout, quote",
+   "button": "Write script",
+   "loading": "Settling in…"
+  },
+  {
+   "id": "fix",
+   "title": "Fix my practice",
+   "subtitle": "Sleepy, restless, bored, sore",
+   "emoji": "🔧",
+   "inputs": [
+    {
+     "key": "problem",
+     "label": "What keeps happening",
+     "type": "chips",
+     "options": [
+      "I fall asleep",
+      "I can't stop thinking",
+      "I get bored",
+      "My back hurts",
+      "I keep skipping it"
+     ],
+     "default": "I can't stop thinking"
+    },
+    {
+     "key": "detail",
+     "label": "Detail",
+     "type": "text",
+     "placeholder": "usually 3 minutes in, then I give up"
+    }
+   ],
+   "prompt": "The problem: {problem}; detail: {detail}. Text explaining in plain words why this happens and why it isn't failure, a table (Adjustment | How | Try it for), steps for the next session using the top adjustment, and a quote with a one-line reframe to remember.",
+   "shape": "text, table, steps, quote",
+   "button": "Fix it",
+   "loading": "Adjusting…"
+  },
+  {
+   "id": "walk",
+   "title": "Everyday mindfulness",
+   "subtitle": "Practice without sitting",
+   "emoji": "🚶",
+   "inputs": [
+    {
+     "key": "activity",
+     "label": "During",
+     "type": "chips",
+     "options": [
+      "Walking",
+      "Washing up",
+      "Commuting",
+      "Eating",
+      "Waiting in a queue"
+     ],
+     "default": "Walking"
+    },
+    {
+     "key": "minutes",
+     "label": "Minutes",
+     "type": "number",
+     "placeholder": "10"
+    }
+   ],
+   "prompt": "An informal {minutes}-minute mindfulness practice during {activity}: steps (what to attend to, in what order, with a phrase to return to), bullets on the moments most people drift, and a callout on staying safe while attending to the activity (traffic, hot water, other people).",
+   "shape": "steps, bullets, callout",
+   "button": "Guide me",
+   "loading": "Stepping out…"
+  },
+  {
+   "id": "month",
+   "title": "4-week progression",
+   "subtitle": "Build the habit gently",
+   "emoji": "📈",
+   "inputs": [
+    {
+     "key": "goal",
+     "label": "Goal",
+     "type": "chips",
+     "options": [
+      "Consistency",
+      "Calmer days",
+      "Better focus",
+      "Sleep",
+      "Less reactivity"
+     ],
+     "default": "Consistency"
+    }
+   ],
+   "prompt": "A 4-week meditation progression for '{goal}' starting from the profile's minutes and experience: table (Week | Daily minutes | Style | Focus | Milestone), a checklist of setup steps (time, place, cue, tracker), and a callout on what to do after a missed week.",
+   "shape": "table, checklist, callout",
+   "button": "Build plan",
+   "loading": "Mapping weeks…"
+  }
+ ],
+ "disclaimer": "Not therapy or medical advice. If you're in crisis or thinking about harming yourself or someone else, contact local emergency services or a crisis line now."
+}

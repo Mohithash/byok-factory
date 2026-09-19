@@ -1,0 +1,212 @@
+{
+ "id": "seo_brief",
+ "name": "Brief Engine",
+ "tagline": "SEO content briefs writers can actually follow",
+ "category": "Business",
+ "colors": [
+  "#1B5E20",
+  "#FF6F00",
+  "#0277BD"
+ ],
+ "icon": "graph",
+ "about": "Brief Engine turns a target keyword into a complete content brief — intent, outline, entities, meta tags, FAQs and internal links — then audits your draft against it.",
+ "persona": "You are a senior SEO content strategist: intent-first, allergic to keyword stuffing, precise about headings, entities and search features.",
+ "onboarding": {
+  "title": "Rank with a plan, not a guess",
+  "subtitle": "Tell us about your site and audience so every brief fits your niche.",
+  "bullets": [
+   "Full briefs from one keyword",
+   "Titles and metas that earn clicks",
+   "Draft audits against the brief"
+  ]
+ },
+ "profile": [
+  {
+   "key": "site",
+   "label": "Site / brand",
+   "type": "text",
+   "placeholder": "acmeplumbing.co.uk"
+  },
+  {
+   "key": "niche",
+   "label": "Niche",
+   "type": "chips",
+   "options": [
+    "SaaS",
+    "E-commerce",
+    "Local service",
+    "Publisher / blog",
+    "Agency",
+    "Other"
+   ]
+  },
+  {
+   "key": "market",
+   "label": "Market",
+   "type": "chips",
+   "options": [
+    "US",
+    "UK",
+    "EU",
+    "India",
+    "Australia",
+    "Global"
+   ]
+  },
+  {
+   "key": "stage",
+   "label": "Site authority",
+   "type": "chips",
+   "options": [
+    "New site",
+    "Growing",
+    "Established"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "brief",
+   "title": "Write a brief",
+   "subtitle": "Keyword → intent, outline, entities",
+   "emoji": "📋",
+   "inputs": [
+    {
+     "key": "keyword",
+     "label": "Target keyword",
+     "type": "text",
+     "placeholder": "best running shoes for flat feet",
+     "required": true
+    },
+    {
+     "key": "type",
+     "label": "Content type",
+     "type": "chips",
+     "options": [
+      "Blog post",
+      "Product page",
+      "Category page",
+      "Landing page",
+      "Comparison"
+     ],
+     "default": "Blog post"
+    },
+    {
+     "key": "words",
+     "label": "Target word count",
+     "type": "number",
+     "placeholder": "1500"
+    }
+   ],
+   "prompt": "Create an SEO content brief for '{keyword}' as a {type} of about {words} words for the profile site. Sections: kv (primary keyword, search intent, 5 secondary keywords, target reader, funnel stage, suggested URL slug), steps giving the H2/H3 outline in order with one line on what each heading must cover, a table of entities and terms to include (Term | Why it matters | Where to use), bullets of 5 SERP features and content angles to target, and a callout on what competing pages probably miss.",
+   "shape": "kv, steps, table, bullets, callout",
+   "button": "Build brief",
+   "loading": "Mapping the SERP…"
+  },
+  {
+   "id": "meta",
+   "title": "Titles & metas",
+   "subtitle": "10 title tags, 5 descriptions",
+   "emoji": "🏷️",
+   "inputs": [
+    {
+     "key": "keyword",
+     "label": "Target keyword",
+     "type": "text",
+     "placeholder": "emergency plumber leeds",
+     "required": true
+    },
+    {
+     "key": "angle",
+     "label": "Page angle / USP",
+     "type": "text",
+     "placeholder": "24h call-out, fixed prices"
+    }
+   ],
+   "prompt": "Write meta tags for a page targeting '{keyword}' with angle: {angle}. A table of 10 title tags (Title | Chars | Hook type), each ≤60 characters with the keyword near the front, then a table of 5 meta descriptions (Description | Chars | CTA) each ≤155 characters, and a callout naming the single best title + description pair and why it wins the click.",
+   "shape": "table, callout",
+   "button": "Write metas",
+   "loading": "Counting characters…"
+  },
+  {
+   "id": "audit",
+   "title": "Audit a draft",
+   "subtitle": "Paste a draft → fixes vs the keyword",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "draft",
+     "label": "Draft text",
+     "type": "longtext",
+     "placeholder": "Paste your article or page copy…",
+     "required": true
+    },
+    {
+     "key": "keyword",
+     "label": "Target keyword",
+     "type": "text",
+     "required": true
+    }
+   ],
+   "prompt": "Audit this draft against the target keyword '{keyword}': {draft}. Sections: kv (estimated word count, keyword in title / H1 / first 100 words as yes-no, readability grade, intent match score /10), a table of issues (Issue | Location | Fix | Priority), a checklist of on-page items to finish before publishing (title, meta, alt text, internal links, schema), and a callout on the one structural change that would help most.",
+   "shape": "kv, table, checklist, callout",
+   "button": "Audit draft",
+   "loading": "Reading closely…"
+  },
+  {
+   "id": "faq",
+   "title": "FAQ & schema",
+   "subtitle": "People-also-ask questions, answered",
+   "emoji": "❓",
+   "inputs": [
+    {
+     "key": "keyword",
+     "label": "Topic / keyword",
+     "type": "text",
+     "placeholder": "how often to service a boiler",
+     "required": true
+    },
+    {
+     "key": "count",
+     "label": "How many questions",
+     "type": "number",
+     "placeholder": "6"
+    }
+   ],
+   "prompt": "Generate {count} People-Also-Ask style questions for '{keyword}', each with a concise 40–60 word answer written to win a featured snippet, as cards (question as title, meta = intent type). Then a text section containing valid FAQPage JSON-LD for those questions in a code block, and bullets on where to place the FAQ on the page and how to link it internally.",
+   "shape": "cards, text, bullets",
+   "button": "Generate FAQ",
+   "loading": "Asking around…"
+  },
+  {
+   "id": "cluster",
+   "title": "Keyword cluster",
+   "subtitle": "Seed → topic cluster & internal links",
+   "emoji": "🕸️",
+   "inputs": [
+    {
+     "key": "seed",
+     "label": "Seed topic",
+     "type": "text",
+     "placeholder": "home espresso machines",
+     "required": true
+    },
+    {
+     "key": "depth",
+     "label": "Cluster size",
+     "type": "chips",
+     "options": [
+      "Small (8)",
+      "Medium (15)",
+      "Large (25)"
+     ],
+     "default": "Medium (15)"
+    }
+   ],
+   "prompt": "Build a topic cluster around '{seed}' of size {depth} for the profile site. A table (Keyword | Intent | Page type | Pillar or cluster | Priority), steps for the publishing order over the next 8 weeks, and a kv mapping each cluster page to the anchor text it should use when linking to the pillar.",
+   "shape": "table, steps, kv",
+   "button": "Build cluster",
+   "loading": "Clustering…"
+  }
+ ]
+}

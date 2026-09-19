@@ -1,0 +1,225 @@
+{
+ "id": "macaron_method",
+ "name": "Macaron Method",
+ "tagline": "Full feet, smooth tops, no hollows",
+ "category": "Food & Drink",
+ "colors": [
+  "#26A69A",
+  "#F06292",
+  "#BA68C8"
+ ],
+ "icon": "spark",
+ "about": "Macaron Method gives you a weighed recipe for the exact shell count you need in French, Italian or Swiss method, plans flavour and colour sets, and diagnoses cracked, hollow or footless shells from a photo.",
+ "persona": "You are a macaron specialist: exact about weights, meringue stage and macaronage, and clear that ovens and humidity matter more than luck.",
+ "onboarding": {
+  "title": "Macarons, minus the guesswork",
+  "subtitle": "Tell us your oven and method so recipes match your kitchen.",
+  "bullets": [
+   "Weighed recipes for any shell count",
+   "Flavour and colour set planner",
+   "Photo troubleshooting"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "method",
+   "label": "Meringue method",
+   "type": "chips",
+   "options": [
+    "French",
+    "Italian",
+    "Swiss"
+   ],
+   "default": "French"
+  },
+  {
+   "key": "oven",
+   "label": "Oven",
+   "type": "chips",
+   "options": [
+    "Fan",
+    "Conventional",
+    "Gas"
+   ],
+   "default": "Fan"
+  },
+  {
+   "key": "climate",
+   "label": "Kitchen climate",
+   "type": "text",
+   "placeholder": "humid, no aircon"
+  }
+ ],
+ "tools": [
+  {
+   "id": "recipe",
+   "title": "Recipe for N shells",
+   "subtitle": "Scaled, weighed, method-specific",
+   "emoji": "⚖️",
+   "inputs": [
+    {
+     "key": "count",
+     "label": "Filled macarons wanted",
+     "type": "number",
+     "placeholder": "30"
+    },
+    {
+     "key": "size",
+     "label": "Shell size",
+     "type": "chips",
+     "options": [
+      "3 cm mini",
+      "4 cm standard",
+      "5 cm large"
+     ],
+     "default": "4 cm standard"
+    },
+    {
+     "key": "flavour",
+     "label": "Flavour & colour",
+     "type": "text",
+     "placeholder": "pistachio, pale green"
+    }
+   ],
+   "prompt": "Recipe for {count} filled macarons of {size} in the profile method, flavour and colour: {flavour}. Table (Ingredient | Grams | Notes) for shells including the colouring stage, steps for meringue stage, macaronage with the ribbon test, piping, resting (adjusted to the profile climate) and baking with temperature and minutes for the profile oven, a kv (batter grams per shell, shells per tray, a matching filling to make in the Filling formulas tool, maturation hours, shelf life), and a callout on the one step most likely to go wrong.",
+   "shape": "table, steps, kv, callout",
+   "button": "Get recipe",
+   "loading": "Sifting almonds…"
+  },
+  {
+   "id": "diagnose",
+   "title": "Troubleshoot shells",
+   "subtitle": "Photo → cause and fix",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of your shells (top and underside if possible)",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "bake",
+     "label": "Bake details",
+     "type": "text",
+     "placeholder": "150°C fan, 14 min, rested 30 min"
+    }
+   ],
+   "prompt": "Diagnose the macaron shells in the attached photo, baked as: {bake}. Text naming the primary fault (hollow, cracked, no feet, spread feet, lopsided, browned, sticky bottoms, wrinkled), a table (Symptom | Likely cause | Adjustment with number), steps for the next test batch changing one variable, and bullets on what is already correct.",
+   "shape": "text, table, steps, bullets",
+   "button": "Diagnose",
+   "loading": "Checking feet…"
+  },
+  {
+   "id": "box",
+   "title": "Design a box",
+   "subtitle": "Flavour and colour set for an occasion",
+   "emoji": "🎁",
+   "inputs": [
+    {
+     "key": "occasion",
+     "label": "Occasion",
+     "type": "text",
+     "placeholder": "baby shower, gender neutral",
+     "required": true
+    },
+    {
+     "key": "flavours",
+     "label": "Number of flavours",
+     "type": "number",
+     "placeholder": "4"
+    },
+    {
+     "key": "palette",
+     "label": "Palette",
+     "type": "chips",
+     "options": [
+      "Pastels",
+      "Bold",
+      "Neutral/natural",
+      "Metallic accents"
+     ],
+     "default": "Pastels"
+    }
+   ],
+   "prompt": "Design a {flavours}-flavour macaron box for {occasion} in a {palette} palette. Cards per flavour (shell colour with gel guidance, filling type, meta = difficulty · make-ahead days), a table (Flavour | Filling | Shelf life | Allergens), a checklist of components in make-ahead order, and a quote with a short menu card description for the box.",
+   "shape": "cards, table, checklist, quote",
+   "button": "Design box",
+   "loading": "Colour matching…"
+  },
+  {
+   "id": "fillings",
+   "title": "Filling formulas",
+   "subtitle": "Ganache, buttercream, curd, jam",
+   "emoji": "🥄",
+   "inputs": [
+    {
+     "key": "type",
+     "label": "Filling type",
+     "type": "chips",
+     "options": [
+      "White chocolate ganache",
+      "Dark ganache",
+      "Buttercream",
+      "Curd",
+      "Jam / pâte de fruit",
+      "Caramel"
+     ],
+     "default": "White chocolate ganache"
+    },
+    {
+     "key": "flavour",
+     "label": "Flavour",
+     "type": "text",
+     "placeholder": "yuzu"
+    },
+    {
+     "key": "shells",
+     "label": "Shells to fill",
+     "type": "number",
+     "placeholder": "60"
+    }
+   ],
+   "prompt": "Formulate a {type} flavoured with {flavour} to fill {shells} shells. Table (Ingredient | Grams), steps to make and bring to piping consistency, a kv (grams per macaron, pipe temperature, maturation hours, fridge life), and a callout on water content and why some fillings soften shells.",
+   "shape": "table, steps, kv, callout",
+   "button": "Formulate",
+   "loading": "Whisking…"
+  },
+  {
+   "id": "oven",
+   "title": "Oven test plan",
+   "subtitle": "Dial in temperature and time",
+   "emoji": "🔥",
+   "inputs": [
+    {
+     "key": "quirks",
+     "label": "Your oven quirks",
+     "type": "text",
+     "placeholder": "runs hot at the back, no thermometer"
+    },
+    {
+     "key": "issue",
+     "label": "Recurring issue",
+     "type": "chips",
+     "options": [
+      "Browning",
+      "Hollows",
+      "Cracks",
+      "Uneven feet",
+      "Sticking"
+     ],
+     "default": "Hollows"
+    }
+   ],
+   "prompt": "Build a test plan to dial in the profile oven with quirks '{quirks}' to fix {issue}. Table (Batch | Temperature | Minutes | Rack position | What to look for) for 4 test batches, a checklist of cheap fixes (thermometer, double tray, door prop), and a callout on reading the shell during the first 6 minutes.",
+   "shape": "table, checklist, callout",
+   "button": "Plan tests",
+   "loading": "Preheating…"
+  }
+ ]
+}

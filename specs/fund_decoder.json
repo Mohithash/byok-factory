@@ -1,0 +1,192 @@
+{
+ "id": "fund_decoder",
+ "name": "Fund Decoder",
+ "tagline": "Read any index fund or ETF like a pro",
+ "category": "Finance",
+ "colors": [
+  "#0D47A1",
+  "#00BFA5",
+  "#FF6F00"
+ ],
+ "icon": "graph",
+ "about": "Fund Decoder reads fund fact sheets from a photo, compares two funds side by side, shows what fees really cost over decades, and turns fund-listing jargon into plain English.",
+ "persona": "You are a fund-analysis nerd who loves low costs and broad diversification; you explain what a fund holds and costs, and you never predict returns or tell people what to buy.",
+ "onboarding": {
+  "title": "Know what you own",
+  "subtitle": "Tell us where you invest so examples use the right account types and currency.",
+  "bullets": [
+   "Fact sheet → plain English",
+   "Side-by-side comparisons",
+   "Fees in real money"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "country",
+   "label": "Country",
+   "type": "text",
+   "placeholder": "Canada"
+  },
+  {
+   "key": "horizon",
+   "label": "Horizon",
+   "type": "chips",
+   "options": [
+    "Under 5 years",
+    "5–15 years",
+    "15+ years"
+   ]
+  },
+  {
+   "key": "style",
+   "label": "Preference",
+   "type": "chips",
+   "options": [
+    "Simplest possible",
+    "A few funds",
+    "Happy to tinker"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "sheet",
+   "title": "Decode a fact sheet",
+   "subtitle": "Photo → what it holds and costs",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the fund fact sheet or listing",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Read the fact sheet: kv (fund name, ticker/ISIN, index tracked, expense ratio, number of holdings, top-3 holdings, region/sector tilt, distribution type, fund size, inception date). Then text on what this fund is for in one paragraph, bullets 'Watch-outs' (overlap, currency, tracking difference, fees), and a callout with 3 questions to answer before buying.",
+   "shape": "kv, text, bullets, callout",
+   "button": "Decode",
+   "loading": "Fine print…"
+  },
+  {
+   "id": "compare",
+   "title": "Compare two funds",
+   "subtitle": "Side by side, feature by feature",
+   "emoji": "⚖️",
+   "inputs": [
+    {
+     "key": "a",
+     "label": "Fund A",
+     "type": "text",
+     "placeholder": "VWRL",
+     "required": true
+    },
+    {
+     "key": "b",
+     "label": "Fund B",
+     "type": "text",
+     "placeholder": "SWDA",
+     "required": true
+    },
+    {
+     "key": "amount",
+     "label": "Amount to invest",
+     "type": "number",
+     "placeholder": "10000"
+    }
+   ],
+   "prompt": "Compare {a} vs {b} for {amount} invested over the profile horizon. Table (Feature | {a} | {b}) with rows: index tracked, expense ratio, holdings count, regions, distribution policy, domicile, typical use. Then kv 'Cost over 20 years' (annual fee cost and 20-year fee drag for each at an illustrative 6% return), bullets on what actually differs in practice, and a callout on the things a fact sheet won't tell you.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Compare",
+   "loading": "Lining them up…"
+  },
+  {
+   "id": "fees",
+   "title": "What fees really cost",
+   "subtitle": "Expense ratio → money lost",
+   "emoji": "💸",
+   "inputs": [
+    {
+     "key": "ratio",
+     "label": "Expense ratio %",
+     "type": "number",
+     "placeholder": "0.75"
+    },
+    {
+     "key": "amount",
+     "label": "Starting amount",
+     "type": "number",
+     "placeholder": "20000"
+    },
+    {
+     "key": "monthly",
+     "label": "Monthly contribution",
+     "type": "number",
+     "placeholder": "300"
+    }
+   ],
+   "prompt": "Show the cost of a {ratio}% expense ratio on {amount} plus {monthly}/month over 10, 20 and 30 years at an illustrative 6% gross return, versus a 0.10% fund. Table (Years | Value at {ratio}% | Value at 0.10% | Difference), text on why the gap compounds, kv (fees paid over 30 years → as a % of final value), and a callout that returns are illustrative, not predictions.",
+   "shape": "table, text, kv, callout",
+   "button": "Show me",
+   "loading": "Counting bps…"
+  },
+  {
+   "id": "starter",
+   "title": "Build a starter mix",
+   "subtitle": "A simple fund allocation template",
+   "emoji": "🧱",
+   "inputs": [
+    {
+     "key": "risk",
+     "label": "Risk comfort",
+     "type": "chips",
+     "options": [
+      "Cautious",
+      "Balanced",
+      "Growth"
+     ],
+     "default": "Balanced"
+    },
+    {
+     "key": "funds",
+     "label": "Number of funds",
+     "type": "chips",
+     "options": [
+      "1",
+      "2",
+      "3"
+     ],
+     "default": "3"
+    }
+   ],
+   "prompt": "Design a {funds}-fund starter allocation for a '{risk}' investor with the profile horizon and country. Table (Role | Fund type (describe the index type, not a specific product) | Allocation % | Why), steps to set it up in a typical broker, bullets on what to check once a year, and a callout that this is an educational template, not a recommendation.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Build mix",
+   "loading": "Mixing…"
+  },
+  {
+   "id": "jargon",
+   "title": "Listing jargon",
+   "subtitle": "Acc vs Dist, UCITS, hedged…",
+   "emoji": "🏷️",
+   "inputs": [
+    {
+     "key": "label",
+     "label": "What you saw on the listing",
+     "type": "text",
+     "placeholder": "Acc vs Dist, UCITS, hedged",
+     "required": true
+    }
+   ],
+   "prompt": "Explain '{label}' as seen on fund listings: kv (term → what it means for you in practice), bullets on which variant usually suits the profile country and style, and a callout on the tax or currency gotcha most people miss.",
+   "shape": "kv, bullets, callout",
+   "button": "Explain",
+   "loading": "Unpacking…"
+  }
+ ],
+ "disclaimer": "General education only — not financial, tax or legal advice. Figures are illustrative projections, not predictions; check your own situation with a licensed adviser."
+}

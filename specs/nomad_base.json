@@ -1,0 +1,205 @@
+{
+ "id": "nomad_base",
+ "name": "Nomad Base",
+ "tagline": "Pick a base, count your days, keep the routine",
+ "category": "Travel & Local",
+ "colors": [
+  "#00838F",
+  "#FF8F00",
+  "#8E24AA"
+ ],
+ "icon": "pin",
+ "about": "Nomad Base helps remote workers choose their next base city, compare long-stay and nomad-visa options in general terms, count days for tax and visa limits, set up a productive month anywhere and pack for it.",
+ "persona": "You are a veteran remote worker who has lived out of a carry-on for years: pragmatic about wifi, time zones, loneliness and day counts, and never cavalier about visa rules.",
+ "onboarding": {
+  "title": "Work from anywhere, on purpose",
+  "subtitle": "Your work hours and priorities shape the picks.",
+  "bullets": [
+   "Base cities scored for your needs",
+   "Day counting for visas and tax",
+   "Monthly setup and packing"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "passport",
+   "label": "Passport",
+   "type": "text",
+   "placeholder": "Canadian"
+  },
+  {
+   "key": "hours",
+   "label": "Working hours / time zone",
+   "type": "text",
+   "placeholder": "9–5 Eastern"
+  },
+  {
+   "key": "budget",
+   "label": "Monthly budget",
+   "type": "number",
+   "placeholder": "2500"
+  }
+ ],
+ "tools": [
+  {
+   "id": "pick",
+   "title": "Pick my next base",
+   "subtitle": "Cities scored for your work",
+   "emoji": "🌏",
+   "inputs": [
+    {
+     "key": "when",
+     "label": "When & how long",
+     "type": "text",
+     "placeholder": "Oct–Dec, 3 months",
+     "required": true
+    },
+    {
+     "key": "wants",
+     "label": "Must-haves",
+     "type": "text",
+     "placeholder": "fast wifi, beach, gym, under 30°C"
+    },
+    {
+     "key": "region",
+     "label": "Region",
+     "type": "chips",
+     "options": [
+      "Anywhere",
+      "Europe",
+      "Asia",
+      "Latin America",
+      "Africa",
+      "Middle East"
+     ],
+     "default": "Anywhere"
+    }
+   ],
+   "prompt": "Timing {when}, must-haves {wants}, region {region}. Score 5 base cities for the profile as a table (City | Monthly cost vs budget | Time-zone overlap with work hours | Wifi & coworking | Typical visa-free days | Score /10), cards for the top 2 (meta = neighbourhood to stay · monthly cost), and a callout to verify current entry rules for the profile's passport before booking.",
+   "shape": "table, cards, callout",
+   "button": "Score cities",
+   "loading": "Scouting…"
+  },
+  {
+   "id": "visa",
+   "title": "Long-stay options",
+   "subtitle": "Tourist, nomad visa, residence",
+   "emoji": "🛂",
+   "inputs": [
+    {
+     "key": "country",
+     "label": "Country",
+     "type": "text",
+     "placeholder": "Portugal",
+     "required": true
+    },
+    {
+     "key": "plan",
+     "label": "Plan",
+     "type": "chips",
+     "options": [
+      "Under 90 days",
+      "3–6 months",
+      "6–12 months",
+      "Longer"
+     ],
+     "default": "3–6 months"
+    }
+   ],
+   "prompt": "For the profile's passport in {country} for {plan}: a table (Option | Typical max stay | Usual income or proof requirement | Processing time | Remote work allowed?), steps for the most sensible route, a callout on overstay penalties and the difference between remote work for foreign clients and local employment, and bullets of documents typically required.",
+   "shape": "table, steps, callout, bullets",
+   "button": "Compare",
+   "loading": "Checking…"
+  },
+  {
+   "id": "days",
+   "title": "Count my days",
+   "subtitle": "Tax and visa limits at a glance",
+   "emoji": "🧮",
+   "inputs": [
+    {
+     "key": "stays",
+     "label": "Stays this year",
+     "type": "longtext",
+     "placeholder": "Jan–Mar Mexico, Apr–May Spain, Jun Portugal, Jul–Aug Canada…",
+     "required": true
+    }
+   ],
+   "prompt": "Stays: {stays}. Tally as a table (Country | Days | Typical tourist or visa limit | Days left | Watch-out), kv (days outside the passport country, longest single stay, countries near a threshold), a callout on the 183-day rule and residency ties in general, and steps to keep clean evidence of your days.",
+   "shape": "table, kv, callout, steps",
+   "button": "Tally",
+   "loading": "Counting…"
+  },
+  {
+   "id": "month",
+   "title": "Set up the month",
+   "subtitle": "Land Sunday, productive Monday",
+   "emoji": "🗓️",
+   "inputs": [
+    {
+     "key": "city",
+     "label": "City",
+     "type": "text",
+     "placeholder": "Medellín",
+     "required": true
+    },
+    {
+     "key": "stay",
+     "label": "Staying in",
+     "type": "chips",
+     "options": [
+      "Coliving",
+      "Short-term rental",
+      "Hotel",
+      "Rented flat"
+     ],
+     "default": "Short-term rental"
+    }
+   ],
+   "prompt": "Landing in {city}, staying in {stay}: a checklist for the first 48 hours (SIM or eSIM, coworking day pass, groceries, gym, transit card, backup wifi test), a table (Day | Work block in local time | Social or explore slot) built around the profile's working hours, bullets on beating isolation, and a callout on scam and safety patterns in that city.",
+   "shape": "checklist, table, bullets, callout",
+   "button": "Set up",
+   "loading": "Unpacking…"
+  },
+  {
+   "id": "pack",
+   "title": "Carry-on office",
+   "subtitle": "Everything in one bag",
+   "emoji": "🎒",
+   "inputs": [
+    {
+     "key": "climate",
+     "label": "Climate",
+     "type": "chips",
+     "options": [
+      "Hot",
+      "Mixed",
+      "Cold"
+     ],
+     "default": "Mixed"
+    },
+    {
+     "key": "months",
+     "label": "Trip length",
+     "type": "chips",
+     "options": [
+      "1 month",
+      "3 months",
+      "6+ months"
+     ],
+     "default": "3 months"
+    }
+   ],
+   "prompt": "Pack a carry-on office for a {climate} climate, {months}: a checklist grouped by category (tech, adapters and power, clothes by count, health, documents), a table (Item | Why | Weight or space tip), and a callout on the 5 things nomads always forget.",
+   "shape": "checklist, table, callout",
+   "button": "Pack",
+   "loading": "Folding…"
+  }
+ ],
+ "disclaimer": "General information only, not visa, legal or tax advice; entry rules change — check official sources before travelling."
+}

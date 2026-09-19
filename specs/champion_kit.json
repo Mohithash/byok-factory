@@ -1,0 +1,182 @@
+{
+ "id": "champion_kit",
+ "name": "Champion Kit",
+ "tagline": "Arm your internal champion to sell for you",
+ "category": "Business",
+ "colors": [
+  "#E65100",
+  "#283593",
+  "#43A047"
+ ],
+ "icon": "coin",
+ "about": "Champion Kit builds the business case, ROI model, executive one-pager and mutual action plan your internal champion needs to win budget when you're not in the room.",
+ "persona": "You are a value-engineering consultant: rigorous with numbers, transparent about assumptions, fluent in CFO language; you never inflate ROI.",
+ "onboarding": {
+  "title": "Win the meeting you're not in",
+  "subtitle": "Your product's value drivers power every business case.",
+  "bullets": [
+   "Business cases in CFO language",
+   "ROI tables with visible assumptions",
+   "Mutual action plans to close"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "product",
+   "label": "Your product",
+   "type": "text",
+   "placeholder": "warehouse robotics-as-a-service"
+  },
+  {
+   "key": "drivers",
+   "label": "Main value drivers",
+   "type": "text",
+   "placeholder": "labour savings, fewer picking errors, faster shipping"
+  },
+  {
+   "key": "currency",
+   "label": "Currency",
+   "type": "text",
+   "placeholder": "USD"
+  }
+ ],
+ "tools": [
+  {
+   "id": "case",
+   "title": "Business case",
+   "subtitle": "For the budget meeting",
+   "emoji": "🏛️",
+   "inputs": [
+    {
+     "key": "situation",
+     "label": "Customer situation & numbers",
+     "type": "longtext",
+     "placeholder": "3 warehouses, 120 pickers at $22/h, 2% error rate, 40k orders/month",
+     "required": true
+    },
+    {
+     "key": "price",
+     "label": "Our price",
+     "type": "text",
+     "placeholder": "$30k/month",
+     "required": true
+    }
+   ],
+   "prompt": "Build a business case for the profile's product at {price} given: {situation}, in the profile's currency. Sections: text executive summary (under 120 words), a table (Value driver | Current cost | With us | Annual impact | Assumption), kv (Total annual benefit | Annual cost | Net benefit | Payback months | 3-year ROI %), a callout listing every assumption to validate, and bullets of the 3 risks a CFO will raise with a one-line answer each.",
+   "shape": "text, table, kv, callout, bullets",
+   "button": "Build case",
+   "loading": "Running numbers…"
+  },
+  {
+   "id": "roi",
+   "title": "ROI calculator",
+   "subtitle": "Conservative, base, upside",
+   "emoji": "🧮",
+   "inputs": [
+    {
+     "key": "cost",
+     "label": "Annual cost of our solution",
+     "type": "number",
+     "placeholder": "360000"
+    },
+    {
+     "key": "benefit",
+     "label": "Estimated annual benefit",
+     "type": "number",
+     "placeholder": "900000"
+    },
+    {
+     "key": "ramp",
+     "label": "Months to full value",
+     "type": "number",
+     "placeholder": "6"
+    }
+   ],
+   "prompt": "Model ROI with annual cost {cost}, estimated annual benefit {benefit} and {ramp} months ramp to full value, in the profile's currency. Sections: a table (Scenario | Year-1 net | Year-3 net | Payback months | ROI %) for Conservative (50% of benefit), Base (100%) and Upside (130%), steps showing how each figure was calculated, a callout on which scenario to present first and why, and a quote with one sentence to say when they challenge the benefit number.",
+   "shape": "table, steps, callout, quote",
+   "button": "Calculate",
+   "loading": "Sharpening pencil…"
+  },
+  {
+   "id": "onepager",
+   "title": "Executive one-pager",
+   "subtitle": "What the sponsor forwards",
+   "emoji": "📃",
+   "inputs": [
+    {
+     "key": "exec",
+     "label": "Executive & their priority",
+     "type": "text",
+     "placeholder": "COO, cutting fulfilment cost per order",
+     "required": true
+    },
+    {
+     "key": "proof",
+     "label": "Proof points",
+     "type": "text",
+     "placeholder": "cut cost per order 18% at a similar 3PL"
+    }
+   ],
+   "prompt": "Write an executive one-pager for {exec} with proof: {proof}, for the profile's product. Sections: a quote with the one-pager text (headline, 3-sentence problem, 3-sentence solution, 3 proof bullets, the ask; under 200 words total), kv (Headline metric | The ask | Decision needed by), and bullets on how the champion should present it in 2 minutes.",
+   "shape": "quote, kv, bullets",
+   "button": "Write one-pager",
+   "loading": "Boiling down…"
+  },
+  {
+   "id": "map",
+   "title": "Mutual action plan",
+   "subtitle": "Shared close plan with the champion",
+   "emoji": "🤝",
+   "inputs": [
+    {
+     "key": "target",
+     "label": "Target signature date",
+     "type": "text",
+     "placeholder": "15 December",
+     "required": true
+    },
+    {
+     "key": "steps_known",
+     "label": "Known steps",
+     "type": "longtext",
+     "placeholder": "security review, legal redlines, CFO approval, pilot sign-off",
+     "required": true
+    }
+   ],
+   "prompt": "Build a mutual action plan to sign by {target} covering: {steps_known}. Sections: a table (Step | Owner: us/them | Due | Status | Dependency) working backwards from the signature date, a checklist of steps the champion must own, a callout on the step most likely to slip and how to pre-empt it, and a quote with the message that introduces the plan to the champion.",
+   "shape": "table, checklist, callout, quote",
+   "button": "Build plan",
+   "loading": "Working backwards…"
+  },
+  {
+   "id": "coach",
+   "title": "Coach the champion",
+   "subtitle": "Prep them for the internal pitch",
+   "emoji": "🎓",
+   "inputs": [
+    {
+     "key": "champion",
+     "label": "Champion & their role",
+     "type": "text",
+     "placeholder": "Priya, ops manager, first time sponsoring a purchase"
+    },
+    {
+     "key": "audience",
+     "label": "Who they're pitching to",
+     "type": "text",
+     "placeholder": "CFO and VP Ops"
+    }
+   ],
+   "prompt": "Coach {champion} to pitch the profile's product internally to {audience}. Sections: steps for a 5-minute internal pitch, a table (Objection they'll hear | What to say | Backup data), bullets of the questions they should ask us before the meeting, and a quote with a confidence-building message to send them the night before.",
+   "shape": "steps, table, bullets, quote",
+   "button": "Coach them",
+   "loading": "Building confidence…"
+  }
+ ],
+ "disclaimer": "ROI, cost and forecast figures are illustrative estimates from the numbers you enter, not financial advice; validate every assumption with real data and your finance team."
+}

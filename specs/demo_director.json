@@ -1,0 +1,180 @@
+{
+ "id": "demo_director",
+ "name": "Demo Director",
+ "tagline": "Product demos that tell a story, not a feature list",
+ "category": "Business",
+ "colors": [
+  "#4527A0",
+  "#F57C00",
+  "#00BCD4"
+ ],
+ "icon": "star",
+ "about": "Demo Director scripts persona-tailored product demos with a narrative arc, preps you for live questions and curveballs, critiques your script and writes the follow-up that keeps momentum.",
+ "persona": "You are a sales-engineering lead and storyteller: you demo the outcome before the feature, keep clicks to a minimum, and handle 'can it do X?' without bluffing.",
+ "onboarding": {
+  "title": "Show them their future",
+  "subtitle": "Tell us about your product so every demo is grounded in it.",
+  "bullets": [
+   "Story-driven demo scripts",
+   "Live Q&A and curveball prep",
+   "Script critique and follow-ups"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "product",
+   "label": "Your product & key features",
+   "type": "text",
+   "placeholder": "field-service app: scheduling, mobile forms, invoicing"
+  },
+  {
+   "key": "length",
+   "label": "Usual demo length",
+   "type": "chips",
+   "options": [
+    "15 min",
+    "30 min",
+    "45 min",
+    "60 min"
+   ],
+   "default": "30 min"
+  },
+  {
+   "key": "format",
+   "label": "Format",
+   "type": "chips",
+   "options": [
+    "Live remote",
+    "In person",
+    "Recorded"
+   ],
+   "default": "Live remote"
+  }
+ ],
+ "tools": [
+  {
+   "id": "script",
+   "title": "Script a demo",
+   "subtitle": "Persona → narrative demo",
+   "emoji": "🎬",
+   "inputs": [
+    {
+     "key": "persona",
+     "label": "Audience",
+     "type": "text",
+     "placeholder": "Operations director at an HVAC company, 25 technicians",
+     "required": true
+    },
+    {
+     "key": "pains",
+     "label": "Their top pains",
+     "type": "text",
+     "placeholder": "double bookings, unpaid invoices"
+    }
+   ],
+   "prompt": "Script a demo for {persona} focused on pains: {pains}, at the profile's usual length and format. Sections: steps for the demo flow with minute markers (each step = what to show, what to say, what to click), a table (Pain | Feature shown | Before/after line | Proof), a quote with the opening 30 seconds, and a callout on features to deliberately NOT show.",
+   "shape": "steps, table, quote, callout",
+   "button": "Script demo",
+   "loading": "Setting stage…"
+  },
+  {
+   "id": "questions",
+   "title": "Q&A prep",
+   "subtitle": "Questions they'll ask live",
+   "emoji": "❓",
+   "inputs": [
+    {
+     "key": "audience",
+     "label": "Who's in the room",
+     "type": "text",
+     "placeholder": "CTO, ops director, 2 dispatchers"
+    },
+    {
+     "key": "weak",
+     "label": "Weak spots",
+     "type": "text",
+     "placeholder": "no offline mode yet"
+    }
+   ],
+   "prompt": "Prep for live demo questions from {audience}, given weak spots: {weak}. Sections: a table (Likely question | Who asks | Honest answer | Bridge back to value) with 10 rows, bullets on how to say 'not yet' without killing the deal, a quote with the response for the toughest weak-spot question, and a callout on the question that signals real buying intent.",
+   "shape": "table, bullets, quote, callout",
+   "button": "Prep Q&A",
+   "loading": "Anticipating…"
+  },
+  {
+   "id": "critique",
+   "title": "Critique my script",
+   "subtitle": "Paste it, get a director's notes",
+   "emoji": "🎭",
+   "inputs": [
+    {
+     "key": "script_text",
+     "label": "Your demo script or outline",
+     "type": "longtext",
+     "placeholder": "paste your script",
+     "required": true
+    }
+   ],
+   "prompt": "Critique this demo script as a demo director: {script_text}. Sections: kv (Story score /10 | Feature-dump risk | Time to first wow | Clicks per minute estimate), a table (Moment | Problem | Fix), steps for a tightened running order, and a quote with a stronger closing line that secures a next step.",
+   "shape": "kv, table, steps, quote",
+   "button": "Give notes",
+   "loading": "Watching rehearsal…"
+  },
+  {
+   "id": "curveball",
+   "title": "Curveball rescue",
+   "subtitle": "Demo broke / went off-script",
+   "emoji": "🧯",
+   "inputs": [
+    {
+     "key": "what",
+     "label": "What happened",
+     "type": "chips",
+     "options": [
+      "Feature crashed",
+      "Audience distracted",
+      "Exec joined late",
+      "Asked for pricing mid-demo",
+      "Competitor mentioned",
+      "Ran out of time"
+     ],
+     "default": "Feature crashed"
+    }
+   ],
+   "prompt": "The demo hit this curveball: {what}. Sections: steps for what to say and do in the next 60 seconds, a quote with the exact recovery line, bullets on how to prevent it next time, and a callout on how to turn the moment into credibility.",
+   "shape": "steps, quote, bullets, callout",
+   "button": "Rescue me",
+   "loading": "Improvising…"
+  },
+  {
+   "id": "followup",
+   "title": "Post-demo follow-up",
+   "subtitle": "Keep the momentum",
+   "emoji": "📬",
+   "inputs": [
+    {
+     "key": "what_happened",
+     "label": "How the demo went",
+     "type": "longtext",
+     "placeholder": "loved scheduling, worried about mobile adoption, CTO wants API docs",
+     "required": true
+    },
+    {
+     "key": "next",
+     "label": "Proposed next step",
+     "type": "text",
+     "placeholder": "pilot with 5 techs"
+    }
+   ],
+   "prompt": "Write a post-demo follow-up given: {what_happened}, proposing: {next}. Sections: a quote with the email (under 150 words: what resonated, what we'll send, the next step with a date), a checklist of assets to attach, kv (Send by | Cc | Calendar hold to propose), and bullets of 2 internal actions to de-risk the concern raised.",
+   "shape": "quote, checklist, kv, bullets",
+   "button": "Write follow-up",
+   "loading": "Keeping momentum…"
+  }
+ ]
+}

@@ -1,0 +1,187 @@
+{
+ "id": "gout_guard",
+ "name": "Gout Guard",
+ "tagline": "Prevent flares, ride them out, understand urate",
+ "category": "Medical",
+ "colors": [
+  "#C62828",
+  "#F9A825",
+  "#37474F"
+ ],
+ "icon": "flame",
+ "about": "Gout Guard helps you get through a flare, spot the meals and habits that set them off, keep hydration and urate on target, and plan meals and drinks that lower the risk of the next one.",
+ "persona": "You are a rheumatology nurse who specialises in gout: direct, myth-busting, kind about the pain, and clear that urate-lowering therapy is prescribed and monitored by the doctor.",
+ "onboarding": {
+  "title": "Fewer flares, better days",
+  "subtitle": "Your history and treatment shape the advice.",
+  "bullets": [
+   "Flare survival plan",
+   "Meal and drink purine checks",
+   "Urate targets and hydration"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "treat",
+   "label": "Treatment",
+   "type": "chips",
+   "options": [
+    "None yet",
+    "Allopurinol",
+    "Febuxostat",
+    "Colchicine on hand",
+    "NSAIDs on hand"
+   ],
+   "multi": true
+  },
+  {
+   "key": "urate",
+   "label": "Latest urate level (optional)",
+   "type": "number",
+   "placeholder": "420"
+  },
+  {
+   "key": "flares",
+   "label": "Flares in the last year",
+   "type": "chips",
+   "options": [
+    "None",
+    "1",
+    "2–3",
+    "4+"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "flare",
+   "title": "Flare right now",
+   "subtitle": "The next 48 hours",
+   "emoji": "🔥",
+   "inputs": [
+    {
+     "key": "joint",
+     "label": "Joint",
+     "type": "chips",
+     "options": [
+      "Big toe",
+      "Ankle",
+      "Knee",
+      "Wrist / hand",
+      "Elbow",
+      "Other"
+     ],
+     "default": "Big toe"
+    },
+    {
+     "key": "hours",
+     "label": "Started",
+     "type": "chips",
+     "options": [
+      "Under 12 hours ago",
+      "12–24 hours",
+      "1–3 days",
+      "Over 3 days"
+     ],
+     "default": "Under 12 hours ago"
+    }
+   ],
+   "prompt": "A flare in the {joint} started {hours}. Steps for the next 48 hours (rest and elevation, ice timing, footwear, medication the user already has as prescribed, hydration), a checklist of things to set up around the sofa or bed, bullets on what to avoid (alcohol, fasting, stopping allopurinol mid-flare), and a callout that a hot swollen joint with fever, or a first-ever flare, needs a doctor to rule out infection and confirm gout.",
+   "shape": "steps, checklist, bullets, callout",
+   "button": "Help me",
+   "loading": "Icing it…"
+  },
+  {
+   "id": "meal",
+   "title": "Purine check",
+   "subtitle": "Photo or description of a meal",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of your meal (optional)",
+     "type": "photo"
+    },
+    {
+     "key": "meal",
+     "label": "Or describe it",
+     "type": "text",
+     "placeholder": "steak, chips, two lagers"
+    }
+   ],
+   "prompt": "Assess the meal from the photo or the description '{meal}'. Table (Item | Purine level low/med/high | Fructose or alcohol flag | Risk note), a kv (overall flare-risk rating, main drivers, one swap that halves the risk), and bullets on the biggest myths (for example that purine-rich vegetables are a problem) versus what the evidence actually supports.",
+   "shape": "table, kv, bullets",
+   "button": "Check meal",
+   "loading": "Weighing purines…"
+  },
+  {
+   "id": "triggers",
+   "title": "Find my triggers",
+   "subtitle": "Paste your flare log",
+   "emoji": "🔎",
+   "inputs": [
+    {
+     "key": "log",
+     "label": "Flares and the days before",
+     "type": "longtext",
+     "placeholder": "12 Jan flare after weekend BBQ and beer; 3 Mar after dehydration from flu…",
+     "required": true
+    }
+   ],
+   "prompt": "Analyse: {log}. Table (Trigger | Flares linked | Evidence | Confidence), bullets on the top 2 patterns, steps for a 4-week plan to reduce the top trigger, and a callout that frequent flares usually mean urate is not at target and that is a medication conversation with the doctor.",
+   "shape": "table, bullets, steps, callout",
+   "button": "Find triggers",
+   "loading": "Reading the log…"
+  },
+  {
+   "id": "drinks",
+   "title": "Drinks & hydration",
+   "subtitle": "Water, coffee, beer, sugary drinks",
+   "emoji": "🥤",
+   "inputs": [
+    {
+     "key": "drinks",
+     "label": "Your typical daily drinks",
+     "type": "text",
+     "placeholder": "3 coffees, 1 cola, 2 beers at weekends",
+     "required": true
+    },
+    {
+     "key": "weight",
+     "label": "Weight (kg)",
+     "type": "number",
+     "placeholder": "85"
+    }
+   ],
+   "prompt": "For daily drinks '{drinks}' at {weight} kg, produce a table (Drink | Effect on urate or flares | Keep, cut or swap | Alternative), a kv (daily fluid target in litres, when to drink more, a simple hourly schedule), and a callout on hydration during illness and heat, plus what the evidence says about dairy, coffee and cherry claims in plain terms.",
+   "shape": "table, kv, callout",
+   "button": "Plan drinks",
+   "loading": "Pouring water…"
+  },
+  {
+   "id": "urate",
+   "title": "My urate target",
+   "subtitle": "Understand the number",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "results",
+     "label": "Recent urate results with dates",
+     "type": "text",
+     "placeholder": "Jan 480, Apr 410, Jul 350 µmol/L",
+     "required": true
+    }
+   ],
+   "prompt": "Explain the results '{results}' for the profile treatment. kv (latest value, commonly used targets in µmol/L and mg/dL, distance from target, trend), text on why flares can happen when urate-lowering therapy starts and why staying on it matters, bullets of questions for the doctor, and a callout that dose changes are only made by the prescriber with blood tests.",
+   "shape": "kv, text, bullets, callout",
+   "button": "Explain",
+   "loading": "Reading the trend…"
+  }
+ ],
+ "disclaimer": "General information, not medical advice. Urate-lowering and anti-inflammatory medicines are prescribed and adjusted by your doctor. A hot, swollen joint with fever, or any first-time flare, needs a medical assessment to rule out infection."
+}

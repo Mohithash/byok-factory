@@ -1,0 +1,233 @@
+{
+ "id": "milk_tea_lab",
+ "name": "Chai & Boba",
+ "tagline": "Masala chai, boba and milk teas of the world",
+ "category": "Food & Drink",
+ "colors": [
+  "#8E24AA",
+  "#D4A373",
+  "#3E2723"
+ ],
+ "icon": "cup",
+ "about": "Chai & Boba makes café-quality milk teas at home: masala blends ground to your taste, tapioca pearls and brown-sugar syrup that actually work, regional recipes from Hong Kong to Kolkata, and chai for a crowd.",
+ "persona": "You are a chai-wallah turned boba-shop owner: generous with spice, exact with steep times, and honest about what needs a shop machine and what doesn't.",
+ "onboarding": {
+  "title": "Your cup, your way",
+  "subtitle": "Tell us your milk and sweetness so recipes land right.",
+  "bullets": [
+   "Masala blends ground to your taste",
+   "Chewy pearls and shop-style syrups",
+   "Regional milk teas, home-scaled"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "milk",
+   "label": "Milk",
+   "type": "chips",
+   "options": [
+    "Whole",
+    "Oat",
+    "Almond",
+    "Soy",
+    "Evaporated",
+    "Lactose-free"
+   ]
+  },
+  {
+   "key": "sweet",
+   "label": "Sweetness",
+   "type": "chips",
+   "options": [
+    "0%",
+    "25%",
+    "50%",
+    "75%",
+    "100%"
+   ],
+   "default": "50%"
+  },
+  {
+   "key": "caff",
+   "label": "Caffeine",
+   "type": "chips",
+   "options": [
+    "Full",
+    "Half",
+    "Decaf where possible"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "masala",
+   "title": "Masala blend builder",
+   "subtitle": "Grind your own chai masala",
+   "emoji": "🫚",
+   "inputs": [
+    {
+     "key": "lead",
+     "label": "Lead flavour",
+     "type": "chips",
+     "options": [
+      "Cardamom-forward",
+      "Ginger-heavy",
+      "Warm cinnamon",
+      "Peppery",
+      "Balanced"
+     ],
+     "default": "Cardamom-forward"
+    },
+    {
+     "key": "cups",
+     "label": "Batch for how many cups",
+     "type": "number",
+     "placeholder": "20"
+    },
+    {
+     "key": "avoid",
+     "label": "Avoid",
+     "type": "text",
+     "placeholder": "cloves, star anise"
+    }
+   ],
+   "prompt": "Design a {lead} chai masala for {cups} cups avoiding {avoid}. Table (Spice | Grams | Whole or ground | Role), steps for toasting, grinding and storing, kv (masala g per cup, tea g per cup, steep minutes, milk ratio for the profile's milk), and bullets on 3 variations from the same blend.",
+   "shape": "table, steps, kv, bullets",
+   "button": "Build blend",
+   "loading": "Toasting cardamom…"
+  },
+  {
+   "id": "boba",
+   "title": "Boba at home",
+   "subtitle": "Pearls, syrup, tea base",
+   "emoji": "🧋",
+   "inputs": [
+    {
+     "key": "drink",
+     "label": "Drink",
+     "type": "chips",
+     "options": [
+      "Classic brown-sugar milk tea",
+      "Taro",
+      "Thai tea",
+      "Matcha",
+      "Fruit tea with jelly",
+      "Cheese-foam tea"
+     ],
+     "default": "Classic brown-sugar milk tea"
+    },
+    {
+     "key": "pearls",
+     "label": "Pearls",
+     "type": "chips",
+     "options": [
+      "Make from scratch",
+      "Dried store pearls",
+      "No pearls"
+     ],
+     "default": "Dried store pearls"
+    }
+   ],
+   "prompt": "Make {drink} with {pearls} for the profile's milk and sweetness. Steps for the pearls (cook and rest minutes, syrup soak), steps for the syrup or topping with grams, kv (tea g, steep temp and minutes, ice, cup ml, caffeine mg est.), and a callout on pearl shelf life and choking risk for young children.",
+   "shape": "steps, kv, callout",
+   "button": "Make it",
+   "loading": "Boiling pearls…"
+  },
+  {
+   "id": "regional",
+   "title": "Regional milk tea",
+   "subtitle": "HK, teh tarik, Kashmiri, Thai, Taiwanese…",
+   "emoji": "🌏",
+   "inputs": [
+    {
+     "key": "style",
+     "label": "Style",
+     "type": "chips",
+     "options": [
+      "Hong Kong silk-stocking",
+      "Teh tarik",
+      "Kashmiri noon chai",
+      "Thai iced tea",
+      "Kolkata roadside chai",
+      "Taiwanese milk tea",
+      "Turkish çay"
+     ],
+     "default": "Hong Kong silk-stocking"
+    }
+   ],
+   "prompt": "Teach {style} at home for the profile's milk. Sections: text on what makes it distinct and which parts need shop gear, kv (tea type and grams, water ml, time, milk and sugar for the profile's sweetness), steps including the signature technique, and bullets on substitutions when the exact tea is unavailable.",
+   "shape": "text, kv, steps, bullets",
+   "button": "Teach me",
+   "loading": "Pulling the tea…"
+  },
+  {
+   "id": "crowd",
+   "title": "Chai for a crowd",
+   "subtitle": "Scale, keep hot, serve",
+   "emoji": "🫖",
+   "inputs": [
+    {
+     "key": "people",
+     "label": "People",
+     "type": "number",
+     "placeholder": "30"
+    },
+    {
+     "key": "serve",
+     "label": "Serving",
+     "type": "chips",
+     "options": [
+      "Thermos",
+      "Pot on stove",
+      "Slow cooker",
+      "Iced dispenser"
+     ],
+     "default": "Thermos"
+    }
+   ],
+   "prompt": "Scale chai for {people} people served from {serve} at the profile's sweetness. Sections: kv (water L, milk L for the profile's milk, tea g, masala g, sugar g), steps for brewing in stages so it does not stew, a checklist of gear and cups, and a callout on keeping milk tea safe over 2+ hours.",
+   "shape": "kv, steps, checklist, callout",
+   "button": "Scale it",
+   "loading": "Filling the pot…"
+  },
+  {
+   "id": "tune",
+   "title": "Tune my cup",
+   "subtitle": "Bitter, weak, split milk, gummy pearls",
+   "emoji": "🔧",
+   "inputs": [
+    {
+     "key": "problem",
+     "label": "Problem",
+     "type": "chips",
+     "options": [
+      "Bitter / astringent",
+      "Weak",
+      "Milk curdled or split",
+      "Pearls hard in the middle",
+      "Pearls mushy",
+      "Too sweet",
+      "Skin on top"
+     ],
+     "default": "Bitter / astringent"
+    },
+    {
+     "key": "did",
+     "label": "What you did",
+     "type": "text",
+     "placeholder": "boiled tea 10 min with milk"
+    }
+   ],
+   "prompt": "Problem: {problem}; you did: {did}. Text on the cause, a table (Change | To | Why), and steps for the next cup.",
+   "shape": "text, table, steps",
+   "button": "Fix it",
+   "loading": "Re-steeping…"
+  }
+ ],
+ "disclaimer": "Tapioca pearls and jellies are a choking hazard for children under 4. Caffeine figures are estimates, not medical advice."
+}

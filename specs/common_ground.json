@@ -1,0 +1,207 @@
+{
+ "id": "common_ground",
+ "name": "Common Ground",
+ "tagline": "How the world's traditions answer the same questions",
+ "category": "Books & Reference",
+ "colors": [
+  "#00695C",
+  "#F9A825",
+  "#5D4037"
+ ],
+ "icon": "globe",
+ "about": "Common Ground compares how different faiths and philosophies approach a theme — forgiveness, charity, grief, hospitality — with cited passages, shared ground and honest differences, so you can understand a neighbour, a partner or a text without anyone being sold anything.",
+ "persona": "You are a comparative-religion scholar: even-handed, precise with citations, respectful of each tradition's own self-understanding; you never rank faiths, never proselytise, and flag where communities disagree internally.",
+ "onboarding": {
+  "title": "Understand, don't convert",
+  "subtitle": "Tell us which traditions matter to you and how deep to go.",
+  "bullets": [
+   "Side-by-side views on any theme",
+   "Cited passages, not paraphrase",
+   "Prep for interfaith conversations"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "own",
+   "label": "Your own background",
+   "type": "chips",
+   "options": [
+    "Christian",
+    "Muslim",
+    "Jewish",
+    "Hindu",
+    "Buddhist",
+    "Sikh",
+    "Secular / none",
+    "Other / exploring"
+   ]
+  },
+  {
+   "key": "depth",
+   "label": "Depth",
+   "type": "chips",
+   "options": [
+    "Plain-language",
+    "Student",
+    "Scholarly"
+   ],
+   "default": "Plain-language"
+  }
+ ],
+ "tools": [
+  {
+   "id": "theme",
+   "title": "Compare a theme",
+   "subtitle": "One question, many traditions",
+   "emoji": "🌍",
+   "inputs": [
+    {
+     "key": "theme",
+     "label": "Theme or question",
+     "type": "text",
+     "placeholder": "forgiveness, what happens after death, charity",
+     "required": true
+    },
+    {
+     "key": "traditions",
+     "label": "Traditions",
+     "type": "chips",
+     "options": [
+      "Christianity",
+      "Islam",
+      "Judaism",
+      "Hinduism",
+      "Buddhism",
+      "Sikhism",
+      "Taoism",
+      "Stoicism",
+      "Indigenous traditions"
+     ],
+     "multi": true
+    }
+   ],
+   "prompt": "Compare how {traditions} approach '{theme}' at the profile's depth. Sections: a table (Tradition | Core teaching | Key passage with reference | A practice it shapes), bullets titled 'Shared ground' (3–5 points), bullets titled 'Real differences' stated neutrally, and a callout noting where each tradition has internal disagreement.",
+   "shape": "table, bullets, callout",
+   "button": "Compare",
+   "loading": "Consulting texts…"
+  },
+  {
+   "id": "passage",
+   "title": "Read a passage",
+   "subtitle": "Context and meaning, in its own tradition",
+   "emoji": "📖",
+   "inputs": [
+    {
+     "key": "passage",
+     "label": "Passage or reference",
+     "type": "longtext",
+     "placeholder": "Matthew 5:38-42, or Surah 2:255, or Gita 2:47",
+     "required": true
+    },
+    {
+     "key": "lens",
+     "label": "Read it as",
+     "type": "chips",
+     "options": [
+      "Its own tradition explains it",
+      "Historical context",
+      "Literary structure"
+     ],
+     "default": "Its own tradition explains it"
+    }
+   ],
+   "prompt": "Explain {passage} through the lens '{lens}'. Sections: kv (tradition, text/book, genre, approximate date, setting), text explaining what the passage says and what the tradition's mainstream readers take from it, bullets of 3–4 key terms with their original-language word and a plain gloss, and a callout on common misreadings by outsiders.",
+   "shape": "kv, text, bullets, callout",
+   "button": "Explain",
+   "loading": "Reading closely…"
+  },
+  {
+   "id": "friend",
+   "title": "Understand someone's faith",
+   "subtitle": "Basics for a friend, partner or colleague",
+   "emoji": "🤝",
+   "inputs": [
+    {
+     "key": "faith",
+     "label": "Their tradition",
+     "type": "chips",
+     "options": [
+      "Catholic",
+      "Protestant",
+      "Orthodox Christian",
+      "Sunni Islam",
+      "Shia Islam",
+      "Judaism",
+      "Hinduism",
+      "Buddhism",
+      "Sikhism",
+      "Jainism",
+      "Baháʼí",
+      "Other"
+     ],
+     "default": "Judaism"
+    },
+    {
+     "key": "context",
+     "label": "Your situation",
+     "type": "text",
+     "placeholder": "new partner's family, colleague who fasts, neighbour"
+    }
+   ],
+   "prompt": "Give a respectful primer on {faith} for someone whose situation is: {context}. Sections: kv (core beliefs in one line each, holy text(s), weekly rhythm, main festivals, dietary practice, dress), bullets of what people in this tradition commonly wish outsiders knew, a checklist of considerate things to do or ask, and a quote with 2 respectful questions that invite them to share rather than assume.",
+   "shape": "kv, bullets, checklist, quote",
+   "button": "Brief me",
+   "loading": "Listening first…"
+  },
+  {
+   "id": "dialogue",
+   "title": "Prep an interfaith talk",
+   "subtitle": "Run a respectful discussion",
+   "emoji": "🗣️",
+   "inputs": [
+    {
+     "key": "setting",
+     "label": "Setting",
+     "type": "text",
+     "placeholder": "school assembly, workplace group, dinner with in-laws",
+     "required": true
+    },
+    {
+     "key": "minutes",
+     "label": "Minutes available",
+     "type": "number",
+     "placeholder": "45"
+    }
+   ],
+   "prompt": "Plan a {minutes}-minute interfaith discussion for: {setting}. Sections: steps with timings (opening norms, a shared theme, small-group prompts, closing), bullets of 6 questions that work across traditions, a callout of ground rules that keep it safe and non-proselytising, and a quote with a one-paragraph opening the host can read aloud.",
+   "shape": "steps, bullets, callout, quote",
+   "button": "Plan it",
+   "loading": "Setting the table…"
+  },
+  {
+   "id": "glossary",
+   "title": "Decode a term",
+   "subtitle": "Words you've heard but never asked about",
+   "emoji": "🔤",
+   "inputs": [
+    {
+     "key": "term",
+     "label": "Term",
+     "type": "text",
+     "placeholder": "halal, kosher, dharma, sacrament, karma, Sabbath",
+     "required": true
+    }
+   ],
+   "prompt": "Explain '{term}' at the profile's depth. Sections: text with the definition and the tradition(s) it belongs to, kv (original language, literal meaning, everyday usage, related terms), bullets of what it is often confused with, and a quote showing the term used correctly in one sentence.",
+   "shape": "text, kv, bullets, quote",
+   "button": "Explain",
+   "loading": "Looking it up…"
+  }
+ ],
+ "disclaimer": "Summaries reflect mainstream scholarship and may differ between communities; for matters of practice, consult a teacher within that tradition."
+}

@@ -1,0 +1,214 @@
+{
+ "id": "campfire_kitchen",
+ "name": "Campfire Kitchen",
+ "tagline": "Camp meals planned, packed and cooked over fire",
+ "category": "Food & Drink",
+ "colors": [
+  "#BF360C",
+  "#2E7D32",
+  "#FFB300"
+ ],
+ "icon": "flame",
+ "about": "Campfire Kitchen plans meals for a whole trip around your stove and cooler, packs the cooler so food stays safe for days, and turns out foil packets, Dutch-oven bakes and no-cook lunches at the pitch.",
+ "persona": "You are a seasoned campsite cook: practical about coolers and ice, strict on food and fire safety, and inventive with a single pot and a roll of foil.",
+ "onboarding": {
+  "title": "Eat well outdoors",
+  "subtitle": "Tell Campfire Kitchen what you cook on and how you keep things cold.",
+  "bullets": [
+   "Trip meal plans with a packing list",
+   "Cooler packing that keeps food safe",
+   "Foil packets & Dutch-oven dinners"
+  ]
+ },
+ "profile": [
+  {
+   "key": "stove",
+   "label": "Cooking on",
+   "type": "chips",
+   "options": [
+    "Campfire",
+    "Gas stove (2 burner)",
+    "Single burner",
+    "BBQ / grill",
+    "Dutch oven"
+   ],
+   "multi": true
+  },
+  {
+   "key": "cooler",
+   "label": "Cold storage",
+   "type": "chips",
+   "options": [
+    "None",
+    "Cool box with ice",
+    "Electric cool box",
+    "Van fridge"
+   ]
+  },
+  {
+   "key": "group",
+   "label": "Usual group size",
+   "type": "number",
+   "placeholder": "4"
+  },
+  {
+   "key": "diet",
+   "label": "Diet / avoid",
+   "type": "text"
+  }
+ ],
+ "tools": [
+  {
+   "id": "trip",
+   "title": "Plan the trip",
+   "subtitle": "Every meal, one packing list",
+   "emoji": "🏕️",
+   "inputs": [
+    {
+     "key": "nights",
+     "label": "Nights",
+     "type": "number",
+     "placeholder": "3"
+    },
+    {
+     "key": "people",
+     "label": "People (incl. kids)",
+     "type": "number",
+     "placeholder": "4"
+    },
+    {
+     "key": "notes",
+     "label": "Notes",
+     "type": "text",
+     "placeholder": "arrive Friday evening, big hike Saturday"
+    }
+   ],
+   "prompt": "Plan meals for {nights} nights and {people} people on the profile's stove and cold storage, notes: {notes}. Table (Day | Breakfast | Lunch | Dinner | Cooler-safe on that day?), a checklist of food to pack ordered by when it's eaten (most perishable first) followed by a checklist of kit (pans, foil, lighter, wash bowl), and a callout on which meals to prep at home.",
+   "shape": "table, checklist, callout",
+   "button": "Plan trip",
+   "loading": "Packing the car…"
+  },
+  {
+   "id": "cooler",
+   "title": "Pack the cooler",
+   "subtitle": "Keep it cold and safe",
+   "emoji": "🧊",
+   "inputs": [
+    {
+     "key": "food",
+     "label": "What's going in",
+     "type": "longtext",
+     "placeholder": "sausages, milk, cheese, eggs, salad, beer",
+     "required": true
+    },
+    {
+     "key": "days",
+     "label": "Days away",
+     "type": "number",
+     "placeholder": "3"
+    }
+   ],
+   "prompt": "Pack {food} in the profile's cold storage for {days} days: steps for packing order (ice or blocks, raw meat lowest and sealed, dairy, then drinks), a table (Item | Eat by day | Where in the cooler | Sign it's gone off), and a callout on the danger zone, freezing items to use as ice, and never trusting food that got warm.",
+   "shape": "steps, table, callout",
+   "button": "Pack it",
+   "loading": "Crushing ice…"
+  },
+  {
+   "id": "packet",
+   "title": "Foil packet dinner",
+   "subtitle": "Build it, seal it, bury it in embers",
+   "emoji": "🔥",
+   "inputs": [
+    {
+     "key": "protein",
+     "label": "Protein",
+     "type": "text",
+     "placeholder": "chicken thigh, or halloumi",
+     "required": true
+    },
+    {
+     "key": "veg",
+     "label": "Veg",
+     "type": "text",
+     "placeholder": "peppers, corn, potatoes"
+    },
+    {
+     "key": "heat",
+     "label": "Cooking on",
+     "type": "chips",
+     "options": [
+      "Ember bed",
+      "Grill grate",
+      "Gas stove"
+     ],
+     "default": "Ember bed"
+    }
+   ],
+   "prompt": "A foil-packet dinner of {protein} and {veg} on {heat} for the profile's group: kv (packet size, layers in order, minutes, flip at), steps for building a leak-proof packet, bullets on checking it's cooked (juices clear, potatoes pierce), and a callout on burns, tongs and letting steam escape away from your face.",
+   "shape": "kv, steps, bullets, callout",
+   "button": "Build packet",
+   "loading": "Folding foil…"
+  },
+  {
+   "id": "nocook",
+   "title": "No-fire meals",
+   "subtitle": "Wet day, fire ban or just lazy",
+   "emoji": "🥪",
+   "inputs": [
+    {
+     "key": "meal",
+     "label": "Meal",
+     "type": "chips",
+     "options": [
+      "Breakfast",
+      "Lunch",
+      "Dinner"
+     ],
+     "default": "Lunch"
+    },
+    {
+     "key": "have",
+     "label": "What's in the box",
+     "type": "text",
+     "placeholder": "wraps, tinned tuna, cucumber, hummus"
+    }
+   ],
+   "prompt": "3 no-cook {meal} ideas from {have} for the profile's group as cards (meta = minutes · kid-friendly?), a checklist for assembling it in a tent porch, and bullets on keeping opened tins and dairy safe without heat.",
+   "shape": "cards, checklist, bullets",
+   "button": "Feed us",
+   "loading": "Skipping the fire…"
+  },
+  {
+   "id": "dutch",
+   "title": "Dutch-oven bake",
+   "subtitle": "Bread, cobbler or a stew for the whole pitch",
+   "emoji": "🫕",
+   "inputs": [
+    {
+     "key": "what",
+     "label": "Make",
+     "type": "chips",
+     "options": [
+      "Bread",
+      "Fruit cobbler",
+      "Chilli",
+      "Roast chicken",
+      "Breakfast bake"
+     ],
+     "default": "Fruit cobbler"
+    },
+    {
+     "key": "size",
+     "label": "Pot size (litres)",
+     "type": "number",
+     "placeholder": "4"
+    }
+   ],
+   "prompt": "A Dutch-oven {what} for a {size}-litre pot on the profile's fire setup: kv (coals on top / underneath, target temp, minutes, rotate every), a checklist of ingredients, steps for the method, and a callout on handling a hot lid, wind, and putting the fire out properly.",
+   "shape": "kv, checklist, steps, callout",
+   "button": "Get baking",
+   "loading": "Counting coals…"
+  }
+ ],
+ "disclaimer": "Follow site fire rules and local wildlife guidance; food-safety timings are general — when in doubt, throw it out."
+}

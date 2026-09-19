@@ -1,0 +1,201 @@
+{
+ "id": "shelf_sense",
+ "name": "Shelf Sense",
+ "tagline": "Stock the right amount of the right things",
+ "category": "Business",
+ "colors": [
+  "#5D4037",
+  "#00ACC1",
+  "#FFB300"
+ ],
+ "icon": "bag",
+ "about": "Shelf Sense helps independent shop owners set reorder points, plan open-to-buy budgets, clear slow stock without killing margin and tidy displays from a photo.",
+ "persona": "You are a seasoned independent-retail buyer: numbers-led on sell-through and weeks of cover, allergic to dead stock, and practical about small back rooms.",
+ "onboarding": {
+  "title": "Less dead stock, fewer empty shelves",
+  "subtitle": "Tell us about your shop so the buying maths fits.",
+  "bullets": [
+   "Reorder points per product",
+   "Open-to-buy budgets by season",
+   "Markdowns that protect margin"
+  ]
+ },
+ "profile": [
+  {
+   "key": "shop",
+   "label": "Shop",
+   "type": "text",
+   "placeholder": "gift & homeware, 60 m², high street"
+  },
+  {
+   "key": "lead",
+   "label": "Typical supplier lead time",
+   "type": "chips",
+   "options": [
+    "Under a week",
+    "1–2 weeks",
+    "3–4 weeks",
+    "6+ weeks"
+   ]
+  },
+  {
+   "key": "margin",
+   "label": "Average gross margin %",
+   "type": "number",
+   "placeholder": "52"
+  },
+  {
+   "key": "currency",
+   "label": "Currency",
+   "type": "chips",
+   "options": [
+    "USD",
+    "EUR",
+    "GBP",
+    "INR",
+    "AUD",
+    "CAD"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "reorder",
+   "title": "Reorder points",
+   "subtitle": "When and how much to reorder",
+   "emoji": "🔁",
+   "inputs": [
+    {
+     "key": "lines",
+     "label": "Products with weekly sales and stock on hand",
+     "type": "longtext",
+     "placeholder": "Soy candle: sells 12/wk, 30 in stock, 6 per case; Linen tea towel: 5/wk, 40 in stock…",
+     "required": true
+    }
+   ],
+   "prompt": "Set reorder points for: {lines}, using the profile lead time. Table (Product | Weekly sales | Weeks of cover | Reorder point | Order qty | Order now?), a kv explaining the safety stock (formula, lead time used, service level), a checklist of what to order this week, and a callout on any line overstocked by more than 8 weeks.",
+   "shape": "table, kv, checklist, callout",
+   "button": "Calculate",
+   "loading": "Counting stock…"
+  },
+  {
+   "id": "otb",
+   "title": "Open-to-buy plan",
+   "subtitle": "A buying budget for the season",
+   "emoji": "🧮",
+   "inputs": [
+    {
+     "key": "sales",
+     "label": "Planned sales this season",
+     "type": "number",
+     "placeholder": "48000"
+    },
+    {
+     "key": "stock",
+     "label": "Stock on hand at cost",
+     "type": "number",
+     "placeholder": "14000"
+    },
+    {
+     "key": "season",
+     "label": "Season",
+     "type": "chips",
+     "options": [
+      "Spring",
+      "Summer",
+      "Autumn",
+      "Christmas",
+      "Sale period"
+     ],
+     "default": "Christmas"
+    }
+   ],
+   "prompt": "Build an open-to-buy plan for {season} with planned sales {sales} and opening stock at cost {stock}, using the profile margin. kv (planned sales at cost, target closing stock, open-to-buy total), a table (Month | Planned sales | Receipts | Closing stock), bullets splitting the budget across categories with a reason each, and a callout on when to stop buying.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Plan budget",
+   "loading": "Budgeting…"
+  },
+  {
+   "id": "markdown",
+   "title": "Clear slow stock",
+   "subtitle": "Markdown ladder that frees cash",
+   "emoji": "🏷️",
+   "inputs": [
+    {
+     "key": "slow",
+     "label": "Slow lines with cost, price and quantity",
+     "type": "longtext",
+     "placeholder": "Ceramic vase: cost 9, price 24, 38 left, sold 2 last month…",
+     "required": true
+    }
+   ],
+   "prompt": "Plan markdowns for: {slow}. Table (Product | Qty | Markdown % | New price | Margin after | Cash freed), steps for a 3-stage markdown ladder with dates, bullets of non-price tactics (bundles, placement, staff picks), and a callout on lines to return to the supplier or donate instead.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Plan markdowns",
+   "loading": "Clearing shelves…"
+  },
+  {
+   "id": "shelf",
+   "title": "Shelf check",
+   "subtitle": "Photo of a display → merchandising fixes",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of a shelf or display",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "goal",
+     "label": "Goal",
+     "type": "chips",
+     "options": [
+      "Higher basket size",
+      "Move slow stock",
+      "Look fuller",
+      "Seasonal push"
+     ],
+     "default": "Higher basket size"
+    }
+   ],
+   "prompt": "Assess the display in the photo for '{goal}': bullets on what is working, a table (Zone | Now | Change | Why) covering eye level, ends and price points, steps to re-merchandise it in under 30 minutes, and a quote with one shelf-talker line to print.",
+   "shape": "bullets, table, steps, quote",
+   "button": "Assess shelf",
+   "loading": "Eyeing the shelf…"
+  },
+  {
+   "id": "supplier",
+   "title": "Supplier order email",
+   "subtitle": "A clean purchase order to send",
+   "emoji": "✉️",
+   "inputs": [
+    {
+     "key": "supplier",
+     "label": "Supplier",
+     "type": "text",
+     "placeholder": "Nordic Home Ltd",
+     "required": true
+    },
+    {
+     "key": "order",
+     "label": "What to order",
+     "type": "longtext",
+     "placeholder": "24 × soy candle (SKU SC-01), 12 × tea towel (LT-04)…",
+     "required": true
+    },
+    {
+     "key": "ask",
+     "label": "Anything to ask for",
+     "type": "text",
+     "placeholder": "free shipping over 500, 60-day terms"
+    }
+   ],
+   "prompt": "Write a purchase-order email to {supplier} for: {order}, asking for: {ask}. A quote with the full email (subject line, PO lines as plain text, delivery window, terms), a kv of what to confirm on their acknowledgement, and a checklist for goods-in when it arrives.",
+   "shape": "quote, kv, checklist",
+   "button": "Write order",
+   "loading": "Drafting…"
+  }
+ ],
+ "disclaimer": "General retail guidance, not financial advice; check buying budgets against your own accounts."
+}

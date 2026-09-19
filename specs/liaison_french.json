@@ -1,0 +1,180 @@
+{
+ "id": "liaison_french",
+ "name": "Liaison French",
+ "tagline": "French pronunciation, sound by sound, liaison by liaison",
+ "category": "Education",
+ "colors": [
+  "#1E3A8A",
+  "#E8607A",
+  "#B08D57"
+ ],
+ "icon": "mic",
+ "about": "Liaison French breaks any sentence into sounds, marks liaisons and silent letters, drills the vowel pairs English speakers mix up, and builds a plan for your specific accent problems.",
+ "persona": "You are a French phonetics coach: you use IPA and plain-English mouth instructions side by side, model Parisian standard by default, and celebrate small wins.",
+ "onboarding": {
+  "title": "Be understood the first time",
+  "subtitle": "Tell us your first language so we target the sounds that matter.",
+  "bullets": [
+   "Sentence-by-sentence sound maps",
+   "Minimal-pair drills for the hard vowels",
+   "Liaison and silent-letter rules"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "native",
+   "label": "First language",
+   "type": "text",
+   "placeholder": "English (American)"
+  },
+  {
+   "key": "level",
+   "label": "Level",
+   "type": "chips",
+   "options": [
+    "Beginner",
+    "Intermediate",
+    "Advanced but accent-heavy"
+   ],
+   "default": "Intermediate"
+  },
+  {
+   "key": "accent",
+   "label": "Target accent",
+   "type": "chips",
+   "options": [
+    "Parisian standard",
+    "Québécois",
+    "Southern France"
+   ],
+   "default": "Parisian standard"
+  }
+ ],
+ "tools": [
+  {
+   "id": "map",
+   "title": "Sound map",
+   "subtitle": "How to say this exact sentence",
+   "emoji": "🗺️",
+   "inputs": [
+    {
+     "key": "sentence",
+     "label": "French sentence",
+     "type": "longtext",
+     "placeholder": "Les enfants ont un petit chien.",
+     "required": true
+    }
+   ],
+   "prompt": "Map the pronunciation of '{sentence}' in the profile's target accent. Sections: a quote with the sentence rewritten showing liaisons with ‿ and silent letters in (brackets), a table (Word | IPA | Mouth instruction | Trap for the profile's first language), steps for practising it syllable by syllable, then in rhythm groups, then at speed, and a callout on the single most important sound in this sentence to nail.",
+   "shape": "quote, table, steps, callout",
+   "button": "Map it",
+   "loading": "Tuning vowels…"
+  },
+  {
+   "id": "pairs",
+   "title": "Minimal pairs",
+   "subtitle": "u vs ou, é vs è, nasals",
+   "emoji": "👂",
+   "inputs": [
+    {
+     "key": "pair",
+     "label": "Contrast",
+     "type": "chips",
+     "options": [
+      "u / ou",
+      "é / è / e",
+      "an / on / in",
+      "r",
+      "eu / œu",
+      "Final consonants"
+     ],
+     "default": "u / ou"
+    }
+   ],
+   "prompt": "Drill the contrast {pair} for the profile. Sections: text explaining the mouth-position difference in plain English (lips, tongue, jaw), a table of 10 minimal pairs (Word A | Word B | IPA A | IPA B | Meaning A | Meaning B), steps for a 5-minute mirror practice, and a quote with one sentence containing both sounds several times.",
+   "shape": "text, table, steps, quote",
+   "button": "Drill",
+   "loading": "Rounding lips…"
+  },
+  {
+   "id": "liaison",
+   "title": "Liaison checker",
+   "subtitle": "Which links are required, optional, forbidden",
+   "emoji": "🔗",
+   "inputs": [
+    {
+     "key": "text",
+     "label": "French text",
+     "type": "longtext",
+     "placeholder": "Ils ont acheté des oranges et un ananas.",
+     "required": true
+    }
+   ],
+   "prompt": "Mark every potential liaison and elision in: {text}. Sections: a table (Between | Sound produced | Required, optional or forbidden | Rule), a quote with the text rewritten marking required liaisons with ‿ and forbidden ones with ‖, and bullets of the 3 liaison rules illustrated here that matter most at the profile's level.",
+   "shape": "table, quote, bullets",
+   "button": "Check",
+   "loading": "Linking…"
+  },
+  {
+   "id": "accent",
+   "title": "Fix my accent",
+   "subtitle": "Describe the problem, get a plan",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "problem",
+     "label": "What goes wrong",
+     "type": "longtext",
+     "placeholder": "people don't understand when I say 'rue'; my r sounds English",
+     "required": true
+    }
+   ],
+   "prompt": "Diagnose: {problem}, for a speaker of the profile's first language. Sections: text naming the likely phonetic cause, steps for a 2-week fix (daily 5-minute exercises, each with what to listen for), a table (Day | Exercise | Success check), and a callout on how to self-record and compare against a native model.",
+   "shape": "text, steps, table, callout",
+   "button": "Diagnose",
+   "loading": "Listening closely…"
+  },
+  {
+   "id": "twister",
+   "title": "Virelangues",
+   "subtitle": "Tongue twisters for one sound",
+   "emoji": "🌀",
+   "inputs": [
+    {
+     "key": "sound",
+     "label": "Target sound",
+     "type": "chips",
+     "options": [
+      "r",
+      "u",
+      "Nasal vowels",
+      "s / z",
+      "ch / j",
+      "Liaison"
+     ],
+     "default": "r"
+    },
+    {
+     "key": "difficulty",
+     "label": "Difficulty",
+     "type": "chips",
+     "options": [
+      "Easy",
+      "Medium",
+      "Brutal"
+     ],
+     "default": "Medium"
+    }
+   ],
+   "prompt": "Give 5 {difficulty} French tongue twisters targeting {sound}: cards (twister with IPA, meta = speed goal · meaning in English), steps for building speed without losing the sound, and a quote with the classic one every French child knows for this sound.",
+   "shape": "cards, steps, quote",
+   "button": "Twist me",
+   "loading": "Untangling…"
+  }
+ ]
+}

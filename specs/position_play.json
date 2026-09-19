@@ -1,0 +1,161 @@
+{
+ "id": "position_play",
+ "name": "Position Play",
+ "tagline": "Positioning and messaging that make you the obvious pick",
+ "category": "Business",
+ "colors": [
+  "#4527A0",
+  "#F4511E",
+  "#00897B"
+ ],
+ "icon": "brain",
+ "about": "Position Play builds your positioning statement, competitor teardowns, messaging hierarchy and value propositions per segment, then pressure-tests them against real objections.",
+ "persona": "You are a positioning strategist: category-clear, competitor-honest, obsessed with what only this product can claim.",
+ "onboarding": {
+  "title": "Own a position, not a feature list",
+  "subtitle": "Tell us what you sell and who you're up against.",
+  "bullets": [
+   "Positioning statements that stick",
+   "Competitor teardowns",
+   "Messaging by segment"
+  ]
+ },
+ "profile": [
+  {
+   "key": "product",
+   "label": "Product",
+   "type": "text",
+   "placeholder": "Fieldly — scheduling for cleaning companies"
+  },
+  {
+   "key": "competitors",
+   "label": "Main competitors",
+   "type": "text",
+   "placeholder": "Jobber, spreadsheets, WhatsApp groups"
+  },
+  {
+   "key": "customers",
+   "label": "Best customers",
+   "type": "text",
+   "placeholder": "owners of 5–30 person cleaning firms"
+  },
+  {
+   "key": "stage",
+   "label": "Stage",
+   "type": "chips",
+   "options": [
+    "Idea",
+    "Early customers",
+    "Scaling",
+    "Repositioning"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "statement",
+   "title": "Positioning statement",
+   "subtitle": "Category, alternative, differentiator",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "strength",
+     "label": "What you do best",
+     "type": "text",
+     "placeholder": "auto-reschedules when staff call in sick",
+     "required": true
+    }
+   ],
+   "prompt": "Build positioning for the profile product around the strength: {strength}. kv (target customer, market category, competitive alternative, key differentiator, proof, primary value), a quote with the positioning statement in the classic 'For X who Y, Product is a Z that W. Unlike V, we U' form, a table of 3 alternative category framings (Category | Pros | Cons | Who'd believe it), and a callout on the riskiest assumption to test.",
+   "shape": "kv, quote, table, callout",
+   "button": "Position it",
+   "loading": "Drawing the map…"
+  },
+  {
+   "id": "teardown",
+   "title": "Competitor teardown",
+   "subtitle": "Their claims vs your edge",
+   "emoji": "🥊",
+   "inputs": [
+    {
+     "key": "competitor",
+     "label": "Competitor",
+     "type": "text",
+     "placeholder": "Jobber",
+     "required": true
+    },
+    {
+     "key": "their_copy",
+     "label": "Their homepage / ad copy (paste, optional)",
+     "type": "longtext",
+     "placeholder": "…"
+    }
+   ],
+   "prompt": "Tear down {competitor} versus the profile product using their copy: {their_copy} (use general knowledge if none given). A table (Dimension | Them | Us | Who wins | Message to use), bullets of claims they make that you can counter, a quote with a 'why us over them' paragraph for a sales page, and a callout on what to say when a prospect names them.",
+   "shape": "table, bullets, quote, callout",
+   "button": "Tear down",
+   "loading": "Sizing them up…"
+  },
+  {
+   "id": "hierarchy",
+   "title": "Messaging hierarchy",
+   "subtitle": "One promise, three pillars, proof",
+   "emoji": "🏛️",
+   "inputs": [],
+   "prompt": "Create a messaging hierarchy for the profile product: kv (brand promise ≤12 words, one-sentence elevator pitch, 3 tagline options), cards for 3 message pillars (meta = customer pain it answers; body = pillar statement, 2 supporting points, proof needed), a table (Audience | Lead message | Proof | Avoid saying), and a checklist of places to update once the hierarchy is approved.",
+   "shape": "kv, cards, table, checklist",
+   "button": "Build hierarchy",
+   "loading": "Stacking messages…"
+  },
+  {
+   "id": "segment",
+   "title": "Value prop by segment",
+   "subtitle": "Same product, different buyers",
+   "emoji": "🧩",
+   "inputs": [
+    {
+     "key": "segment",
+     "label": "Segment",
+     "type": "text",
+     "placeholder": "franchise owners with 3+ locations",
+     "required": true
+    },
+    {
+     "key": "pain",
+     "label": "Their top pain",
+     "type": "text",
+     "placeholder": "no visibility across sites"
+    }
+   ],
+   "prompt": "Write a value proposition for the segment '{segment}' with pain: {pain}, for the profile product. A quote with the value prop (headline ≤10 words + a 2-sentence explanation), a table (Their job-to-be-done | Our feature | Outcome | Proof), bullets of 5 words this segment uses that we should mirror, and a callout on where this segment differs from the core customer.",
+   "shape": "quote, table, bullets, callout",
+   "button": "Write value prop",
+   "loading": "Fitting the segment…"
+  },
+  {
+   "id": "test",
+   "title": "Pressure test",
+   "subtitle": "Does it survive objections?",
+   "emoji": "🧱",
+   "inputs": [
+    {
+     "key": "messaging",
+     "label": "Your current messaging",
+     "type": "longtext",
+     "placeholder": "'The easiest scheduling for cleaners'…",
+     "required": true
+    },
+    {
+     "key": "objections",
+     "label": "Objections from sales calls (optional)",
+     "type": "longtext",
+     "placeholder": "too expensive vs spreadsheets; we're too small"
+    }
+   ],
+   "prompt": "Pressure-test this messaging: {messaging} against objections: {objections} (infer common ones if none given), for the profile product and its competitors. A table (Claim | Objection | Survives? | Stronger version), kv (clarity /10, differentiation /10, believability /10, memorability /10), a quote with the revised headline and subhead, and a callout on the one claim to drop.",
+   "shape": "table, kv, quote, callout",
+   "button": "Test it",
+   "loading": "Poking holes…"
+  }
+ ]
+}

@@ -1,0 +1,179 @@
+{
+ "id": "till_tally",
+ "name": "Till Tally",
+ "tagline": "Cash up, spot leaks, know your shop's day",
+ "category": "Business",
+ "colors": [
+  "#263238",
+  "#00C853",
+  "#FFD600"
+ ],
+ "icon": "coin",
+ "about": "Till Tally reads your end-of-day Z report, investigates cash variances, sets floats and staffing against sales by hour, and turns a week of takings into a one-page dashboard.",
+ "persona": "You are a multi-site shop manager turned trainer: calm about variances, forensic about patterns, and never accusatory without evidence.",
+ "onboarding": {
+  "title": "Cash up in five minutes, learn something every day",
+  "subtitle": "Your set-up tells the analysis what normal looks like.",
+  "bullets": [
+   "Z-report analysis in seconds",
+   "Variance investigation steps",
+   "Hourly staffing vs sales"
+  ]
+ },
+ "profile": [
+  {
+   "key": "shop",
+   "label": "Shop",
+   "type": "text",
+   "placeholder": "convenience store, 7am–10pm"
+  },
+  {
+   "key": "float",
+   "label": "Standard float",
+   "type": "number",
+   "placeholder": "150"
+  },
+  {
+   "key": "tills",
+   "label": "Tills",
+   "type": "chips",
+   "options": [
+    "1",
+    "2",
+    "3+"
+   ]
+  },
+  {
+   "key": "currency",
+   "label": "Currency",
+   "type": "chips",
+   "options": [
+    "USD",
+    "EUR",
+    "GBP",
+    "INR",
+    "AUD",
+    "CAD"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "zreport",
+   "title": "Read my Z report",
+   "subtitle": "Photo or figures → what today says",
+   "emoji": "🧾",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the Z / end-of-day report",
+     "type": "photo"
+    },
+    {
+     "key": "figures",
+     "label": "Or type the figures",
+     "type": "longtext",
+     "placeholder": "gross 2,140; card 1,480; cash 610; refunds 45; voids 6; no-sales 11; declared cash 585"
+    }
+   ],
+   "prompt": "Analyse the end-of-day report from the photo and/or these figures: {figures}. kv (gross, net of refunds, card vs cash split %, expected cash, declared cash, variance), a table (Signal | Value | Normal range | Flag?) for refunds, voids, no-sales, discounts and average transaction, bullets on what the flags usually mean, and a callout on what to check before tomorrow's open.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Analyse",
+   "loading": "Cashing up…"
+  },
+  {
+   "id": "variance",
+   "title": "Investigate a variance",
+   "subtitle": "Find where the cash went",
+   "emoji": "🔎",
+   "inputs": [
+    {
+     "key": "amount",
+     "label": "Variance",
+     "type": "number",
+     "placeholder": "-38.50"
+    },
+    {
+     "key": "context",
+     "label": "Context",
+     "type": "text",
+     "placeholder": "Saturday, 2 staff, busy 12–3, new starter on till 2",
+     "required": true
+    }
+   ],
+   "prompt": "Cash variance of {amount}; context: {context}. Steps to investigate in order (recount, float check, change errors, refunds and voids log, card-as-cash tender errors, safe drops, CCTV window), a table (Cause | Likelihood | How to confirm), a quote with a neutral way to raise it with staff, and a callout on when a repeating pattern justifies a formal process.",
+   "shape": "steps, table, quote, callout",
+   "button": "Investigate",
+   "loading": "Following the cash…"
+  },
+  {
+   "id": "float",
+   "title": "Float & change plan",
+   "subtitle": "Denominations, safe drops, open/close",
+   "emoji": "🪙",
+   "inputs": [
+    {
+     "key": "day",
+     "label": "Day type",
+     "type": "chips",
+     "options": [
+      "Quiet weekday",
+      "Busy Saturday",
+      "Event / holiday",
+      "Sale day"
+     ],
+     "default": "Busy Saturday"
+    }
+   ],
+   "prompt": "Set the cash float for a {day} at the profile shop: kv (float per till and denomination breakdown), a table (Time | Action | Who) for safe drops and change runs across the day, a checklist for opening and closing each till, and a callout on the maximum cash to hold in a drawer.",
+   "shape": "kv, table, checklist, callout",
+   "button": "Set float",
+   "loading": "Counting coins…"
+  },
+  {
+   "id": "hours",
+   "title": "Staff to sales by hour",
+   "subtitle": "Put people where the sales are",
+   "emoji": "⏰",
+   "inputs": [
+    {
+     "key": "hourly",
+     "label": "Sales by hour",
+     "type": "longtext",
+     "placeholder": "7am 60, 8am 210, 9am 180, 12pm 340, 1pm 390, 5pm 300, 9pm 90…",
+     "required": true
+    },
+    {
+     "key": "staffcost",
+     "label": "Hourly staff cost",
+     "type": "number",
+     "placeholder": "14"
+    }
+   ],
+   "prompt": "Match staffing to these hourly sales: {hourly}, at staff cost {staffcost} per hour. Table (Hour | Sales | Staff suggested | Wage % of sales), bullets of the shifts to move, kv (labour % of sales before and after if current staffing is given), and a callout on minimum safe staffing and breaks.",
+   "shape": "table, bullets, kv, callout",
+   "button": "Plan shifts",
+   "loading": "Shuffling rotas…"
+  },
+  {
+   "id": "week",
+   "title": "Weekly dashboard",
+   "subtitle": "Seven days on one page",
+   "emoji": "📊",
+   "inputs": [
+    {
+     "key": "week",
+     "label": "Daily takings this week",
+     "type": "longtext",
+     "placeholder": "Mon 1,420 / Tue 1,380 / Wed 1,510 / Thu 1,690 / Fri 2,240 / Sat 2,610 / Sun 1,900; last week total 12,100",
+     "required": true
+    }
+   ],
+   "prompt": "Build a one-page weekly dashboard from: {week}. kv (week total, vs last week %, best and worst day, average transaction if given, cash variance total if given), a table (Day | Takings | vs last week | Note), bullets of 3 insights, and a quote with a 3-line summary to send to the owner or team.",
+   "shape": "kv, table, bullets, quote",
+   "button": "Build dashboard",
+   "loading": "Adding it up…"
+  }
+ ],
+ "disclaimer": "General retail-operations guidance, not financial, legal or HR advice; follow local employment law before any staff process."
+}

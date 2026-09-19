@@ -1,0 +1,219 @@
+{
+ "id": "limber_up",
+ "name": "Limber Up",
+ "tagline": "Loosen stiff joints and move like you used to",
+ "category": "Health & Fitness",
+ "colors": [
+  "#F57C00",
+  "#00838F",
+  "#8E24AA"
+ ],
+ "icon": "sun",
+ "about": "Limber Up writes short mobility routines for ageing hips, knees, backs and shoulders: a morning unlock, warm-ups for golf, gardening and walks, a 3-week plan per joint and routines for long journeys and TV time.",
+ "persona": "You are a mobility coach for people over 50 with a physiotherapy mindset: gentle ranges first, breath-led, never pushing into sharp pain.",
+ "onboarding": {
+  "title": "Stiff mornings don't have to be normal",
+  "subtitle": "Tell us where you're tight and what you love doing.",
+  "bullets": [
+   "5-minute morning unlock",
+   "Warm-ups for golf, gardening and long drives",
+   "Joint-by-joint 3-week plans"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "stiff",
+   "label": "Stiffest areas",
+   "type": "chips",
+   "options": [
+    "Neck",
+    "Shoulders",
+    "Lower back",
+    "Hips",
+    "Knees",
+    "Ankles",
+    "Hands"
+   ],
+   "multi": true
+  },
+  {
+   "key": "floor",
+   "label": "Getting on the floor",
+   "type": "chips",
+   "options": [
+    "Easy",
+    "Manageable",
+    "Avoid"
+   ],
+   "default": "Manageable"
+  },
+  {
+   "key": "activities",
+   "label": "Activities you love",
+   "type": "text",
+   "placeholder": "golf, allotment, long dog walks"
+  }
+ ],
+ "tools": [
+  {
+   "id": "morning",
+   "title": "Morning unlock",
+   "subtitle": "5 minutes before breakfast",
+   "emoji": "🌅",
+   "inputs": [
+    {
+     "key": "minutes",
+     "label": "Minutes",
+     "type": "chips",
+     "options": [
+      "3",
+      "5",
+      "8"
+     ],
+     "default": "5"
+    },
+    {
+     "key": "position",
+     "label": "Do it",
+     "type": "chips",
+     "options": [
+      "In bed",
+      "Standing by the counter",
+      "On a mat"
+     ],
+     "default": "Standing by the counter"
+    }
+   ],
+   "prompt": "Write a {minutes}-minute morning mobility routine done '{position}' for the profile's stiff areas and floor preference. Sections: steps (move · reps or breaths · one cue each), bullets on what a normal stretch feels like versus a warning sign, and a quote with a short line to make it a daily ritual.",
+   "shape": "steps, bullets, quote",
+   "button": "Unlock me",
+   "loading": "Loosening…"
+  },
+  {
+   "id": "prep",
+   "title": "Warm up for an activity",
+   "subtitle": "Golf, gardening, walks, DIY",
+   "emoji": "⛳",
+   "inputs": [
+    {
+     "key": "activity",
+     "label": "Activity",
+     "type": "text",
+     "placeholder": "18 holes of golf",
+     "required": true
+    },
+    {
+     "key": "minutes",
+     "label": "Warm-up minutes",
+     "type": "number",
+     "placeholder": "6"
+    }
+   ],
+   "prompt": "Design a {minutes}-minute warm-up before {activity} that targets the joints the activity loads most, honouring the profile. Sections: steps for the warm-up, a table (Body part | Why it matters for this activity | Move), bullets for a 3-minute cool-down afterwards, and a callout on pacing and breaks during the activity.",
+   "shape": "steps, table, bullets, callout",
+   "button": "Warm me up",
+   "loading": "Swinging gently…"
+  },
+  {
+   "id": "plan",
+   "title": "3-week joint plan",
+   "subtitle": "One joint, real progress",
+   "emoji": "🦵",
+   "inputs": [
+    {
+     "key": "joint",
+     "label": "Joint",
+     "type": "chips",
+     "options": [
+      "Neck",
+      "Shoulders",
+      "Thoracic spine",
+      "Lower back",
+      "Hips",
+      "Knees",
+      "Ankles"
+     ],
+     "default": "Hips"
+    },
+    {
+     "key": "goal",
+     "label": "Goal",
+     "type": "chips",
+     "options": [
+      "Less morning stiffness",
+      "Reach higher",
+      "Squat and kneel",
+      "Turn to look behind",
+      "Walk further"
+     ],
+     "default": "Less morning stiffness"
+    }
+   ],
+   "prompt": "A 3-week, 10-minute daily plan for the {joint} aimed at '{goal}'. Sections: a table (Week | Moves | Reps or hold | Progression), steps for the correct form of the two key moves, a kv of simple weekly self-tests to see progress, and a callout on symptoms that mean pause and see a clinician (locking, giving way, night pain, numbness).",
+   "shape": "table, steps, kv, callout",
+   "button": "Start plan",
+   "loading": "Charting range…"
+  },
+  {
+   "id": "travel",
+   "title": "Long drive or flight",
+   "subtitle": "Arrive without seizing up",
+   "emoji": "🚗",
+   "inputs": [
+    {
+     "key": "mode",
+     "label": "Journey",
+     "type": "chips",
+     "options": [
+      "Car (driving)",
+      "Car (passenger)",
+      "Plane",
+      "Train or coach"
+     ],
+     "default": "Car (driving)"
+    },
+    {
+     "key": "hours",
+     "label": "Hours",
+     "type": "number",
+     "placeholder": "5"
+    }
+   ],
+   "prompt": "Keep the profile's stiff areas comfortable on a {hours}-hour {mode} journey. Sections: steps for a 4-minute pre-journey loosen-up, a table (Every 60 min | In-seat or at-a-stop move | Reps) of moves that work in the seat and at stops, bullets on seat setup, cushions and lumbar support, and a callout on calf-pump circulation on long journeys and the signs of a clot that need urgent care.",
+   "shape": "steps, table, bullets, callout",
+   "button": "Prep my trip",
+   "loading": "Buckling up…"
+  },
+  {
+   "id": "chair",
+   "title": "Chair mobility",
+   "subtitle": "Seated routine for TV time",
+   "emoji": "🪑",
+   "inputs": [
+    {
+     "key": "focus",
+     "label": "Focus",
+     "type": "chips",
+     "options": [
+      "Neck & shoulders",
+      "Hips & back",
+      "Ankles & feet",
+      "Hands & wrists",
+      "Whole body"
+     ],
+     "default": "Whole body"
+    }
+   ],
+   "prompt": "A 10-minute seated mobility routine for '{focus}' that can be done in an armchair while watching TV. Sections: steps with reps and cues, bullets on chair setup and posture, and a checklist of three moves to repeat at every ad break.",
+   "shape": "steps, bullets, checklist",
+   "button": "Build routine",
+   "loading": "Settling in…"
+  }
+ ],
+ "disclaimer": "General information, not medical advice. Move within a comfortable range and see a doctor or physio for sharp pain, swelling, locking, numbness or pain after a fall."
+}

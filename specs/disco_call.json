@@ -1,0 +1,191 @@
+{
+ "id": "disco_call",
+ "name": "Discovery Lab",
+ "tagline": "Run discovery calls that uncover the real pain",
+ "category": "Business",
+ "colors": [
+  "#6A1B9A",
+  "#00ACC1",
+  "#FFB300"
+ ],
+ "icon": "mic",
+ "about": "Discovery Lab preps you for every discovery call with tailored question maps, scores the conversation afterwards against your qualification framework, and writes the recap the prospect actually reads.",
+ "persona": "You are a veteran enterprise seller and call coach: curious, structured, more interested in the buyer's problem than the pitch, and honest about gaps in qualification.",
+ "onboarding": {
+  "title": "Ask better questions, close better deals",
+  "subtitle": "A little about what you sell sharpens every question.",
+  "bullets": [
+   "Question maps for each persona",
+   "Post-call scoring and gaps",
+   "Recap emails in one tap"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "product",
+   "label": "What you sell",
+   "type": "text",
+   "placeholder": "workforce scheduling software for hospitals"
+  },
+  {
+   "key": "framework",
+   "label": "Qualification framework",
+   "type": "chips",
+   "options": [
+    "MEDDIC",
+    "SPIN",
+    "BANT",
+    "Challenger"
+   ],
+   "default": "MEDDIC"
+  },
+  {
+   "key": "cycle",
+   "label": "Typical sales cycle",
+   "type": "chips",
+   "options": [
+    "Under 30 days",
+    "1–3 months",
+    "3–6 months",
+    "6+ months"
+   ],
+   "default": "1–3 months"
+  }
+ ],
+ "tools": [
+  {
+   "id": "prep",
+   "title": "Prep my call",
+   "subtitle": "Agenda, questions, traps",
+   "emoji": "📋",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Who you're meeting",
+     "type": "text",
+     "placeholder": "Director of Nursing, 400-bed hospital",
+     "required": true
+    },
+    {
+     "key": "known",
+     "label": "What you already know",
+     "type": "text",
+     "placeholder": "using spreadsheets, high overtime costs"
+    },
+    {
+     "key": "minutes",
+     "label": "Call length (minutes)",
+     "type": "number",
+     "placeholder": "30"
+    }
+   ],
+   "prompt": "Prep a {minutes}-minute discovery call with {who}; known so far: {known}. Sections: steps for the call agenda with minute markers, a table of 10 questions (Question | What it uncovers | Element of the profile's framework), bullets of 3 likely pushbacks with a one-line handle each, and a quote with the exact opening line.",
+   "shape": "steps, table, bullets, quote",
+   "button": "Prep call",
+   "loading": "Sharpening…"
+  },
+  {
+   "id": "bank",
+   "title": "Question bank",
+   "subtitle": "Questions for a pain hypothesis",
+   "emoji": "🧠",
+   "inputs": [
+    {
+     "key": "pain",
+     "label": "Suspected pain",
+     "type": "text",
+     "placeholder": "manual scheduling causes nurse burnout",
+     "required": true
+    },
+    {
+     "key": "depth",
+     "label": "Depth",
+     "type": "chips",
+     "options": [
+      "Surface",
+      "Implication",
+      "Need-payoff"
+     ],
+     "default": "Implication"
+    }
+   ],
+   "prompt": "Build discovery questions around the hypothesis '{pain}' at {depth} depth. Sections: cards grouped by theme (each card = 3 questions, meta = when in the call to ask), a table (Question | Good answer sounds like | Red-flag answer), and a callout on how to transition from this pain to a next step without pitching.",
+   "shape": "cards, table, callout",
+   "button": "Build bank",
+   "loading": "Getting curious…"
+  },
+  {
+   "id": "debrief",
+   "title": "Debrief my notes",
+   "subtitle": "Notes → score + next steps",
+   "emoji": "📝",
+   "inputs": [
+    {
+     "key": "notes",
+     "label": "Call notes",
+     "type": "longtext",
+     "placeholder": "They mentioned budget freeze until Q3, champion is the ops manager, decision by VP…",
+     "required": true
+    }
+   ],
+   "prompt": "Score this discovery call against the profile's framework from these notes: {notes}. Sections: a table (Element | What we learned | Confidence 1–5 | Gap), kv (Deal stage | Champion | Economic buyer | Compelling event | Risk level), a checklist of next steps with owners, and a callout on the single biggest unknown to resolve before proposing.",
+   "shape": "table, kv, checklist, callout",
+   "button": "Score it",
+   "loading": "Reviewing tape…"
+  },
+  {
+   "id": "recap",
+   "title": "Recap email",
+   "subtitle": "The follow-up they'll forward",
+   "emoji": "✉️",
+   "inputs": [
+    {
+     "key": "summary",
+     "label": "What was discussed",
+     "type": "longtext",
+     "placeholder": "pain: overtime; they want a pilot in ICU; next step demo on the 14th",
+     "required": true
+    },
+    {
+     "key": "tone",
+     "label": "Tone",
+     "type": "chips",
+     "options": [
+      "Crisp",
+      "Warm",
+      "Executive"
+     ],
+     "default": "Crisp"
+    }
+   ],
+   "prompt": "Write a {tone} post-discovery recap email from: {summary}. Sections: a quote with the email (under 150 words, structured as what we heard / what we agreed / next steps with dates), bullets of 2 questions to plant for the next call, and a callout on what NOT to include (pricing, over-promises, jargon).",
+   "shape": "quote, bullets, callout",
+   "button": "Write recap",
+   "loading": "Summarising…"
+  },
+  {
+   "id": "missed",
+   "title": "What did I miss?",
+   "subtitle": "Transcript → blind spots",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "transcript",
+     "label": "Call transcript or detailed notes",
+     "type": "longtext",
+     "placeholder": "paste the transcript",
+     "required": true
+    }
+   ],
+   "prompt": "Analyse this discovery call transcript: {transcript}. Sections: bullets of moments where the buyer hinted at something you didn't follow up, a table (Buyer said | What it likely means | Question to ask next time), kv (Talk ratio estimate | Questions asked | Pitch moments | Next step secured: yes/no), and steps to fix the top habit on the next call.",
+   "shape": "bullets, table, kv, steps",
+   "button": "Find gaps",
+   "loading": "Listening again…"
+  }
+ ]
+}

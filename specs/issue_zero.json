@@ -1,0 +1,204 @@
+{
+ "id": "issue_zero",
+ "name": "Issue Zero",
+ "tagline": "Plan, write and grow a newsletter people open",
+ "category": "Business",
+ "colors": [
+  "#D81B60",
+  "#1E88E5",
+  "#FDD835"
+ ],
+ "icon": "spark",
+ "about": "Issue Zero is a newsletter writer's desk: it drafts issues from raw notes, tests subject lines, writes welcome sequences, plans list growth and reads your stats.",
+ "persona": "You are a newsletter editor who has grown several lists: subject lines that keep promises, issues with one job each, growth without buying attention.",
+ "onboarding": {
+  "title": "Send something worth opening",
+  "subtitle": "Your platform and list size shape every suggestion.",
+  "bullets": [
+   "Raw notes → a finished issue",
+   "Subject lines people open",
+   "Growth plans sized to your list"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "newsletter",
+   "label": "Newsletter & topic",
+   "type": "text",
+   "placeholder": "weekly notes on indie game design"
+  },
+  {
+   "key": "cadence",
+   "label": "Cadence",
+   "type": "chips",
+   "options": [
+    "Daily",
+    "Weekly",
+    "Fortnightly",
+    "Monthly"
+   ],
+   "default": "Weekly"
+  },
+  {
+   "key": "platform",
+   "label": "Platform",
+   "type": "chips",
+   "options": [
+    "Substack",
+    "Beehiiv",
+    "Ghost",
+    "Mailchimp",
+    "Kit",
+    "Other"
+   ]
+  },
+  {
+   "key": "subs",
+   "label": "Subscribers",
+   "type": "number",
+   "placeholder": "350"
+  }
+ ],
+ "tools": [
+  {
+   "id": "issue",
+   "title": "Draft this issue",
+   "subtitle": "Notes → a full issue",
+   "emoji": "📰",
+   "inputs": [
+    {
+     "key": "notes",
+     "label": "Raw notes / links / ideas",
+     "type": "longtext",
+     "placeholder": "Three links, one rant about menus, reader question from Priya…",
+     "required": true
+    },
+    {
+     "key": "format",
+     "label": "Format",
+     "type": "chips",
+     "options": [
+      "Essay",
+      "Curated links",
+      "Q&A",
+      "Mixed"
+     ],
+     "default": "Mixed"
+    }
+   ],
+   "prompt": "Draft a {format} issue of the profile newsletter from: {notes}. Produce a kv (subject line, preview text, estimated read time), text with the issue body using the profile platform's conventions in short headed sections, and bullets of 3 alternate subject lines with the angle of each.",
+   "shape": "kv, text, bullets",
+   "button": "Draft issue",
+   "loading": "Typesetting…"
+  },
+  {
+   "id": "subject",
+   "title": "Subject line lab",
+   "subtitle": "Openable, not spammy",
+   "emoji": "✉️",
+   "inputs": [
+    {
+     "key": "about",
+     "label": "This issue is about",
+     "type": "text",
+     "required": true
+    },
+    {
+     "key": "style",
+     "label": "Style",
+     "type": "chips",
+     "options": [
+      "Curiosity",
+      "Benefit",
+      "Specific number",
+      "Personal",
+      "Plain"
+     ],
+     "default": "Specific number"
+    }
+   ],
+   "prompt": "Write subject lines for an issue about '{about}' in a {style} style. Produce a table (Subject | Preview text | Why it opens | Spam risk) with 10 rows, a callout on words and formatting that trip spam filters, and a quote with the recommended subject + preview pair.",
+   "shape": "table, callout, quote",
+   "button": "Test subjects",
+   "loading": "A/B thinking…"
+  },
+  {
+   "id": "welcome",
+   "title": "Welcome sequence",
+   "subtitle": "First 3 emails for new subscribers",
+   "emoji": "👋",
+   "inputs": [
+    {
+     "key": "promise",
+     "label": "What subscribers get",
+     "type": "text",
+     "placeholder": "one practical design lesson every Thursday",
+     "required": true
+    },
+    {
+     "key": "best",
+     "label": "Your 3 best past issues (titles/links)",
+     "type": "text"
+    }
+   ],
+   "prompt": "Write a 3-email welcome sequence for the profile newsletter, promise: {promise}, best issues: {best}. Produce cards (one per email, meta = send day · goal) each with a subject and a 120-word body, steps for setting up the automation on the profile platform, and a checklist of what to ask new readers to do (reply, whitelist, share).",
+   "shape": "cards, steps, checklist",
+   "button": "Write sequence",
+   "loading": "Rolling out welcome…"
+  },
+  {
+   "id": "grow",
+   "title": "Growth plan",
+   "subtitle": "From this list size to the next",
+   "emoji": "📈",
+   "inputs": [
+    {
+     "key": "goal",
+     "label": "Target subscribers",
+     "type": "number",
+     "placeholder": "1000"
+    },
+    {
+     "key": "weeks",
+     "label": "In how many weeks",
+     "type": "number",
+     "placeholder": "12"
+    }
+   ],
+   "prompt": "Plan growth from the profile's current subscribers to {goal} in {weeks} weeks. Produce a table (Week | Tactic | Effort (hours) | Expected new subs), bullets of 5 tactics that fit the profile platform (recommendations, cross-posts, lead magnet, referrals, repurposing), and a callout on what not to do (bought lists, giveaways that attract the wrong readers).",
+   "shape": "table, bullets, callout",
+   "button": "Plan growth",
+   "loading": "Compounding…"
+  },
+  {
+   "id": "retro",
+   "title": "Issue retro",
+   "subtitle": "Stats → what to change",
+   "emoji": "🔬",
+   "inputs": [
+    {
+     "key": "stats",
+     "label": "Stats",
+     "type": "text",
+     "placeholder": "open 42%, click 6%, 3 unsubs, 12 replies",
+     "required": true
+    },
+    {
+     "key": "what",
+     "label": "What the issue was",
+     "type": "text",
+     "placeholder": "long essay on difficulty curves"
+    }
+   ],
+   "prompt": "Analyse the stats {stats} for an issue that was: {what}, at the profile's list size and cadence. Produce a kv (open-rate verdict, click verdict, reply signal, unsubscribe read), bullets on likely causes, and steps for 3 experiments for the next issue, each with the metric that decides it.",
+   "shape": "kv, bullets, steps",
+   "button": "Analyse",
+   "loading": "Reading numbers…"
+  }
+ ]
+}

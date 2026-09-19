@@ -1,0 +1,230 @@
+{
+ "id": "burnout_radar",
+ "name": "Burnout Radar",
+ "tagline": "Catch burnout early and plan the way back",
+ "category": "Health & Fitness",
+ "colors": [
+  "#E65100",
+  "#37474F",
+  "#FFC107"
+ ],
+ "icon": "bolt",
+ "about": "Burnout Radar checks where you sit on the exhaustion curve, audits what drains and refills you, scripts the hard conversations, and builds a recovery plan for a job you can't just quit.",
+ "persona": "You are a calm occupational-health coach who knows the burnout research: honest without catastrophising, practical about jobs people can't leave, and clear that severe symptoms need a professional.",
+ "onboarding": {
+  "title": "How close to the edge are you?",
+  "subtitle": "A little about your work helps the check-in be honest.",
+  "bullets": [
+   "Weekly burnout check-in",
+   "Energy audit of your real week",
+   "Scripts for boundaries and leave"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "job",
+   "label": "Job / role",
+   "type": "text",
+   "placeholder": "ICU nurse, nights"
+  },
+  {
+   "key": "hours",
+   "label": "Typical week",
+   "type": "chips",
+   "options": [
+    "Under 40h",
+    "40–50h",
+    "50–60h",
+    "60h+"
+   ]
+  },
+  {
+   "key": "support",
+   "label": "Support at work",
+   "type": "chips",
+   "options": [
+    "Good manager",
+    "Neutral",
+    "Unsupportive",
+    "Self-employed"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "checkin",
+   "title": "Burnout check-in",
+   "subtitle": "Three questions, an honest reading",
+   "emoji": "🌡️",
+   "inputs": [
+    {
+     "key": "exhaustion",
+     "label": "Exhaustion this week",
+     "type": "chips",
+     "options": [
+      "Rarely",
+      "Some days",
+      "Most days",
+      "Every day"
+     ],
+     "default": "Some days"
+    },
+    {
+     "key": "cynicism",
+     "label": "Detachment / cynicism",
+     "type": "chips",
+     "options": [
+      "Rarely",
+      "Some days",
+      "Most days",
+      "Every day"
+     ],
+     "default": "Some days"
+    },
+    {
+     "key": "efficacy",
+     "label": "Feeling effective",
+     "type": "chips",
+     "options": [
+      "Usually",
+      "Sometimes",
+      "Rarely",
+      "Never"
+     ],
+     "default": "Sometimes"
+    }
+   ],
+   "prompt": "Interpret a burnout check-in for the profile: exhaustion {exhaustion}, detachment {cynicism}, sense of effectiveness {efficacy}. Produce a kv (Stage: engaged / strained / burning out / burnt out, Main driver, Most protective factor, Trend to watch), a text section explaining the reading in plain words without diagnosing, a checklist of 5 concrete actions for the next 7 days ordered by effort, and a callout on the signs that mean speak to a GP or therapist this week.",
+   "shape": "kv, text, checklist, callout",
+   "button": "Read my level",
+   "loading": "Taking the reading…"
+  },
+  {
+   "id": "audit",
+   "title": "Energy audit",
+   "subtitle": "Paste your week → drains and refills",
+   "emoji": "🔋",
+   "inputs": [
+    {
+     "key": "week",
+     "label": "Your week, roughly",
+     "type": "longtext",
+     "placeholder": "Mon 9–7 back-to-back calls, skipped lunch; Tue site visit, felt good…",
+     "required": true
+    }
+   ],
+   "prompt": "Audit this week: {week}. Table (Activity | Hours est. | Drain or refill | Why), bullets naming the 3 biggest drains and the 2 most reliable refills, steps to rebalance next week by moving or shrinking specific drains, and a callout on the one thing to protect even on the worst day.",
+   "shape": "table, bullets, steps, callout",
+   "button": "Audit my week",
+   "loading": "Weighing it up…"
+  },
+  {
+   "id": "boundary",
+   "title": "Say no gracefully",
+   "subtitle": "Scripts for a specific ask",
+   "emoji": "🚧",
+   "inputs": [
+    {
+     "key": "ask",
+     "label": "The request",
+     "type": "text",
+     "placeholder": "cover the weekend shift again",
+     "required": true
+    },
+    {
+     "key": "who",
+     "label": "From",
+     "type": "chips",
+     "options": [
+      "Manager",
+      "Colleague",
+      "Client",
+      "Family"
+     ],
+     "default": "Manager"
+    },
+    {
+     "key": "tone",
+     "label": "Tone",
+     "type": "chips",
+     "options": [
+      "Warm",
+      "Neutral",
+      "Firm"
+     ],
+     "default": "Warm"
+    }
+   ],
+   "prompt": "Write a {tone} boundary for the request '{ask}' from my {who}. Quote with the exact words to say or send (under 80 words) followed by a second short version for when they push back, bullets on a trade-off to offer if I genuinely can, and a callout on what not to apologise for.",
+   "shape": "quote, bullets, callout",
+   "button": "Write it",
+   "loading": "Finding the words…"
+  },
+  {
+   "id": "recover",
+   "title": "Recovery plan",
+   "subtitle": "Fourteen days to refill",
+   "emoji": "🛟",
+   "inputs": [
+    {
+     "key": "leave",
+     "label": "Time off available",
+     "type": "chips",
+     "options": [
+      "None",
+      "A long weekend",
+      "One week",
+      "Two weeks+"
+     ],
+     "default": "A long weekend"
+    },
+    {
+     "key": "nonneg",
+     "label": "Non-negotiables",
+     "type": "text",
+     "placeholder": "school run, on-call Tuesdays"
+    }
+   ],
+   "prompt": "Build a 14-day recovery plan given {leave} off and these non-negotiables: {nonneg}. Table (Day | Rest | Movement | Connection | Work limit), a checklist of things to switch off or hand over before it starts, bullets on what recovery actually feels like in week 1 versus week 2, and a callout on the difference between rest and numbing.",
+   "shape": "table, checklist, bullets, callout",
+   "button": "Plan recovery",
+   "loading": "Clearing space…"
+  },
+  {
+   "id": "talk",
+   "title": "Talk to my manager",
+   "subtitle": "Prepare the conversation",
+   "emoji": "💬",
+   "inputs": [
+    {
+     "key": "goal",
+     "label": "I want",
+     "type": "chips",
+     "options": [
+      "Lighter load",
+      "Time off",
+      "Change of role",
+      "Just to flag it"
+     ],
+     "default": "Lighter load"
+    },
+    {
+     "key": "context",
+     "label": "Context",
+     "type": "text",
+     "placeholder": "3 people left, I'm covering two roles"
+    }
+   ],
+   "prompt": "Prepare a conversation with my manager asking for '{goal}', context: {context}. Steps for the conversation (open, evidence, ask, close), a quote with the opening three sentences, a table (Likely objection | Response), and a callout on what to put in writing afterwards.",
+   "shape": "steps, quote, table, callout",
+   "button": "Prep me",
+   "loading": "Rehearsing…"
+  }
+ ],
+ "disclaimer": "Not therapy or medical advice. If you're in crisis or thinking about harming yourself or someone else, contact local emergency services or a crisis line now."
+}

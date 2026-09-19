@@ -1,0 +1,180 @@
+{
+ "id": "steady_strong",
+ "name": "Steady & Strong",
+ "tagline": "Balance, strength and confidence after 60",
+ "category": "Health & Fitness",
+ "colors": [
+  "#AD1457",
+  "#00ACC1",
+  "#7CB342"
+ ],
+ "icon": "dumbbell",
+ "about": "Steady & Strong builds gentle, progressive routines for balance, leg strength and everyday tasks — chair workouts, walking plans, getting up from the floor — so you stay independent and fall-proof.",
+ "persona": "You are a calm falls-prevention physio and strength coach for older adults: safety first, one progression at a time, cheerful, and always clear about what should be checked by a doctor.",
+ "onboarding": {
+  "title": "Stronger for the life you want",
+  "subtitle": "Tell us how you're moving now.",
+  "bullets": [
+   "Chair and standing routines",
+   "Balance training that progresses",
+   "Walking plans and everyday strength"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "age",
+   "label": "Age",
+   "type": "number",
+   "placeholder": "72"
+  },
+  {
+   "key": "mobility",
+   "label": "Right now I",
+   "type": "chips",
+   "options": [
+    "Walk without aid",
+    "Use a stick",
+    "Use a frame / walker",
+    "Mostly seated"
+   ]
+  },
+  {
+   "key": "conditions",
+   "label": "Conditions / aches to respect",
+   "type": "text",
+   "placeholder": "knee replacement 2023, mild vertigo"
+  }
+ ],
+ "tools": [
+  {
+   "id": "chair",
+   "title": "Chair workout",
+   "subtitle": "10–20 minutes, no floor",
+   "emoji": "🪑",
+   "inputs": [
+    {
+     "key": "minutes",
+     "label": "Minutes",
+     "type": "chips",
+     "options": [
+      "10",
+      "15",
+      "20"
+     ],
+     "default": "15"
+    },
+    {
+     "key": "focus",
+     "label": "Focus",
+     "type": "chips",
+     "options": [
+      "Legs & getting up",
+      "Arms & carrying",
+      "Core & posture",
+      "Whole body"
+     ],
+     "default": "Whole body"
+    }
+   ],
+   "prompt": "A {minutes}-minute seated-and-standing-at-the-chair workout for {focus}, respecting the profile conditions: steps (exercise · reps or seconds · one form cue each), a table (Exercise | Easier version | Harder version), and a callout on stopping signs (chest pain, dizziness, sharp joint pain) and keeping the chair against a wall.",
+   "shape": "steps, table, callout",
+   "button": "Start",
+   "loading": "Warming up…"
+  },
+  {
+   "id": "balance",
+   "title": "Balance training",
+   "subtitle": "Progress from wall to no hands",
+   "emoji": "⚖️",
+   "inputs": [
+    {
+     "key": "level",
+     "label": "Balance now",
+     "type": "chips",
+     "options": [
+      "Hold on always",
+      "One hand",
+      "Fingertip",
+      "No hands"
+     ],
+     "default": "One hand"
+    }
+   ],
+   "prompt": "A 4-week balance programme starting at '{level}' for the profile: a table (Week | Exercises | Support used | Hold time | Days per week), steps for safe set-up (kitchen counter, phone within reach, shoes), bullets on how to know you're ready to progress, and a callout on what to do if you feel a wobble.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Build programme",
+   "loading": "Finding balance…"
+  },
+  {
+   "id": "walk",
+   "title": "Walking plan",
+   "subtitle": "Steps, pace, routes",
+   "emoji": "🚶",
+   "inputs": [
+    {
+     "key": "now",
+     "label": "Current walking",
+     "type": "text",
+     "placeholder": "to the shop and back, about 10 minutes, twice a week"
+    },
+    {
+     "key": "goal",
+     "label": "Goal",
+     "type": "text",
+     "placeholder": "walk the seafront with the grandkids, 45 minutes"
+    }
+   ],
+   "prompt": "Build a 6-week walking plan from '{now}' toward '{goal}' for the profile: a table (Week | Walks | Minutes each | Pace cue | Rest days), bullets on footwear, weather and where to sit down en route, a kv (Warning signs to stop | What to carry | Best time of day), and a quote with a one-line motivation for the fridge.",
+   "shape": "table, bullets, kv, quote",
+   "button": "Plan walks",
+   "loading": "Lacing up…"
+  },
+  {
+   "id": "floor",
+   "title": "Up from the floor",
+   "subtitle": "Practise it safely",
+   "emoji": "🧎",
+   "inputs": [
+    {
+     "key": "help",
+     "label": "Practising",
+     "type": "chips",
+     "options": [
+      "With someone there",
+      "Alone"
+     ],
+     "default": "With someone there"
+    }
+   ],
+   "prompt": "Teach getting down to and up from the floor safely, practising {help}, for the profile's mobility: steps for the down sequence then the up sequence (via side-lying, hands-and-knees, to a sturdy chair), a checklist of set-up (chair, cushion, clear space, phone), bullets on what to do if you can't get up (warmth, alerting someone, shifting position to protect skin), and a callout on personal alarm options.",
+   "shape": "steps, checklist, bullets, callout",
+   "button": "Teach me",
+   "loading": "Preparing…"
+  },
+  {
+   "id": "today",
+   "title": "Stiff or sore today",
+   "subtitle": "Adjust, don't skip",
+   "emoji": "🩹",
+   "inputs": [
+    {
+     "key": "what",
+     "label": "What's going on",
+     "type": "text",
+     "placeholder": "knee stiff after gardening; low energy",
+     "required": true
+    }
+   ],
+   "prompt": "Given: {what}, adapt today's movement for the profile: a text section on move vs rest, steps for a 5-minute gentle mobility sequence that avoids the sore area, bullets of what to skip today, and a callout on symptoms that need a doctor (swelling, heat, unexplained weakness, a fall).",
+   "shape": "text, steps, bullets, callout",
+   "button": "Adapt today",
+   "loading": "Easing in…"
+  }
+ ],
+ "disclaimer": "Not medical advice. Check with your doctor or physiotherapist before starting a new exercise programme, especially after a fall, surgery or with heart or balance conditions."
+}

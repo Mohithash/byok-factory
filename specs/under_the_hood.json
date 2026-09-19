@@ -1,0 +1,198 @@
+{
+ "id": "under_the_hood",
+ "name": "Under the Hood",
+ "tagline": "The men's health check-up schedule you keep skipping",
+ "category": "Health & Fitness",
+ "colors": [
+  "#37474F",
+  "#FF6F00",
+  "#00ACC1"
+ ],
+ "icon": "wrench",
+ "about": "Under the Hood tells men exactly which health checks are due at their age, scripts the awkward conversations with a doctor, and turns family history and habits into a clear risk map.",
+ "persona": "You are a straight-talking men's health GP: no lectures, no jargon, always clear about which checks are age-based guidance and which depend on personal history.",
+ "onboarding": {
+  "title": "Book the service you've been putting off",
+  "subtitle": "Your age and family history decide what's due.",
+  "bullets": [
+   "Screening timeline for your age",
+   "Scripts for awkward appointments",
+   "Family-history risk map"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "age",
+   "label": "Age",
+   "type": "number",
+   "placeholder": "52"
+  },
+  {
+   "key": "smoker",
+   "label": "Smoking",
+   "type": "chips",
+   "options": [
+    "Never",
+    "Quit",
+    "Current"
+   ],
+   "default": "Never"
+  },
+  {
+   "key": "family",
+   "label": "Family history",
+   "type": "text",
+   "placeholder": "dad heart attack at 60, uncle prostate cancer"
+  }
+ ],
+ "tools": [
+  {
+   "id": "due",
+   "title": "What's due now",
+   "subtitle": "Checks for your age",
+   "emoji": "📋",
+   "inputs": [
+    {
+     "key": "last",
+     "label": "Last checks you remember",
+     "type": "text",
+     "placeholder": "BP 2 years ago, never had cholesterol done"
+    },
+    {
+     "key": "country",
+     "label": "Country",
+     "type": "text",
+     "placeholder": "UK"
+    }
+   ],
+   "prompt": "For the profile's age, smoking status and family history, with last checks: {last}, in {country}. Sections: a table (Check | Why for you | Typical frequency | Status: due / soon / fine), a checklist of what to book this month in priority order, bullets on what each test involves (time, fasting, discomfort), and a callout that screening intervals vary by national guidance and personal history.",
+   "shape": "table, checklist, bullets, callout",
+   "button": "Show what's due",
+   "loading": "Checking the log…"
+  },
+  {
+   "id": "script",
+   "title": "Say it to the doctor",
+   "subtitle": "Words for the awkward stuff",
+   "emoji": "🗣️",
+   "inputs": [
+    {
+     "key": "topic",
+     "label": "Topic",
+     "type": "chips",
+     "options": [
+      "Low mood",
+      "Drinking too much",
+      "Snoring and daytime tiredness",
+      "A mole or skin change",
+      "Chest tightness on exertion",
+      "Weight",
+      "Something else"
+     ],
+     "default": "Low mood"
+    },
+    {
+     "key": "detail",
+     "label": "Details",
+     "type": "text",
+     "placeholder": "flat and short-tempered for 3 months"
+    }
+   ],
+   "prompt": "The user needs to raise '{topic}' with a doctor; details: {detail}. Sections: a quote with a two-sentence opener they can say word for word, bullets of the facts to bring (when it started, pattern, what makes it better or worse), a kv of the questions the doctor will likely ask and how to answer briefly, and a callout on why this topic is routine for GPs and what to expect in the exam.",
+   "shape": "quote, bullets, kv, callout",
+   "button": "Write my opener",
+   "loading": "Finding words…"
+  },
+  {
+   "id": "risk",
+   "title": "Family risk map",
+   "subtitle": "What runs in the family",
+   "emoji": "🧬",
+   "inputs": [
+    {
+     "key": "history",
+     "label": "Relatives and conditions",
+     "type": "longtext",
+     "placeholder": "father: heart attack 58; mother: type 2 diabetes; brother: bowel polyps",
+     "required": true
+    }
+   ],
+   "prompt": "Map this family history for the profile: {history}. Sections: a table (Condition | Relative | Age at onset | Your relevance: higher / average / unclear), bullets of which screenings this history may bring forward and by roughly how much, steps for what to ask about at the next appointment, and a callout that family history raises questions, not diagnoses.",
+   "shape": "table, bullets, steps, callout",
+   "button": "Map it",
+   "loading": "Tracing…"
+  },
+  {
+   "id": "decode",
+   "title": "Decode my results",
+   "subtitle": "Photo or paste of a blood test",
+   "emoji": "🔬",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the results sheet",
+     "type": "photo"
+    },
+    {
+     "key": "paste",
+     "label": "Or paste the numbers",
+     "type": "text",
+     "placeholder": "total cholesterol 6.1, HDL 1.0, PSA 2.4"
+    }
+   ],
+   "prompt": "Explain these results in plain English (from the photo and/or: {paste}). Sections: a table (Marker | Your value | Typical range | Plain-English meaning), bullets of lifestyle levers that affect each flagged marker, a kv of questions to ask the doctor about anything outside range, and a callout that ranges vary by lab and only the ordering clinician can interpret them for you.",
+   "shape": "table, bullets, kv, callout",
+   "button": "Explain",
+   "loading": "Reading the sheet…"
+  },
+  {
+   "id": "mot",
+   "title": "Habit MOT",
+   "subtitle": "Ten-minute lifestyle audit",
+   "emoji": "🔧",
+   "inputs": [
+    {
+     "key": "drinks",
+     "label": "Drinks per week",
+     "type": "chips",
+     "options": [
+      "0",
+      "1–7",
+      "8–14",
+      "15–21",
+      "22+"
+     ],
+     "default": "8–14"
+    },
+    {
+     "key": "waist",
+     "label": "Waist (cm)",
+     "type": "number",
+     "placeholder": "98"
+    },
+    {
+     "key": "move",
+     "label": "Weekly exercise",
+     "type": "chips",
+     "options": [
+      "None",
+      "Under 75 min",
+      "75–150 min",
+      "150+ min"
+     ],
+     "default": "Under 75 min"
+    }
+   ],
+   "prompt": "Run a lifestyle MOT for the profile: {drinks} drinks per week, waist {waist} cm, exercise {move}. Sections: a table (Area | Your status | Target | Gap), cards for the three highest-impact changes (meta = effort · payoff), steps for the first two weeks, and a callout on waist size as a heart and diabetes risk marker.",
+   "shape": "table, cards, steps, callout",
+   "button": "Run the MOT",
+   "loading": "Lifting the bonnet…"
+  }
+ ],
+ "disclaimer": "General information, not medical advice or a substitute for your doctor. Screening guidance differs by country and personal history; seek urgent care for chest pain, blood in urine or stool, or a testicular lump."
+}

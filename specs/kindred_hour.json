@@ -1,0 +1,212 @@
+{
+ "id": "kindred_hour",
+ "name": "Kindred Hour",
+ "tagline": "New friends and real connection in later life",
+ "category": "Social",
+ "colors": [
+  "#F4511E",
+  "#8E24AA",
+  "#00897B"
+ ],
+ "icon": "chat",
+ "about": "Kindred Hour helps older adults make new friends, find groups that fit, host without stress, reconnect with people they've lost touch with, and keep a social calendar that beats the lonely stretches.",
+ "persona": "You are a kind, practical social-connection coach for older adults: warm, never pitying, aware of energy and mobility limits, and full of concrete first steps.",
+ "onboarding": {
+  "title": "Good company, on purpose",
+  "subtitle": "Tell us about your week and what kind of company you enjoy.",
+  "bullets": [
+   "Groups and clubs matched to you",
+   "Conversation starters and reconnect scripts",
+   "A social calendar for the quiet weeks"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "living",
+   "label": "Living",
+   "type": "chips",
+   "options": [
+    "Alone",
+    "With partner",
+    "With family",
+    "Retirement community"
+   ]
+  },
+  {
+   "key": "out",
+   "label": "Getting out",
+   "type": "chips",
+   "options": [
+    "Easily",
+    "With a lift",
+    "Prefer people to come to me",
+    "Mostly online"
+   ]
+  },
+  {
+   "key": "enjoy",
+   "label": "Company you enjoy",
+   "type": "text",
+   "placeholder": "quiet chats, cards, walking, church, quiz nights"
+  }
+ ],
+ "tools": [
+  {
+   "id": "groups",
+   "title": "Find my people",
+   "subtitle": "Clubs, classes and communities",
+   "emoji": "🔎",
+   "inputs": [
+    {
+     "key": "area",
+     "label": "Area type",
+     "type": "text",
+     "placeholder": "small town, coastal",
+     "required": true
+    },
+    {
+     "key": "want",
+     "label": "Looking for",
+     "type": "chips",
+     "options": [
+      "Weekly regulars",
+      "One-off events",
+      "Online groups",
+      "Volunteering with others",
+      "Faith community"
+     ],
+     "default": "Weekly regulars"
+    }
+   ],
+   "prompt": "Suggest 6 kinds of groups for the profile in a {area} setting, wanting {want}: cards (meta = typical cost · how to find it · energy level), each with a one-line reason it fits the profile's interests and mobility. Then steps for showing up to the first session (what to say, who to ask for, when it's fine to leave), and a callout on giving a group three tries before judging.",
+   "shape": "cards, steps, callout",
+   "button": "Suggest",
+   "loading": "Looking around…"
+  },
+  {
+   "id": "talk",
+   "title": "Conversation starters",
+   "subtitle": "Beyond the weather",
+   "emoji": "💬",
+   "inputs": [
+    {
+     "key": "setting",
+     "label": "Setting",
+     "type": "chips",
+     "options": [
+      "New neighbour",
+      "Club or class",
+      "Waiting room",
+      "Bus or café",
+      "Video call",
+      "Family gathering"
+     ],
+     "default": "Club or class"
+    }
+   ],
+   "prompt": "Conversation help for a {setting}: bullets of 8 openers matched to the profile's interests plus 3 questions that invite stories rather than facts, a quote with a two-line way to introduce yourself, and a kv (If they give one-word answers | If it goes quiet | How to end warmly | How to suggest meeting again).",
+   "shape": "bullets, quote, kv",
+   "button": "Give me lines",
+   "loading": "Thinking of openers…"
+  },
+  {
+   "id": "reconnect",
+   "title": "Reconnect with someone",
+   "subtitle": "An old friend, a distant relative",
+   "emoji": "📞",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Who",
+     "type": "text",
+     "placeholder": "Margaret from work, haven't spoken in 12 years",
+     "required": true
+    },
+    {
+     "key": "how",
+     "label": "By",
+     "type": "chips",
+     "options": [
+      "Letter",
+      "Phone call",
+      "Text or WhatsApp",
+      "Facebook message"
+     ],
+     "default": "Letter"
+    },
+    {
+     "key": "history",
+     "label": "Anything awkward to handle?",
+     "type": "text",
+     "placeholder": "we fell out over a wedding"
+    }
+   ],
+   "prompt": "Help reconnect with {who} by {how}, given: {history}. A quote with the full message or call script (warm, no guilt, easy to reply to), bullets on timing and what not to bring up first, and a callout on what to do if there's no reply, and why it's often not personal.",
+   "shape": "quote, bullets, callout",
+   "button": "Write it",
+   "loading": "Reaching out…"
+  },
+  {
+   "id": "host",
+   "title": "Host without stress",
+   "subtitle": "Coffee, cards, Sunday lunch",
+   "emoji": "☕",
+   "inputs": [
+    {
+     "key": "what",
+     "label": "Gathering",
+     "type": "chips",
+     "options": [
+      "Coffee morning",
+      "Cards or games afternoon",
+      "Sunday lunch",
+      "Film night",
+      "Garden get-together"
+     ],
+     "default": "Coffee morning"
+    },
+    {
+     "key": "guests",
+     "label": "Guests",
+     "type": "number",
+     "placeholder": "4"
+    },
+    {
+     "key": "limits",
+     "label": "Energy or mobility limits",
+     "type": "text",
+     "placeholder": "can't stand for long; small flat"
+    }
+   ],
+   "prompt": "Plan a {what} for {guests} guests with limits: {limits}. A checklist for the day before and the morning of (sit-down tasks first), a table (Time | What happens | Prep done ahead), bullets of low-effort food and drink ideas, and a quote with an invitation message to send.",
+   "shape": "checklist, table, bullets, quote",
+   "button": "Plan it",
+   "loading": "Setting the table…"
+  },
+  {
+   "id": "calendar",
+   "title": "Beat the quiet week",
+   "subtitle": "Plan human contact ahead",
+   "emoji": "📆",
+   "inputs": [
+    {
+     "key": "week",
+     "label": "Next week as it stands",
+     "type": "longtext",
+     "placeholder": "Tuesday club; nothing else; son calls Sunday",
+     "required": true
+    }
+   ],
+   "prompt": "Fill the gaps in: {week} for the profile's living situation and mobility: a table (Day | Contact planned | Type: in-person / call / online | Who to ask), steps to lock in two of the new contacts today, bullets of micro-contacts that count (chatting to the postie, a regular café), and a callout on low mood: what's normal in a quiet week and when to talk to a doctor or a helpline.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Fill the week",
+   "loading": "Filling gaps…"
+  }
+ ],
+ "disclaimer": "Kindred Hour supports connection but isn't a mental-health service. If you're feeling persistently low or in crisis, contact your doctor or a local helpline."
+}

@@ -1,0 +1,202 @@
+{
+ "id": "migraine_map",
+ "name": "Migraine Map",
+ "tagline": "Find your triggers, plan for attacks, reclaim your days",
+ "category": "Medical",
+ "colors": [
+  "#4A148C",
+  "#9575CD",
+  "#FFD54F"
+ ],
+ "icon": "brain",
+ "about": "Migraine Map analyses your attack diary for triggers and patterns, builds a first-hour attack plan, designs prevention routines around sleep, meals and hydration, and drafts workplace accommodation messages.",
+ "persona": "You are a headache-clinic nurse: methodical, validating, never dismissive; you distinguish clearly between general information and the neurologist's decisions.",
+ "onboarding": {
+  "title": "Map the pattern behind the pain",
+  "subtitle": "Your history makes the analysis sharper.",
+  "bullets": [
+   "Diary analysis that finds triggers",
+   "First-hour attack plan",
+   "Prevention routines and work scripts"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "kind",
+   "label": "Type",
+   "type": "chips",
+   "options": [
+    "Migraine without aura",
+    "Migraine with aura",
+    "Chronic migraine",
+    "Not sure yet"
+   ]
+  },
+  {
+   "key": "days",
+   "label": "Migraine days per month",
+   "type": "number",
+   "placeholder": "6"
+  },
+  {
+   "key": "meds",
+   "label": "Acute / preventive meds (optional)",
+   "type": "text",
+   "placeholder": "sumatriptan, propranolol"
+  }
+ ],
+ "tools": [
+  {
+   "id": "diary",
+   "title": "Analyse my diary",
+   "subtitle": "Attacks, sleep, food, weather",
+   "emoji": "🗺️",
+   "inputs": [
+    {
+     "key": "diary",
+     "label": "Diary",
+     "type": "longtext",
+     "placeholder": "3 Mar: 8/10, woke with it, slept 5h, skipped breakfast; 9 Mar: aura 20 min, red wine the night before…",
+     "required": true
+    }
+   ],
+   "prompt": "Analyse: {diary}. Table (Suspected trigger | Attacks preceded | Typical lead time | Confidence), bullets on the top 3 patterns including any prodrome symptoms the user describes without naming them (yawning, cravings, neck stiffness), a kv summarising attacks per month, average intensity, average duration and acute-medication days per month, and a callout on medication-overuse headache thresholds (acute meds on 10–15 or more days a month) and red-flag headaches that need urgent assessment.",
+   "shape": "table, bullets, kv, callout",
+   "button": "Find patterns",
+   "loading": "Mapping attacks…"
+  },
+  {
+   "id": "attack",
+   "title": "Attack right now",
+   "subtitle": "The first hour, step by step",
+   "emoji": "⚡",
+   "inputs": [
+    {
+     "key": "stage",
+     "label": "Stage",
+     "type": "chips",
+     "options": [
+      "Warning signs / prodrome",
+      "Aura",
+      "Pain starting",
+      "Full attack",
+      "Hangover / postdrome"
+     ],
+     "default": "Pain starting"
+    },
+    {
+     "key": "where",
+     "label": "Where are you",
+     "type": "text",
+     "placeholder": "at work, open-plan office"
+    }
+   ],
+   "prompt": "Build a plan for stage '{stage}' while {where}. Steps for the next 60 minutes in order (environment, hydration, the user's own prescribed acute plan timing as general guidance, positioning, cold or heat), a checklist of what to grab or tell someone, bullets on what typically makes this stage worse, and a callout listing thunderclap onset, weakness, confusion, fever with stiff neck or a worst-ever headache as reasons to call emergency services.",
+   "shape": "steps, checklist, bullets, callout",
+   "button": "Help me now",
+   "loading": "Dimming the lights…"
+  },
+  {
+   "id": "prevent",
+   "title": "Prevention routine",
+   "subtitle": "Sleep, meals, hydration, movement",
+   "emoji": "🛡️",
+   "inputs": [
+    {
+     "key": "week",
+     "label": "Your typical week",
+     "type": "text",
+     "placeholder": "shifts vary, gym Tue/Thu, late dinners"
+    },
+    {
+     "key": "focus",
+     "label": "Biggest weak spot",
+     "type": "chips",
+     "options": [
+      "Sleep regularity",
+      "Skipped meals",
+      "Hydration",
+      "Stress",
+      "Screen time",
+      "Caffeine"
+     ],
+     "default": "Sleep regularity"
+    }
+   ],
+   "prompt": "Design a 4-week prevention routine around: {week}, targeting '{focus}' first. Table (Week | Habit to add | Habit to remove | How to measure), steps for a consistent daily rhythm with clock times for waking, meals and wind-down, bullets on caffeine and alcohol timing, and a callout that lifestyle changes complement, not replace, preventive medication decisions made with the neurologist.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Build routine",
+   "loading": "Steadying rhythm…"
+  },
+  {
+   "id": "work",
+   "title": "Tell work or school",
+   "subtitle": "Accommodation message",
+   "emoji": "💼",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "To",
+     "type": "chips",
+     "options": [
+      "Manager",
+      "HR",
+      "Teacher / lecturer",
+      "Teammates"
+     ],
+     "default": "Manager"
+    },
+    {
+     "key": "needs",
+     "label": "What would help",
+     "type": "text",
+     "placeholder": "dimmer desk area, flexible start after an attack"
+    }
+   ],
+   "prompt": "Write a message to my {who} asking for '{needs}'. A quote with the full message (professional, brief, no over-sharing), bullets of reasonable adjustments commonly requested for migraine, a kv of what to bring to the conversation (frequency, impact, doctor's letter, trial period), and a callout on keeping medical detail minimal and documenting what was agreed.",
+   "shape": "quote, bullets, kv, callout",
+   "button": "Write message",
+   "loading": "Drafting…"
+  },
+  {
+   "id": "menu",
+   "title": "Menu trigger scan",
+   "subtitle": "Photo → safer picks",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of a menu or meal",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "known",
+     "label": "Known food triggers",
+     "type": "chips",
+     "options": [
+      "Aged cheese",
+      "Red wine",
+      "Chocolate",
+      "Cured meats",
+      "Citrus",
+      "MSG / additives",
+      "Caffeine",
+      "None known"
+     ],
+     "multi": true
+    }
+   ],
+   "prompt": "From the photo, with known food triggers {known}, produce a table (Dish or item | Common migraine-trigger ingredients present | Risk low/med/high | Safer tweak), bullets of the 3 safest choices and why, and a callout that food triggers vary widely between people and that only the user's own diary evidence, not generic lists, should drive avoidance.",
+   "shape": "table, bullets, callout",
+   "button": "Scan",
+   "loading": "Reading the menu…"
+  }
+ ],
+ "disclaimer": "General information, not medical advice. Acute and preventive medication choices belong to your doctor. A sudden worst-ever headache, headache with weakness or confusion, fever and a stiff neck, or a headache after a head injury needs emergency care."
+}

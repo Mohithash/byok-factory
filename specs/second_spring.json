@@ -1,0 +1,192 @@
+{
+ "id": "second_spring",
+ "name": "Second Spring",
+ "tagline": "Perimenopause and menopause, decoded",
+ "category": "Medical",
+ "colors": [
+  "#E64A19",
+  "#7CB342",
+  "#5E35B1"
+ ],
+ "icon": "leaf",
+ "about": "Second Spring makes sense of perimenopause and menopause: decode your symptom diary, build a hot-flush plan, prepare for a hormone-therapy conversation, and manage brain fog and mood on hard days.",
+ "persona": "You are a menopause specialist nurse: evidence-based, frank about HRT benefits and risks, never dismissive, and alert to symptoms that need a doctor rather than a hormone explanation.",
+ "onboarding": {
+  "title": "Not 'just your age'",
+  "subtitle": "Where you are in the transition changes the advice.",
+  "bullets": [
+   "Symptom diary analysis",
+   "Hot-flush and hard-day plans",
+   "HRT conversation prep"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "age",
+   "label": "Age",
+   "type": "number",
+   "placeholder": "48"
+  },
+  {
+   "key": "stage",
+   "label": "Stage",
+   "type": "chips",
+   "options": [
+    "Periods regular",
+    "Periods changing",
+    "No period 3–12 months",
+    "No period 12+ months",
+    "Surgical / medical menopause"
+   ]
+  },
+  {
+   "key": "treatment",
+   "label": "Current treatment",
+   "type": "text",
+   "placeholder": "none / oestrogen patch / SSRI"
+  }
+ ],
+ "tools": [
+  {
+   "id": "decode",
+   "title": "Decode my symptoms",
+   "subtitle": "Paste a week or month of notes",
+   "emoji": "🔎",
+   "inputs": [
+    {
+     "key": "diary",
+     "label": "Symptom diary",
+     "type": "longtext",
+     "placeholder": "Mon: 4 hot flushes, woke 3am, snappy; Tue: joint aches, forgot a meeting…",
+     "required": true
+    }
+   ],
+   "prompt": "Analyse this diary: {diary} for the profile. Sections: a table (Symptom | Frequency | Likely link to hormones? | Other causes to rule out), bullets of patterns and triggers noticed (caffeine, alcohol, timing, cycle), a kv of the top 3 symptoms with one first-line action each, and a callout listing symptoms that are NOT typical menopause and need a GP (bleeding after 12 months, very heavy bleeding, chest pain, severe depression).",
+   "shape": "table, bullets, kv, callout",
+   "button": "Analyse",
+   "loading": "Reading…"
+  },
+  {
+   "id": "flush",
+   "title": "Hot-flush plan",
+   "subtitle": "Fewer, shorter, less disruptive",
+   "emoji": "🔥",
+   "inputs": [
+    {
+     "key": "when",
+     "label": "Worst at",
+     "type": "chips",
+     "options": [
+      "Night",
+      "Work / day",
+      "Both"
+     ],
+     "default": "Both"
+    },
+    {
+     "key": "triggers",
+     "label": "Known triggers",
+     "type": "text",
+     "placeholder": "red wine, spicy food, stress"
+    }
+   ],
+   "prompt": "Build a hot-flush plan for flushes worst at {when} with triggers {triggers}, for the profile. Sections: a checklist of environment and clothing fixes (layers, fabrics, bedding, fans, cooling kit), steps for a paced-breathing technique to use at the start of a flush, a table (Option | Type: lifestyle / non-hormonal / hormonal | Evidence | Discuss with) covering CBT, SSRIs/SNRIs, gabapentin, fezolinetant and HRT in general terms, and a callout on supplements with weak evidence.",
+   "shape": "checklist, steps, table, callout",
+   "button": "Build plan",
+   "loading": "Cooling down…"
+  },
+  {
+   "id": "hrt",
+   "title": "HRT conversation",
+   "subtitle": "Prep for the appointment",
+   "emoji": "🩺",
+   "inputs": [
+    {
+     "key": "situation",
+     "label": "Your situation & worries",
+     "type": "longtext",
+     "placeholder": "mum had breast cancer, migraine with aura, terrible sleep",
+     "required": true
+    },
+    {
+     "key": "goal",
+     "label": "You want to",
+     "type": "chips",
+     "options": [
+      "Understand options",
+      "Ask to start",
+      "Review current dose",
+      "Discuss stopping"
+     ],
+     "default": "Understand options"
+    }
+   ],
+   "prompt": "Prepare a menopause hormone therapy conversation for: {situation}, goal: {goal}, for the profile. Sections: text summarising in plain language what HRT is and how benefits and risks are generally weighed by age and years since menopause, a table (Option | Form | Typically suits | Common cautions) covering oestrogen routes, progestogen options, vaginal oestrogen and testosterone, bullets of 8 questions to ask, a quote with an opener that gets taken seriously, and a callout that prescribing decisions are the clinician's and depend on the full history.",
+   "shape": "text, table, bullets, quote, callout",
+   "button": "Prep me",
+   "loading": "Preparing…"
+  },
+  {
+   "id": "fog",
+   "title": "Brain-fog day plan",
+   "subtitle": "Work through a foggy, anxious day",
+   "emoji": "🧠",
+   "inputs": [
+    {
+     "key": "day",
+     "label": "What today holds",
+     "type": "text",
+     "placeholder": "two meetings, a deadline, school pick-up"
+    },
+    {
+     "key": "feeling",
+     "label": "Feeling",
+     "type": "chips",
+     "options": [
+      "Foggy",
+      "Anxious",
+      "Flat",
+      "Irritable",
+      "Wired & tired"
+     ],
+     "default": "Foggy"
+    }
+   ],
+   "prompt": "Plan a {feeling} day with: {day}. Sections: steps with clock-anchored blocks (single-tasking, breaks, protein, daylight, movement), bullets of memory scaffolds that work (externalise everything, one-list rule), a quote with a sentence to explain a lapse at work without over-apologising, and a callout on when persistent low mood or anxiety deserves its own conversation with a GP.",
+   "shape": "steps, bullets, quote, callout",
+   "button": "Plan my day",
+   "loading": "Clearing fog…"
+  },
+  {
+   "id": "vaginal",
+   "title": "Below the belt",
+   "subtitle": "Dryness, urgency, painful sex, UTIs",
+   "emoji": "🌸",
+   "inputs": [
+    {
+     "key": "issue",
+     "label": "Main issue",
+     "type": "chips",
+     "options": [
+      "Dryness / irritation",
+      "Painful sex",
+      "Urgency / frequency",
+      "Recurrent UTIs",
+      "Low libido"
+     ],
+     "default": "Dryness / irritation"
+    }
+   ],
+   "prompt": "Give plain, unembarrassed guidance on {issue} in menopause (genitourinary syndrome of menopause) for the profile. Sections: text on why it happens and why it rarely improves without treatment, a table (Option | How it works | Prescription? | Notes) covering moisturisers, lubricants, local vaginal oestrogen, DHEA / ospemifene, pelvic floor physio and libido approaches, steps to raise it with a GP in one sentence, and a callout on symptoms that need examination (bleeding, unusual discharge, blood in urine).",
+   "shape": "text, table, steps, callout",
+   "button": "Tell me",
+   "loading": "Answering…"
+  }
+ ],
+ "disclaimer": "General menopause information, not medical advice. HRT and other prescribing decisions belong with your doctor; report bleeding after 12 months without periods, very heavy bleeding, or chest pain promptly."
+}

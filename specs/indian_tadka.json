@@ -1,0 +1,252 @@
+{
+ "id": "indian_tadka",
+ "name": "Tadka Kitchen",
+ "tagline": "Regional Indian home cooking, spice by spice",
+ "category": "Food & Drink",
+ "colors": [
+  "#E65100",
+  "#FFB300",
+  "#1B5E20"
+ ],
+ "icon": "flame",
+ "about": "Tadka Kitchen teaches real regional Indian home cooking: curries and dals from what you have, a masala dabba built for how you cook, thali planning, flatbread coaching and fixes for a curry that went wrong.",
+ "persona": "You are an Indian home cook and cooking teacher who knows regional differences (Punjabi, Tamil, Bengali, Gujarati, Goan, Hyderabadi, Kerala, Maharashtrian), tempering technique and cheap staples; you give exact spice timing and never call everything 'curry'.",
+ "onboarding": {
+  "title": "Cook like an Indian home kitchen",
+  "subtitle": "Tell us your heat tolerance and diet; the recipes and spice advice adapt.",
+  "bullets": [
+   "Curries and dals from what you have",
+   "A masala dabba you'll actually use",
+   "Fix a bland or watery curry"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "heat",
+   "label": "Heat tolerance",
+   "type": "chips",
+   "options": [
+    "Mild",
+    "Medium",
+    "Hot",
+    "Andhra-hot"
+   ],
+   "default": "Medium"
+  },
+  {
+   "key": "diet",
+   "label": "Diet",
+   "type": "chips",
+   "options": [
+    "Vegetarian",
+    "Jain (no onion/garlic)",
+    "Eggetarian",
+    "Non-veg",
+    "Vegan"
+   ],
+   "default": "Vegetarian"
+  },
+  {
+   "key": "region",
+   "label": "Regional ties or favourites",
+   "type": "text",
+   "placeholder": "Gujarati mum, love Kerala food"
+  }
+ ],
+ "tools": [
+  {
+   "id": "curry",
+   "title": "Cook a curry or dal",
+   "subtitle": "Regional dish from your main ingredient",
+   "emoji": "🍛",
+   "inputs": [
+    {
+     "key": "main",
+     "label": "Main ingredient",
+     "type": "text",
+     "placeholder": "chana, paneer, chicken thighs, toor dal",
+     "required": true
+    },
+    {
+     "key": "style",
+     "label": "Region",
+     "type": "chips",
+     "options": [
+      "Punjabi",
+      "South Indian",
+      "Bengali",
+      "Gujarati",
+      "Goan",
+      "Hyderabadi",
+      "Kerala",
+      "Maharashtrian",
+      "Surprise me"
+     ],
+     "default": "Surprise me"
+    },
+    {
+     "key": "time",
+     "label": "Max minutes",
+     "type": "number",
+     "placeholder": "40"
+    }
+   ],
+   "prompt": "Design one authentic {style} dish built around {main} that finishes in {time} minutes for the profile's heat and diet (if the region is 'Surprise me', pick the region that suits the ingredient or the profile's regional ties and say why). Sections: kv (dish name with local name, region, serves, active minutes, heat level), a table 'Spice timeline' (Spice | Form | When it goes in | Why), steps for the full method including the tadka/tempering with oil temperature cues, and a callout on the one mistake that ruins this dish.",
+   "shape": "kv, table, steps, callout",
+   "button": "Cook it",
+   "loading": "Heating the oil…"
+  },
+  {
+   "id": "dabba",
+   "title": "Build my masala dabba",
+   "subtitle": "The 7 spices for your cooking + the next 10",
+   "emoji": "🧂",
+   "inputs": [
+    {
+     "key": "focus",
+     "label": "You mostly cook",
+     "type": "chips",
+     "options": [
+      "North Indian",
+      "South Indian",
+      "Everyday mixed",
+      "Snacks & chaat",
+      "Biryani & feasts"
+     ],
+     "default": "Everyday mixed"
+    },
+    {
+     "key": "budget",
+     "label": "Budget",
+     "type": "chips",
+     "options": [
+      "Bare minimum",
+      "Sensible",
+      "Go big"
+     ],
+     "default": "Sensible"
+    }
+   ],
+   "prompt": "Build a masala dabba for someone who mostly cooks {focus} on a '{budget}' budget. Sections: a table 'Core seven' (Spice | Hindi name | Whole or ground | What it does | First dish to use it in), a checklist 'Buy next' of 8–10 second-tier spices ordered by usefulness, bullets on storage and how long each keeps, and a callout on the two spices people over-buy and never use.",
+   "shape": "table, checklist, bullets, callout",
+   "button": "Build my dabba",
+   "loading": "Filling the tins…"
+  },
+  {
+   "id": "thali",
+   "title": "Plan a thali",
+   "subtitle": "A balanced plate for guests or a Sunday",
+   "emoji": "🍽️",
+   "inputs": [
+    {
+     "key": "occasion",
+     "label": "Occasion",
+     "type": "chips",
+     "options": [
+      "Weeknight",
+      "Sunday lunch",
+      "Guests",
+      "Festival"
+     ],
+     "default": "Sunday lunch"
+    },
+    {
+     "key": "guests",
+     "label": "People",
+     "type": "number",
+     "placeholder": "4"
+    },
+    {
+     "key": "must",
+     "label": "Must include / avoid",
+     "type": "text",
+     "placeholder": "must have raita, no okra"
+    }
+   ],
+   "prompt": "Plan a complete thali for {guests} people, occasion: {occasion}, constraints: {must}, matching the profile's diet and regional ties. Sections: cards for each component (dal, sabzi, rice/bread, raita, pickle/chutney, sweet) with meta = minutes · make-ahead yes/no, steps for a cook order that lands everything hot at once, a checklist shopping list grouped by fresh / pantry / dairy, and a callout on portion sizes per person.",
+   "shape": "cards, steps, checklist, callout",
+   "button": "Plan thali",
+   "loading": "Setting the plate…"
+  },
+  {
+   "id": "fix",
+   "title": "Fix my curry",
+   "subtitle": "Bland, watery, raw-spice or too hot",
+   "emoji": "🩹",
+   "inputs": [
+    {
+     "key": "problem",
+     "label": "Problem",
+     "type": "chips",
+     "options": [
+      "Bland",
+      "Too watery",
+      "Raw spice taste",
+      "Too spicy",
+      "Bitter",
+      "Oil not separating",
+      "Sour"
+     ],
+     "default": "Bland"
+    },
+    {
+     "key": "did",
+     "label": "What you did",
+     "type": "longtext",
+     "placeholder": "fried onions 5 min, added tomato, powders, then water and chicken…",
+     "required": true
+    }
+   ],
+   "prompt": "The curry is '{problem}'. Method used: {did}. Diagnose the likely cause in a short text section, then steps to rescue the pot right now (with quantities), a table 'Next time' (Symptom | Root cause | Prevention), and a quote with the single technique rule to remember.",
+   "shape": "text, steps, table, quote",
+   "button": "Rescue it",
+   "loading": "Tasting the gravy…"
+  },
+  {
+   "id": "bread",
+   "title": "Flatbread coach",
+   "subtitle": "Roti, naan, paratha, dosa, bhatura",
+   "emoji": "🫓",
+   "inputs": [
+    {
+     "key": "bread",
+     "label": "Bread",
+     "type": "chips",
+     "options": [
+      "Roti/chapati",
+      "Naan",
+      "Paratha",
+      "Dosa",
+      "Bhatura",
+      "Thepla",
+      "Appam"
+     ],
+     "default": "Roti/chapati"
+    },
+    {
+     "key": "gear",
+     "label": "Equipment",
+     "type": "chips",
+     "options": [
+      "Tawa/flat pan",
+      "Cast-iron skillet",
+      "Oven + stone",
+      "Non-stick only",
+      "Gas flame available"
+     ],
+     "default": "Tawa/flat pan"
+    }
+   ],
+   "prompt": "Coach {bread} using {gear}. Sections: kv (flour type, flour-to-water grams for 8 pieces, rest time, pan temperature, cook seconds per side), steps for dough, shaping and cooking with the visual cues that mean 'ready', a table 'Troubleshooting' (Problem | Cause | Fix) covering stiff, tearing, not puffing and burning, and a quote with the one cue to remember while rolling.",
+   "shape": "kv, steps, table, quote",
+   "button": "Coach me",
+   "loading": "Kneading…"
+  }
+ ],
+ "disclaimer": "General cooking guidance, not food-safety or dietary advice: follow safe handling, storage and allergen practices, take care with hot oil, open flames, raw or undercooked foods and fermentation, and discard anything that smells or looks wrong."
+}

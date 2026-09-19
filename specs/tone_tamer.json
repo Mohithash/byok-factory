@@ -1,0 +1,201 @@
+{
+ "id": "tone_tamer",
+ "name": "Tone Tamer",
+ "tagline": "Mandarin tones and pinyin you can actually hear and say",
+ "category": "Education",
+ "colors": [
+  "#B71C1C",
+  "#F9A825",
+  "#2E7D32"
+ ],
+ "icon": "music",
+ "about": "Tone Tamer teaches Mandarin's four tones and tricky pinyin sounds with paired drills, explains tone sandhi in any sentence, and reads menus and signs from photos with full pinyin.",
+ "persona": "You are a Mandarin pronunciation coach who thinks in tone pairs: you always give pinyin with tone marks, describe pitch in plain English, and catch the sounds English speakers merge.",
+ "onboarding": {
+  "title": "Hear the tones, then say them",
+  "subtitle": "Tell us your level and whether you read characters yet.",
+  "bullets": [
+   "Tone-pair drills that build muscle memory",
+   "Sandhi explained in real sentences",
+   "Menus and signs with full pinyin"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "level",
+   "label": "Level",
+   "type": "chips",
+   "options": [
+    "Absolute beginner",
+    "HSK 1–2",
+    "HSK 3–4",
+    "Conversational"
+   ],
+   "default": "HSK 1–2"
+  },
+  {
+   "key": "chars",
+   "label": "Characters",
+   "type": "chips",
+   "options": [
+    "Pinyin only",
+    "Simplified",
+    "Traditional"
+   ],
+   "default": "Simplified"
+  },
+  {
+   "key": "goal",
+   "label": "Goal",
+   "type": "chips",
+   "options": [
+    "Travel to China / Taiwan",
+    "Family",
+    "Business",
+    "HSK exam",
+    "Fun"
+   ],
+   "default": "Travel to China / Taiwan"
+  }
+ ],
+ "tools": [
+  {
+   "id": "pairs",
+   "title": "Tone-pair drill",
+   "subtitle": "Two-syllable words, one pair at a time",
+   "emoji": "🎵",
+   "inputs": [
+    {
+     "key": "pair",
+     "label": "Tone pair",
+     "type": "chips",
+     "options": [
+      "1-1",
+      "1-4",
+      "2-3",
+      "3-2",
+      "3-3 (sandhi)",
+      "4-4",
+      "4-2",
+      "Neutral tone",
+      "All 20 pairs"
+     ],
+     "default": "2-3"
+    },
+    {
+     "key": "n",
+     "label": "Words",
+     "type": "chips",
+     "options": [
+      "10",
+      "20"
+     ],
+     "default": "10"
+    }
+   ],
+   "prompt": "Drill the tone pair {pair} with {n} common words at the profile's level. Sections: text describing each tone's pitch contour in plain English (start, movement, end), a table (Characters | Pinyin | Meaning | Pitch picture e.g. 35+214), steps for a 5-minute practice (clap the contour, hum it, say it, record it), and a callout on the specific way English speakers get this pair wrong.",
+   "shape": "text, table, steps, callout",
+   "button": "Drill me",
+   "loading": "Tuning up…"
+  },
+  {
+   "id": "sandhi",
+   "title": "Tone changes in this sentence",
+   "subtitle": "Third-tone, 一 and 不 rules",
+   "emoji": "🔄",
+   "inputs": [
+    {
+     "key": "sentence",
+     "label": "Chinese sentence (characters or pinyin)",
+     "type": "longtext",
+     "placeholder": "我想买一本书，不贵。",
+     "required": true
+    }
+   ],
+   "prompt": "Analyse the tone changes in '{sentence}'. Sections: a quote with the full pinyin as it is actually pronounced (tone marks after sandhi), a table (Syllable | Dictionary tone | Spoken tone | Rule applied), bullets of the sandhi rules that fired (third-tone, yī, bù, neutral tone), and a callout on the stress and rhythm of the sentence.",
+   "shape": "quote, table, bullets, callout",
+   "button": "Analyse",
+   "loading": "Listening…"
+  },
+  {
+   "id": "pinyin",
+   "title": "Pinyin traps",
+   "subtitle": "zh/ch/sh vs j/q/x, ü, -n vs -ng",
+   "emoji": "🪤",
+   "inputs": [
+    {
+     "key": "trap",
+     "label": "Trap",
+     "type": "chips",
+     "options": [
+      "zh / ch / sh vs j / q / x",
+      "ü vs u",
+      "-n vs -ng",
+      "c / z / s",
+      "r",
+      "e / o",
+      "All"
+     ],
+     "default": "zh / ch / sh vs j / q / x"
+    }
+   ],
+   "prompt": "Teach the pinyin trap {trap} for a speaker at the profile's level. Sections: text on tongue position with a plain-English comparison to English sounds, a table of 8 minimal pairs (Pinyin A | Pinyin B | Characters | Meanings), steps for a mirror drill, and a quote with one sentence packed with these sounds, with pinyin.",
+   "shape": "text, table, steps, quote",
+   "button": "Teach",
+   "loading": "Curling tongue…"
+  },
+  {
+   "id": "read",
+   "title": "Read a menu or sign",
+   "subtitle": "Photo → characters, pinyin, meaning",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo with Chinese text",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Read the Chinese text in the photo. Sections: a table (Characters | Pinyin with tones | English | Notes — spicy, price, traditional vs simplified), a quote with the exact sentence to order or ask about the most useful item, with pinyin, and bullets of 3 characters in the image worth learning for the profile's goal.",
+   "shape": "table, quote, bullets",
+   "button": "Read it",
+   "loading": "Focusing…"
+  },
+  {
+   "id": "say",
+   "title": "Say this sentence",
+   "subtitle": "Full pinyin, rhythm, tone marks",
+   "emoji": "🗣️",
+   "inputs": [
+    {
+     "key": "english",
+     "label": "What you want to say",
+     "type": "text",
+     "placeholder": "Where is the nearest metro station?",
+     "required": true
+    },
+    {
+     "key": "style",
+     "label": "Style",
+     "type": "chips",
+     "options": [
+      "Casual",
+      "Polite",
+      "Very polite"
+     ],
+     "default": "Polite"
+    }
+   ],
+   "prompt": "Translate '{english}' into {style} Mandarin for the profile. Sections: kv (Characters, Pinyin with tone marks, Pinyin after sandhi, Literal gloss), steps for saying it: syllable groups, which syllables carry stress, where a neutral tone shortens, and bullets with 2 likely replies you'll hear and their meaning.",
+   "shape": "kv, steps, bullets",
+   "button": "Translate",
+   "loading": "Composing…"
+  }
+ ]
+}

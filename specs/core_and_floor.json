@@ -1,0 +1,175 @@
+{
+ "id": "core_and_floor",
+ "name": "Core & Floor",
+ "tagline": "Pelvic floor, core and bladder — rebuilt properly",
+ "category": "Health & Fitness",
+ "colors": [
+  "#6D4C41",
+  "#26C6DA",
+  "#FF7043"
+ ],
+ "icon": "shield",
+ "about": "Core & Floor builds pelvic floor and deep-core programmes, analyses your bladder diary, guides a diastasis recti self-check, adapts exercise for leaks and prolapse, and preps you for a pelvic health physio visit.",
+ "persona": "You are a pelvic health physiotherapist: precise about technique, matter-of-fact about leaks, prolapse and pain, and firm that persistent symptoms deserve an in-person assessment.",
+ "onboarding": {
+  "title": "Leaks and pressure aren't just part of it",
+  "subtitle": "Your situation shapes what's safe and useful.",
+  "bullets": [
+   "Pelvic floor programmes with real cues",
+   "Bladder diary analysis",
+   "Prolapse-safe exercise swaps"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "stage",
+   "label": "Stage",
+   "type": "chips",
+   "options": [
+    "Pregnant",
+    "Postpartum under 1 year",
+    "Postpartum 1 year+",
+    "Perimenopause / menopause",
+    "Not related to birth"
+   ]
+  },
+  {
+   "key": "issues",
+   "label": "Issues",
+   "type": "chips",
+   "options": [
+    "Leaking with cough / sneeze / jump",
+    "Urgency",
+    "Heaviness / prolapse",
+    "Pain with sex",
+    "Diastasis recti",
+    "Constipation",
+    "Tailbone / pelvic pain"
+   ],
+   "multi": true
+  },
+  {
+   "key": "physio",
+   "label": "Seen a pelvic physio?",
+   "type": "text",
+   "placeholder": "no / yes, 2 years ago"
+  }
+ ],
+ "tools": [
+  {
+   "id": "program",
+   "title": "Pelvic floor programme",
+   "subtitle": "4 weeks, with cues that work",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "type",
+     "label": "Main goal",
+     "type": "chips",
+     "options": [
+      "Strengthen (leaks)",
+      "Relax (tightness, pain)",
+      "Coordinate (pressure, prolapse)"
+     ],
+     "default": "Strengthen (leaks)"
+    },
+    {
+     "key": "minutes",
+     "label": "Minutes per day",
+     "type": "number",
+     "placeholder": "10"
+    }
+   ],
+   "prompt": "Write a 4-week programme to {type} in {minutes} minutes per day for the profile. Sections: steps to find and feel a correct contraction and a full relaxation (cues, positions, and wrong cues like breath-holding or glute squeezing), a table (Week | Exercise | Hold / relax | Reps | Position), bullets on integrating it into daily life (the knack before coughing or lifting), and a callout on when self-guided work is not enough (no change in 6 weeks, pain, prolapse symptoms).",
+   "shape": "steps, table, bullets, callout",
+   "button": "Build programme",
+   "loading": "Engaging…"
+  },
+  {
+   "id": "bladder",
+   "title": "Bladder diary",
+   "subtitle": "Paste 24–72h of drinks and toilet trips",
+   "emoji": "💧",
+   "inputs": [
+    {
+     "key": "diary",
+     "label": "Diary",
+     "type": "longtext",
+     "placeholder": "7:00 coffee 250ml; 7:30 wee; 9:00 wee, urgent; 10:00 tea; 10:40 wee, small…",
+     "required": true
+    }
+   ],
+   "prompt": "Analyse this bladder diary: {diary} for the profile. Sections: kv (daily fluid total, number of voids, voids per night, longest gap, urgency episodes, estimated bladder capacity trend), a table (Pattern | Evidence | Likely driver | Fix), steps for a bladder-training plan with target gaps for the next 2 weeks, bullets on drink timing and irritants, and a callout on when to see a doctor (blood in urine, pain, sudden change, UTI signs).",
+   "shape": "kv, table, steps, bullets, callout",
+   "button": "Analyse",
+   "loading": "Reading diary…"
+  },
+  {
+   "id": "dr",
+   "title": "Diastasis check",
+   "subtitle": "Self-check + deep-core rehab",
+   "emoji": "🤰",
+   "inputs": [
+    {
+     "key": "finding",
+     "label": "Your self-check",
+     "type": "text",
+     "placeholder": "2 fingers wide above navel, feels soft, doming when I sit up"
+    },
+    {
+     "key": "photo",
+     "label": "Photo of your belly during a gentle head lift (optional)",
+     "type": "photo"
+    }
+   ],
+   "prompt": "Interpret the self-check: {finding} (and the photo if provided) for the profile. Sections: steps for a correct self-check to confirm (position, where to press, what to note: width, depth, tension), a callout with the likely category (functional gap vs needs assessment) and why tension matters more than width, a table (Week | Exercise | Sets × reps | Cue) for a 4-week deep-core progression, and bullets of movements to modify for now (and how) rather than avoid forever.",
+   "shape": "steps, callout, table, bullets",
+   "button": "Check",
+   "loading": "Assessing…"
+  },
+  {
+   "id": "safe",
+   "title": "Can I do this?",
+   "subtitle": "Exercise, lifting, running with symptoms",
+   "emoji": "🏃",
+   "inputs": [
+    {
+     "key": "activity",
+     "label": "Activity",
+     "type": "text",
+     "placeholder": "return to running, CrossFit, carrying a toddler upstairs",
+     "required": true
+    }
+   ],
+   "prompt": "Assess {activity} for the profile's stage and issues. Sections: a callout with a verdict (Go / Modify / Not yet, build to it), a table (Version | Modification | Why | Progress when…), a checklist of readiness tests (e.g. for running: single-leg hop, 30 jumps, no leaking or heaviness), and bullets on breathing and pressure management during lifts.",
+   "shape": "callout, table, checklist, bullets",
+   "button": "Assess",
+   "loading": "Checking…"
+  },
+  {
+   "id": "visit",
+   "title": "Pelvic physio visit",
+   "subtitle": "What happens, what to ask",
+   "emoji": "🩺",
+   "inputs": [
+    {
+     "key": "story",
+     "label": "Your story in a few lines",
+     "type": "longtext",
+     "placeholder": "leaking since second baby 2 years ago, worse on the trampoline, avoid running",
+     "required": true
+    }
+   ],
+   "prompt": "Prepare for a pelvic health physiotherapy appointment with: {story}. Sections: text on what a first assessment usually involves (history, external and, with consent, internal exam, what you can decline), bullets of 8 questions to ask, a checklist of what to track for a week beforehand, a quote with a one-line summary to open the appointment, and a callout on how to find a qualified pelvic physio and what a GP referral needs.",
+   "shape": "text, bullets, checklist, quote, callout",
+   "button": "Prep me",
+   "loading": "Preparing…"
+  }
+ ],
+ "disclaimer": "General pelvic health information, not medical advice or a substitute for assessment by a pelvic health physiotherapist or doctor. Seek care for pain, bleeding, blood in urine, or sudden changes."
+}

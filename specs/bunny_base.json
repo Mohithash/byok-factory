@@ -1,0 +1,200 @@
+{
+ "id": "bunny_base",
+ "name": "Bunny Base",
+ "tagline": "Happy, healthy house rabbits",
+ "category": "Lifestyle",
+ "colors": [
+  "#8D6E63",
+  "#7CB342",
+  "#F48FB1"
+ ],
+ "icon": "paw",
+ "about": "Bunny Base plans hay-first diets by weight, bonds pairs step by step, bunny-proofs your rooms from a photo, decodes thumps and binkies, and runs a gut-stasis red-flag check for the scary moments.",
+ "persona": "You are an experienced rabbit-rescue volunteer: hay-obsessed, welfare-first, calm in emergencies and honest about when only a rabbit-savvy vet will do.",
+ "onboarding": {
+  "title": "Meet your bunny's new best friend",
+  "subtitle": "Tell us about your rabbit so every plan fits their size, age and setup.",
+  "bullets": [
+   "Hay-first diet plans by weight",
+   "Bonding & free-roam setups",
+   "Red-flag checks for gut stasis"
+  ]
+ },
+ "profile": [
+  {
+   "key": "rabbit",
+   "label": "Rabbit name & age",
+   "type": "text",
+   "placeholder": "Clover, 2 years"
+  },
+  {
+   "key": "weight",
+   "label": "Weight (kg)",
+   "type": "number",
+   "placeholder": "2.1"
+  },
+  {
+   "key": "housing",
+   "label": "Housing",
+   "type": "chips",
+   "options": [
+    "Free roam",
+    "Pen / X-pen",
+    "Hutch + run",
+    "Outdoor"
+   ]
+  },
+  {
+   "key": "fixed",
+   "label": "Neutered / spayed",
+   "type": "chips",
+   "options": [
+    "Yes",
+    "No",
+    "Not sure"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "diet",
+   "title": "Daily diet plan",
+   "subtitle": "Hay, greens and pellets by weight",
+   "emoji": "🥬",
+   "inputs": [
+    {
+     "key": "age",
+     "label": "Life stage",
+     "type": "chips",
+     "options": [
+      "Under 7 months",
+      "Adult",
+      "Senior 6+"
+     ],
+     "default": "Adult"
+    },
+    {
+     "key": "greens",
+     "label": "Greens you can buy",
+     "type": "text",
+     "placeholder": "romaine, coriander, spring greens"
+    }
+   ],
+   "prompt": "Build a daily diet for the profile rabbit at life stage {age} using greens available: {greens}. Sections: kv (unlimited hay type, greens grams/day, pellet grams/day, water), a table (Food | Amount | Frequency | Notes) covering safe greens from the list plus 5 more, bullets of foods to never feed, and a callout on introducing new greens slowly.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Plan diet",
+   "loading": "Sorting the hay…"
+  },
+  {
+   "id": "bond",
+   "title": "Bond two rabbits",
+   "subtitle": "Step-by-step neutral-space bonding",
+   "emoji": "💞",
+   "inputs": [
+    {
+     "key": "other",
+     "label": "The other rabbit",
+     "type": "text",
+     "placeholder": "neutered male, 1 year, from a rescue",
+     "required": true
+    },
+    {
+     "key": "stage",
+     "label": "Where you are",
+     "type": "chips",
+     "options": [
+      "Not met yet",
+      "Side-by-side pens",
+      "First sessions done",
+      "Fighting happened"
+     ],
+     "default": "Not met yet"
+    }
+   ],
+   "prompt": "Plan bonding between the profile rabbit and {other}, currently at stage '{stage}'. Sections: steps for the next 2 weeks of sessions (neutral space, duration, what to watch), a table (Behaviour | Meaning | Your response) for mounting, chasing, grooming and nipping, a callout on when to separate immediately, and bullets on signs the bond is done.",
+   "shape": "steps, table, callout, bullets",
+   "button": "Plan bonding",
+   "loading": "Neutral ground…"
+  },
+  {
+   "id": "proof",
+   "title": "Bunny-proof a room",
+   "subtitle": "Photo → hazards and fixes",
+   "emoji": "🏠",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the room or pen",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Inspect the photo for rabbit hazards (cables, baseboards, plants, gaps, flooring). Sections: a table (Hazard | Risk | Fix | Cost tier), a checklist of free-roam essentials to add (litter tray with hay, hides, digging box, grippy flooring), and a callout on the most urgent fix.",
+   "shape": "table, checklist, callout",
+   "button": "Inspect",
+   "loading": "Sniffing around…"
+  },
+  {
+   "id": "decode",
+   "title": "Decode behaviour",
+   "subtitle": "Thumps, flops, binkies and nips",
+   "emoji": "🐇",
+   "inputs": [
+    {
+     "key": "behaviour",
+     "label": "What's happening",
+     "type": "longtext",
+     "placeholder": "she thumps whenever I enter and won't come near me",
+     "required": true
+    }
+   ],
+   "prompt": "Explain this rabbit behaviour: {behaviour}. Sections: text with the most likely meanings ranked, a table (Signal | Likely feeling | What to do), steps to build trust over the next week, and a callout on behaviours that can signal pain.",
+   "shape": "text, table, steps, callout",
+   "button": "Decode",
+   "loading": "Reading the ears…"
+  },
+  {
+   "id": "stasis",
+   "title": "Is this an emergency?",
+   "subtitle": "Not eating or pooping? Check now",
+   "emoji": "🚨",
+   "inputs": [
+    {
+     "key": "eating",
+     "label": "Last ate",
+     "type": "chips",
+     "options": [
+      "Under 4 hours ago",
+      "4–8 hours",
+      "8–12 hours",
+      "Over 12 hours"
+     ],
+     "default": "4–8 hours"
+    },
+    {
+     "key": "poop",
+     "label": "Droppings",
+     "type": "chips",
+     "options": [
+      "Normal",
+      "Small / fewer",
+      "None for hours",
+      "Diarrhoea"
+     ],
+     "default": "Small / fewer"
+    },
+    {
+     "key": "other",
+     "label": "Anything else",
+     "type": "text",
+     "placeholder": "hunched, teeth grinding, bloated"
+    }
+   ],
+   "prompt": "The profile rabbit last ate {eating}, droppings are {poop}, other signs: {other}. Sections: a callout with a clear verdict (see an emergency vet now / call a vet today / monitor closely) and why, steps for what to do in the meantime (warmth, hay, tempting foods, no forced feeding), bullets of signs it is getting worse, and a quote with exactly what to tell the vet on the phone.",
+   "shape": "callout, steps, bullets, quote",
+   "button": "Check now",
+   "loading": "Checking the gut…"
+  }
+ ],
+ "disclaimer": "General rabbit-care information, not veterinary advice. A rabbit that stops eating or pooping for 12 hours is an emergency — call a vet."
+}

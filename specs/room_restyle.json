@@ -1,0 +1,235 @@
+{
+ "id": "room_restyle",
+ "name": "Room Restyle",
+ "tagline": "Redesign any room from one photo",
+ "category": "House & Home",
+ "colors": [
+  "#5D4037",
+  "#009688",
+  "#FFC107"
+ ],
+ "icon": "home",
+ "about": "Room Restyle critiques a room from a photo, names the style you are reaching for, builds a palette and layout, and turns it into a shopping list that fits your budget.",
+ "persona": "You are a friendly interior designer: decisive about proportion, colour and flow, respectful of budgets, and you explain the why behind every recommendation in one line.",
+ "onboarding": {
+  "title": "Your room, reimagined",
+  "subtitle": "Tell us your style and budget, then show us the room.",
+  "bullets": [
+   "Photo critique with quick wins",
+   "Palettes and layouts that fit",
+   "Shopping lists to a budget"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "style",
+   "label": "Styles you love",
+   "type": "chips",
+   "options": [
+    "Scandi",
+    "Japandi",
+    "Mid-century",
+    "Industrial",
+    "Boho",
+    "Traditional",
+    "Coastal",
+    "Maximalist"
+   ],
+   "multi": true
+  },
+  {
+   "key": "home",
+   "label": "Home type",
+   "type": "chips",
+   "options": [
+    "Flat",
+    "House",
+    "Studio",
+    "Shared"
+   ]
+  },
+  {
+   "key": "budget",
+   "label": "Typical budget per room",
+   "type": "chips",
+   "options": [
+    "Under 200",
+    "200–800",
+    "800–2,500",
+    "2,500+"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "critique",
+   "title": "Critique my room",
+   "subtitle": "Photo → what's working, what's not",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the room (whole room, daylight if possible)",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "bother",
+     "label": "What bothers you about it",
+     "type": "text",
+     "placeholder": "feels cramped and dark"
+    }
+   ],
+   "prompt": "Critique the room in the photo, keeping in mind the user says: {bother}. Sections: text with a two-sentence honest read of the room; a table (Element | Now | Change to | Why) covering layout, colour, lighting, textiles and storage; a checklist of 5 free or under-50 quick wins ordered by impact; and a callout on the single biggest change that would transform the space.",
+   "shape": "text, table, checklist, callout",
+   "button": "Critique",
+   "loading": "Studying the room…"
+  },
+  {
+   "id": "palette",
+   "title": "Build a palette",
+   "subtitle": "Walls, textiles and accents that agree",
+   "emoji": "🎨",
+   "inputs": [
+    {
+     "key": "room",
+     "label": "Room",
+     "type": "chips",
+     "options": [
+      "Living room",
+      "Bedroom",
+      "Kitchen",
+      "Bathroom",
+      "Hallway",
+      "Home office",
+      "Kids' room"
+     ],
+     "default": "Living room"
+    },
+    {
+     "key": "light",
+     "label": "Natural light",
+     "type": "chips",
+     "options": [
+      "North-facing / dim",
+      "South-facing / bright",
+      "East morning sun",
+      "West evening sun"
+     ],
+     "default": "North-facing / dim"
+    },
+    {
+     "key": "keep",
+     "label": "Fixed things to work around",
+     "type": "text",
+     "placeholder": "grey sofa, oak floor"
+    }
+   ],
+   "prompt": "Design a colour palette for a {room} with {light} light that works with these fixed elements: {keep}, in the profile's styles. Sections: kv (wall colour, trim, ceiling, dominant textile, accent 1, accent 2, metal finish) each as a colour name plus hex; a table (Where | Colour | % of room | Example item); bullets on why the palette suits that light direction; and a callout on the 60-30-10 split applied to this exact room.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Build palette",
+   "loading": "Mixing colours…"
+  },
+  {
+   "id": "layout",
+   "title": "Plan the layout",
+   "subtitle": "Furniture placement from your dimensions",
+   "emoji": "📐",
+   "inputs": [
+    {
+     "key": "dims",
+     "label": "Room dimensions",
+     "type": "text",
+     "placeholder": "4.2m × 3.6m, door bottom-left, window on long wall",
+     "required": true
+    },
+    {
+     "key": "furniture",
+     "label": "Furniture you have or want",
+     "type": "longtext",
+     "placeholder": "3-seat sofa 220cm, TV unit, round dining table for 4…",
+     "required": true
+    },
+    {
+     "key": "use",
+     "label": "How the room is used",
+     "type": "text",
+     "placeholder": "TV nights, working from home, hosting 4"
+    }
+   ],
+   "prompt": "Plan the furniture layout for a room of {dims} using: {furniture}, for these uses: {use}. Sections: steps placing each piece in order of anchoring importance with distances in cm from walls; a table (Piece | Position | Clearance | Note); bullets on traffic flow and sightlines; and a callout on the one piece to sell, replace or resize if it does not fit.",
+   "shape": "steps, table, bullets, callout",
+   "button": "Plan layout",
+   "loading": "Moving furniture…"
+  },
+  {
+   "id": "shop",
+   "title": "Shopping list",
+   "subtitle": "Everything to buy, to a budget",
+   "emoji": "🛒",
+   "inputs": [
+    {
+     "key": "spend",
+     "label": "Budget",
+     "type": "number",
+     "placeholder": "600"
+    },
+    {
+     "key": "room",
+     "label": "Room",
+     "type": "chips",
+     "options": [
+      "Living room",
+      "Bedroom",
+      "Kitchen",
+      "Bathroom",
+      "Hallway",
+      "Home office",
+      "Kids' room"
+     ],
+     "default": "Living room"
+    },
+    {
+     "key": "need",
+     "label": "What's missing",
+     "type": "text",
+     "placeholder": "rug, lamps, curtains, art"
+    }
+   ],
+   "prompt": "Build a shopping list for a {room} with a budget of {spend}, covering: {need}, in the profile's styles. Sections: a table (Item | Spec: size, colour, material | Price band | Priority 1–3) totalling within budget; cards for 3 splurge-vs-save swaps (meta = saving); a checklist ordered by what to buy first; and a callout on measurements to take before ordering anything.",
+   "shape": "table, cards, checklist, callout",
+   "button": "Make the list",
+   "loading": "Window shopping…"
+  },
+  {
+   "id": "style",
+   "title": "Name my style",
+   "subtitle": "From what you like to a clear direction",
+   "emoji": "✨",
+   "inputs": [
+    {
+     "key": "likes",
+     "label": "Rooms, objects or moods you love",
+     "type": "longtext",
+     "placeholder": "warm wood, linen, black metal, plants, a café in Lisbon…",
+     "required": true
+    },
+    {
+     "key": "hate",
+     "label": "Things you dislike",
+     "type": "text",
+     "placeholder": "grey everything, glossy surfaces"
+    }
+   ],
+   "prompt": "Given what the user loves: {likes}, and dislikes: {hate}, define their personal interior style. Sections: text naming the style (a two-word label plus a paragraph); kv (materials, colours, shapes, lighting, textiles, one signature object); bullets of 6 search terms to use on shopping and inspiration sites; and a quote with a one-sentence style statement to pin above the mood board.",
+   "shape": "text, kv, bullets, quote",
+   "button": "Name it",
+   "loading": "Finding the thread…"
+  }
+ ]
+}

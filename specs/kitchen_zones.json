@@ -1,0 +1,218 @@
+{
+ "id": "kitchen_zones",
+ "name": "Kitchen Zones",
+ "tagline": "A kitchen where everything is where you reach for it",
+ "category": "House & Home",
+ "colors": [
+  "#E64A19",
+  "#00897B",
+  "#F4B400"
+ ],
+ "icon": "cup",
+ "about": "Kitchen Zones reorganises your kitchen around how you actually cook: zone plans for cupboards and drawers, a pantry system with labels, spice and gadget audits, and countertop rules that stick.",
+ "persona": "You are a professional kitchen organiser who trained as a line cook: you think in workflow, reach zones and mise en place, and never buy containers before measuring.",
+ "onboarding": {
+  "title": "Cook in a kitchen that flows",
+  "subtitle": "Tell us about your kitchen and how you cook.",
+  "bullets": [
+   "Zone plans for every cupboard",
+   "Pantry systems that stay tidy",
+   "Ruthless gadget and spice audits"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "size",
+   "label": "Kitchen size",
+   "type": "chips",
+   "options": [
+    "Galley / tiny",
+    "Small",
+    "Medium",
+    "Large / island"
+   ]
+  },
+  {
+   "key": "cook",
+   "label": "You cook",
+   "type": "chips",
+   "options": [
+    "Most nights",
+    "A few times a week",
+    "Weekends only",
+    "Mostly reheating"
+   ]
+  },
+  {
+   "key": "household",
+   "label": "Household",
+   "type": "chips",
+   "options": [
+    "1",
+    "2",
+    "3–4",
+    "5+"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "zones",
+   "title": "Zone my kitchen",
+   "subtitle": "Photo → what goes where",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of your kitchen (show cupboards, hob and sink)",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "pain",
+     "label": "Biggest daily annoyance",
+     "type": "text",
+     "placeholder": "walk across the room for a chopping board"
+    }
+   ],
+   "prompt": "From the photo, plan the kitchen into zones (prep, cook, clean, store, serve) for the profile's cooking habits, fixing this annoyance: {pain}. Sections: a table (Zone | Cupboards/drawers to use | What lives there | Why it's here); steps for the move in the order to empty and refill cupboards; bullets on reach zones (eye level, waist, low, high); and a callout on the one swap that saves the most steps per meal.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Zone it",
+   "loading": "Mapping the kitchen…"
+  },
+  {
+   "id": "pantry",
+   "title": "Pantry system",
+   "subtitle": "Decant, label, rotate",
+   "emoji": "🏷️",
+   "inputs": [
+    {
+     "key": "space",
+     "label": "Pantry space",
+     "type": "text",
+     "placeholder": "one tall cupboard 50cm wide, 5 shelves",
+     "required": true
+    },
+    {
+     "key": "style",
+     "label": "Style",
+     "type": "chips",
+     "options": [
+      "Decant into containers",
+      "Keep packets, add bins",
+      "Mix"
+     ],
+     "default": "Mix"
+    },
+    {
+     "key": "budget",
+     "label": "Budget for containers",
+     "type": "number",
+     "placeholder": "60"
+    }
+   ],
+   "prompt": "Design a pantry system for {space}, style '{style}', budget {budget}, for the profile's household. Sections: a table (Shelf | Category | Container type & size | Qty | Label text); a checklist of containers and labels to buy within budget; steps for the reset day (empty, wipe, check dates, decant, label); and a callout on first-in-first-out and keeping the system going in 5 minutes a week.",
+   "shape": "table, checklist, steps, callout",
+   "button": "Design pantry",
+   "loading": "Labelling jars…"
+  },
+  {
+   "id": "drawer",
+   "title": "Fix a drawer or cupboard",
+   "subtitle": "Photo of the chaos → a layout",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the drawer or cupboard, opened",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "kind",
+     "label": "It's for",
+     "type": "chips",
+     "options": [
+      "Utensils",
+      "Pots & pans",
+      "Food containers",
+      "Under the sink",
+      "Spices",
+      "Baking",
+      "The junk drawer"
+     ],
+     "default": "Utensils"
+    }
+   ],
+   "prompt": "Reorganise the {kind} drawer or cupboard in the photo. Sections: a table (Item seen | Keep / relocate / bin | Where it goes); steps for the new layout with divider or riser suggestions and measurements to take; bullets on what is missing that would make it work; and a callout on the one-in-one-out rule for this category.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Reorganise",
+   "loading": "Emptying the drawer…"
+  },
+  {
+   "id": "audit",
+   "title": "Gadget & spice audit",
+   "subtitle": "What to keep, toss or actually use",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "list",
+     "label": "List what you have",
+     "type": "longtext",
+     "placeholder": "air fryer, spiralizer, 3 whisks, stand mixer, sumac, star anise, 2 open paprikas…",
+     "required": true
+    },
+    {
+     "key": "focus",
+     "label": "Audit",
+     "type": "chips",
+     "options": [
+      "Gadgets",
+      "Spices",
+      "Both"
+     ],
+     "default": "Both"
+    }
+   ],
+   "prompt": "Audit ({focus}): {list}, against how the profile cooks. Sections: a table (Item | Verdict: keep / store away / donate / bin | Reason | If keeping, where); bullets of 5 recipes or uses that justify the borderline keeps; kv (items to replace, items expired or likely stale, space freed); and a callout on spice shelf life and storing away from the hob.",
+   "shape": "table, bullets, kv, callout",
+   "button": "Audit",
+   "loading": "Judging gadgets…"
+  },
+  {
+   "id": "counter",
+   "title": "Clear countertops",
+   "subtitle": "Rules for what earns a spot",
+   "emoji": "✨",
+   "inputs": [
+    {
+     "key": "counter",
+     "label": "What's on the counters now",
+     "type": "text",
+     "placeholder": "kettle, toaster, fruit bowl, mail pile, 4 bottles of oil, knife block…",
+     "required": true
+    },
+    {
+     "key": "goal",
+     "label": "Goal",
+     "type": "chips",
+     "options": [
+      "Minimal",
+      "Practical",
+      "Just less cluttered"
+     ],
+     "default": "Practical"
+    }
+   ],
+   "prompt": "Decide what stays on the counter from: {counter}, aiming for {goal}, for the profile's kitchen size and cooking frequency. Sections: a table (Item | Stays / goes inside / leaves the kitchen | Home); bullets with the 3 rules for earning counter space; steps for a 20-minute counter reset; and a quote with one line to remember when something new lands on the counter.",
+   "shape": "table, bullets, steps, quote",
+   "button": "Clear it",
+   "loading": "Wiping down…"
+  }
+ ]
+}

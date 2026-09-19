@@ -1,0 +1,183 @@
+{
+ "id": "cool_down",
+ "name": "Cool Down",
+ "tagline": "Anger that doesn't wreck your relationships",
+ "category": "Health & Fitness",
+ "colors": [
+  "#0277BD",
+  "#EF5350",
+  "#546E7A"
+ ],
+ "icon": "drop",
+ "about": "Cool Down helps you get through the hot moment, log what set you off, find the pattern behind your anger, and repair after you've said something you regret.",
+ "persona": "You are a non-judgemental anger coach: anger is information, not a character flaw; you focus on the gap between feeling and action, and you say plainly when anger has tipped into risk to others.",
+ "onboarding": {
+  "title": "Turn heat into information",
+  "subtitle": "Tell us where anger tends to show up for you.",
+  "bullets": [
+   "90-second cool-down in the moment",
+   "Anger log that finds patterns",
+   "Repair scripts that actually land"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "where",
+   "label": "Anger shows up most",
+   "type": "chips",
+   "options": [
+    "Partner",
+    "Kids",
+    "Work",
+    "Driving",
+    "Family",
+    "Online"
+   ],
+   "multi": true
+  },
+  {
+   "key": "style",
+   "label": "Your style",
+   "type": "chips",
+   "options": [
+    "Explode",
+    "Go silent",
+    "Sarcastic",
+    "Stew for days"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "now",
+   "title": "Cool down now",
+   "subtitle": "Ninety seconds before you act",
+   "emoji": "🧊",
+   "inputs": [
+    {
+     "key": "level",
+     "label": "Heat level",
+     "type": "chips",
+     "options": [
+      "Simmering",
+      "Hot",
+      "Boiling"
+     ],
+     "default": "Hot"
+    },
+    {
+     "key": "trigger",
+     "label": "What just happened",
+     "type": "text",
+     "placeholder": "he interrupted me again in front of everyone"
+    }
+   ],
+   "prompt": "Heat: {level}. Trigger: {trigger}. Steps for the next 90 seconds with exact timings (exit, body, breath, one sentence), a quote with the exact line to say to buy time without escalating, and a callout on the sign that it's not safe to stay in the room.",
+   "shape": "steps, quote, callout",
+   "button": "Cool me down",
+   "loading": "Dropping the heat…"
+  },
+  {
+   "id": "log",
+   "title": "Log an episode",
+   "subtitle": "Trigger → thought → action → cost",
+   "emoji": "📓",
+   "inputs": [
+    {
+     "key": "episode",
+     "label": "What happened",
+     "type": "longtext",
+     "placeholder": "kids ignored me three times, I shouted, everyone cried, felt awful",
+     "required": true
+    },
+    {
+     "key": "outcome",
+     "label": "How it ended",
+     "type": "chips",
+     "options": [
+      "I walked away",
+      "I shouted",
+      "I said something cruel",
+      "I went silent",
+      "It got physical"
+     ],
+     "default": "I shouted"
+    }
+   ],
+   "prompt": "Log this episode: {episode} (it ended: {outcome}). Kv (Trigger, Hot thought, Underlying need, Action, Cost), a table (Earlier exit point | What it could have looked like), bullets on the one thing to try next time the same trigger appears, and a callout urging professional help if episodes involve threats or physical contact.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Log it",
+   "loading": "Writing it down…"
+  },
+  {
+   "id": "patterns",
+   "title": "Find my patterns",
+   "subtitle": "Paste several entries",
+   "emoji": "🔎",
+   "inputs": [
+    {
+     "key": "entries",
+     "label": "Your log entries",
+     "type": "longtext",
+     "placeholder": "Mon: traffic, cut off, shouted alone… Wed: partner's tone…",
+     "required": true
+    }
+   ],
+   "prompt": "Analyse these entries: {entries}. Table (Pattern | Triggers | Time of day or state | Frequency), bullets on the two conditions that make anger most likely (hunger, sleep, feeling unheard, etc.), steps for a 2-week experiment targeting the top condition, and a callout on how to know if it's working.",
+   "shape": "table, bullets, steps, callout",
+   "button": "Find patterns",
+   "loading": "Looking closely…"
+  },
+  {
+   "id": "repair",
+   "title": "Repair after blowing up",
+   "subtitle": "Own it without grovelling",
+   "emoji": "🩹",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Who",
+     "type": "text",
+     "placeholder": "my 9-year-old",
+     "required": true
+    },
+    {
+     "key": "said",
+     "label": "What you did or said",
+     "type": "longtext",
+     "placeholder": "yelled that she never listens and slammed the door",
+     "required": true
+    }
+   ],
+   "prompt": "Write a repair for {who} after this: {said}. Quote with what to say (under 100 words, ownership without excuses, no 'but'), steps for the conversation including what to do if they're not ready, bullets on the follow-through that proves it, and a callout on what not to do (over-apologising, gifts instead of change).",
+   "shape": "quote, steps, bullets, callout",
+   "button": "Write repair",
+   "loading": "Finding the words…"
+  },
+  {
+   "id": "assert",
+   "title": "Say it without heat",
+   "subtitle": "Turn a rant into a request",
+   "emoji": "🗣️",
+   "inputs": [
+    {
+     "key": "rant",
+     "label": "The rant version",
+     "type": "longtext",
+     "placeholder": "I'm sick of being the only one who cleans anything in this house",
+     "required": true
+    }
+   ],
+   "prompt": "Convert this rant into an assertive request: {rant}. Quote with the assertive version (observation, feeling, need, one specific ask), a table (Rant phrase | Assertive phrase | Why it lands better), and bullets on the best timing and place to say it.",
+   "shape": "quote, table, bullets",
+   "button": "Rewrite it",
+   "loading": "Cooling the words…"
+  }
+ ],
+ "disclaimer": "Not therapy or medical advice. If you're in crisis or thinking about harming yourself or someone else, contact local emergency services or a crisis line now. If anger has become physical, seek help from a professional or a domestic-abuse service."
+}

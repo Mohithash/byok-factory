@@ -1,0 +1,179 @@
+{
+ "id": "latch_lab",
+ "name": "Latch Lab",
+ "tagline": "Breastfeeding and pumping, without the guesswork",
+ "category": "Parenting",
+ "colors": [
+  "#0097A7",
+  "#F06292",
+  "#FFCA28"
+ ],
+ "icon": "drop",
+ "about": "Latch Lab troubleshoots latch pain and supply worries, checks whether baby is getting enough, builds pumping schedules for going back to work, checks medications and handles blocked ducts and mastitis.",
+ "persona": "You are an IBCLC-style lactation consultant: practical, non-judgemental about combination or formula feeding, precise about positioning, and clear when a problem needs hands-on help.",
+ "onboarding": {
+  "title": "Feeding, your way",
+  "subtitle": "A few details make the advice fit your baby's age.",
+  "bullets": [
+   "Latch & pain fixes",
+   "Supply and pumping plans",
+   "Medication and mastitis guidance"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "age",
+   "label": "Baby's age",
+   "type": "text",
+   "placeholder": "3 weeks"
+  },
+  {
+   "key": "feeding",
+   "label": "Currently",
+   "type": "chips",
+   "options": [
+    "Exclusively breast",
+    "Mixed",
+    "Exclusively pumping",
+    "Weaning"
+   ]
+  },
+  {
+   "key": "pump",
+   "label": "Pump (if any)",
+   "type": "text",
+   "placeholder": "Spectra S1"
+  }
+ ],
+ "tools": [
+  {
+   "id": "pain",
+   "title": "Fix the latch",
+   "subtitle": "Pain, clicking, shallow latch",
+   "emoji": "🤱",
+   "inputs": [
+    {
+     "key": "problem",
+     "label": "What's happening",
+     "type": "longtext",
+     "placeholder": "toe-curling pain at the start, nipple looks lipstick-shaped after",
+     "required": true
+    },
+    {
+     "key": "photo",
+     "label": "Photo of the latch or nipple after a feed (optional)",
+     "type": "photo"
+    }
+   ],
+   "prompt": "Troubleshoot: {problem} for the profile's baby age (assess the photo if provided). Sections: text on the most likely causes ranked, steps for a deep-latch reset (positioning, baby-led attachment, breaking suction safely), a table (Sign | Suggests | Fix), and a callout listing signs that need an in-person lactation consultant or clinician (tongue-tie assessment, cracked or bleeding nipples, thrush, mastitis).",
+   "shape": "text, steps, table, callout",
+   "button": "Troubleshoot",
+   "loading": "Looking…"
+  },
+  {
+   "id": "supply",
+   "title": "Is baby getting enough?",
+   "subtitle": "Nappies, weight, feeding pattern",
+   "emoji": "⚖️",
+   "inputs": [
+    {
+     "key": "wet",
+     "label": "Wet nappies in 24h",
+     "type": "number",
+     "placeholder": "6"
+    },
+    {
+     "key": "feeds",
+     "label": "Feeds in 24h",
+     "type": "number",
+     "placeholder": "10"
+    },
+    {
+     "key": "weight",
+     "label": "Weight trend",
+     "type": "text",
+     "placeholder": "born 3.4kg, 3.3kg at day 5"
+    }
+   ],
+   "prompt": "Assess intake with {wet} wet nappies, {feeds} feeds per 24h and weight: {weight}, for the profile's baby age. Sections: a callout with the verdict (Reassuring / Watch closely / Get weighed and seen today) using standard nappy and weight-gain benchmarks for this age, kv of the expected numbers at this age, bullets of ways to boost supply if needed (frequency, breast compression, switch nursing, pumping after feeds), and a checklist of hunger versus satiety cues.",
+   "shape": "callout, kv, bullets, checklist",
+   "button": "Assess",
+   "loading": "Counting…"
+  },
+  {
+   "id": "pumping",
+   "title": "Pumping schedule",
+   "subtitle": "Back to work, building a stash",
+   "emoji": "🍼",
+   "inputs": [
+    {
+     "key": "hours",
+     "label": "Work hours / separation",
+     "type": "text",
+     "placeholder": "8:30–17:30 Mon–Fri, starting in 3 weeks",
+     "required": true
+    },
+    {
+     "key": "goal",
+     "label": "Goal",
+     "type": "chips",
+     "options": [
+      "Maintain supply",
+      "Build a freezer stash",
+      "Exclusively pump",
+      "Wean off the pump"
+     ],
+     "default": "Maintain supply"
+    }
+   ],
+   "prompt": "Design a pumping plan for {hours} with goal {goal} for the profile's baby age and pump. Sections: table (Time | Where | Minutes | Expected ml range | Notes), steps for the first week of transition, a kv on milk storage (room, fridge, freezer, thawed, combining sessions), and a checklist of pumping-at-work rights and kit.",
+   "shape": "table, steps, kv, checklist",
+   "button": "Build schedule",
+   "loading": "Scheduling…"
+  },
+  {
+   "id": "meds",
+   "title": "Can I take this?",
+   "subtitle": "Medication & breastfeeding",
+   "emoji": "💊",
+   "inputs": [
+    {
+     "key": "med",
+     "label": "Medication or substance",
+     "type": "text",
+     "placeholder": "ibuprofen, sertraline, a glass of wine",
+     "required": true
+    }
+   ],
+   "prompt": "Give general information on {med} while breastfeeding for the profile's baby age. Sections: a callout with the general compatibility category (Usually compatible / Use with care / Usually avoided / Ask a pharmacist) and the reasoning in one line, kv (how much passes into milk in general terms, timing relative to feeds, what to watch for in baby), bullets of usually-preferred alternatives, and a closing callout telling the user to confirm with a pharmacist or the LactMed / BfN resources, because this is not a prescription.",
+   "shape": "callout, kv, bullets",
+   "button": "Check",
+   "loading": "Checking…"
+  },
+  {
+   "id": "blocked",
+   "title": "Blocked duct or mastitis?",
+   "subtitle": "Lumps, redness, fever",
+   "emoji": "🔥",
+   "inputs": [
+    {
+     "key": "symptoms",
+     "label": "Symptoms",
+     "type": "longtext",
+     "placeholder": "hard tender lump upper left, no fever, started yesterday",
+     "required": true
+    }
+   ],
+   "prompt": "Assess: {symptoms}. Sections: a callout distinguishing blocked duct, engorgement, mastitis and abscess signs in general terms with a level (Self-care / See a GP within 24h / Urgent), steps for current best-practice self-care (keep feeding normally, gentle lymphatic massage, cold, anti-inflammatories, avoid deep massage and over-pumping), bullets of what not to do, and a checklist of signs to seek care today (fever, flu-like feeling, spreading redness, no improvement in 24h).",
+   "shape": "callout, steps, bullets, checklist",
+   "button": "Assess",
+   "loading": "Checking…"
+  }
+ ],
+ "disclaimer": "General lactation information, not medical advice. Confirm medications with a pharmacist or the LactMed / BfN databases, and see a clinician or IBCLC for persistent pain, fever, or feeding and weight concerns."
+}

@@ -1,0 +1,202 @@
+{
+ "id": "runway_radar",
+ "name": "Runway Radar",
+ "tagline": "See your cash 13 weeks ahead, before it bites",
+ "category": "Finance",
+ "colors": [
+  "#0B3D91",
+  "#F4B400",
+  "#00A896"
+ ],
+ "icon": "graph",
+ "about": "Runway Radar turns your bank balance, invoices and bills into a 13-week cash forecast, stress-tests payroll and rent, and ranks which receivables to chase first.",
+ "persona": "You are a fractional CFO for small businesses: blunt about cash, allergic to vanity metrics, and you always show the maths behind every number.",
+ "onboarding": {
+  "title": "Cash is the only metric that can kill you",
+  "subtitle": "Tell us about your business so forecasts use the right rhythm.",
+  "bullets": [
+   "13-week forecasts from a paste",
+   "Payroll & rent stress tests",
+   "Chase-first list for receivables"
+  ]
+ },
+ "profile": [
+  {
+   "key": "biz",
+   "label": "Business",
+   "type": "text",
+   "placeholder": "12-seat café / 3-person agency"
+  },
+  {
+   "key": "cycle",
+   "label": "Pay cycle",
+   "type": "chips",
+   "options": [
+    "Weekly",
+    "Fortnightly",
+    "Monthly"
+   ]
+  },
+  {
+   "key": "fixed",
+   "label": "Fixed monthly costs",
+   "type": "number",
+   "placeholder": "18000"
+  },
+  {
+   "key": "currency",
+   "label": "Currency",
+   "type": "chips",
+   "options": [
+    "USD",
+    "EUR",
+    "GBP",
+    "INR",
+    "AUD",
+    "CAD"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "forecast",
+   "title": "13-week forecast",
+   "subtitle": "Bank balance + what's coming → week by week",
+   "emoji": "📈",
+   "inputs": [
+    {
+     "key": "balance",
+     "label": "Cash in bank today",
+     "type": "number",
+     "placeholder": "24000"
+    },
+    {
+     "key": "inflows",
+     "label": "Expected money in",
+     "type": "longtext",
+     "placeholder": "Invoice #41 4,200 due 3 Oct; weekend takings ~1,800/wk…",
+     "required": true
+    },
+    {
+     "key": "outflows",
+     "label": "Money out",
+     "type": "longtext",
+     "placeholder": "rent 2,400 on the 1st; payroll 6,100 on the 28th; supplier 900 fortnightly…",
+     "required": true
+    }
+   ],
+   "prompt": "Starting balance {balance}. Inflows: {inflows}. Outflows: {outflows}. Build a 13-week cash forecast as a table (Week | In | Out | Net | Closing balance), using the profile's fixed costs and pay cycle wherever the inputs are silent. Then a callout naming the lowest-balance week and the shortfall (if any), bullets of the 3 assumptions most likely to be wrong, and a checklist of actions to take this week.",
+   "shape": "table, callout, bullets, checklist",
+   "button": "Forecast",
+   "loading": "Counting the weeks…"
+  },
+  {
+   "id": "stress",
+   "title": "Can I make payroll?",
+   "subtitle": "Stress-test one big commitment",
+   "emoji": "🧯",
+   "inputs": [
+    {
+     "key": "commitment",
+     "label": "The commitment",
+     "type": "text",
+     "placeholder": "payroll of 6,100 on the 28th",
+     "required": true
+    },
+    {
+     "key": "balance",
+     "label": "Cash today",
+     "type": "number",
+     "placeholder": "9500"
+    },
+    {
+     "key": "scenario",
+     "label": "What if…",
+     "type": "text",
+     "placeholder": "the big client pays 2 weeks late"
+    }
+   ],
+   "prompt": "Cash today {balance}; commitment: {commitment}; scenario: {scenario}. Produce a kv (days until the commitment, cash needed, expected cash on that date, gap or headroom), a table of 3 scenarios (Scenario | Closing cash | Verdict), steps to close any gap ordered from cheapest to most expensive, and a callout on what to say to staff or the landlord if it is tight.",
+   "shape": "kv, table, steps, callout",
+   "button": "Stress test",
+   "loading": "Running numbers…"
+  },
+  {
+   "id": "chase",
+   "title": "Chase-first list",
+   "subtitle": "Which unpaid invoices to work today",
+   "emoji": "📋",
+   "inputs": [
+    {
+     "key": "receivables",
+     "label": "Unpaid invoices",
+     "type": "longtext",
+     "placeholder": "Acme 3,200 due 12 days ago, usually pays late; Bloom 950 due tomorrow…",
+     "required": true
+    }
+   ],
+   "prompt": "Rank these receivables: {receivables}. Table (Customer | Amount | Days overdue | Likelihood | Action) sorted by expected cash recovered soonest, a quote with a 3-line chase message for the top one, and bullets on which customers to move to deposits or shorter terms.",
+   "shape": "table, quote, bullets",
+   "button": "Rank them",
+   "loading": "Sorting…"
+  },
+  {
+   "id": "gap",
+   "title": "Bridge a cash gap",
+   "subtitle": "Compare ways to cover a shortfall",
+   "emoji": "🌉",
+   "inputs": [
+    {
+     "key": "gap",
+     "label": "Shortfall",
+     "type": "number",
+     "placeholder": "7000"
+    },
+    {
+     "key": "weeks",
+     "label": "Weeks until it clears",
+     "type": "number",
+     "placeholder": "6"
+    },
+    {
+     "key": "options",
+     "label": "Open to",
+     "type": "chips",
+     "options": [
+      "Overdraft",
+      "Invoice finance",
+      "Card / loan",
+      "Supplier terms",
+      "Owner top-up",
+      "Sell stock"
+     ],
+     "multi": true
+    }
+   ],
+   "prompt": "Shortfall {gap} for about {weeks} weeks; options considered: {options}. Compare as a table (Option | Speed | Typical cost | Risk | Fit), steps to execute the best fit within 7 days, bullets of levers that cost nothing (deposits, terms, cutting a subscription), and a callout on warning signs that mean it is a structural rather than timing problem.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Compare options",
+   "loading": "Weighing…"
+  },
+  {
+   "id": "review",
+   "title": "Month-end cash review",
+   "subtitle": "Opening to closing, explained",
+   "emoji": "🗓️",
+   "inputs": [
+    {
+     "key": "month",
+     "label": "This month's numbers",
+     "type": "longtext",
+     "placeholder": "opened 18k, closed 14.5k; sales 31k; payroll 12k; bought a new oven 4k…",
+     "required": true
+    }
+   ],
+   "prompt": "Review this month: {month}. kv (opening, closing, net change, cash burn or build, months of runway at this rate), bullets on the 3 biggest drivers, a callout on the one number to watch next month, and a quote with a 2-sentence summary for a business partner or bank manager.",
+   "shape": "kv, bullets, callout, quote",
+   "button": "Review",
+   "loading": "Reconciling…"
+  }
+ ],
+ "disclaimer": "General business information, not financial advice; check forecasts with your accountant before borrowing or committing."
+}

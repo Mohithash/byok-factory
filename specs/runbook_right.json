@@ -1,0 +1,181 @@
+{
+ "id": "runbook_right",
+ "name": "Runbook Right",
+ "tagline": "Runbooks, postmortems and design docs engineers read",
+ "category": "Productivity",
+ "colors": [
+  "#263238",
+  "#00BFA5",
+  "#FFAB00"
+ ],
+ "icon": "gear",
+ "about": "Runbook Right writes the internal engineering documents nobody enjoys writing, from runbooks and blameless postmortems to design docs, ADRs and how-to guides, in a format on-call engineers and reviewers actually use.",
+ "persona": "You are a senior technical writer embedded with an SRE team: terse, numbered, blameless, explicit about prerequisites and rollback; you never invent commands you can't justify and you mark anything to verify.",
+ "onboarding": {
+  "title": "Docs for 3 a.m.",
+  "subtitle": "Your stack and docs tool shape the format.",
+  "bullets": [
+   "Runbooks with expected outputs",
+   "Blameless postmortems with owners",
+   "Design docs and ADRs reviewers approve"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "stack",
+   "label": "Stack",
+   "type": "text",
+   "placeholder": "Kubernetes on GKE, Postgres, Go services"
+  },
+  {
+   "key": "docs",
+   "label": "Docs live in",
+   "type": "chips",
+   "options": [
+    "Confluence",
+    "Notion",
+    "Markdown in repo",
+    "Google Docs"
+   ],
+   "default": "Markdown in repo"
+  },
+  {
+   "key": "team",
+   "label": "Team & on-call setup",
+   "type": "text",
+   "placeholder": "6 engineers, weekly rotation"
+  }
+ ],
+ "tools": [
+  {
+   "id": "runbook",
+   "title": "Write a runbook",
+   "subtitle": "Alert → steps for 3 a.m.",
+   "emoji": "🚨",
+   "inputs": [
+    {
+     "key": "alert",
+     "label": "Alert or scenario",
+     "type": "text",
+     "placeholder": "Postgres replication lag > 60s",
+     "required": true
+    },
+    {
+     "key": "known",
+     "label": "What you know (checks, commands, past fixes)",
+     "type": "longtext",
+     "placeholder": "check pg_stat_replication; usually a long vacuum…"
+    }
+   ],
+   "prompt": "Write a runbook for '{alert}' on the profile stack using: {known}. Produce a kv (severity, owner, prerequisites and access, expected time to resolve), steps for diagnosis then remediation (each with the exact command or console path and what a healthy result looks like, marking anything to verify), a callout on rollback and when to escalate, and a checklist for closing out (silence alert, ticket, follow-up).",
+   "shape": "kv, steps, callout, checklist",
+   "button": "Write runbook",
+   "loading": "Paging docs…"
+  },
+  {
+   "id": "postmortem",
+   "title": "Blameless postmortem",
+   "subtitle": "Timeline → causes → actions",
+   "emoji": "🧯",
+   "inputs": [
+    {
+     "key": "incident",
+     "label": "What happened (timeline, impact, fix)",
+     "type": "longtext",
+     "placeholder": "14:02 deploy; 14:09 errors; 14:31 rollback…",
+     "required": true
+    },
+    {
+     "key": "template",
+     "label": "Template",
+     "type": "chips",
+     "options": [
+      "Google SRE",
+      "Short",
+      "Executive"
+     ],
+     "default": "Google SRE"
+    }
+   ],
+   "prompt": "Write a blameless postmortem in the {template} format from: {incident}. Produce a kv (impact, duration, detection, severity), a table (Time | Event | Who or what noticed) for the timeline, bullets of contributing causes phrased as system conditions not people, and a checklist of action items each with an owner placeholder and priority.",
+   "shape": "kv, table, bullets, checklist",
+   "button": "Write postmortem",
+   "loading": "Reconstructing…"
+  },
+  {
+   "id": "design",
+   "title": "Design doc / RFC",
+   "subtitle": "A proposal reviewers can approve",
+   "emoji": "📐",
+   "inputs": [
+    {
+     "key": "title",
+     "label": "Proposal",
+     "type": "text",
+     "placeholder": "move sessions from Redis to Postgres",
+     "required": true
+    },
+    {
+     "key": "context",
+     "label": "Context, constraints, options considered",
+     "type": "longtext",
+     "placeholder": "…",
+     "required": true
+    }
+   ],
+   "prompt": "Draft a design doc for '{title}' from: {context}. Produce text with Summary, Goals and Non-goals, a table (Option | Pros | Cons | Cost) comparing the alternatives, steps for the rollout plan with checkpoints and a rollback point, and a callout listing the open questions reviewers must answer.",
+   "shape": "text, table, steps, callout",
+   "button": "Draft RFC",
+   "loading": "Drafting…"
+  },
+  {
+   "id": "adr",
+   "title": "Decision record",
+   "subtitle": "One-page ADR",
+   "emoji": "📌",
+   "inputs": [
+    {
+     "key": "decision",
+     "label": "Decision",
+     "type": "text",
+     "placeholder": "adopt OpenTelemetry for tracing",
+     "required": true
+    },
+    {
+     "key": "why",
+     "label": "Main reasons",
+     "type": "text",
+     "placeholder": "vendor-neutral, existing Go SDK"
+    }
+   ],
+   "prompt": "Write an Architecture Decision Record for '{decision}', reasons: {why}. Produce a kv (status, date placeholder, deciders, context), text with the decision in two sentences, bullets 'Consequences' split into positive and negative, and a quote with the one-line summary for the ADR index.",
+   "shape": "kv, text, bullets, quote",
+   "button": "Write ADR",
+   "loading": "Recording…"
+  },
+  {
+   "id": "howto",
+   "title": "Turn steps into a how-to",
+   "subtitle": "Slack thread → guide",
+   "emoji": "🧭",
+   "inputs": [
+    {
+     "key": "raw",
+     "label": "Raw steps or thread",
+     "type": "longtext",
+     "placeholder": "first you ssh to the bastion, then…",
+     "required": true
+    }
+   ],
+   "prompt": "Convert this into a how-to guide formatted for the profile docs tool: {raw}. Produce a kv (audience, prerequisites, time needed), steps with imperative verbs, exact commands, and a 'you should see' line after each, a callout for any destructive step, and a checklist for verifying success.",
+   "shape": "kv, steps, callout, checklist",
+   "button": "Make a guide",
+   "loading": "Formatting…"
+  }
+ ]
+}

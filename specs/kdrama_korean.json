@@ -1,0 +1,194 @@
+{
+ "id": "kdrama_korean",
+ "name": "Drama Hangul",
+ "tagline": "Learn Korean from the K-dramas you already binge",
+ "category": "Education",
+ "colors": [
+  "#AD1457",
+  "#7E57C2",
+  "#26C6DA"
+ ],
+ "icon": "heart",
+ "about": "Drama Hangul turns your favourite K-dramas into Korean lessons: scene breakdowns, speech-level explanations, genre phrase packs and Hangul reading from subtitles and screenshots.",
+ "persona": "You are a Korean tutor who watches everything: you explain speech levels and honorifics through drama scenes, always give Hangul, romanisation and natural English, and flag drama-only expressions you shouldn't use at work.",
+ "onboarding": {
+  "title": "What are you watching?",
+  "subtitle": "Tell us your dramas and level so every example comes from shows you love.",
+  "bullets": [
+   "Scene breakdowns with speech levels",
+   "Phrase packs by genre and trope",
+   "Hangul reading from screenshots"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "shows",
+   "label": "Dramas you love",
+   "type": "text",
+   "placeholder": "Crash Landing on You, Reply 1988"
+  },
+  {
+   "key": "level",
+   "label": "Level",
+   "type": "chips",
+   "options": [
+    "Can't read Hangul yet",
+    "Can read, few words",
+    "Beginner conversations",
+    "Intermediate"
+   ],
+   "default": "Can read, few words"
+  },
+  {
+   "key": "goal",
+   "label": "Goal",
+   "type": "chips",
+   "options": [
+    "Watch without subtitles",
+    "Trip to Korea",
+    "Talk to K-pop / K-drama fans",
+    "Exam (TOPIK)"
+   ],
+   "default": "Watch without subtitles"
+  }
+ ],
+ "tools": [
+  {
+   "id": "scene",
+   "title": "Break down a scene",
+   "subtitle": "Paste the subtitle lines",
+   "emoji": "🎬",
+   "inputs": [
+    {
+     "key": "lines",
+     "label": "Subtitle lines (Korean or English)",
+     "type": "longtext",
+     "placeholder": "너 진짜 왜 그래? / 됐어, 신경 쓰지 마.",
+     "required": true
+    },
+    {
+     "key": "who",
+     "label": "Who's talking",
+     "type": "text",
+     "placeholder": "boss to intern / two friends"
+    }
+   ],
+   "prompt": "Break down these lines: {lines}, spoken by {who}. Sections: a table (Korean | Romanisation | Literal | Natural English | Speech level), bullets explaining the honorific and speech-level choices and what they reveal about the relationship, kv (Key grammar point, Key vocabulary, Emotion cue), and a callout on any line that is drama-dramatic and would sound odd in real life.",
+   "shape": "table, bullets, kv, callout",
+   "button": "Break it down",
+   "loading": "Rewinding…"
+  },
+  {
+   "id": "levels",
+   "title": "Banmal or jondaetmal?",
+   "subtitle": "Same sentence, every speech level",
+   "emoji": "🙇",
+   "inputs": [
+    {
+     "key": "phrase",
+     "label": "Phrase in English",
+     "type": "text",
+     "placeholder": "Have you eaten?",
+     "required": true
+    },
+    {
+     "key": "to",
+     "label": "Saying it to",
+     "type": "chips",
+     "options": [
+      "Close friend",
+      "Older coworker",
+      "Boss",
+      "Grandmother",
+      "Customer",
+      "Stranger"
+     ],
+     "default": "Older coworker"
+    }
+   ],
+   "prompt": "Render '{phrase}' for a {to}: a table (Level | Korean | Romanisation | When it fits | Drama example type) covering casual banmal, polite -yo, formal -mnida and honorific forms. Then text explaining which one to actually use for a {to} and why, and a callout on the mistake learners make by copying drama leads.",
+   "shape": "table, text, callout",
+   "button": "Show levels",
+   "loading": "Bowing…"
+  },
+  {
+   "id": "pack",
+   "title": "Phrase pack",
+   "subtitle": "Vocab for a genre or trope",
+   "emoji": "💌",
+   "inputs": [
+    {
+     "key": "genre",
+     "label": "Genre / trope",
+     "type": "chips",
+     "options": [
+      "Office romance",
+      "Chaebol family",
+      "Historical (sageuk)",
+      "Crime thriller",
+      "High school",
+      "Food & drinking scenes",
+      "Confession scene"
+     ],
+     "default": "Office romance"
+    }
+   ],
+   "prompt": "Build a phrase pack for {genre} scenes: cards for 8 expressions (Korean + romanisation, meta = level · you'll hear it when), a table of 10 key vocabulary words (Korean | Romanisation | Meaning | Real-life usable?), and a quote with one iconic line type from this genre and a note on which drama made it famous.",
+   "shape": "cards, table, quote",
+   "button": "Build pack",
+   "loading": "Pouring soju…"
+  },
+  {
+   "id": "read",
+   "title": "Read this screenshot",
+   "subtitle": "Hangul from captions, signs, texts",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Screenshot or photo with Korean text",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Transcribe the Korean text in the image. Sections: a table (Korean | Syllable-by-syllable reading | Romanisation | English), steps showing how to sound out the two hardest words letter by letter for the profile's level, and bullets of expressions in the image that are slang, texting abbreviations or drama-specific.",
+   "shape": "table, steps, bullets",
+   "button": "Read it",
+   "loading": "Pausing frame…"
+  },
+  {
+   "id": "binge",
+   "title": "Binge study plan",
+   "subtitle": "Learn while you watch this week",
+   "emoji": "📺",
+   "inputs": [
+    {
+     "key": "watching",
+     "label": "Currently watching",
+     "type": "text",
+     "placeholder": "Queen of Tears, episode 6"
+    },
+    {
+     "key": "episodes",
+     "label": "Episodes this week",
+     "type": "chips",
+     "options": [
+      "2",
+      "4",
+      "6+"
+     ],
+     "default": "4"
+    }
+   ],
+   "prompt": "Plan a week of learning around {watching} at {episodes} episodes for the profile's level and goal. Sections: a table (Episode | Listening task | Vocab target | Speaking task), a checklist of subtitle settings and pause habits that make watching count as study, and a callout on one grammar pattern to hunt for across all episodes this week.",
+   "shape": "table, checklist, callout",
+   "button": "Plan my week",
+   "loading": "Buffering…"
+  }
+ ]
+}

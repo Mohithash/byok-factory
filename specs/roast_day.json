@@ -1,0 +1,193 @@
+{
+ "id": "roast_day",
+ "name": "Roast Day",
+ "tagline": "Every part of the roast dinner, ready at the same minute",
+ "category": "Food & Drink",
+ "colors": [
+  "#B71C1C",
+  "#F9A825",
+  "#33691E"
+ ],
+ "icon": "hat",
+ "about": "Roast Day builds a minute-by-minute countdown for the whole roast — joint, potatoes, veg, Yorkshires and gravy — fits it all in one oven, and turns the leftovers into three more dinners.",
+ "persona": "You are an unflappable roast-dinner conductor: exact on weights, temperatures and resting times, and always making the gravy from the tray.",
+ "onboarding": {
+  "title": "Sunday, sorted",
+  "subtitle": "Tell Roast Day about your oven and your usual table.",
+  "bullets": [
+   "Countdown from the joint weight",
+   "Oven shelf plan for every side",
+   "Leftover roast → three dinners"
+  ]
+ },
+ "profile": [
+  {
+   "key": "oven",
+   "label": "Oven",
+   "type": "chips",
+   "options": [
+    "Fan / convection",
+    "Conventional",
+    "Gas",
+    "Aga / range"
+   ]
+  },
+  {
+   "key": "shelves",
+   "label": "Usable shelves",
+   "type": "chips",
+   "options": [
+    "1",
+    "2",
+    "3"
+   ]
+  },
+  {
+   "key": "people",
+   "label": "Usual number at the table",
+   "type": "number",
+   "placeholder": "6"
+  },
+  {
+   "key": "diet",
+   "label": "Diet / avoid",
+   "type": "text"
+  }
+ ],
+ "tools": [
+  {
+   "id": "countdown",
+   "title": "The countdown",
+   "subtitle": "From joint weight to serving time",
+   "emoji": "⏱️",
+   "inputs": [
+    {
+     "key": "joint",
+     "label": "Joint (type & weight)",
+     "type": "text",
+     "placeholder": "2 kg beef topside, medium-rare",
+     "required": true
+    },
+    {
+     "key": "serve",
+     "label": "Serve at",
+     "type": "text",
+     "placeholder": "1:30pm"
+    },
+    {
+     "key": "sides",
+     "label": "Sides",
+     "type": "text",
+     "placeholder": "roast potatoes, carrots, Yorkshires, gravy"
+    }
+   ],
+   "prompt": "Build a countdown to serve {joint} with {sides} at {serve} in the profile's oven for the profile's people. kv (oven temp(s), total roast minutes, rest minutes, target internal temp), a table (Clock time | Action | Shelf) from the first prep step to plating, a checklist of things to do the night before, and a callout on resting and safe internal temperatures.",
+   "shape": "kv, table, checklist, callout",
+   "button": "Build countdown",
+   "loading": "Preheating…"
+  },
+  {
+   "id": "shelves",
+   "title": "Fit it all in",
+   "subtitle": "Oven shelf plan when everything wants 200°",
+   "emoji": "🔥",
+   "inputs": [
+    {
+     "key": "dishes",
+     "label": "Everything that needs the oven",
+     "type": "longtext",
+     "placeholder": "beef at 180, potatoes at 220, Yorkshires at 230, stuffing…",
+     "required": true
+    }
+   ],
+   "prompt": "Plan {dishes} across the profile's shelves and oven type: a table (Dish | Temp it wants | Shelf | In at | Out at | Compromise), steps for the swap sequence while the joint rests, and bullets on what can be done on the hob or finished under the grill instead.",
+   "shape": "table, steps, bullets",
+   "button": "Plan shelves",
+   "loading": "Shuffling trays…"
+  },
+  {
+   "id": "gravy",
+   "title": "Gravy & sauces",
+   "subtitle": "From the tray, never from a packet",
+   "emoji": "🥣",
+   "inputs": [
+    {
+     "key": "juices",
+     "label": "What's in the tray",
+     "type": "text",
+     "placeholder": "beef fat and juices, some burnt onion",
+     "required": true
+    },
+    {
+     "key": "style",
+     "label": "Style",
+     "type": "chips",
+     "options": [
+      "Classic",
+      "Red wine",
+      "Onion",
+      "Creamy",
+      "Vegetarian"
+     ],
+     "default": "Classic"
+    }
+   ],
+   "prompt": "Make a {style} gravy from {juices} for the profile's people: steps with quantities, a kv (fat to keep, flour, liquid, simmer minutes), a table (Problem | Fix) for lumpy, thin, greasy and bitter, and bullets on the one sauce or condiment that matches the joint.",
+   "shape": "steps, kv, table, bullets",
+   "button": "Make gravy",
+   "loading": "Deglazing…"
+  },
+  {
+   "id": "sides",
+   "title": "Sides that shine",
+   "subtitle": "Potatoes, Yorkshires, veg — done right",
+   "emoji": "🥔",
+   "inputs": [
+    {
+     "key": "side",
+     "label": "Side",
+     "type": "chips",
+     "options": [
+      "Roast potatoes",
+      "Yorkshire puddings",
+      "Honey carrots & parsnips",
+      "Cauliflower cheese",
+      "Stuffing",
+      "Braised red cabbage"
+     ],
+     "default": "Roast potatoes"
+    },
+    {
+     "key": "guests",
+     "label": "People",
+     "type": "number",
+     "placeholder": "6"
+    }
+   ],
+   "prompt": "The perfect {side} for {guests} people in the profile's oven: kv (ingredients with grams, temp, minutes), steps with the make-or-break detail called out, bullets on making ahead, and a quote with the one rule that matters most.",
+   "shape": "kv, steps, bullets, quote",
+   "button": "Nail it",
+   "loading": "Fluffing potatoes…"
+  },
+  {
+   "id": "leftovers",
+   "title": "Leftover roast",
+   "subtitle": "Three more dinners from what's left",
+   "emoji": "♻️",
+   "inputs": [
+    {
+     "key": "left",
+     "label": "What's left",
+     "type": "text",
+     "placeholder": "half a chicken, potatoes, a bit of gravy",
+     "required": true
+    }
+   ],
+   "prompt": "Turn {left} into 3 dinners this week as cards (meta = minutes · serves), steps for the best one, and a callout on how long cooked meat keeps, cooling it fast and reheating piping hot only once.",
+   "shape": "cards, steps, callout",
+   "button": "Reinvent",
+   "loading": "Picking the carcass…"
+  }
+ ],
+ "disclaimer": "Cooking times are estimates; use a meat thermometer and follow food-safety guidance for reheating."
+}

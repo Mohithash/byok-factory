@@ -1,0 +1,181 @@
+{
+ "id": "grocery_gauge",
+ "name": "Grocery Gauge",
+ "tagline": "Know the cost per serving before you cook it",
+ "category": "Food & Drink",
+ "colors": [
+  "#558B2F",
+  "#FF8F00",
+  "#3E2723"
+ ],
+ "icon": "cart",
+ "about": "Grocery Gauge costs any recipe per serving, finds cheaper swaps that keep the dish the same, reads your receipt to show where the money went, and builds a weekly shop to a fixed number.",
+ "persona": "You are a sharp, kind grocery economist: you know unit prices, own-brand equivalents and what's worth buying in bulk, and you never shame anyone's shop.",
+ "onboarding": {
+  "title": "Spend less, eat the same",
+  "subtitle": "Tell Grocery Gauge where you shop and who you feed.",
+  "bullets": [
+   "Cost per serving for any recipe",
+   "Cheaper swaps that don't change the dish",
+   "Receipt scan shows where money goes"
+  ]
+ },
+ "profile": [
+  {
+   "key": "shops",
+   "label": "Where you shop",
+   "type": "chips",
+   "options": [
+    "Discount supermarket",
+    "Big supermarket",
+    "Local market",
+    "Corner shop",
+    "Online"
+   ],
+   "multi": true
+  },
+  {
+   "key": "currency",
+   "label": "Currency",
+   "type": "text",
+   "placeholder": "GBP"
+  },
+  {
+   "key": "people",
+   "label": "People you feed",
+   "type": "number",
+   "placeholder": "2"
+  },
+  {
+   "key": "weekly",
+   "label": "Weekly food budget",
+   "type": "number",
+   "placeholder": "60"
+  }
+ ],
+ "tools": [
+  {
+   "id": "cost",
+   "title": "Cost a recipe",
+   "subtitle": "Per serving, honestly",
+   "emoji": "🧮",
+   "inputs": [
+    {
+     "key": "recipe",
+     "label": "Recipe or ingredient list",
+     "type": "longtext",
+     "placeholder": "chicken curry: 500g thighs, 1 tin coconut milk, onion, rice…",
+     "required": true
+    },
+    {
+     "key": "servings",
+     "label": "Servings",
+     "type": "number",
+     "placeholder": "4"
+    }
+   ],
+   "prompt": "Cost this recipe for {servings} servings in the profile's currency at the profile's shops: {recipe}. Table (Ingredient | Amount used | Pack price est. | Cost of amount used), a kv (total, per serving, cost if you already have the staples, most expensive line), and bullets on where the money concentrates.",
+   "shape": "table, kv, bullets",
+   "button": "Cost it",
+   "loading": "Adding it up…"
+  },
+  {
+   "id": "swap",
+   "title": "Cheaper swap",
+   "subtitle": "Same dish, lower bill",
+   "emoji": "🔄",
+   "inputs": [
+    {
+     "key": "item",
+     "label": "Expensive ingredient",
+     "type": "text",
+     "placeholder": "pine nuts",
+     "required": true
+    },
+    {
+     "key": "in",
+     "label": "In what dish",
+     "type": "text",
+     "placeholder": "pesto"
+    }
+   ],
+   "prompt": "Cheaper alternatives to {item} in {in}: table (Swap | Est. saving | Taste change | Texture change), a callout on the one swap that keeps the dish closest to the original, and bullets on own-brand and frozen versions worth trying.",
+   "shape": "table, callout, bullets",
+   "button": "Find swaps",
+   "loading": "Comparing…"
+  },
+  {
+   "id": "receipt",
+   "title": "Scan a receipt",
+   "subtitle": "Where did the money go?",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of your receipt",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Read the receipt in the photo: table (Item | Price | Category | Could be cheaper?), a kv (total, per person per day for the profile, biggest category, estimated saving available), and steps for 3 changes next week that cut the most without changing what you eat.",
+   "shape": "table, kv, steps",
+   "button": "Scan",
+   "loading": "Reading the receipt…"
+  },
+  {
+   "id": "week",
+   "title": "Shop to a number",
+   "subtitle": "A week of meals inside the budget",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "prefs",
+     "label": "This week's needs",
+     "type": "text",
+     "placeholder": "packed lunches for 2, one pasta night"
+    },
+    {
+     "key": "effort",
+     "label": "Cooking effort",
+     "type": "chips",
+     "options": [
+      "Minimal",
+      "Moderate",
+      "Happy to cook"
+     ],
+     "default": "Moderate"
+    }
+   ],
+   "prompt": "Plan a week of meals within the profile's weekly budget for the profile's people, needs: {prefs}, effort: {effort}. Table (Day | Meals | Est. cost), a checklist shopping list with price estimates that sums to under the budget, and a callout on the 3 items to buy own-brand or in bulk this week.",
+   "shape": "table, checklist, callout",
+   "button": "Plan the shop",
+   "loading": "Balancing the books…"
+  },
+  {
+   "id": "bulk",
+   "title": "Worth buying big?",
+   "subtitle": "Bulk, multibuy and freezer maths",
+   "emoji": "📦",
+   "inputs": [
+    {
+     "key": "item",
+     "label": "Item",
+     "type": "text",
+     "placeholder": "10 kg rice",
+     "required": true
+    },
+    {
+     "key": "price",
+     "label": "Bulk price vs small pack",
+     "type": "text",
+     "placeholder": "12.00 vs 1.50 for 1 kg"
+    }
+   ],
+   "prompt": "Is {item} at {price} worth it for the profile household? kv (unit price big vs small, weeks to use up, storage needed, break-even point), a text verdict, and bullets on spoilage risk and pantry storage.",
+   "shape": "kv, text, bullets",
+   "button": "Do the maths",
+   "loading": "Crunching numbers…"
+  }
+ ],
+ "disclaimer": "Prices are estimates; check shelf labels and unit prices in your own shop."
+}

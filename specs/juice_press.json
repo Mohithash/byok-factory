@@ -1,0 +1,196 @@
+{
+ "id": "juice_press",
+ "name": "Pulp & Press",
+ "tagline": "Juicing recipes, produce yields and zero-waste pulp",
+ "category": "Food & Drink",
+ "colors": [
+  "#F57C00",
+  "#43A047",
+  "#E53935"
+ ],
+ "icon": "drop",
+ "about": "Pulp & Press writes juice recipes for your juicer, calculates how much produce you need, plans a juicing week with storage rules, and turns pulp into crackers, broths and muffins.",
+ "persona": "You are a cold-press juice-bar founder: obsessed with produce yield, allergic to waste, and careful never to promise that juice cures anything.",
+ "onboarding": {
+  "title": "Juice more, waste less",
+  "subtitle": "Your juicer type sets yields and shelf life.",
+  "bullets": [
+   "Recipes tuned to your juicer",
+   "Produce-to-ml yield calculator",
+   "Pulp recipes so nothing is binned"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "juicer",
+   "label": "Juicer",
+   "type": "chips",
+   "options": [
+    "Masticating (slow)",
+    "Centrifugal",
+    "Twin gear",
+    "Citrus press",
+    "Blender + strain"
+   ]
+  },
+  {
+   "key": "taste",
+   "label": "You like",
+   "type": "chips",
+   "options": [
+    "Green & savoury",
+    "Sweet & fruity",
+    "Spicy ginger",
+    "Rooty (beet / carrot)"
+   ],
+   "multi": true
+  }
+ ],
+ "tools": [
+  {
+   "id": "recipe",
+   "title": "Juice recipe",
+   "subtitle": "From what's in the fridge",
+   "emoji": "🥕",
+   "inputs": [
+    {
+     "key": "produce",
+     "label": "Produce available",
+     "type": "longtext",
+     "placeholder": "6 carrots, 2 apples, ginger, half a lemon, celery",
+     "required": true
+    },
+    {
+     "key": "mood",
+     "label": "Mood",
+     "type": "chips",
+     "options": [
+      "Green & lean",
+      "Bright citrus",
+      "Sweet & rooty",
+      "Ginger kick",
+      "Kid-friendly"
+     ],
+     "default": "Green & lean"
+    }
+   ],
+   "prompt": "From {produce} make a '{mood}' juice on the profile's juicer: 3 recipes as cards (meta = ml yield est. · kcal est.), steps for the feeding order that maximises yield and avoids foaming on this juicer, and a kv of sugar g per glass compared with a glass of orange juice for context.",
+   "shape": "cards, steps, kv",
+   "button": "Juice it",
+   "loading": "Feeding the chute…"
+  },
+  {
+   "id": "yield",
+   "title": "Produce calculator",
+   "subtitle": "How much to buy for X ml",
+   "emoji": "🧮",
+   "inputs": [
+    {
+     "key": "juice",
+     "label": "Juice + amount",
+     "type": "text",
+     "placeholder": "500 ml carrot-apple-ginger a day for 5 days",
+     "required": true
+    }
+   ],
+   "prompt": "Calculate produce for {juice} on the profile's juicer. Table (Produce | Weight kg | Pieces approx | ml yield | Est. cost), kv (total ml, total cost, cost per glass vs bought cold-pressed), a checklist shopping list, and a callout on which items to buy organic or peel and which can be budget.",
+   "shape": "table, kv, checklist, callout",
+   "button": "Calculate",
+   "loading": "Weighing carrots…"
+  },
+  {
+   "id": "week",
+   "title": "Juicing week",
+   "subtitle": "Batch, store, drink on time",
+   "emoji": "📅",
+   "inputs": [
+    {
+     "key": "glasses",
+     "label": "Glasses per day",
+     "type": "chips",
+     "options": [
+      "1",
+      "2",
+      "3"
+     ],
+     "default": "1"
+    },
+    {
+     "key": "prefs",
+     "label": "Preferences this week",
+     "type": "text",
+     "placeholder": "less beet, more citrus"
+    }
+   ],
+   "prompt": "Plan 7 days of {glasses} glass(es) per day with preferences: {prefs}, for the profile's taste. Table (Day | Juice | Make on | Drink by), steps for two batch sessions with bottling and storage rules for the profile's juicer, a checklist shopping list, and a callout on storage life, filling bottles to the brim, and how to tell a juice has turned.",
+   "shape": "table, steps, checklist, callout",
+   "button": "Plan week",
+   "loading": "Lining up bottles…"
+  },
+  {
+   "id": "pulp",
+   "title": "Use the pulp",
+   "subtitle": "Crackers, broth, muffins, dog treats",
+   "emoji": "♻️",
+   "inputs": [
+    {
+     "key": "pulp",
+     "label": "Pulp type + amount",
+     "type": "text",
+     "placeholder": "2 cups carrot-apple pulp",
+     "required": true
+    },
+    {
+     "key": "make",
+     "label": "Make",
+     "type": "chips",
+     "options": [
+      "Crackers",
+      "Muffins",
+      "Veggie burgers",
+      "Broth",
+      "Dog treats",
+      "Compost tips"
+     ],
+     "default": "Crackers"
+    }
+   ],
+   "prompt": "Turn {pulp} into {make} with steps that give grams and oven temperatures. Add kv (prep minutes, yield, keeps for) and bullets on 3 other uses for this exact pulp.",
+   "shape": "steps, kv, bullets",
+   "button": "Use it",
+   "loading": "Rescuing the pulp…"
+  },
+  {
+   "id": "clean",
+   "title": "Clean & maintain",
+   "subtitle": "Your juicer, done right",
+   "emoji": "🧽",
+   "inputs": [
+    {
+     "key": "issue",
+     "label": "Issue",
+     "type": "chips",
+     "options": [
+      "Routine clean",
+      "Stained parts",
+      "Smells",
+      "Screen clogs",
+      "Less juice than before",
+      "Loud / grinding"
+     ],
+     "default": "Routine clean"
+    }
+   ],
+   "prompt": "For '{issue}' on the profile's juicer, give steps in order. Then a checklist of parts to inspect, and a callout on what not to put in the dishwasher or scrub with metal.",
+   "shape": "steps, checklist, callout",
+   "button": "Show me",
+   "loading": "Scrubbing…"
+  }
+ ],
+ "disclaimer": "Juice is food, not a treatment. Nutrition is estimated; drink fresh juice within 72 hours (24 hours from a centrifugal juicer). Speak to a clinician before juice-only days if pregnant, diabetic or on medication."
+}

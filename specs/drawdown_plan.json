@@ -1,0 +1,192 @@
+{
+ "id": "drawdown_plan",
+ "name": "Drawdown Plan",
+ "tagline": "Turn a nest egg into a paycheck that lasts",
+ "category": "Finance",
+ "colors": [
+  "#00695C",
+  "#F9A825",
+  "#5D4037"
+ ],
+ "icon": "clock",
+ "about": "Drawdown Plan is for the last five years before retirement and the first ten after: withdrawal rates that fit your horizon, bucket strategies, sequence-risk protection and a year-one income schedule you can actually follow.",
+ "persona": "You are a decumulation specialist: measured, safety-first, fluent in withdrawal rules and bucket strategies, general about tax, and clear that an adviser should check the final plan.",
+ "onboarding": {
+  "title": "Make it last",
+  "subtitle": "Tell us the size of the pot and what it needs to cover.",
+  "bullets": [
+   "Withdrawal rate for your horizon",
+   "Bucket strategy set-up",
+   "Year-one income schedule"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "age",
+   "label": "Age",
+   "type": "number",
+   "placeholder": "62"
+  },
+  {
+   "key": "pot",
+   "label": "Total investments",
+   "type": "number",
+   "placeholder": "600000"
+  },
+  {
+   "key": "guaranteed",
+   "label": "Guaranteed income per year (pensions, annuities)",
+   "type": "number",
+   "placeholder": "18000"
+  }
+ ],
+ "tools": [
+  {
+   "id": "rate",
+   "title": "Pick my withdrawal rate",
+   "subtitle": "How much can the pot pay?",
+   "emoji": "💧",
+   "inputs": [
+    {
+     "key": "spend",
+     "label": "Spending needed per year",
+     "type": "number",
+     "placeholder": "42000"
+    },
+    {
+     "key": "horizon",
+     "label": "Years it must last",
+     "type": "number",
+     "placeholder": "30"
+    },
+    {
+     "key": "flex",
+     "label": "Can you cut spending in bad years?",
+     "type": "chips",
+     "options": [
+      "No",
+      "A little",
+      "Yes, 10%+"
+     ],
+     "default": "A little"
+    }
+   ],
+   "prompt": "Profile pot and guaranteed income, spending {spend}/year for {horizon} years, flexibility: {flex}. kv (needed from portfolio per year, implied withdrawal rate, verdict, suggested starting rate). Table (Rule | How it works | Starting income | Best when) for fixed percentage, inflation-adjusted, guardrails, and floor-and-upside. Bullets on what pushes a safe rate up or down, and a callout on sequence-of-returns risk.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Set my rate",
+   "loading": "Calibrating…"
+  },
+  {
+   "id": "buckets",
+   "title": "Build my buckets",
+   "subtitle": "Cash, income, growth",
+   "emoji": "🪣",
+   "inputs": [
+    {
+     "key": "style",
+     "label": "Style",
+     "type": "chips",
+     "options": [
+      "2 buckets",
+      "3 buckets"
+     ],
+     "default": "3 buckets"
+    },
+    {
+     "key": "spend",
+     "label": "Portfolio withdrawal per year",
+     "type": "number",
+     "placeholder": "24000"
+    }
+   ],
+   "prompt": "Design a {style} strategy for the profile pot withdrawing {spend}/year. Table (Bucket | Purpose | Years covered | Amount | Asset types), steps to set it up, kv of refill rules (when → from which bucket), and a callout on the classic mistake of never refilling the cash bucket.",
+   "shape": "table, steps, kv, callout",
+   "button": "Build buckets",
+   "loading": "Filling buckets…"
+  },
+  {
+   "id": "year1",
+   "title": "Year-one paycheck",
+   "subtitle": "A monthly income schedule",
+   "emoji": "📅",
+   "inputs": [
+    {
+     "key": "monthly",
+     "label": "Monthly income wanted",
+     "type": "number",
+     "placeholder": "3500"
+    },
+    {
+     "key": "dates",
+     "label": "When pensions / other income start",
+     "type": "text",
+     "placeholder": "state pension at 67",
+     "required": true
+    }
+   ],
+   "prompt": "Build a year-one income schedule for the profile paying {monthly}/month, with other income timing: {dates}. Table (Month | From guaranteed | From portfolio | From cash | Notes), steps for setting up automatic transfers, a checklist of accounts and paperwork, and a callout on keeping 12–24 months of withdrawals in cash.",
+   "shape": "table, steps, checklist, callout",
+   "button": "Schedule it",
+   "loading": "Cutting paychecks…"
+  },
+  {
+   "id": "sequence",
+   "title": "Protect against a crash",
+   "subtitle": "Sequence risk, defended",
+   "emoji": "🛡️",
+   "inputs": [
+    {
+     "key": "years",
+     "label": "Years until retirement",
+     "type": "number",
+     "placeholder": "3"
+    }
+   ],
+   "prompt": "The user retires in {years} years with the profile pot. Explain sequence-of-returns risk in text with a two-retiree numeric example, then a table (Defence | What it does | Cost | Set up by when) for cash buffer, bond tent, flexible spending, delaying, part-time income; steps to implement over the next {years} years; and a callout on what not to do in a crash.",
+   "shape": "text, table, steps, callout",
+   "button": "Protect me",
+   "loading": "Building defences…"
+  },
+  {
+   "id": "checkup",
+   "title": "Annual check-up",
+   "subtitle": "Raise, hold or cut?",
+   "emoji": "🩺",
+   "inputs": [
+    {
+     "key": "value",
+     "label": "Portfolio value now",
+     "type": "number",
+     "placeholder": "580000"
+    },
+    {
+     "key": "withdrew",
+     "label": "Withdrawn in last 12 months",
+     "type": "number",
+     "placeholder": "24000"
+    },
+    {
+     "key": "market",
+     "label": "Last year was",
+     "type": "chips",
+     "options": [
+      "Bad",
+      "Flat",
+      "Good"
+     ],
+     "default": "Flat"
+    }
+   ],
+   "prompt": "Annual review: pot now {value}, withdrew {withdrew}, market {market}. kv (current withdrawal rate, change vs the starting rate, guardrail status: raise / hold / cut), bullets of adjustments for the coming year, a checklist of housekeeping (rebalance, refill buckets, review fees, beneficiaries), and a callout with the one number to watch.",
+   "shape": "kv, bullets, checklist, callout",
+   "button": "Review",
+   "loading": "Checking vitals…"
+  }
+ ],
+ "disclaimer": "General education only — not financial, tax or legal advice. Figures are illustrative projections, not predictions; check your own situation with a licensed adviser."
+}

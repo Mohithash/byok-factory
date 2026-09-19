@@ -1,0 +1,180 @@
+{
+ "id": "recall_club",
+ "name": "Recall Club",
+ "tagline": "Daily brain games that keep memory sharp",
+ "category": "Games",
+ "colors": [
+  "#6A1B9A",
+  "#FFB300",
+  "#00897B"
+ ],
+ "icon": "brain",
+ "about": "Recall Club serves a fresh set of memory and word puzzles every day, teaches proven techniques for remembering names and lists, and tracks how you're doing week to week.",
+ "persona": "You are an encouraging cognitive-training coach for older adults: playful, never patronising, you adapt difficulty to the person and celebrate effort over score.",
+ "onboarding": {
+  "title": "Keep your mind in training",
+  "subtitle": "A few details let us pitch the puzzles at the right level.",
+  "bullets": [
+   "A new brain workout every day",
+   "Name and list memory techniques",
+   "Weekly progress you can see"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "level",
+   "label": "Puzzle level",
+   "type": "chips",
+   "options": [
+    "Gentle",
+    "Medium",
+    "Challenging"
+   ],
+   "default": "Medium"
+  },
+  {
+   "key": "likes",
+   "label": "Favourite puzzle types",
+   "type": "chips",
+   "options": [
+    "Words",
+    "Numbers",
+    "Pictures in the mind",
+    "Trivia",
+    "Logic"
+   ],
+   "multi": true
+  },
+  {
+   "key": "era",
+   "label": "Decade you remember best",
+   "type": "chips",
+   "options": [
+    "1950s",
+    "1960s",
+    "1970s",
+    "1980s",
+    "1990s"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "daily",
+   "title": "Today's workout",
+   "subtitle": "Five puzzles, ten minutes",
+   "emoji": "🧠",
+   "inputs": [
+    {
+     "key": "minutes",
+     "label": "Time",
+     "type": "chips",
+     "options": [
+      "5",
+      "10",
+      "15"
+     ],
+     "default": "10"
+    }
+   ],
+   "prompt": "Build a {minutes}-minute brain workout for the profile's level and favourite types: cards, one per puzzle (5 puzzles: a word-list recall, a number pattern, a mental-picture task, a trivia question from the profile's decade, a quick logic riddle; meta = minutes · skill trained). Put the answers in a separate kv at the end labelled 'Answers' so they can be covered. Close with a quote of encouragement.",
+   "shape": "cards, kv, quote",
+   "button": "Start workout",
+   "loading": "Setting the puzzles…"
+  },
+  {
+   "id": "names",
+   "title": "Remember names",
+   "subtitle": "Never blank on a name again",
+   "emoji": "🙋",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "People you want to remember",
+     "type": "text",
+     "placeholder": "new neighbours Pat and Derek, the pharmacist Anjali",
+     "required": true
+    }
+   ],
+   "prompt": "Teach a name-memory technique using these real people: {who}. Steps for the face-feature + name-link method, then a table (Name | Feature to notice | Link or image | Rehearsal cue) with a row for each person named, and bullets on when to rehearse (the 1-minute, 1-hour, 1-day rule).",
+   "shape": "steps, table, bullets",
+   "button": "Teach me",
+   "loading": "Linking faces…"
+  },
+  {
+   "id": "palace",
+   "title": "Memory palace",
+   "subtitle": "Turn a list into a walk",
+   "emoji": "🏠",
+   "inputs": [
+    {
+     "key": "items",
+     "label": "List to remember",
+     "type": "longtext",
+     "placeholder": "milk, stamps, phone Barbara, prescription, birthday card",
+     "required": true
+    },
+    {
+     "key": "place",
+     "label": "A route you know well",
+     "type": "text",
+     "placeholder": "my front door to the kitchen"
+    }
+   ],
+   "prompt": "Build a memory palace for the list: {items} along the route: {place}. Steps that walk the route, placing each item at a landmark with a vivid, silly image (one item per step). Then a checklist of the items in order so the user can test themselves, and a callout on why silly, exaggerated images stick.",
+   "shape": "steps, checklist, callout",
+   "button": "Build palace",
+   "loading": "Placing items…"
+  },
+  {
+   "id": "words",
+   "title": "Word games",
+   "subtitle": "Anagrams, categories, ladders",
+   "emoji": "🔤",
+   "inputs": [
+    {
+     "key": "game",
+     "label": "Game",
+     "type": "chips",
+     "options": [
+      "Anagrams",
+      "Name 10 in a category",
+      "Word ladder",
+      "Odd one out",
+      "Finish the proverb"
+     ],
+     "default": "Anagrams"
+    }
+   ],
+   "prompt": "Run a round of {game} at the profile's level with 8 items: a table (No. | Puzzle | Hint) with the answers hidden, then a kv labelled 'Answers' (number → answer) at the very end, and bullets with 2 tips for getting faster at this game type.",
+   "shape": "table, kv, bullets",
+   "button": "Play",
+   "loading": "Shuffling letters…"
+  },
+  {
+   "id": "review",
+   "title": "How am I doing?",
+   "subtitle": "Paste your scores",
+   "emoji": "📈",
+   "inputs": [
+    {
+     "key": "scores",
+     "label": "This week's results",
+     "type": "longtext",
+     "placeholder": "Mon 7/10 words, Tue 5/10 numbers, felt tired…",
+     "required": true
+    }
+   ],
+   "prompt": "Review the week: {scores}. Bullets of what improved and what stayed steady, a table (Skill | Trend | Next-week focus), steps for a tweak to next week's routine, and a callout separating normal ups and downs from changes worth mentioning to a doctor, without diagnosing.",
+   "shape": "bullets, table, steps, callout",
+   "button": "Review",
+   "loading": "Tallying…"
+  }
+ ],
+ "disclaimer": "Brain games are for enjoyment and practice; they don't diagnose or treat memory conditions. If you or your family notice worsening memory, speak to your doctor."
+}

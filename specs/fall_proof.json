@@ -1,0 +1,189 @@
+{
+ "id": "fall_proof",
+ "name": "Fall Proof",
+ "tagline": "Make your home and habits fall-proof after 60",
+ "category": "Health & Fitness",
+ "colors": [
+  "#00695C",
+  "#FFA000",
+  "#5D4037"
+ ],
+ "icon": "shield",
+ "about": "Fall Proof audits your home room by room from photos, checks the medicines, footwear and lighting that quietly raise fall risk, and gives you a rehearsed plan for the night-time trip and for the fall itself.",
+ "persona": "You are an occupational therapist specialising in falls prevention: practical, respectful of independence, precise about cheap fixes first.",
+ "onboarding": {
+  "title": "Most falls are preventable",
+  "subtitle": "A few details let us tailor the audit.",
+  "bullets": [
+   "Room-by-room hazard scans from photos",
+   "Medicine, footwear and lighting checks",
+   "A rehearsed plan for if you fall"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "age",
+   "label": "Age",
+   "type": "number",
+   "placeholder": "72"
+  },
+  {
+   "key": "home",
+   "label": "Home",
+   "type": "chips",
+   "options": [
+    "House with stairs",
+    "Bungalow",
+    "Flat",
+    "Sheltered housing"
+   ],
+   "default": "House with stairs"
+  },
+  {
+   "key": "lives",
+   "label": "Lives",
+   "type": "chips",
+   "options": [
+    "Alone",
+    "With partner",
+    "With family"
+   ],
+   "default": "With partner"
+  }
+ ],
+ "tools": [
+  {
+   "id": "scan",
+   "title": "Scan a room",
+   "subtitle": "Photo → hazards and fixes",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of a room, hallway, stairs or bathroom",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "Inspect the room photo for fall hazards (rugs, cords, lighting, clutter, thresholds, grab points, furniture height, wet floors). Sections: a table (Hazard | Where | Risk level | Fix | Approx. cost), a checklist of free fixes to do today, and a callout on the single highest-risk item.",
+   "shape": "table, checklist, callout",
+   "button": "Scan room",
+   "loading": "Looking around…"
+  },
+  {
+   "id": "audit",
+   "title": "Whole-home audit",
+   "subtitle": "Room-by-room checklist, cheapest first",
+   "emoji": "🏠",
+   "inputs": [
+    {
+     "key": "rooms",
+     "label": "Rooms to cover",
+     "type": "chips",
+     "options": [
+      "Bathroom",
+      "Bedroom",
+      "Stairs & hall",
+      "Kitchen",
+      "Outside & entrance"
+     ],
+     "default": "Bathroom",
+     "multi": true
+    },
+    {
+     "key": "done",
+     "label": "Already fitted",
+     "type": "text",
+     "placeholder": "grab rail by the toilet, night light on the landing"
+    }
+   ],
+   "prompt": "Build a falls audit for the profile's home covering {rooms}, skipping anything already fitted: {done}. Sections: a checklist per room of what to check and fix, ordered cheapest first, a table (Fix | Cost band | Who can fit it | Priority), bullets on grants, occupational-therapy referrals and equipment services that often exist for older residents, and a callout on the three fixes with the strongest evidence (lighting, rails, removing loose rugs).",
+   "shape": "checklist, table, bullets, callout",
+   "button": "Run the audit",
+   "loading": "Checking corners…"
+  },
+  {
+   "id": "meds",
+   "title": "Medicines & dizziness",
+   "subtitle": "Which ones raise fall risk",
+   "emoji": "💊",
+   "inputs": [
+    {
+     "key": "meds",
+     "label": "Medicines and supplements",
+     "type": "longtext",
+     "placeholder": "amlodipine, zopiclone, codeine for the knee",
+     "required": true
+    },
+    {
+     "key": "dizzy",
+     "label": "Dizzy on standing?",
+     "type": "chips",
+     "options": [
+      "Never",
+      "Sometimes",
+      "Often"
+     ],
+     "default": "Sometimes"
+    }
+   ],
+   "prompt": "Review these medicines for the profile as general information only: {meds}; dizziness on standing: {dizzy}. Sections: a table (Medicine | Class | Fall-related effect to be aware of | Ask the pharmacist about), bullets of the questions to raise at a medication review (timing, dose, alternatives, standing slowly), steps for a safe stand-up routine (sit on the edge, count to ten, hold something, then go), and a callout that no medicine should be stopped or changed without the prescriber.",
+   "shape": "table, bullets, steps, callout",
+   "button": "Review meds",
+   "loading": "Reading labels…"
+  },
+  {
+   "id": "night",
+   "title": "Night-time plan",
+   "subtitle": "Safer trips to the bathroom",
+   "emoji": "🌙",
+   "inputs": [
+    {
+     "key": "trips",
+     "label": "Bathroom trips per night",
+     "type": "number",
+     "placeholder": "2"
+    },
+    {
+     "key": "route",
+     "label": "Bedroom to bathroom route",
+     "type": "text",
+     "placeholder": "landing, four steps, bathroom door"
+    }
+   ],
+   "prompt": "Plan safe night-time trips for the profile ({trips} per night, route: {route}). Sections: steps for the trip itself (wake fully, sit, light on, footwear, hold the rail), a checklist of setup (motion-sensor lights, cleared path, bedside items, a commode or bottle if appropriate), a kv of evening habits that reduce trips (fluid timing, caffeine, alcohol, legs up in the afternoon), and a callout on when frequent night-time urination is worth mentioning to a doctor.",
+   "shape": "steps, checklist, kv, callout",
+   "button": "Plan nights",
+   "loading": "Dimming lights…"
+  },
+  {
+   "id": "getup",
+   "title": "If I fall",
+   "subtitle": "Getting up safely, and the plan",
+   "emoji": "🆘",
+   "inputs": [
+    {
+     "key": "situation",
+     "label": "Practise for",
+     "type": "chips",
+     "options": [
+      "Getting up from the floor",
+      "Fall outdoors",
+      "Fall at night alone"
+     ],
+     "default": "Getting up from the floor"
+    }
+   ],
+   "prompt": "Coach the profile through '{situation}'. Sections: steps for the safe sequence (check for injury, roll, crawl to a sturdy chair, kneel, rise) with one cue per step, bullets on what to do if you cannot get up (warmth, moving joints, calling for help), a checklist of preparation (phone placement, alarm pendant, keys with a neighbour), and a callout on injuries that mean stay put and call emergency services.",
+   "shape": "steps, bullets, checklist, callout",
+   "button": "Coach me",
+   "loading": "Practising…"
+  }
+ ],
+ "disclaimer": "General information, not medical advice. Never stop or change a medicine without the prescriber, and see a doctor after any fall with injury, blackout or new dizziness."
+}

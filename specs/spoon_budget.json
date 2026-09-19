@@ -1,0 +1,206 @@
+{
+ "id": "spoon_budget",
+ "name": "Spoon Budget",
+ "tagline": "Pacing for chronic fatigue, fibromyalgia and long COVID",
+ "category": "Medical",
+ "colors": [
+  "#3949AB",
+  "#F06292",
+  "#4DB6AC"
+ ],
+ "icon": "moon",
+ "about": "Spoon Budget helps people with ME/CFS, fibromyalgia, long COVID or other energy-limiting conditions plan days within their energy envelope, spot boom-and-bust cycles, get through crashes and explain their limits to others.",
+ "persona": "You are a pacing coach informed by occupational therapy and patient communities: validating, anti-'push through', practical, and clear that post-exertional malaise means rest is treatment, not laziness.",
+ "onboarding": {
+  "title": "Spend your energy on purpose",
+  "subtitle": "Your baseline and symptoms shape the plan.",
+  "bullets": [
+   "Daily plans within your energy envelope",
+   "Boom-bust pattern detection",
+   "Crash plans and scripts for others"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "condition",
+   "label": "Condition",
+   "type": "chips",
+   "options": [
+    "ME/CFS",
+    "Fibromyalgia",
+    "Long COVID",
+    "POTS",
+    "Other / undiagnosed"
+   ]
+  },
+  {
+   "key": "spoons",
+   "label": "Spoons on a typical day",
+   "type": "number",
+   "placeholder": "10"
+  },
+  {
+   "key": "pem",
+   "label": "Post-exertional crashes",
+   "type": "chips",
+   "options": [
+    "Rarely",
+    "Sometimes",
+    "Most weeks",
+    "Constant"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "day",
+   "title": "Plan today",
+   "subtitle": "Fit tasks to your spoons",
+   "emoji": "🥄",
+   "inputs": [
+    {
+     "key": "tasks",
+     "label": "What needs doing",
+     "type": "longtext",
+     "placeholder": "shower, GP call, cook dinner, reply to 5 emails, kids' pickup",
+     "required": true
+    },
+    {
+     "key": "today",
+     "label": "Energy right now vs usual",
+     "type": "chips",
+     "options": [
+      "Lower",
+      "About usual",
+      "Higher"
+     ],
+     "default": "About usual"
+    }
+   ],
+   "prompt": "Budget today for the profile spoons with energy '{today}' across: {tasks}. Table (Task | Spoon cost | Do, delegate, defer or drop | Time slot | Rest after), a checklist of the plan in order with rest blocks as their own items, bullets on cutting each task's cost (sit down, batch, timers, pre-prepared food), and a callout to keep 2 spoons in reserve and what a crash warning typically feels like for this condition.",
+   "shape": "table, checklist, bullets, callout",
+   "button": "Budget it",
+   "loading": "Counting spoons…"
+  },
+  {
+   "id": "pattern",
+   "title": "Boom-bust check",
+   "subtitle": "Paste a couple of weeks",
+   "emoji": "📉",
+   "inputs": [
+    {
+     "key": "log",
+     "label": "Activity and symptom log",
+     "type": "longtext",
+     "placeholder": "Mon: big clean, felt great; Tue–Thu: crashed, couldn't work; Fri: pushed to do the shopping…",
+     "required": true
+    }
+   ],
+   "prompt": "Analyse: {log}. Table (Day | Activity level 1–5 | Symptoms 1–5 | Pattern note), bullets identifying boom-bust cycles, the typical crash delay in hours or days and the activity threshold that seems to trigger it, a kv with a suggested sustainable daily baseline and a rule for when to increase it, and a callout that the first goal of pacing is to stabilise and that increases are only for weeks that have been stable.",
+   "shape": "table, bullets, kv, callout",
+   "button": "Find cycles",
+   "loading": "Spotting the bust…"
+  },
+  {
+   "id": "crash",
+   "title": "Crash plan",
+   "subtitle": "Get through the next 72 hours",
+   "emoji": "🛏️",
+   "inputs": [
+    {
+     "key": "severity",
+     "label": "How bad",
+     "type": "chips",
+     "options": [
+      "Mild",
+      "Moderate",
+      "Severe, bed-bound"
+     ],
+     "default": "Moderate"
+    },
+    {
+     "key": "obligations",
+     "label": "What can't wait",
+     "type": "text",
+     "placeholder": "kids' dinner, one work message"
+    }
+   ],
+   "prompt": "A 72-hour crash plan at '{severity}' with obligations '{obligations}'. Steps for each day (rest positions, low-stimulation environment, hydration and easy food, minimum-effort ways to meet the obligations), a checklist of what to ask a partner, friend or delivery service to do, a quote with a 2-line message to send someone who can help, and a callout on symptoms that are not typical of a crash (chest pain, new weakness, severe breathlessness) and need medical care.",
+   "shape": "steps, checklist, quote, callout",
+   "button": "Plan the crash",
+   "loading": "Dimming everything…"
+  },
+  {
+   "id": "explain",
+   "title": "Explain my limits",
+   "subtitle": "Scripts for work, family, friends",
+   "emoji": "💬",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "To",
+     "type": "chips",
+     "options": [
+      "Manager",
+      "Partner",
+      "Parent",
+      "Friend who doesn't get it",
+      "Doctor"
+     ],
+     "default": "Friend who doesn't get it"
+    },
+    {
+     "key": "situation",
+     "label": "The situation",
+     "type": "text",
+     "placeholder": "they keep inviting me to late dinners and get hurt when I cancel"
+    }
+   ],
+   "prompt": "Write for my {who} about: {situation}. A quote with a short, warm, boundary-clear message, bullets of 3 alternative ways to keep the relationship or job working (shorter, earlier, remote, split tasks), a kv of one-line answers to common pushbacks ('but you look fine', 'just try exercising'), and a callout on not over-explaining or apologising.",
+   "shape": "quote, bullets, kv, callout",
+   "button": "Write it",
+   "loading": "Finding words…"
+  },
+  {
+   "id": "gentle",
+   "title": "Gentle movement check",
+   "subtitle": "Only if you're stable",
+   "emoji": "🌿",
+   "inputs": [
+    {
+     "key": "weeks",
+     "label": "Weeks since last crash",
+     "type": "chips",
+     "options": [
+      "Under 2",
+      "2–4",
+      "Over 4"
+     ],
+     "default": "2–4"
+    },
+    {
+     "key": "now",
+     "label": "Currently manage",
+     "type": "chips",
+     "options": [
+      "Bed to chair",
+      "Short walks indoors",
+      "Walks under 10 min",
+      "Walks 10–30 min"
+     ],
+     "default": "Short walks indoors"
+    }
+   ],
+   "prompt": "For someone {weeks} weeks since a crash who currently manages '{now}', decide whether any increase is appropriate. Text with a clear yes or not-yet verdict and why, a table (Week | Activity | Minutes | Stop rule) for 4 weeks that increases by no more than 10% and only after symptom-stable weeks, bullets on heart-rate pacing and recumbent options for POTS, and a callout that graded exercise therapy is not recommended for ME/CFS with post-exertional malaise and that any plan stops at the first sign of PEM.",
+   "shape": "text, table, bullets, callout",
+   "button": "Check",
+   "loading": "Weighing gently…"
+  }
+ ],
+ "disclaimer": "General information, not medical advice. Energy-limiting conditions differ widely; pacing plans here do not replace advice from your clinician or occupational therapist. New chest pain, severe breathlessness, fainting or sudden weakness needs urgent care."
+}

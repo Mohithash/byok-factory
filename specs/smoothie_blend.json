@@ -1,0 +1,194 @@
+{
+ "id": "smoothie_blend",
+ "name": "Blend Book",
+ "tagline": "Smoothies built for your goal, blender and week",
+ "category": "Food & Drink",
+ "colors": [
+  "#D81B60",
+  "#7CB342",
+  "#FFB300"
+ ],
+ "icon": "bolt",
+ "about": "Blend Book writes smoothies around your goal and the produce you have, preps a week of freezer packs, fixes texture and taste, and estimates the nutrition of what is in the cup.",
+ "persona": "You are a practical smoothie-bar owner and nutrition-literate cook: you balance protein, fibre and sweetness, and you never oversell health claims.",
+ "onboarding": {
+  "title": "Better blends, less waste",
+  "subtitle": "Your blender and goal change the recipes.",
+  "bullets": [
+   "Recipes for your goal and gear",
+   "Weekly freezer-pack prep",
+   "Fix any smoothie that went wrong"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "blender",
+   "label": "Blender",
+   "type": "chips",
+   "options": [
+    "High-power",
+    "Standard jug",
+    "Personal / bullet",
+    "Hand blender"
+   ]
+  },
+  {
+   "key": "goal",
+   "label": "Main goal",
+   "type": "chips",
+   "options": [
+    "Breakfast replacement",
+    "Post-workout",
+    "More greens",
+    "Kids",
+    "Weight management",
+    "Just tasty"
+   ]
+  },
+  {
+   "key": "avoid",
+   "label": "Avoid",
+   "type": "text",
+   "placeholder": "dairy, banana"
+  }
+ ],
+ "tools": [
+  {
+   "id": "blend",
+   "title": "Blend from what I have",
+   "subtitle": "Produce + goal → 3 recipes",
+   "emoji": "🥤",
+   "inputs": [
+    {
+     "key": "have",
+     "label": "What you have",
+     "type": "longtext",
+     "placeholder": "spinach, frozen berries, oats, peanut butter, oat milk",
+     "required": true
+    },
+    {
+     "key": "texture",
+     "label": "Texture",
+     "type": "chips",
+     "options": [
+      "Thin & drinkable",
+      "Thick & spoonable",
+      "Bowl"
+     ],
+     "default": "Thin & drinkable"
+    }
+   ],
+   "prompt": "Using {have} at {texture} texture for the profile's goal, blender and avoid-list: 3 recipes as cards (meta = ml · kcal est. · protein g est.), steps for the blending order that avoids chunks on the profile's blender, and bullets on what to add to each for more protein or fibre.",
+   "shape": "cards, steps, bullets",
+   "button": "Blend",
+   "loading": "Whirring…"
+  },
+  {
+   "id": "packs",
+   "title": "Freezer packs",
+   "subtitle": "A week of grab-and-blend bags",
+   "emoji": "🧊",
+   "inputs": [
+    {
+     "key": "count",
+     "label": "Packs to make",
+     "type": "number",
+     "placeholder": "5"
+    },
+    {
+     "key": "budget",
+     "label": "Budget",
+     "type": "number",
+     "placeholder": "25"
+    },
+    {
+     "key": "theme",
+     "label": "Theme",
+     "type": "text",
+     "placeholder": "green mornings, tropical"
+    }
+   ],
+   "prompt": "Plan {count} freezer smoothie packs on a {budget} budget with theme '{theme}' for the profile's goal and avoid-list. Table (Pack | Contents with grams | Add on the day | kcal est.), a checklist shopping list, steps for the assembly session with portioning tips, and a callout on freezer life and what not to freeze.",
+   "shape": "table, checklist, steps, callout",
+   "button": "Plan packs",
+   "loading": "Filling bags…"
+  },
+  {
+   "id": "fix",
+   "title": "Fix my smoothie",
+   "subtitle": "Too thick, bitter, separated…",
+   "emoji": "🔧",
+   "inputs": [
+    {
+     "key": "problem",
+     "label": "Problem",
+     "type": "chips",
+     "options": [
+      "Too thick",
+      "Too thin / watery",
+      "Bitter or grassy",
+      "Too sweet",
+      "Chalky protein",
+      "Separates",
+      "Gritty seeds",
+      "Bland"
+     ],
+     "default": "Bitter or grassy"
+    },
+    {
+     "key": "recipe",
+     "label": "What went in",
+     "type": "text",
+     "placeholder": "2 cups kale, 1 apple, water, chia"
+    }
+   ],
+   "prompt": "Problem: {problem}. Recipe: {recipe}. Text on why it happened, a table (Fix | How much | Trade-off), and steps to rescue the glass in front of you right now.",
+   "shape": "text, table, steps",
+   "button": "Fix it",
+   "loading": "Re-blending…"
+  },
+  {
+   "id": "nutrition",
+   "title": "Estimate nutrition",
+   "subtitle": "What's really in the cup",
+   "emoji": "📊",
+   "inputs": [
+    {
+     "key": "recipe",
+     "label": "Recipe with amounts",
+     "type": "longtext",
+     "placeholder": "1 banana, 200 ml whole milk, 30 g whey, 1 tbsp peanut butter",
+     "required": true
+    }
+   ],
+   "prompt": "Estimate nutrition for: {recipe}. Table (Ingredient | Amount | kcal | Protein g | Carbs g | Fibre g | Sugar g), kv (totals per serving, sugar from fruit vs added), a callout on whether it fits the profile's goal, and bullets on 2 swaps that would improve it.",
+   "shape": "table, kv, callout, bullets",
+   "button": "Estimate",
+   "loading": "Counting calories…"
+  },
+  {
+   "id": "scan",
+   "title": "Scan my fruit bowl",
+   "subtitle": "Photo → blend it before it turns",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of your fruit bowl or fridge",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "List every fruit and vegetable visible as a table (Item | Ripeness | Use within days | Best in). Then 3 smoothies as cards prioritising the ripest items and honouring the profile's avoid-list (meta = ml · kcal est.), and bullets on what to freeze today for later.",
+   "shape": "table, cards, bullets",
+   "button": "Scan",
+   "loading": "Checking ripeness…"
+  }
+ ],
+ "disclaimer": "Nutrition figures are estimates, not medical advice. Talk to a clinician or dietitian about medical diets, allergies, supplements or feeding infants."
+}

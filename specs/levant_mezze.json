@@ -1,0 +1,271 @@
+{
+ "id": "levant_mezze",
+ "name": "Mezze Table",
+ "tagline": "Levantine and Middle Eastern cooking, feast to weeknight",
+ "category": "Food & Drink",
+ "colors": [
+  "#00695C",
+  "#F57F17",
+  "#6D4C41"
+ ],
+ "icon": "leaf",
+ "about": "Mezze Table plans Levantine and wider Middle Eastern cooking: mezze spreads (including iftar) with a timeline, hummus that's actually smooth, kebabs and skewers with proper marinades, home-ground spice blends and the showpiece mains — mansaf, kabsa, maqluba, ouzi — with the timings that make them work.",
+ "persona": "You are a Levantine home cook (Lebanese, Syrian, Palestinian, Jordanian) who also knows Turkish, Egyptian and Gulf tables; you cook with tahini, sumac, pomegranate molasses and patience, respect halal and fasting needs, and adapt to Western supermarkets.",
+ "onboarding": {
+  "title": "Bring the Middle Eastern table home",
+  "subtitle": "Tell us your diet and the region you love most.",
+  "bullets": [
+   "Mezze spreads and iftar with a timeline",
+   "Smooth hummus and proper kebabs",
+   "Spice blends and showpiece mains"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "diet",
+   "label": "Diet",
+   "type": "chips",
+   "options": [
+    "Halal",
+    "Vegetarian",
+    "Vegan",
+    "Anything"
+   ],
+   "default": "Halal"
+  },
+  {
+   "key": "region",
+   "label": "Region you love",
+   "type": "chips",
+   "options": [
+    "Lebanese",
+    "Syrian",
+    "Palestinian",
+    "Jordanian",
+    "Turkish",
+    "Egyptian",
+    "Gulf / Khaleeji",
+    "Iraqi"
+   ],
+   "default": "Lebanese"
+  },
+  {
+   "key": "pantry",
+   "label": "Pantry",
+   "type": "text",
+   "placeholder": "tahini, sumac, pomegranate molasses, freekeh"
+  }
+ ],
+ "tools": [
+  {
+   "id": "mezze",
+   "title": "Mezze spread",
+   "subtitle": "Cold and hot mezze for a crowd",
+   "emoji": "🥙",
+   "inputs": [
+    {
+     "key": "guests",
+     "label": "Guests",
+     "type": "number",
+     "placeholder": "8"
+    },
+    {
+     "key": "occasion",
+     "label": "Occasion",
+     "type": "chips",
+     "options": [
+      "Casual lunch",
+      "Dinner party",
+      "Big family gathering",
+      "Ramadan iftar",
+      "Eid",
+      "Picnic"
+     ],
+     "default": "Dinner party"
+    },
+    {
+     "key": "mix",
+     "label": "Mix",
+     "type": "chips",
+     "options": [
+      "Mostly cold",
+      "Cold + hot",
+      "Vegan spread",
+      "Meat-forward"
+     ],
+     "default": "Cold + hot"
+    }
+   ],
+   "prompt": "Plan a {mix} mezze spread for {guests} guests, occasion: {occasion}, honouring the profile's diet and region. Sections: cards for 6–8 dishes (meta = minutes · make-ahead up to N days), a table 'Breads & dips' (Item | Buy or make | Quantity for the crowd), steps for a 2-day timeline ending at serving time, a checklist shopping list grouped by fresh / pantry / dairy / bakery, and a callout on quantities per person (or, if the occasion is iftar, on gentle break-fast order: dates, water and soup before the spread).",
+   "shape": "cards, table, steps, checklist, callout",
+   "button": "Plan mezze",
+   "loading": "Drizzling olive oil…"
+  },
+  {
+   "id": "hummus",
+   "title": "Hummus perfectionist",
+   "subtitle": "Silky, from dried or canned",
+   "emoji": "🫘",
+   "inputs": [
+    {
+     "key": "beans",
+     "label": "Chickpeas",
+     "type": "chips",
+     "options": [
+      "Dried (soak overnight)",
+      "Dried (pressure cooker)",
+      "Canned"
+     ],
+     "default": "Canned"
+    },
+    {
+     "key": "style",
+     "label": "Style",
+     "type": "chips",
+     "options": [
+      "Beiruti silky",
+      "Musabaha (chunky, warm)",
+      "Extra-tahini",
+      "With lamb & pine nuts",
+      "Beetroot / roasted pepper twist"
+     ],
+     "default": "Beiruti silky"
+    }
+   ],
+   "prompt": "Teach {style} hummus from {beans}. Sections: kv (chickpea grams dry or drained, tahini grams, lemon ml, ice water ml, garlic, salt, cumin, blend minutes), steps including baking soda for skins, over-cooking for silkiness and the emulsion order, a table 'Troubleshooting' (Problem | Cause | Fix) for grainy, bitter, stiff and bland, and bullets on toppings and how to plate it properly.",
+   "shape": "kv, steps, table, bullets",
+   "button": "Make hummus",
+   "loading": "Peeling chickpeas…"
+  },
+  {
+   "id": "grill",
+   "title": "Kebabs & skewers",
+   "subtitle": "Marinades, shaping and grilling",
+   "emoji": "🍢",
+   "inputs": [
+    {
+     "key": "type",
+     "label": "Type",
+     "type": "chips",
+     "options": [
+      "Shish tawook",
+      "Kofta / kafta",
+      "Lamb shish",
+      "Adana-style",
+      "Halloumi & vegetable",
+      "Shawarma (oven)"
+     ],
+     "default": "Shish tawook"
+    },
+    {
+     "key": "people",
+     "label": "People",
+     "type": "number",
+     "placeholder": "6"
+    },
+    {
+     "key": "gear",
+     "label": "Gear",
+     "type": "chips",
+     "options": [
+      "Charcoal grill",
+      "Gas grill",
+      "Grill pan",
+      "Oven broiler"
+     ],
+     "default": "Grill pan"
+    }
+   ],
+   "prompt": "Guide {type} for {people} people on {gear}. Sections: a table 'Marinade' (Ingredient | Grams | Why), steps from marinating time through shaping (for kofta, the paste texture cue) to grilling with temperature and minutes per side, bullets of 4 sides that complete the plate (toum, pickles, rice, salad), and a callout on food safety for marinated meat and on preventing kofta falling off skewers.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Grill it",
+   "loading": "Threading skewers…"
+  },
+  {
+   "id": "spice",
+   "title": "Grind a spice blend",
+   "subtitle": "Za'atar, baharat, seven-spice, dukkah",
+   "emoji": "🌿",
+   "inputs": [
+    {
+     "key": "blend",
+     "label": "Blend",
+     "type": "chips",
+     "options": [
+      "Za'atar",
+      "Baharat",
+      "Lebanese seven-spice",
+      "Dukkah",
+      "Shawarma spice",
+      "Kabsa spice",
+      "Falafel spice"
+     ],
+     "default": "Za'atar"
+    },
+    {
+     "key": "grams",
+     "label": "Batch size (g)",
+     "type": "number",
+     "placeholder": "100"
+    }
+   ],
+   "prompt": "Make {grams} g of {blend} in the profile's regional style. Sections: a table 'Formula' (Spice | Grams | Toast? | Role), steps for toasting, cooling, grinding and blending, bullets of 5 uses with amounts per dish, and a kv (storage container, shelf life, freshness test, cost per batch versus shop-bought).",
+   "shape": "table, steps, bullets, kv",
+   "button": "Grind it",
+   "loading": "Toasting seeds…"
+  },
+  {
+   "id": "main",
+   "title": "Showpiece main",
+   "subtitle": "Mansaf, kabsa, maqluba, ouzi, molokhia",
+   "emoji": "🍛",
+   "inputs": [
+    {
+     "key": "dish",
+     "label": "Dish",
+     "type": "chips",
+     "options": [
+      "Mansaf",
+      "Kabsa",
+      "Maqluba",
+      "Ouzi / lamb over rice",
+      "Molokhia",
+      "Kibbeh bil sanieh",
+      "Mujadara",
+      "Fattet hummus",
+      "Pick for my region"
+     ],
+     "default": "Pick for my region"
+    },
+    {
+     "key": "people",
+     "label": "People",
+     "type": "number",
+     "placeholder": "8"
+    },
+    {
+     "key": "gear",
+     "label": "Gear",
+     "type": "chips",
+     "options": [
+      "Big pot only",
+      "Pot + oven",
+      "Pressure cooker",
+      "Small kitchen"
+     ],
+     "default": "Pot + oven"
+    }
+   ],
+   "prompt": "Guide {dish} for {people} people using {gear}, in the profile's regional style and diet (if 'Pick for my region', choose the dish that region is proudest of and say why). Sections: kv (dish, region, serves, total minutes, active minutes, pot or tray size), a table 'Ingredients' (Ingredient | Grams | Role | Substitute abroad), steps as a timeline working back from serving with the make-or-break cues (jameed thinning for mansaf, the rice absorption test for kabsa, the flip and 10-minute rest for maqluba, the molokhia 'do not boil' moment), bullets of 3 sides and a salad that complete the table, and a callout on the single mistake that ruins this dish.",
+   "shape": "kv, table, steps, bullets, callout",
+   "button": "Cook the main",
+   "loading": "Resting the rice…"
+  }
+ ],
+ "disclaimer": "General cooking guidance, not food-safety or dietary advice: follow safe handling, storage and allergen practices, take care with hot oil, open flames, raw or undercooked foods and fermentation, and discard anything that smells or looks wrong."
+}

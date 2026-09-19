@@ -1,0 +1,190 @@
+{
+ "id": "feast_calendar",
+ "name": "Feast Calendar",
+ "tagline": "Every faith's dates, for teams, schools and families",
+ "category": "Lifestyle",
+ "colors": [
+  "#00838F",
+  "#F4511E",
+  "#7B1FA2"
+ ],
+ "icon": "calendar",
+ "about": "Feast Calendar shows which religious and cultural observances fall in any month, how they affect scheduling, food and greetings, and writes inclusive plans for workplaces, classrooms and multi-faith families.",
+ "persona": "You are an inclusion-minded calendar expert: accurate about lunar and solar calendars, upfront that many dates depend on moon sighting or locale, and practical about what a manager, teacher or parent actually needs to do.",
+ "onboarding": {
+  "title": "Never book the big meeting on Eid again",
+  "subtitle": "Tell us your setting and the communities you care about.",
+  "bullets": [
+   "Monthly multi-faith observance lists",
+   "Meeting and exam date checks",
+   "Greetings and inclusive event plans"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "setting",
+   "label": "Setting",
+   "type": "chips",
+   "options": [
+    "Workplace",
+    "School / classroom",
+    "Multi-faith family",
+    "Community group"
+   ],
+   "default": "Workplace"
+  },
+  {
+   "key": "communities",
+   "label": "Communities present",
+   "type": "chips",
+   "options": [
+    "Christian",
+    "Orthodox Christian",
+    "Muslim",
+    "Jewish",
+    "Hindu",
+    "Sikh",
+    "Buddhist",
+    "Jain",
+    "Baháʼí",
+    "Chinese traditional",
+    "Indigenous",
+    "Secular"
+   ],
+   "multi": true
+  },
+  {
+   "key": "country",
+   "label": "Country",
+   "type": "text",
+   "placeholder": "UK"
+  }
+ ],
+ "tools": [
+  {
+   "id": "month",
+   "title": "This month's observances",
+   "subtitle": "What's coming and what it means",
+   "emoji": "📅",
+   "inputs": [
+    {
+     "key": "month",
+     "label": "Month & year",
+     "type": "text",
+     "placeholder": "October 2026",
+     "required": true
+    }
+   ],
+   "prompt": "List the religious and cultural observances in {month} for the profile's communities and country. Sections: a table (Date or range | Observance | Tradition | Type: holy day / fast / festival / national | Typical impact: day off, fasting, early finish, dietary), bullets of greetings for each with pronunciation, and a callout stating which dates depend on moon sighting or vary by locale and must be confirmed.",
+   "shape": "table, bullets, callout",
+   "button": "Show month",
+   "loading": "Checking calendars…"
+  },
+  {
+   "id": "clash",
+   "title": "Check a date",
+   "subtitle": "Before you book the meeting, exam or party",
+   "emoji": "🔎",
+   "inputs": [
+    {
+     "key": "date",
+     "label": "Date(s)",
+     "type": "text",
+     "placeholder": "14–16 April 2027",
+     "required": true
+    },
+    {
+     "key": "event",
+     "label": "Event",
+     "type": "text",
+     "placeholder": "all-hands, exam week, school trip, team offsite"
+    }
+   ],
+   "prompt": "Check {date} for scheduling {event} in the profile's setting. Sections: kv (verdict: clear / caution / avoid, and the observances affected), a table (Observance | Who is affected | How: absent, fasting, sunset constraint | Suggested adjustment), bullets of alternative dates nearby, and a callout on what to say when announcing the date so people feel seen.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Check date",
+   "loading": "Cross-checking…"
+  },
+  {
+   "id": "inclusive",
+   "title": "Plan an inclusive event",
+   "subtitle": "Food, timing, space, greetings",
+   "emoji": "🥘",
+   "inputs": [
+    {
+     "key": "event",
+     "label": "Event",
+     "type": "text",
+     "placeholder": "end-of-year party, class celebration, team lunch during Ramadan",
+     "required": true
+    },
+    {
+     "key": "people",
+     "label": "People",
+     "type": "number",
+     "placeholder": "30"
+    }
+   ],
+   "prompt": "Plan {event} for {people} people so every profile community can take part. Sections: a checklist (timing vs sunset and prayer times, food labels: halal, kosher, vegetarian, Jain, alcohol-free option, quiet room, dress), a table (Consideration | Why | Simple fix), a quote with a 3-sentence invitation text that welcomes everyone without singling anyone out, and a callout on the most common well-meant mistake.",
+   "shape": "checklist, table, quote, callout",
+   "button": "Plan event",
+   "loading": "Laying the table…"
+  },
+  {
+   "id": "explain",
+   "title": "Explain an observance",
+   "subtitle": "For a team note or a classroom",
+   "emoji": "📣",
+   "inputs": [
+    {
+     "key": "observance",
+     "label": "Observance",
+     "type": "text",
+     "placeholder": "Yom Kippur, Vaisakhi, Lent, Vesak, Ramadan",
+     "required": true
+    },
+    {
+     "key": "audience",
+     "label": "Audience",
+     "type": "chips",
+     "options": [
+      "Colleagues",
+      "Primary pupils",
+      "Secondary pupils",
+      "Family members"
+     ],
+     "default": "Colleagues"
+    }
+   ],
+   "prompt": "Explain {observance} for {audience}. Sections: quote with a 120–180 word note ready to send or read aloud, kv (what it marks, how long, what observers do, how others can be considerate), bullets of 3 discussion or activity ideas suited to the audience, and a callout on respectful language and what not to assume.",
+   "shape": "quote, kv, bullets, callout",
+   "button": "Write note",
+   "loading": "Drafting…"
+  },
+  {
+   "id": "year",
+   "title": "Year at a glance",
+   "subtitle": "Key dates for the shared calendar",
+   "emoji": "🗓️",
+   "inputs": [
+    {
+     "key": "year",
+     "label": "Year",
+     "type": "text",
+     "placeholder": "2027",
+     "required": true
+    }
+   ],
+   "prompt": "Produce a year-at-a-glance for {year} for the profile's communities and country. Sections: a table (Month | Major observances | Approx. dates | Flag for scheduling), bullets of the 8–10 dates most worth adding to a shared calendar, steps for confirming moveable dates each quarter, and a callout that lunar dates shift about 11 days earlier each year and are confirmed locally.",
+   "shape": "table, bullets, steps, callout",
+   "button": "Build year",
+   "loading": "Aligning calendars…"
+  }
+ ],
+ "disclaimer": "Dates are approximate and many observances depend on moon sighting or local custom — confirm with community members; this is not HR or legal guidance."
+}

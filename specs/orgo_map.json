@@ -1,0 +1,173 @@
+{
+ "id": "orgo_map",
+ "name": "Orgo Map",
+ "tagline": "Organic chemistry mechanisms, spectra and synthesis, mapped",
+ "category": "Education",
+ "colors": [
+  "#4527A0",
+  "#43A047",
+  "#FF7043"
+ ],
+ "icon": "spark",
+ "about": "Orgo Map walks reaction mechanisms arrow by arrow, identifies functional groups from a photo of a structure, interprets IR and NMR data, plans multi-step syntheses and drills the reagents you keep mixing up.",
+ "persona": "You are an organic chemistry tutor who thinks in electron pushing: nucleophile, electrophile, leaving group, every time; you name intermediates, rank their stability and never skip a curved arrow.",
+ "onboarding": {
+  "title": "Push arrows, not luck",
+  "subtitle": "Your course stage picks which reactions you'll meet.",
+  "bullets": [
+   "Mechanisms arrow by arrow",
+   "IR & NMR peak interpretation",
+   "Synthesis routes and reagent drills"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "stage",
+   "label": "Course stage",
+   "type": "chips",
+   "options": [
+    "Orgo I",
+    "Orgo II",
+    "A-level / IB",
+    "Biochem-focused"
+   ]
+  },
+  {
+   "key": "weak",
+   "label": "Weakest areas",
+   "type": "chips",
+   "options": [
+    "Nomenclature",
+    "Mechanisms",
+    "Spectroscopy",
+    "Synthesis",
+    "Stereochemistry"
+   ],
+   "multi": true
+  }
+ ],
+ "tools": [
+  {
+   "id": "mech",
+   "title": "Mechanism walkthrough",
+   "subtitle": "Arrow by arrow, intermediate by intermediate",
+   "emoji": "🔄",
+   "inputs": [
+    {
+     "key": "reaction",
+     "label": "Reaction",
+     "type": "text",
+     "placeholder": "2-bromo-2-methylpropane + methanol",
+     "required": true
+    },
+    {
+     "key": "type",
+     "label": "Suspected type",
+     "type": "chips",
+     "options": [
+      "Unsure",
+      "SN1",
+      "SN2",
+      "E1",
+      "E2",
+      "Addition",
+      "Aromatic substitution",
+      "Carbonyl"
+     ],
+     "default": "Unsure"
+    }
+   ],
+   "prompt": "Mechanism for {reaction} (suspected: {type}): kv (mechanism type, nucleophile, electrophile, leaving group, rate law, stereochemical outcome), steps where each step names the arrow pushed (from where to where) and the intermediate formed with its stability ranking, a table (Factor | Favours SN1/E1 | Favours SN2/E2) for this substrate and solvent, and a callout on the competing pathway and how to suppress it.",
+   "shape": "kv, steps, table, callout",
+   "button": "Show mechanism",
+   "loading": "Pushing arrows…"
+  },
+  {
+   "id": "groups",
+   "title": "Functional group scan",
+   "subtitle": "Photo of a structure → groups and reactivity",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo or drawing of the structure",
+     "type": "photo",
+     "required": true
+    }
+   ],
+   "prompt": "From the photo of the structure: table (Functional group | Position | Reactivity notes | Typical reagent), kv (molecular formula, degrees of unsaturation, stereocentres, IUPAC name), bullets on which site reacts first with a strong nucleophile and with a strong acid, and a callout on any acidic hydrogens and their approximate pKa.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Scan structure",
+   "loading": "Finding groups…"
+  },
+  {
+   "id": "spectra",
+   "title": "Interpret spectra",
+   "subtitle": "IR, ¹H and ¹³C NMR → structure",
+   "emoji": "📈",
+   "inputs": [
+    {
+     "key": "data",
+     "label": "Spectral data",
+     "type": "longtext",
+     "placeholder": "C4H8O2. IR 1740 cm⁻¹; ¹H NMR: 4.1 (q, 2H), 2.0 (s, 3H), 1.3 (t, 3H)",
+     "required": true
+    }
+   ],
+   "prompt": "Interpret {data}: steps (degrees of unsaturation, IR functional groups, NMR shift / integration / splitting reasoning), a table (Signal | Assignment | Reason), kv (proposed structure, IUPAC name, confidence), and bullets of alternative structures ruled out and why.",
+   "shape": "steps, table, kv, bullets",
+   "button": "Solve structure",
+   "loading": "Reading peaks…"
+  },
+  {
+   "id": "synth",
+   "title": "Synthesis planner",
+   "subtitle": "Target → route with reagents",
+   "emoji": "🧭",
+   "inputs": [
+    {
+     "key": "target",
+     "label": "Target molecule",
+     "type": "text",
+     "placeholder": "2-methyl-2-butanol",
+     "required": true
+    },
+    {
+     "key": "start",
+     "label": "Starting material (optional)",
+     "type": "text",
+     "placeholder": "any alkene with ≤ 4 carbons"
+    }
+   ],
+   "prompt": "Plan a synthesis of {target} starting from {start}: steps in forward order (reagents, conditions, product of each step), a table (Step | Reaction type | Regio / stereo control), a callout on the step most likely to give side products, and bullets sketching one alternative route.",
+   "shape": "steps, table, callout, bullets",
+   "button": "Plan route",
+   "loading": "Retrosynthesising…"
+  },
+  {
+   "id": "reagents",
+   "title": "Reagent flashcards",
+   "subtitle": "The ones you keep mixing up",
+   "emoji": "🃏",
+   "inputs": [
+    {
+     "key": "topic",
+     "label": "Topic",
+     "type": "text",
+     "placeholder": "oxidising agents: PCC vs Jones vs KMnO4",
+     "required": true
+    }
+   ],
+   "prompt": "Flashcards for {topic} at the profile stage: cards (reagent → what it does, meta = substrate class), a table (Reagent | Turns X into Y | Leaves untouched), and a quote with a memory hook that separates them.",
+   "shape": "cards, table, quote",
+   "button": "Make cards",
+   "loading": "Shuffling…"
+  }
+ ],
+ "disclaimer": "Educational guidance only; follow your institution's safety rules and the reagent's SDS before any practical work, and never attempt reactions outside a supervised lab."
+}

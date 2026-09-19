@@ -1,0 +1,172 @@
+{
+ "id": "culture_compass",
+ "name": "Culture Compass",
+ "tagline": "Understand the unwritten rules of your new home",
+ "category": "Travel & Local",
+ "colors": [
+  "#00695C",
+  "#F4511E",
+  "#FDD835"
+ ],
+ "icon": "globe",
+ "about": "Culture Compass explains the unwritten rules of your new country — etiquette, work norms, awkward moments — and walks you through the culture-shock curve with practical weekly check-ins.",
+ "persona": "You are a warm intercultural coach: specific about norms without stereotyping, honest that individuals vary, and quick to normalise the messy middle of adjustment.",
+ "onboarding": {
+  "title": "Decode your new country",
+  "subtitle": "Tell us where you're from and where you've landed.",
+  "bullets": [
+   "Etiquette briefings that go beyond clichés",
+   "Decode any awkward moment",
+   "Culture-shock check-ins"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "from",
+   "label": "Home culture",
+   "type": "text",
+   "placeholder": "Brazil"
+  },
+  {
+   "key": "to",
+   "label": "New country / city",
+   "type": "text",
+   "placeholder": "Tokyo, Japan"
+  },
+  {
+   "key": "months",
+   "label": "Months since arrival",
+   "type": "text",
+   "placeholder": "4"
+  }
+ ],
+ "tools": [
+  {
+   "id": "briefing",
+   "title": "Etiquette briefing",
+   "subtitle": "Do this, not that",
+   "emoji": "🧭",
+   "inputs": [
+    {
+     "key": "context",
+     "label": "Context",
+     "type": "chips",
+     "options": [
+      "Everyday life",
+      "Workplace",
+      "Dining & drinking",
+      "Neighbours & housing",
+      "Dating & friendship",
+      "Family visits"
+     ],
+     "default": "Everyday life"
+    }
+   ],
+   "prompt": "An etiquette briefing for the profile in the context '{context}': a table (Situation | Expected here | Home-culture habit that trips people up | Why), bullets of 5 phrases or gestures that earn goodwill, a callout on the single most costly faux pas, and text on how norms differ by generation or region.",
+   "shape": "table, bullets, callout, text",
+   "button": "Brief me",
+   "loading": "Reading the room…"
+  },
+  {
+   "id": "moment",
+   "title": "Decode a moment",
+   "subtitle": "Something felt off — what happened?",
+   "emoji": "🤔",
+   "inputs": [
+    {
+     "key": "what",
+     "label": "What happened",
+     "type": "longtext",
+     "placeholder": "colleague went quiet when I said no to drinks after work…",
+     "required": true
+    }
+   ],
+   "prompt": "Decode: {what}. Text explaining the likely cultural reading of the moment from both sides, bullets of 3 alternative interpretations, steps to repair or follow up if needed, and a quote with what to say next time.",
+   "shape": "text, bullets, steps, quote",
+   "button": "Decode",
+   "loading": "Interpreting…"
+  },
+  {
+   "id": "checkin",
+   "title": "Adjustment check-in",
+   "subtitle": "Where you are on the curve",
+   "emoji": "📈",
+   "inputs": [
+    {
+     "key": "feeling",
+     "label": "Lately I feel",
+     "type": "chips",
+     "options": [
+      "Excited",
+      "Irritated by everything",
+      "Lonely",
+      "Exhausted",
+      "Settling in",
+      "Numb"
+     ],
+     "multi": true
+    },
+    {
+     "key": "notes",
+     "label": "Anything else",
+     "type": "text",
+     "placeholder": "miss my food, work is fine"
+    }
+   ],
+   "prompt": "Feelings: {feeling}. Notes: {notes}. Given the months since arrival, text naming the likely culture-shock phase and why it is normal, a checklist of 7 small actions for the next week, bullets on what usually helps at this stage, and a callout on signs this is more than adjustment and worth talking to a professional.",
+   "shape": "text, checklist, bullets, callout",
+   "button": "Check in",
+   "loading": "Listening…"
+  },
+  {
+   "id": "smalltalk",
+   "title": "Small talk kit",
+   "subtitle": "Topics that work, topics that don't",
+   "emoji": "💬",
+   "inputs": [
+    {
+     "key": "with",
+     "label": "With",
+     "type": "chips",
+     "options": [
+      "Colleagues",
+      "Neighbours",
+      "Parents at school",
+      "Strangers",
+      "In-laws"
+     ],
+     "default": "Colleagues"
+    }
+   ],
+   "prompt": "A small-talk kit for {with} in the profile's new country: a table (Safe topic | Opener | Avoid), a quote with 3 openers in the local language with phonetics and meaning, bullets on turn-taking, silence and personal space, and a callout on humour that doesn't travel.",
+   "shape": "table, quote, bullets, callout",
+   "button": "Give me lines",
+   "loading": "Warming up…"
+  },
+  {
+   "id": "explain",
+   "title": "Explain my culture",
+   "subtitle": "Help locals understand you",
+   "emoji": "🌍",
+   "inputs": [
+    {
+     "key": "thing",
+     "label": "What to explain",
+     "type": "text",
+     "placeholder": "why I hug people, why I'm 15 minutes late",
+     "required": true
+    }
+   ],
+   "prompt": "Help the profile explain '{thing}' from their home culture to people in the new country: a quote with a friendly 3-sentence explanation, bullets on how it may be perceived locally, and steps toward a compromise that keeps identity without friction.",
+   "shape": "quote, bullets, steps",
+   "button": "Explain",
+   "loading": "Bridging…"
+  }
+ ],
+ "disclaimer": "Supportive information, not therapy; if you feel persistently low or unsafe, contact a mental-health professional or a local helpline."
+}

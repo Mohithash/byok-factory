@@ -1,0 +1,244 @@
+{
+ "id": "mexican_comal",
+ "name": "Comal",
+ "tagline": "Salsas, tacos, tortillas and mole done properly",
+ "category": "Food & Drink",
+ "colors": [
+  "#B71C1C",
+  "#00897B",
+  "#FBC02D"
+ ],
+ "icon": "sun",
+ "about": "Comal is a Mexican home-cooking companion: salsas from the chiles you can find, regional taco nights, nixtamal and flour tortillas from scratch, chile identification from a photo, and big-batch mole you can freeze.",
+ "persona": "You are a Mexican home cook and cooking teacher who knows regional cuisine (Oaxaca, Yucatán, Norteño, CDMX, Jalisco, Baja, Puebla), respects tradition but adapts to what a supermarket abroad actually sells; you never confuse Tex-Mex with Mexican unless asked.",
+ "onboarding": {
+  "title": "Real Mexican food, wherever you live",
+  "subtitle": "Tell us your heat tolerance and where you shop; recipes adapt to what you can get.",
+  "bullets": [
+   "Salsas from the chiles you have",
+   "Tortillas and mole from scratch",
+   "Identify any chile from a photo"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "heat",
+   "label": "Heat tolerance",
+   "type": "chips",
+   "options": [
+    "Mild",
+    "Medium",
+    "Picante",
+    "Bring it"
+   ],
+   "default": "Medium"
+  },
+  {
+   "key": "shop",
+   "label": "Where you shop",
+   "type": "chips",
+   "options": [
+    "Mexican grocer nearby",
+    "Supermarket only",
+    "Online for dried chiles",
+    "Latin/Asian mixed store"
+   ],
+   "default": "Supermarket only"
+  },
+  {
+   "key": "gear",
+   "label": "Kitchen gear",
+   "type": "text",
+   "placeholder": "cast-iron pan, blender, no tortilla press"
+  }
+ ],
+ "tools": [
+  {
+   "id": "salsa",
+   "title": "Salsa builder",
+   "subtitle": "Raw, roasted, verde, macha, from what you have",
+   "emoji": "🌶️",
+   "inputs": [
+    {
+     "key": "chiles",
+     "label": "Chiles you have",
+     "type": "chips",
+     "options": [
+      "Jalapeño",
+      "Serrano",
+      "Habanero",
+      "Poblano",
+      "Chipotle (canned)",
+      "Guajillo",
+      "Ancho",
+      "Árbol",
+      "Pasilla",
+      "Morita",
+      "None fresh"
+     ],
+     "default": "Jalapeño",
+     "multi": true
+    },
+    {
+     "key": "style",
+     "label": "Style",
+     "type": "chips",
+     "options": [
+      "Salsa cruda",
+      "Tatemada (charred)",
+      "Verde",
+      "Roja cooked",
+      "Macha",
+      "Pico de gallo",
+      "Habanero table salsa"
+     ],
+     "default": "Tatemada (charred)"
+    },
+    {
+     "key": "with",
+     "label": "Eating it with",
+     "type": "text",
+     "placeholder": "carnitas tacos"
+    }
+   ],
+   "prompt": "Make a {style} salsa from {chiles}, tuned to the profile's heat tolerance, to eat with {with}. Sections: kv (yield, heat on a 1–10 scale, minutes, keeps for), steps including how to char or toast each element and when to add salt and acid, bullets of 3 swaps if an ingredient is missing, and a callout on handling chiles safely (gloves, eyes, ventilation).",
+   "shape": "kv, steps, bullets, callout",
+   "button": "Make salsa",
+   "loading": "Charring…"
+  },
+  {
+   "id": "tacos",
+   "title": "Taco night",
+   "subtitle": "Regional fillings, toppings and cook order",
+   "emoji": "🌮",
+   "inputs": [
+    {
+     "key": "protein",
+     "label": "Protein or base",
+     "type": "text",
+     "placeholder": "pork shoulder, mushrooms, chicken thighs",
+     "required": true
+    },
+    {
+     "key": "people",
+     "label": "People",
+     "type": "number",
+     "placeholder": "6"
+    },
+    {
+     "key": "region",
+     "label": "Region",
+     "type": "chips",
+     "options": [
+      "Norteño",
+      "Yucatán",
+      "Oaxaca",
+      "CDMX street",
+      "Baja",
+      "Jalisco",
+      "Puebla",
+      "Any"
+     ],
+     "default": "Any"
+    }
+   ],
+   "prompt": "Plan a {region} taco night for {people} people around {protein}. Sections: cards for 3 fillings (meta = minutes · heat), a table 'Toppings & sides' (Item | Prep | Pairs with which filling), a checklist shopping list adapted to where the profile shops, steps for a cook order that has everything ready together, and a callout on how many tortillas per person and how to keep them warm.",
+   "shape": "cards, table, checklist, steps, callout",
+   "button": "Plan tacos",
+   "loading": "Warming tortillas…"
+  },
+  {
+   "id": "chile",
+   "title": "Identify a chile",
+   "subtitle": "Photo → name, heat, uses, substitute",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the chile (fresh or dried)",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "context",
+     "label": "Where you found it",
+     "type": "text",
+     "placeholder": "dried, in a bag labelled 'chile seco'"
+    }
+   ],
+   "prompt": "Identify the chile in the photo (context: {context}). Sections: kv (most likely name with alternatives, fresh/dried form and the other form's name, heat in Scoville and a plain-language rating, flavour notes, closest substitute), bullets of 4 dishes it is classically used in, steps to prepare it (toast/soak/deseed) and a callout on look-alikes that are much hotter.",
+   "shape": "kv, bullets, steps, callout",
+   "button": "Identify",
+   "loading": "Squinting at seeds…"
+  },
+  {
+   "id": "tortilla",
+   "title": "Tortillas from scratch",
+   "subtitle": "Corn or flour, press or no press",
+   "emoji": "🫓",
+   "inputs": [
+    {
+     "key": "type",
+     "label": "Type",
+     "type": "chips",
+     "options": [
+      "Corn (masa harina)",
+      "Corn (fresh masa / nixtamal)",
+      "Flour (wheat)",
+      "Flour (lard-free)"
+     ],
+     "default": "Corn (masa harina)"
+    },
+    {
+     "key": "count",
+     "label": "How many",
+     "type": "number",
+     "placeholder": "16"
+    }
+   ],
+   "prompt": "Teach {type} tortillas, {count} pieces, with the profile's gear (improvise a press if there is none). Sections: kv (masa or flour grams, water or fat grams, rest time, comal temperature, seconds per side and per flip), steps with the cues for 'right hydration' and the puff, a table 'Troubleshooting' (Problem | Cause | Fix) for cracking edges, sticking, no puff and stiff tortillas, and bullets on storing and reheating.",
+   "shape": "kv, steps, table, bullets",
+   "button": "Make tortillas",
+   "loading": "Pressing…"
+  },
+  {
+   "id": "mole",
+   "title": "Mole & big batches",
+   "subtitle": "A weekend mole you freeze in portions",
+   "emoji": "🍫",
+   "inputs": [
+    {
+     "key": "mole",
+     "label": "Mole",
+     "type": "chips",
+     "options": [
+      "Mole negro",
+      "Mole rojo",
+      "Mole verde",
+      "Mole poblano",
+      "Pipián verde",
+      "Pipián rojo",
+      "Manchamanteles"
+     ],
+     "default": "Mole poblano"
+    },
+    {
+     "key": "servings",
+     "label": "Servings to make",
+     "type": "number",
+     "placeholder": "12"
+    }
+   ],
+   "prompt": "Guide {mole} for {servings} servings, sourced for where the profile shops. Sections: a table 'Ingredients' (Ingredient | Quantity | Role in the mole | Substitute if unavailable), steps in the correct order (toast, soak, fry, blend, season, simmer) with timings, a callout on burning chiles and seeds (the number-one cause of bitterness), and bullets on portioning, freezing, reheating and 3 ways to use it beyond chicken.",
+   "shape": "table, steps, callout, bullets",
+   "button": "Start the mole",
+   "loading": "Toasting chiles…"
+  }
+ ],
+ "disclaimer": "General cooking guidance, not food-safety or dietary advice: follow safe handling, storage and allergen practices, take care with hot oil, open flames, raw or undercooked foods and fermentation, and discard anything that smells or looks wrong."
+}

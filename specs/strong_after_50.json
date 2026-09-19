@@ -1,0 +1,201 @@
+{
+ "id": "strong_after_50",
+ "name": "Strong After 50",
+ "tagline": "Keep muscle, strength and independence past 50",
+ "category": "Health & Fitness",
+ "colors": [
+  "#B71C1C",
+  "#37474F",
+  "#FFB300"
+ ],
+ "icon": "dumbbell",
+ "about": "Strong After 50 builds joint-friendly strength programmes that fight age-related muscle loss, sets protein targets, swaps any exercise that hurts and tracks your progress month to month.",
+ "persona": "You are a strength coach who specialises in over-50s: progressive, patient, allergic to ego lifting, and precise about tempo, rest and recovery.",
+ "onboarding": {
+  "title": "Muscle is your retirement fund",
+  "subtitle": "Tell us your equipment and history; we build from there.",
+  "bullets": [
+   "2–3 day programmes for home or gym",
+   "Protein and recovery targets",
+   "Pain-free swaps for any exercise"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "age",
+   "label": "Age",
+   "type": "number",
+   "placeholder": "58"
+  },
+  {
+   "key": "kit",
+   "label": "Equipment",
+   "type": "chips",
+   "options": [
+    "Bodyweight only",
+    "Resistance bands",
+    "Dumbbells",
+    "Full gym"
+   ],
+   "default": "Dumbbells"
+  },
+  {
+   "key": "issues",
+   "label": "Joints or conditions to respect",
+   "type": "text",
+   "placeholder": "left knee replacement, mild shoulder impingement"
+  }
+ ],
+ "tools": [
+  {
+   "id": "program",
+   "title": "Build my programme",
+   "subtitle": "4 weeks, 2–3 sessions",
+   "emoji": "🏋️",
+   "inputs": [
+    {
+     "key": "days",
+     "label": "Sessions per week",
+     "type": "chips",
+     "options": [
+      "2",
+      "3"
+     ],
+     "default": "3"
+    },
+    {
+     "key": "exp",
+     "label": "Experience",
+     "type": "chips",
+     "options": [
+      "Never lifted",
+      "Long ago",
+      "Currently training"
+     ],
+     "default": "Long ago"
+    },
+    {
+     "key": "minutes",
+     "label": "Minutes per session",
+     "type": "number",
+     "placeholder": "40"
+    }
+   ],
+   "prompt": "Write a 4-week strength programme for the profile: {days} sessions a week, experience '{exp}', {minutes} minutes each, using the profile's equipment and respecting the listed issues. Sections: a table (Session | Exercise | Sets × reps | Tempo | Rest), steps for the warm-up used every session, bullets on how to progress load each week, and a callout on the difference between muscle burn and joint pain.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Build it",
+   "loading": "Loading the bar…"
+  },
+  {
+   "id": "swap",
+   "title": "This one hurts",
+   "subtitle": "Replace an exercise safely",
+   "emoji": "🔁",
+   "inputs": [
+    {
+     "key": "exercise",
+     "label": "Exercise",
+     "type": "text",
+     "placeholder": "barbell squat",
+     "required": true
+    },
+    {
+     "key": "where",
+     "label": "Where it hurts and when",
+     "type": "text",
+     "placeholder": "front of knee at the bottom"
+    }
+   ],
+   "prompt": "The user gets pain doing {exercise}: {where}. Sections: text on the likely reason in plain English (no diagnosis), cards with 3 alternatives that train the same muscles (meta = equipment · difficulty), steps for a regressed version of the original to rebuild toward, and a callout on pain patterns that mean stop and see a physio.",
+   "shape": "text, cards, steps, callout",
+   "button": "Find swaps",
+   "loading": "Re-racking…"
+  },
+  {
+   "id": "protein",
+   "title": "Protein & recovery",
+   "subtitle": "Daily targets and a sample day",
+   "emoji": "🍳",
+   "inputs": [
+    {
+     "key": "weight",
+     "label": "Body weight (kg)",
+     "type": "number",
+     "placeholder": "82"
+    },
+    {
+     "key": "diet",
+     "label": "Diet",
+     "type": "chips",
+     "options": [
+      "Anything",
+      "Vegetarian",
+      "Vegan",
+      "Pescatarian"
+     ],
+     "default": "Anything"
+    }
+   ],
+   "prompt": "For a {weight} kg person over 50 on a '{diet}' diet. Sections: kv (daily protein target with grams per meal, why older muscle needs more per meal, sleep target, creatine as general information), a table of a sample day (Meal | Foods | Protein g), bullets of cheap high-protein staples, and a callout on kidney conditions and discussing supplements with a doctor.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Set targets",
+   "loading": "Weighing up…"
+  },
+  {
+   "id": "checkin",
+   "title": "Monthly check-in",
+   "subtitle": "Paste your numbers, get the next step",
+   "emoji": "📈",
+   "inputs": [
+    {
+     "key": "log",
+     "label": "This month's lifts",
+     "type": "longtext",
+     "placeholder": "goblet squat 16kg 3×10 → 20kg 3×8; push-ups 8 → 12",
+     "required": true
+    },
+    {
+     "key": "feel",
+     "label": "How you feel",
+     "type": "text",
+     "placeholder": "sleeping better, right elbow niggly"
+    }
+   ],
+   "prompt": "Review this month's training: {log}; the user reports: {feel}. Sections: a table (Exercise | Start | Now | Change), bullets of wins, a callout on any niggle mentioned and how to train around it, steps for next month's loads and reps, and a quote with a one-line focus for the month.",
+   "shape": "table, bullets, callout, steps, quote",
+   "button": "Review",
+   "loading": "Tallying…"
+  },
+  {
+   "id": "functional",
+   "title": "Real-life strength",
+   "subtitle": "Train for stairs, bags, grandkids",
+   "emoji": "🧳",
+   "inputs": [
+    {
+     "key": "task",
+     "label": "Task",
+     "type": "chips",
+     "options": [
+      "Carrying shopping",
+      "Stairs without the rail",
+      "Getting off the floor",
+      "Lifting a toddler",
+      "Gardening all afternoon"
+     ],
+     "default": "Carrying shopping"
+    }
+   ],
+   "prompt": "Choose 4 exercises that directly build strength for '{task}' with the profile's equipment. Sections: cards (exercise and why it transfers, meta = sets × reps), steps for a 12-minute mini session, and a checklist of technique cues for doing the task itself safely.",
+   "shape": "cards, steps, checklist",
+   "button": "Train for it",
+   "loading": "Mapping muscles…"
+  }
+ ],
+ "disclaimer": "General information, not medical advice. Get clearance from your doctor before starting if you have heart, joint or blood-pressure conditions, and stop for chest pain, dizziness or sharp joint pain."
+}

@@ -1,0 +1,188 @@
+{
+ "id": "invest_tutor",
+ "name": "Invest Tutor",
+ "tagline": "Investing explained from zero, one lesson at a time",
+ "category": "Finance",
+ "colors": [
+  "#1B5E20",
+  "#FFB300",
+  "#1565C0"
+ ],
+ "icon": "book",
+ "about": "Invest Tutor teaches investing from scratch: plain-English lessons pitched at your level, any term explained with a worked example, headlines translated for long-term investors, and quizzes that check you actually got it.",
+ "persona": "You are a patient investing educator: plain-English, evidence-based, index-fund-friendly, and you never recommend specific securities or try to time the market.",
+ "onboarding": {
+  "title": "Learn to invest, properly",
+  "subtitle": "Tell us your level and we'll pitch every lesson right.",
+  "bullets": [
+   "Bite-size lessons by level",
+   "Any term explained with an example",
+   "Quizzes that check understanding"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "level",
+   "label": "Level",
+   "type": "chips",
+   "options": [
+    "Total beginner",
+    "Know the basics",
+    "Intermediate"
+   ]
+  },
+  {
+   "key": "country",
+   "label": "Country",
+   "type": "text",
+   "placeholder": "UK"
+  },
+  {
+   "key": "goal",
+   "label": "Learning for",
+   "type": "chips",
+   "options": [
+    "Retirement",
+    "General wealth",
+    "A specific goal",
+    "Curiosity"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "lesson",
+   "title": "Today's lesson",
+   "subtitle": "Five minutes on one idea",
+   "emoji": "🎓",
+   "inputs": [
+    {
+     "key": "topic",
+     "label": "Topic",
+     "type": "chips",
+     "options": [
+      "Stocks vs bonds",
+      "Index funds",
+      "Risk & diversification",
+      "Fees",
+      "Compounding",
+      "Tax-advantaged accounts",
+      "Surprise me"
+     ],
+     "default": "Surprise me"
+    }
+   ],
+   "prompt": "Teach a 5-minute lesson on '{topic}' pitched at the profile level and country. Sections: text (the core idea in 3 short paragraphs with one concrete numeric example), kv 'Key terms' (4 terms, each a one-line definition), bullets 'Common mistakes' (3), and a callout with the single takeaway to remember.",
+   "shape": "text, kv, bullets, callout",
+   "button": "Teach me",
+   "loading": "Sharpening chalk…"
+  },
+  {
+   "id": "term",
+   "title": "Explain a term",
+   "subtitle": "Jargon → plain English + example",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "term",
+     "label": "Term or phrase",
+     "type": "text",
+     "placeholder": "expense ratio",
+     "required": true
+    },
+    {
+     "key": "depth",
+     "label": "Depth",
+     "type": "chips",
+     "options": [
+      "ELI5",
+      "Practical",
+      "Deep dive"
+     ],
+     "default": "Practical"
+    }
+   ],
+   "prompt": "Explain '{term}' at '{depth}' depth: text (definition plus why a long-term investor should care), a worked numeric example as kv (inputs → result), bullets of 3 related terms with one-liners, and a callout on the most common misunderstanding of this term.",
+   "shape": "text, kv, bullets, callout",
+   "button": "Explain",
+   "loading": "Decoding…"
+  },
+  {
+   "id": "headline",
+   "title": "Decode a headline",
+   "subtitle": "What the news means for a long-term investor",
+   "emoji": "📰",
+   "inputs": [
+    {
+     "key": "headline",
+     "label": "Headline or article snippet",
+     "type": "longtext",
+     "placeholder": "Central bank holds rates as markets tumble 3%…",
+     "required": true
+    }
+   ],
+   "prompt": "Translate this for a long-term index investor: {headline}. Sections: text (what it actually means in plain English, no predictions), kv (Who it affects → How), bullets 'What you do NOT need to do', and a callout 'Noise or signal?' with a one-line verdict.",
+   "shape": "text, kv, bullets, callout",
+   "button": "Translate",
+   "loading": "Between the lines…"
+  },
+  {
+   "id": "quiz",
+   "title": "Quiz me",
+   "subtitle": "Check you really understood",
+   "emoji": "📝",
+   "inputs": [
+    {
+     "key": "topic",
+     "label": "Topic",
+     "type": "chips",
+     "options": [
+      "Stocks vs bonds",
+      "Index funds",
+      "Risk & diversification",
+      "Fees",
+      "Compounding",
+      "Tax-advantaged accounts",
+      "Everything"
+     ],
+     "default": "Everything"
+    },
+    {
+     "key": "n",
+     "label": "Questions",
+     "type": "number",
+     "placeholder": "5"
+    }
+   ],
+   "prompt": "Write a {n}-question multiple-choice quiz on '{topic}' at the profile level. Present the questions as steps (each step is one question with options A–D), then a table (Q | Answer | Why) with the answers, and a callout on which lesson to revisit if you missed more than one.",
+   "shape": "steps, table, callout",
+   "button": "Quiz me",
+   "loading": "Setting questions…"
+  },
+  {
+   "id": "myth",
+   "title": "Myth or fact?",
+   "subtitle": "Test something you heard",
+   "emoji": "🧐",
+   "inputs": [
+    {
+     "key": "claim",
+     "label": "Something you heard",
+     "type": "text",
+     "placeholder": "you need to pick stocks to beat inflation",
+     "required": true
+    }
+   ],
+   "prompt": "Evaluate: '{claim}'. Sections: a callout verdict (Myth / Mostly myth / Fact, one sentence), text explaining what the evidence says with one numeric illustration, bullets of where the claim usually comes from, and a quote with a one-line reply for the next time someone says it.",
+   "shape": "callout, text, bullets, quote",
+   "button": "Check it",
+   "loading": "Fact-checking…"
+  }
+ ],
+ "disclaimer": "General education only — not financial, tax or legal advice. Figures are illustrative projections, not predictions; check your own situation with a licensed adviser."
+}

@@ -1,0 +1,176 @@
+{
+ "id": "calc_climb",
+ "name": "Calc Climb",
+ "tagline": "Limits to series, worked step by step with the rule named",
+ "category": "Education",
+ "colors": [
+  "#AD1457",
+  "#00838F",
+  "#FFB300"
+ ],
+ "icon": "brain",
+ "about": "Calc Climb works derivatives, integrals, limits and series with every rule named, sets up related-rates and optimisation word problems, sketches curves from f, f′ and f″, and builds timed drills before exams.",
+ "persona": "You are a calculus tutor who names the rule at every line, checks answers by differentiating back or numeric substitution, and turns word problems into equations before touching any algebra.",
+ "onboarding": {
+  "title": "Climb from limits to series",
+  "subtitle": "Your course and notation shape the working.",
+  "bullets": [
+   "Every step names its rule",
+   "Word problems set up properly",
+   "Curve sketching & series tests"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "course",
+   "label": "Course",
+   "type": "chips",
+   "options": [
+    "Pre-calc / AP AB",
+    "AP BC / A-level",
+    "Calc I",
+    "Calc II",
+    "Calc III / multivariable"
+   ]
+  },
+  {
+   "key": "notation",
+   "label": "Notation",
+   "type": "chips",
+   "options": [
+    "Leibniz dy/dx",
+    "Prime f′(x)",
+    "Either"
+   ],
+   "default": "Either"
+  }
+ ],
+ "tools": [
+  {
+   "id": "work",
+   "title": "Work a problem",
+   "subtitle": "Photo or typed",
+   "emoji": "✏️",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the problem",
+     "type": "photo"
+    },
+    {
+     "key": "problem",
+     "label": "Or type it",
+     "type": "text",
+     "placeholder": "∫ x·e^(2x) dx"
+    },
+    {
+     "key": "mode",
+     "label": "Mode",
+     "type": "chips",
+     "options": [
+      "Full solution",
+      "Hints only",
+      "Check my answer"
+     ],
+     "default": "Full solution"
+    }
+   ],
+   "prompt": "Problem: {problem} (or the photo); mode: {mode}. Steps where each step names the rule used (chain, product, quotient, u-substitution, parts, L'Hôpital, squeeze…) in the profile notation; kv (final answer, verification by differentiating back or a numeric check, domain notes); a callout on the algebra slip most students make here. In 'Hints only' mode give a ladder of 4 hints as steps and no final answer.",
+   "shape": "steps, kv, callout",
+   "button": "Work it",
+   "loading": "Differentiating…"
+  },
+  {
+   "id": "words",
+   "title": "Set up a word problem",
+   "subtitle": "Related rates & optimisation",
+   "emoji": "📐",
+   "inputs": [
+    {
+     "key": "problem",
+     "label": "Word problem",
+     "type": "longtext",
+     "placeholder": "A 5 m ladder slides down a wall; the base moves away at 0.3 m/s. How fast is the top falling when the base is 3 m out?",
+     "required": true
+    }
+   ],
+   "prompt": "Set up {problem}: kv (quantities with symbols, what is given, what is asked, the constraint equation), text describing the diagram, steps from constraint → differentiate or optimise → solve, a table (Critical point | Test used | Max / min / neither) if optimisation, and a callout on the units and sign of the answer.",
+   "shape": "kv, text, steps, table, callout",
+   "button": "Set it up",
+   "loading": "Translating…"
+  },
+  {
+   "id": "series",
+   "title": "Series & convergence",
+   "subtitle": "Which test, and why",
+   "emoji": "♾️",
+   "inputs": [
+    {
+     "key": "series",
+     "label": "Series",
+     "type": "text",
+     "placeholder": "Σ n / (n² + 1), n = 1 to ∞",
+     "required": true
+    }
+   ],
+   "prompt": "For {series}: table (Test | Applies? | Result) running divergence, comparison, limit comparison, ratio, root, integral and alternating tests as relevant; steps for the decisive test; kv (converges / diverges, absolute vs conditional, sum if findable, radius and interval if a power series); a quote with a one-line rule of thumb for series that look like this.",
+   "shape": "table, steps, kv, quote",
+   "button": "Test it",
+   "loading": "Summing…"
+  },
+  {
+   "id": "sketch",
+   "title": "Curve sketch",
+   "subtitle": "f, f′, f″ → the shape",
+   "emoji": "📈",
+   "inputs": [
+    {
+     "key": "f",
+     "label": "Function",
+     "type": "text",
+     "placeholder": "f(x) = x³ − 3x² + 2",
+     "required": true
+    }
+   ],
+   "prompt": "Sketch {f}: table (Feature | Value | From which derivative) for domain, intercepts, asymptotes, critical points, inflection points and end behaviour; kv (increasing / decreasing intervals, concavity intervals); text describing the sketch left to right; and bullets of what an examiner checks on the drawing.",
+   "shape": "table, kv, text, bullets",
+   "button": "Sketch",
+   "loading": "Plotting…"
+  },
+  {
+   "id": "drill",
+   "title": "Timed drill",
+   "subtitle": "Exam-style set with answers",
+   "emoji": "⏱️",
+   "inputs": [
+    {
+     "key": "topic",
+     "label": "Topic",
+     "type": "text",
+     "placeholder": "integration by parts",
+     "required": true
+    },
+    {
+     "key": "minutes",
+     "label": "Minutes",
+     "type": "chips",
+     "options": [
+      "10",
+      "20",
+      "40"
+     ],
+     "default": "20"
+    }
+   ],
+   "prompt": "A {minutes}-minute drill on {topic} for the profile course: table (No. | Question | Answer | Marks), steps for the highest-mark question, and a callout on how many minutes to allow per mark.",
+   "shape": "table, steps, callout",
+   "button": "Start drill",
+   "loading": "Setting the clock…"
+  }
+ ]
+}

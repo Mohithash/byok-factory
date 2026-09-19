@@ -1,0 +1,218 @@
+{
+ "id": "laundry_lab",
+ "name": "Laundry Lab",
+ "tagline": "Decode labels, kill stains, keep clothes new",
+ "category": "House & Home",
+ "colors": [
+  "#1E88E5",
+  "#8E24AA",
+  "#FDD835"
+ ],
+ "icon": "drop",
+ "about": "Laundry Lab reads care labels from a photo, tells you exactly how to treat any stain, sorts a week's washing into the fewest safe loads and rescues shrunken, faded or bobbled clothes.",
+ "persona": "You are a textile-care expert who has run a dry-cleaner's front desk: precise about fibres, temperatures and chemistry, honest about what is unsalvageable.",
+ "onboarding": {
+  "title": "Wash it right the first time",
+  "subtitle": "Tell us about your machine and how you dry.",
+  "bullets": [
+   "Care labels decoded from a photo",
+   "Stain fixes that actually work",
+   "Fewer, smarter loads"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "machine",
+   "label": "Machine",
+   "type": "chips",
+   "options": [
+    "Front loader",
+    "Top loader",
+    "Shared / laundrette",
+    "Washer-dryer combo"
+   ]
+  },
+  {
+   "key": "dry",
+   "label": "Drying",
+   "type": "chips",
+   "options": [
+    "Tumble dryer",
+    "Airer indoors",
+    "Line outdoors",
+    "Heated airer"
+   ]
+  },
+  {
+   "key": "water",
+   "label": "Water",
+   "type": "chips",
+   "options": [
+    "Soft",
+    "Hard",
+    "Not sure"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "label",
+   "title": "Read a care label",
+   "subtitle": "Photo → plain-English instructions",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the care label",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "item",
+     "label": "What is it",
+     "type": "text",
+     "placeholder": "wool blend jumper"
+    }
+   ],
+   "prompt": "Decode the care label symbols in the photo for this item: {item}. Sections: a table (Symbol | Meaning | What to actually do on the profile's machine); kv (wash temp, spin, detergent type, dry method, iron setting, dry-clean?); bullets on what happens if you ignore each rule; and a callout on the safest setting if in doubt.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Decode",
+   "loading": "Reading symbols…"
+  },
+  {
+   "id": "stain",
+   "title": "Remove a stain",
+   "subtitle": "What it is, what it's on, how old",
+   "emoji": "🩸",
+   "inputs": [
+    {
+     "key": "stain",
+     "label": "Stain",
+     "type": "text",
+     "placeholder": "red wine",
+     "required": true
+    },
+    {
+     "key": "fabric",
+     "label": "Fabric & colour",
+     "type": "text",
+     "placeholder": "white cotton shirt",
+     "required": true
+    },
+    {
+     "key": "age",
+     "label": "How old",
+     "type": "chips",
+     "options": [
+      "Fresh (minutes)",
+      "Hours",
+      "Days",
+      "Already washed & dried"
+     ],
+     "default": "Fresh (minutes)"
+    }
+   ],
+   "prompt": "Remove {stain} from {fabric}; the stain is {age}. Sections: steps in exact order with product, temperature and timing, starting with what NOT to do; kv (chance of full removal, active ingredient that works, household substitute); a table (Product | Works because | Risk to this fabric); and a callout on when to stop and take it to a professional.",
+   "shape": "steps, kv, table, callout",
+   "button": "Treat it",
+   "loading": "Lifting the stain…"
+  },
+  {
+   "id": "sort",
+   "title": "Sort my washing",
+   "subtitle": "Fewest loads, nothing ruined",
+   "emoji": "🧺",
+   "inputs": [
+    {
+     "key": "pile",
+     "label": "What's in the pile",
+     "type": "longtext",
+     "placeholder": "5 white tees, 2 pairs jeans, gym kit, a red hoodie, bath towels, silk blouse…",
+     "required": true
+    },
+    {
+     "key": "goal",
+     "label": "Priority",
+     "type": "chips",
+     "options": [
+      "Fewest loads",
+      "Best care",
+      "Fastest turnaround",
+      "Lowest energy"
+     ],
+     "default": "Fewest loads"
+    }
+   ],
+   "prompt": "Sort this washing pile: {pile}, optimising for {goal}, on the profile's machine and drying setup. Sections: a table (Load | Items | Temp | Cycle | Spin | Detergent | Dry) with the load count; steps for the order to run them so drying space works; bullets of items that must not share a load; and a callout on anything to hand-wash or skip.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Sort loads",
+   "loading": "Sorting colours…"
+  },
+  {
+   "id": "rescue",
+   "title": "Rescue a garment",
+   "subtitle": "Shrunk, faded, bobbled, stiff, smelly",
+   "emoji": "🧶",
+   "inputs": [
+    {
+     "key": "problem",
+     "label": "Problem",
+     "type": "chips",
+     "options": [
+      "Shrunk",
+      "Faded",
+      "Bobbling",
+      "Smells even after washing",
+      "Stiff towels",
+      "Yellowed whites",
+      "Colour run"
+     ],
+     "default": "Shrunk"
+    },
+    {
+     "key": "item",
+     "label": "Item",
+     "type": "text",
+     "placeholder": "merino jumper, 100% wool",
+     "required": true
+    }
+   ],
+   "prompt": "Rescue this: {item}, which is {problem}. Sections: text with an honest prognosis; steps for the fix with exact water temperatures, products, ratios and timings; bullets on preventing it next time on the profile's setup; and a callout on when the fix could make it worse.",
+   "shape": "text, steps, bullets, callout",
+   "button": "Rescue",
+   "loading": "Attempting rescue…"
+  },
+  {
+   "id": "machine",
+   "title": "Machine care & cycles",
+   "subtitle": "Clean the washer, pick cycles, stop the smell",
+   "emoji": "⚙️",
+   "inputs": [
+    {
+     "key": "issue",
+     "label": "What's up",
+     "type": "chips",
+     "options": [
+      "Machine smells",
+      "Clothes come out grey",
+      "Detergent residue",
+      "Too much lint",
+      "Which cycle for what?",
+      "Drying takes forever"
+     ],
+     "default": "Machine smells"
+    }
+   ],
+   "prompt": "Address '{issue}' for the profile's machine, drying setup and water hardness. Sections: text explaining the cause; steps for the fix with products and frequencies; a table (Cycle | Use for | Temp | Time | Notes) of the 6 cycles worth using; and a checklist of monthly machine maintenance.",
+   "shape": "text, steps, table, checklist",
+   "button": "Fix it",
+   "loading": "Running a hot wash…"
+  }
+ ],
+ "disclaimer": "Follow product labels; never mix bleach with ammonia or acids, and ventilate when using solvents. Test any treatment on a hidden area first. General guidance, not professional textile-care advice."
+}

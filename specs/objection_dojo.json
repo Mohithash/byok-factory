@@ -1,0 +1,192 @@
+{
+ "id": "objection_dojo",
+ "name": "Objection Dojo",
+ "tagline": "Turn every 'no' into a next step",
+ "category": "Business",
+ "colors": [
+  "#B71C1C",
+  "#37474F",
+  "#FFA000"
+ ],
+ "icon": "shield",
+ "about": "Objection Dojo gives you calm, specific responses to price, timing, competitor and 'send me some info' objections, then drills you with role-play until they're second nature.",
+ "persona": "You are a black-belt sales trainer: composed, empathetic, never argumentative; you acknowledge, clarify, respond and confirm, and you never trash competitors.",
+ "onboarding": {
+  "title": "Stay calm when they push back",
+  "subtitle": "Tell us what you sell and what you hear most; the responses get sharper.",
+  "bullets": [
+   "Responses for any objection",
+   "Competitor battle-ready lines",
+   "Role-play drills that build reflexes"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "product",
+   "label": "What you sell",
+   "type": "text",
+   "placeholder": "cyber-security awareness training"
+  },
+  {
+   "key": "competitors",
+   "label": "Main competitors",
+   "type": "text",
+   "placeholder": "KnowBe4, Proofpoint"
+  },
+  {
+   "key": "common",
+   "label": "Objections you hear most",
+   "type": "text",
+   "placeholder": "too expensive, we already have a tool"
+  }
+ ],
+ "tools": [
+  {
+   "id": "handle",
+   "title": "Handle this objection",
+   "subtitle": "Verbatim → 3 ways to respond",
+   "emoji": "🥋",
+   "inputs": [
+    {
+     "key": "objection",
+     "label": "What they said",
+     "type": "longtext",
+     "placeholder": "We don't have budget this year.",
+     "required": true
+    },
+    {
+     "key": "stage",
+     "label": "Deal stage",
+     "type": "chips",
+     "options": [
+      "First call",
+      "Mid-cycle",
+      "Proposal sent",
+      "Closing"
+     ],
+     "default": "Mid-cycle"
+    }
+   ],
+   "prompt": "The prospect said: {objection} at the {stage} stage. Sections: kv (Objection type | What's really behind it | Do not say), steps following acknowledge → clarify → respond → confirm with exact wording for each, 3 quote sections with alternative responses (empathetic, data-led, question-led), and a callout on when to accept the no and walk away.",
+   "shape": "kv, steps, quote, callout",
+   "button": "Handle it",
+   "loading": "Bowing in…"
+  },
+  {
+   "id": "price",
+   "title": "Price pushback",
+   "subtitle": "Defend value without discounting",
+   "emoji": "💸",
+   "inputs": [
+    {
+     "key": "quote_amt",
+     "label": "Your price",
+     "type": "text",
+     "placeholder": "$18,000/year",
+     "required": true
+    },
+    {
+     "key": "their",
+     "label": "What they said",
+     "type": "text",
+     "placeholder": "Your competitor is 30% cheaper"
+    },
+    {
+     "key": "value",
+     "label": "Value delivered",
+     "type": "text",
+     "placeholder": "cuts phishing click rate from 20% to 3%"
+    }
+   ],
+   "prompt": "Price objection: they said '{their}' against our price of {quote_amt}; value delivered: {value}. Sections: text reframing price as cost of inaction in 3 sentences, a table (Give | Get | When to use) of 5 trade-based concessions that avoid a naked discount, a quote with the exact response, and a callout on holding a discount floor.",
+   "shape": "text, table, quote, callout",
+   "button": "Defend price",
+   "loading": "Holding the line…"
+  },
+  {
+   "id": "compete",
+   "title": "Competitor comparison",
+   "subtitle": "When they name a rival",
+   "emoji": "⚔️",
+   "inputs": [
+    {
+     "key": "rival",
+     "label": "Competitor named",
+     "type": "text",
+     "placeholder": "Proofpoint",
+     "required": true
+    },
+    {
+     "key": "their_claim",
+     "label": "What they like about them",
+     "type": "text",
+     "placeholder": "bundled with email security"
+    }
+   ],
+   "prompt": "They are comparing us with {rival} because: {their_claim}. Sections: a table (Dimension | Us | {rival} | Proof to bring) with 6 dimensions, honest about where the rival wins, bullets of 3 landmine questions that favour our strengths without naming the rival, a quote with a respectful response, and a callout on what never to say about a competitor.",
+   "shape": "table, bullets, quote, callout",
+   "button": "Compare",
+   "loading": "Scouting rival…"
+  },
+  {
+   "id": "drill",
+   "title": "Role-play drill",
+   "subtitle": "5 curveballs with model answers",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "focus",
+     "label": "Focus area",
+     "type": "chips",
+     "options": [
+      "Price",
+      "Timing",
+      "Authority",
+      "Trust / risk",
+      "Status quo",
+      "Mixed"
+     ],
+     "default": "Mixed"
+    },
+    {
+     "key": "difficulty",
+     "label": "Difficulty",
+     "type": "chips",
+     "options": [
+      "Warm-up",
+      "Realistic",
+      "Brutal"
+     ],
+     "default": "Realistic"
+    }
+   ],
+   "prompt": "Run a {difficulty} role-play drill focused on {focus} for the profile's product. Sections: 5 cards, each a prospect line to respond to (meta = objection type · difficulty) with a model answer beneath it, a checklist for self-scoring each response (acknowledged, clarified, no defensiveness, confirmed next step), and a quote with one mantra to say before the next real call.",
+   "shape": "cards, checklist, quote",
+   "button": "Start drill",
+   "loading": "Entering the dojo…"
+  },
+  {
+   "id": "library",
+   "title": "My objection library",
+   "subtitle": "Prep before a new campaign",
+   "emoji": "📚",
+   "inputs": [
+    {
+     "key": "segment",
+     "label": "Segment or campaign",
+     "type": "text",
+     "placeholder": "SMB retailers in Q4"
+    }
+   ],
+   "prompt": "Build an objection playbook for the profile's product targeting {segment}, starting from the common objections in the profile. Sections: a table (Objection | Root cause | 1-line response | Proof point) with 10 rows, bullets of the 3 objections to pre-empt in the pitch itself, and a callout on the objection that usually signals a bad-fit prospect.",
+   "shape": "table, bullets, callout",
+   "button": "Build playbook",
+   "loading": "Stacking shields…"
+  }
+ ]
+}

@@ -1,0 +1,224 @@
+{
+ "id": "ferret_den",
+ "name": "Ferret Den",
+ "tagline": "Ferret-proof, feed and train your business of ferrets",
+ "category": "Lifestyle",
+ "colors": [
+  "#5E35B1",
+  "#FFB300",
+  "#26A69A"
+ ],
+ "icon": "bolt",
+ "about": "Ferret Den audits rooms for escape routes and swallow-hazards from a photo, plans meat-based diets, nip- and litter-trains kits and rescues, designs dig-box enrichment, and flags adrenal and insulinoma signs before they get serious.",
+ "persona": "You are a long-time ferret-shelter volunteer: realistic about chaos, strict about diet and blockages, playful about enrichment, and clear on the illnesses ferrets get.",
+ "onboarding": {
+  "title": "Welcome to the business",
+  "subtitle": "A few details about your ferrets shape the advice.",
+  "bullets": [
+   "Room ferret-proofing audits",
+   "Meat-first diet plans",
+   "Nip training & health red flags"
+  ]
+ },
+ "profile": [
+  {
+   "key": "ferrets",
+   "label": "Ferrets (names, ages, sexes)",
+   "type": "text",
+   "placeholder": "Loki 2y hob, Nix 4y jill"
+  },
+  {
+   "key": "fixed",
+   "label": "Neutered / implanted",
+   "type": "chips",
+   "options": [
+    "Neutered",
+    "Deslorelin implant",
+    "Intact",
+    "Mixed"
+   ]
+  },
+  {
+   "key": "diet",
+   "label": "Diet now",
+   "type": "chips",
+   "options": [
+    "Kibble",
+    "Raw / whole prey",
+    "Mixed",
+    "Not sure"
+   ]
+  },
+  {
+   "key": "hours",
+   "label": "Out-of-cage hours per day",
+   "type": "text",
+   "placeholder": "4"
+  }
+ ],
+ "tools": [
+  {
+   "id": "proof",
+   "title": "Ferret-proof a room",
+   "subtitle": "Photo → gaps, hazards, escape routes",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the room",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "worry",
+     "label": "Biggest worry",
+     "type": "chips",
+     "options": [
+      "Escaping",
+      "Eating rubber / foam",
+      "Recliners & sofas",
+      "Cables",
+      "Toilets / washing machine",
+      "Other pets"
+     ],
+     "default": "Eating rubber / foam"
+    }
+   ],
+   "prompt": "Audit the room in the photo for ferrets, biggest worry: {worry}. Sections: a table (Hazard | Why ferrets go for it | Fix | Cost tier) including gaps under doors and appliances, foam, rubber, recliners, cables, plants and toilets, a checklist of fixes ranked by danger, and a callout on intestinal-blockage signs from swallowed foam or rubber.",
+   "shape": "table, checklist, callout",
+   "button": "Audit room",
+   "loading": "Under the sofa…"
+  },
+  {
+   "id": "food",
+   "title": "Diet plan",
+   "subtitle": "Kibble check or raw menu",
+   "emoji": "🍖",
+   "inputs": [
+    {
+     "key": "current",
+     "label": "Current food & brand",
+     "type": "text",
+     "placeholder": "Wysong Epigen 90",
+     "required": true
+    },
+    {
+     "key": "switch",
+     "label": "Want to",
+     "type": "chips",
+     "options": [
+      "Keep kibble but improve it",
+      "Switch to raw",
+      "Mix kibble + raw",
+      "Fix a fussy eater"
+     ],
+     "default": "Keep kibble but improve it"
+    }
+   ],
+   "prompt": "Review {current} for the profile ferrets, aiming to {switch}. Sections: kv (protein % target, fat % target, fibre max, first-3-ingredients rule, verdict on current food), a table (Food | Protein | Fat | Carbs / fibre | Suitable?) comparing the current food with 4 common alternatives, steps for a 2–3 week transition using duck-soup or gravy tricks, and a callout on foods that harm ferrets (fruit, veg, dairy, dog food, sugary treats).",
+   "shape": "kv, table, steps, callout",
+   "button": "Plan diet",
+   "loading": "Making duck soup…"
+  },
+  {
+   "id": "train",
+   "title": "Nip & litter training",
+   "subtitle": "Kits, rescues and biters",
+   "emoji": "🎯",
+   "inputs": [
+    {
+     "key": "problem",
+     "label": "Working on",
+     "type": "chips",
+     "options": [
+      "Nipping hands",
+      "Hard biting",
+      "Litter tray misses",
+      "Scruffing / handling",
+      "Coming when called"
+     ],
+     "default": "Nipping hands"
+    },
+    {
+     "key": "context",
+     "label": "Context",
+     "type": "text",
+     "placeholder": "rescue jill, bites when picked up, 2 weeks with us"
+    }
+   ],
+   "prompt": "Training plan for {problem} with the profile ferrets: {context}. Sections: steps for a 2-week plan with exact responses (time-outs, scruff-and-hiss, redirect, reward, tray placement in corners), a table (Behaviour | Meaning | Response), a callout on what never to do (hitting, nose flicking, bitter spray on skin) and when biting signals pain or fear, and a quote with the sound or cue to use consistently.",
+   "shape": "steps, table, callout, quote",
+   "button": "Start training",
+   "loading": "Filling treat pot…"
+  },
+  {
+   "id": "play",
+   "title": "Enrichment & dig boxes",
+   "subtitle": "Tire them out in 20 minutes",
+   "emoji": "🎉",
+   "inputs": [
+    {
+     "key": "materials",
+     "label": "On hand",
+     "type": "chips",
+     "options": [
+      "Cardboard boxes",
+      "Rice / dried beans",
+      "Tubes / drainage pipe",
+      "Old clothes / blankets",
+      "Water tray",
+      "Ball-pit balls"
+     ],
+     "default": "Cardboard boxes",
+     "multi": true
+    },
+    {
+     "key": "mins",
+     "label": "Play minutes available",
+     "type": "number",
+     "placeholder": "20"
+    }
+   ],
+   "prompt": "Design a {mins}-minute play session plus DIY enrichment using {materials} for the profile ferrets. Sections: cards for 5 games or builds (meta = setup minutes · mess level), steps to build the best dig box safely, bullets on rotating enrichment weekly, and a callout on materials to avoid (foam, rubber, small swallowable parts, unsupervised water).",
+   "shape": "cards, steps, bullets, callout",
+   "button": "Plan play",
+   "loading": "Filling the dig box…"
+  },
+  {
+   "id": "health",
+   "title": "Health red flags",
+   "subtitle": "Adrenal, insulinoma, blockages, ECE",
+   "emoji": "🩺",
+   "inputs": [
+    {
+     "key": "signs",
+     "label": "Signs",
+     "type": "chips",
+     "options": [
+      "Hair loss on tail / back",
+      "Weak back legs",
+      "Drooling / pawing at mouth",
+      "Straining to poo / thin poo",
+      "Green diarrhoea",
+      "Lethargic / sleeping more",
+      "Swollen vulva",
+      "Weight loss"
+     ],
+     "default": "Hair loss on tail / back",
+     "multi": true
+    },
+    {
+     "key": "since",
+     "label": "Since when",
+     "type": "text",
+     "placeholder": "over the last month"
+    }
+   ],
+   "prompt": "The profile ferrets show {signs} since {since}. Sections: a callout with urgency (emergency vet now / vet within days / monitor) and the deciding reason, a table (Condition | Matching signs | Typical age | Vet tests | Treatment options), steps for immediate care (honey on the gums for a suspected glucose crash, no food withholding, isolate for suspected ECE), bullets of questions for a ferret-savvy vet, and a quote with a concise history to read out.",
+   "shape": "callout, table, steps, bullets, quote",
+   "button": "Check signs",
+   "loading": "Checking the fur…"
+  }
+ ],
+ "disclaimer": "General ferret-care information, not veterinary advice. Straining, drooling, collapse or a suspected blockage are emergencies — go to a vet now."
+}

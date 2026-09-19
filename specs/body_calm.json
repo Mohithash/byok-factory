@@ -1,0 +1,217 @@
+{
+ "id": "body_calm",
+ "name": "Body Calm",
+ "tagline": "Release stress where your body actually holds it",
+ "category": "Health & Fitness",
+ "colors": [
+  "#00897B",
+  "#D4E157",
+  "#8E24AA"
+ ],
+ "icon": "heart",
+ "about": "Body Calm works on stress from the neck down: progressive muscle relaxation scripts, a tension map from how you feel, shake-it-off movement resets and a body scan for sleep.",
+ "persona": "You are a somatic-informed relaxation coach: unhurried, specific about muscles and breath, and clear that pain, numbness or trauma responses need a professional.",
+ "onboarding": {
+  "title": "Stress lives in the body too",
+  "subtitle": "Tell us where you tense up and how long you have.",
+  "bullets": [
+   "PMR scripts timed to your slot",
+   "Tension map from how you feel",
+   "Movement resets between meetings"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "holds",
+   "label": "Where you hold tension",
+   "type": "chips",
+   "options": [
+    "Jaw",
+    "Neck & shoulders",
+    "Chest",
+    "Stomach",
+    "Hands",
+    "Lower back"
+   ],
+   "multi": true
+  },
+  {
+   "key": "slot",
+   "label": "Usual time available",
+   "type": "chips",
+   "options": [
+    "3 minutes",
+    "10 minutes",
+    "20 minutes"
+   ]
+  },
+  {
+   "key": "limits",
+   "label": "Injuries / limits",
+   "type": "text",
+   "placeholder": "bad knee"
+  }
+ ],
+ "tools": [
+  {
+   "id": "pmr",
+   "title": "Progressive relaxation",
+   "subtitle": "Tense-and-release, timed",
+   "emoji": "🧘",
+   "inputs": [
+    {
+     "key": "minutes",
+     "label": "Minutes",
+     "type": "chips",
+     "options": [
+      "5",
+      "10",
+      "15",
+      "20"
+     ],
+     "default": "10"
+    },
+    {
+     "key": "where",
+     "label": "Where are you",
+     "type": "chips",
+     "options": [
+      "Lying down",
+      "Sitting at a desk",
+      "Public place"
+     ],
+     "default": "Sitting at a desk"
+    }
+   ],
+   "prompt": "Write a {minutes}-minute progressive muscle relaxation script for someone {where}, honouring the profile limits. Steps in order from feet to face (muscle group · tense seconds · release seconds · cue words), skipping groups that would be awkward {where}, a callout on not straining the areas listed as limits, and a quote with the closing lines to read slowly.",
+   "shape": "steps, callout, quote",
+   "button": "Start script",
+   "loading": "Softening…"
+  },
+  {
+   "id": "map",
+   "title": "Tension map",
+   "subtitle": "Describe it → what to release first",
+   "emoji": "🗺️",
+   "inputs": [
+    {
+     "key": "feel",
+     "label": "How your body feels right now",
+     "type": "longtext",
+     "placeholder": "jaw clenched, shallow breathing, shoulders up by my ears",
+     "required": true
+    },
+    {
+     "key": "cause",
+     "label": "Likely cause",
+     "type": "chips",
+     "options": [
+      "Work",
+      "Conflict",
+      "Screen time",
+      "Not sure"
+     ],
+     "default": "Not sure"
+    }
+   ],
+   "prompt": "Map this: {feel} (likely cause: {cause}). Table (Area | What you described | Probable pattern | 60-second release), steps for the single highest-payoff release right now, and a callout listing symptoms that are not stress and need a doctor (chest pain, numbness, one-sided weakness).",
+   "shape": "table, steps, callout",
+   "button": "Map it",
+   "loading": "Locating…"
+  },
+  {
+   "id": "shake",
+   "title": "Shake it off",
+   "subtitle": "A movement reset in under 3 minutes",
+   "emoji": "🕺",
+   "inputs": [
+    {
+     "key": "state",
+     "label": "Right now I feel",
+     "type": "chips",
+     "options": [
+      "Wired",
+      "Frozen",
+      "Foggy",
+      "Angry"
+     ],
+     "default": "Wired"
+    },
+    {
+     "key": "space",
+     "label": "Space",
+     "type": "chips",
+     "options": [
+      "Desk chair",
+      "Small room",
+      "Outdoors"
+     ],
+     "default": "Small room"
+    }
+   ],
+   "prompt": "A movement reset for feeling '{state}' in a {space}, under 3 minutes: steps (movement · seconds · breathing pattern) matched to the state (discharge for wired or angry, gentle activation for frozen or foggy), bullets on how to tell it worked, and a callout on modifications for the profile's limits.",
+   "shape": "steps, bullets, callout",
+   "button": "Reset me",
+   "loading": "Shaking loose…"
+  },
+  {
+   "id": "scan",
+   "title": "Body scan for sleep",
+   "subtitle": "Head to toe, lights off",
+   "emoji": "🌙",
+   "inputs": [
+    {
+     "key": "length",
+     "label": "Length",
+     "type": "chips",
+     "options": [
+      "8 minutes",
+      "15 minutes",
+      "25 minutes"
+     ],
+     "default": "15 minutes"
+    },
+    {
+     "key": "busy",
+     "label": "What's on your mind",
+     "type": "text",
+     "placeholder": "presentation tomorrow"
+    }
+   ],
+   "prompt": "A {length} sleep body-scan script that gently parks '{busy}'. Text with a three-sentence opening that names the worry and sets it down, steps region by region with the words to say and the pause length, and a callout on what to do if the mind keeps returning to the worry.",
+   "shape": "text, steps, callout",
+   "button": "Scan me",
+   "loading": "Dimming lights…"
+  },
+  {
+   "id": "premeet",
+   "title": "Pre-meeting release",
+   "subtitle": "Unclench before the hard thing",
+   "emoji": "⏱️",
+   "inputs": [
+    {
+     "key": "next",
+     "label": "What's next",
+     "type": "text",
+     "placeholder": "difficult call with a client"
+    },
+    {
+     "key": "minutes",
+     "label": "Minutes you have",
+     "type": "number",
+     "placeholder": "2"
+    }
+   ],
+   "prompt": "In {minutes} minutes before '{next}': steps with a jaw, shoulder and breath release sequence sized to the time, a kv (Posture cue, Breath ratio, What to do with the hands), and a quote with one sentence to say to yourself walking in.",
+   "shape": "steps, kv, quote",
+   "button": "Release",
+   "loading": "Unclenching…"
+  }
+ ],
+ "disclaimer": "Not therapy or medical advice. If you're in crisis or thinking about harming yourself or someone else, contact local emergency services or a crisis line now."
+}

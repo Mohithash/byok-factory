@@ -1,0 +1,193 @@
+{
+ "id": "grandparent_fit",
+ "name": "Grandparent Fit",
+ "tagline": "Fit enough to keep up with the grandkids",
+ "category": "Health & Fitness",
+ "colors": [
+  "#00897B",
+  "#F4511E",
+  "#7B1FA2"
+ ],
+ "icon": "star",
+ "about": "Grandparent Fit trains you for real grandparent life: lifting toddlers without a bad back, floor play you can get up from, park-day stamina, and games that get you both moving.",
+ "persona": "You are a playful functional-fitness coach for grandparents: practical about backs, knees and energy, and full of games that count as exercise.",
+ "onboarding": {
+  "title": "Train for the best job you've got",
+  "subtitle": "Tell us about the grandkids and your body.",
+  "bullets": [
+   "Lift and carry little ones safely",
+   "Floor play you can get up from",
+   "Games that count as workouts"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "kids",
+   "label": "Grandkids (ages)",
+   "type": "text",
+   "placeholder": "2 and 5"
+  },
+  {
+   "key": "care",
+   "label": "How often you have them",
+   "type": "chips",
+   "options": [
+    "Occasionally",
+    "Weekly",
+    "Several days a week",
+    "Live together"
+   ],
+   "default": "Weekly"
+  },
+  {
+   "key": "limits",
+   "label": "Body limits",
+   "type": "text",
+   "placeholder": "bad lower back, right knee"
+  }
+ ],
+ "tools": [
+  {
+   "id": "lift",
+   "title": "Lift & carry safely",
+   "subtitle": "Toddlers, car seats, prams",
+   "emoji": "🧒",
+   "inputs": [
+    {
+     "key": "task",
+     "label": "Task",
+     "type": "chips",
+     "options": [
+      "Picking a toddler up from the floor",
+      "Into and out of a car seat",
+      "Carrying on the hip",
+      "Lifting a pram into the boot",
+      "Up and down stairs with a child"
+     ],
+     "default": "Picking a toddler up from the floor"
+    }
+   ],
+   "prompt": "Coach '{task}' for the profile's grandkids and body limits. Sections: steps with one cue each (feet, hinge, brace, hold close, no twisting), bullets of the mistakes that cause back tweaks, a kv of gear that helps (hip seat, lightweight pram, car seat height), and a callout on when to say no to a lift and use an alternative.",
+   "shape": "steps, bullets, kv, callout",
+   "button": "Show me",
+   "loading": "Bracing…"
+  },
+  {
+   "id": "floor",
+   "title": "Floor play plan",
+   "subtitle": "Get down and back up",
+   "emoji": "🧸",
+   "inputs": [
+    {
+     "key": "ability",
+     "label": "Getting up from the floor now",
+     "type": "chips",
+     "options": [
+      "Need furniture to pull up",
+      "Slow but fine",
+      "Easy"
+     ],
+     "default": "Slow but fine"
+    }
+   ],
+   "prompt": "A 4-week plan to make floor play comfortable for someone who gets up '{ability}', respecting the profile's limits. Sections: a table (Week | Exercises | Reps | Floor-time goal), steps for the safest get-up sequence via half-kneeling, bullets of floor-play positions that spare knees and backs (cushions, side-sitting, low stool), and a callout on knee pain that needs checking.",
+   "shape": "table, steps, bullets, callout",
+   "button": "Plan it",
+   "loading": "Kneeling…"
+  },
+  {
+   "id": "games",
+   "title": "Games that count",
+   "subtitle": "Play that doubles as exercise",
+   "emoji": "⚽",
+   "inputs": [
+    {
+     "key": "where",
+     "label": "Where",
+     "type": "chips",
+     "options": [
+      "Living room",
+      "Garden",
+      "Park",
+      "Beach"
+     ],
+     "default": "Garden"
+    },
+    {
+     "key": "minutes",
+     "label": "Minutes",
+     "type": "number",
+     "placeholder": "30"
+    }
+   ],
+   "prompt": "Suggest games for {minutes} minutes in the {where} for the profile's grandkids' ages that also exercise the grandparent. Sections: cards for 5 games (meta = ages · grandparent effort · muscles worked), steps for one full game, and bullets on modifications for the profile's limits.",
+   "shape": "cards, steps, bullets",
+   "button": "Let's play",
+   "loading": "Counting to ten…"
+  },
+  {
+   "id": "stamina",
+   "title": "Park-day stamina",
+   "subtitle": "Energy for a full day",
+   "emoji": "🏞️",
+   "inputs": [
+    {
+     "key": "day",
+     "label": "Coming up",
+     "type": "chips",
+     "options": [
+      "Full day out",
+      "Sleepover",
+      "Holiday week",
+      "School-run week"
+     ],
+     "default": "Full day out"
+    },
+    {
+     "key": "energy",
+     "label": "Energy now",
+     "type": "chips",
+     "options": [
+      "Low",
+      "Okay",
+      "Good"
+     ],
+     "default": "Okay"
+    }
+   ],
+   "prompt": "Prepare the profile for a '{day}' with '{energy}' energy. Sections: a kv of the plan (sleep the night before, breakfast, hydration, snack timing, sit-down slots), a checklist of the bag (grandparent's and children's essentials), bullets on pacing and sharing tasks, and a callout on medications, sun and heat for older adults on long days.",
+   "shape": "kv, checklist, bullets, callout",
+   "button": "Prep me",
+   "loading": "Packing…"
+  },
+  {
+   "id": "strength",
+   "title": "Grandparent strength",
+   "subtitle": "10 minutes, 3 times a week",
+   "emoji": "💪",
+   "inputs": [
+    {
+     "key": "kit",
+     "label": "Equipment",
+     "type": "chips",
+     "options": [
+      "None",
+      "Bands",
+      "Dumbbells"
+     ],
+     "default": "None"
+    }
+   ],
+   "prompt": "A 10-minute, three-times-a-week strength routine with '{kit}' equipment for the profile, built around the lifts and carries of grandparenting. Sections: steps (exercise · sets × reps · why it helps with kids), bullets on how to progress over 6 weeks, and a quote with a fun challenge to set with the grandkids.",
+   "shape": "steps, bullets, quote",
+   "button": "Build routine",
+   "loading": "Flexing…"
+  }
+ ],
+ "disclaimer": "General information, not medical advice. If you have back, knee, heart or blood-pressure conditions, check with your doctor before new exercise, and never lift through sharp pain."
+}

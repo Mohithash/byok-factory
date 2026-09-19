@@ -1,0 +1,212 @@
+{
+ "id": "bake_sale_boss",
+ "name": "Bake Sale Boss",
+ "tagline": "Price, plan and sell your home bakes",
+ "category": "Food & Drink",
+ "colors": [
+  "#2E7D32",
+  "#F9A825",
+  "#C62828"
+ ],
+ "icon": "coin",
+ "about": "Bake Sale Boss prices every bake from ingredients, time and overheads, plans market menus and order books, drafts allergen labels and writes the quotes and posts that win customers.",
+ "persona": "You are a home-bakery business mentor: numbers-first, realistic about margins and labour, and clear that food-business rules differ by region.",
+ "onboarding": {
+  "title": "Bake for profit, not just praise",
+  "subtitle": "Tell us how you sell so pricing and plans fit.",
+  "bullets": [
+   "Cost-plus pricing per bake",
+   "Market and order-book planning",
+   "Allergen labels and quotes"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "channel",
+   "label": "You sell via",
+   "type": "chips",
+   "options": [
+    "Markets & fairs",
+    "Custom orders",
+    "Wholesale to cafés",
+    "Online pre-orders"
+   ],
+   "default": "Custom orders",
+   "multi": true
+  },
+  {
+   "key": "rate",
+   "label": "Hourly rate you want",
+   "type": "text",
+   "placeholder": "20"
+  },
+  {
+   "key": "region",
+   "label": "Country / state",
+   "type": "text",
+   "placeholder": "Ontario, Canada"
+  }
+ ],
+ "tools": [
+  {
+   "id": "price",
+   "title": "Price a bake",
+   "subtitle": "Ingredients + time + overhead → price",
+   "emoji": "💰",
+   "inputs": [
+    {
+     "key": "recipe",
+     "label": "Recipe and yield",
+     "type": "longtext",
+     "placeholder": "24 brownies: 250 g butter, 300 g dark chocolate, 4 eggs…",
+     "required": true
+    },
+    {
+     "key": "minutes",
+     "label": "Active minutes",
+     "type": "number",
+     "placeholder": "90"
+    },
+    {
+     "key": "packaging",
+     "label": "Packaging & extras",
+     "type": "text",
+     "placeholder": "kraft boxes, ribbon"
+    }
+   ],
+   "prompt": "Price this bake: {recipe}, {minutes} active minutes at the profile hourly rate, packaging: {packaging}. Table (Item | Qty | Est. unit cost | Line cost) for ingredients and packaging with estimated local prices for the profile region, a kv (ingredient cost, labour, overhead at 15%, cost per unit, price per unit at 2.5x and 3x, price per dozen), bullets on where the margin is thin, and a callout on the minimum order size that makes this worth it.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Price it",
+   "loading": "Counting pennies…"
+  },
+  {
+   "id": "menu",
+   "title": "Plan a market",
+   "subtitle": "What to bake, how much, what to charge",
+   "emoji": "🛒",
+   "inputs": [
+    {
+     "key": "event",
+     "label": "Event",
+     "type": "text",
+     "placeholder": "Saturday farmers market, 4 hours, ~300 footfall",
+     "required": true
+    },
+    {
+     "key": "budget",
+     "label": "Ingredient budget",
+     "type": "number",
+     "placeholder": "150"
+    },
+    {
+     "key": "bakes",
+     "label": "Your best sellers",
+     "type": "text",
+     "placeholder": "cinnamon rolls, cookies, lemon loaf"
+    }
+   ],
+   "prompt": "Plan a stall for {event} with ingredient budget {budget} and best sellers {bakes}. Table (Bake | Units | Price | Revenue if sold out | Ingredient cost), a checklist of stall kit (signage, float, packaging, allergen card, payment), steps for the bake schedule across the two days before, and a callout on the break-even point and what to discount in the last hour.",
+   "shape": "table, checklist, steps, callout",
+   "button": "Plan stall",
+   "loading": "Setting up stall…"
+  },
+  {
+   "id": "label",
+   "title": "Allergen label",
+   "subtitle": "Ingredient and allergen declaration",
+   "emoji": "🏷️",
+   "inputs": [
+    {
+     "key": "ingredients",
+     "label": "Full ingredient list",
+     "type": "longtext",
+     "placeholder": "flour, butter, eggs, sugar, walnuts, vanilla extract…",
+     "required": true
+    },
+    {
+     "key": "product",
+     "label": "Product name",
+     "type": "text",
+     "placeholder": "Walnut brownies"
+    }
+   ],
+   "prompt": "Draft a label for {product} from ingredients: {ingredients}. Quote with the label text (product name, ingredients in descending order with allergens emphasised in capitals, a 'may contain' line, best-before guidance, and a made-in-a-home-kitchen line where commonly required), a table (Allergen | Present | Source ingredient) covering the major allergens declared in the profile region, and a callout on what to verify against local rules.",
+   "shape": "quote, table, callout",
+   "button": "Draft label",
+   "loading": "Reading labels…"
+  },
+  {
+   "id": "quote",
+   "title": "Customer quote & reply",
+   "subtitle": "Answer an enquiry with a clear quote",
+   "emoji": "💬",
+   "inputs": [
+    {
+     "key": "enquiry",
+     "label": "The enquiry",
+     "type": "longtext",
+     "placeholder": "Hi! Could you do 40 cupcakes for a wedding on the 14th, blush pink…",
+     "required": true
+    },
+    {
+     "key": "tone",
+     "label": "Tone",
+     "type": "chips",
+     "options": [
+      "Warm",
+      "Professional",
+      "Brief"
+     ],
+     "default": "Warm"
+    }
+   ],
+   "prompt": "Reply to this enquiry in a {tone} tone: {enquiry}. Kv (what they asked for, suggested price range, deposit and lead time, questions to ask back), a quote with the reply message ready to send, and a checklist of terms to confirm before accepting (allergens, delivery, cancellation, payment).",
+   "shape": "kv, quote, checklist",
+   "button": "Write reply",
+   "loading": "Drafting…"
+  },
+  {
+   "id": "post",
+   "title": "Sell it online",
+   "subtitle": "Posts and captions for a bake",
+   "emoji": "📣",
+   "inputs": [
+    {
+     "key": "bake",
+     "label": "The bake",
+     "type": "text",
+     "placeholder": "brown butter chocolate chip cookies",
+     "required": true
+    },
+    {
+     "key": "platform",
+     "label": "Platform",
+     "type": "chips",
+     "options": [
+      "Instagram",
+      "Facebook",
+      "WhatsApp broadcast",
+      "Market flyer"
+     ],
+     "default": "Instagram"
+    },
+    {
+     "key": "angle",
+     "label": "Angle",
+     "type": "text",
+     "placeholder": "pre-orders open for Friday pickup"
+    }
+   ],
+   "prompt": "Write for {platform} about {bake} with the angle '{angle}'. Quote with the main post or caption, bullets of 3 alternative hooks, a kv (best posting time, hashtags or keywords, call to action), and a callout on claims to avoid without evidence (health, allergen-free).",
+   "shape": "quote, bullets, kv, callout",
+   "button": "Write post",
+   "loading": "Finding the hook…"
+  }
+ ],
+ "disclaimer": "Pricing and food-business guidance is general information, not legal, tax or food-safety advice; check your local cottage-food, labelling and tax rules before selling."
+}

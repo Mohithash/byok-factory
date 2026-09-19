@@ -1,0 +1,209 @@
+{
+ "id": "hear_clear",
+ "name": "Hear Clear",
+ "tagline": "Live well with hearing loss and hearing aids",
+ "category": "Medical",
+ "colors": [
+  "#00695C",
+  "#FF7043",
+  "#3949AB"
+ ],
+ "icon": "mic",
+ "about": "Hear Clear troubleshoots hearing aids, plans restaurants and gatherings so you can follow the conversation, gives you the words to tell people what you need, and sets up phones and TVs for captions and clarity.",
+ "persona": "You are a friendly audiology-informed coach: practical, upbeat, specific about settings and situations, and clear about what needs an audiologist rather than a tip.",
+ "onboarding": {
+  "title": "Hear more of what matters",
+  "subtitle": "Tell us about your hearing and your devices.",
+  "bullets": [
+   "Hearing aid troubleshooting",
+   "Plans for noisy places",
+   "Scripts to ask for what you need"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "aids",
+   "label": "Hearing aids",
+   "type": "chips",
+   "options": [
+    "Behind-the-ear",
+    "In-the-ear",
+    "Rechargeable",
+    "Cochlear implant",
+    "None yet"
+   ]
+  },
+  {
+   "key": "loss",
+   "label": "Hearing loss",
+   "type": "chips",
+   "options": [
+    "Mild",
+    "Moderate",
+    "Severe",
+    "One ear"
+   ]
+  },
+  {
+   "key": "hardest",
+   "label": "Hardest situations",
+   "type": "chips",
+   "options": [
+    "Restaurants",
+    "Phone calls",
+    "TV",
+    "Groups",
+    "Wind / outdoors",
+    "Meetings"
+   ],
+   "multi": true
+  }
+ ],
+ "tools": [
+  {
+   "id": "fix",
+   "title": "Fix my hearing aid",
+   "subtitle": "Whistling, muffled, dead",
+   "emoji": "🔧",
+   "inputs": [
+    {
+     "key": "problem",
+     "label": "Problem",
+     "type": "chips",
+     "options": [
+      "Whistling / feedback",
+      "Sounds muffled",
+      "No sound",
+      "Won't charge",
+      "Uncomfortable",
+      "Too loud / tinny",
+      "Won't connect to phone"
+     ],
+     "default": "Whistling / feedback"
+    }
+   ],
+   "prompt": "Troubleshoot '{problem}' for the profile's hearing aid type: steps in the order to try them (cheapest and quickest first, e.g. wax guard, battery, dome fit, drying box), a table (Cause | How to check | Fix), and a callout on when to stop fiddling and book the audiologist, and what to tell them.",
+   "shape": "steps, table, callout",
+   "button": "Troubleshoot",
+   "loading": "Listening…"
+  },
+  {
+   "id": "venue",
+   "title": "Plan a noisy occasion",
+   "subtitle": "Restaurant, party, church",
+   "emoji": "🍽️",
+   "inputs": [
+    {
+     "key": "event",
+     "label": "The occasion",
+     "type": "text",
+     "placeholder": "birthday dinner for 8 at an Italian place",
+     "required": true
+    },
+    {
+     "key": "control",
+     "label": "I can",
+     "type": "chips",
+     "options": [
+      "Choose the venue",
+      "Choose the table",
+      "Neither"
+     ],
+     "default": "Choose the table"
+    }
+   ],
+   "prompt": "Plan {event} where I can {control}. Bullets on choosing and positioning (wall behind me, light on faces, away from the kitchen), a checklist for the day (aid programme, spare batteries, seat request), a quote with what to say when booking or to the host, and a kv (Best seat | Worst seat | Hearing aid programme to use | Backup if it's too loud).",
+   "shape": "bullets, checklist, quote, kv",
+   "button": "Plan it",
+   "loading": "Scouting…"
+  },
+  {
+   "id": "ask",
+   "title": "Tell people what I need",
+   "subtitle": "Words that don't feel awkward",
+   "emoji": "💬",
+   "inputs": [
+    {
+     "key": "who",
+     "label": "Who",
+     "type": "chips",
+     "options": [
+      "Family",
+      "Friends",
+      "Shop or bank staff",
+      "Doctor's receptionist",
+      "New acquaintance",
+      "Grandchildren"
+     ],
+     "default": "Family"
+    },
+    {
+     "key": "situation",
+     "label": "Situation",
+     "type": "text",
+     "placeholder": "they talk to me from the other room"
+    }
+   ],
+   "prompt": "Write scripts for {who} in this situation: {situation}. Three quote sections: a light one-liner, a clear request, and one for when they've forgotten again; then bullets on what helps listeners actually change (face me, slow not loud, one at a time), and a callout on advocating without apologising.",
+   "shape": "quote, bullets, callout",
+   "button": "Write scripts",
+   "loading": "Finding words…"
+  },
+  {
+   "id": "tech",
+   "title": "Phone, TV & doorbell",
+   "subtitle": "Captions and clarity settings",
+   "emoji": "📺",
+   "inputs": [
+    {
+     "key": "device",
+     "label": "Set up",
+     "type": "chips",
+     "options": [
+      "Phone calls",
+      "TV",
+      "Video calls",
+      "Doorbell & alarms",
+      "Smart speaker"
+     ],
+     "default": "TV"
+    },
+    {
+     "key": "model",
+     "label": "Device details",
+     "type": "text",
+     "placeholder": "Samsung TV, iPhone 13"
+    }
+   ],
+   "prompt": "Set up {device} on {model} for the profile's hearing: a checklist of settings to turn on with menu paths (captions, mono audio, hearing-aid compatibility, streaming to aids, flashing alerts), a table (Option | Cost | Works with my aids? | Notes) of add-on gadgets worth considering (TV streamer, captioned phone, vibrating alarm), and a callout on keeping volume safe for others and for your remaining hearing.",
+   "shape": "checklist, table, callout",
+   "button": "Set up",
+   "loading": "Tuning…"
+  },
+  {
+   "id": "appt",
+   "title": "Audiologist visit",
+   "subtitle": "Questions and a symptom summary",
+   "emoji": "🩺",
+   "inputs": [
+    {
+     "key": "changes",
+     "label": "What's changed",
+     "type": "longtext",
+     "placeholder": "worse on the phone; ringing at night; wife says the TV is too loud",
+     "required": true
+    }
+   ],
+   "prompt": "Prepare for an audiology appointment from: {changes}. A kv summary to read out (Since when | Which situations | Which ear | Aids worn how many hours a day | Ringing or dizziness), a checklist of questions to ask, bullets of what to bring, and a callout on symptoms that need urgent attention (sudden loss in one ear, discharge, severe dizziness).",
+   "shape": "kv, checklist, bullets, callout",
+   "button": "Prepare",
+   "loading": "Organising…"
+  }
+ ],
+ "disclaimer": "Not medical advice. Sudden hearing loss, pain, discharge or dizziness need prompt medical attention; see your audiologist or doctor."
+}

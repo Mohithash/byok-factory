@@ -1,0 +1,212 @@
+{
+ "id": "ferment_crock",
+ "name": "Crock & Brine",
+ "tagline": "Sauerkraut, pickles and hot sauce, by the numbers",
+ "category": "Food & Drink",
+ "colors": [
+  "#8D6E63",
+  "#C62828",
+  "#7CB342"
+ ],
+ "icon": "leaf",
+ "about": "Crock & Brine calculates salt by weight, writes ferment recipes for kraut, pickles, hot sauce and garlic honey, tracks timelines for your kitchen temperature, and tells you from a photo whether that film is kahm or mould.",
+ "persona": "You are a meticulous fermentation teacher: salt percentages by weight, vegetables always submerged, and a firm 'when in doubt, throw it out'.",
+ "onboarding": {
+  "title": "Ferment vegetables with confidence",
+  "subtitle": "Your gear and kitchen temperature shape every timeline.",
+  "bullets": [
+   "Brine and dry-salt calculator",
+   "Recipes for kraut, pickles and hot sauce",
+   "Kahm-or-mould photo check"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "gear",
+   "label": "Gear",
+   "type": "chips",
+   "options": [
+    "Mason jars",
+    "Crock with weights",
+    "Airlock lids",
+    "Vacuum bags"
+   ],
+   "multi": true
+  },
+  {
+   "key": "room",
+   "label": "Kitchen temp (°C)",
+   "type": "number",
+   "placeholder": "20"
+  },
+  {
+   "key": "heat",
+   "label": "Heat tolerance",
+   "type": "chips",
+   "options": [
+    "Mild",
+    "Medium",
+    "Hot",
+    "Extra hot"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "brine",
+   "title": "Brine calculator",
+   "subtitle": "Exact salt for your jar",
+   "emoji": "⚖️",
+   "inputs": [
+    {
+     "key": "veg",
+     "label": "Vegetable weight (g)",
+     "type": "number",
+     "placeholder": "800"
+    },
+    {
+     "key": "water",
+     "label": "Water added (ml)",
+     "type": "number",
+     "placeholder": "500"
+    },
+    {
+     "key": "pct",
+     "label": "Salt %",
+     "type": "chips",
+     "options": [
+      "2",
+      "2.5",
+      "3",
+      "3.5",
+      "5"
+     ],
+     "default": "2.5"
+    }
+   ],
+   "prompt": "Calculate salt for {veg} g of vegetables plus {water} ml water at {pct}% of total weight. kv (salt g for the brine method, salt g for the dry-salt method, brine strength check, headspace to leave), a table (Vegetable type | Recommended % | Why), and a callout on which salts to avoid and why iodised salt and chlorinated water cause trouble.",
+   "shape": "kv, table, callout",
+   "button": "Calculate",
+   "loading": "Weighing the salt…"
+  },
+  {
+   "id": "recipe",
+   "title": "Ferment recipe",
+   "subtitle": "Kraut, pickles, carrots, salsa…",
+   "emoji": "🥬",
+   "inputs": [
+    {
+     "key": "veg",
+     "label": "What you have",
+     "type": "text",
+     "placeholder": "1 red cabbage, 3 carrots, 2 jalapeños",
+     "required": true
+    },
+    {
+     "key": "style",
+     "label": "Make it",
+     "type": "chips",
+     "options": [
+      "Classic kraut",
+      "Curtido",
+      "Dill pickles",
+      "Fermented salsa",
+      "Garlic honey",
+      "Giardiniera",
+      "Fermented carrots"
+     ],
+     "default": "Classic kraut"
+    }
+   ],
+   "prompt": "A {style} recipe from {veg} for the profile's gear and heat tolerance. kv (yield, salt g, ferment days at the profile's temperature, ready-when cues), steps with weights in grams, a table (Day | Look for | Taste), and a callout on keeping everything submerged.",
+   "shape": "kv, steps, table, callout",
+   "button": "Write recipe",
+   "loading": "Salting the cabbage…"
+  },
+  {
+   "id": "check",
+   "title": "Kahm or mould?",
+   "subtitle": "Photo of the jar surface",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the surface or jar",
+     "type": "photo",
+     "placeholder": "Natural light, lid off",
+     "required": true
+    }
+   ],
+   "prompt": "Assess the ferment surface in the photo. kv (verdict: normal / kahm yeast / mould — discard / cannot tell, confidence, evidence), bullets contrasting what is visible with textbook kahm versus mould, steps for what to do now, and a callout that fuzzy, blue, black, pink or slimy growth means discard the whole jar.",
+   "shape": "kv, bullets, steps, callout",
+   "button": "Check",
+   "loading": "Looking closely…"
+  },
+  {
+   "id": "hotsauce",
+   "title": "Hot sauce builder",
+   "subtitle": "From mash to bottle",
+   "emoji": "🌶️",
+   "inputs": [
+    {
+     "key": "chillies",
+     "label": "Chillies + extras",
+     "type": "text",
+     "placeholder": "500 g habanero, 2 mangoes, garlic",
+     "required": true
+    },
+    {
+     "key": "finish",
+     "label": "Finish",
+     "type": "chips",
+     "options": [
+      "Smooth & pourable",
+      "Chunky",
+      "Thick Sriracha-style"
+     ],
+     "default": "Smooth & pourable"
+    }
+   ],
+   "prompt": "Build a fermented hot sauce from {chillies} with a {finish} finish for the profile's heat tolerance. Steps for the mash ferment with salt % and days, then steps for blending, straining, vinegar and thickener in ml and g, kv (estimated heat, yield, fridge life, pH target for shelf stability), and a callout on capsaicin safety (gloves, ventilation, blender lid).",
+   "shape": "steps, kv, callout",
+   "button": "Build sauce",
+   "loading": "Wearing gloves…"
+  },
+  {
+   "id": "timeline",
+   "title": "Timeline & storage",
+   "subtitle": "When it's ready, how long it keeps",
+   "emoji": "📅",
+   "inputs": [
+    {
+     "key": "batch",
+     "label": "Batch + start date",
+     "type": "text",
+     "placeholder": "2 L kraut, started Monday",
+     "required": true
+    },
+    {
+     "key": "goal",
+     "label": "Flavour goal",
+     "type": "chips",
+     "options": [
+      "Crunchy & mild",
+      "Balanced",
+      "Very sour"
+     ],
+     "default": "Balanced"
+    }
+   ],
+   "prompt": "For {batch} aiming '{goal}' at the profile's temperature, produce a table (Day range | Stage | What to check | Action) and kv (expected ready date, fridge life once cold, best container). Then bullets on slowing or speeding the ferment, and a callout on why refrigeration stops the clock but not the flavour.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Plan",
+   "loading": "Checking dates…"
+  }
+ ],
+ "disclaimer": "Weigh your salt, keep vegetables submerged, and discard anything fuzzy, pink, slimy or foul-smelling. Not medical advice; if in doubt, throw it out."
+}

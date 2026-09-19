@@ -1,0 +1,233 @@
+{
+ "id": "furniture_flip",
+ "name": "Furniture Flip",
+ "tagline": "Turn second-hand finds into pieces you love or sell",
+ "category": "House & Home",
+ "colors": [
+  "#2E7D32",
+  "#8D6E63",
+  "#FF8F00"
+ ],
+ "icon": "wrench",
+ "about": "Furniture Flip appraises second-hand furniture from a photo, plans refinishing step by step with the right products, fixes wobbles and water rings, and prices finished pieces to sell.",
+ "persona": "You are a furniture restorer who flips pieces for a living: you can spot solid wood from veneer in a photo, you respect a good original finish, and you know exactly which primer sticks to laminate.",
+ "onboarding": {
+  "title": "Old piece, new life",
+  "subtitle": "Tell us about your workspace and what you like to make.",
+  "bullets": [
+   "Photo appraisals before you buy",
+   "Refinishing plans with real products",
+   "Pricing to resell at a profit"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "space",
+   "label": "Workspace",
+   "type": "chips",
+   "options": [
+    "Balcony / outdoors",
+    "Garage / shed",
+    "Indoors only",
+    "Shared workshop"
+   ]
+  },
+  {
+   "key": "tools",
+   "label": "Tools you own",
+   "type": "chips",
+   "options": [
+    "Sander",
+    "Drill",
+    "Paint sprayer",
+    "Clamps",
+    "Just hand tools"
+   ],
+   "multi": true
+  },
+  {
+   "key": "goal",
+   "label": "Mostly",
+   "type": "chips",
+   "options": [
+    "Keeping pieces",
+    "Selling pieces",
+    "Both"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "appraise",
+   "title": "Should I buy it?",
+   "subtitle": "Photo → what it is, what it's worth",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the piece (plus a close-up of a joint or edge if you can)",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "price",
+     "label": "Asking price",
+     "type": "number",
+     "placeholder": "40"
+    }
+   ],
+   "prompt": "Appraise the furniture in the photo, asking {price}. Sections: kv (likely material: solid / veneer / laminate, era or style, construction quality, condition, verdict: buy / haggle / walk away, fair price); a table (Issue seen | Fix difficulty | Cost); bullets of what to check in person (smell, drawer runners, wobble, woodworm); and a callout on how to negotiate given the flaws.",
+   "shape": "kv, table, bullets, callout",
+   "button": "Appraise",
+   "loading": "Checking the joints…"
+  },
+  {
+   "id": "plan",
+   "title": "Refinish plan",
+   "subtitle": "Sand, prime, paint or stain, step by step",
+   "emoji": "🖌️",
+   "inputs": [
+    {
+     "key": "piece",
+     "label": "The piece & current finish",
+     "type": "text",
+     "placeholder": "pine chest of drawers, orange varnish",
+     "required": true
+    },
+    {
+     "key": "finish",
+     "label": "Finish you want",
+     "type": "chips",
+     "options": [
+      "Painted matte",
+      "Stained natural wood",
+      "Limewash / whitewash",
+      "Two-tone wood + paint",
+      "Lacquer gloss",
+      "Raw / oiled"
+     ],
+     "default": "Painted matte"
+    },
+    {
+     "key": "effort",
+     "label": "Effort",
+     "type": "chips",
+     "options": [
+      "Weekend",
+      "A few evenings",
+      "Do it properly"
+     ],
+     "default": "Weekend"
+    }
+   ],
+   "prompt": "Plan refinishing {piece} to '{finish}' at a '{effort}' level of effort, using the profile's tools and workspace. Sections: a checklist of products with grit numbers, primer type, paint or stain type and topcoat; steps with drying and cure times between each; a table (Stage | Product | Time | Mistake to avoid); and a callout on dust, fumes, ventilation and lead paint on older pieces.",
+   "shape": "checklist, steps, table, callout",
+   "button": "Plan it",
+   "loading": "Picking grits…"
+  },
+  {
+   "id": "repair",
+   "title": "Fix a problem",
+   "subtitle": "Wobbles, sticky drawers, water rings, chips",
+   "emoji": "🔧",
+   "inputs": [
+    {
+     "key": "problem",
+     "label": "Problem",
+     "type": "chips",
+     "options": [
+      "Wobbly legs / joints",
+      "Sticky drawer",
+      "White water ring",
+      "Chipped veneer",
+      "Scratches",
+      "Musty smell",
+      "Peeling laminate",
+      "Woodworm holes"
+     ],
+     "default": "Wobbly legs / joints"
+    },
+    {
+     "key": "detail",
+     "label": "Details",
+     "type": "text",
+     "placeholder": "oak dining table, one leg moves 1cm"
+    }
+   ],
+   "prompt": "Fix '{problem}' on: {detail}. Sections: text with the likely cause; steps for the repair with products, clamping times and quantities; kv (cost, time, difficulty 1–5, tools needed from the profile's list); and a callout on when the repair is not worth it or needs a professional.",
+   "shape": "text, steps, kv, callout",
+   "button": "Fix it",
+   "loading": "Gluing and clamping…"
+  },
+  {
+   "id": "hardware",
+   "title": "Handles, legs & details",
+   "subtitle": "Upgrades that change the whole piece",
+   "emoji": "✨",
+   "inputs": [
+    {
+     "key": "piece",
+     "label": "The piece",
+     "type": "text",
+     "placeholder": "1970s teak sideboard, 180cm, 4 doors",
+     "required": true
+    },
+    {
+     "key": "vibe",
+     "label": "Vibe",
+     "type": "chips",
+     "options": [
+      "Mid-century",
+      "Scandi",
+      "Farmhouse",
+      "Modern minimal",
+      "Glam",
+      "Industrial"
+     ],
+     "default": "Mid-century"
+    }
+   ],
+   "prompt": "Suggest hardware and detail upgrades for {piece} in a {vibe} vibe. Sections: cards for 5 ideas (meta = cost band · minutes · reversible?); a table (Detail | Spec to search: size, centre-to-centre, finish | Where it goes); steps for swapping handles including filling and re-drilling old holes; and a callout on measuring hole spacing before ordering.",
+   "shape": "cards, table, steps, callout",
+   "button": "Suggest",
+   "loading": "Trying on handles…"
+  },
+  {
+   "id": "sell",
+   "title": "Price & list it",
+   "subtitle": "What to charge and how to write the listing",
+   "emoji": "💰",
+   "inputs": [
+    {
+     "key": "piece",
+     "label": "The finished piece",
+     "type": "text",
+     "placeholder": "painted pine chest of drawers, sage green, new brass handles",
+     "required": true
+    },
+    {
+     "key": "cost",
+     "label": "What you spent in total",
+     "type": "number",
+     "placeholder": "65"
+    },
+    {
+     "key": "hours",
+     "label": "Hours of work",
+     "type": "number",
+     "placeholder": "6"
+    }
+   ],
+   "prompt": "Price and list {piece}, which cost {cost} and took {hours} hours. Sections: kv (price range low / target / high, profit at target, hourly rate at target, best platform); a quote with a complete marketplace listing (title, 80–120 word description, dimensions placeholder, collection note); bullets on photographing it (light, angles, staging); and a callout on safe handover and payment.",
+   "shape": "kv, quote, bullets, callout",
+   "button": "Price it",
+   "loading": "Staging the shot…"
+  }
+ ],
+ "disclaimer": "Sanding and stripping old finishes can release lead or harmful dust; wear a mask, ventilate and test older pieces for lead paint. Follow product safety labels. General guidance, not professional advice."
+}

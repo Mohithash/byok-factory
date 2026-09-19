@@ -1,0 +1,190 @@
+{
+ "id": "unsent_letters",
+ "name": "Unsent",
+ "tagline": "Write the letter you'll never send, then decide",
+ "category": "Lifestyle",
+ "colors": [
+  "#6D4C41",
+  "#C2185B",
+  "#FFCC80"
+ ],
+ "icon": "note",
+ "about": "Unsent helps you write letters to people you can't or shouldn't send them to — an ex, a parent, your younger self, someone who's gone — then reflect on what came out and choose what, if anything, to actually say.",
+ "persona": "You are a steady writing companion for difficult feelings: you help the user say the unsaid honestly, never rush them to forgiveness, and gently separate venting from action.",
+ "onboarding": {
+  "title": "Say it all, send nothing",
+  "subtitle": "Who's on your mind? It stays private and unsent.",
+  "bullets": [
+   "Letters that get the whole thing out",
+   "Reflection on what's underneath",
+   "A sendable version, only if you want one"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "style",
+   "label": "Your writing voice",
+   "type": "chips",
+   "options": [
+    "Blunt",
+    "Measured",
+    "Poetic",
+    "Whatever comes"
+   ]
+  },
+  {
+   "key": "recipients",
+   "label": "People you might write to",
+   "type": "text",
+   "placeholder": "my dad, my ex, 16-year-old me"
+  }
+ ],
+ "tools": [
+  {
+   "id": "draft",
+   "title": "Draft the letter",
+   "subtitle": "Get the whole thing out",
+   "emoji": "✉️",
+   "inputs": [
+    {
+     "key": "to",
+     "label": "To",
+     "type": "text",
+     "placeholder": "my ex",
+     "required": true
+    },
+    {
+     "key": "feeling",
+     "label": "Loudest feeling",
+     "type": "chips",
+     "options": [
+      "Anger",
+      "Grief",
+      "Guilt",
+      "Longing",
+      "Relief",
+      "Confusion"
+     ],
+     "default": "Anger"
+    },
+    {
+     "key": "raw",
+     "label": "What you want to say, unfiltered",
+     "type": "longtext",
+     "placeholder": "you left without explaining and I still…",
+     "required": true
+    }
+   ],
+   "prompt": "Draft an unsent letter to {to} in the profile's voice, leading with {feeling}, from these raw notes: {raw}. Quote with the full letter (200–400 words, first person, specific, no softening the user didn't ask for), bullets naming 3 lines the user might want to sit with, and a callout that this stays unsent until they decide otherwise.",
+   "shape": "quote, bullets, callout",
+   "button": "Write it out",
+   "loading": "Uncapping the pen…"
+  },
+  {
+   "id": "underneath",
+   "title": "What's underneath",
+   "subtitle": "Read the letter back",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "letter",
+     "label": "Paste your letter",
+     "type": "longtext",
+     "required": true
+    }
+   ],
+   "prompt": "Reflect on this unsent letter: {letter}. Kv (Primary feeling, Feeling under that, Unmet need, What the writer seems to want now), text with a gentle two-paragraph reading of what the letter is really about, bullets of 3 questions to journal on next, and a callout if anything suggests the writer needs support beyond a journal.",
+   "shape": "kv, text, bullets, callout",
+   "button": "Read it back",
+   "loading": "Listening…"
+  },
+  {
+   "id": "reply",
+   "title": "Reply as them",
+   "subtitle": "A perspective-taking exercise",
+   "emoji": "🪞",
+   "inputs": [
+    {
+     "key": "letter",
+     "label": "Your letter",
+     "type": "longtext",
+     "required": true
+    },
+    {
+     "key": "version",
+     "label": "Version of them",
+     "type": "chips",
+     "options": [
+      "Their best self",
+      "Realistic",
+      "How they'd actually respond"
+     ],
+     "default": "Realistic"
+    }
+   ],
+   "prompt": "Write the reply the '{version}' version of the recipient might send to this letter: {letter}. Quote with the reply (150–250 words in their plausible voice, not a fantasy apology unless their best self was chosen), bullets on what this shows about what the user can and can't get from them, and a callout that this is imagination, not prediction.",
+   "shape": "quote, bullets, callout",
+   "button": "Hear a reply",
+   "loading": "Imagining…"
+  },
+  {
+   "id": "sendable",
+   "title": "Make it sendable",
+   "subtitle": "Only if you choose to",
+   "emoji": "📮",
+   "inputs": [
+    {
+     "key": "letter",
+     "label": "Unsent version",
+     "type": "longtext",
+     "required": true
+    },
+    {
+     "key": "goal",
+     "label": "Goal of sending",
+     "type": "chips",
+     "options": [
+      "Set a boundary",
+      "Ask for repair",
+      "Close the door",
+      "Reconnect"
+     ],
+     "default": "Set a boundary"
+    }
+   ],
+   "prompt": "Turn this unsent letter into something that could be sent in order to {goal}: {letter}. Quote with the sendable version (under 150 words, no accusations that invite a fight, one clear ask or statement), a table (Original line | Why it was cut or changed), and a callout with 3 questions to answer honestly before sending, including whether to wait 48 hours.",
+   "shape": "quote, table, callout",
+   "button": "Make sendable",
+   "loading": "Cooling it down…"
+  },
+  {
+   "id": "ritual",
+   "title": "Close the letter",
+   "subtitle": "Burn, keep or bury it",
+   "emoji": "🕯️",
+   "inputs": [
+    {
+     "key": "mode",
+     "label": "I want to",
+     "type": "chips",
+     "options": [
+      "Let it go",
+      "Keep it safely",
+      "Mark a chapter ending"
+     ],
+     "default": "Let it go"
+    }
+   ],
+   "prompt": "Design a small private ritual to {mode} for a finished unsent letter: steps (10 minutes max, safe, no flames indoors), a quote with a closing sentence to say aloud, and bullets on what to do if the feelings come back next week.",
+   "shape": "steps, quote, bullets",
+   "button": "Close it",
+   "loading": "Folding it up…"
+  }
+ ],
+ "disclaimer": "Not therapy or medical advice. If you're in crisis or thinking about harming yourself or someone else, contact local emergency services or a crisis line now."
+}

@@ -1,0 +1,183 @@
+{
+ "id": "sunday_scaries",
+ "name": "Sunday Scaries",
+ "tagline": "End the weekend without dreading Monday",
+ "category": "Health & Fitness",
+ "colors": [
+  "#7B1FA2",
+  "#FFB300",
+  "#00ACC1"
+ ],
+ "icon": "calendar",
+ "about": "Sunday Scaries breaks the Sunday-night dread loop: it sorts what's actually on your plate, scripts a soft landing for Monday, builds a decompression ritual for hard days and a Friday shutdown that keeps work at work.",
+ "persona": "You are a practical work-life coach: you take anticipatory anxiety seriously, turn vague dread into named tasks, and protect evenings and weekends without pretending the job doesn't exist.",
+ "onboarding": {
+  "title": "Take your weekend back",
+  "subtitle": "A few details about your work rhythm.",
+  "bullets": [
+   "Sunday reset in 20 minutes",
+   "Monday-morning soft landing",
+   "Friday shutdown ritual"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "pattern",
+   "label": "Work pattern",
+   "type": "chips",
+   "options": [
+    "Office 9–5",
+    "Hybrid",
+    "Remote",
+    "Shifts",
+    "Self-employed"
+   ]
+  },
+  {
+   "key": "dread",
+   "label": "Dread usually starts",
+   "type": "chips",
+   "options": [
+    "Saturday",
+    "Sunday afternoon",
+    "Sunday night",
+    "Monday morning"
+   ]
+  },
+  {
+   "key": "worst",
+   "label": "Worst part of the week",
+   "type": "text",
+   "placeholder": "Monday 9am pipeline review"
+  }
+ ],
+ "tools": [
+  {
+   "id": "sort",
+   "title": "Sort the dread",
+   "subtitle": "Brain dump → what's real",
+   "emoji": "🧹",
+   "inputs": [
+    {
+     "key": "dump",
+     "label": "Everything in your head about the week",
+     "type": "longtext",
+     "placeholder": "inbox, the Jenkins thing, Priya's feedback, dentist, I haven't done the report…",
+     "required": true
+    }
+   ],
+   "prompt": "Sort this Sunday brain dump: {dump}. Table (Item | Real task, vague worry or not mine | First 10-minute step | When), bullets naming the 1–2 items driving most of the dread and why, a checklist of the three things to do tonight (20 minutes total), and a callout on what to consciously leave until Monday.",
+   "shape": "table, bullets, checklist, callout",
+   "button": "Sort it",
+   "loading": "Untangling…"
+  },
+  {
+   "id": "monday",
+   "title": "Monday soft landing",
+   "subtitle": "Script the first 90 minutes",
+   "emoji": "🌅",
+   "inputs": [
+    {
+     "key": "first",
+     "label": "First thing on Monday",
+     "type": "text",
+     "placeholder": "pipeline review at 9"
+    },
+    {
+     "key": "energy",
+     "label": "Expected energy",
+     "type": "chips",
+     "options": [
+      "Low",
+      "Medium",
+      "High"
+     ],
+     "default": "Low"
+    }
+   ],
+   "prompt": "Plan Monday's first 90 minutes around '{first}' with {energy} energy: steps with clock times from waking to the first hard task, a kv (Night-before setup, Breakfast, First small win, Reward), and a quote with a one-sentence message to send a colleague or manager if you need a lighter start.",
+   "shape": "steps, kv, quote",
+   "button": "Plan Monday",
+   "loading": "Easing in…"
+  },
+  {
+   "id": "decompress",
+   "title": "Decompress a bad day",
+   "subtitle": "Leave it at the door",
+   "emoji": "🛁",
+   "inputs": [
+    {
+     "key": "what",
+     "label": "What happened",
+     "type": "longtext",
+     "placeholder": "got torn apart in the review, then two more fires",
+     "required": true
+    },
+    {
+     "key": "minutes",
+     "label": "Minutes before you need to be present",
+     "type": "number",
+     "placeholder": "30"
+    }
+   ],
+   "prompt": "Help me decompress after: {what}, with {minutes} minutes before I need to be present for other people. Text with a two-paragraph honest reframe that neither minimises nor catastrophises, steps for a transition ritual sized to {minutes} minutes, and bullets on what to say if someone asks how your day was.",
+   "shape": "text, steps, bullets",
+   "button": "Decompress",
+   "loading": "Exhaling…"
+  },
+  {
+   "id": "friday",
+   "title": "Friday shutdown",
+   "subtitle": "So Sunday has nothing to chew on",
+   "emoji": "🔒",
+   "inputs": [
+    {
+     "key": "open",
+     "label": "Open loops",
+     "type": "text",
+     "placeholder": "two unanswered emails, unfinished deck"
+    }
+   ],
+   "prompt": "Design a 15-minute Friday shutdown that closes or parks: {open}. Checklist in order (each item under 3 minutes), a quote with the out-of-hours message or auto-reply to set, and a callout with the one rule for the weekend (e.g. no inbox on the phone) and how to make it easy to keep.",
+   "shape": "checklist, quote, callout",
+   "button": "Shut down",
+   "loading": "Closing tabs…"
+  },
+  {
+   "id": "weekend",
+   "title": "Rescue the weekend",
+   "subtitle": "Plan one that actually restores",
+   "emoji": "🎈",
+   "inputs": [
+    {
+     "key": "mode",
+     "label": "This weekend I need",
+     "type": "chips",
+     "options": [
+      "Rest",
+      "Fun",
+      "Get things done",
+      "People"
+     ],
+     "default": "Rest"
+    },
+    {
+     "key": "fixed",
+     "label": "Fixed commitments",
+     "type": "text",
+     "placeholder": "kids' football Sat 10, dinner Sun"
+    }
+   ],
+   "prompt": "Plan a restoring weekend built around {mode} with these fixed commitments: {fixed}. Table (Slot | Saturday | Sunday) covering morning, afternoon and evening, bullets on protecting Sunday evening given the profile's dread pattern, and a callout on the difference between rest and scrolling.",
+   "shape": "table, bullets, callout",
+   "button": "Plan weekend",
+   "loading": "Clearing Sunday…"
+  }
+ ],
+ "disclaimer": "Not therapy or medical advice. If you're in crisis or thinking about harming yourself or someone else, contact local emergency services or a crisis line now."
+}

@@ -1,0 +1,183 @@
+{
+ "id": "local_ranker",
+ "name": "Local Ranker",
+ "tagline": "Get found on Maps and win the local search",
+ "category": "Business",
+ "colors": [
+  "#2E7D32",
+  "#F9A825",
+  "#1565C0"
+ ],
+ "icon": "pin",
+ "about": "Local Ranker optimises your Google Business Profile, writes review replies and review-request messages, plans local content and prepares consistent listings for every directory.",
+ "persona": "You are a local SEO consultant for small businesses: practical, guidelines-aware, and you never suggest fake reviews or keyword-stuffed business names.",
+ "onboarding": {
+  "title": "Be the business they pick on Maps",
+  "subtitle": "Your business details make every suggestion specific.",
+  "bullets": [
+   "Business profile optimisation",
+   "Review replies in your voice",
+   "Local content and listing plans"
+  ]
+ },
+ "profile": [
+  {
+   "key": "business",
+   "label": "Business & type",
+   "type": "text",
+   "placeholder": "Rosa's Bakery — café & wedding cakes"
+  },
+  {
+   "key": "area",
+   "label": "City / service area",
+   "type": "text",
+   "placeholder": "Leeds, LS6 and nearby"
+  },
+  {
+   "key": "services",
+   "label": "Top services",
+   "type": "text",
+   "placeholder": "custom cakes, brunch, coffee"
+  },
+  {
+   "key": "type",
+   "label": "Type",
+   "type": "chips",
+   "options": [
+    "Storefront",
+    "Service-area (we travel)",
+    "Both"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "gbp",
+   "title": "Optimise my profile",
+   "subtitle": "Google Business Profile audit",
+   "emoji": "📍",
+   "inputs": [
+    {
+     "key": "current",
+     "label": "Current profile details",
+     "type": "longtext",
+     "placeholder": "categories: Bakery; description: 'best cakes in town'; 34 reviews 4.6; posts: none",
+     "required": true
+    },
+    {
+     "key": "photo",
+     "label": "Screenshot of your profile (optional)",
+     "type": "photo"
+    }
+   ],
+   "prompt": "Audit and optimise the Google Business Profile for the profile business given: {current}, plus the screenshot if provided. A table (Field | Now | Recommended | Why) covering primary and secondary categories, description, services, attributes, hours, photos and Q&A; a quote with a rewritten business description ≤750 characters; a checklist of weekly profile tasks; and a callout on guideline violations to avoid (keyword-stuffed names, fake addresses).",
+   "shape": "table, quote, checklist, callout",
+   "button": "Audit profile",
+   "loading": "Pinning the map…"
+  },
+  {
+   "id": "replies",
+   "title": "Reply to reviews",
+   "subtitle": "Paste reviews → replies in your voice",
+   "emoji": "⭐",
+   "inputs": [
+    {
+     "key": "reviews",
+     "label": "Paste 1–5 reviews",
+     "type": "longtext",
+     "placeholder": "5★ 'Amazing lemon cake!' — Jo\n2★ 'Waited 20 minutes for coffee' — Dan",
+     "required": true
+    },
+    {
+     "key": "tone",
+     "label": "Tone",
+     "type": "chips",
+     "options": [
+      "Warm",
+      "Professional",
+      "Playful"
+     ],
+     "default": "Warm"
+    }
+   ],
+   "prompt": "Write {tone} replies from the profile business to each review: {reviews}. Cards (title = reviewer and rating, meta = sentiment; body = reply ≤90 words naming the business or service naturally, thanking or apologising specifically, inviting them back or offline for issues), a table (Review | Underlying issue | Operational fix), and a callout on what never to write in a reply (no arguing, no personal data).",
+   "shape": "cards, table, callout",
+   "button": "Write replies",
+   "loading": "Reading reviews…"
+  },
+  {
+   "id": "request",
+   "title": "Get more reviews",
+   "subtitle": "Messages that politely ask",
+   "emoji": "🙏",
+   "inputs": [
+    {
+     "key": "channel",
+     "label": "Channel",
+     "type": "chips",
+     "options": [
+      "SMS",
+      "Email",
+      "Receipt card",
+      "In-person script"
+     ],
+     "default": "SMS"
+    },
+    {
+     "key": "moment",
+     "label": "When you'll ask",
+     "type": "text",
+     "placeholder": "after cake pickup"
+    }
+   ],
+   "prompt": "Write review-request messages for the profile business via {channel}, sent {moment}. A quote with the main message (≤60 words for SMS, ≤120 for email, with a placeholder for the review link), a second quote with one gentle reminder, steps for a simple review-collection routine staff can follow, and a callout on Google's rules (no incentives, no gating, ask everyone).",
+   "shape": "quote, steps, callout",
+   "button": "Write requests",
+   "loading": "Asking nicely…"
+  },
+  {
+   "id": "posts",
+   "title": "Local content plan",
+   "subtitle": "Posts, pages and events for your area",
+   "emoji": "🗓️",
+   "inputs": [
+    {
+     "key": "weeks",
+     "label": "Weeks to plan",
+     "type": "number",
+     "placeholder": "4"
+    },
+    {
+     "key": "season",
+     "label": "What's coming up",
+     "type": "text",
+     "placeholder": "Christmas orders open; new brunch menu"
+    }
+   ],
+   "prompt": "Plan {weeks} weeks of local content for the profile business around: {season}. A table (Week | Google post | Instagram / Facebook | Website page or blog | Local keyword targeted), bullets of 5 neighbourhood or service-area page ideas with target phrases, and a callout on earning local links (partnerships, events, local press).",
+   "shape": "table, bullets, callout",
+   "button": "Plan content",
+   "loading": "Mapping the month…"
+  },
+  {
+   "id": "citations",
+   "title": "Citations & listings",
+   "subtitle": "Consistent NAP everywhere",
+   "emoji": "📇",
+   "inputs": [
+    {
+     "key": "nap",
+     "label": "Name, address, phone exactly as registered",
+     "type": "text",
+     "placeholder": "Rosa's Bakery, 12 Otley Rd, Leeds LS6 3AA, 0113 …",
+     "required": true
+    }
+   ],
+   "prompt": "Prepare directory listing copy for the profile business with NAP: {nap}. kv (canonical name, address format, phone format, primary category, 150-character short description, 500-character long description), a table of directories to claim (Directory | Priority | Notes), a checklist for consistency across listings, and a callout on fixing duplicates and old addresses.",
+   "shape": "kv, table, checklist, callout",
+   "button": "Prepare listings",
+   "loading": "Checking listings…"
+  }
+ ],
+ "disclaimer": "Follow Google Business Profile and review-platform guidelines: incentivised, gated or fake reviews can get a profile suspended."
+}

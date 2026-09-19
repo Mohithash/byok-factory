@@ -1,0 +1,251 @@
+{
+ "id": "thai_wok_mortar",
+ "name": "Wok & Mortar",
+ "tagline": "Thai cooking: pastes, stir-fries and perfect balance",
+ "category": "Food & Drink",
+ "colors": [
+  "#7CB342",
+  "#D81B60",
+  "#FF8F00"
+ ],
+ "icon": "spark",
+ "about": "Wok & Mortar teaches Thai home cooking from the paste up: curry pastes from scratch, over-rice stir-fries timed in seconds, som tam and larb, noodle dishes (pad thai, pad see ew, khao soi) from the fridge and a taste-balancing doctor for when a dish is 'almost right'.",
+ "persona": "You are a Thai home cook and teacher who balances sweet, sour, salty, spicy and bitter by taste, cooks fast over high heat, uses a mortar when it matters, and adapts heat and ingredients to Western kitchens without apologising for fish sauce.",
+ "onboarding": {
+  "title": "Thai food that tastes like Thailand",
+  "subtitle": "Tell us your heat level and what's in your pantry.",
+  "bullets": [
+   "Curry pastes from scratch",
+   "Stir-fries timed in seconds",
+   "Fix a dish that's almost right"
+  ]
+ },
+ "profile": [
+  {
+   "key": "heat",
+   "label": "Heat",
+   "type": "chips",
+   "options": [
+    "Farang mild",
+    "Medium",
+    "Thai spicy",
+    "Isaan level"
+   ],
+   "default": "Medium"
+  },
+  {
+   "key": "diet",
+   "label": "Diet",
+   "type": "chips",
+   "options": [
+    "Anything",
+    "Pescatarian",
+    "Vegetarian",
+    "Vegan"
+   ],
+   "default": "Anything"
+  },
+  {
+   "key": "pantry",
+   "label": "Pantry",
+   "type": "chips",
+   "options": [
+    "Fish sauce",
+    "Oyster sauce",
+    "Palm sugar",
+    "Tamarind",
+    "Shrimp paste",
+    "Thai basil",
+    "Galangal",
+    "Makrut lime leaves",
+    "Lemongrass"
+   ],
+   "default": "Fish sauce",
+   "multi": true
+  },
+  {
+   "key": "wok",
+   "label": "Wok",
+   "type": "chips",
+   "options": [
+    "Carbon steel",
+    "Non-stick",
+    "Cast-iron pan",
+    "No wok"
+   ],
+   "default": "Non-stick"
+  }
+ ],
+ "tools": [
+  {
+   "id": "paste",
+   "title": "Curry paste from scratch",
+   "subtitle": "Green, red, massaman, panang, jungle",
+   "emoji": "🌶️",
+   "inputs": [
+    {
+     "key": "paste",
+     "label": "Paste",
+     "type": "chips",
+     "options": [
+      "Green (gaeng kiew wan)",
+      "Red (gaeng phet)",
+      "Massaman",
+      "Panang",
+      "Yellow (gaeng garee)",
+      "Jungle (gaeng pa)",
+      "Khao soi"
+     ],
+     "default": "Green (gaeng kiew wan)"
+    },
+    {
+     "key": "tool",
+     "label": "Tool",
+     "type": "chips",
+     "options": [
+      "Mortar & pestle",
+      "Blender / food processor",
+      "Both"
+     ],
+     "default": "Mortar & pestle"
+    }
+   ],
+   "prompt": "Teach {paste} paste with a {tool} for the profile's heat and pantry (offer substitutes for missing aromatics). Sections: a table 'Ingredients' (Ingredient | Grams | Prep | Substitute if unavailable), steps in the correct pounding order from hardest to softest with the 'smooth' cue, kv (yield, keeps in fridge, freezes for, grams per curry for 4), and bullets on turning the paste into a curry, including frying it in coconut cream until the oil splits.",
+   "shape": "table, steps, kv, bullets",
+   "button": "Make paste",
+   "loading": "Pounding…"
+  },
+  {
+   "id": "wok",
+   "title": "Over-rice stir-fry",
+   "subtitle": "Pad kra pao, prik king, cashew, pad pak boong",
+   "emoji": "🍳",
+   "inputs": [
+    {
+     "key": "main",
+     "label": "Protein / veg",
+     "type": "text",
+     "placeholder": "minced chicken, tofu, morning glory",
+     "required": true
+    },
+    {
+     "key": "dish",
+     "label": "Dish",
+     "type": "chips",
+     "options": [
+      "Pad kra pao (holy basil)",
+      "Pad prik king",
+      "Cashew chicken (gai pad med)",
+      "Garlic & pepper (pad gratiem)",
+      "Morning glory (pad pak boong)",
+      "Ginger stir-fry (pad king)",
+      "Pick for my ingredients"
+     ],
+     "default": "Pick for my ingredients"
+    },
+    {
+     "key": "people",
+     "label": "People",
+     "type": "number",
+     "placeholder": "2"
+    }
+   ],
+   "prompt": "Stir-fry {dish} with {main} for {people} people on the profile's wok, served over jasmine rice (if 'Pick for my ingredients', choose the dish that suits {main} and say why; noodle dishes belong in Noodle night). Sections: kv (dish chosen, sauce ratio in tablespoons or grams, oil ml, wok temperature cue, total seconds of cooking), steps timed in seconds from oil-shimmer to plate with what goes in when, a callout on heat management for the profile's wok (batch size, when non-stick limits you), and bullets on the fried egg, rice and condiments that complete the plate.",
+   "shape": "kv, steps, callout, bullets",
+   "button": "Fire the wok",
+   "loading": "Wok hei incoming…"
+  },
+  {
+   "id": "balance",
+   "title": "Balance my dish",
+   "subtitle": "It's almost right — fix the taste",
+   "emoji": "⚖️",
+   "inputs": [
+    {
+     "key": "dish",
+     "label": "What you made",
+     "type": "text",
+     "placeholder": "green curry",
+     "required": true
+    },
+    {
+     "key": "wrong",
+     "label": "What's off",
+     "type": "longtext",
+     "placeholder": "tastes flat and a bit sweet, not much fragrance",
+     "required": true
+    }
+   ],
+   "prompt": "The dish is {dish} and the problem is: {wrong}. Sections: text diagnosing which of sweet, sour, salty, spicy, bitter and aroma is out of balance and why, a table 'Fix now' (Taste | Ingredient to add | Amount for 4 servings | Add at which stage), steps for adding, tasting and re-checking in the correct order, and a quote with the one-line Thai balancing rule to remember.",
+   "shape": "text, table, steps, quote",
+   "button": "Balance it",
+   "loading": "Tasting…"
+  },
+  {
+   "id": "salad",
+   "title": "Som tam & salads",
+   "subtitle": "Pounded salads, larb, yum",
+   "emoji": "🥗",
+   "inputs": [
+    {
+     "key": "salad",
+     "label": "Salad",
+     "type": "chips",
+     "options": [
+      "Som tam (green papaya)",
+      "Som tam with cucumber",
+      "Mango salad (yum mamuang)",
+      "Larb",
+      "Nam tok",
+      "Yum woon sen",
+      "Yum pla duk foo-style crispy"
+     ],
+     "default": "Som tam (green papaya)"
+    },
+    {
+     "key": "people",
+     "label": "People",
+     "type": "number",
+     "placeholder": "2"
+    }
+   ],
+   "prompt": "Teach {salad} for {people} people at the profile's heat and diet. Sections: kv (dressing ratio in tablespoons: fish sauce or alternative, lime, palm sugar, chilli, garlic), steps for pounding or tossing with the texture cue, bullets of substitutes when green papaya, toasted rice powder or dried shrimp are unavailable, and a callout on how far ahead you can dress it before it weeps.",
+   "shape": "kv, steps, bullets, callout",
+   "button": "Make salad",
+   "loading": "Pounding lime…"
+  },
+  {
+   "id": "noodles",
+   "title": "Noodle night",
+   "subtitle": "Pad thai, pad see ew, rad na, khao soi from the fridge",
+   "emoji": "🍜",
+   "inputs": [
+    {
+     "key": "noodle",
+     "label": "Noodles",
+     "type": "chips",
+     "options": [
+      "Rice stick (sen lek)",
+      "Wide rice (sen yai)",
+      "Glass (woon sen)",
+      "Egg noodles (ba mee)",
+      "Instant noodles",
+      "Whatever's in the cupboard"
+     ],
+     "default": "Rice stick (sen lek)"
+    },
+    {
+     "key": "fridge",
+     "label": "In the fridge",
+     "type": "text",
+     "placeholder": "half a chicken breast, bean sprouts, eggs, spring onion"
+    }
+   ],
+   "prompt": "Plan a Thai noodle dinner from {noodle} and {fridge} for the profile's diet and heat, choosing from pad thai, pad see ew, pad kee mao, rad na, khao soi, guay tiew nam (noodle soup) and ba mee haeng as the noodle type allows. Sections: cards for 3 dishes (meta = minutes · dry or soup), steps for the best fit including how to soak or blanch the noodles so they don't clump, kv (sauce or broth ratio for 2), and bullets on the condiment caddy (sugar, chilli vinegar, fish sauce, dried chilli) and how to season at the table.",
+   "shape": "cards, steps, kv, bullets",
+   "button": "Cook noodles",
+   "loading": "Soaking noodles…"
+  }
+ ],
+ "disclaimer": "General cooking guidance, not food-safety or dietary advice: follow safe handling, storage and allergen practices, take care with hot oil, open flames, raw or undercooked foods and fermentation, and discard anything that smells or looks wrong."
+}

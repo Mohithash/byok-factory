@@ -1,0 +1,169 @@
+{
+ "id": "heritage_tongue",
+ "name": "Heritage Tongue",
+ "tagline": "Reconnect with the language your family speaks",
+ "category": "Education",
+ "colors": [
+  "#6D4C41",
+  "#FF7043",
+  "#43A047"
+ ],
+ "icon": "globe",
+ "about": "Heritage Tongue helps heritage speakers who understand but can't quite speak: family phrases, decoding relatives' voice notes and texts, festival greetings, and a gentle plan to talk with grandparents.",
+ "persona": "You are a warm tutor for heritage speakers: you never shame the accent or the gaps, prioritise the dialect the family actually speaks over the textbook standard, and give romanisation alongside native script.",
+ "onboarding": {
+  "title": "Which language is at home?",
+  "subtitle": "Tell us the language, the dialect if you know it, and who you want to talk to.",
+  "bullets": [
+   "Phrases for real family moments",
+   "Decode relatives' texts and voice notes",
+   "A no-shame speaking plan"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "lang",
+   "label": "Family language & dialect",
+   "type": "text",
+   "placeholder": "Punjabi (Doabi) / Cantonese / Tagalog",
+   "required": true
+  },
+  {
+   "key": "level",
+   "label": "Where you are",
+   "type": "chips",
+   "options": [
+    "Understand a lot, speak little",
+    "Speak a childish version",
+    "Only a few words",
+    "Speak but can't read"
+   ],
+   "default": "Understand a lot, speak little"
+  },
+  {
+   "key": "who",
+   "label": "Who you want to talk with",
+   "type": "text",
+   "placeholder": "grandmother, aunts at weddings"
+  }
+ ],
+ "tools": [
+  {
+   "id": "moment",
+   "title": "Phrases for a family moment",
+   "subtitle": "Say the right thing at the table",
+   "emoji": "🍲",
+   "inputs": [
+    {
+     "key": "moment",
+     "label": "Moment",
+     "type": "chips",
+     "options": [
+      "Phone call with grandparents",
+      "Family dinner",
+      "Wedding or big gathering",
+      "Comforting a relative",
+      "Asking about family history",
+      "Cooking together",
+      "Religious or festival day"
+     ],
+     "default": "Phone call with grandparents"
+    },
+    {
+     "key": "detail",
+     "label": "Details",
+     "type": "text",
+     "placeholder": "grandma just got out of hospital"
+    }
+   ],
+   "prompt": "Phrases for {moment} in the profile's family language and dialect, details: {detail}. Sections: a table (Phrase in native script | Romanisation | Meaning | Respect level), a quote with a short 6-line model conversation that keeps going after the greeting, bullets of the follow-up questions relatives love to be asked, and a callout on one respectful custom for this moment.",
+   "shape": "table, quote, bullets, callout",
+   "button": "Prepare me",
+   "loading": "Setting the table…"
+  },
+  {
+   "id": "decode",
+   "title": "Decode a message",
+   "subtitle": "Voice note, text, romanised chat",
+   "emoji": "💬",
+   "inputs": [
+    {
+     "key": "message",
+     "label": "The message (type it or paste romanised text)",
+     "type": "longtext",
+     "placeholder": "beta tu kab aa raha hai, khana bana ke rakhungi",
+     "required": true
+    }
+   ],
+   "prompt": "Decode this message in the profile's family language: {message}. Sections: text with the meaning, the tone and any affectionate or scolding nuance, kv (Words you probably know, New words, Dialect markers, Implied expectation), and a quote with 3 reply options in native script and romanisation: warm and short, longer and chatty, and one that asks a question back.",
+   "shape": "text, kv, quote",
+   "button": "Decode",
+   "loading": "Reading closely…"
+  },
+  {
+   "id": "fix",
+   "title": "Fix my sentence",
+   "subtitle": "Say it the grown-up way",
+   "emoji": "✏️",
+   "inputs": [
+    {
+     "key": "attempt",
+     "label": "What you said or want to say",
+     "type": "longtext",
+     "placeholder": "mujhe pata nahi kaise bolna",
+     "required": true
+    }
+   ],
+   "prompt": "The learner tried: {attempt}. Sections: a quote with the natural adult version in native script and romanisation in the family dialect, a table (What you said | Natural version | Why it changed), bullets of 3 similar sentences to practise, and a callout reassuring which parts were already perfectly fine.",
+   "shape": "quote, table, bullets, callout",
+   "button": "Fix it",
+   "loading": "Gently correcting…"
+  },
+  {
+   "id": "festival",
+   "title": "Festival greetings",
+   "subtitle": "The right words for the day",
+   "emoji": "🎉",
+   "inputs": [
+    {
+     "key": "occasion",
+     "label": "Occasion",
+     "type": "text",
+     "placeholder": "Diwali / Lunar New Year / Eid / Nowruz",
+     "required": true
+    },
+    {
+     "key": "format",
+     "label": "Format",
+     "type": "chips",
+     "options": [
+      "Spoken",
+      "Text message",
+      "Card"
+     ],
+     "default": "Text message"
+    }
+   ],
+   "prompt": "Greetings for {occasion} as a {format} in the profile's family language. Sections: cards with 4 greetings from simple to heartfelt (native script + romanisation, meta = for whom · formality), a kv of the customs and expected replies (What elders say, What you reply, What to bring or do), and a quote with a full 3-sentence message for the relative named in the profile.",
+   "shape": "cards, kv, quote",
+   "button": "Write greetings",
+   "loading": "Lighting lamps…"
+  },
+  {
+   "id": "plan",
+   "title": "30-day speaking plan",
+   "subtitle": "From understanding to talking",
+   "emoji": "🌱",
+   "inputs": [],
+   "prompt": "A 30-day plan for the profile to move from their current level to holding a 5-minute conversation with the people named. Sections: a table (Week | Daily 10-minute practice | Weekly real conversation task | Success sign), a checklist of 8 tiny wins to tick off (first joke, first phone call without switching to English), steps for handling the moment relatives laugh at your accent, and a quote with an encouraging sentence in the family language.",
+   "shape": "table, checklist, steps, quote",
+   "button": "Start",
+   "loading": "Planting seeds…"
+  }
+ ]
+}

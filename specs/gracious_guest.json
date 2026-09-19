@@ -1,0 +1,217 @@
+{
+ "id": "gracious_guest",
+ "name": "Gracious Guest",
+ "tagline": "Be the guest everyone is glad they invited",
+ "category": "Lifestyle",
+ "colors": [
+  "#AD1457",
+  "#00897B",
+  "#FFCA28"
+ ],
+ "icon": "gift",
+ "about": "Gracious Guest prepares you for a holiday or life-cycle ceremony in a tradition you didn't grow up in — a Diwali dinner, Eid, a Seder, a Sikh wedding, a Buddhist funeral, a quinceañera — with what to wear, bring, say and avoid.",
+ "persona": "You are a warm cultural liaison who has been the outsider at a hundred celebrations: specific, reassuring, never mocking, and clear that families differ so asking the host is always allowed.",
+ "onboarding": {
+  "title": "Show up prepared, not anxious",
+  "subtitle": "A little about you helps with dress and dietary notes.",
+  "bullets": [
+   "Holiday and ceremony guest guides",
+   "What to wear, bring and say",
+   "Messages for joys and losses"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "gender",
+   "label": "Dress guidance for",
+   "type": "chips",
+   "options": [
+    "Women's",
+    "Men's",
+    "Any / non-binary"
+   ],
+   "default": "Any / non-binary"
+  },
+  {
+   "key": "diet",
+   "label": "Your dietary limits",
+   "type": "text",
+   "placeholder": "vegetarian, no alcohol, allergies"
+  },
+  {
+   "key": "background",
+   "label": "Your background",
+   "type": "text",
+   "placeholder": "secular British, Catholic Filipino…"
+  }
+ ],
+ "tools": [
+  {
+   "id": "holiday",
+   "title": "Holiday guest guide",
+   "subtitle": "Invited to celebrate a festival",
+   "emoji": "🎉",
+   "inputs": [
+    {
+     "key": "holiday",
+     "label": "Holiday",
+     "type": "text",
+     "placeholder": "Diwali, Eid al-Fitr, Passover Seder, Lunar New Year, Nowruz, Orthodox Easter",
+     "required": true
+    },
+    {
+     "key": "host",
+     "label": "Host & setting",
+     "type": "text",
+     "placeholder": "colleague's family home, big community gathering"
+    }
+   ],
+   "prompt": "Prepare the user to attend {holiday} hosted by: {host}. Sections: text on what the day means in two paragraphs, steps for how the gathering typically unfolds and what guests do at each point, kv (dress for the profile, what to bring, greeting in the host's language with pronunciation, arrival-time norm, gift value guidance), a checklist of dos and don'ts, and a callout flagging anything relevant to the profile's dietary limits.",
+   "shape": "text, steps, kv, checklist, callout",
+   "button": "Prepare me",
+   "loading": "Learning customs…"
+  },
+  {
+   "id": "ceremony",
+   "title": "Ceremony guest guide",
+   "subtitle": "Weddings, funerals, namings, coming-of-age",
+   "emoji": "💍",
+   "inputs": [
+    {
+     "key": "type",
+     "label": "Ceremony",
+     "type": "chips",
+     "options": [
+      "Wedding",
+      "Funeral / memorial",
+      "Baby naming / baptism / aqiqah",
+      "Bar / bat mitzvah",
+      "Confirmation / first communion",
+      "Quinceañera / sweet sixteen",
+      "Housewarming / puja",
+      "Other"
+     ],
+     "default": "Wedding"
+    },
+    {
+     "key": "tradition",
+     "label": "Tradition",
+     "type": "text",
+     "placeholder": "Hindu Gujarati, Nigerian Yoruba, Greek Orthodox, Japanese Buddhist",
+     "required": true
+    },
+    {
+     "key": "role",
+     "label": "Your role",
+     "type": "text",
+     "placeholder": "friend of the groom, colleague, neighbour"
+    }
+   ],
+   "prompt": "Guide the user as {role} at a {tradition} {type}. Sections: steps of the ceremony in order with what guests do at each (stand, sit, cover head, remove shoes, join in, stay silent), kv (dress code with colours to avoid, gift or contribution and typical amount, when to arrive and leave, photos), a checklist for the day, bullets of respectful phrases to say to the family, and a callout on the one thing outsiders most often get wrong.",
+   "shape": "steps, kv, checklist, bullets, callout",
+   "button": "Guide me",
+   "loading": "Learning the order…"
+  },
+  {
+   "id": "message",
+   "title": "Write a message",
+   "subtitle": "Congratulations or condolences done right",
+   "emoji": "✉️",
+   "inputs": [
+    {
+     "key": "occasion",
+     "label": "Occasion",
+     "type": "chips",
+     "options": [
+      "Condolence",
+      "Wedding congratulations",
+      "New baby",
+      "Religious milestone",
+      "Festival greeting",
+      "Recovery from illness"
+     ],
+     "default": "Condolence"
+    },
+    {
+     "key": "tradition",
+     "label": "Their tradition",
+     "type": "text",
+     "placeholder": "Muslim, Jewish, Hindu, Catholic, Chinese, secular",
+     "required": true
+    },
+    {
+     "key": "relationship",
+     "label": "Relationship & details",
+     "type": "text",
+     "placeholder": "my manager, her mother passed, we're not close"
+    }
+   ],
+   "prompt": "Write a {occasion} message for someone who is {tradition}; relationship: {relationship}. Sections: quote with the message (3–5 sentences, using the tradition's customary phrase if there is one, with its meaning noted after), bullets of phrases to avoid and why, kv (timing, card vs text vs visit, flowers or food norms), and a callout on follow-up gestures that matter in this tradition.",
+   "shape": "quote, bullets, kv, callout",
+   "button": "Write it",
+   "loading": "Choosing words…"
+  },
+  {
+   "id": "gift",
+   "title": "Choose a gift",
+   "subtitle": "Right gift, right amount, right wrapping",
+   "emoji": "🎁",
+   "inputs": [
+    {
+     "key": "occasion",
+     "label": "Occasion & tradition",
+     "type": "text",
+     "placeholder": "Chinese New Year visit, Eid, a Jewish housewarming",
+     "required": true
+    },
+    {
+     "key": "budget",
+     "label": "Budget",
+     "type": "number",
+     "placeholder": "40"
+    },
+    {
+     "key": "recipient",
+     "label": "Recipient",
+     "type": "text",
+     "placeholder": "boss's family, elderly aunt, new neighbours"
+    }
+   ],
+   "prompt": "Gift ideas for {occasion}, budget {budget}, for {recipient}. Sections: cards of 4 gifts (meta = price · why it fits), bullets of gifts or colours that would be unlucky or inappropriate in this tradition, kv (wrapping, how to present it, whether it will be opened in front of you), and a quote with one sentence to say when handing it over.",
+   "shape": "cards, bullets, kv, quote",
+   "button": "Suggest gifts",
+   "loading": "Wrapping…"
+  },
+  {
+   "id": "kids",
+   "title": "Explain it to my kids",
+   "subtitle": "So they behave and enjoy it",
+   "emoji": "🧒",
+   "inputs": [
+    {
+     "key": "event",
+     "label": "Event",
+     "type": "text",
+     "placeholder": "Diwali at our neighbours', a Jewish funeral, Chinese New Year lunch",
+     "required": true
+    },
+    {
+     "key": "ages",
+     "label": "Children's ages",
+     "type": "text",
+     "placeholder": "5 and 9"
+    }
+   ],
+   "prompt": "Explain {event} to children aged {ages} before they attend. Sections: quote with a 150-word explanation a parent can read aloud, a checklist of 5 behaviour rules phrased positively for kids, bullets of 3 things they can look forward to, and a callout on what to say if a child asks a blunt question in front of the hosts.",
+   "shape": "quote, checklist, bullets, callout",
+   "button": "Explain",
+   "loading": "Finding kid words…"
+  }
+ ],
+ "disclaimer": "Families and communities differ; when unsure, asking your host is always welcome."
+}

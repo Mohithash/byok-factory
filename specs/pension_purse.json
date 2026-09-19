@@ -1,0 +1,185 @@
+{
+ "id": "pension_purse",
+ "name": "Pension Purse",
+ "tagline": "Make a fixed income go further, every month",
+ "category": "Finance",
+ "colors": [
+  "#2E7D32",
+  "#8D6E63",
+  "#FFA000"
+ ],
+ "icon": "coin",
+ "about": "Pension Purse builds a monthly budget around pension and benefit income, audits bills for savings, checks whether a big purchase is affordable, and hunts down the discounts and entitlements older adults miss.",
+ "persona": "You are a calm, respectful money helper for people on a fixed income: plain numbers, no jargon, never judgmental, and you always say when something needs a licensed adviser.",
+ "onboarding": {
+  "title": "Every pound and dollar, accounted for",
+  "subtitle": "Tell us roughly what comes in and we'll shape the rest.",
+  "bullets": [
+   "A monthly budget built on your income",
+   "Bills audited for savings",
+   "Discounts and entitlements you may be missing"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "income",
+   "label": "Monthly income (all sources)",
+   "type": "number",
+   "placeholder": "1800"
+  },
+  {
+   "key": "currency",
+   "label": "Currency",
+   "type": "text",
+   "placeholder": "GBP"
+  },
+  {
+   "key": "home",
+   "label": "Housing",
+   "type": "chips",
+   "options": [
+    "Own outright",
+    "Mortgage",
+    "Renting",
+    "Retirement community"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "budget",
+   "title": "Monthly budget",
+   "subtitle": "Income in, essentials first",
+   "emoji": "📒",
+   "inputs": [
+    {
+     "key": "outgoings",
+     "label": "Regular outgoings",
+     "type": "longtext",
+     "placeholder": "rent 650, energy 120, phone 15, car 90, food ~300…",
+     "required": true
+    },
+    {
+     "key": "goal",
+     "label": "One thing to save for",
+     "type": "text",
+     "placeholder": "boiler replacement, 2000"
+    }
+   ],
+   "prompt": "Build a monthly budget for the profile's income and currency from: {outgoings}, saving toward: {goal}. Table (Category | Amount | % of income | Note), a kv (Essentials total | Left after essentials | Suggested monthly saving | Months to reach the goal), bullets of the 3 biggest opportunities to trim, and a callout on building a small emergency buffer first.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Build budget",
+   "loading": "Adding up…"
+  },
+  {
+   "id": "bills",
+   "title": "Bill audit",
+   "subtitle": "Photo or describe a bill",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the bill (optional)",
+     "type": "photo"
+    },
+    {
+     "key": "bill",
+     "label": "Or describe it",
+     "type": "text",
+     "placeholder": "energy bill, standard tariff, 3-bed house, 160 a month"
+    }
+   ],
+   "prompt": "Audit this bill from the photo and/or description: {bill}. A kv (Provider | What's being charged | Is this typical | Likely saving), steps to reduce it (switch, tariff change, meter reading, hardship or senior tariffs), a quote with exactly what to say when phoning the provider, and a callout on cooling-off periods and never signing on the doorstep.",
+   "shape": "kv, steps, quote, callout",
+   "button": "Audit",
+   "loading": "Reading fine print…"
+  },
+  {
+   "id": "afford",
+   "title": "Can I afford it?",
+   "subtitle": "A purchase, a trip, a gift",
+   "emoji": "🛒",
+   "inputs": [
+    {
+     "key": "what",
+     "label": "What is it?",
+     "type": "text",
+     "placeholder": "new sofa",
+     "required": true
+    },
+    {
+     "key": "cost",
+     "label": "Cost",
+     "type": "number",
+     "placeholder": "900"
+    },
+    {
+     "key": "how",
+     "label": "Paying by",
+     "type": "chips",
+     "options": [
+      "Savings",
+      "Monthly instalments",
+      "Credit card",
+      "Not sure"
+     ],
+     "default": "Savings"
+    }
+   ],
+   "prompt": "Assess buying {what} for {cost} in the profile's currency, paying by {how}, against the profile income. A text verdict (yes / yes with a change / wait), a table comparing the 3 ways to pay (Method | Total cost | Monthly hit | Risk), bullets of cheaper routes to the same result, and a callout on buy-now-pay-later and store-card traps.",
+   "shape": "text, table, bullets, callout",
+   "button": "Check",
+   "loading": "Weighing it up…"
+  },
+  {
+   "id": "perks",
+   "title": "Discounts & entitlements",
+   "subtitle": "What you may be missing",
+   "emoji": "🎟️",
+   "inputs": [
+    {
+     "key": "country",
+     "label": "Country / region",
+     "type": "text",
+     "placeholder": "UK",
+     "required": true
+    },
+    {
+     "key": "age",
+     "label": "Age",
+     "type": "number",
+     "placeholder": "68"
+    }
+   ],
+   "prompt": "List discounts, concessions and entitlements commonly available to someone aged {age} in {country} with the profile's housing situation: a table (Benefit or discount | Who typically qualifies | Rough value | Where to apply), a checklist of documents usually needed to apply, and a callout stating that rules change and to confirm on official government or provider sites, never through a cold caller.",
+   "shape": "table, checklist, callout",
+   "button": "Find perks",
+   "loading": "Digging…"
+  },
+  {
+   "id": "year",
+   "title": "Plan the year's big bills",
+   "subtitle": "Avoid the nasty surprises",
+   "emoji": "📅",
+   "inputs": [
+    {
+     "key": "annual",
+     "label": "Once-a-year or irregular costs",
+     "type": "longtext",
+     "placeholder": "car insurance Mar 480, boiler service Oct 90, Christmas ~300, TV licence 170",
+     "required": true
+    }
+   ],
+   "prompt": "Spread these irregular costs over 12 months: {annual}. A table (Month | Bill due | Amount | Set aside this month), a kv (Total per year | Monthly set-aside | Best month to review), and steps to set up a separate 'bills pot' account so the money is there when needed.",
+   "shape": "table, kv, steps",
+   "button": "Plan it",
+   "loading": "Spreading costs…"
+  }
+ ],
+ "disclaimer": "General money information, not regulated financial advice. Entitlement rules vary by country and change; check official sources or a licensed adviser before deciding."
+}

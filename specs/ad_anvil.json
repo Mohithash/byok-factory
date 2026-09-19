@@ -1,0 +1,211 @@
+{
+ "id": "ad_anvil",
+ "name": "Ad Anvil",
+ "tagline": "Google, Meta and TikTok ad copy that converts",
+ "category": "Business",
+ "colors": [
+  "#D81B60",
+  "#FFC107",
+  "#1E88E5"
+ ],
+ "icon": "bolt",
+ "about": "Ad Anvil writes platform-ready ad copy — responsive search ads, Meta primary text, short-video hooks — critiques your creative from a screenshot and spins A/B variants.",
+ "persona": "You are a direct-response copywriter: hook-obsessed, benefit-led, character-count exact, and honest about claims you can't back.",
+ "onboarding": {
+  "title": "Ads that earn their budget",
+  "subtitle": "Tell us what you sell and who buys it; every ad will fit.",
+  "bullets": [
+   "Character-exact copy per platform",
+   "Hooks and angles that stop the scroll",
+   "Creative critiques from a screenshot"
+  ]
+ },
+ "profile": [
+  {
+   "key": "product",
+   "label": "Product / offer",
+   "type": "text",
+   "placeholder": "ergonomic laptop stand, $49"
+  },
+  {
+   "key": "audience",
+   "label": "Ideal customer",
+   "type": "text",
+   "placeholder": "remote workers with neck pain"
+  },
+  {
+   "key": "usp",
+   "label": "Main differentiator",
+   "type": "text",
+   "placeholder": "folds flat, lifetime warranty"
+  },
+  {
+   "key": "tone",
+   "label": "Tone",
+   "type": "chips",
+   "options": [
+    "Punchy",
+    "Premium",
+    "Friendly",
+    "Bold / funny",
+    "Straight-talking"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "rsa",
+   "title": "Google search ad",
+   "subtitle": "15 headlines, 4 descriptions",
+   "emoji": "🔎",
+   "inputs": [
+    {
+     "key": "keyword",
+     "label": "Target keyword / search term",
+     "type": "text",
+     "placeholder": "laptop stand for desk",
+     "required": true
+    },
+    {
+     "key": "promo",
+     "label": "Offer / promo",
+     "type": "text",
+     "placeholder": "20% off first order"
+    }
+   ],
+   "prompt": "Write a Google responsive search ad for the profile product targeting '{keyword}' with offer: {promo}. A table of 15 headlines (Headline | Chars | Angle) each ≤30 characters with at least 3 containing the keyword, a table of 4 descriptions (Description | Chars) each ≤90 characters, bullets with 4 sitelink titles and 4 callout extensions, and a callout on which headlines to pin in positions 1 and 2.",
+   "shape": "table, bullets, callout",
+   "button": "Build RSA",
+   "loading": "Hammering headlines…"
+  },
+  {
+   "id": "meta",
+   "title": "Meta / Instagram ad",
+   "subtitle": "Primary text, headline, description",
+   "emoji": "📱",
+   "inputs": [
+    {
+     "key": "goal",
+     "label": "Objective",
+     "type": "chips",
+     "options": [
+      "Sales",
+      "Leads",
+      "App installs",
+      "Awareness"
+     ],
+     "default": "Sales"
+    },
+    {
+     "key": "format",
+     "label": "Format",
+     "type": "chips",
+     "options": [
+      "Single image",
+      "Video",
+      "Carousel"
+     ],
+     "default": "Single image"
+    },
+    {
+     "key": "angle",
+     "label": "Angle to push",
+     "type": "text",
+     "placeholder": "before / after, social proof"
+    }
+   ],
+   "prompt": "Write Meta ad copy for the profile product, objective {goal}, format {format}, angle: {angle}. Cards for 3 primary-text variants (short ≤125 chars, medium, long story-style; meta = length · hook type), a table (Headline ≤40 chars | Description ≤30 chars | CTA button), bullets with 3 on-image text overlays under 6 words, and a callout on claims to avoid under platform policy.",
+   "shape": "cards, table, bullets, callout",
+   "button": "Write ad",
+   "loading": "Scrolling for hooks…"
+  },
+  {
+   "id": "hooks",
+   "title": "Hooks & angles",
+   "subtitle": "20 scroll-stoppers across angles",
+   "emoji": "🪝",
+   "inputs": [
+    {
+     "key": "platform",
+     "label": "Platform",
+     "type": "chips",
+     "options": [
+      "TikTok / Reels",
+      "YouTube pre-roll",
+      "Meta feed",
+      "LinkedIn"
+     ],
+     "default": "TikTok / Reels"
+    }
+   ],
+   "prompt": "Generate 20 opening hooks for the profile product on {platform}, spread across these angles: pain, curiosity, social proof, contrarian, how-to, offer. A table (Hook | Angle | Why it works), then a quote with the single strongest hook expanded into a 15-second script with timestamps, and bullets on the first-frame visual to pair with it.",
+   "shape": "table, quote, bullets",
+   "button": "Generate hooks",
+   "loading": "Fishing for hooks…"
+  },
+  {
+   "id": "critique",
+   "title": "Critique my ad",
+   "subtitle": "Screenshot → what to fix",
+   "emoji": "📷",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Screenshot of your ad",
+     "type": "photo",
+     "required": true
+    },
+    {
+     "key": "platform",
+     "label": "Platform",
+     "type": "chips",
+     "options": [
+      "Google",
+      "Meta",
+      "TikTok",
+      "LinkedIn",
+      "Other"
+     ],
+     "default": "Meta"
+    }
+   ],
+   "prompt": "Critique this {platform} ad from the screenshot. kv (score /10, hook clarity, offer clarity, visual hierarchy, CTA strength), a table (Element | What's there | Problem | Rewrite), a checklist of fixes ordered by likely impact, and a quote with the rewritten primary text or headline.",
+   "shape": "kv, table, checklist, quote",
+   "button": "Critique",
+   "loading": "Squinting at pixels…"
+  },
+  {
+   "id": "ab",
+   "title": "A/B variants",
+   "subtitle": "One winner → 5 test variants",
+   "emoji": "🧪",
+   "inputs": [
+    {
+     "key": "control",
+     "label": "Your current ad copy",
+     "type": "longtext",
+     "placeholder": "Paste the ad that's working…",
+     "required": true
+    },
+    {
+     "key": "variable",
+     "label": "Test variable",
+     "type": "chips",
+     "options": [
+      "Hook",
+      "Offer",
+      "CTA",
+      "Tone",
+      "Length"
+     ],
+     "default": "Hook"
+    }
+   ],
+   "prompt": "Using this control ad: {control}, create 5 variants that change only the {variable}. Cards (one per variant, meta = hypothesis), a table (Variant | What changed | Predicted lift | Risk), and a callout on minimum sample size and how long to run the test before calling it.",
+   "shape": "cards, table, callout",
+   "button": "Make variants",
+   "loading": "Splitting the test…"
+  }
+ ],
+ "disclaimer": "Check every claim against ad-platform policies and advertising law in your market; regulated categories (health, finance, alcohol, gambling) have extra rules."
+}

@@ -1,0 +1,163 @@
+{
+ "id": "para_desk",
+ "name": "PARA Desk",
+ "tagline": "Sort every note by when you'll act on it",
+ "category": "Productivity",
+ "colors": [
+  "#3949AB",
+  "#FB8C00",
+  "#00897B"
+ ],
+ "icon": "pin",
+ "about": "PARA Desk organises a second brain by actionability: it files notes into Projects, Areas, Resources and Archives, distils long notes in layers, and runs the weekly review that keeps the system alive.",
+ "persona": "You are a second-brain coach in the PARA and progressive-summarisation tradition: organise by actionability not topic, distil for your future self, archive without guilt.",
+ "onboarding": {
+  "title": "Actionability, not topic",
+  "subtitle": "Your projects and areas are the folders everything sorts into.",
+  "bullets": [
+   "Brain dumps filed into PARA",
+   "Long notes distilled in layers",
+   "A 30-minute weekly review"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "app",
+   "label": "Notes app",
+   "type": "chips",
+   "options": [
+    "Notion",
+    "Obsidian",
+    "Apple Notes",
+    "Evernote",
+    "Google Keep",
+    "Other"
+   ]
+  },
+  {
+   "key": "projects",
+   "label": "Current projects",
+   "type": "text",
+   "placeholder": "launch website, kitchen reno, Q4 report"
+  },
+  {
+   "key": "areas",
+   "label": "Areas of responsibility",
+   "type": "text",
+   "placeholder": "health, finances, team lead"
+  }
+ ],
+ "tools": [
+  {
+   "id": "sort",
+   "title": "Sort a brain dump",
+   "subtitle": "Notes → P.A.R.A.",
+   "emoji": "🗃️",
+   "inputs": [
+    {
+     "key": "dump",
+     "label": "Notes, links, ideas",
+     "type": "longtext",
+     "placeholder": "One per line…",
+     "required": true
+    }
+   ],
+   "prompt": "File each item into PARA for the profile projects and areas: {dump}. Produce a table (Item | Bucket (Project / Area / Resource / Archive) | Folder name | Next action if any), a callout on items that are really new projects in disguise, and bullets of folder names to create in the profile app.",
+   "shape": "table, callout, bullets",
+   "button": "Sort",
+   "loading": "Filing…"
+  },
+  {
+   "id": "distil",
+   "title": "Progressive summary",
+   "subtitle": "Layered highlights of a long note",
+   "emoji": "🔦",
+   "inputs": [
+    {
+     "key": "note",
+     "label": "Long note or article",
+     "type": "longtext",
+     "placeholder": "Paste text…",
+     "required": true
+    }
+   ],
+   "prompt": "Apply progressive summarisation to: {note}. Produce text with Layer 2 (the key passages reproduced as short bold lines, at most 10), bullets for Layer 3 (the 3–5 most important of those), a quote with a Layer 4 executive summary in the user's words (≤ 60 words), and a kv (bucket, folder, why keep it).",
+   "shape": "text, bullets, quote, kv",
+   "button": "Distil",
+   "loading": "Boiling down…"
+  },
+  {
+   "id": "kickoff",
+   "title": "Project kickoff note",
+   "subtitle": "Start a project properly",
+   "emoji": "🚀",
+   "inputs": [
+    {
+     "key": "project",
+     "label": "Project",
+     "type": "text",
+     "placeholder": "launch the website",
+     "required": true
+    },
+    {
+     "key": "deadline",
+     "label": "Deadline",
+     "type": "text",
+     "placeholder": "30 Nov"
+    },
+    {
+     "key": "done",
+     "label": "What done looks like",
+     "type": "text",
+     "placeholder": "site live, 5 pages, analytics"
+    }
+   ],
+   "prompt": "Create a kickoff note for '{project}' due {deadline}, where done = {done}. Produce a kv (outcome, deadline, area it serves, stakeholders placeholder), steps for the first 5 next actions, a checklist of resources to pull from the profile's Resources folder, and a callout on what would justify archiving this project early.",
+   "shape": "kv, steps, checklist, callout",
+   "button": "Kick off",
+   "loading": "Setting up…"
+  },
+  {
+   "id": "review",
+   "title": "Weekly review",
+   "subtitle": "Reset the system in 30 minutes",
+   "emoji": "🔁",
+   "inputs": [
+    {
+     "key": "state",
+     "label": "What piled up this week",
+     "type": "longtext",
+     "placeholder": "20 unfiled notes, 2 projects stalled, 40 tabs…"
+    }
+   ],
+   "prompt": "Run a 30-minute weekly review given: {state}, for the profile projects and areas. Produce a checklist with timeboxes (inbox to zero, file notes, update project list, pick 3 focus projects, archive), a table (Project | Status | Next action | Keep or archive), and a quote with a one-line intention for the week.",
+   "shape": "checklist, table, quote",
+   "button": "Review",
+   "loading": "Resetting…"
+  },
+  {
+   "id": "archive",
+   "title": "Archive audit",
+   "subtitle": "What to retire",
+   "emoji": "📦",
+   "inputs": [
+    {
+     "key": "list",
+     "label": "Your projects and areas list",
+     "type": "longtext",
+     "placeholder": "Paste it…",
+     "required": true
+    }
+   ],
+   "prompt": "Audit this list for archiving: {list}. Produce a table (Item | Verdict (active / dormant / archive) | Signal), bullets on which archived items to tag for possible revival, and a callout on the mental load of dormant projects.",
+   "shape": "table, bullets, callout",
+   "button": "Audit",
+   "loading": "Sweeping…"
+  }
+ ]
+}

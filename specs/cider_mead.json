@@ -1,0 +1,232 @@
+{
+ "id": "cider_mead",
+ "name": "Hive & Orchard",
+ "tagline": "Mead, cider and country wines you'll be proud of",
+ "category": "Food & Drink",
+ "colors": [
+  "#F9A825",
+  "#6D4C41",
+  "#C0CA33"
+ ],
+ "icon": "sun",
+ "about": "Hive & Orchard designs mead, hard cider and fruit wine recipes for your batch size, schedules yeast nutrients, turns gravity readings into ABV, and gets you safely through stabilising, back-sweetening and bottling.",
+ "persona": "You are a patient meadery and cidery mentor: exact about gravities, nutrients and sulphites, and firm that nobody bottles a still-fermenting brew.",
+ "onboarding": {
+  "title": "From honey or apples to a clean bottle",
+  "subtitle": "Batch size and gear make the numbers exact.",
+  "bullets": [
+   "Recipes scaled to your carboy",
+   "Nutrient and gravity schedules",
+   "Safe stabilising and bottling"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "batch",
+   "label": "Batch size (L)",
+   "type": "number",
+   "placeholder": "5"
+  },
+  {
+   "key": "gear",
+   "label": "Gear",
+   "type": "chips",
+   "options": [
+    "Demijohn / carboy + airlock",
+    "Bucket fermenter",
+    "Hydrometer",
+    "Refractometer",
+    "Kegging"
+   ],
+   "multi": true
+  },
+  {
+   "key": "style",
+   "label": "You mostly want",
+   "type": "chips",
+   "options": [
+    "Dry",
+    "Off-dry",
+    "Sweet",
+    "Sparkling"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "recipe",
+   "title": "Design a batch",
+   "subtitle": "Mead, cider, cyser, melomel, country wine",
+   "emoji": "🍯",
+   "inputs": [
+    {
+     "key": "type",
+     "label": "Type",
+     "type": "chips",
+     "options": [
+      "Traditional mead",
+      "Melomel (fruit mead)",
+      "Cyser (apple mead)",
+      "Hard cider",
+      "Country wine (any fruit)",
+      "Braggot",
+      "Alcoholic ginger beer"
+     ],
+     "default": "Traditional mead"
+    },
+    {
+     "key": "abv",
+     "label": "Target ABV %",
+     "type": "number",
+     "placeholder": "12"
+    },
+    {
+     "key": "ingredients",
+     "label": "Ingredients / flavour ideas",
+     "type": "text",
+     "placeholder": "wildflower honey, 1 kg raspberries"
+    }
+   ],
+   "prompt": "Design a {type} at {abv}% ABV for the profile's batch size and style preference using: {ingredients}. kv (honey or juice kg, water L, OG target, expected FG, yeast strain, expected time to dry), a table of ingredients (Item | Amount | When added | Why), steps from sanitising to pitching, and a callout on the classic mistake for this type.",
+   "shape": "kv, table, steps, callout",
+   "button": "Design",
+   "loading": "Warming the honey…"
+  },
+  {
+   "id": "nutrients",
+   "title": "Nutrient schedule",
+   "subtitle": "Staggered additions, done right",
+   "emoji": "🧪",
+   "inputs": [
+    {
+     "key": "og",
+     "label": "Original gravity",
+     "type": "number",
+     "placeholder": "1.110"
+    },
+    {
+     "key": "yeast",
+     "label": "Yeast + volume",
+     "type": "text",
+     "placeholder": "Lalvin 71B, 5 L",
+     "required": true
+    },
+    {
+     "key": "nutrient",
+     "label": "Nutrient on hand",
+     "type": "chips",
+     "options": [
+      "Fermaid O",
+      "Fermaid K + DAP",
+      "Generic yeast nutrient",
+      "None yet"
+     ],
+     "default": "Fermaid O"
+    }
+   ],
+   "prompt": "Build a staggered nutrient schedule for OG {og} with {yeast} using {nutrient}. Table (Addition | Day or gravity point | Grams | Notes), steps for degassing and adding safely to avoid foam-overs, kv (total YAN target, temperature range), and a callout on why late additions cause off-flavours.",
+   "shape": "table, steps, kv, callout",
+   "button": "Schedule",
+   "loading": "Feeding the yeast…"
+  },
+  {
+   "id": "gravity",
+   "title": "Gravity to ABV",
+   "subtitle": "And is it finished?",
+   "emoji": "📏",
+   "inputs": [
+    {
+     "key": "readings",
+     "label": "Readings with dates",
+     "type": "text",
+     "placeholder": "1.100 day 0, 1.030 day 10, 1.012 day 21",
+     "required": true
+    },
+    {
+     "key": "tool",
+     "label": "Measured with",
+     "type": "chips",
+     "options": [
+      "Hydrometer",
+      "Refractometer (Brix)"
+     ],
+     "default": "Hydrometer"
+    }
+   ],
+   "prompt": "Readings: {readings}, taken with {tool} (correct refractometer readings for alcohol if needed). kv (ABV now, attenuation %, expected final gravity, verdict: fermenting / stalled / finished), text explaining the verdict, steps for what to do next, and a callout that two identical readings 3 days apart are required before stabilising or bottling.",
+   "shape": "kv, text, steps, callout",
+   "button": "Calculate",
+   "loading": "Taking a reading…"
+  },
+  {
+   "id": "finish",
+   "title": "Stabilise & sweeten",
+   "subtitle": "Sulphite, sorbate, back-sweeten, clear",
+   "emoji": "🍾",
+   "inputs": [
+    {
+     "key": "goal",
+     "label": "Goal",
+     "type": "chips",
+     "options": [
+      "Back-sweeten still",
+      "Sparkling dry (bottle condition)",
+      "Clear it faster",
+      "Age and mellow",
+      "Oak or spice it"
+     ],
+     "default": "Back-sweeten still"
+    },
+    {
+     "key": "state",
+     "label": "Current state",
+     "type": "text",
+     "placeholder": "dry at 0.996, cloudy, tastes hot"
+    }
+   ],
+   "prompt": "Goal: {goal}. State: {state}. Steps with grams per litre for the profile's batch (sulphite, sorbate, finings or priming sugar as relevant), a table (Day | Action | Check), kv (target FG for the profile's style, sensible ageing months), and a callout on the bottle-bomb rule: never back-sweeten an unstabilised batch and never bottle-condition a back-sweetened one.",
+   "shape": "steps, table, kv, callout",
+   "button": "Finish it",
+   "loading": "Racking…"
+  },
+  {
+   "id": "fix",
+   "title": "Something's wrong",
+   "subtitle": "Sulphur, rocket fuel, stuck, film",
+   "emoji": "🚨",
+   "inputs": [
+    {
+     "key": "problem",
+     "label": "Problem",
+     "type": "chips",
+     "options": [
+      "Rotten-egg smell",
+      "Hot / rocket fuel",
+      "Stuck fermentation",
+      "Film or mould on top",
+      "Won't clear",
+      "Vinegar / sour",
+      "Too sweet, won't restart"
+     ],
+     "default": "Rotten-egg smell"
+    },
+    {
+     "key": "details",
+     "label": "Details",
+     "type": "text",
+     "placeholder": "day 8, 24°C, no nutrients added"
+    }
+   ],
+   "prompt": "Problem: {problem}; details: {details}. Text on the likely cause, steps to fix now ordered least drastic first, bullets to prevent it next batch, and a callout on when to discard (true mould versus a harmless pellicle).",
+   "shape": "text, steps, bullets, callout",
+   "button": "Diagnose",
+   "loading": "Sniffing airlock…"
+  }
+ ],
+ "disclaimer": "Check local laws on home fermentation. Sanitise everything, never bottle a still-fermenting batch (bottle bombs), and never back-sweeten without stabilising. Not medical advice."
+}

@@ -1,0 +1,238 @@
+{
+ "id": "italian_nonna",
+ "name": "Nonna's Table",
+ "tagline": "Regional Italian cooking, one pasta at a time",
+ "category": "Food & Drink",
+ "colors": [
+  "#2E7D32",
+  "#C62828",
+  "#FDD835"
+ ],
+ "icon": "hat",
+ "about": "Nonna's Table matches pasta shapes to sauces, teaches fresh pasta and risotto with gram ratios, tours regional Italian dishes you can make abroad and plans an aperitivo hour.",
+ "persona": "You are an Italian nonna-trained cook: opinionated about tradition (no cream in carbonara), generous with technique, honest about substitutes when the real ingredient is unavailable, and never snobbish.",
+ "onboarding": {
+  "title": "Cook like you grew up in Italy",
+  "subtitle": "Tell us what you can buy and which region you love.",
+  "bullets": [
+   "Pasta shape and sauce matched properly",
+   "Fresh pasta and risotto by weight",
+   "Regional dishes made abroad"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "diet",
+   "label": "Diet",
+   "type": "chips",
+   "options": [
+    "Anything",
+    "Vegetarian",
+    "Pescatarian",
+    "Vegan",
+    "Gluten-free"
+   ],
+   "default": "Anything"
+  },
+  {
+   "key": "shop",
+   "label": "Ingredients access",
+   "type": "chips",
+   "options": [
+    "Italian deli nearby",
+    "Good supermarket",
+    "Basic supermarket",
+    "Online only"
+   ],
+   "default": "Good supermarket"
+  },
+  {
+   "key": "region",
+   "label": "Region you love",
+   "type": "text",
+   "placeholder": "Sicily, Emilia-Romagna"
+  }
+ ],
+ "tools": [
+  {
+   "id": "match",
+   "title": "Pasta match",
+   "subtitle": "Right shape, right sauce, right technique",
+   "emoji": "🍝",
+   "inputs": [
+    {
+     "key": "have",
+     "label": "What you have",
+     "type": "text",
+     "placeholder": "guanciale, pecorino, eggs, cherry tomatoes",
+     "required": true
+    },
+    {
+     "key": "shape",
+     "label": "Pasta shapes in the cupboard",
+     "type": "chips",
+     "options": [
+      "Spaghetti",
+      "Rigatoni",
+      "Penne",
+      "Orecchiette",
+      "Tagliatelle",
+      "Fusilli",
+      "Linguine",
+      "Paccheri",
+      "Gnocchi"
+     ],
+     "default": "Spaghetti",
+     "multi": true
+    }
+   ],
+   "prompt": "With {have} and {shape} available, choose the most authentic dish for the profile's diet and region. Sections: kv (dish, region, best shape from the list and why, serves, minutes), steps for the method with exact pasta-water salt grams per litre, timing to pull the pasta early and the mantecatura (emulsifying) finish, a callout on the classic rules broken by non-Italians for this dish, and bullets of 2 alternative dishes from the same ingredients.",
+   "shape": "kv, steps, callout, bullets",
+   "button": "Match it",
+   "loading": "Salting the water…"
+  },
+  {
+   "id": "fresh",
+   "title": "Fresh pasta dough",
+   "subtitle": "Egg, semolina, filled or gnocchi",
+   "emoji": "🥚",
+   "inputs": [
+    {
+     "key": "type",
+     "label": "Dough",
+     "type": "chips",
+     "options": [
+      "Egg tagliatelle",
+      "Semolina orecchiette",
+      "Ravioli / tortellini",
+      "Potato gnocchi",
+      "Lasagne sheets",
+      "Pici (no egg)"
+     ],
+     "default": "Egg tagliatelle"
+    },
+    {
+     "key": "people",
+     "label": "People",
+     "type": "number",
+     "placeholder": "4"
+    }
+   ],
+   "prompt": "Teach {type} for {people} people. Sections: kv (flour type and grams, eggs or water grams, salt, rest time, thickness setting or rolling target), steps for mixing, kneading, resting, shaping and cooking with the visual cues for 'ready', a table 'Troubleshooting' (Problem | Cause | Fix) for sticky, crumbly, tearing and gummy results, and bullets on freezing and drying.",
+   "shape": "kv, steps, table, bullets",
+   "button": "Make dough",
+   "loading": "Making the well…"
+  },
+  {
+   "id": "risotto",
+   "title": "Risotto tonight",
+   "subtitle": "Timed method around a star ingredient",
+   "emoji": "🍚",
+   "inputs": [
+    {
+     "key": "star",
+     "label": "Star ingredient",
+     "type": "text",
+     "placeholder": "mushrooms, saffron, radicchio, prawns",
+     "required": true
+    },
+    {
+     "key": "rice",
+     "label": "Rice",
+     "type": "chips",
+     "options": [
+      "Carnaroli",
+      "Arborio",
+      "Vialone Nano",
+      "Whatever short-grain I have"
+     ],
+     "default": "Arborio"
+    }
+   ],
+   "prompt": "Build a risotto around {star} with {rice} for the profile's diet. Sections: kv (rice grams per person, stock ml, wine, butter and cheese grams for the mantecatura, total minutes), steps with a running clock (soffritto, tostatura, wine, ladle rhythm, when the star ingredient goes in, resting), a callout on what makes risotto gluey or chalky, and a quote with the one sentence a nonna would say about stirring.",
+   "shape": "kv, steps, callout, quote",
+   "button": "Start stirring",
+   "loading": "Toasting the rice…"
+  },
+  {
+   "id": "region",
+   "title": "Regional tour",
+   "subtitle": "Dishes from one region you can make at home",
+   "emoji": "🗺️",
+   "inputs": [
+    {
+     "key": "region",
+     "label": "Region",
+     "type": "chips",
+     "options": [
+      "Emilia-Romagna",
+      "Sicily",
+      "Piedmont",
+      "Campania",
+      "Tuscany",
+      "Liguria",
+      "Veneto",
+      "Puglia",
+      "Lazio",
+      "Sardinia"
+     ],
+     "default": "Sicily"
+    },
+    {
+     "key": "course",
+     "label": "Course",
+     "type": "chips",
+     "options": [
+      "Antipasti",
+      "Primi",
+      "Secondi",
+      "Dolci",
+      "Whole menu"
+     ],
+     "default": "Whole menu"
+    }
+   ],
+   "prompt": "Tour {region} ({course}) for someone with the profile's ingredient access. Sections: cards for 4 dishes (meta = difficulty · minutes), a table 'Hard-to-find ingredients' (Ingredient | Why it matters | Best substitute abroad), steps for the most achievable dish in full, and text on what makes this region's cooking distinct in three sentences.",
+   "shape": "cards, table, steps, text",
+   "button": "Take the tour",
+   "loading": "Packing the Vespa…"
+  },
+  {
+   "id": "aperitivo",
+   "title": "Aperitivo hour",
+   "subtitle": "Drinks and stuzzichini for a crowd",
+   "emoji": "🍹",
+   "inputs": [
+    {
+     "key": "guests",
+     "label": "Guests",
+     "type": "number",
+     "placeholder": "8"
+    },
+    {
+     "key": "vibe",
+     "label": "Vibe",
+     "type": "chips",
+     "options": [
+      "Milanese classic",
+      "Summer terrace",
+      "Low-alcohol",
+      "Alcohol-free",
+      "Feast-before-dinner"
+     ],
+     "default": "Milanese classic"
+    }
+   ],
+   "prompt": "Plan an aperitivo for {guests} guests, vibe: {vibe}. Sections: cards for 3 drinks with exact ml ratios (meta = ABV · batchable yes/no), a table 'Stuzzichini' (Snack | Make-ahead? | Minutes | Buy or make), a checklist shopping list with quantities scaled to the guest count, and a callout on quantities per person so nothing runs out in the first 20 minutes.",
+   "shape": "cards, table, checklist, callout",
+   "button": "Plan aperitivo",
+   "loading": "Chilling glasses…"
+  }
+ ],
+ "disclaimer": "General cooking guidance, not food-safety or dietary advice: follow safe handling, storage and allergen practices, take care with hot oil, open flames, raw or undercooked foods and fermentation, and discard anything that smells or looks wrong. Drinks content is for adults of legal drinking age."
+}

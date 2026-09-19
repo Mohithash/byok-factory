@@ -1,0 +1,194 @@
+{
+ "id": "zettel_loop",
+ "name": "Zettel Loop",
+ "tagline": "Atomic notes that link up and write your essays",
+ "category": "Productivity",
+ "colors": [
+  "#37474F",
+  "#F4511E",
+  "#00ACC1"
+ ],
+ "icon": "brain",
+ "about": "Zettel Loop runs a Zettelkasten slip-box with you: it turns highlights into atomic notes, proposes links with reasons, writes literature notes and assembles drafts from what you already know.",
+ "persona": "You are a Zettelkasten practitioner in the Luhmann/Ahrens tradition: one idea per note, links with a stated reason, plain prose, never a summary where a claim will do.",
+ "onboarding": {
+  "title": "One idea per note",
+  "subtitle": "Tell us your fields and notes app so links and formatting fit your slip-box.",
+  "bullets": [
+   "Highlights → atomic notes",
+   "Links with a stated reason",
+   "Drafts assembled from notes"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "tool",
+   "label": "Notes app",
+   "type": "chips",
+   "options": [
+    "Obsidian",
+    "Logseq",
+    "Roam",
+    "Paper index cards",
+    "Other"
+   ]
+  },
+  {
+   "key": "fields",
+   "label": "Fields of interest",
+   "type": "text",
+   "placeholder": "cognitive science, product design"
+  },
+  {
+   "key": "link",
+   "label": "Link syntax",
+   "type": "chips",
+   "options": [
+    "[[wikilinks]]",
+    "Markdown links",
+    "Plain titles"
+   ],
+   "default": "[[wikilinks]]"
+  }
+ ],
+ "tools": [
+  {
+   "id": "atomise",
+   "title": "Highlight → notes",
+   "subtitle": "Split a passage into atomic notes",
+   "emoji": "🧩",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of the page (optional)",
+     "type": "photo"
+    },
+    {
+     "key": "passage",
+     "label": "Highlight or passage",
+     "type": "longtext",
+     "placeholder": "Paste the highlight, quote or paragraph…"
+    },
+    {
+     "key": "source",
+     "label": "Source",
+     "type": "text",
+     "placeholder": "Ahrens, How to Take Smart Notes, p. 42"
+    }
+   ],
+   "prompt": "Turn the passage from the photo or this text into permanent notes: {passage} (source: {source}). Produce cards, one per distinct idea (max 4), each titled as a full-sentence claim in the user's own words with meta = note type (claim / definition / example / counterpoint); then a kv 'Source line' formatted for the profile's notes app and link syntax; then bullets 'Possible links' naming 3 note titles this could connect to in the profile's fields and why.",
+   "shape": "cards, kv, bullets",
+   "button": "Atomise",
+   "loading": "Slicing ideas…"
+  },
+  {
+   "id": "link",
+   "title": "Find links",
+   "subtitle": "Where does this note connect?",
+   "emoji": "🔗",
+   "inputs": [
+    {
+     "key": "note",
+     "label": "The note",
+     "type": "longtext",
+     "placeholder": "Paste the note text…",
+     "required": true
+    },
+    {
+     "key": "neighbours",
+     "label": "Candidate notes (titles or snippets)",
+     "type": "longtext",
+     "placeholder": "One per line…"
+    }
+   ],
+   "prompt": "Given the note: {note} and these candidate notes: {neighbours}. Write a table (Candidate | Relation (supports / contradicts / example of / generalises) | One-line link reason), then bullets of 3 questions the note leaves open, then a quote containing the exact link line to paste at the bottom of the note in the profile's link syntax.",
+   "shape": "table, bullets, quote",
+   "button": "Find links",
+   "loading": "Tracing threads…"
+  },
+  {
+   "id": "literature",
+   "title": "Literature note",
+   "subtitle": "Read → what the author claims",
+   "emoji": "📖",
+   "inputs": [
+    {
+     "key": "text",
+     "label": "Article, chapter or your reading notes",
+     "type": "longtext",
+     "placeholder": "Paste text or rough notes…",
+     "required": true
+    },
+    {
+     "key": "depth",
+     "label": "Depth",
+     "type": "chips",
+     "options": [
+      "Skim",
+      "Careful",
+      "Deep"
+     ],
+     "default": "Careful"
+    }
+   ],
+   "prompt": "Write a {depth} literature note from: {text}. Sections: kv (author's main claim, key evidence, method, what it argues against), bullets 'In my words' rephrasing each key point as a standalone sentence, and a checklist of permanent notes worth creating from it, each phrased as a claim.",
+   "shape": "kv, bullets, checklist",
+   "button": "Write note",
+   "loading": "Reading closely…"
+  },
+  {
+   "id": "assemble",
+   "title": "Draft from notes",
+   "subtitle": "Notes → essay outline",
+   "emoji": "✍️",
+   "inputs": [
+    {
+     "key": "notes",
+     "label": "Paste the notes (titles + bodies)",
+     "type": "longtext",
+     "placeholder": "Note 1: …",
+     "required": true
+    },
+    {
+     "key": "question",
+     "label": "Question the piece answers",
+     "type": "text",
+     "placeholder": "Why do good note systems fail?"
+    }
+   ],
+   "prompt": "Assemble a draft answering '{question}' from these notes: {notes}. Produce steps for the argument order (each step names which note it uses), text with a 250-word opening section in the user's note phrasing, bullets 'Gaps' listing claims that need a note you don't have yet, and a callout on which note is doing too much work.",
+   "shape": "steps, text, bullets, callout",
+   "button": "Assemble",
+   "loading": "Weaving notes…"
+  },
+  {
+   "id": "review",
+   "title": "Slip-box review",
+   "subtitle": "Weekly health check",
+   "emoji": "🗂️",
+   "inputs": [
+    {
+     "key": "count",
+     "label": "Notes added this week",
+     "type": "number",
+     "placeholder": "12"
+    },
+    {
+     "key": "themes",
+     "label": "What you've been reading",
+     "type": "text",
+     "placeholder": "attention, habit loops"
+    }
+   ],
+   "prompt": "Run a weekly slip-box review for {count} new notes around: {themes}. Produce a table (Habit | Healthy sign | Warning sign | This week?), a checklist of 5 maintenance tasks (orphan notes, over-long notes, missing sources, index entry, one new link), and bullets suggesting 3 entry points to add to the index.",
+   "shape": "table, checklist, bullets",
+   "button": "Review",
+   "loading": "Tidying the box…"
+  }
+ ]
+}

@@ -1,0 +1,197 @@
+{
+ "id": "calm_storm",
+ "name": "Calm Storm",
+ "tagline": "Toddler tantrums: what to say, right now",
+ "category": "Parenting",
+ "colors": [
+  "#37474F",
+  "#FFCA28",
+  "#9575CD"
+ ],
+ "icon": "heart",
+ "about": "Calm Storm gives you the words in the middle of a toddler meltdown, finds triggers in your tantrum diary, plans the transitions that always blow up, repairs the relationship afterwards and tackles hitting and biting.",
+ "persona": "You are a child-development specialist trained in emotion coaching: warm, unflappable, strategy-first, and clear that big feelings are normal and the goal is co-regulation, not obedience.",
+ "onboarding": {
+  "title": "You can stay calm — we'll give you the words",
+  "subtitle": "Tell us your toddler's age and temperament.",
+  "bullets": [
+   "Say-this-now scripts",
+   "Trigger detective",
+   "Repair after the storm"
+  ]
+ },
+ "profile": [
+  {
+   "key": "child",
+   "label": "Child's name & age",
+   "type": "text",
+   "placeholder": "Theo, 2½",
+   "required": true
+  },
+  {
+   "key": "temperament",
+   "label": "Temperament",
+   "type": "chips",
+   "options": [
+    "Big feelings, fast",
+    "Slow to warm",
+    "Intense & persistent",
+    "Easygoing until tired"
+   ]
+  },
+  {
+   "key": "hotspots",
+   "label": "Hot spots",
+   "type": "chips",
+   "options": [
+    "Leaving somewhere",
+    "Getting dressed",
+    "Mealtimes",
+    "Screens off",
+    "Sharing",
+    "Bedtime"
+   ],
+   "multi": true
+  },
+  {
+   "key": "approach",
+   "label": "Your approach",
+   "type": "text",
+   "placeholder": "gentle but firm; no time-outs"
+  }
+ ],
+ "tools": [
+  {
+   "id": "now",
+   "title": "Right now",
+   "subtitle": "What to say in the next 60 seconds",
+   "emoji": "🌪️",
+   "inputs": [
+    {
+     "key": "scene",
+     "label": "What's happening",
+     "type": "text",
+     "placeholder": "screaming on the supermarket floor because I said no to sweets",
+     "required": true
+    },
+    {
+     "key": "where",
+     "label": "Where",
+     "type": "chips",
+     "options": [
+      "Home",
+      "Public",
+      "Car",
+      "Someone else's house"
+     ],
+     "default": "Public"
+    }
+   ],
+   "prompt": "A meltdown at {where}: {scene}. First a quote with the exact 3-line script to say (validate, name the feeling, hold the limit), then steps for the next 60 seconds (body position, voice, what to ignore), bullets on what to avoid in this setting, and a callout that this is a nervous-system storm, not manipulation.",
+   "shape": "quote, steps, bullets, callout",
+   "button": "Give me words",
+   "loading": "Breathing…"
+  },
+  {
+   "id": "diary",
+   "title": "Trigger detective",
+   "subtitle": "Paste a week of tantrums",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "diary",
+     "label": "Tantrum diary",
+     "type": "longtext",
+     "placeholder": "Mon 5pm leaving nursery — 15 min; Tue 7am shoes — 5 min; Wed skipped nap, 4pm everything…",
+     "required": true
+    }
+   ],
+   "prompt": "Analyse: {diary}. A table (Trigger | Times seen | Pattern (time of day, hunger, sleep, transition) | Prevention), bullets of the top 3 changes to make this week, steps for one preventive routine, and a callout on how many tantrums a day is typical at the profile's age.",
+   "shape": "table, bullets, steps, callout",
+   "button": "Find patterns",
+   "loading": "Reading the week…"
+  },
+  {
+   "id": "transition",
+   "title": "Transition plan",
+   "subtitle": "Leaving the park without a fight",
+   "emoji": "🚦",
+   "inputs": [
+    {
+     "key": "moment",
+     "label": "The moment",
+     "type": "chips",
+     "options": [
+      "Leaving the park",
+      "Screens off",
+      "Getting dressed",
+      "Into the car seat",
+      "Bath / bedtime",
+      "Nursery drop-off"
+     ],
+     "default": "Leaving the park"
+    },
+    {
+     "key": "warning",
+     "label": "Minutes of warning you can give",
+     "type": "number",
+     "placeholder": "5"
+    }
+   ],
+   "prompt": "Plan '{moment}' with {warning} minutes of warning: steps from pre-warning to done (countdown, choices, play cue, physical help), a quote with the exact words for the warning and for the final call, bullets of props (timer, song, transition object), and a callout on what to do when the plan still fails.",
+   "shape": "steps, quote, bullets, callout",
+   "button": "Plan it",
+   "loading": "Setting the timer…"
+  },
+  {
+   "id": "repair",
+   "title": "Repair after the storm",
+   "subtitle": "Reconnect once everyone's calm",
+   "emoji": "💞",
+   "inputs": [
+    {
+     "key": "what",
+     "label": "What happened",
+     "type": "text",
+     "placeholder": "I shouted, they cried, now it's awkward",
+     "required": true
+    }
+   ],
+   "prompt": "After: {what}. A quote with a short, honest repair script for a toddler (no over-apologising, no lecture), steps for reconnecting in the next hour, bullets for the adult's own reset, and a callout on why repair matters more than never losing it.",
+   "shape": "quote, steps, bullets, callout",
+   "button": "Repair",
+   "loading": "Softening…"
+  },
+  {
+   "id": "hitting",
+   "title": "Hitting & biting plan",
+   "subtitle": "Firm limits, no shame",
+   "emoji": "🦷",
+   "inputs": [
+    {
+     "key": "behaviour",
+     "label": "Behaviour",
+     "type": "chips",
+     "options": [
+      "Hitting",
+      "Biting",
+      "Throwing",
+      "Pushing siblings"
+     ],
+     "default": "Hitting"
+    },
+    {
+     "key": "context",
+     "label": "When it happens",
+     "type": "text",
+     "placeholder": "at nursery when toys are taken"
+    }
+   ],
+   "prompt": "Make a 2-week plan for {behaviour} that happens: {context}. A quote with the in-the-moment limit script (short, calm, then move the child), a table (Situation | Prevent | Respond | Teach instead), bullets so nursery or carers stay consistent, and a callout on when frequency or intensity warrants a health-visitor or paediatric review.",
+   "shape": "quote, table, bullets, callout",
+   "button": "Make plan",
+   "loading": "Setting limits…"
+  }
+ ],
+ "disclaimer": "General parenting guidance, not a clinical assessment. If a child's behaviour is causing injury, regressing sharply, or you feel unable to cope, speak to your GP, health visitor or paediatrician."
+}

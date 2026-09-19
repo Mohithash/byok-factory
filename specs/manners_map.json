@@ -1,0 +1,203 @@
+{
+ "id": "manners_map",
+ "name": "Manners Map",
+ "tagline": "Get the customs right before you get there",
+ "category": "Lifestyle",
+ "colors": [
+  "#0277BD",
+  "#EF6C00",
+  "#43A047"
+ ],
+ "icon": "pin",
+ "about": "Manners Map briefs you on the etiquette of any country or community — greetings, dining, gifts, business meetings, dress at sacred sites — and decodes awkward moments after they happen.",
+ "persona": "You are a seasoned cross-cultural coach: concrete, non-judgemental, aware that customs vary by region, generation and setting; you give the safe default and the nuance, never stereotypes.",
+ "onboarding": {
+  "title": "Respect is a skill",
+  "subtitle": "Where are you from, and where are you going?",
+  "bullets": [
+   "Country etiquette briefings",
+   "Dining, gifts and business norms",
+   "Decode what just happened"
+  ]
+ },
+ "profile": [
+  {
+   "key": "name",
+   "label": "Name (optional)",
+   "type": "text"
+  },
+  {
+   "key": "home",
+   "label": "Your home culture",
+   "type": "text",
+   "placeholder": "UK, Nigeria, Texas"
+  },
+  {
+   "key": "purpose",
+   "label": "Mostly travelling for",
+   "type": "chips",
+   "options": [
+    "Work",
+    "Leisure",
+    "Family",
+    "Study",
+    "Moving there"
+   ],
+   "default": "Leisure"
+  }
+ ],
+ "tools": [
+  {
+   "id": "brief",
+   "title": "Country briefing",
+   "subtitle": "Greetings, dining, taboos",
+   "emoji": "🗺️",
+   "inputs": [
+    {
+     "key": "place",
+     "label": "Country or community",
+     "type": "text",
+     "placeholder": "Japan, Gulf states, rural Mexico, a Māori marae",
+     "required": true
+    },
+    {
+     "key": "context",
+     "label": "Context",
+     "type": "chips",
+     "options": [
+      "Tourist",
+      "Business trip",
+      "Meeting a partner's family",
+      "Living there"
+     ],
+     "default": "Tourist"
+    }
+   ],
+   "prompt": "Etiquette briefing for {place} as a {context}, contrasted with the profile's home culture. Sections: a table (Situation | Do | Don't | Why), kv (greeting, forms of address, tipping, punctuality norm, dress baseline), bullets of 5 phrases worth learning with pronunciation hints, and a callout on the single most common mistake visitors from the home culture make.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Brief me",
+   "loading": "Packing manners…"
+  },
+  {
+   "id": "dine",
+   "title": "Dining etiquette",
+   "subtitle": "Table manners for one meal",
+   "emoji": "🍽️",
+   "inputs": [
+    {
+     "key": "place",
+     "label": "Country or cuisine",
+     "type": "text",
+     "placeholder": "Korea, an Ethiopian restaurant, a formal French dinner",
+     "required": true
+    },
+    {
+     "key": "setting",
+     "label": "Setting",
+     "type": "chips",
+     "options": [
+      "Home invitation",
+      "Restaurant",
+      "Business dinner",
+      "Street food",
+      "Religious meal"
+     ],
+     "default": "Home invitation"
+    }
+   ],
+   "prompt": "Dining etiquette for a {setting} in {place}. Sections: steps from arrival to leaving (seating, who starts, utensils or hands, toasts, pace, finishing), a table (Do | Don't), kv (host gift, who pays, how to decline food politely, how to praise the food), and a quote with 2 polite phrases to say at the table.",
+   "shape": "steps, table, kv, quote",
+   "button": "Prepare me",
+   "loading": "Setting the table…"
+  },
+  {
+   "id": "business",
+   "title": "Business meeting norms",
+   "subtitle": "Cards, hierarchy, small talk, follow-up",
+   "emoji": "💼",
+   "inputs": [
+    {
+     "key": "place",
+     "label": "Country",
+     "type": "text",
+     "placeholder": "Germany, India, Brazil, Saudi Arabia",
+     "required": true
+    },
+    {
+     "key": "stage",
+     "label": "Stage",
+     "type": "chips",
+     "options": [
+      "First meeting",
+      "Negotiation",
+      "Closing a deal",
+      "Ongoing relationship"
+     ],
+     "default": "First meeting"
+    }
+   ],
+   "prompt": "Business etiquette for a {stage} in {place}. Sections: a table (Moment | Expected behaviour | Avoid), bullets on hierarchy, decision-making style and how 'yes' and 'no' are really said, a checklist for the day (cards, titles, gifts, dress, timing), and a callout on communication-style differences with the profile's home culture.",
+   "shape": "table, bullets, checklist, callout",
+   "button": "Prepare",
+   "loading": "Reading the room…"
+  },
+  {
+   "id": "sacred",
+   "title": "Visiting a sacred site",
+   "subtitle": "Dress, behaviour, photos",
+   "emoji": "🛕",
+   "inputs": [
+    {
+     "key": "site",
+     "label": "Site or type",
+     "type": "text",
+     "placeholder": "Blue Mosque, Golden Temple, a Shinto shrine, a Thai temple, a cathedral",
+     "required": true
+    },
+    {
+     "key": "who",
+     "label": "Visiting as",
+     "type": "chips",
+     "options": [
+      "Tourist",
+      "Invited guest",
+      "With children",
+      "Solo woman",
+      "Group tour"
+     ],
+     "default": "Tourist"
+    }
+   ],
+   "prompt": "Guide for visiting {site} as a {who}. Sections: a checklist of dress and items (head covering, shoulders, shoes, bags), steps for entering, moving through and leaving respectfully, kv (photos allowed?, best times, donation norm, areas closed to non-members), and a callout of behaviour that would cause real offence.",
+   "shape": "checklist, steps, kv, callout",
+   "button": "Guide me",
+   "loading": "Removing shoes…"
+  },
+  {
+   "id": "decode",
+   "title": "What just happened?",
+   "subtitle": "Decode an awkward moment",
+   "emoji": "😬",
+   "inputs": [
+    {
+     "key": "moment",
+     "label": "What happened",
+     "type": "longtext",
+     "placeholder": "my host refused my gift twice then took it; my colleague went silent after I said no directly",
+     "required": true
+    },
+    {
+     "key": "place",
+     "label": "Where",
+     "type": "text",
+     "placeholder": "Japan"
+    }
+   ],
+   "prompt": "Decode this moment in {place}: {moment}. Sections: text explaining what it most likely meant in local terms, bullets of alternative readings, steps to repair or respond well now, and a quote with a short message or sentence the user could send or say.",
+   "shape": "text, bullets, steps, quote",
+   "button": "Decode",
+   "loading": "Reading the signs…"
+  }
+ ],
+ "disclaimer": "Customs vary by region, generation and family; when in doubt, watch and ask."
+}

@@ -1,0 +1,187 @@
+{
+ "id": "scale_keeper",
+ "name": "Scale Keeper",
+ "tagline": "Heat, light and feeding done right for reptiles",
+ "category": "Lifestyle",
+ "colors": [
+  "#558B2F",
+  "#F9A825",
+  "#6D4C41"
+ ],
+ "icon": "sun",
+ "about": "Scale Keeper designs species-correct enclosures with temperature gradients and UVB, builds feeding and supplement schedules, checks sheds and health from a photo, and preps you for the exotics vet.",
+ "persona": "You are a herpetology-minded exotics keeper: precise about temperatures and UV index, up to date on modern husbandry (gradients, thermostats, bioactive, no heat rocks), and quick to say 'that's a vet visit'.",
+ "onboarding": {
+  "title": "Get the husbandry right",
+  "subtitle": "Species, age and enclosure size shape every number we give you.",
+  "bullets": [
+   "Enclosure specs with gradients and UVB",
+   "Feeding & supplement schedules",
+   "Shed and health checks from photos"
+  ]
+ },
+ "profile": [
+  {
+   "key": "species",
+   "label": "Species & morph",
+   "type": "text",
+   "placeholder": "leopard gecko, tangerine"
+  },
+  {
+   "key": "age",
+   "label": "Age & weight",
+   "type": "text",
+   "placeholder": "18 months, 62 g"
+  },
+  {
+   "key": "enclosure",
+   "label": "Enclosure size & type",
+   "type": "text",
+   "placeholder": "90×45×45 cm glass, bioactive"
+  },
+  {
+   "key": "heat",
+   "label": "Heating now",
+   "type": "chips",
+   "options": [
+    "Heat mat",
+    "Ceramic / deep heat projector",
+    "Halogen / basking bulb",
+    "None yet"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "id": "build",
+   "title": "Enclosure blueprint",
+   "subtitle": "Temps, UVB, substrate, hides",
+   "emoji": "🌡️",
+   "inputs": [
+    {
+     "key": "budget",
+     "label": "Budget",
+     "type": "chips",
+     "options": [
+      "Starter",
+      "Mid-range",
+      "No limit"
+     ],
+     "default": "Mid-range"
+    },
+    {
+     "key": "style",
+     "label": "Style",
+     "type": "chips",
+     "options": [
+      "Simple / quarantine",
+      "Naturalistic",
+      "Bioactive"
+     ],
+     "default": "Naturalistic"
+    }
+   ],
+   "prompt": "Design an enclosure for the profile species at {budget} budget in {style} style. Sections: kv (min enclosure size, basking surface temp, warm side, cool side, night drop, humidity %, UVB type and UV index at basking), a table (Zone | Item | Spec | Why), a checklist of equipment to buy including thermostat and digital thermometers, and a callout on the mistakes that kill reptiles (no thermostat, heat rocks, loose substrate for juveniles, wrong UVB distance).",
+   "shape": "kv, table, checklist, callout",
+   "button": "Design it",
+   "loading": "Setting gradient…"
+  },
+  {
+   "id": "feed",
+   "title": "Feeding schedule",
+   "subtitle": "Prey, portions, dusting",
+   "emoji": "🦗",
+   "inputs": [
+    {
+     "key": "feeders",
+     "label": "Feeders available",
+     "type": "chips",
+     "options": [
+      "Crickets",
+      "Dubia roaches",
+      "Mealworms",
+      "Frozen mice",
+      "Salad / greens",
+      "Hornworms / silkworms"
+     ],
+     "default": "Crickets",
+     "multi": true
+    },
+    {
+     "key": "issues",
+     "label": "Appetite notes",
+     "type": "text",
+     "placeholder": "refusing food for a week"
+    }
+   ],
+   "prompt": "Build a 2-week feeding schedule for the profile species and age using {feeders}, noting: {issues}. Sections: a table (Day | Food | Amount | Supplement: calcium / D3 / multivitamin), kv (prey size rule, gut-loading, water, how often to weigh), bullets on why a reptile refuses food (temps, shed, brumation, stress, parasites), and a callout on when a food strike needs a vet.",
+   "shape": "table, kv, bullets, callout",
+   "button": "Schedule feeds",
+   "loading": "Dusting crickets…"
+  },
+  {
+   "id": "check",
+   "title": "Shed & health check",
+   "subtitle": "Photo → what to look at",
+   "emoji": "🔍",
+   "inputs": [
+    {
+     "key": "photo",
+     "label": "Photo of your reptile",
+     "type": "photo",
+     "placeholder": "Whole body in good light",
+     "required": true
+    },
+    {
+     "key": "concern",
+     "label": "Your concern",
+     "type": "text",
+     "placeholder": "stuck shed on toes"
+    }
+   ],
+   "prompt": "Assess the reptile in the photo; concern: {concern}. Sections: a table (Area | Observation | Normal? | Action) covering eyes, skin and shed, toes and tail tip, vent, body condition and posture, steps for a safe humid hide or soak if shed is stuck, and a callout on signs of MBD, respiratory infection, mouth rot or parasites that need an exotics vet.",
+   "shape": "table, steps, callout",
+   "button": "Assess",
+   "loading": "Looking closely…"
+  },
+  {
+   "id": "behave",
+   "title": "Why is it doing that?",
+   "subtitle": "Glass surfing, hiding, not basking",
+   "emoji": "🤔",
+   "inputs": [
+    {
+     "key": "behaviour",
+     "label": "Describe the behaviour",
+     "type": "longtext",
+     "placeholder": "glass surfing every evening, digging in the corner",
+     "required": true
+    }
+   ],
+   "prompt": "Explain for the profile species: {behaviour}. Sections: text with the likely causes ranked (husbandry first), a table (Cause | Evidence to check | Fix), steps to test the top cause over 5 days with a thermometer and a log, and a callout on stress signs versus illness.",
+   "shape": "text, table, steps, callout",
+   "button": "Explain",
+   "loading": "Basking on it…"
+  },
+  {
+   "id": "vet",
+   "title": "Exotics vet prep",
+   "subtitle": "Turn observations into a clear history",
+   "emoji": "📋",
+   "inputs": [
+    {
+     "key": "notes",
+     "label": "What's been happening",
+     "type": "longtext",
+     "placeholder": "weight down 8 g in 3 weeks, soft stools, temps checked fine",
+     "required": true
+    }
+   ],
+   "prompt": "Prepare a vet visit for the profile species from: {notes}. Sections: kv (husbandry summary: enclosure, temps, UVB, diet, supplements, last shed, weight trend), a checklist of what to bring (fresh faecal sample, photos, thermostat readings), a quote with a concise history to read to the vet, and bullets of questions to ask.",
+   "shape": "kv, checklist, quote, bullets",
+   "button": "Prepare",
+   "loading": "Packing the tub…"
+  }
+ ],
+ "disclaimer": "Husbandry guidance, not veterinary advice. Reptiles hide illness well — weight loss, wheezing or a swollen jaw need an exotics vet promptly."
+}
