@@ -167,7 +167,7 @@ fun AiSettingsCard(current: AiSettings, client: AiClient, onSave: (AiSettings) -
             supportingText = {
                 Text(when {
                     urlError != null -> urlError
-                    draft.baseUrl.trim().startsWith("http://", ignoreCase = true) -> "Android usually blocks plain http:// — use https:// if requests fail."
+                    draft.baseUrl.trim().startsWith("http://", ignoreCase = true) -> "Plain http:// is unencrypted — only use it for a server on your own device or network (Ollama, LM Studio)."
                     provider == AiProvider.OPENAI_COMPAT -> "Works with OpenAI, Groq, OpenRouter, Ollama, LM Studio…"
                     else -> "Leave blank unless you use a proxy or gateway."
                 })
@@ -180,7 +180,7 @@ fun AiSettingsCard(current: AiSettings, client: AiClient, onSave: (AiSettings) -
                     testing = true
                     scope.launch {
                         try {
-                            val r = client.chatFull(s, "Reply with the single word OK.", listOf(ChatMsg("user", "ping")), maxTokens = 64)
+                            val r = client.chatFull(s, "Reply with the single word OK.", listOf(ChatMsg("user", "ping")), maxTokens = 1024) // room for adaptive thinking on current Claude models
                             message("Connected — ${r.model.ifBlank { s.effectiveModel }} replied “${r.text.trim().take(40)}”")
                         } catch (e: CancellationException) { throw e } catch (e: Exception) { message(e.message ?: "Connection failed") } finally { testing = false }
                     }

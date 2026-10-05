@@ -99,7 +99,7 @@ fun OnboardingScreen(vm: AppViewModel) {
                 Text(if (ai.configured) "✓ Key saved — you're ready to go." else "Optional: test and save your key now, or add it later in Settings.",
                     style = MaterialTheme.typography.bodySmall, color = if (ai.configured) cs.primary else cs.onSurfaceVariant, modifier = Modifier.padding(start = 4.dp))
             }
-            AiSettingsCard(ai, vm.client, vm::saveAi) { m -> scope.launch { snack.currentSnackbarData?.dismiss(); snack.showSnackbar(m) } }
+            AiSettingsCard(ai, vm.client, vm::saveAi, onMessage = { m -> scope.launch { snack.currentSnackbarData?.dismiss(); snack.showSnackbar(m) } })
             Text("Bring your own AI key (Claude or any OpenAI‑compatible endpoint). Nothing leaves your phone except the requests you make, sent straight to your provider.", style = MaterialTheme.typography.bodySmall, color = cs.onSurfaceVariant)
             Button({
                 // Preferences first: saving the profile marks onboarding done and swaps to Home immediately.

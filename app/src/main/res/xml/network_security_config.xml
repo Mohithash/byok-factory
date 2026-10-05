@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  HTTPS everywhere by default; plain http is allowed only because users may point the
+  OpenAI-compatible provider at a model server on their own device or LAN (Ollama, LM Studio).
+  The app never contacts any host the user didn't configure, and Settings warns about http://.
+-->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors><certificates src="system" /></trust-anchors>
+    </base-config>
+</network-security-config>
