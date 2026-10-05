@@ -42,6 +42,14 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
     buildFeatures { compose = true }
+    // Robolectric runs Compose screens, Room and the view-model on the JVM (no emulator needed).
+    // ROBOLECTRIC_DEPS_DIR (optional): folder holding pre-downloaded android-all-instrumented jars, for offline/rate-limited CI.
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+            all { t -> System.getenv("ROBOLECTRIC_DEPS_DIR")?.let { t.systemProperty("robolectric.offline", "true"); t.systemProperty("robolectric.dependency.dir", it) } }
+        }
+    }
 
     flavorDimensions += "app"
     productFlavors {
@@ -68,4 +76,11 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2")
     testImplementation("junit:junit:4.13.2")
+    testImplementation("org.robolectric:robolectric:4.17")
+    testImplementation("androidx.test:core:1.7.0")
+    testImplementation("androidx.test.ext:junit:1.3.0")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.10.2")
+    testImplementation(platform("androidx.compose:compose-bom-alpha:2026.09.00"))
+    testImplementation("androidx.compose.ui:ui-test-junit4")
+    debugImplementation("androidx.compose.ui:ui-test-manifest")
 }
