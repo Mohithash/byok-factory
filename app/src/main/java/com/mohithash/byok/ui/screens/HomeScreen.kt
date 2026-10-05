@@ -52,7 +52,7 @@ import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 
 @Composable
-fun HomeScreen(vm: AppViewModel, onTool: (Tool) -> Unit, onResult: (ResultRow) -> Unit, onHistory: () -> Unit, onSettings: () -> Unit) {
+fun HomeScreen(vm: AppViewModel, onTool: (Tool) -> Unit, onResult: (ResultRow) -> Unit, onHistory: () -> Unit, onSettings: () -> Unit, onToolOpened: () -> Unit = {}) {
     val spec = vm.spec
     val ai by vm.ai.collectAsState()
     val recent by vm.recent.collectAsState()

@@ -35,7 +35,7 @@ fun Nav(vm: AppViewModel) {
         if (incoming != null && nav.currentDestination?.route != "home") nav.popBackStack("home", inclusive = false)
     }
     NavHost(nav, "home") {
-        composable("home") { HomeScreen(vm, onTool = { vm.openTool(it); nav.navigate("tool") }, onResult = { vm.openResult(it); nav.navigate("tool") }, onHistory = { nav.navigate("history") }, onSettings = { nav.navigate("settings") }) }
+        composable("home") { HomeScreen(vm, onTool = { vm.openTool(it); nav.navigate("tool") }, onResult = { vm.openResult(it); nav.navigate("tool") }, onHistory = { nav.navigate("history") }, onSettings = { nav.navigate("settings") }, onToolOpened = { nav.navigate("tool") }) }
         composable("tool") { ToolScreen(vm, onBack = { nav.popBackStack() }, onSettings = { nav.navigate("settings") }) }
         composable("history") { HistoryScreen(vm, onBack = { nav.popBackStack() }, onOpen = { vm.openResult(it); nav.navigate("tool") }) }
         composable("settings") { SettingsScreen(vm, onBack = { nav.popBackStack() }) }
