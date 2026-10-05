@@ -178,4 +178,18 @@ class UiSmokeTest {
         assertTrue(rule.onAllNodesWithText("Try again").fetchSemanticsNodes().isNotEmpty())
         scenario.close()
     }
+
+    @Test fun darkThemeHeroesStayReadable() {
+        app.store.set("prefs", Prefs.serializer(), Prefs(theme = "dark"))
+        app.secrets.set("ai", AiSettings.serializer(), AiSettings())
+        val scenario = ActivityScenario.launch(MainActivity::class.java)
+        waitText("Get started")
+        shot("15-onboarding-dark")
+        scenario.close()
+        app.store.set("onboarded", Boolean.serializer(), true)
+        val home = ActivityScenario.launch(MainActivity::class.java)
+        waitText("Add your AI key")
+        shot("16-home-dark-setup-hero")
+        home.close()
+    }
 }

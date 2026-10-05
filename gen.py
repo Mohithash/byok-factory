@@ -56,7 +56,7 @@ def tone(h, l, s=None):
 PHOTO_SHARE_MANIFEST = """<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application>
-        <activity android:name="com.mohithash.byok.MainActivity">
+        <activity android:name="com.mohithash.byok.MainActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
                 <category android:name="android.intent.category.DEFAULT" />
