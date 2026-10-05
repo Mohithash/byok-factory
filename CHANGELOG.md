@@ -21,7 +21,7 @@ Upgrading keeps all existing history (Room database migration v1 → v2).
 
 ### Input
 - Voice typing (system speech recogniser).
-- Share text or photos into the app from any other app.
+- Share text (or a text file) into the app from any other app; apps with a photo tool also accept shared photos.
 - Launcher shortcuts for each tool.
 
 ### Data & privacy

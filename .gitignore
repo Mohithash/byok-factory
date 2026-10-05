@@ -10,3 +10,5 @@ keystore.properties
 app/src/f[a-z0-9]*/
 
 dist/
+STOP_STREAM*
+__pycache__/

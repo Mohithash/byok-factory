@@ -8,9 +8,13 @@ VERSION=$(sed -n 's/^[[:space:]]*versionName[[:space:]]*=[[:space:]]*"\([^"]*\)"
 python3 gen.py "$@" >/dev/null
 tasks=""
 for f in "$@"; do F="$(tr '[:lower:]' '[:upper:]' <<< "${f:0:1}")${f:1}"; tasks="$tasks :app:bundle${F}Release :app:assemble${F}Release"; done
+# Clear earlier outputs first, so a failed build can't pass off an old AAB/APK as this version.
+for f in "$@"; do rm -rf "app/build/outputs/bundle/${f}Release" "app/build/outputs/apk/${f}/release"; done
 ./gradlew $tasks -q 2>&1 | grep -E "^e:|FAILED|error:|What went wrong" | head
 mkdir -p dist
 for f in "$@"; do
   id=$(python3 -c "import json;print(json.load(open('app/src/$f/assets/app.json'))['id'])")
-  cp "app/build/outputs/bundle/${f}Release/app-${f}-release.aab" "dist/${id}-v${VERSION}.aab" 2>/dev/null && cp "app/build/outputs/apk/${f}/release/app-${f}-release.apk" "dist/${id}-v${VERSION}.apk" 2>/dev/null && echo "BUILT $id" || echo "MISSING $id"
+  aab="app/build/outputs/bundle/${f}Release/app-${f}-release.aab"; apk="app/build/outputs/apk/${f}/release/app-${f}-release.apk"
+  # APK first: the AAB in dist/ is the "built" marker, so it only appears once both copies worked.
+  if [ -f "$aab" ] && [ -f "$apk" ] && cp "$apk" "dist/${id}-v${VERSION}.apk" && cp "$aab" "dist/${id}-v${VERSION}.aab"; then echo "BUILT $id"; else echo "MISSING $id"; fi
 done

@@ -26,7 +26,7 @@ Engine v1.1 (`versionName` in `app/build.gradle.kts`). Everything below is in ev
 ### Input
 - Tool forms: text, long text, number, chips, toggle and photo fields; profile fields from onboarding go into every prompt.
 - Voice typing through the system speech recogniser.
-- Share text or photos INTO the app from any other app; pick a tool and the content is filled in.
+- Share text (or a text file) INTO the app from any other app — and photos, in apps that have a photo tool; pick a tool and the content is filled in.
 - A launcher shortcut for each tool (long-press the app icon).
 
 ### Data & privacy
@@ -46,9 +46,9 @@ Engine v1.1 (`versionName` in `app/build.gradle.kts`). Everything below is in ev
 - Cancel a running request. Rate limits and overloads (408/409/429/5xx/529, network errors) are retried automatically with backoff, honouring `retry-after`.
 
 ## How an app works
-Onboarding (brand hero + "about you" profile fields) → **Home** (tool grid, then saved results with search, tool filters, date groups and pinned favourites) → **Tool** (form: text / long text / number / chips / toggle / photo, with voice typing; also reachable from a launcher shortcut or by sharing text or a photo into the app) → **Result**: a structured document (`title`, `summary`, sections of kind text · bullets · steps · checklist · cards · table · kv · callout · quote, tags, suggested follow-ups) saved on-device.
+Onboarding (brand hero + "about you" profile fields) → **Home** (tool grid, then saved results with search, tool filters, date groups and pinned favourites) → **Tool** (form: text / long text / number / chips / toggle / photo, with voice typing; also reachable from a launcher shortcut or by sharing text — or, in apps with a photo tool, a photo — into the app) → **Result**: a structured document (`title`, `summary`, sections of kind text · bullets · steps · checklist · cards · table · kv · callout · quote, tags, suggested follow-ups) saved on-device.
 
-From a result: ask a follow-up (the thread view shows the whole conversation), regenerate, edit & rerun, tick checklist items, read aloud, save as PDF, export Markdown, copy, share, favourite, add a note, rename, delete (with undo).
+From a result: ask a follow-up (the thread view shows the whole conversation), regenerate, edit & rerun, tick checklist items, read aloud, save as PDF, export Markdown, copy, share, favourite, add a note, rename, delete (with a confirmation; swipe-to-delete in History has undo).
 
 Every request is built from the spec persona, the user's profile, the preferences (answer language, length, standing instructions) and the tool's prompt with its inputs; follow-ups add the last 4 turns of the thread. It goes straight from the phone to the user's provider with the user's key. **Settings** holds provider, key, base URL and model (list fetched from the provider), language, length, instructions, theme, Material You, backup & restore, and the usage counter.
 
@@ -60,7 +60,7 @@ python3 gen.py                       # specs → product flavors + per-flavor re
 python3 catalog.py                   # listings/*.md + CATALOG.md (release links use RELEASED_VERSION)
 ./ship_factory.sh "message"          # commit, push, one GitHub release <id>-v<VERSION> per built app
 ```
-For the whole catalog, `mkdir -p dist && ./stream_build3.sh > dist/stream.log 2>&1 &` builds every spec without a `dist/<id>-v<VERSION>.aab` in chunks of 20, releasing after each chunk (`stream_build2.sh`: chunks of 10; `stream_build.sh`: all at once). They stop when nothing is left and `STOP_STREAM2` (or `STOP_STREAM`) exists. `./refresh_store.sh &` republishes the BYOK Store every 20 minutes until the log says `STREAM-DONE` (`STORE=/path/to/byok-store`, default `../byok-store`; `STREAM_LOG`, default `dist/stream.log`). `./build_all.sh list.txt` only builds the flavors listed in a file. All scripts work from any directory.
+For the whole catalog, `mkdir -p dist && ./stream_build3.sh > dist/stream.log 2>&1 &` builds every spec without a `dist/<id>-v<VERSION>.aab` in chunks of 20, releasing after each chunk (`stream_build2.sh`: chunks of 10; `stream_build.sh`: all at once). They stop when nothing is left and `STOP_STREAM2` (or `STOP_STREAM`) exists — `touch STOP_STREAM2` once you want the stream to exit after the last chunk (the stop files are git-ignored). `./refresh_store.sh &` republishes the BYOK Store every 20 minutes until the log says `STREAM-DONE` (`STORE=/path/to/byok-store`, default `../byok-store`; `STREAM_LOG`, default `dist/stream.log`). `./build_all.sh list.txt` only builds the flavors listed in a file. All scripts work from any directory.
 
 Release builds are intentionally **unminified** (R8 cost ~3.5 min per flavor on the build box; unminified ~45 s). Turn `isMinifyEnabled` back on for a smaller download if desired.
 

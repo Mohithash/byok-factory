@@ -34,7 +34,7 @@ WHATS_NEW = {
         "Follow-up questions in a real thread (keeps the last 4 turns as context), regenerate, edit & rerun",
         "Answers in 40+ languages, brief/standard/detailed length, standing custom instructions",
         "Read aloud and voice typing",
-        "Save as PDF, export Markdown; share text or photos into the app; launcher shortcuts for each tool",
+        "Save as PDF, export Markdown; share text (and photos, where a tool takes one) into the app; launcher shortcuts for each tool",
         "Pinned favourites, notes, rename, search and filters; swipe to delete with undo",
         "Backup & restore to a file (never includes your API key)",
         "Light/dark/system theme with Material You colours; usage counter; cancel and automatic retry",
