@@ -40,4 +40,12 @@ class SpeechChunksTest {
     @Test fun newlinesAreBreaks() {
         assertEquals(listOf("Title", "Line two"), DocSpeaker.chunks("Title\nLine two", 9))
     }
+
+    @Test fun answerLanguageMapsToVoiceLocale() {
+        org.junit.Assert.assertNull(ttsLocale(""))
+        org.junit.Assert.assertNull(ttsLocale("English"))
+        org.junit.Assert.assertEquals("es", ttsLocale("Spanish")!!.language)
+        org.junit.Assert.assertEquals("zh-TW", ttsLocale("Chinese (Traditional)")!!.toLanguageTag())
+        com.mohithash.byok.engine.Prefs.LANGUAGES.filter { it != "English" }.forEach { org.junit.Assert.assertNotNull(it, ttsLocale(it)) }
+    }
 }

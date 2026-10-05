@@ -35,6 +35,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.StrokeJoin
@@ -79,6 +80,20 @@ fun HeroCard(
         )
         Column(Modifier.padding(22.dp), verticalArrangement = Arrangement.spacedBy(6.dp), content = content)
     }
+}
+
+/** Gradient for the brand hero cards: primary in light theme, the deeper primary container in dark theme. */
+@Composable
+fun heroColors(): List<Color> {
+    val cs = MaterialTheme.colorScheme
+    return listOf(if (cs.surface.luminance() < 0.5f) cs.primaryContainer else cs.primary, com.mohithash.byok.ui.theme.LocalHeroDeep.current)
+}
+
+/** Text/icon colour on [heroColors] — always light-on-dark, so it stays readable in both themes. */
+@Composable
+fun onHeroColor(): Color {
+    val cs = MaterialTheme.colorScheme
+    return if (cs.surface.luminance() < 0.5f) cs.onPrimaryContainer else cs.onPrimary
 }
 
 /** Small icon set inside an expressive shape — used for list leading icons and empty states. */

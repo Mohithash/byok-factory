@@ -40,9 +40,12 @@ internal object ToolFormLogic {
 
     /** Digits, at most one decimal separator ('.' or ','), and an optional leading minus. */
     fun sanitizeNumber(raw: String): String {
+        // With both '.' and ',' present, the first one is a thousands separator ("1,250.50", "1.250,5"): drop it.
+        val grouping = if ('.' in raw && ',' in raw) raw.first { it == '.' || it == ',' } else null
+        val src = if (grouping == null) raw else raw.filter { it != grouping }
         val out = StringBuilder()
         var separator = false
-        raw.forEach { c ->
+        src.forEach { c ->
             when {
                 c.isDigit() -> out.append(c)
                 (c == '.' || c == ',') && !separator -> { separator = true; out.append(c) }

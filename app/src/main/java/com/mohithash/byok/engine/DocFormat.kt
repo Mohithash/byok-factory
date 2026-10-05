@@ -29,29 +29,32 @@ fun Doc.toMarkdown(ticks: Set<String> = emptySet()): String = buildString {
     if (summary.isNotBlank()) { appendLine(summary); appendLine() }
     sections.forEachIndexed { si, s ->
         if (s.heading.isNotBlank()) { appendLine("## ${s.heading}"); appendLine() }
-        when (s.kind) {
-            "callout" -> { (s.text.ifBlank { s.items.joinToString(" ") }).lines().forEach { appendLine("> **Note:** $it".replace("**Note:** ", if (it === s.text.lines().first()) "**Note:** " else "")) }; appendLine() }
-            "quote" -> { (s.text.ifBlank { s.items.joinToString(" ") }).lines().forEach { appendLine("> $it") }; appendLine() }
-            "table" -> if (s.rows.isNotEmpty()) {
-                val cols = s.rows.maxOf { it.size }
-                fun row(r: List<String>) = "| " + (0 until cols).joinToString(" | ") { r.getOrElse(it) { "" }.mdCell() } + " |"
-                appendLine(row(s.rows.first())); appendLine("|" + " --- |".repeat(cols))
-                s.rows.drop(1).forEach { appendLine(row(it)) }; appendLine()
-            }
-            else -> {
-                if (s.text.isNotBlank()) { appendLine(s.text); appendLine() }
-                if (s.items.isNotEmpty()) {
-                    s.items.forEachIndexed { i, it ->
-                        appendLine(when (s.kind) { "steps" -> "${i + 1}. $it"; "checklist" -> (if ("$si:$i" in ticks) "- [x] " else "- [ ] ") + it; else -> "- $it" })
-                    }
-                    appendLine()
-                }
-                s.cards.forEach { c -> appendLine("- **${c.title}**${if (c.meta.isNotBlank()) " · _${c.meta}_" else ""}${if (c.body.isNotBlank()) " — ${c.body}" else ""}") }
-                if (s.cards.isNotEmpty()) appendLine()
-                s.kv.forEach { appendLine("- **${it.k}:** ${it.v}") }
-                if (s.kv.isNotEmpty()) appendLine()
-            }
+        // Every field is exported (as on screen), styled by the section's kind.
+        val boxed = s.kind == "callout" || s.kind == "quote"
+        val boxText = if (boxed) s.text.ifBlank { s.items.joinToString(" ") } else ""
+        if (boxText.isNotBlank()) {
+            boxText.lines().forEachIndexed { i, line -> appendLine(if (s.kind == "callout" && i == 0) "> **Note:** $line" else "> $line") }
+            appendLine()
         }
+        if (!boxed && s.text.isNotBlank()) { appendLine(s.text); appendLine() }
+        val items = if (boxed && s.text.isBlank()) emptyList() else s.items
+        if (items.isNotEmpty()) {
+            items.forEachIndexed { i, it ->
+                appendLine(when (s.kind) { "steps" -> "${i + 1}. $it"; "checklist" -> (if ("$si:$i" in ticks) "- [x] " else "- [ ] ") + it; else -> "- $it" })
+            }
+            appendLine()
+        }
+        if (s.cards.isNotEmpty()) {
+            s.cards.forEach { c -> appendLine("- **${c.title}**${if (c.meta.isNotBlank()) " · _${c.meta}_" else ""}${if (c.body.isNotBlank()) " — ${c.body}" else ""}") }
+            appendLine()
+        }
+        if (s.rows.isNotEmpty()) {
+            val cols = s.rows.maxOf { it.size }.coerceAtLeast(1)
+            fun row(r: List<String>) = "| " + (0 until cols).joinToString(" | ") { r.getOrElse(it) { "" }.mdCell() } + " |"
+            appendLine(row(s.rows.first())); appendLine("|" + " --- |".repeat(cols))
+            s.rows.drop(1).forEach { appendLine(row(it)) }; appendLine()
+        }
+        if (s.kv.isNotEmpty()) { s.kv.forEach { appendLine("- **${it.k}:** ${it.v}") }; appendLine() }
     }
     if (tags.isNotEmpty()) { appendLine(tags.joinToString(" ") { "`$it`" }); appendLine() }
 }.trimEnd() + "\n"
@@ -74,23 +77,21 @@ ul.check{list-style:none;padding-left:4px}.tags{color:#777;font-size:13px;margin
     if (summary.isNotBlank()) append("<p class=\"sum\">${summary.html()}</p>")
     sections.forEachIndexed { si, s ->
         if (s.heading.isNotBlank()) append("<h2>${s.heading.html()}</h2>")
-        when (s.kind) {
-            "callout" -> append("<div class=\"note\">${s.text.ifBlank { s.items.joinToString(" ") }.html()}</div>")
-            "quote" -> append("<blockquote>${s.text.ifBlank { s.items.joinToString(" ") }.html()}</blockquote>")
-            "steps" -> append("<ol>" + s.items.joinToString("") { "<li>${it.html()}</li>" } + "</ol>")
-            "checklist" -> append("<ul class=\"check\">" + s.items.mapIndexed { i, it -> "<li>${if ("$si:$i" in ticks) "☑" else "☐"} ${it.html()}</li>" }.joinToString("") + "</ul>")
-            "table" -> if (s.rows.isNotEmpty()) append("<table><tr>" + s.rows.first().joinToString("") { "<th>${it.html()}</th>" } + "</tr>" +
-                s.rows.drop(1).joinToString("") { r -> "<tr>" + r.joinToString("") { "<td>${it.html()}</td>" } + "</tr>" } + "</table>")
-            "kv" -> append("<table>" + s.kv.joinToString("") { "<tr><th>${it.k.html()}</th><td>${it.v.html()}</td></tr>" } + "</table>")
-            "cards" -> s.cards.forEach { c -> append("<div class=\"card\">${if (c.meta.isNotBlank()) "<span class=\"meta\">${c.meta.html()}</span>" else ""}<strong>${c.title.html()}</strong>${if (c.body.isNotBlank()) "<br>${c.body.html()}" else ""}</div>") }
-            else -> {
-                if (s.text.isNotBlank()) s.text.split("\n\n").forEach { append("<p>${it.html().replace("\n", "<br>")}</p>") }
-                if (s.items.isNotEmpty()) append("<ul>" + s.items.joinToString("") { "<li>${it.html()}</li>" } + "</ul>")
-            }
-        }
-        // Content that arrived in a field the kind doesn't normally use is still printed.
-        if (s.kind != "cards" && s.cards.isNotEmpty()) s.cards.forEach { c -> append("<div class=\"card\"><strong>${c.title.html()}</strong> ${c.body.html()}</div>") }
-        if (s.kind != "kv" && s.kv.isNotEmpty()) append("<table>" + s.kv.joinToString("") { "<tr><th>${it.k.html()}</th><td>${it.v.html()}</td></tr>" } + "</table>")
+        // Every field is printed (as on screen), styled by the section's kind.
+        val boxed = s.kind == "callout" || s.kind == "quote"
+        val boxText = if (boxed) s.text.ifBlank { s.items.joinToString(" ") } else ""
+        if (boxText.isNotBlank()) append(if (s.kind == "callout") "<div class=\"note\">${boxText.html()}</div>" else "<blockquote>${boxText.html()}</blockquote>")
+        if (!boxed && s.text.isNotBlank()) s.text.split("\n\n").forEach { append("<p>${it.html().replace("\n", "<br>")}</p>") }
+        val items = if (boxed && s.text.isBlank()) emptyList() else s.items
+        if (items.isNotEmpty()) append(when (s.kind) {
+            "steps" -> "<ol>" + items.joinToString("") { "<li>${it.html()}</li>" } + "</ol>"
+            "checklist" -> "<ul class=\"check\">" + items.mapIndexed { i, it -> "<li>${if ("$si:$i" in ticks) "☑" else "☐"} ${it.html()}</li>" }.joinToString("") + "</ul>"
+            else -> "<ul>" + items.joinToString("") { "<li>${it.html()}</li>" } + "</ul>"
+        })
+        s.cards.forEach { c -> append("<div class=\"card\">${if (c.meta.isNotBlank()) "<span class=\"meta\">${c.meta.html()}</span>" else ""}<strong>${c.title.html()}</strong>${if (c.body.isNotBlank()) "<br>${c.body.html()}" else ""}</div>") }
+        if (s.rows.isNotEmpty()) append("<table><tr>" + s.rows.first().joinToString("") { "<th>${it.html()}</th>" } + "</tr>" +
+            s.rows.drop(1).joinToString("") { r -> "<tr>" + r.joinToString("") { "<td>${it.html()}</td>" } + "</tr>" } + "</table>")
+        if (s.kv.isNotEmpty()) append("<table>" + s.kv.joinToString("") { "<tr><th>${it.k.html()}</th><td>${it.v.html()}</td></tr>" } + "</table>")
     }
     if (tags.isNotEmpty()) append("<div class=\"tags\">" + tags.joinToString(" · ") { it.html() } + "</div>")
     append("</body></html>")

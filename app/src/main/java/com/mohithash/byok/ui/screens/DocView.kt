@@ -97,6 +97,8 @@ import com.mohithash.byok.engine.toPlainText
 import com.mohithash.byok.engine.toSpeech
 import com.mohithash.byok.ui.DocSpeaker
 import com.mohithash.byok.ui.HeroCard
+import com.mohithash.byok.ui.heroColors
+import com.mohithash.byok.ui.onHeroColor
 import com.mohithash.byok.ui.InlineMarkdown
 import com.mohithash.byok.ui.InlineMarkdownText
 import com.mohithash.byok.ui.Label
@@ -105,6 +107,7 @@ import com.mohithash.byok.ui.docExportFileName
 import com.mohithash.byok.ui.docPrintAccent
 import com.mohithash.byok.ui.printDocAsPdf
 import com.mohithash.byok.ui.rememberDocSpeaker
+import com.mohithash.byok.ui.ttsLocale
 import com.mohithash.byok.ui.sectionPlainText
 import com.mohithash.byok.ui.theme.LocalHeroDeep
 import com.mohithash.byok.ui.withoutInlineMarkdown
@@ -127,6 +130,8 @@ fun DocView(
     enabled: Boolean = true,
     onMessage: (String) -> Unit = {},
     onSaveFile: suspend (Uri, String) -> Unit = { _, _ -> },
+    /** The answer-language preference, so read-aloud uses a matching voice. */
+    speechLanguage: String = "",
 ) {
     val cs = MaterialTheme.colorScheme
     val ctx = LocalContext.current
@@ -182,7 +187,7 @@ fun DocView(
             speaker = speaker,
             onCopy = { copy(plain.toPlainText(ticks), "Copied") },
             onShare = { shareDoc(ctx, plain, ticks, onMessage) },
-            onReadAloud = { if (speaker.speaking) speaker.stop() else speaker.speak(plain.toSpeech(), onMessage) },
+            onReadAloud = { if (speaker.speaking) speaker.stop() else speaker.speak(plain.toSpeech(), onMessage, ttsLocale(speechLanguage)) },
             onPdf = { if (!printDocAsPdf(ctx, doc, ticks, accent, onMessage)) onMessage("Printing isn't available on this device.") },
             onMarkdown = {
                 try { saveMarkdown.launch(docExportFileName(doc.title, "md")) } catch (e: ActivityNotFoundException) { onMessage("No app on this device can save files.") }
@@ -212,20 +217,20 @@ private fun shareDoc(ctx: Context, doc: Doc, ticks: Set<String>, onMessage: (Str
 
 @Composable
 private fun DocHero(doc: Doc, ticks: Set<String>) {
-    val cs = MaterialTheme.colorScheme
-    HeroCard(colors = listOf(cs.primary, LocalHeroDeep.current), blobShape = MaterialShapes.Cookie9Sided) {
-        if (doc.title.isNotBlank()) InlineMarkdownText(doc.title, Modifier.semantics { heading() }, style = MaterialTheme.typography.headlineSmall, color = cs.onPrimary)
-        else if (doc.summary.isBlank() && doc.sections.isEmpty()) Text("This result is empty. Try asking again.", style = MaterialTheme.typography.titleMedium, color = cs.onPrimary)
-        if (doc.summary.isNotBlank()) InlineMarkdownText(doc.summary, style = MaterialTheme.typography.bodyLarge, color = cs.onPrimary.copy(alpha = 0.9f))
+    val onHero = onHeroColor()
+    HeroCard(colors = heroColors(), blobShape = MaterialShapes.Cookie9Sided) {
+        if (doc.title.isNotBlank()) InlineMarkdownText(doc.title, Modifier.semantics { heading() }, style = MaterialTheme.typography.headlineSmall, color = onHero)
+        else if (doc.summary.isBlank() && doc.sections.isEmpty()) Text("This result is empty. Try asking again.", style = MaterialTheme.typography.titleMedium, color = onHero)
+        if (doc.summary.isNotBlank()) InlineMarkdownText(doc.summary, style = MaterialTheme.typography.bodyLarge, color = onHero.copy(alpha = 0.9f))
         if (doc.sections.count { it.kind == "checklist" && it.items.isNotEmpty() } > 1) {
             val (done, total) = doc.checklistProgress(ticks)
-            Text("✓ $done of $total done", style = MaterialTheme.typography.labelLarge, color = cs.onPrimary)
+            Text("✓ $done of $total done", style = MaterialTheme.typography.labelLarge, color = onHero)
         }
         val tags = doc.tags.filter { it.isNotBlank() }
         if (tags.isNotEmpty()) FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalArrangement = Arrangement.spacedBy(6.dp), modifier = Modifier.padding(top = 4.dp)) {
             tags.forEach {
-                Text(InlineMarkdown.plain(it), style = MaterialTheme.typography.labelLarge, color = cs.onPrimary,
-                    modifier = Modifier.clip(CircleShape).background(cs.onPrimary.copy(alpha = 0.14f)).padding(horizontal = 12.dp, vertical = 6.dp))
+                Text(InlineMarkdown.plain(it), style = MaterialTheme.typography.labelLarge, color = onHero,
+                    modifier = Modifier.clip(CircleShape).background(onHero.copy(alpha = 0.14f)).padding(horizontal = 12.dp, vertical = 6.dp))
             }
         }
     }

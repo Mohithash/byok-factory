@@ -46,16 +46,20 @@ class DocSpeaker(context: Context) {
         private set
 
     /** Speaks [text], replacing anything this speaker was saying. [onError] gets a user-facing message if it can't. */
-    fun speak(text: String, onError: (String) -> Unit = {}) {
+    fun speak(text: String, onError: (String) -> Unit = {}, locale: Locale? = null) {
         if (released) return
         val clean = text.trim()
         if (clean.isEmpty()) return
         if (available == false) { onError(UNAVAILABLE); return }
         claim()
         speaking = true
+        wanted = locale
         if (!ready) { pending = clean; pendingError = onError; bind(); return }
         play(clean, onError)
     }
+
+    /** Voice language asked for by the latest [speak] (null = the phone's language). */
+    private var wanted: Locale? = null
 
     /** Stops speaking (safe to call at any time, also after [shutdown]). */
     fun stop() {
@@ -125,6 +129,12 @@ class DocSpeaker(context: Context) {
 
     private fun play(text: String, onError: (String) -> Unit) {
         val t = tts ?: return
+        // Read in the language the answer is written in when a voice for it is installed.
+        runCatching {
+            val want = wanted ?: Locale.getDefault()
+            if (t.isLanguageAvailable(want) >= TextToSpeech.LANG_AVAILABLE) t.language = want
+            else wanted?.let { onError("No ${it.getDisplayLanguage(Locale.ENGLISH)} voice is installed — add one in your phone's text-to-speech settings.") }
+        }
         val max = runCatching { TextToSpeech.getMaxSpeechInputLength() }.getOrDefault(4000) - 1
         val parts = chunks(text, max.coerceAtLeast(200))
         if (parts.isEmpty()) { speaking = false; return }
@@ -179,4 +189,20 @@ fun rememberDocSpeaker(): DocSpeaker {
     val speaker = remember { DocSpeaker(context) }
     DisposableEffect(speaker) { onDispose { speaker.shutdown() } }
     return speaker
+}
+
+/** Text-to-speech locale for an answer-language preference ([com.mohithash.byok.engine.Prefs.LANGUAGES]); null = the phone's language. */
+fun ttsLocale(language: String): Locale? {
+    val tag = when (language.trim()) {
+        "", "English" -> return null
+        "Spanish" -> "es"; "French" -> "fr"; "German" -> "de"; "Portuguese" -> "pt"; "Italian" -> "it"; "Dutch" -> "nl"; "Polish" -> "pl"
+        "Turkish" -> "tr"; "Russian" -> "ru"; "Ukrainian" -> "uk"; "Arabic" -> "ar"; "Hebrew" -> "he"; "Persian" -> "fa"; "Hindi" -> "hi"
+        "Bengali" -> "bn"; "Urdu" -> "ur"; "Punjabi" -> "pa"; "Marathi" -> "mr"; "Gujarati" -> "gu"; "Tamil" -> "ta"; "Telugu" -> "te"
+        "Kannada" -> "kn"; "Malayalam" -> "ml"; "Indonesian" -> "id"; "Malay" -> "ms"; "Filipino" -> "fil"; "Vietnamese" -> "vi"; "Thai" -> "th"
+        "Japanese" -> "ja"; "Korean" -> "ko"; "Chinese (Simplified)" -> "zh-CN"; "Chinese (Traditional)" -> "zh-TW"; "Swahili" -> "sw"
+        "Greek" -> "el"; "Swedish" -> "sv"; "Norwegian" -> "nb"; "Danish" -> "da"; "Finnish" -> "fi"; "Czech" -> "cs"; "Romanian" -> "ro"
+        "Hungarian" -> "hu"
+        else -> return null
+    }
+    return Locale.forLanguageTag(tag)
 }

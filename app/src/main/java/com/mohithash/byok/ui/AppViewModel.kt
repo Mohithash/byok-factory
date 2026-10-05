@@ -48,6 +48,8 @@ data class Incoming(val text: String = "", val photo: MealPhoto? = null)
 
 private val mapSer = MapSerializer(String.serializer(), String.serializer())
 const val PHOTO_FLAG = "__photo"
+/** Backups are JSON text; anything bigger than this isn't one of ours (and would risk running out of memory). */
+private const val MAX_BACKUP_BYTES = 50 * 1024 * 1024
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class AppViewModel(private val app: App) : ViewModel() {
@@ -139,8 +141,12 @@ class AppViewModel(private val app: App) : ViewModel() {
 
     /** What the user asked for a result, as the user turn of a follow-up conversation. */
     private fun askOf(r: ResultRow): String = if (r.isFollowUp) question(r) else buildString {
-        append(r.toolTitle); if (r.inputSummary.isNotBlank()) append(": ").append(r.inputSummary)
-        if (hadPhoto(r)) append(" (a photo was attached to this request)")
+        // The full inputs (not the 140-char summary), so follow-ups can refer to anything the user pasted.
+        val ins = inputs(r)
+        val lines = toolFor(r)?.inputs.orEmpty().mapNotNull { f -> ins[f.key]?.takeIf { it.isNotBlank() }?.let { "${f.label}: $it" } }
+        append(r.toolTitle)
+        if (lines.isNotEmpty()) append('\n').append(lines.joinToString("\n")) else if (r.inputSummary.isNotBlank()) append(": ").append(r.inputSummary)
+        if (hadPhoto(r)) append("\n(a photo was attached to this request)")
     }
 
     /** The full follow-up question of a follow-up row (the summary is truncated). */
@@ -222,13 +228,21 @@ class AppViewModel(private val app: App) : ViewModel() {
 
     /** Imports a backup from [uri], merging results (duplicates skipped) and restoring profile + preferences. Returns results added. */
     suspend fun importBackup(uri: Uri): Int = withContext(Dispatchers.IO) {
-        val text = app.contentResolver.openInputStream(uri)?.use { it.readBytes().decodeToString() } ?: error("Couldn't read the file.")
+        val text = app.contentResolver.openInputStream(uri)?.use { input ->
+            val out = java.io.ByteArrayOutputStream(); val buf = ByteArray(64 * 1024)
+            while (true) {
+                val n = input.read(buf); if (n < 0) break
+                out.write(buf, 0, n)
+                if (out.size() > MAX_BACKUP_BYTES) throw IllegalArgumentException("That file is too big to be a backup from this app.")
+            }
+            out.toByteArray().decodeToString()
+        } ?: error("Couldn't read the file.")
         val b = Backups.decode(text)
         if (b.appId != spec.id) throw IllegalArgumentException("That backup is from ${b.appName.ifBlank { b.appId }}, not ${spec.name}.")
-        val existing = db.results().allOnce().associate { Backups.identity(it.createdAt, it.title, it.toolId) to it.id }
+        val existing = db.results().allOnce().associate { Backups.identity(it.createdAt, it.toolId, it.json) to it.id }
         // Results already on this device keep their id, so imported follow-ups still join their thread.
         val ids = HashMap<Long, Long>()
-        b.results.forEach { r -> existing[Backups.identity(r.createdAt, r.title, r.toolId)]?.let { ids[r.id] = it } }
+        b.results.forEach { r -> existing[Backups.identity(r.createdAt, r.toolId, r.json)]?.let { ids[r.id] = it } }
         var added = 0
         Backups.importOrder(b.results, existing.keys).forEach { r -> ids[r.id] = db.results().insert(Backups.link(r, ids)); added++ }
         if (b.profile.isNotEmpty()) app.store.set("profile", mapSer, profile.value + b.profile)

@@ -65,6 +65,8 @@ import com.mohithash.byok.engine.Tool
 import com.mohithash.byok.engine.checklistProgress
 import com.mohithash.byok.ui.AppViewModel
 import com.mohithash.byok.ui.HeroCard
+import com.mohithash.byok.ui.heroColors
+import com.mohithash.byok.ui.onHeroColor
 import com.mohithash.byok.ui.Incoming
 import com.mohithash.byok.ui.Label
 import com.mohithash.byok.ui.theme.LocalHeroDeep
@@ -110,6 +112,7 @@ fun HomeScreen(vm: AppViewModel, onTool: (Tool) -> Unit, onResult: (ResultRow) -
     val prefs by vm.prefs.collectAsState()
     val incoming by vm.incoming.collectAsState()
     val cs = MaterialTheme.colorScheme
+    val onHero = onHeroColor()
     val scroll = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
     val name = profile["name"]?.takeIf { it.isNotBlank() }
     val fmt = remember { DateTimeFormatter.ofPattern("d MMM") }
@@ -134,11 +137,11 @@ fun HomeScreen(vm: AppViewModel, onTool: (Tool) -> Unit, onResult: (ResultRow) -
                     incoming?.let { inc ->
                         SharedBanner(spec.name, inc, spec.tools, onPick = { t -> go { if (vm.incoming.value != null) { vm.useIncoming(t); onToolOpened() } } }, onDismiss = vm::dismissIncoming)
                     }
-                    if (!ai.configured) HeroCard(colors = listOf(cs.primary, LocalHeroDeep.current), blobShape = MaterialShapes.Cookie12Sided) {
-                        Label("One step to start", cs.onPrimary.copy(alpha = 0.8f))
-                        Text("Add your AI key", style = MaterialTheme.typography.headlineSmall, color = cs.onPrimary)
-                        Text("Bring your own Claude or OpenAI‑compatible key. It stays on this phone.", color = cs.onPrimary.copy(alpha = 0.9f))
-                        TextButton({ go(onSettings) }) { Text("Open settings →", color = cs.secondaryContainer) }
+                    if (!ai.configured) HeroCard(colors = heroColors(), blobShape = MaterialShapes.Cookie12Sided) {
+                        Label("One step to start", onHero.copy(alpha = 0.8f))
+                        Text("Add your AI key", style = MaterialTheme.typography.headlineSmall, color = onHero)
+                        Text("Bring your own Claude or OpenAI‑compatible key. It stays on this phone.", color = onHero.copy(alpha = 0.9f))
+                        TextButton({ go(onSettings) }) { Text("Open settings →", color = onHero) }
                     }
                     if (favorites.isNotEmpty()) Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
                         Text("Pinned", style = MaterialTheme.typography.titleMedium, modifier = Modifier.padding(start = 4.dp))

@@ -211,7 +211,7 @@ fun ToolScreen(vm: AppViewModel, onBack: () -> Unit, onSettings: () -> Unit) {
             AnimatedContent(r?.id ?: 0L, label = "mode") { id ->
                 if (id == 0L) ToolForm(t, form, ai.configured, job,
                     onGenerate = { generate(form.values, form.photo) }, onCancel = vm::cancel,
-                    onRetry = form.retry ?: { generate(form.values, form.photo) }, onSettings = onSettings)
+                    onRetry = { generate(form.values, form.photo) }, onSettings = onSettings)
                 else (if (id == r?.id) r else seen[id])?.let { row ->
                     ResultBody(vm, row, thread, job, ask, { ask = it },
                         onAsk = { q -> if (askFollowUp(q) && q == ask) ask = "" },
@@ -302,7 +302,9 @@ private fun ResultBody(
 ) {
     val cs = MaterialTheme.colorScheme
     val loading = job == Job.Loading
-    val doc = remember(r.json) { vm.decode(r) }
+    // A renamed result shows (and exports) its new title.
+    val doc = remember(r.json, r.title) { vm.decode(r).let { d -> if (d.title.isNotBlank() && r.title.isNotBlank()) d.copy(title = r.title) else d } }
+    val prefs by vm.prefs.collectAsState()
     val ticks = remember(r.ticks) { vm.ticks(r) }
     val asked = remember(r.id, r.inputsJson, r.inputSummary) {
         if (r.isFollowUp) vm.question(r) else if (vm.hadPhoto(r)) "📷 " + (if (r.inputSummary == "photo") "a photo" else r.inputSummary) else r.inputSummary
@@ -311,12 +313,12 @@ private fun ResultBody(
     Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
         if (turns.size > 1) ThreadStrip(vm, turns, r.id, enabled = !loading)
         if (asked.isNotBlank()) Text("You asked: $asked", style = MaterialTheme.typography.bodyMedium, color = cs.onSurfaceVariant, maxLines = 4, overflow = TextOverflow.Ellipsis, modifier = Modifier.padding(horizontal = 4.dp))
-        if (r.note.isNotBlank()) Column(Modifier.fillMaxWidth().clip(MaterialTheme.shapes.large).background(cs.tertiaryContainer).clickable(onClickLabel = "Edit note", onClick = onEditNote).padding(horizontal = 16.dp, vertical = 12.dp),
+        if (r.note.isNotBlank()) Column(Modifier.fillMaxWidth().clip(MaterialTheme.shapes.large).background(cs.tertiaryContainer).clickable(enabled = !loading, onClickLabel = "Edit note", onClick = onEditNote).padding(horizontal = 16.dp, vertical = 12.dp),
             verticalArrangement = Arrangement.spacedBy(4.dp)) {
             Label("📝 Your note", cs.onTertiaryContainer)
             Text(r.note, style = MaterialTheme.typography.bodyMedium, color = cs.onTertiaryContainer)
         }
-        DocView(doc = doc, ticks = ticks, onTick = { vm.toggleTick(r, it) }, onFollowUp = { onAsk(it) }, enabled = !loading, onMessage = { msg -> onMessage(msg) }, onSaveFile = vm::writeText)
+        DocView(doc = doc, ticks = ticks, onTick = { vm.toggleTick(r, it) }, onFollowUp = { onAsk(it) }, enabled = !loading, onMessage = { msg -> onMessage(msg) }, onSaveFile = vm::writeText, speechLanguage = prefs.language)
         (job as? Job.Failed)?.let { ErrorCard(it.message, onRetry, onSettings) }
         FollowUpComposer(ask, onAskChange, loading, onAsk = { onAsk(ask) }, onCancel = vm::cancel)
         onStartOver?.let { OutlinedButton(it, enabled = !loading, shapes = ButtonDefaults.shapes(), modifier = Modifier.fillMaxWidth()) { Text("Start over") } }
@@ -397,8 +399,9 @@ private fun ResultMenu(
         DropdownMenu(open, { open = false }) {
             if (canRegenerate) DropdownMenuItem(text = { Text("Regenerate") }, onClick = { open = false; onRegenerate() }, enabled = !loading, leadingIcon = { Icon(Icons.Default.Refresh, null) })
             if (canEdit) DropdownMenuItem(text = { Text("Edit & rerun") }, onClick = { open = false; onEditAndRerun() }, enabled = !loading, leadingIcon = { Icon(Icons.Default.Edit, null) })
-            DropdownMenuItem(text = { Text("Rename…") }, onClick = { open = false; onRename() }, leadingIcon = { Icon(Icons.Default.Create, null) })
-            DropdownMenuItem(text = { Text(if (hasNote) "Edit note…" else "Add note…") }, onClick = { open = false; onNote() }, leadingIcon = { Icon(Icons.AutoMirrored.Filled.List, null) })
+            // Not while a follow-up is running: the answer replaces this result and would close the dialog mid-edit.
+            DropdownMenuItem(text = { Text("Rename…") }, onClick = { open = false; onRename() }, enabled = !loading, leadingIcon = { Icon(Icons.Default.Create, null) })
+            DropdownMenuItem(text = { Text(if (hasNote) "Edit note…" else "Add note…") }, onClick = { open = false; onNote() }, enabled = !loading, leadingIcon = { Icon(Icons.AutoMirrored.Filled.List, null) })
             DropdownMenuItem(text = { Text("Delete") }, onClick = { open = false; onDelete() }, leadingIcon = { Icon(Icons.Default.Delete, null) })
         }
     }

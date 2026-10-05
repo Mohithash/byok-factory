@@ -53,6 +53,20 @@ def tone(h, l, s=None):
     hh, ll, ss = colorsys.rgb_to_hls(*hx(h)); r, g, b = colorsys.hls_to_rgb(hh, l, ss if s is None else s)
     return "#%02X%02X%02X" % tuple(max(0, min(255, round(c * 255))) for c in (r, g, b))
 
+PHOTO_SHARE_MANIFEST = """<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <application>
+        <activity android:name="com.mohithash.byok.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="image/*" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
+"""
+
 def flavor_name(sid): return "f" + re.sub(r"[^a-z0-9]", "", sid.lower())
 
 specs = []
@@ -77,6 +91,12 @@ for s in specs:
     </group>
 </vector>
 ''')
+    # Only apps with a photo tool offer themselves in the share sheet for images.
+    flavor_manifest = f"{d}/AndroidManifest.xml"
+    if any(f.get("type") == "photo" for t in s["tools"] for f in t.get("inputs", [])):
+        open(flavor_manifest, "w").write(PHOTO_SHARE_MANIFEST)
+    elif os.path.exists(flavor_manifest):
+        os.remove(flavor_manifest)
     if not ONLY or fn in ONLY:
         lines.append(f'        create("{fn}") {{ dimension = "app"; applicationId = "com.mohithash.byok.{s["id"].replace("_", "")}" }}')
 

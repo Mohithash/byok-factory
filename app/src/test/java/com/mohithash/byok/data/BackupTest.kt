@@ -23,8 +23,15 @@ class BackupTest {
 
     @Test fun importPutsRootsFirstAndSkipsExisting() {
         val items = listOf(r(3, root = 1, at = 30), r(1, at = 10), r(2, at = 20), r(4, root = 2, at = 5))
-        val order = Backups.importOrder(items, setOf(Backups.identity(20, "R2", "t")))
+        val order = Backups.importOrder(items, setOf(Backups.identity(20, "t", "{}")))
         assertEquals(listOf(1L, 4L, 3L), order.map { it.id })
+    }
+
+    @Test fun renamedResultIsStillRecognised() {
+        val original = r(5, title = "Old name")
+        val renamed = original.copy(title = "New name")
+        assertEquals(Backups.identity(original.createdAt, original.toolId, original.json), Backups.identity(renamed.createdAt, renamed.toolId, renamed.json))
+        assertEquals(emptyList<BackupResult>(), Backups.importOrder(listOf(renamed), setOf(Backups.identity(original.createdAt, original.toolId, original.json))))
     }
 
     @Test fun linkTranslatesThreadIdsAndOrphansBecomeRoots() {

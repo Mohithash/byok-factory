@@ -5,6 +5,7 @@ import android.graphics.Color as AndroidColor
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
@@ -43,7 +44,8 @@ class MainActivity : ComponentActivity() {
             override fun <T : ViewModel> create(modelClass: Class<T>): T = AppViewModel(app) as T
         }
         vm = ViewModelProvider(this, factory)[AppViewModel::class.java]
-        if (savedInstanceState == null) handle(intent)
+        // Re-read the share intent after process death if the user hadn't picked a tool for it yet (the VM is new then).
+        if (savedInstanceState == null || (savedInstanceState.getBoolean(SHARE_PENDING) && vm.incoming.value == null)) handle(intent)
         publishShortcuts(app)
         val c = app.spec.colors
         setContent {
@@ -59,7 +61,13 @@ class MainActivity : ComponentActivity() {
 
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
+        setIntent(intent)
         handle(intent)
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putBoolean(SHARE_PENDING, vm.incoming.value != null)
     }
 
     /** Share-sheet content and launcher shortcuts arrive here. */
@@ -73,15 +81,27 @@ class MainActivity : ComponentActivity() {
                     else @Suppress("DEPRECATION") i.getParcelableExtra(Intent.EXTRA_STREAM)
                 lifecycleScope.launch {
                     val photo = uri?.takeIf { i.type?.startsWith("image/") == true }?.let { u -> withContext(Dispatchers.IO) { runCatching { Photo.fromUri(this@MainActivity, u) }.getOrNull() } }
-                    vm.receive(Incoming(text.take(20_000), photo))
+                    // A shared .txt file arrives as a stream rather than EXTRA_TEXT.
+                    val fileText = if (text.isBlank() && uri != null && i.type?.startsWith("text/") == true)
+                        withContext(Dispatchers.IO) { runCatching { readText(uri, MAX_SHARED_CHARS) }.getOrNull() }.orEmpty() else ""
+                    val incoming = Incoming(text.ifBlank { fileText }.take(MAX_SHARED_CHARS), photo)
+                    if (incoming.text.isBlank() && incoming.photo == null) Toast.makeText(this@MainActivity, "Couldn't read what was shared", Toast.LENGTH_SHORT).show()
+                    else vm.receive(incoming)
                 }
             }
         }
     }
 
-    /** Long-press launcher shortcuts straight into the first few tools. */
+    /** Up to [max] characters of a shared text document. */
+    private fun readText(uri: Uri, max: Int): String = contentResolver.openInputStream(uri)?.bufferedReader()?.use { r ->
+        val buf = CharArray(max); var n = 0
+        while (n < max) { val k = r.read(buf, n, max - n); if (k < 0) break; n += k }
+        String(buf, 0, n)
+    }.orEmpty()
+
+    /** Long-press launcher shortcuts straight into each tool (as many as the launcher allows). */
     private fun publishShortcuts(app: App) = runCatching {
-        val max = ShortcutManagerCompat.getMaxShortcutCountPerActivity(this).coerceAtMost(4)
+        val max = ShortcutManagerCompat.getMaxShortcutCountPerActivity(this)
         val icon = IconCompat.createWithResource(this, R.mipmap.ic_launcher)
         val list = app.spec.tools.take(max).map { t ->
             ShortcutInfoCompat.Builder(this, "tool_${t.id}")
@@ -95,5 +115,7 @@ class MainActivity : ComponentActivity() {
     companion object {
         const val ACTION_TOOL = "com.mohithash.byok.action.TOOL"
         const val EXTRA_TOOL = "tool"
+        private const val SHARE_PENDING = "share_pending"
+        private const val MAX_SHARED_CHARS = 20_000
     }
 }

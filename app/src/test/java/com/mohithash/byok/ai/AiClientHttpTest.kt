@@ -167,6 +167,46 @@ class AiClientHttpTest {
         assertTrue("cancel took ${System.currentTimeMillis() - started}ms", System.currentTimeMillis() - started < 3_000)
     }
 
+    @Test fun usageIsCountedForBilledFailures() = runBlocking {
+        var usage: AiUsage? = null
+        client.onUsage = { usage = it }
+        replies += Reply(200, """{"stop_reason":"refusal","content":[],"usage":{"input_tokens":30,"output_tokens":4}}""")
+        try { client.chat(claude(), "sys", listOf(ChatMsg("user", "x")), schema); fail() } catch (_: AiClient.AiException) {}
+        assertEquals(AiUsage(30, 4), usage)
+    }
+
+    @Test fun slowAnswerTimesOutWithoutResending() = runBlocking {
+        val impatient = AiClient(generationTimeoutMs = 400)
+        replies += Reply(200, anthropicOk("late"), delayMs = 2_000)
+        replies += Reply(200, anthropicOk("would be a second, billed attempt"))
+        try { impatient.chat(claude(), "sys", listOf(ChatMsg("user", "x"))); fail() } catch (e: AiClient.AiException) {
+            assertTrue(e.message!!.contains("took too long"))
+        }
+        assertEquals(1, hits.get())
+    }
+
+    @Test fun gatewayAskingForMaxCompletionTokensIsRetriedOnce() = runBlocking {
+        replies += Reply(400, """{"error":{"message":"Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead."}}""")
+        replies += Reply(200, """{"choices":[{"finish_reason":"stop","message":{"content":"ok"}}]}""")
+        val s = AiSettings(AiProvider.OPENAI_COMPAT, "k", "o4-mini", url)
+        assertEquals("ok", client.chat(s, "sys", listOf(ChatMsg("user", "x"))))
+        assertFalse(body(1).containsKey("max_tokens"))
+        assertEquals("4096", body(1)["max_completion_tokens"]!!.jsonPrimitive.content)
+    }
+
+    @Test fun baseUrlRoots() {
+        fun root(u: String) = AiSettings(AiProvider.OPENAI_COMPAT, "k", "", u).openAiRoot
+        assertEquals("https://api.openai.com/v1", root(""))
+        assertEquals("https://openrouter.ai/api/v1", root("https://openrouter.ai/api/v1"))
+        assertEquals("https://openrouter.ai/api/v1", root("https://openrouter.ai/api/v1/"))
+        assertEquals("https://api.groq.com/openai/v1", root("https://api.groq.com/openai"))
+        assertEquals("http://localhost:11434/v1", root("http://localhost:11434"))
+        assertEquals("https://generativelanguage.googleapis.com/v1beta/openai", root("https://generativelanguage.googleapis.com/v1beta/openai/"))
+        assertEquals("https://api.anthropic.com", AiSettings(baseUrl = "https://api.anthropic.com/v1").effectiveBaseUrl)
+        assertTrue(AiSettings(AiProvider.OPENAI_COMPAT).isOpenAi)
+        assertFalse(AiSettings(AiProvider.OPENAI_COMPAT, baseUrl = "https://api.groq.com/openai/v1").isOpenAi)
+    }
+
     @Test fun defaultModelIsCurrentOpus() {
         assertEquals("claude-opus-5-5", AiSettings().effectiveModel)
         assertEquals("https://api.anthropic.com", AiSettings(baseUrl = "https://api.anthropic.com/").effectiveBaseUrl)

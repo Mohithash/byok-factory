@@ -66,7 +66,7 @@ class Engine(private val client: AiClient, private val spec: AppSpec) {
     fun followUpMessages(thread: List<Turn>, question: String): List<ChatMsg> {
         val kept = thread.takeLast(MAX_TURNS)
         val per = (CONTEXT_CHARS / kept.size.coerceAtLeast(1)).coerceAtLeast(1500)
-        return kept.flatMap { t -> listOf(ChatMsg("user", t.ask.ifBlank { "(earlier request)" }.take(2000)), ChatMsg("assistant", t.doc.asContext(per))) } +
+        return kept.flatMap { t -> listOf(ChatMsg("user", t.ask.ifBlank { "(earlier request)" }.take(ASK_CHARS)), ChatMsg("assistant", t.doc.asContext(per))) } +
             ChatMsg("user", question)
     }
 
@@ -80,5 +80,7 @@ class Engine(private val client: AiClient, private val spec: AppSpec) {
         const val MAX_TOKENS = 16000
         const val MAX_TURNS = 4
         const val CONTEXT_CHARS = 12000
+        /** Room for what the user originally pasted (an email, a contract…) so follow-ups can refer to it. */
+        const val ASK_CHARS = 8000
     }
 }

@@ -11,6 +11,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.layout.consumeWindowInsets
+import androidx.compose.foundation.layout.imePadding
+import com.mohithash.byok.ai.AiSettings
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.DropdownMenuItem
@@ -44,6 +47,8 @@ import com.mohithash.byok.engine.Field
 import com.mohithash.byok.engine.Prefs
 import com.mohithash.byok.ui.AppViewModel
 import com.mohithash.byok.ui.HeroCard
+import com.mohithash.byok.ui.heroColors
+import com.mohithash.byok.ui.onHeroColor
 import com.mohithash.byok.ui.Label
 import com.mohithash.byok.ui.StatCard
 import com.mohithash.byok.ui.theme.LocalHeroDeep
@@ -60,6 +65,9 @@ internal fun onboardingMissing(fields: List<Field>, values: Map<String, String>)
 fun OnboardingScreen(vm: AppViewModel) {
     val spec = vm.spec
     val cs = MaterialTheme.colorScheme
+    val onHero = onHeroColor()
+    /** What's typed in the AI card; Get started saves it if it's a usable key the user didn't save yet. */
+    var aiDraft by remember { mutableStateOf<AiSettings?>(null) }
     val ai by vm.ai.collectAsState()
     // Onboarding can be restarted from Settings: start from what's already saved.
     val saved = remember { vm.profile.value }
@@ -72,10 +80,10 @@ fun OnboardingScreen(vm: AppViewModel) {
     val scroll = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
     Scaffold(modifier = Modifier.nestedScroll(scroll.nestedScrollConnection), snackbarHost = { SnackbarHost(snack) },
         topBar = { LargeFlexibleTopAppBar(title = { Text(spec.onboarding.title) }, subtitle = { Text(spec.onboarding.subtitle) }, scrollBehavior = scroll, colors = TopAppBarDefaults.topAppBarColors(containerColor = cs.surface, scrolledContainerColor = cs.surface)) }) { pad ->
-        Column(Modifier.fillMaxSize().padding(pad).verticalScroll(rememberScrollState()).padding(horizontal = 16.dp), verticalArrangement = Arrangement.spacedBy(14.dp)) {
-            HeroCard(colors = listOf(cs.primary, LocalHeroDeep.current), blobShape = MaterialShapes.Cookie12Sided) {
-                Label(spec.category, cs.onPrimary.copy(alpha = 0.8f)); Text(spec.name, style = MaterialTheme.typography.displaySmall, color = cs.onPrimary); Text(spec.tagline, color = cs.onPrimary.copy(alpha = 0.9f), style = MaterialTheme.typography.titleMedium)
-                spec.onboarding.bullets.forEach { Text("✓  $it", color = cs.onPrimary.copy(alpha = 0.9f)) }
+        Column(Modifier.fillMaxSize().padding(pad).consumeWindowInsets(pad).imePadding().verticalScroll(rememberScrollState()).padding(horizontal = 16.dp), verticalArrangement = Arrangement.spacedBy(14.dp)) {
+            HeroCard(colors = heroColors(), blobShape = MaterialShapes.Cookie12Sided) {
+                Label(spec.category, onHero.copy(alpha = 0.8f)); Text(spec.name, style = MaterialTheme.typography.displaySmall, color = onHero); Text(spec.tagline, color = onHero.copy(alpha = 0.9f), style = MaterialTheme.typography.titleMedium)
+                spec.onboarding.bullets.forEach { Text("✓  $it", color = onHero.copy(alpha = 0.9f)) }
             }
             if (spec.profile.isNotEmpty()) StatCard {
                 Label("About you")
@@ -99,13 +107,14 @@ fun OnboardingScreen(vm: AppViewModel) {
                 Text(if (ai.configured) "✓ Key saved — you're ready to go." else "Optional: test and save your key now, or add it later in Settings.",
                     style = MaterialTheme.typography.bodySmall, color = if (ai.configured) cs.primary else cs.onSurfaceVariant, modifier = Modifier.padding(start = 4.dp))
             }
-            AiSettingsCard(ai, vm.client, vm::saveAi, onMessage = { m -> scope.launch { snack.currentSnackbarData?.dismiss(); snack.showSnackbar(m) } })
-            Text("Bring your own AI key (Claude or any OpenAI‑compatible endpoint). Nothing leaves your phone except the requests you make, sent straight to your provider.", style = MaterialTheme.typography.bodySmall, color = cs.onSurfaceVariant)
+            AiSettingsCard(ai, vm.client, vm::saveAi, onMessage = { m -> scope.launch { snack.currentSnackbarData?.dismiss(); snack.showSnackbar(m) } }, onDraftChange = { aiDraft = it })
+            Text("Bring your own AI key (Claude or any OpenAI‑compatible endpoint). Nothing is sent anywhere except the requests you make, straight to your provider (and Android backup, if you use it — never your key).", style = MaterialTheme.typography.bodySmall, color = cs.onSurfaceVariant)
             Button({
                 // Preferences first: saving the profile marks onboarding done and swaps to Home immediately.
                 val lang = onboardingLanguagePref(language)
                 val prefs = vm.prefs.value
                 if (lang != prefs.language) vm.savePrefs(prefs.copy(language = lang))
+                aiDraft?.takeIf { it.configured && aiBaseUrlError(it.baseUrl) == null && it != vm.ai.value }?.let(vm::saveAi)
                 vm.saveProfile(vm.profile.value + values) // keeps keys a newer/older spec or a backup added
             }, enabled = missing.isEmpty(), shapes = ButtonDefaults.shapes(), modifier = Modifier.fillMaxWidth().height(56.dp)) { Text("Get started", style = MaterialTheme.typography.titleMedium) }
             if (missing.isNotEmpty()) Text("Fill in ${missing.joinToString(", ") { "“${it.label}”" }} above to continue.", style = MaterialTheme.typography.bodySmall, color = cs.onSurfaceVariant, modifier = Modifier.padding(start = 4.dp))

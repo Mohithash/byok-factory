@@ -23,6 +23,8 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.layout.consumeWindowInsets
+import androidx.compose.foundation.layout.imePadding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Check
@@ -144,7 +146,7 @@ fun SettingsScreen(vm: AppViewModel, onBack: () -> Unit) {
         },
         snackbarHost = { SnackbarHost(snack) },
     ) { pad ->
-        Column(Modifier.fillMaxSize().padding(pad).verticalScroll(rememberScrollState()).padding(horizontal = 16.dp), verticalArrangement = Arrangement.spacedBy(16.dp)) {
+        Column(Modifier.fillMaxSize().padding(pad).consumeWindowInsets(pad).imePadding().verticalScroll(rememberScrollState()).padding(horizontal = 16.dp), verticalArrangement = Arrangement.spacedBy(16.dp)) {
             AiSettingsCard(ai, vm.client, vm::saveAi, ::say)
             SettingsAnswersCard(prefs) { vm.savePrefs(it); say("Answer preferences saved") }
             SettingsAppearanceCard(prefs, spec.name) { vm.savePrefs(it) }
@@ -299,7 +301,7 @@ private fun SettingsAboutCard(vm: AppViewModel, ctx: Context, say: (String) -> U
         Text(listOf(spec.name, spec.category, version?.let { "v$it" }).filter { !it.isNullOrBlank() }.joinToString(" · "), style = MaterialTheme.typography.titleSmall)
         if (spec.about.isNotBlank()) Text(spec.about, style = MaterialTheme.typography.bodyMedium)
         if (spec.disclaimer.isNotBlank()) Text(spec.disclaimer, style = MaterialTheme.typography.bodySmall, color = cs.onSurfaceVariant)
-        Text("Bring your own key: there's no account and no ${spec.name} server. Your key, profile and results stay on this phone; requests go straight from it to the AI provider you chose.",
+        Text("Bring your own key: there's no account and no ${spec.name} server. Your key never leaves this phone except in requests to the AI provider you chose; your profile and results are stored on it (and in Android backup, if you've turned that on — never the key).",
             style = MaterialTheme.typography.bodySmall, color = cs.onSurfaceVariant)
         TextButton({
             try { ctx.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(PRIVACY_URL))) }

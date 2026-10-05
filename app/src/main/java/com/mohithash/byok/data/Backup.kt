@@ -49,8 +49,8 @@ object Backups {
         return b
     }
 
-    /** Key that identifies the same result across devices, so importing twice doesn't duplicate. */
-    fun identity(createdAt: Long, title: String, toolId: String) = "$createdAt|$toolId|$title"
+    /** Key that identifies the same result across devices, so importing twice doesn't duplicate. Built from fields the user can't edit (renaming must not create a copy). */
+    fun identity(createdAt: Long, toolId: String, json: String) = "$createdAt|$toolId|${json.hashCode()}"
 
     /**
      * Rows to insert for an import, in an order where every thread's first result comes before its follow-ups.
@@ -58,7 +58,7 @@ object Backups {
      * the database assigned so far; call [link] on each follow-up just before inserting it.
      */
     fun importOrder(results: List<BackupResult>, existing: Set<String>): List<BackupResult> =
-        results.filter { identity(it.createdAt, it.title, it.toolId) !in existing }
+        results.filter { identity(it.createdAt, it.toolId, it.json) !in existing }
             .sortedWith(compareBy<BackupResult> { if (it.rootId == 0L) 0 else 1 }.thenBy { it.createdAt }.thenBy { it.id })
 
     /** The row to insert for [r], with its thread link translated through [newIds] (old id → new id). Orphans become roots. */

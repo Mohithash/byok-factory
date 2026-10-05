@@ -62,7 +62,11 @@ import kotlinx.coroutines.launch
  * connection test and save. Edits stay local until Save; [onSave] receives trimmed, normalised settings.
  */
 @Composable
-fun AiSettingsCard(current: AiSettings, client: AiClient, onSave: (AiSettings) -> Unit, onMessage: (String) -> Unit, modifier: Modifier = Modifier) {
+fun AiSettingsCard(
+    current: AiSettings, client: AiClient, onSave: (AiSettings) -> Unit, onMessage: (String) -> Unit, modifier: Modifier = Modifier,
+    /** Every edit, already normalised — lets a host (onboarding) save a key the user typed but didn't save. */
+    onDraftChange: (AiSettings) -> Unit = {},
+) {
     val cs = MaterialTheme.colorScheme
     val uriHandler = LocalUriHandler.current
     val scope = rememberCoroutineScope()
@@ -91,7 +95,10 @@ fun AiSettingsCard(current: AiSettings, client: AiClient, onSave: (AiSettings) -
     val urlError = aiBaseUrlError(draft.baseUrl)
     val keyHint = aiKeyHint(built)
     val justSaved = lastSaved != null && built == lastSaved
-    val changed = built != normalizedAiSettings(current) && !justSaved
+    // Compared with the raw stored value, so a legacy un-normalised value (e.g. a base URL ending in /v1) can be re-saved clean.
+    val changed = built != current && !justSaved
+    val draftCallback by rememberUpdatedState(onDraftChange)
+    LaunchedEffect(built) { draftCallback(built) }
     val fetchedHere = fetched?.takeIf { it.first == provider }?.second
     val suggestions = fetchedHere ?: provider.suggestedModels
     val options = aiModelOptions(suggestions, draft.model)
