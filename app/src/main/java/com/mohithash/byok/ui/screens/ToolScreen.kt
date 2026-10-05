@@ -128,7 +128,7 @@ fun ToolScreen(vm: AppViewModel, onBack: () -> Unit, onSettings: () -> Unit) {
     val loading = job == Job.Loading
     val form = viewModel(key = "tool-form") { ToolFormHolder() }
     // A different tool resets the form; a pending seed pre-fills it from the first frame.
-    remember(t.id) { if (form.toolId != t.id) form.load(t, vm.seed.value) }
+    remember(t.id) { if (form.toolId != t.id) form.load(t, vm.seed.value); t.id }
 
     val snack = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()

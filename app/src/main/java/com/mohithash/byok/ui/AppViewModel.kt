@@ -1,6 +1,7 @@
 package com.mohithash.byok.ui
 
 import android.net.Uri
+import androidx.core.content.pm.ShortcutManagerCompat
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mohithash.byok.App
@@ -102,7 +103,11 @@ class AppViewModel(private val app: App) : ViewModel() {
     fun toolFor(r: ResultRow): Tool? = spec.tools.firstOrNull { it.id == r.toolId }
     fun toolById(id: String): Tool? = spec.tools.firstOrNull { it.id == id }
 
-    fun openTool(t: Tool, seed: FormSeed? = null) { tool.value = t; current.value = null; this.seed.value = seed; _job.value = Job.Idle }
+    fun openTool(t: Tool, seed: FormSeed? = null) {
+        tool.value = t; current.value = null; this.seed.value = seed; _job.value = Job.Idle
+        // Lets the launcher rank this tool's long-press shortcut by how often it's used.
+        runCatching { ShortcutManagerCompat.reportShortcutUsed(app, "tool_${t.id}") }
+    }
     fun openResult(r: ResultRow) { tool.value = toolFor(r) ?: spec.tools.firstOrNull(); current.value = r; seed.value = null; _job.value = Job.Idle }
     /** Called by the form once it has read the seed, so it isn't applied twice. */
     fun consumeSeed(): FormSeed? = seed.value.also { seed.value = null }
