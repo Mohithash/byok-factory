@@ -134,15 +134,23 @@ class AiClient(val json: Json = Json { ignoreUnknownKeys = true; isLenient = tru
     private fun fallbacksFor(s: AiSettings): Boolean =
         !fallbacksRejected && s.baseUrl.isBlank() && s.effectiveModel in FALLBACK_MODELS
 
+    /** Set once a model rejects `output_config.effort`, so we stop sending it for this process. */
+    @Volatile private var effortRejected = false
+
+    /** `effort` is not accepted by Haiku 4.5, Sonnet 4.5 or Claude 3.x models. */
+    private fun effortFor(model: String): Boolean =
+        !effortRejected && !model.contains("haiku") && !model.contains("sonnet-4-5") && !model.startsWith("claude-3")
+
     private suspend fun anthropic(s: AiSettings, system: String, messages: List<ChatMsg>, schema: JsonObject?, maxTokens: Int): AiReply {
         val useFallbacks = fallbacksFor(s)
+        val useEffort = effortFor(s.effectiveModel)
         val body = buildJsonObject {
             put("model", s.effectiveModel)
             put("max_tokens", maxTokens)
             put("system", system)
             if (useFallbacks) put("fallbacks", "default")
-            putJsonObject("output_config") {
-                put("effort", "low")
+            if (useEffort || schema != null) putJsonObject("output_config") {
+                if (useEffort) put("effort", "low")
                 if (schema != null) putJsonObject("format") { put("type", "json_schema"); put("schema", schema) }
             }
             put("messages", buildJsonArray {
@@ -168,8 +176,13 @@ class AiClient(val json: Json = Json { ignoreUnknownKeys = true; isLenient = tru
             request("POST", "${s.effectiveBaseUrl}/v1/messages", body.toString(), headers)
         } catch (e: AiException) {
             // An org or proxy that doesn't accept the refusal-fallback beta: drop it and send the plain request.
-            if (useFallbacks && e.status == 400 && (e.message.orEmpty().contains("fallback", true) || e.message.orEmpty().contains("anthropic-beta", true))) {
+            val msg = e.message.orEmpty()
+            if (useFallbacks && e.status == 400 && (msg.contains("fallback", true) || msg.contains("anthropic-beta", true))) {
                 fallbacksRejected = true
+                return anthropic(s, system, messages, schema, maxTokens)
+            }
+            if (useEffort && e.status == 400 && msg.contains("effort", true)) {
+                effortRejected = true
                 return anthropic(s, system, messages, schema, maxTokens)
             }
             throw e
@@ -194,7 +207,8 @@ class AiClient(val json: Json = Json { ignoreUnknownKeys = true; isLenient = tru
     private suspend fun openai(s: AiSettings, system: String, messages: List<ChatMsg>, schema: JsonObject?, maxTokens: Int): AiReply {
         val body = buildJsonObject {
             put("model", s.effectiveModel)
-            put("max_tokens", maxTokens)
+            // Many OpenAI-compatible models cap completions at 8K; asking for more is a 400 on some servers.
+            put("max_tokens", maxTokens.coerceAtMost(8000))
             if (schema != null) putJsonObject("response_format") { put("type", "json_object") }
             put("messages", buildJsonArray {
                 add(buildJsonObject { put("role", "system"); put("content", if (schema != null) "$system\n\nRespond with JSON only matching this schema: $schema" else system) })

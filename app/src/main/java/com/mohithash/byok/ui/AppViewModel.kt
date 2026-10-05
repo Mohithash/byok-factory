@@ -27,6 +27,7 @@ import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import kotlinx.serialization.SerializationException
 import kotlinx.serialization.builtins.MapSerializer
 import kotlinx.serialization.builtins.serializer
 import kotlinx.serialization.json.Json
@@ -110,13 +111,15 @@ class AppViewModel(private val app: App) : ViewModel() {
         running?.cancel()
         _job.value = Job.Loading
         running = viewModelScope.launch {
-            _job.value = try {
+            try {
                 val row = block()
-                val id = db.results().insert(row); current.value = row.copy(id = id); Job.Done(Unit)
+                val id = db.results().insert(row); current.value = row.copy(id = id); _job.value = Job.Done(Unit)
             } catch (e: CancellationException) {
-                Job.Idle
+                throw e // cancel() / a newer job owns the state now
+            } catch (e: SerializationException) {
+                _job.value = Job.Failed("The answer came back in an unexpected format. Please try again.")
             } catch (e: Exception) {
-                Job.Failed(e.message ?: "Failed")
+                _job.value = Job.Failed(e.message ?: "Failed")
             }
         }
     }
@@ -217,10 +220,12 @@ class AppViewModel(private val app: App) : ViewModel() {
         val text = app.contentResolver.openInputStream(uri)?.use { it.readBytes().decodeToString() } ?: error("Couldn't read the file.")
         val b = Backups.decode(text)
         if (b.appId != spec.id) throw IllegalArgumentException("That backup is from ${b.appName.ifBlank { b.appId }}, not ${spec.name}.")
-        val existing = db.results().allOnce().map { Backups.identity(it.createdAt, it.title, it.toolId) }.toSet()
+        val existing = db.results().allOnce().associate { Backups.identity(it.createdAt, it.title, it.toolId) to it.id }
+        // Results already on this device keep their id, so imported follow-ups still join their thread.
         val ids = HashMap<Long, Long>()
+        b.results.forEach { r -> existing[Backups.identity(r.createdAt, r.title, r.toolId)]?.let { ids[r.id] = it } }
         var added = 0
-        Backups.importOrder(b.results, existing).forEach { r -> ids[r.id] = db.results().insert(Backups.link(r, ids)); added++ }
+        Backups.importOrder(b.results, existing.keys).forEach { r -> ids[r.id] = db.results().insert(Backups.link(r, ids)); added++ }
         if (b.profile.isNotEmpty()) app.store.set("profile", mapSer, profile.value + b.profile)
         savePrefs(b.prefs)
         app.store.set("onboarded", Boolean.serializer(), true)
