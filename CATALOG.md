@@ -1,6 +1,8 @@
 # BYOK app catalog — 603 apps
 
-All apps share one engine (`app/src/main`) and differ by `specs/<id>.json` (brand, palette, icon, profile fields and 4–5 purpose-built AI tools with tailored prompts). Every app: Material 3 Expressive UI, on-device history with favourites and checklists, follow-up questions, share/copy, BYOK settings (Claude or OpenAI-compatible).
+All apps share one engine (`app/src/main`) and differ by `specs/<id>.json` (brand, palette, icon, profile fields and 4–5 purpose-built AI tools with tailored prompts). Every app gets every engine feature (v1.1): Material 3 Expressive UI; structured answers (steps, tickable checklists with progress, tables, cards, key facts, callouts, quotes); follow-up questions in a thread; regenerate and edit & rerun; answers in 40+ languages at brief, standard or detailed length, with standing instructions; read aloud and voice typing; save as PDF, export Markdown, copy and share; share text or photos in from other apps; a launcher shortcut per tool; on-device history with favourites, notes, search and filters; backup & restore (never the API key); light, dark and Material You themes; a usage counter; BYOK settings (Claude or any OpenAI-compatible endpoint, with the model list fetched from the provider).
+
+Release links point to **v1.0**, the newest version published on GitHub (`RELEASED_VERSION`). The engine is at v1.1; `ship_factory.sh` switches the links once every app has a v1.1 release. [CHANGELOG.md](CHANGELOG.md) lists what each version includes.
 
 | App | Category | Tagline | Links |
 |---|---|---|---|
@@ -611,5 +613,7 @@ All apps share one engine (`app/src/main`) and differ by `specs/<id>.json` (bran
 ## Build
 ```bash
 python3 gen.py                      # specs → flavors + resources
-./build_flavors.sh fpantrypal …     # signed AAB + APK per flavor into dist/
+./build_flavors.sh fpantrypal …     # signed AAB + APK per flavor into dist/<id>-v<version>.*
+python3 catalog.py                  # listings + this file
+./ship_factory.sh "message"         # commit, push, one GitHub release per built app
 ```
