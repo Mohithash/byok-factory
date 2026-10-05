@@ -48,6 +48,8 @@ data class Incoming(val text: String = "", val photo: MealPhoto? = null)
 
 private val mapSer = MapSerializer(String.serializer(), String.serializer())
 const val PHOTO_FLAG = "__photo"
+/** inputsJson key holding the answer-language preference a result was written in ("" = English). */
+const val LANG_FLAG = "__lang"
 /** Backups are JSON text; anything bigger than this isn't one of ours (and would risk running out of memory). */
 private const val MAX_BACKUP_BYTES = 50 * 1024 * 1024
 
@@ -100,7 +102,9 @@ class AppViewModel(private val app: App) : ViewModel() {
     fun decode(r: ResultRow): Doc = runCatching { json.decodeFromString(Doc.serializer(), r.json) }.getOrDefault(Doc())
     fun ticks(r: ResultRow): Set<String> = r.ticks.split(',').filter { it.isNotBlank() }.toSet()
     /** The text inputs a result was made from (no photo — photos aren't stored). */
-    fun inputs(r: ResultRow): Map<String, String> = runCatching { json.decodeFromString(mapSer, r.inputsJson) }.getOrDefault(emptyMap()) - PHOTO_FLAG
+    fun inputs(r: ResultRow): Map<String, String> = runCatching { json.decodeFromString(mapSer, r.inputsJson) }.getOrDefault(emptyMap()) - PHOTO_FLAG - LANG_FLAG
+    /** The answer language [r] was generated in ("" = English), or null for results saved before v1.1 recorded it. */
+    fun answerLanguage(r: ResultRow): String? = runCatching { json.decodeFromString(mapSer, r.inputsJson)[LANG_FLAG] }.getOrNull()
     fun hadPhoto(r: ResultRow): Boolean = runCatching { json.decodeFromString(mapSer, r.inputsJson)[PHOTO_FLAG] == "yes" }.getOrDefault(false)
     fun toolFor(r: ResultRow): Tool? = spec.tools.firstOrNull { it.id == r.toolId }
     fun toolById(id: String): Tool? = spec.tools.firstOrNull { it.id == id }
@@ -134,7 +138,8 @@ class AppViewModel(private val app: App) : ViewModel() {
     fun run(t: Tool, inputs: Map<String, String>, image: String?) = launchJob {
         val doc = app.engine.run(ai.value, t, inputs, profile.value, image, prefs.value)
         val summary = t.inputs.mapNotNull { f -> inputs[f.key]?.takeIf { it.isNotBlank() && f.type != "photo" } }.joinToString(" · ").ifBlank { if (image != null) "photo" else "" }
-        val stored = t.inputs.filter { it.type != "photo" }.associate { it.key to inputs[it.key].orEmpty() } + (if (image != null) mapOf(PHOTO_FLAG to "yes") else emptyMap())
+        val stored = t.inputs.filter { it.type != "photo" }.associate { it.key to inputs[it.key].orEmpty() } + (if (image != null) mapOf(PHOTO_FLAG to "yes") else emptyMap()) +
+            (LANG_FLAG to prefs.value.language)
         ResultRow(toolId = t.id, toolTitle = t.title, emoji = t.emoji, title = doc.title.ifBlank { t.title }, inputSummary = summary.take(140),
             json = json.encodeToString(Doc.serializer(), doc), inputsJson = json.encodeToString(mapSer, stored))
     }
@@ -162,7 +167,7 @@ class AppViewModel(private val app: App) : ViewModel() {
         launchJob {
             val doc = app.engine.followUp(ai.value, turnsUpTo(prev), q, profile.value, prefs.value)
             ResultRow(toolId = prev.toolId, toolTitle = prev.toolTitle, emoji = prev.emoji, title = doc.title.ifBlank { q }, inputSummary = q.take(140),
-                json = json.encodeToString(Doc.serializer(), doc), inputsJson = json.encodeToString(mapSer, mapOf("question" to q)), rootId = prev.threadId)
+                json = json.encodeToString(Doc.serializer(), doc), inputsJson = json.encodeToString(mapSer, mapOf("question" to q, LANG_FLAG to prefs.value.language)), rootId = prev.threadId)
         }
     }
 
@@ -176,7 +181,8 @@ class AppViewModel(private val app: App) : ViewModel() {
         if (r.isFollowUp) launchJob {
             val before = db.results().threadOnce(r.threadId).filter { it.createdAt < r.createdAt && it.id != r.id }
             val doc = app.engine.followUp(ai.value, before.map { Turn(askOf(it), decode(it)) }, question(r), profile.value, prefs.value)
-            r.copy(id = 0, title = doc.title.ifBlank { question(r) }, json = json.encodeToString(Doc.serializer(), doc), ticks = "", favorite = false, note = "", createdAt = System.currentTimeMillis())
+            r.copy(id = 0, title = doc.title.ifBlank { question(r) }, json = json.encodeToString(Doc.serializer(), doc), ticks = "", favorite = false, note = "", createdAt = System.currentTimeMillis(),
+                inputsJson = json.encodeToString(mapSer, mapOf("question" to question(r), LANG_FLAG to prefs.value.language)))
         } else toolFor(r)?.let { run(it, inputs(r), null) }
     }
 

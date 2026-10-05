@@ -66,7 +66,7 @@ Release builds are intentionally **unminified** (R8 cost ~3.5 min per flavor on 
 
 ### Versions
 - **VERSION** is `versionName` in `app/build.gradle.kts`. The build and release scripts read it for `dist/` file names and release tags (`<id>-v<VERSION>`), so nothing else needs editing.
-- **Shipping a new engine version:** bump `versionCode` and `versionName`, add a section to [CHANGELOG.md](CHANGELOG.md) and its headline features to `WHATS_NEW` in `ship_factory.sh` (release notes) and to `FEATURES_BY_VERSION` in the store's `store_site.py`, then build and ship every app (e.g. `stream_build3.sh`).
+- **Shipping a new engine version:** bump `versionCode` and `versionName`, add a section to [CHANGELOG.md](CHANGELOG.md) and its headline features to `WHATS_NEW` in `ship_factory.sh` (release notes) and to `FEATURES_BY_VERSION` in both the store's `store_site.py` and this repo's `catalog.py` (plus `BYOK_BY_VERSION` there if provider support changed), then build and ship every app (e.g. `stream_build3.sh`).
 - **RELEASED_VERSION** holds the newest version that has GitHub releases (now `1.0`). `catalog.py` and the BYOK Store link to `<id>-v<RELEASED_VERSION>`, so links keep working while a new version is being built. Once **every** app in `specs/` has a `<id>-v<VERSION>` release, `ship_factory.sh` writes VERSION into `RELEASED_VERSION`, re-runs `catalog.py` and commits + pushes the result. To switch by hand: `echo 1.1 > RELEASED_VERSION && python3 catalog.py`.
 
 ## Developing the engine

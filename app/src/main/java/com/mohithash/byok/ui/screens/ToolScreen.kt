@@ -304,7 +304,6 @@ private fun ResultBody(
     val loading = job == Job.Loading
     // A renamed result shows (and exports) its new title.
     val doc = remember(r.json, r.title) { vm.decode(r).let { d -> if (d.title.isNotBlank() && r.title.isNotBlank()) d.copy(title = r.title) else d } }
-    val prefs by vm.prefs.collectAsState()
     val ticks = remember(r.ticks) { vm.ticks(r) }
     val asked = remember(r.id, r.inputsJson, r.inputSummary) {
         if (r.isFollowUp) vm.question(r) else if (vm.hadPhoto(r)) "📷 " + (if (r.inputSummary == "photo") "a photo" else r.inputSummary) else r.inputSummary
@@ -318,7 +317,7 @@ private fun ResultBody(
             Label("📝 Your note", cs.onTertiaryContainer)
             Text(r.note, style = MaterialTheme.typography.bodyMedium, color = cs.onTertiaryContainer)
         }
-        DocView(doc = doc, ticks = ticks, onTick = { vm.toggleTick(r, it) }, onFollowUp = { onAsk(it) }, enabled = !loading, onMessage = { msg -> onMessage(msg) }, onSaveFile = vm::writeText, speechLanguage = prefs.language)
+        DocView(doc = doc, ticks = ticks, onTick = { vm.toggleTick(r, it) }, onFollowUp = { onAsk(it) }, enabled = !loading, onMessage = { msg -> onMessage(msg) }, onSaveFile = vm::writeText, speechLanguage = vm.answerLanguage(r))
         (job as? Job.Failed)?.let { ErrorCard(it.message, onRetry, onSettings) }
         FollowUpComposer(ask, onAskChange, loading, onAsk = { onAsk(ask) }, onCancel = vm::cancel)
         onStartOver?.let { OutlinedButton(it, enabled = !loading, shapes = ButtonDefaults.shapes(), modifier = Modifier.fillMaxWidth()) { Text("Start over") } }

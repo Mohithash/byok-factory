@@ -130,8 +130,8 @@ fun DocView(
     enabled: Boolean = true,
     onMessage: (String) -> Unit = {},
     onSaveFile: suspend (Uri, String) -> Unit = { _, _ -> },
-    /** The answer-language preference, so read-aloud uses a matching voice. */
-    speechLanguage: String = "",
+    /** The language the answer was written in ("" = English), so read-aloud picks a matching voice; null = the phone's language. */
+    speechLanguage: String? = null,
 ) {
     val cs = MaterialTheme.colorScheme
     val ctx = LocalContext.current
@@ -187,7 +187,7 @@ fun DocView(
             speaker = speaker,
             onCopy = { copy(plain.toPlainText(ticks), "Copied") },
             onShare = { shareDoc(ctx, plain, ticks, onMessage) },
-            onReadAloud = { if (speaker.speaking) speaker.stop() else speaker.speak(plain.toSpeech(), onMessage, ttsLocale(speechLanguage)) },
+            onReadAloud = { if (speaker.speaking) speaker.stop() else speaker.speak(plain.toSpeech(), onMessage, speechLanguage?.let { ttsLocale(it) ?: java.util.Locale.ENGLISH }) },
             onPdf = { if (!printDocAsPdf(ctx, doc, ticks, accent, onMessage)) onMessage("Printing isn't available on this device.") },
             onMarkdown = {
                 try { saveMarkdown.launch(docExportFileName(doc.title, "md")) } catch (e: ActivityNotFoundException) { onMessage("No app on this device can save files.") }

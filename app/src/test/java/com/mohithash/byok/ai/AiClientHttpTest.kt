@@ -194,6 +194,22 @@ class AiClientHttpTest {
         assertEquals("4096", body(1)["max_completion_tokens"]!!.jsonPrimitive.content)
     }
 
+    @Test fun completionTokensSwitchIsPerEndpoint() = runBlocking {
+        replies += Reply(400, """{"error":{"message":"Use 'max_completion_tokens' instead."}}""")
+        replies += Reply(200, """{"choices":[{"finish_reason":"stop","message":{"content":"a"}}]}""")
+        replies += Reply(200, """{"choices":[{"finish_reason":"stop","message":{"content":"b"}}]}""")
+        client.chat(AiSettings(AiProvider.OPENAI_COMPAT, "k", "m", "$url/gw"), "s", listOf(ChatMsg("user", "x")), maxTokens = 16000)
+        client.chat(AiSettings(AiProvider.OPENAI_COMPAT, "k", "m", url), "s", listOf(ChatMsg("user", "x")), maxTokens = 16000)
+        assertEquals("8000", body(2)["max_tokens"]!!.jsonPrimitive.content)
+        assertFalse(body(2).containsKey("max_completion_tokens"))
+    }
+
+    @Test fun modelListConnectFailureIsANetworkErrorNotATimeout() = runBlocking {
+        try { client.listModels(AiSettings(AiProvider.OPENAI_COMPAT, "k", "", "http://127.0.0.1:1")); fail() } catch (e: AiClient.AiException) {
+            assertEquals(AiClient.NETWORK, e.status); assertTrue(e.message!!.startsWith("Network error"))
+        }
+    }
+
     @Test fun baseUrlRoots() {
         fun root(u: String) = AiSettings(AiProvider.OPENAI_COMPAT, "k", "", u).openAiRoot
         assertEquals("https://api.openai.com/v1", root(""))
@@ -202,6 +218,10 @@ class AiClientHttpTest {
         assertEquals("https://api.groq.com/openai/v1", root("https://api.groq.com/openai"))
         assertEquals("http://localhost:11434/v1", root("http://localhost:11434"))
         assertEquals("https://generativelanguage.googleapis.com/v1beta/openai", root("https://generativelanguage.googleapis.com/v1beta/openai/"))
+        assertEquals("https://api.cloudflare.com/client/v4/accounts/abc/ai/v1", root("https://api.cloudflare.com/client/v4/accounts/abc/ai/v1"))
+        assertEquals("https://api.cloudflare.com/client/v4/accounts/abc/ai/v1", root("https://api.cloudflare.com/client/v4/accounts/abc/ai"))
+        assertEquals("https://gateway.ai.cloudflare.com/v1/acct/gw/openai", root("https://gateway.ai.cloudflare.com/v1/acct/gw/openai"))
+        assertEquals("https://example.com/api/v2", root("https://example.com/api/v2"))
         assertEquals("https://api.anthropic.com", AiSettings(baseUrl = "https://api.anthropic.com/v1").effectiveBaseUrl)
         assertTrue(AiSettings(AiProvider.OPENAI_COMPAT).isOpenAi)
         assertFalse(AiSettings(AiProvider.OPENAI_COMPAT, baseUrl = "https://api.groq.com/openai/v1").isOpenAi)

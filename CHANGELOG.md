@@ -47,7 +47,10 @@ Upgrading keeps all existing history (Room database migration v1 → v2).
 - Cancelling a request no longer overwrites the request that replaced it.
 - Malformed JSON from a model shows a readable error.
 - `effort` is not sent to models that don't accept it (Haiku 4.5, Sonnet 4.5, Claude 3.x) and is dropped automatically if a model rejects it.
-- `max_tokens` is capped at 8000 for OpenAI-compatible endpoints.
+- OpenAI-compatible servers get `max_tokens` capped at 8000; api.openai.com (and any gateway that asks for it) gets `max_completion_tokens`, with low reasoning effort for o-series / gpt-5 reasoning models, so those models work.
+- Base URLs may end in `/v1` or omit it; versioned endpoints (Gemini's `…/v1beta/openai`, Cloudflare AI Gateway) are used as-is.
+- Long generations may take up to 10 minutes; a slow answer is reported rather than re-sent (and re-billed).
+- Tokens of refused or truncated answers still count in the usage counter.
 
 ### Factory
 - Build and release scripts read the version from `app/build.gradle.kts` (`dist/<id>-v<version>.*`, tags `<id>-v<version>`), run from any directory, and release notes list what's new.
